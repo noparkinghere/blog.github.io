@@ -23,7 +23,7 @@ Xming是一个在 Microsoft Windows 操作系统上运行 X Window System 的自
 
 正常安装该软件：这边使用过的是： Xming-6-9-0-31-setup.exe 的版本，正常安装过，一般都没有问题，设置按照下图选择不安装 ssh client。 Display 设置按照个人习惯进行设置，如果仅是打开个别 GUI 窗口的话，建议采用 Multiple windows ，可以讲所有的 GUI 窗口作为一个个应用进行打开。接下来按照默认设置进行下一步即可，另外最后一步可以保存当前设置作为一个快捷方式，下次直接打开即可。
 
-![](https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-12-01-putty-xming-%E8%BF%9C%E7%A8%8B%E4%BD%BF%E7%94%A8-linux-gui/1.png)
+![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-12-01-putty-xming-%E8%BF%9C%E7%A8%8B%E4%BD%BF%E7%94%A8-linux-gui/1.png)
 
 #### putty :
 
@@ -31,15 +31,15 @@ PuTTY是一个Telnet、SSH、rlogin、纯TCP以及串行接口连接软件。较
 
 - 输入需要拨号的地址（这边注意本机和目标机器在同一个网段）
 
-![](https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-12-01-putty-xming-%E8%BF%9C%E7%A8%8B%E4%BD%BF%E7%94%A8-linux-gui/2.png)
+![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-12-01-putty-xming-%E8%BF%9C%E7%A8%8B%E4%BD%BF%E7%94%A8-linux-gui/2.png)
 
 - 设置拨号的账户名，方便下次登录
 
-![](https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-12-01-putty-xming-%E8%BF%9C%E7%A8%8B%E4%BD%BF%E7%94%A8-linux-gui/3.png)
+![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-12-01-putty-xming-%E8%BF%9C%E7%A8%8B%E4%BD%BF%E7%94%A8-linux-gui/3.png)
 
 - 一定要打开 X11 转发模式，可以让 ssh 图形化转发给 Xming 进行工作。
 
-![](https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-12-01-putty-xming-%E8%BF%9C%E7%A8%8B%E4%BD%BF%E7%94%A8-linux-gui/4.png)
+![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-12-01-putty-xming-%E8%BF%9C%E7%A8%8B%E4%BD%BF%E7%94%A8-linux-gui/4.png)
 
 #### SecureCRT 方式（可以跳过）
 

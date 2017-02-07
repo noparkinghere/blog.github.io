@@ -43,13 +43,13 @@ Linux与Linux之间传送文件，使用scp命令，这是一种基于ssh的方�
 
 输入主机名，用户名，密码，点击保存。通过下图中的界面，实现登陆：
 
-![](https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-26-windows7%E5%92%8C%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E7%9A%84ubuntu%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB/1.jpg)
+![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-09-26-windows7%E5%92%8C%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E7%9A%84ubuntu%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB/1.jpg)
 
 *第一登陆的时候，会告诉你服务器的主秘钥不再缓存中，确认修改后，即可远程登陆，另外如果使用root用户的话，新安装的ubuntu系统需要设置root密码，以及修改ssh的配置文件：`sudo vi /etc/ssh/sshd-config`，将PermitRootLogin修改为yes。重启ssh服务：`sudo /etc/init.d/ssh restart`*
 
 文件的上传与下载跟Windows的资源管理器差不多了，如果要编辑目录或文件，只要右键就会出相应的可选的项目。下图为登陆后的资源管理界面：
 
-![](https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-26-windows7%E5%92%8C%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E7%9A%84ubuntu%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB/2.jpg)
+![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-09-26-windows7%E5%92%8C%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E7%9A%84ubuntu%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB/2.jpg)
 
 
 ### 通过虚拟机共享文件夹的方式

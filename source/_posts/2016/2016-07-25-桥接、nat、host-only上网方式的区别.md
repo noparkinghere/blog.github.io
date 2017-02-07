@@ -7,7 +7,7 @@ date: "2016-07-25 13:53"
 *经常使用虚拟机的小伙伴们都遇到过网络链接过程中的各种问题，仔细查看设置会发现有：桥接、NAT、Host-only 等设置，vmware 等虚拟机后还会自动生成vmnet1和vmnet8，初学者可能会一头雾水，为啥只有两个？不是三种模式吗？另外每个模式代表什么？他们又有什么区别？无论是 vmware 还是 vitualbox 这些内容都大同小异，而 vmware 中看起来可能会更加直观些，这边以windows下的安装使用为例，进行深入的详解。*
 
 
-![](https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-25-%E6%A1%A5%E6%8E%A5%E3%80%81nat%E3%80%81host-only%E4%B8%8A%E7%BD%91%E6%96%B9%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/0.png)
+![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-25-%E6%A1%A5%E6%8E%A5%E3%80%81nat%E3%80%81host-only%E4%B8%8A%E7%BD%91%E6%96%B9%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/0.png)
 
 **本文会尽可能详细地总结和罗列出三者的含义和区别，以及虚拟机中该如何配置他们更加合适。**
 
@@ -34,7 +34,7 @@ A: 192.168.1.100/255.255.255.0,  B: 192.168.1.101/255.255.255.0,  C: 192.168.1.1
 
 综上所述，*同一个数据经过网卡在路由器上面绕了一圈又回到了网卡。*而虚拟机的桥接也只在其他电脑需要访问你电脑的虚拟机时，或者你虚拟机需要访问其他外部设备时才有相关需求*，一般情况还是建议配置成操作方便使用简单的 NAT 方式。
 
-![](https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-25-%E6%A1%A5%E6%8E%A5%E3%80%81nat%E3%80%81host-only%E4%B8%8A%E7%BD%91%E6%96%B9%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/1.png)
+![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-25-%E6%A1%A5%E6%8E%A5%E3%80%81nat%E3%80%81host-only%E4%B8%8A%E7%BD%91%E6%96%B9%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/1.png)
 
 <!-- more -->
 
@@ -47,7 +47,7 @@ A: 192.168.1.100/255.255.255.0,  B: 192.168.1.101/255.255.255.0,  C: 192.168.1.1
 
 采用NAT模式最大的优势是虚拟系统接入互联网非常简单，你不需要进行任何其他的配置，只需要宿主机器能访问互联网即可。如果你想利用VMWare安装一个新的虚拟系统，在虚拟系统中不用进行任何手工配置就能直接访问互联网，建议你采用NAT模式。而缺点是： NAT 模式下，虚拟机仅仅可以同路由器下网段中的一台真实机通讯，而这台真实机就是安装虚拟机的这台电脑，之所以可以通讯是因为这台电脑本身充当了虚拟机的路由器，相当于路由器的 192.168.1.1 这个地址，而你在 vmware 下的网卡管理中是可以看到这个地址的。这边再补充一点：*采用NAT模式时，虚拟机和实体机交互并不是直接进行的，首先虚拟机操作系统访问虚拟网卡 VMnet8 （地址如： 192.188.1.33），然后这个虚拟网卡会再将数据提交给真实机操作系统VMware Network Adapter VMnet8（地址： 192.188.1.1）而地址（192.188.1.33 和 192.188.1.1）实际都是由虚拟机软件 vmware 提供的，具体的交互细节不作研究。*
 
-![](https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-25-%E6%A1%A5%E6%8E%A5%E3%80%81nat%E3%80%81host-only%E4%B8%8A%E7%BD%91%E6%96%B9%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/2.png)
+![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-25-%E6%A1%A5%E6%8E%A5%E3%80%81nat%E3%80%81host-only%E4%B8%8A%E7%BD%91%E6%96%B9%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/2.png)
 
 ### Host-only:
 
@@ -55,7 +55,7 @@ A: 192.168.1.100/255.255.255.0,  B: 192.168.1.101/255.255.255.0,  C: 192.168.1.1
 
 Host-Only 的宗旨就是建立一个与外界隔绝的内部网络，来提高内网的安全性。这个功能或许对普通用户来说没有多大意义，但大型服务商会常常利用这个功能。如果你想为 VMnet1 网段提供路由功能，那就需要使用RRAS，而不能使用 XP 或 2000 的 ICS，因为 ICS 会把内网的 IP 地址改为 192.168.0.1，但虚拟机是不会给 VMnet1 虚拟网卡分配这个地址的，那么主机和虚拟机之间就不能通信了。
 
-![](https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-25-%E6%A1%A5%E6%8E%A5%E3%80%81nat%E3%80%81host-only%E4%B8%8A%E7%BD%91%E6%96%B9%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/3.png)
+![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-25-%E6%A1%A5%E6%8E%A5%E3%80%81nat%E3%80%81host-only%E4%B8%8A%E7%BD%91%E6%96%B9%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/3.png)
 
 ### windows下的vmware：
 
@@ -67,7 +67,7 @@ VMware 的几个虚拟设备：
 - VMware Network Adapter VMnet1：这是 Host 用于与 Host-Only 虚拟网络进行通信的虚拟网卡；
 - VMware Network Adapter VMnet8：这是 Host 用于与 NAT 虚拟网络进行通信的虚拟网卡；
 
-![](https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-25-%E6%A1%A5%E6%8E%A5%E3%80%81nat%E3%80%81host-only%E4%B8%8A%E7%BD%91%E6%96%B9%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/4.png)
+![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-25-%E6%A1%A5%E6%8E%A5%E3%80%81nat%E3%80%81host-only%E4%B8%8A%E7%BD%91%E6%96%B9%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/4.png)
 
 *事实上，根据上面对三种常见模式的详细，基本上应该已经有了清晰的认识，知道如何配置虚拟机网卡了。*
 

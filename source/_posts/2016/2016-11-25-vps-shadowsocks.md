@@ -12,21 +12,21 @@ date: "2016-11-25 09:30"
 
 - 早期互联网用户访问网站时，用户的请求通过互联网发送到服务提供方，服务提供方直接将信息反馈给用户： 
 
-![](https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-25-vps-shadowsocks/ss1.png)
+![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-11-25-vps-shadowsocks/ss1.png)
 
 - GFW 出现后，每当用户需要获取信息，都经过了 GFW，GFW将它不喜欢的内容统统过滤掉，于是客户当触发 GFW 的过滤规则的时候，就会收到 Connection Reset 这样的响应内容，而无法接收到正常的内容 
 
-![](https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-25-vps-shadowsocks/ss2.png)
+![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-11-25-vps-shadowsocks/ss2.png)
 
 - 为了绕过GFW的过滤（包含了各种HTTP代理服务、Socks服务、VPN服务等等），以 ssh tunnel 的方法为例：1) 首先用户和境外服务器基于 ssh 建立起一条加密的通道 2-3) 用户通过建立起的隧道进行代理，通过 ssh server 向真实的服务发起请求 4-5) 服务通过 ssh server，再通过创建好的隧道返回给用户。
 
-![](https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-25-vps-shadowsocks/ss3.png)
+![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-11-25-vps-shadowsocks/ss3.png)
 
 **由于 ssh 本身就是基于 RSA 加密技术，所以 GFW 无法从数据传输的过程中的加密数据内容进行关键词分析，避免了被重置链接的问题，但由于创建隧道和数据传输的过程中，ssh 本身的特征是明显的，所以 GFW 一度通过分析连接的特征进行干扰，导致 ssh 存在被定向进行干扰的问题**
 
 - shadowsocks 是将原来 ssh 创建的 Socks5 协议拆开成 server 端和 client 端，所以下面这个原理图基本上和利用 ssh tunnel 大致类似:1、6) 客户端发出的请求基于 Socks5 协议跟 ss-local 端进行通讯，由于这个 ss-local 一般是本机或路由器或局域网的其他机器，不经过 GFW，所以解决了上面被 GFW 通过特征分析进行干扰的问题 2、5) ss-local 和 ss-server 两端通过多种可选的加密方法进行通讯，经过 GFW 的时候是常规的TCP包，没有明显的特征码而且 GFW 也无法对通讯数据进行解密 3、4) ss-server 将收到的加密数据进行解密，还原原来的请求，再发送到用户需要访问的服务，获取响应原路返回:
 
-![](https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-25-vps-shadowsocks/ss4.png)
+![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-11-25-vps-shadowsocks/ss4.png)
 
 
 - GFW 就出现了，他像一个收过路费的强盗一样夹在了在用户和服务之间，每当用户需要获取信息，都经过了 GFW，GFW将它不喜欢的内容统统过滤掉，于是客户当触发 GFW 的过滤规则的时候，就会收到 Connection Reset 这样的响应内容，而无法接收到正常的内容 
@@ -181,15 +181,15 @@ password 需要和 Shadowsocks 服务器保持一致
 
 - 完成以下步骤后，你的浏览器仍然不能浏览网页，Shadowsocks 仅提供了转发服务，而你本地的端口发送的数据还无法和server_port进行链接，这时候，你可以采用全局代理的软件让所有数据帮转发，这边推荐chrome的 SwitchyOmega 插件。可以从Github上直接下载最新版 [SwitchyOmega](https://github.com/FelisCatus/SwitchyOmega/releases/) （这个是chrome的）然后浏览器地址打开chrome://extensions/，将下载的插件托进去安装。安装好之后下面开始设置代理，如下图：
 
-![](https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-25-vps-shadowsocks/1.png)
+![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-11-25-vps-shadowsocks/1.png)
 
-![](https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-25-vps-shadowsocks/2.png)
+![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-11-25-vps-shadowsocks/2.png)
 
-![](https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-25-vps-shadowsocks/3.png)
+![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-11-25-vps-shadowsocks/3.png)
 
 上图步骤中注意类型条件中勾选**规则列表规则**， 规则地址： https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt 填入其中。
 
-![](https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-25-vps-shadowsocks/4.png)
+![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-11-25-vps-shadowsocks/4.png)
 
 点击 “应用选项”。然后单击 switchyOmega 图标，选择自动切换，就可以在访问“不存在的网站” 时自动切换到 shadowsocks 代理了。如果遇到某个国外网站无法直接连接或速度太慢时，可以单击 switchyOmega 图标，选择 “添加条件”，情景模式选择 SS，就可以了。这时打开 switchyOmega 选项，在自动切换模式的切换规则中就可以看到刚刚添加的规则。可以在这里管理自定义的规则。
 
@@ -217,7 +217,7 @@ logfile=/var/log/shadowsocks.log
 
 [下载客户端](https://github.com/shadowsocks/shadowsocks-windows/releases/download/3.3.5/Shadowsocks-3.3.5.zip)，作为一个开源软件 GUI 客户端分为多个版本，这边提供了 win 版本，需要安装 微软的库，打开后如下图所示：
 
-![](https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-25-vps-shadowsocks/5.png)
+![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-11-25-vps-shadowsocks/5.png)
 
 这边的服务器 IP 同上面 linux 的类似，填写你的域名或者 IP 即可，密码也要和服务器的 shadowsocks 服务保持一致。值得一提的是 windows 下面的客户端直接可以设置全局代理，右击任务栏的小图标可以设置相关选项。
 
@@ -225,7 +225,7 @@ logfile=/var/log/shadowsocks.log
 
 安卓用户这边推荐使用腾讯自家的应用宝，直接搜索 shadowsocks 会看到中文名“影梭”的这个软件(*注意应用宝中的软件版本较老，为 2.8.3 目前最新版本为 3.2.7。*)，设置基本和 windows 的类似，设置完毕后，点击右上角的开启按钮。
 
-![](https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-25-vps-shadowsocks/6.png)
+![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-11-25-vps-shadowsocks/6.png)
 
 
 

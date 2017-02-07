@@ -30,7 +30,7 @@ Windows下编写C语言程序，使用如VS2010之类的IDE往往显得大材小
 
 设置结束之后，在cmd控制台窗口下面，输入gcc -v。若已经成功安装好，会显示gcc的版本信息。比如说我的：
 
-![](https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-15-notepad-%E5%92%8Cmingw/2.png)
+![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-11-15-notepad-%E5%92%8Cmingw/2.png)
 
 测试一下：
 随便找个c文件，你也可以自己写个。使用命令提示符cd到c文件保存的目录，然后：输入`gcc -o test.exe (你的c文件名).c`如果有提示语法错误或者在当前目录生成了test.exe那说明gcc可用了，如果提示 'gcc' 不是内部或外部命令，也不是可运行的程序或批处理文件。说明环境MinGW的环境变量未设置成功。
@@ -38,7 +38,7 @@ Windows下编写C语言程序，使用如VS2010之类的IDE往往显得大材小
 
 #### notepad++
 
-![](https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-15-notepad-%E5%92%8Cmingw/1.png)
+![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-11-15-notepad-%E5%92%8Cmingw/1.png)
 
 如上图，选用自己喜欢的风格模式，对里面的一些背景参数适当的设置，将行号等常用的功能打开，可以隐藏一些不需要的工具栏，菜单中列出了可以执行的一些操作，适当借用于快捷键可以更快的编写代码。
 

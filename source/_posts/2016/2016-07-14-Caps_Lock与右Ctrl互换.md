@@ -66,7 +66,7 @@ add Control = Control_R
 　　00,00,00,00
 ```
 
-![](https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-14-Caps_Lock%E4%B8%8E%E5%8F%B3Ctrl%E4%BA%92%E6%8D%A2/BaiduShurufa_2016-8-10_14-5-24.png)
+![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-14-Caps_Lock%E4%B8%8E%E5%8F%B3Ctrl%E4%BA%92%E6%8D%A2/BaiduShurufa_2016-8-10_14-5-24.png)
 
 #### windows 各个键位值的参考：
 

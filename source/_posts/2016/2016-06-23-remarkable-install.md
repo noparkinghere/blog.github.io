@@ -8,7 +8,7 @@ date: "2016-06-23 12:12"
 
 ### 界面展示
 
-![](/img/2016-06-23-remarkable-install/remarkable.png)
+![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-06-23-remarkable-install/remarkable.png)
 
 ### 下载安装
 安装环境位ubuntu 16.04(64位)，markdown的网站无法正确的下载软件。

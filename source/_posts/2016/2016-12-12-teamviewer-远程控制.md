@@ -13,7 +13,7 @@ TeamViewer 是一款最流行的远程桌面连接工具，特点：连接稳定
 
 这边给出[官方下载地址](https://www.teamviewer.com/zhcn/download/linux/)，可以看到官方提供了目前主流移动端和 PC 端的各个版本的软件。这边根据你自己的平台下载需要的版本。因为平台需要这边我下载的是 windows 版本和 Ubuntu 版本。需要注意的是：下载版本为完整版，而不是缩减版（缩减版中需要联网登录，且不直接存在登录远程功能），图示如下：
 
-![](https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-12-12-teamviewer-%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/1.jpg)
+![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-12-12-teamviewer-%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/1.jpg)
 
 <!-- more -->
 
@@ -28,12 +28,12 @@ TeamViewer 是一款最流行的远程桌面连接工具，特点：连接稳定
 
 - 使用局域网链接，需要先配置下本机设置，找开软件后，先要设置允许接入lan（或者叫允许局域网连接），那样的话，ID的地方就显示内网的IP了。如果你的 ID 不能显示自己的 IP 地址，重新启动软件即可。如下图：
 
-![](https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-12-12-teamviewer-%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/2.jpg)
+![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-12-12-teamviewer-%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/2.jpg)
 
 
 - 局域网内同样需要两边都先打开软件，然后使用 IP 代替伙伴ID输入，后续操作和上面类似，直接点远程控制，输入密码即可。如下图：
 
-![](https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-12-12-teamviewer-%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/3.jpg)
+![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-12-12-teamviewer-%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/3.jpg)
 
 
 ### 小结

@@ -1,51 +1,407 @@
-extends base
 
-block title
-  title= page.title + ' | ' + config.title
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hexo">
+    <title>GPIO口详解 - Hexo</title>
+    <meta name="author" content="John Doe">
+    
+    
+    
+    <meta name="description" content="在做 MCU 编程开发的时候，GPIO 可以说是最基础也是最重要的部分，MCU 的学习研究无非就是三点：高低电频，输入输出，通讯协议。而GPIO可以说贯穿始终，在模拟一些通讯协议时，GPIO 所采用的模式，往往会引起各种意想不到的问题。
+GPIO 模式：通用推挽输出（push-pull）：在功率放大器电路中大量采用推挽放大器电路，这种电路中用两只三极管构成一级放大器电路，两只三极管分别放大输入信号">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="GPIO口详解">
+<meta property="og:url" content="http://yoursite.com/2016/08/03/2016/2016-08-03-gpio口详解/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在做 MCU 编程开发的时候，GPIO 可以说是最基础也是最重要的部分，MCU 的学习研究无非就是三点：高低电频，输入输出，通讯协议。而GPIO可以说贯穿始终，在模拟一些通讯协议时，GPIO 所采用的模式，往往会引起各种意想不到的问题。
+GPIO 模式：通用推挽输出（push-pull）：在功率放大器电路中大量采用推挽放大器电路，这种电路中用两只三极管构成一级放大器电路，两只三极管分别放大输入信号">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-08-03-gpio%E5%8F%A3%E8%AF%A6%E8%A7%A3/8b82b9014a90f6037a3d50aa3a12b31bb151ed4a.jpg">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-08-03-gpio%E5%8F%A3%E8%AF%A6%E8%A7%A3/DeepinScrot-2019.png">
+<meta property="og:updated_time" content="2017-01-12T05:46:34.141Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GPIO口详解">
+<meta name="twitter:description" content="在做 MCU 编程开发的时候，GPIO 可以说是最基础也是最重要的部分，MCU 的学习研究无非就是三点：高低电频，输入输出，通讯协议。而GPIO可以说贯穿始终，在模拟一些通讯协议时，GPIO 所采用的模式，往往会引起各种意想不到的问题。
+GPIO 模式：通用推挽输出（push-pull）：在功率放大器电路中大量采用推挽放大器电路，这种电路中用两只三极管构成一级放大器电路，两只三极管分别放大输入信号">
+<meta name="twitter:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-08-03-gpio%E5%8F%A3%E8%AF%A6%E8%A7%A3/8b82b9014a90f6037a3d50aa3a12b31bb151ed4a.jpg">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    
+</head>
 
-block content
-  .post
-    h1.post-title= page.title
-    .post-meta= page.date.format('ll')
-      if page.categories.length > 0
-        span= ' | '
-        span.category
-          for category in page.categories.toArray()
-            a(href=url_for(category.path))= category.name
-      if theme.busuanzi == true
-        script(src='https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js', async)
-        span#busuanzi_container_page_pv= ' | '
-          span#busuanzi_value_page_pv
-          span= ' ' + __('Hits')
-    if theme.duoshuo
-      a.ds-thread-count(data-thread-key=page.path, href=url_for(page.path) + '#comments')
-    if theme.disqus
-      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
-    if page.toc
-      div(class='clear')
-        div(id='toc' class='toc-article')
-          div(class='toc-title')= __('contents')
-          != toc(page.content)
-    .post-content
-      != page.content
-    if theme.shareto == true
-      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
-      a.article-share-link(data-url='#{page.permalink}', data-id='#{page._id}')= __('shareto')
-    include _partial/tag
-    include _partial/post_nav
-    if theme.duoshuo
-      div(class='ds-share flat' data-thread-key=page.path, data-title=page.title, data-url=page.permalink)
-         .ds-share-inline
-            ul.ds-share-icons-16
-              li(data-toggle='ds-share-icons-more')
-                a(class='ds-more' href='javascript:void(0);') 分享到：
-              li
-                a(class='ds-weibo' href='javascript:void(0);' data-service='weibo') 微博
-              li
-                a(class='ds-qzone' href='javascript:void(0);' data-service='qzone') QQ空间
-              li
-                a(class='ds-qqt' href='javascript:void(0);' data-service='qqt') 腾讯微博
-              li
-                a(class='ds-wechat' href='javascript:void(0);' data-service='wechat') 微信
-            .ds-share-icons-more
-    include _partial/comments
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Hexo</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="4">
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Inicio</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categorías</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Etiquetas</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archivos</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Buscar</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">Acerca de</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            GPIO口详解
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-08-03T11:49:00+08:00">
+	
+		    03 Aug 2016
+    	
+    </time>
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p><em>在做 MCU 编程开发的时候，GPIO 可以说是最基础也是最重要的部分，MCU 的学习研究无非就是三点：高低电频，输入输出，通讯协议。而GPIO可以说贯穿始终，在模拟一些通讯协议时，GPIO 所采用的模式，往往会引起各种意想不到的问题。</em></p>
+<h3 id="GPIO-模式："><a href="#GPIO-模式：" class="headerlink" title="GPIO 模式："></a>GPIO 模式：</h3><h4 id="通用推挽输出（push-pull）："><a href="#通用推挽输出（push-pull）：" class="headerlink" title="通用推挽输出（push-pull）："></a>通用推挽输出（push-pull）：</h4><p>在功率放大器电路中大量采用推挽放大器电路，这种电路中用两只三极管构成一级放大器电路，两只三极管分别放大输入信号的正半周和负半周，即用一只三极管放大信号的正半周，用另一只三极管放大信号的负半周，两只三极管输出的半周信号在放大器负载上合并后得到一个完整周期的输出信号。原理图如下：</p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-08-03-gpio%E5%8F%A3%E8%AF%A6%E8%A7%A3/8b82b9014a90f6037a3d50aa3a12b31bb151ed4a.jpg" alt=""></p>
+<p>推挽放大器电路中，一只三极管工作在导通、放大状态时，另一只三极管处于截止状态，当输入信号变化到另一个半周后，原先导通、放大的三极管进入截止，而原先截止的三极管进入导通、放大状态，两只三极管在不断地交替导通放大和截止变化，所以称为<strong>推挽放大器</strong>。</p>
+<p><em>这种电路主要用于低功耗情况下能输出较大功率的交流信号，通常用于低频放大电路设计中。可增强输出的负载能力。这种输出结构带负载能力较强，你驱动个LED灯什么的操作IO口可以用推挽输出。</em></p>
+<a id="more"></a>
+<h4 id="开漏输出（open-drain）"><a href="#开漏输出（open-drain）" class="headerlink" title="开漏输出（open drain）:"></a>开漏输出（open drain）:</h4><p>输出端相当于三极管的集电极. 要得到高电平状态需要上拉电阻才行。原理图如下：</p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-08-03-gpio%E5%8F%A3%E8%AF%A6%E8%A7%A3/DeepinScrot-2019.png" alt=""></p>
+<p>开漏输出只有外部有上拉电阻时，才有可能输出高电平。当外部无上拉电阻时，该口不能输出高电平，处于悬空状态，或只可以输出低电平。开漏的主要用处：</p>
+<ul>
+<li>芯片的 Open drain 输出是设计用于”线或” (wire AND) 逻辑的，就是说当多个漏极开路器件的输出连在一起的时候，只要是其中一个导通，输出就为‘0’。这个特性被广泛用于串行总线电路。</li>
+<li>可以用于如继电器之类只吸入电流的负载, 或驱动比你的芯片电源电压高的负载，吸电流能力较强，但是输出能力不如推挽输出较弱，（一般如果单一驱动的话，大都选用推挽输出。）</li>
+<li>对于一些需要防止干扰的操作，如：不希望单片机的上拉电阻对外部电路（如ADC）产生任何影响。</li>
+</ul>
+<h4 id="开集输出（open-collector）："><a href="#开集输出（open-collector）：" class="headerlink" title="开集输出（open collector）："></a>开集输出（open collector）：</h4><h4 id="开漏输出"><a href="#开漏输出" class="headerlink" title="开漏输出"></a>开漏输出</h4><h3 id="通信协议："><a href="#通信协议：" class="headerlink" title="通信协议："></a>通信协议：</h3><blockquote>
+<p>参考链接：<br><a href="http://www.openedv.com/forum.php?mod=viewthread&amp;tid=2288&amp;highlight=%CD%C6%CD%EC%2B%BF%AA%C2%A9" target="_blank" rel="external">http://www.openedv.com/forum.php?mod=viewthread&amp;tid=2288&amp;highlight=%CD%C6%CD%EC%2B%BF%AA%C2%A9</a><br><a href="http://www.openedv.com/forum.php?mod=viewthread&amp;tid=67623&amp;highlight=%CD%C6%CD%EC%2B%BF%AA%C2%A9" target="_blank" rel="external">http://www.openedv.com/forum.php?mod=viewthread&amp;tid=67623&amp;highlight=%CD%C6%CD%EC%2B%BF%AA%C2%A9</a><br><a href="http://jingyan.baidu.com/article/5225f26b047a5ee6fa0908f6.html" target="_blank" rel="external">http://jingyan.baidu.com/article/5225f26b047a5ee6fa0908f6.html</a><br><a href="http://zhidao.baidu.com/link?url=ZnvwHHE10-0UZ8hPRvLczpw7-qZolpNolBuT0TsGZHEjDMxmZeYz5QsOYUybxc7OBMSiPOfZx_401s5KlEIQKcrUZPqSaOTMX4yrEgfsbX3" target="_blank" rel="external">http://zhidao.baidu.com/link?url=ZnvwHHE10-0UZ8hPRvLczpw7-qZolpNolBuT0TsGZHEjDMxmZeYz5QsOYUybxc7OBMSiPOfZx_401s5KlEIQKcrUZPqSaOTMX4yrEgfsbX3</a><br><a href="http://blog.chinaunix.net/uid-23065002-id-3885199.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-23065002-id-3885199.html</a><br><a href="http://wenku.baidu.com/link?url=9BSyigTdzjcZ73LWkfGOhzfxyD1oDhVHMS0ykLUG1sMp9lUbY9yGhL2hsqIKPaX47fdcfDwRxLnfu46m_Z4y0_HGE6XPk_8VSpE38ztCFIe" target="_blank" rel="external">http://wenku.baidu.com/link?url=9BSyigTdzjcZ73LWkfGOhzfxyD1oDhVHMS0ykLUG1sMp9lUbY9yGhL2hsqIKPaX47fdcfDwRxLnfu46m_Z4y0_HGE6XPk_8VSpE38ztCFIe</a><br><a href="http://www.9mcu.com/9mcubbs/forum.php?mod=viewthread&amp;tid=951093" target="_blank" rel="external">http://www.9mcu.com/9mcubbs/forum.php?mod=viewthread&amp;tid=951093</a></p>
+</blockquote>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/08/06/2016/2016-08-06-常规的通讯校验/"  data-tooltip="常规的通讯校验">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/07/29/2016/2016-07-29-架设自己的git服务/" data-tooltip="架设自己的git服务">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SIGUIENTE</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/08/03/2016/2016-08-03-gpio口详解/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/08/03/2016/2016-08-03-gpio口详解/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/08/03/2016/2016-08-03-gpio口详解/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2017 John Doe. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/08/06/2016/2016-08-06-常规的通讯校验/"  data-tooltip="常规的通讯校验">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/07/29/2016/2016-07-29-架设自己的git服务/" data-tooltip="架设自己的git服务">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SIGUIENTE</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/08/03/2016/2016-08-03-gpio口详解/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/08/03/2016/2016-08-03-gpio口详解/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/08/03/2016/2016-08-03-gpio口详解/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/08/03/2016/2016-08-03-gpio口详解/">
+                <i class="fa fa-google-plus"></i><span class="">Compartir en Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/08/03/2016/2016-08-03-gpio口详解/">
+                <i class="fa fa-facebook-official"></i><span>Compartir en Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/08/03/2016/2016-08-03-gpio口详解/">
+                <i class="fa fa-twitter"></i><span>Compartir en Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">John Doe</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+</html>

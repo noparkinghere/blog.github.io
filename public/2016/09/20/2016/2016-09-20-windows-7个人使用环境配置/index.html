@@ -1,51 +1,459 @@
-extends base
 
-block title
-  title= page.title + ' | ' + config.title
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hexo">
+    <title>windows 7个人使用环境配置 - Hexo</title>
+    <meta name="author" content="John Doe">
+    
+    
+    
+    <meta name="description" content="windows 7作为个人使用最久的一个系统，无论是稳定性美观程度等等都相当优秀，虽然windows是商业软件，源代码不开放定制性差，但通过一些日常的配置，配合常用的软件还是能够将它打造成一个个性化很强用起来恨顺畅的系统。本人因为工作需要经常会用到windows系统，另外周围也有不少朋友都用的这个系统，所以这边着重总结个人的一些常用配置，以及推荐一些非专业类软件。通过本文的文章和截图，后续重装系统">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="windows 7个人使用环境配置">
+<meta property="og:url" content="http://yoursite.com/2016/09/20/2016/2016-09-20-windows-7个人使用环境配置/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="windows 7作为个人使用最久的一个系统，无论是稳定性美观程度等等都相当优秀，虽然windows是商业软件，源代码不开放定制性差，但通过一些日常的配置，配合常用的软件还是能够将它打造成一个个性化很强用起来恨顺畅的系统。本人因为工作需要经常会用到windows系统，另外周围也有不少朋友都用的这个系统，所以这边着重总结个人的一些常用配置，以及推荐一些非专业类软件。通过本文的文章和截图，后续重装系统">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-20-windows-7%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/1.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-20-windows-7%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/2.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-20-windows-7%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/3.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-20-windows-7%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/4.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-20-windows-7%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/5.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-20-windows-7%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/6.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-20-windows-7%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/7.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-20-windows-7%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/8.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-20-windows-7%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/e1.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-20-windows-7%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/e2.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-20-windows-7%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/e3.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-20-windows-7%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/e4.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-20-windows-7%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/e5.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-20-windows-7%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/e6.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-20-windows-7%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/e7.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-20-windows-7%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/e8.png">
+<meta property="og:updated_time" content="2016-12-16T01:48:13.282Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="windows 7个人使用环境配置">
+<meta name="twitter:description" content="windows 7作为个人使用最久的一个系统，无论是稳定性美观程度等等都相当优秀，虽然windows是商业软件，源代码不开放定制性差，但通过一些日常的配置，配合常用的软件还是能够将它打造成一个个性化很强用起来恨顺畅的系统。本人因为工作需要经常会用到windows系统，另外周围也有不少朋友都用的这个系统，所以这边着重总结个人的一些常用配置，以及推荐一些非专业类软件。通过本文的文章和截图，后续重装系统">
+<meta name="twitter:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-20-windows-7%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/1.png">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    
+</head>
 
-block content
-  .post
-    h1.post-title= page.title
-    .post-meta= page.date.format('ll')
-      if page.categories.length > 0
-        span= ' | '
-        span.category
-          for category in page.categories.toArray()
-            a(href=url_for(category.path))= category.name
-      if theme.busuanzi == true
-        script(src='https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js', async)
-        span#busuanzi_container_page_pv= ' | '
-          span#busuanzi_value_page_pv
-          span= ' ' + __('Hits')
-    if theme.duoshuo
-      a.ds-thread-count(data-thread-key=page.path, href=url_for(page.path) + '#comments')
-    if theme.disqus
-      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
-    if page.toc
-      div(class='clear')
-        div(id='toc' class='toc-article')
-          div(class='toc-title')= __('contents')
-          != toc(page.content)
-    .post-content
-      != page.content
-    if theme.shareto == true
-      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
-      a.article-share-link(data-url='#{page.permalink}', data-id='#{page._id}')= __('shareto')
-    include _partial/tag
-    include _partial/post_nav
-    if theme.duoshuo
-      div(class='ds-share flat' data-thread-key=page.path, data-title=page.title, data-url=page.permalink)
-         .ds-share-inline
-            ul.ds-share-icons-16
-              li(data-toggle='ds-share-icons-more')
-                a(class='ds-more' href='javascript:void(0);') 分享到：
-              li
-                a(class='ds-weibo' href='javascript:void(0);' data-service='weibo') 微博
-              li
-                a(class='ds-qzone' href='javascript:void(0);' data-service='qzone') QQ空间
-              li
-                a(class='ds-qqt' href='javascript:void(0);' data-service='qqt') 腾讯微博
-              li
-                a(class='ds-wechat' href='javascript:void(0);' data-service='wechat') 微信
-            .ds-share-icons-more
-    include _partial/comments
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Hexo</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="4">
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Inicio</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categorías</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Etiquetas</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archivos</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Buscar</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">Acerca de</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            windows 7个人使用环境配置
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-09-20T22:18:00+08:00">
+	
+		    20 Sep 2016
+    	
+    </time>
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>windows 7作为个人使用最久的一个系统，无论是稳定性美观程度等等都相当优秀，虽然windows是商业软件，源代码不开放定制性差，但通过一些日常的配置，配合常用的软件还是能够将它打造成一个个性化很强用起来恨顺畅的系统。本人因为工作需要经常会用到windows系统，另外周围也有不少朋友都用的这个系统，所以这边着重总结个人的一些常用配置，以及推荐一些非专业类软件。通过本文的文章和截图，后续重装系统，也能够轻松对照配置修改回来。</p>
+<p><strong>假设你已经安装完了系统，这一个纯净版（非ghost版本，一般我都是安装这个版本）的windows 7，桌面仅有一个垃圾桶，没有其他软件。</strong></p>
+<h3 id="windows-配置"><a href="#windows-配置" class="headerlink" title="windows 配置"></a>windows 配置</h3><h4 id="配置任务栏"><a href="#配置任务栏" class="headerlink" title="配置任务栏"></a>配置任务栏</h4><p>个人习惯采用小图标，窄任务栏，这样的好处是屏幕可以显示更多的内容。见下图：</p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-20-windows-7%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/1.png" alt=""></p>
+<h4 id="修改窗体颜色"><a href="#修改窗体颜色" class="headerlink" title="修改窗体颜色"></a>修改窗体颜色</h4><p>一是为了美观，修改aero的透明窗体颜色，可以让窗体和任务栏，另外改变窗体颜色外观可以起到护眼的作用。见下图：</p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-20-windows-7%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/2.png" alt=""></p>
+<h4 id="修改显示器颜色"><a href="#修改显示器颜色" class="headerlink" title="修改显示器颜色"></a>修改显示器颜色</h4><p>如果是台式机显示器，则显示器上面的配置按键可以进行手动修改，无需参照下面方式，下列方式主要适用于笔记本软件调节的方式，见下图：</p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-20-windows-7%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/3.png" alt=""></p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-20-windows-7%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/4.png" alt=""></p>
+<p><em>通过调整这些参数可以过滤部分蓝光效果，让颜色显暖色更易于护眼，当然这样做的坏处就是整体颜色失真，观看电影视频时候观感下降，另外如果设计图片视频时会对你有较大的影响，这边也可以使用第三方软件更加智能的调节，软件部分会推荐介绍该软件。</em></p>
+<h4 id="电池管理"><a href="#电池管理" class="headerlink" title="电池管理"></a>电池管理</h4><p>这边针对笔记本在会待机，合上盖子会休眠等进行修改。</p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-20-windows-7%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/5.png" alt=""></p>
+<h4 id="修改输入法的切换按键"><a href="#修改输入法的切换按键" class="headerlink" title="修改输入法的切换按键"></a>修改输入法的切换按键</h4><p><em>实现该功能的目的主要是切换中英文输入法，在使用ctrl或者shift切换时，很明显这两个键的位置远不如caps按起来方便，且shift往往作为大小写功能使用，用来作为切换中英文输入会恨混乱，而caps作为大小写时用起来相当罕见。大写完全可以用shift代替的用户群中，无疑是占用了一个最好的位置，却几乎完全被遗忘的一个按键。<strong>这边将右ctrl和caps进行功能对调。</strong></em></p>
+<p>打开注册表，在运行（win+R）中输入regedit，注册表位置：[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout]  （注意： KeyBoard Layout, 而不是 KeyBoard Layouts）如果没有此键，就新建一个二进制值的Key，名叫：Scancode Map（注意名称不能够写错，错一个字母都没法实现功能）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">输入如下的值：</div><div class="line">　　00,00,00,00</div><div class="line">　　00,00,00,00</div><div class="line">　　03,00,00,00</div><div class="line">　　3A,00,1D,E0</div><div class="line">　　1D,E0,3A,00</div><div class="line">　　00,00,00,00</div></pre></td></tr></table></figure>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-20-windows-7%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/6.png" alt=""></p>
+<p><strong>详细内容可以参见我的另外一篇专门介绍按键互换的文章。</strong></p>
+<a id="more"></a>
+<h3 id="常用基础软件"><a href="#常用基础软件" class="headerlink" title="常用基础软件"></a>常用基础软件</h3><h4 id="编辑器"><a href="#编辑器" class="headerlink" title="编辑器"></a>编辑器</h4><p><em>windows 自带的记事本，记事本的问题较多，例如：WINDOWS自带的记事本等软件，在保存一个以UTF-8编码的文件时，会在文件开始的地方插入三个不可见的字符（0xEF 0xBB 0xBF，即BOM）。它是一串隐藏的字符，用于让记事本等编辑器识别这个文件是否以UTF-8编码。对于一般的文件，这样并不会产生什么麻烦。但对于 PHP来说，BOM是个大麻烦。所以windows下如果适用记事本会给跨平台编码带来巨大的麻烦，一旦出现很难发现和解决。另外记事本的编辑能力弱，可读性差等特点，也让大伙儿一致的决定抛弃这个软件。下面推荐两款比较好的文本编辑软件，无论是查看普通文本编辑，还是要少量的修改代码，这个两个软件都是不错的选择。</em></p>
+<ul>
+<li>editplus</li>
+</ul>
+<p>本人一般都用这个来编辑普通文件，如.txt,.md等需要阅读的文件，一般不需要怎么配置即可轻松上手使用，功能很强大，但个人主要用作查阅写说明文档等，一般不会对它单独定制。总之一点，这个软件配合上面我设置的窗口调色，用起来就是阅读舒服，写起来顺畅。但<strong>该软件是商业软件，需要付费使用。</strong></p>
+<ul>
+<li>notepad++</li>
+</ul>
+<p>windows下最喜欢的一款编辑器，功能强大，可定制性强，运行速度快，占用资源小，免费开源软件，可以说众多优点集一身。一般我只会对它进行简单的配置即可，主要用来修改文件代码。当然你也可以只用它即可，无需使用上面的editplus，因为个人将颜色调整为暗黑色，不易于阅读文本文字，所以同时安装了这两个软件。</p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-20-windows-7%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/7.png" alt=""></p>
+<h4 id="输入法-有详细文章"><a href="#输入法-有详细文章" class="headerlink" title="输入法(有详细文章)"></a>输入法(有详细文章)</h4><p>选择<strong>搜狗或者qq拼音精简版</strong>，这两个都是不错的选择，百度占用资源较大，且，另外一些配置设置不够人性化，使用起来较麻烦，需要注意的是，拼音中开启两个功能：</p>
+<ul>
+<li>按ctrl按键切换中英文输入，上述设置了<em>键盘映射</em>，需要开启这个功能才可以。</li>
+<li>安装截图插件，qq简版的截图功能较差，无法自动命名，可以选择搜狗拼音。</li>
+</ul>
+<p><em>主要强调的是windows下输入法的配置，因为完全使用第三方输入中的中英文，所以不再需要自带的输入法了，具体参见如下图片：</em></p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-20-windows-7%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/8.png" alt=""></p>
+<h4 id="检索软件"><a href="#检索软件" class="headerlink" title="检索软件"></a>检索软件</h4><p>也是个强烈推荐的一款可以快速检索的软件，软件特点如下：</p>
+<ul>
+<li>占用资源较大，长期占用一定的内存，且会影响开机时间，但现在内存都很大，这点可以接收，开机根据个人情况，一般无所谓，如果是固态硬盘，那就更没有什么影响了。</li>
+<li>类似于linux下的locate命令吧，将所有文件信息生成一个数据库，然后每次搜索时能够快速定位，但当日修改的文件，信息更新的未必及时。</li>
+</ul>
+<p>国内软件中可以选用<em>稻田搜搜</em>,该软件界面好看，该有的功能也都有，但不支持通配符搜索，另外占用资源貌似也比较大。这边主要推荐使用 everything 这个老牌搜索软件，软件虽然小，但可定制性相当强，个人配置如下：</p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-20-windows-7%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/e1.png" alt=""><br>上图可见布局，右侧预览效果相当强大。</p>
+<p>下面是一些我个人的定制，仅供参考：</p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-20-windows-7%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/e2.png" alt=""></p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-20-windows-7%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/e3.png" alt=""></p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-20-windows-7%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/e4.png" alt=""></p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-20-windows-7%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/e5.png" alt=""></p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-20-windows-7%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/e6.png" alt=""></p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-20-windows-7%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/e7.png" alt=""></p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-20-windows-7%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/e8.png" alt=""></p>
+<h4 id="金山词霸"><a href="#金山词霸" class="headerlink" title="金山词霸"></a>金山词霸</h4><p>一款查单词较方便的软件，这边不推荐有道，是因为有道现在广告泛滥了，金山词霸还拥有离线版本，如果在公司不方便上网一样可以使用。我一般设置：</p>
+<ul>
+<li>双击alt将字典调出</li>
+<li>选中单词双击ctrl调出解释</li>
+</ul>
+<blockquote>
+<p><a href="https://www.zhihu.com/question/20650946" target="_blank" rel="external">https://www.zhihu.com/question/20650946</a><br><a href="http://www.huangbowei.com/archives/92.html" target="_blank" rel="external">http://www.huangbowei.com/archives/92.html</a><br><a href="http://baike.baidu.com/subview/126558/5073180.htm" target="_blank" rel="external">http://baike.baidu.com/subview/126558/5073180.htm</a></p>
+</blockquote>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/09/22/2016/2016-09-22-字符编码/"  data-tooltip="字符编码">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/09/14/2016/2016-09-14-ubuntu搭建wordpress服务/" data-tooltip="ubuntu搭建wordpress服务">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SIGUIENTE</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/09/20/2016/2016-09-20-windows-7个人使用环境配置/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/09/20/2016/2016-09-20-windows-7个人使用环境配置/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/09/20/2016/2016-09-20-windows-7个人使用环境配置/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2017 John Doe. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/09/22/2016/2016-09-22-字符编码/"  data-tooltip="字符编码">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/09/14/2016/2016-09-14-ubuntu搭建wordpress服务/" data-tooltip="ubuntu搭建wordpress服务">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SIGUIENTE</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/09/20/2016/2016-09-20-windows-7个人使用环境配置/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/09/20/2016/2016-09-20-windows-7个人使用环境配置/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/09/20/2016/2016-09-20-windows-7个人使用环境配置/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/09/20/2016/2016-09-20-windows-7个人使用环境配置/">
+                <i class="fa fa-google-plus"></i><span class="">Compartir en Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/09/20/2016/2016-09-20-windows-7个人使用环境配置/">
+                <i class="fa fa-facebook-official"></i><span>Compartir en Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/09/20/2016/2016-09-20-windows-7个人使用环境配置/">
+                <i class="fa fa-twitter"></i><span>Compartir en Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">John Doe</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+</html>

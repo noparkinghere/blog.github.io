@@ -1,51 +1,429 @@
-extends base
 
-block title
-  title= page.title + ' | ' + config.title
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hexo">
+    <title>计算机中的通信简介 - Hexo</title>
+    <meta name="author" content="John Doe">
+    
+    
+    
+    <meta name="description" content="计算机从最初发展到现在已经有半个多世纪的历史，众所周知其实计算机就是一堆电路的组成，传统最为通用的计算功能仅仅是控制高低电平，输入输出（0和1）。而计算机中的CPU和其他设备如内存，硬盘，主板的其他电路连接过程中，控制的过程就是通过相关的通信协议，让一堆的高低电平输入输出最终可以转化为我们我们工作需要的内容，而赋予这些0,1实际意义的就是通信协议。计算机中有着众多的通信协议，有些协议已经逐渐被淘汰">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="计算机中的通信简介">
+<meta property="og:url" content="http://yoursite.com/2016/10/18/2016/2016-10-18-计算机中的通信简介/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="计算机从最初发展到现在已经有半个多世纪的历史，众所周知其实计算机就是一堆电路的组成，传统最为通用的计算功能仅仅是控制高低电平，输入输出（0和1）。而计算机中的CPU和其他设备如内存，硬盘，主板的其他电路连接过程中，控制的过程就是通过相关的通信协议，让一堆的高低电平输入输出最终可以转化为我们我们工作需要的内容，而赋予这些0,1实际意义的就是通信协议。计算机中有着众多的通信协议，有些协议已经逐渐被淘汰">
+<meta property="og:updated_time" content="2016-12-16T01:49:16.430Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="计算机中的通信简介">
+<meta name="twitter:description" content="计算机从最初发展到现在已经有半个多世纪的历史，众所周知其实计算机就是一堆电路的组成，传统最为通用的计算功能仅仅是控制高低电平，输入输出（0和1）。而计算机中的CPU和其他设备如内存，硬盘，主板的其他电路连接过程中，控制的过程就是通过相关的通信协议，让一堆的高低电平输入输出最终可以转化为我们我们工作需要的内容，而赋予这些0,1实际意义的就是通信协议。计算机中有着众多的通信协议，有些协议已经逐渐被淘汰">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    
+</head>
 
-block content
-  .post
-    h1.post-title= page.title
-    .post-meta= page.date.format('ll')
-      if page.categories.length > 0
-        span= ' | '
-        span.category
-          for category in page.categories.toArray()
-            a(href=url_for(category.path))= category.name
-      if theme.busuanzi == true
-        script(src='https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js', async)
-        span#busuanzi_container_page_pv= ' | '
-          span#busuanzi_value_page_pv
-          span= ' ' + __('Hits')
-    if theme.duoshuo
-      a.ds-thread-count(data-thread-key=page.path, href=url_for(page.path) + '#comments')
-    if theme.disqus
-      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
-    if page.toc
-      div(class='clear')
-        div(id='toc' class='toc-article')
-          div(class='toc-title')= __('contents')
-          != toc(page.content)
-    .post-content
-      != page.content
-    if theme.shareto == true
-      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
-      a.article-share-link(data-url='#{page.permalink}', data-id='#{page._id}')= __('shareto')
-    include _partial/tag
-    include _partial/post_nav
-    if theme.duoshuo
-      div(class='ds-share flat' data-thread-key=page.path, data-title=page.title, data-url=page.permalink)
-         .ds-share-inline
-            ul.ds-share-icons-16
-              li(data-toggle='ds-share-icons-more')
-                a(class='ds-more' href='javascript:void(0);') 分享到：
-              li
-                a(class='ds-weibo' href='javascript:void(0);' data-service='weibo') 微博
-              li
-                a(class='ds-qzone' href='javascript:void(0);' data-service='qzone') QQ空间
-              li
-                a(class='ds-qqt' href='javascript:void(0);' data-service='qqt') 腾讯微博
-              li
-                a(class='ds-wechat' href='javascript:void(0);' data-service='wechat') 微信
-            .ds-share-icons-more
-    include _partial/comments
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Hexo</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="4">
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Inicio</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categorías</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Etiquetas</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archivos</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Buscar</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">Acerca de</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            计算机中的通信简介
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-10-18T02:00:00+08:00">
+	
+		    18 Oct 2016
+    	
+    </time>
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>计算机从最初发展到现在已经有半个多世纪的历史，众所周知其实计算机就是一堆电路的组成，传统最为通用的计算功能仅仅是控制高低电平，输入输出（0和1）。而计算机中的CPU和其他设备如内存，硬盘，主板的其他电路连接过程中，控制的过程就是通过相关的通信协议，让一堆的高低电平输入输出最终可以转化为我们我们工作需要的内容，而赋予这些0,1实际意义的就是通信协议。计算机中有着众多的通信协议，有些协议已经逐渐被淘汰，而另外一些经过这么多年的发展仍然在各行各业经久不衰，一些更新更稳定更满足这个时代需求的协议也正在被越来越多的智能设备移动设备所采纳。本文仅仅是简要的叙述计算机嵌入式中最常用的一些协议。</p>
+<p>这边如果对码元，波特率等还不是恨清除的可以参考<strong>传输速率</strong>这篇文章。</p>
+<p><em>在了解通信协议和传输前，得先弄明白：总线和协议，串行传输和并行传输，同步通信和异步通信，全双工和半双工等基本概念，至于具体的通信方式和协议，这边仅作简述，有单独文章进行具体阐述。</em></p>
+<h3 id="总线和协议"><a href="#总线和协议" class="headerlink" title="总线和协议"></a>总线和协议</h3><p>在展开讲解之前，先来区分两个概念：总线和协议。</p>
+<p><strong>总线</strong>是一组信号线的集合，它定义了各引线的信号、电机、机械特性，使计算机内部各组成部分之间以及不同的计算机之间建立信号联系，进行信息传送和通信，按照作用范围简单来分可以分为内部总线和外部总线。内部总线：就是计算机内部功能模板之间进行通信的总线，它是构成完整的计算机系统的内部信息枢纽，但按功能仍要分为数据总线DB，地址总线AB，控制总线CB，电源总线PB。外部总线是计算机与计算机之间或计算机与其他智能设备之间进行通信的连接。但随着嵌入式不断的发展，现在在两者的区分已经不是那么严格，USB的传输可以认作是外部串行传输方式，而传统所认为是内部穿行传输方式的IIC现在也被一些外接的传感器所使用，因此在嵌入式领域已经无需再纠结是内部总线还是外部总线，毕竟为了满足需求很多原有的协议已经进行的改进使得传输距离更远，抗干扰性更强了，也有更多曾经的内部总线被在外部所使用了。</p>
+<p>通信协议是指双方实体完成通信或服务所必须遵循的规则和约定。协议定义了数据单元使用的格式，信息单元应该包含的信息与含义，连接方式，信息发送和接收的时序，从而确保在通信过程中数据顺利地传送到确定的地方。</p>
+<p><em>因为总线的种类实在太多，各种总线的衍生品层出不穷，这边就不详细列举，以下仅仅将目前嵌入式/微机上面最为常见的通信方式列举出来。</em></p>
+<a id="more"></a>
+<h3 id="串行总线和并行总线"><a href="#串行总线和并行总线" class="headerlink" title="串行总线和并行总线"></a>串行总线和并行总线</h3><p>采用串行传输方式的总线被成为串行总线，一条信息的各位数据被逐位按顺序传送的通讯方式称为串行通讯。串行通讯的特点是：数据位传送，传按位顺序进行，最少只需一根传输线即可完成，成本低但送速度慢。串行通讯的距离可以从几米到几千米。 根据信息的传送方向，串行通讯可以进一步分为单工、半双工和全双工三种。信息只能单向传送为单工；信息能双向传送但不能同时双向传送称为半双工；信息能够同时双向传送则称为全双工。</p>
+<p>串口形容一下就是一条车道，而并口就是有8个车道同一时刻能传送8位（一个字节）数据。但是并不是说并口快，由于8位通道之间的互相干扰（串扰），传输时速度就受到了限制，传输容易出错。串口没有互相干扰。并口同时发送的数据量大，但要比串口慢。串口硬盘就是这样被人们重视的。</p>
+<p>采用并行传输方式的总线被成为并行总线，并行通讯通常可以一次传送8bit、16bit、32bit甚至更高的位数，相应地就需要8根、16根、32根信号线，同时也需要加入更多的信号地线。比如传统的PATA线路有40根线，其中有16根信号线和7根信号地线，其他为各种控制线，一次可以传送2Byte的数据。并行通讯中，数据信号中无法携带时钟信息（需要时钟信息，是为了确保一次发送的为一组相关数据，当始终跳转一次的时候，再发送下一租数据，如果缺少始终信息，而多组数据的传输有快有慢的话，则所有数据会串扰，通讯毫无意义。而串行通讯则没有这样的问题，一个个位发送，最终只需按照协议整合数据即可，当然也有部分穿行通信协议利用时钟来实现附加的操作），为了保证各对信号线上的信号时序一致，并行设备需要严格同步时钟信号，或者采用额外的时钟信号线。</p>
+<p>通过串行通讯与并行通讯的对比，可以看出：串行通讯很简单，但是相对速度低，抗干扰能力强（可以用在长距离通讯），成本低；并行通讯比较复杂，但是相对速度高，成本高（需要更多的线），抗干扰能力弱（传输距离短）。</p>
+<h3 id="同步通信和异步通信"><a href="#同步通信和异步通信" class="headerlink" title="同步通信和异步通信"></a>同步通信和异步通信</h3><p>异步通信就是发送方在任意时刻都可以发送数据，前提是接收端已经做好了接受数据的准备（如果没有做好接受准备，数据肯定发送失败），也正是因为发送方的不确定性，所以接收方要时时刻刻的准备好接受数据，同时由于每次发送数据时间间隔的不确定性，所以，在每次发送数据时都要使用明确的界定符来标示数据（字符）的开始和结束位置，可以想象这种通信方式效率很低。虽然异步通信效率低，但是对设备的要求不高，通信设备简单。异步通信是计算机通信中最常用的数据信息传输方式。它是以字符为单位进行传输的，<strong>字符之间没有固定的时间间隔要求，而每个字符中的各位则以固定的时间传送。</strong></p>
+<p>同步通信和异步通信相反，就是主机在进行通信前要先建立同步，即要使用相同的时钟频率，发送方的发送频率和接受方的接受频率要同步。</p>
+<p>除了时间频率的不同外，异步通信和同步通信之间的区别还是发送数据的表示形式，异步通信一般发送单位是字符，同步通信发送单位是比特流（数据帧），但是这不是绝对的，异步通信有时也使用帧来通信。同步通讯进行数据传输时，发送和接收双方要保持完全的同步，因此，要求接收和发送设备必须使用同一时钟。优点是可以实现高速度、大容量的数据传送；缺点是要求发生时钟和接收时钟保持严格同步，同时硬件复杂。可以这样说，不管是异步通信还是同步通信都需要进行同步，只是异步通信通过传送字符内的起始位来进行同步，而同步通信采用共用外部时钟来进行同步。所以，可以说前者是自同步，后者是外同步。事实上目前大多是采用异步通讯，极少数是采用同步通讯的。</p>
+<h3 id="单工，全双工和半双工"><a href="#单工，全双工和半双工" class="headerlink" title="单工，全双工和半双工"></a>单工，全双工和半双工</h3><ul>
+<li>如果在通信过程的任意时刻，信息只能由一方A传到另一方B，则称为单工。</li>
+<li>如果在任意时刻，信息既可由A传到B，又能由B传A，但只能由一个方向上的传输存在（即不能同时传输）,称为半双工传输。</li>
+<li>如果在任意时刻，线路上存在A到B和B到A的双向信号传输，则称为全双工。</li>
+</ul>
+<h3 id="串口通信-（见详细文章）"><a href="#串口通信-（见详细文章）" class="headerlink" title="串口通信 （见详细文章）"></a>串口通信 （见详细文章）</h3><p>串行接口是一种可以将接受来自CPU的并行数据字符转换为连续的串行数据流发送出去，同时可将接受的串行数据流转换为并行的数据字符供给CPU的器件。一般完成这种功能的电路，我们称为串行接口电路。曾经PC之间进行串口通信可以说是标配，很多老式电脑上面可以看到DB25的接头，但后来逐渐被DB9取代，早期鼠标打印机都通过串口进行数据传输的，但现在逐渐被USB和网络所取代，DB9的串口接头在PC和笔记本上面也较少能够看到了。做嵌入式开发可以看到有个DB9的串口标准接口，串口对于开发人员输入输出调试等有着至关重要的作用。串行接口按电气标准及协议来分包括RS-232-C、RS-422、RS485等，现在串口一般在工业嵌入式领域使用。</p>
+<p>在使用串口通信时最重要的参数：波特率，数据位，停止位，奇偶校验位。</p>
+<p>同步通信和异步通信：异步通信是计算机通信中最常用的数据信息传输方式。它是以字符为单位进行传输的，字符之间没有固定的时间间隔要求，而每个字符中的各位则以固定的时间传送。</p>
+<h4 id="RS-232-C"><a href="#RS-232-C" class="headerlink" title="RS-232-C"></a>RS-232-C</h4><p>传统的RS-232-C接口标准有22根线，采用标准25芯D型插头座（DB25），后来使用简化为9芯D型插座（DB9），现在应用中25芯插头座已很少采用。目前一般可以见到的串口接头都为DB9的232接口，</p>
+<ul>
+<li>RS-232串口通信最远距离是50英尺，约为15m</li>
+<li>RS-232可做到双向传输，全双工通讯，最高传输速率20kbps</li>
+<li>RS-232C上传送的数字量采用负逻辑，且与地对称：逻辑1：-3 ～-15V  逻辑0：+3～+15V （）</li>
+</ul>
+<h4 id="RS-485"><a href="#RS-485" class="headerlink" title="RS-485"></a>RS-485</h4><p>232串口在实际使用已经用处不大，但基于232发展出来的485等串口设备仍然被广泛使用，RS-485（EIA-485标准）是RS-422的改进，因为它增加了设备的个数，从10个增加到32个，同时定义了在最大设备个数情况下的电气特性，以保证足够的信号电压。有了多个设备的能力，你可以使用一个单个RS-485口建立设备网络。</p>
+<p>因为都是串口通信，所以本质两者是相差无几的，但耗材少，抗干扰强等特点让RS485在目前的工业领域仍然被广泛使用，这边主要列举出不同：</p>
+<ul>
+<li>从接线上，RS232是三线制，RS485是两线制</li>
+<li>从传输距离上，RS232只能传输15米，RS485最远可以传输1200米</li>
+<li>从速率上，RS232是全双工传输，RS485是半双工传输</li>
+<li>从协议层上，RS232只支持点对点通讯(1:1)，RS485支持总线形式通讯（1:N）</li>
+</ul>
+<h3 id="SPI"><a href="#SPI" class="headerlink" title="SPI"></a>SPI</h3><p>SPI是串行外设接口（Serial Peripheral Interface）的缩写。SPI，是一种高速的，<strong>全双工</strong>，<strong>同步</strong>的通信总线，并且在芯片的管脚上只占用<strong>四根线</strong>，节约了芯片的管脚，同时为PCB的布局上节省空间，提供方便，正是出于这种简单易用的特性，如今越来越多的芯片集成了这种通信协议，比如AT91RM9200，stm32f103等。<br>:</p>
+<h3 id="IIC"><a href="#IIC" class="headerlink" title="IIC"></a>IIC</h3><p>IIC 即Inter-Integrated Circuit(集成电路总线），这种总线类型是由飞利浦半导体公司在八十年代初设计出来的一种简单、双向、二线制、同步串行总线，主要是用来连接整体电路(ICS) ，IIC是一种多向控制总线，也就是说多个芯片可以连接到同一总线结构下，同时每个芯片都可以作为实时数据传输的控制源。这种方式简化了信号传输总线接口，如今越来越多的芯片集成了这种通信协议，比如stm32f103，EFM32等。</p>
+<p>### </p>
+<hr>
+<p>To be continued…</p>
+<blockquote>
+<p>参考链接：<br><a href="http://blog.csdn.net/wind19/article/details/7433249" target="_blank" rel="external">http://blog.csdn.net/wind19/article/details/7433249</a><br><a href="http://baike.baidu.com/view/185322.htm" target="_blank" rel="external">http://baike.baidu.com/view/185322.htm</a><br><a href="http://www.cnblogs.com/mylinux/p/4078576.html" target="_blank" rel="external">http://www.cnblogs.com/mylinux/p/4078576.html</a><br><a href="http://baike.baidu.com/view/716175.htm" target="_blank" rel="external">http://baike.baidu.com/view/716175.htm</a><br><a href="https://www.zhihu.com/question/29033993" target="_blank" rel="external">https://www.zhihu.com/question/29033993</a><br><a href="http://www.cnblogs.com/general001/articles/2344079.html" target="_blank" rel="external">http://www.cnblogs.com/general001/articles/2344079.html</a><br><a href="http://blog.csdn.net/weiqifa0/article/details/8845281" target="_blank" rel="external">http://blog.csdn.net/weiqifa0/article/details/8845281</a><br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a></p>
+</blockquote>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/18/2016/2016-10-18-ubuntu关闭笔记本触摸板/"  data-tooltip="ubuntu关闭笔记本触摸板">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/17/2016/2016-10-17-杂谈小纪/" data-tooltip="杂谈小纪">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SIGUIENTE</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/10/18/2016/2016-10-18-计算机中的通信简介/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/10/18/2016/2016-10-18-计算机中的通信简介/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/10/18/2016/2016-10-18-计算机中的通信简介/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2017 John Doe. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/18/2016/2016-10-18-ubuntu关闭笔记本触摸板/"  data-tooltip="ubuntu关闭笔记本触摸板">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/17/2016/2016-10-17-杂谈小纪/" data-tooltip="杂谈小纪">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SIGUIENTE</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/10/18/2016/2016-10-18-计算机中的通信简介/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/10/18/2016/2016-10-18-计算机中的通信简介/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/10/18/2016/2016-10-18-计算机中的通信简介/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/10/18/2016/2016-10-18-计算机中的通信简介/">
+                <i class="fa fa-google-plus"></i><span class="">Compartir en Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/10/18/2016/2016-10-18-计算机中的通信简介/">
+                <i class="fa fa-facebook-official"></i><span>Compartir en Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/10/18/2016/2016-10-18-计算机中的通信简介/">
+                <i class="fa fa-twitter"></i><span>Compartir en Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">John Doe</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+</html>

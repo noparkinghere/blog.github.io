@@ -1,51 +1,500 @@
-extends base
 
-block title
-  title= page.title + ' | ' + config.title
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hexo">
+    <title>VPS : shadowsocks - Hexo</title>
+    <meta name="author" content="John Doe">
+    
+    
+    
+    <meta name="description" content="日常生活中，由于GFW的强大，很多学习资料等内容我们无法获取或者检索，因此科学上网往往相当重要，本文章使用 VPS 搭建 shadowsocks 服务让安全的科学上网成为可能，需要注意的是 VPS 必须是境外服务器，推荐 vultr 搬瓦工等廉价vpn。
+工作原理这边可以参考原文博客，以下只是简单罗列一些原理：
 
-block content
-  .post
-    h1.post-title= page.title
-    .post-meta= page.date.format('ll')
-      if page.categories.length > 0
-        span= ' | '
-        span.category
-          for category in page.categories.toArray()
-            a(href=url_for(category.path))= category.name
-      if theme.busuanzi == true
-        script(src='https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js', async)
-        span#busuanzi_container_page_pv= ' | '
-          span#busuanzi_value_page_pv
-          span= ' ' + __('Hits')
-    if theme.duoshuo
-      a.ds-thread-count(data-thread-key=page.path, href=url_for(page.path) + '#comments')
-    if theme.disqus
-      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
-    if page.toc
-      div(class='clear')
-        div(id='toc' class='toc-article')
-          div(class='toc-title')= __('contents')
-          != toc(page.content)
-    .post-content
-      != page.content
-    if theme.shareto == true
-      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
-      a.article-share-link(data-url='#{page.permalink}', data-id='#{page._id}')= __('shareto')
-    include _partial/tag
-    include _partial/post_nav
-    if theme.duoshuo
-      div(class='ds-share flat' data-thread-key=page.path, data-title=page.title, data-url=page.permalink)
-         .ds-share-inline
-            ul.ds-share-icons-16
-              li(data-toggle='ds-share-icons-more')
-                a(class='ds-more' href='javascript:void(0);') 分享到：
-              li
-                a(class='ds-weibo' href='javascript:void(0);' data-service='weibo') 微博
-              li
-                a(class='ds-qzone' href='javascript:void(0);' data-service='qzone') QQ空间
-              li
-                a(class='ds-qqt' href='javascript:void(0);' data-service='qqt') 腾讯微博
-              li
-                a(class='ds-wechat' href='javascript:void(0);' data-service='wechat') 微信
-            .ds-share-icons-more
-    include _partial/comments
+早期互联网用户访问网站时，用户的请求通过互联网发送到服务提供方，服务提供方直接将信息">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="VPS : shadowsocks">
+<meta property="og:url" content="http://yoursite.com/2016/11/25/2016/2016-11-25-vps-shadowsocks/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="日常生活中，由于GFW的强大，很多学习资料等内容我们无法获取或者检索，因此科学上网往往相当重要，本文章使用 VPS 搭建 shadowsocks 服务让安全的科学上网成为可能，需要注意的是 VPS 必须是境外服务器，推荐 vultr 搬瓦工等廉价vpn。
+工作原理这边可以参考原文博客，以下只是简单罗列一些原理：
+
+早期互联网用户访问网站时，用户的请求通过互联网发送到服务提供方，服务提供方直接将信息">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-25-vps-shadowsocks/ss1.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-25-vps-shadowsocks/ss2.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-25-vps-shadowsocks/ss3.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-25-vps-shadowsocks/ss4.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-25-vps-shadowsocks/1.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-25-vps-shadowsocks/2.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-25-vps-shadowsocks/3.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-25-vps-shadowsocks/4.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-25-vps-shadowsocks/5.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-25-vps-shadowsocks/6.png">
+<meta property="og:updated_time" content="2017-01-25T03:01:54.775Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VPS : shadowsocks">
+<meta name="twitter:description" content="日常生活中，由于GFW的强大，很多学习资料等内容我们无法获取或者检索，因此科学上网往往相当重要，本文章使用 VPS 搭建 shadowsocks 服务让安全的科学上网成为可能，需要注意的是 VPS 必须是境外服务器，推荐 vultr 搬瓦工等廉价vpn。
+工作原理这边可以参考原文博客，以下只是简单罗列一些原理：
+
+早期互联网用户访问网站时，用户的请求通过互联网发送到服务提供方，服务提供方直接将信息">
+<meta name="twitter:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-25-vps-shadowsocks/ss1.png">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Hexo</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="4">
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Inicio</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categorías</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Etiquetas</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archivos</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Buscar</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">Acerca de</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            VPS : shadowsocks
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-11-25T09:30:00+08:00">
+	
+		    25 Nov 2016
+    	
+    </time>
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>日常生活中，由于GFW的强大，很多学习资料等内容我们无法获取或者检索，因此科学上网往往相当重要，本文章使用 VPS 搭建 shadowsocks 服务让安全的科学上网成为可能，需要注意的是 VPS 必须是境外服务器，推荐 vultr 搬瓦工等廉价vpn。</p>
+<h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><p><strong>这边可以参考<a href="http://vc2tea.com/whats-shadowsocks/" target="_blank" rel="external">原文博客</a>，以下只是简单罗列一些原理：</strong></p>
+<ul>
+<li>早期互联网用户访问网站时，用户的请求通过互联网发送到服务提供方，服务提供方直接将信息反馈给用户： </li>
+</ul>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-25-vps-shadowsocks/ss1.png" alt=""></p>
+<ul>
+<li>GFW 出现后，每当用户需要获取信息，都经过了 GFW，GFW将它不喜欢的内容统统过滤掉，于是客户当触发 GFW 的过滤规则的时候，就会收到 Connection Reset 这样的响应内容，而无法接收到正常的内容 </li>
+</ul>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-25-vps-shadowsocks/ss2.png" alt=""></p>
+<ul>
+<li>为了绕过GFW的过滤（包含了各种HTTP代理服务、Socks服务、VPN服务等等），以 ssh tunnel 的方法为例：1) 首先用户和境外服务器基于 ssh 建立起一条加密的通道 2-3) 用户通过建立起的隧道进行代理，通过 ssh server 向真实的服务发起请求 4-5) 服务通过 ssh server，再通过创建好的隧道返回给用户。</li>
+</ul>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-25-vps-shadowsocks/ss3.png" alt=""></p>
+<p><strong>由于 ssh 本身就是基于 RSA 加密技术，所以 GFW 无法从数据传输的过程中的加密数据内容进行关键词分析，避免了被重置链接的问题，但由于创建隧道和数据传输的过程中，ssh 本身的特征是明显的，所以 GFW 一度通过分析连接的特征进行干扰，导致 ssh 存在被定向进行干扰的问题</strong></p>
+<ul>
+<li>shadowsocks 是将原来 ssh 创建的 Socks5 协议拆开成 server 端和 client 端，所以下面这个原理图基本上和利用 ssh tunnel 大致类似:1、6) 客户端发出的请求基于 Socks5 协议跟 ss-local 端进行通讯，由于这个 ss-local 一般是本机或路由器或局域网的其他机器，不经过 GFW，所以解决了上面被 GFW 通过特征分析进行干扰的问题 2、5) ss-local 和 ss-server 两端通过多种可选的加密方法进行通讯，经过 GFW 的时候是常规的TCP包，没有明显的特征码而且 GFW 也无法对通讯数据进行解密 3、4) ss-server 将收到的加密数据进行解密，还原原来的请求，再发送到用户需要访问的服务，获取响应原路返回:</li>
+</ul>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-25-vps-shadowsocks/ss4.png" alt=""></p>
+<ul>
+<li>GFW 就出现了，他像一个收过路费的强盗一样夹在了在用户和服务之间，每当用户需要获取信息，都经过了 GFW，GFW将它不喜欢的内容统统过滤掉，于是客户当触发 GFW 的过滤规则的时候，就会收到 Connection Reset 这样的响应内容，而无法接收到正常的内容 </li>
+</ul>
+<h3 id="软件简介："><a href="#软件简介：" class="headerlink" title="软件简介："></a>软件简介：</h3><h4 id="shadowsocks"><a href="#shadowsocks" class="headerlink" title="shadowsocks:"></a>shadowsocks:</h4><p><a href="https://shadowsocks.org/en/index.html" target="_blank" rel="external">shadowsocks：A secure socks5 proxy,designed to protect your Internet traffic.</a>。</p>
+<p>Shadowsocks（中文名称：影梭）是使用Python、C++、C#等语言开发的、基于Apache许可证的开放源代码软件，用于保护网络流量、加密数据传输。Shadowsocks使用Socks5代理方式。Shadowsocks分为服务器端和客户端。在使用之前，需要先将服务器端部署到服务器上面，然后通过客户端连接并创建本地代理。在中国大陆，本工具也被广泛用于突破防火长城（GFW），以浏览被封锁、屏蔽或干扰的内容。在2015年8月22日，Shadowsocks原作者Clowwindy称受到了中国政府的压力，宣布停止维护此项目并移除其用户页面所载的源代码。</p>
+<p>Shadowsocks的运行原理与其他代理工具基本相同，使用特定的中转服务器完成数据传输。在服务器端部署完成后，用户需要按照指定的密码、加密方式和端口使用客户端软件与其连接。在成功连接到服务器后，客户端会在用户的电脑上构建一个本地Socks5代理。浏览网络时，网络流量会被分到本地socks5代理，客户端将其加密之后发送到服务器，服务器以同样的加密方式将流量回传给客户端，以此实现代理上网。</p>
+<ul>
+<li>Shadowsocks使用自行设计的协议进行加密通信。[4]加密算法有AES、Blowfish、IDEA、RC4等，除创建TCP连接外无需握手，每次请求只转发一个连接，因此使用起来网速较快，在移动设备上也比较省电。</li>
+<li>所有的流量都经过算法加密，允许自行选择算法，所以比较安全。</li>
+<li>Shadowsocks通过异步I/O和事件驱动程序运行，响应速度快。</li>
+<li>客户端覆盖多个主流操作系统和平台，包括Windows，OS X，Android和iOS系统和路由器（OpenWrt）等[5]。</li>
+<li>专为移动设备和无线网络优化。</li>
+</ul>
+<h4 id="supervisor"><a href="#supervisor" class="headerlink" title="supervisor:"></a>supervisor:</h4><p>Linux的后台进程运行有好几种方法，例如nohup，screen等，但是，如果是一个服务程序，要可靠地在后台运行，我们就需要把它做成daemon，最好还能监控进程状态，在意外结束时能自动重启。supervisor就是用Python开发的一套通用的进程管理程序，能将一个普通的命令行进程变为后台daemon，并监控进程状态，异常退出时能自动重启。</p>
+<h3 id="VPS-安装及配置："><a href="#VPS-安装及配置：" class="headerlink" title="VPS 安装及配置："></a>VPS 安装及配置：</h3><h4 id="软件列表："><a href="#软件列表：" class="headerlink" title="软件列表："></a>软件列表：</h4><ul>
+<li>vps（Debian GNU/Linux 7 ），这边采用 Debian 系列linux，ubuntu 应该步骤类似，如果使用 redhat 系列，部分指令需要自行更改，这边不做累述。</li>
+<li>shadowsocks-severs： 注意安装 shadowsocks 的 severs 版本</li>
+<li>supervisor ： 用于Linux后台进程管理的利器</li>
+</ul>
+<a id="more"></a>
+<h4 id="详细步骤："><a href="#详细步骤：" class="headerlink" title="详细步骤："></a>详细步骤：</h4><ul>
+<li>安装软件，终端输入：<code>apt-get install python-pip &amp;&amp; pip install shadowsocks</code>。</li>
+<li>写 shadowsocks 配置文件： vim /etc/shadowsocks.json ， 具体内容如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;server&quot;:&quot;0.0.0.0&quot;,</div><div class="line">    &quot;server_port&quot;:50003,</div><div class="line">    &quot;local_address&quot;: &quot;127.0.0.1&quot;,</div><div class="line">    &quot;local_port&quot;:1080,</div><div class="line">    &quot;password&quot;:&quot;123456&quot;,</div><div class="line">    &quot;timeout&quot;:300,</div><div class="line">    &quot;method&quot;:&quot;aes-256-cfb&quot;,</div><div class="line">    &quot;fast_open&quot;: false</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">说明： </div><div class="line">server 你vps的IP</div><div class="line">servier_port 服务端的端口</div><div class="line">local_port 本地端口，一般默认1080</div><div class="line">password 服务端设置的密码</div><div class="line">timeout 超时设置</div><div class="line">method 加密方法</div><div class="line"></div><div class="line">如要你需要分享SS服务给朋友或家人，可以配置多个SS账户，具体可以参考下面的代码:</div><div class="line">&#123;</div><div class="line">    &quot;timeout&quot;: 600,</div><div class="line">    &quot;method&quot;: &quot;aes-256-cfb&quot;,</div><div class="line">    &quot;port_password&quot;:</div><div class="line">    &#123;</div><div class="line">        &quot;40001&quot;: &quot;password1&quot;,</div><div class="line">        &quot;40002&quot;: &quot;password2&quot;,</div><div class="line">        &quot;40003&quot;: &quot;password3&quot;</div><div class="line">    &#125;,</div><div class="line">    &quot;_comment&quot;:</div><div class="line">    &#123;</div><div class="line">        &quot;40001&quot;: &quot;xiaoming&quot;,</div><div class="line">        &quot;40002&quot;: &quot;lilei&quot;,</div><div class="line">        &quot;40003&quot;: &quot;mike&quot;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注意这边 server 的地址可以通过 ipconfig 获取本机地址，如果是一些多层虚拟出来的机器，如果无法获得本机IP，则输入0.0.0.0即可。</p>
+<ul>
+<li>安装 supervisor： apt-get install supervisor</li>
+<li>将 shadowsocks 加入到 supervisor 中进行管理：vim /etc/supervisor/supervisord.conf 在末尾加入如下内容：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[program:shadowsocks]</div><div class="line">command=ssserver -c /etc/shadowsocks.json</div><div class="line">autostart=true</div><div class="line">autorestart=true</div><div class="line">user=root</div><div class="line">log_stderr=true</div><div class="line">logfile=/var/log/shadowsocks.log</div></pre></td></tr></table></figure>
+<ul>
+<li>最后让 supervisor 开机自启动：在 <code>vim /etc/rc.local</code> 空白行加入 <code>service supervisor restart</code> (事实上这一步可以不用加，supervisor 本身就会开机自启动，在 <code>/etc/rc2.d/</code> 下 我们可以看到 <code>lrwxrwxrwx 1 root root  20 Nov 25 11:56 S01supervisor -&gt; ../init.d/supervisor</code> ，当然如果你的系统没能自动开启 supervisor 守护进程，则需要手动完成上述操作)，重启服务器查看是否配置成功。</li>
+</ul>
+<p><em>采用 supervisor 的原因很大程度上是：将 <code>sslocal -c /etc/shadowsocks.json</code> 放入/etc/rc.local中没法开启自启该服务，有待查找原因。</em></p>
+<p><strong>以上内容均为个人总结转述，如果可以访问外网，请参考<a href="https://shadowsocks.org/en/download/servers.html" target="_blank" rel="external">官网</a>给出的更加详细的配置步骤。以下为客户端配置，注意只有在完成了服务器端配置或者你已经有一个可以使用的 shadowsocks 服务器，才能够在本地搭建以下服务。</strong></p>
+<h3 id="本地-linux-下的安装配置"><a href="#本地-linux-下的安装配置" class="headerlink" title="本地 linux 下的安装配置"></a>本地 linux 下的安装配置</h3><h4 id="软件列表：-1"><a href="#软件列表：-1" class="headerlink" title="软件列表："></a>软件列表：</h4><ul>
+<li>linux PC端： shadowsocks ， 本地操作系统 ubuntu 16.04 , 。</li>
+<li>shadowsocks-severs： 注意安装 shadowsocks 的 severs 版本</li>
+<li>supervisor ： 用于Linux后台进程管理的利器</li>
+<li>chrome 插件 SwitchyOmega ：</li>
+</ul>
+<h4 id="详细步骤：-1"><a href="#详细步骤：-1" class="headerlink" title="详细步骤："></a>详细步骤：</h4><ul>
+<li>安装 shadowsocks （我们这边不采用 GUI 软件而直接使用 shadowsocks 命令工具连接 shadowsocks 服务器。）步骤如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install python-pip</div><div class="line">sudo apt-get install python-setuptools m2crypto</div><div class="line">pip install shadowsocks</div><div class="line"></div><div class="line">注意： 如果是 ubuntu 16.04 的版本执行完以上命令后可能仍然无法执行 sslocal 命令，需要手动执行 `sudo apt install shadowsocks` （ubuntu16.04 直接可以直接用apt 而不用 apt-get 这是一项改进）。</div></pre></td></tr></table></figure>
+<ul>
+<li>配置 Shadowsocks ：同服务器类似， 也是配置 shadowsocks.json 这个文件，可以在你想要指定的目录下新建这个文件如：~/.config/shadowsocks.json ， 编辑该文件：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;server&quot;:&quot;www.baidu.com&quot;,</div><div class="line">    &quot;server_port&quot;:50003,</div><div class="line">    &quot;local_port&quot;:1080,</div><div class="line">    &quot;password&quot;:&quot;123456&quot;,</div><div class="line">    &quot;timeout&quot;:600,</div><div class="line">    &quot;method&quot;:&quot;aes-256-cfb&quot;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">说明：</div><div class="line">server 后面填写你需要链接的服务器地址</div><div class="line">server_port 后面填写你 Shadowsocks 服务器配置的 server_port 端口</div><div class="line">local_port 无需修改</div><div class="line">password 需要和 Shadowsocks 服务器保持一致</div></pre></td></tr></table></figure>
+<ul>
+<li>完成以下步骤后，你的浏览器仍然不能浏览网页，Shadowsocks 仅提供了转发服务，而你本地的端口发送的数据还无法和server_port进行链接，这时候，你可以采用全局代理的软件让所有数据帮转发，这边推荐chrome的 SwitchyOmega 插件。可以从Github上直接下载最新版 <a href="https://github.com/FelisCatus/SwitchyOmega/releases/" target="_blank" rel="external">SwitchyOmega</a> （这个是chrome的）然后浏览器地址打开chrome://extensions/，将下载的插件托进去安装。安装好之后下面开始设置代理，如下图：</li>
+</ul>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-25-vps-shadowsocks/1.png" alt=""></p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-25-vps-shadowsocks/2.png" alt=""></p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-25-vps-shadowsocks/3.png" alt=""></p>
+<p>上图步骤中注意类型条件中勾选<strong>规则列表规则</strong>， 规则地址： <a href="https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt" target="_blank" rel="external">https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt</a> 填入其中。</p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-25-vps-shadowsocks/4.png" alt=""></p>
+<p>点击 “应用选项”。然后单击 switchyOmega 图标，选择自动切换，就可以在访问“不存在的网站” 时自动切换到 shadowsocks 代理了。如果遇到某个国外网站无法直接连接或速度太慢时，可以单击 switchyOmega 图标，选择 “添加条件”，情景模式选择 SS，就可以了。这时打开 switchyOmega 选项，在自动切换模式的切换规则中就可以看到刚刚添加的规则。可以在这里管理自定义的规则。</p>
+<p>如果换了一台电脑，重新设置一遍 switchyOmega 就太麻烦了。可以在设置好的 switchyOmega 中导出设置文件，在另一个 chrome 浏览器中导入，就可以直接复制原来的设置了。在 switchyOmega 选项的左侧点击 “导入 / 导出”，点击“生成备份文件” 即可生成 switchyOmega 设置备份。点击 “从备份文件恢复” 可以导入备份文件。</p>
+<ul>
+<li>安装 supervisor： sudo apt-get install supervisor</li>
+<li>将 shadowsocks 加入到 supervisor 中进行管理：vim /etc/supervisor/supervisor.conf 在末尾加入如下内容，或者在 /etc/supervisor/conf.d 下新建新的文件增加如下内容（注意 shadowsocks.json 文件路径写对）：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[program:shadowsocks]</div><div class="line">command=sslocal -c /home/username/.config/shadowsocks.json</div><div class="line">autostart=true</div><div class="line">autorestart=true</div><div class="line">user=root</div><div class="line">log_stderr=true</div><div class="line">logfile=/var/log/shadowsocks.log</div></pre></td></tr></table></figure>
+<ul>
+<li>最后让 supervisor 开机自启动：在 <code>sudo vim /etc/rc.local</code> 空白行加入 <code>sudo service supervisor restart</code>。<em>不知出于什么原因这边 supervisor 必须手动写入 /etc/rc.local 中才会开机自启动</em> 查看是否配置成功可以重启电脑。</li>
+</ul>
+<p><em>如果需要让 linux 下其他软件也都可以使用 ss 服务，可以参考我的另外一篇文章：linux-shadowsocks全局代理。</em></p>
+<h3 id="本地-windows-下安装配置"><a href="#本地-windows-下安装配置" class="headerlink" title="本地 windows 下安装配置"></a>本地 windows 下安装配置</h3><p><a href="https://github.com/shadowsocks/shadowsocks-windows/releases/download/3.3.5/Shadowsocks-3.3.5.zip" target="_blank" rel="external">下载客户端</a>，作为一个开源软件 GUI 客户端分为多个版本，这边提供了 win 版本，需要安装 微软的库，打开后如下图所示：</p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-25-vps-shadowsocks/5.png" alt=""></p>
+<p>这边的服务器 IP 同上面 linux 的类似，填写你的域名或者 IP 即可，密码也要和服务器的 shadowsocks 服务保持一致。值得一提的是 windows 下面的客户端直接可以设置全局代理，右击任务栏的小图标可以设置相关选项。</p>
+<h3 id="本地-安卓手机端-安装配置"><a href="#本地-安卓手机端-安装配置" class="headerlink" title="本地 安卓手机端 安装配置"></a>本地 安卓手机端 安装配置</h3><p>安卓用户这边推荐使用腾讯自家的应用宝，直接搜索 shadowsocks 会看到中文名“影梭”的这个软件(<em>注意应用宝中的软件版本较老，为 2.8.3 目前最新版本为 3.2.7。</em>)，设置基本和 windows 的类似，设置完毕后，点击右上角的开启按钮。</p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-25-vps-shadowsocks/6.png" alt=""></p>
+<blockquote>
+<p>参考链接：<br><a href="http://vc2tea.com/whats-shadowsocks/" target="_blank" rel="external">http://vc2tea.com/whats-shadowsocks/</a><br><a href="https://aitanlu.com/ubuntu-shadowsocks-ke-hu-duan-pei-zhi.html" target="_blank" rel="external">https://aitanlu.com/ubuntu-shadowsocks-ke-hu-duan-pei-zhi.html</a><br><a href="https://aitanlu.com/linux-ubuntu-install-shadowsocks.html" target="_blank" rel="external">https://aitanlu.com/linux-ubuntu-install-shadowsocks.html</a><br><a href="https://php-rmcr7.rhcloud.com/shadowsocks-server/" target="_blank" rel="external">https://php-rmcr7.rhcloud.com/shadowsocks-server/</a><br><a href="http://blog.chinaunix.net/uid-25530360-id-5595974.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-25530360-id-5595974.html</a><br><a href="http://www.liaoxuefeng.com/article/0013738926914703df5e93589a14c19807f0e285194fe84000" target="_blank" rel="external">http://www.liaoxuefeng.com/article/0013738926914703df5e93589a14c19807f0e285194fe84000</a><br><a href="https://zh.wikipedia.org/zh-hans/Shadowsocks" target="_blank" rel="external">https://zh.wikipedia.org/zh-hans/Shadowsocks</a><br><a href="https://github.com/shadowsocks/shadowsocks/tree/master" target="_blank" rel="external">https://github.com/shadowsocks/shadowsocks/tree/master</a><br><a href="http://webcache.googleusercontent.com/search?q=cache:http://everet.org/shadowsocks.html" target="_blank" rel="external">http://webcache.googleusercontent.com/search?q=cache:http://everet.org/shadowsocks.html</a></p>
+</blockquote>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/26/2016/2016-11-26-检测VPS虚拟化技术/"  data-tooltip="检测VPS虚拟化技术">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/23/2016/2016-11-23-转-虚拟主机、vps和云主机/" data-tooltip="(转)虚拟主机、VPS和云主机">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SIGUIENTE</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/11/25/2016/2016-11-25-vps-shadowsocks/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/11/25/2016/2016-11-25-vps-shadowsocks/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/11/25/2016/2016-11-25-vps-shadowsocks/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2017 John Doe. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/26/2016/2016-11-26-检测VPS虚拟化技术/"  data-tooltip="检测VPS虚拟化技术">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/23/2016/2016-11-23-转-虚拟主机、vps和云主机/" data-tooltip="(转)虚拟主机、VPS和云主机">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SIGUIENTE</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/11/25/2016/2016-11-25-vps-shadowsocks/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/11/25/2016/2016-11-25-vps-shadowsocks/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/11/25/2016/2016-11-25-vps-shadowsocks/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/11/25/2016/2016-11-25-vps-shadowsocks/">
+                <i class="fa fa-google-plus"></i><span class="">Compartir en Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/11/25/2016/2016-11-25-vps-shadowsocks/">
+                <i class="fa fa-facebook-official"></i><span>Compartir en Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/11/25/2016/2016-11-25-vps-shadowsocks/">
+                <i class="fa fa-twitter"></i><span>Compartir en Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">John Doe</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+</html>

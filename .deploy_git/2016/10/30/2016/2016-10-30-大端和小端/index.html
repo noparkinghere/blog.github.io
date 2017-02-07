@@ -1,51 +1,425 @@
-extends base
 
-block title
-  title= page.title + ' | ' + config.title
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hexo">
+    <title>大端和小端 - Hexo</title>
+    <meta name="author" content="John Doe">
+    
+    
+    
+    <meta name="description" content="大小端和字节对齐，与 CPU 结构有关，与编译器没关系，只与编译器的默认代码约定规则有关。只要代码约定规则一样（可在代码中加入约定命令），不同编译器编译出来结果是一样的。
+我们常常看到“alignment”， “endian”之类的字眼， 但很少有 C 语言教材提到这些概念。 实际上它们是与处理器与内存接口， 编译器类型密切相关的。
+端模式(Byte Endian) 是指字节在内存中的组织，所以也">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="大端和小端">
+<meta property="og:url" content="http://yoursite.com/2016/10/30/2016/2016-10-30-大端和小端/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="大小端和字节对齐，与 CPU 结构有关，与编译器没关系，只与编译器的默认代码约定规则有关。只要代码约定规则一样（可在代码中加入约定命令），不同编译器编译出来结果是一样的。
+我们常常看到“alignment”， “endian”之类的字眼， 但很少有 C 语言教材提到这些概念。 实际上它们是与处理器与内存接口， 编译器类型密切相关的。
+端模式(Byte Endian) 是指字节在内存中的组织，所以也">
+<meta property="og:updated_time" content="2016-12-27T08:08:37.283Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="大端和小端">
+<meta name="twitter:description" content="大小端和字节对齐，与 CPU 结构有关，与编译器没关系，只与编译器的默认代码约定规则有关。只要代码约定规则一样（可在代码中加入约定命令），不同编译器编译出来结果是一样的。
+我们常常看到“alignment”， “endian”之类的字眼， 但很少有 C 语言教材提到这些概念。 实际上它们是与处理器与内存接口， 编译器类型密切相关的。
+端模式(Byte Endian) 是指字节在内存中的组织，所以也">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    
+</head>
 
-block content
-  .post
-    h1.post-title= page.title
-    .post-meta= page.date.format('ll')
-      if page.categories.length > 0
-        span= ' | '
-        span.category
-          for category in page.categories.toArray()
-            a(href=url_for(category.path))= category.name
-      if theme.busuanzi == true
-        script(src='https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js', async)
-        span#busuanzi_container_page_pv= ' | '
-          span#busuanzi_value_page_pv
-          span= ' ' + __('Hits')
-    if theme.duoshuo
-      a.ds-thread-count(data-thread-key=page.path, href=url_for(page.path) + '#comments')
-    if theme.disqus
-      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
-    if page.toc
-      div(class='clear')
-        div(id='toc' class='toc-article')
-          div(class='toc-title')= __('contents')
-          != toc(page.content)
-    .post-content
-      != page.content
-    if theme.shareto == true
-      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
-      a.article-share-link(data-url='#{page.permalink}', data-id='#{page._id}')= __('shareto')
-    include _partial/tag
-    include _partial/post_nav
-    if theme.duoshuo
-      div(class='ds-share flat' data-thread-key=page.path, data-title=page.title, data-url=page.permalink)
-         .ds-share-inline
-            ul.ds-share-icons-16
-              li(data-toggle='ds-share-icons-more')
-                a(class='ds-more' href='javascript:void(0);') 分享到：
-              li
-                a(class='ds-weibo' href='javascript:void(0);' data-service='weibo') 微博
-              li
-                a(class='ds-qzone' href='javascript:void(0);' data-service='qzone') QQ空间
-              li
-                a(class='ds-qqt' href='javascript:void(0);' data-service='qqt') 腾讯微博
-              li
-                a(class='ds-wechat' href='javascript:void(0);' data-service='wechat') 微信
-            .ds-share-icons-more
-    include _partial/comments
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Hexo</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="4">
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Inicio</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categorías</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Etiquetas</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archivos</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Buscar</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">Acerca de</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            大端和小端
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-10-30T10:30:00+08:00">
+	
+		    30 Oct 2016
+    	
+    </time>
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p><em>大小端和字节对齐，与 CPU 结构有关，与编译器没关系，只与编译器的默认代码约定规则有关。只要代码约定规则一样（可在代码中加入约定命令），不同编译器编译出来结果是一样的。</em></p>
+<p>我们常常看到“alignment”， “endian”之类的字眼， 但很少有 C 语言教材提到这些概念。 实际上它们是与处理器与内存接口， 编译器类型密切相关的。</p>
+<p><strong>端模式(Byte Endian)</strong> 是指字节在内存中的组织，所以也称它为Byte Ordering。这边所谓的端模式一般就是指大端或者小端存储，也就是每个字节的实际排放顺序，上面已经讨论过字节在内存中如何进行对齐，这边讨论字节的常见排放顺序。</p>
+<p>数据寻址时，一般读取的都是低位字节的地址（即存储数据的可能占用多个地址，但低位地址代表了这个数据的地址）。C 中的数据类型都是从内存的低地址向高地址扩展，取址运算”&amp;”都是取低地址。 所以就有高位地址和地位地址区别，一般来说数字大的就是高地址，数字小的是地址：比如 0x1000 相对于 0x1003 来说是低地址。数据低位和数据高位：比如 0x012345678 0x01 是数据高位（即使 Most Significant Byte，MSB 位），而 0x78 是数据低地址位（Least Significant Byte，LSB）。</p>
+<p>注意：有些地方 MSB 也可以代表 Most Significant Bit，LSB 则代表 Least Significant Bit 根据具体的场景来判别。如：FM25W256 铁电或者 EEPROM 中，描述的 MSB/LSB 根据时序图往往可以判别代表的高地位而不是字节。</p>
+<h3 id="端模式-Byte-Endian-简述"><a href="#端模式-Byte-Endian-简述" class="headerlink" title="端模式(Byte Endian)简述"></a>端模式(Byte Endian)简述</h3><ul>
+<li><p>大端模式：数据低位存放到地址高位。比如：存储数据0x01234567，按照0x01-&gt;1000，0x23-&gt;1001，0x45-&gt;1002，0x67-&gt;1003这种顺序存储。通讯中大都采用大段模式，因为数据通讯时，直接可以按照一个个位进行解析，无需每次调换顺序，大端模式往往在通讯中被广泛使用。</p>
+</li>
+<li><p>小端模式：一般也称作内存模式，数据高位存放到地址高位。比如：存储数据0x01234567，按照0x67-&gt;1000，0x45-&gt;1001，0x23-&gt;1002，0x01-&gt;1003这种顺序存储。小端比较符合人的一般思维逻辑。嵌入式芯片中目前主流就是小端模式，绝大多数ARM芯片默认也为小端模式，但可以进行更改设置，传统的51芯片为大端模式。</p>
+</li>
+</ul>
+<p>除了大小段模式外，还有一些协议自定义的转换标准，有的协议将两个字节(16bit)作为一个整体，如：传送数据0x00010203（按照内存模式/小端模式传送）时，会解析为0x0100，0x0302，具体分析，实际上采用的是大端模式，每次传输数据时，将16个作为个整体进行解析。</p>
+<h3 id="详细分析"><a href="#详细分析" class="headerlink" title="详细分析"></a>详细分析</h3><p>最近阮一峰老师的博客刚好也写了一篇有关大小端的文章，老实说，大小端本人也接触很久了，但也一直较为困惑，另外时间一长每次就忘了哪个是大端哪个是小端，这边给出一些个人的理解和分析。</p>
+<p>描述大小端时有一点表示的比较模糊，这边前后有两种含义：1.内存的寻址肯定是从低往高的，所以下面表示的前或者后，都是以内存作为参照，前表示内存的低地址，后表示内存高地址；2.通信过程中，传输在前表示先被传输打印过来的值，传输在后表示后被传输打印出来的值（传输的过程也需要明确一点，数据的传输打印不是被逐个挤到后面去的，而是在后面以append的形式显示，后来的数据显示在后方）。明确了这两点内容这边详细谈下大小端：</p>
+<ul>
+<li>大端字节序：高位字节在前，低位字节在后，这是人类读写数值的方法。内存中低地址对应数据的高位，传输中数据高位先被打印出来，因为先被打印出来（而打印按照从左往右的顺序逐个显示），所以例如：0x789A6B 就会显示为 78 9A 6B 这种更加符合人的阅读习惯。</li>
+<li>小端字节序：低位字节在前，高位字节在后，即以0x1122形式储存。内存中低地址对应数据的低位，传输中数据低位先被打印出来，因为先被打印出来（而打印按照从左往右的顺序逐个显示），所以例如：0x789A6B 就会显示为 6B 9A 78 这种更加符合人的阅读习惯。</li>
+</ul>
+<p>这边有些同学可能又有疑惑，为何 6B 可以解析为 6B(01101011) 而不是反过来 D6(11010110) 呢？事实上计算机在传输过程中确实有一个接近统一的标准的，无论是大端还是小端或者各种通讯协议（至少各种协议我还没有见过违背这个准则的），都满足原则：<strong>先传输字符的低位，后传输字符的高位。</strong></p>
+<ul>
+<li><em>以下内容引用自阮一峰老师的博客：</em>  </li>
+</ul>
+<blockquote>
+<p>首先，为什么会有小端字节序？答案是，计算机电路先处理低位字节，效率比较高，因为计算都是从低位开始的。所以，计算机的内部处理都是小端字节序。<br>但是，人类还是习惯读写大端字节序。所以，除了计算机的内部处理，其他的场合几乎都是大端字节序，比如网络传输和文件储存。</p>
+</blockquote>
+<p>个人认为该内容有待斟酌，如 51 单片机就是大端模式，另外很多 ARM 的 MCU 都是默认小端，且可以用户自己设置选用大端还是小端模式的。个人认为计算机内部并不会因为大小端而影响效率，在设计芯片时应该已经决定了它的特性。小端模式在不考虑传输，人工查看的前提下，对例如：00 78 9A 6B 用 6B所对应的地址来表示 0x789A6B 这个数据数据的存储位置，也是有一定道理的。</p>
+<h3 id="记忆方法"><a href="#记忆方法" class="headerlink" title="记忆方法"></a>记忆方法</h3><blockquote>
+<p>在乔纳森·斯威夫特的著名讽刺小说《格列夫游记》中，小人国内部分裂成Big-endian和Little-endian两派，区别在于一派要求从鸡蛋的大头把鸡蛋打破，另一派要求从鸡蛋的小头把鸡蛋打破。斯威夫特借以讽刺英国的政党之争，在计算机工业中指数据储存顺序的分歧。</p>
+</blockquote>
+<p>这边首先需要有个参照物，计算机按照从低位往高位寻址这是毋容置疑的，存储时，也都是讲内存的低位用完后，指针加一，再使用更高的位。大端意味着内存的低位存储了数据的高位，小端则是内存的低位对应了数据的低位。</p>
+<h3 id="测试大小端参考代码："><a href="#测试大小端参考代码：" class="headerlink" title="测试大小端参考代码："></a>测试大小端参考代码：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">方法1：</div><div class="line">typedef unsigned char u8;</div><div class="line"></div><div class="line">int main(void)</div><div class="line">&#123;</div><div class="line">	unsigned long int a = 0x01020304;</div><div class="line"></div><div class="line">	for (u8 i = 0; i &lt; 4; i++)</div><div class="line">	&#123;</div><div class="line">		printf(&quot;%d&quot;, *((u8 *)&amp;a + i));  // 注意先加a的地址转换为无符号字符型再加地址，否则每次加1，地址会增加4。</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">如果结果为：4321则为小端模式，而1234为大端模式。</div><div class="line"></div><div class="line">方法2：</div><div class="line"></div><div class="line">typedef union</div><div class="line">&#123;</div><div class="line">	unsigned short int a;</div><div class="line">	unsigned char b;</div><div class="line">&#125;Union;</div><div class="line"></div><div class="line"></div><div class="line">int main(void)</div><div class="line">&#123;</div><div class="line">	Union u1;</div><div class="line">	u1.a = 0x0201;</div><div class="line"></div><div class="line">	if (u1.b == 0x01)</div><div class="line">		printf(&quot;little endian\n&quot;);</div><div class="line">	else if (u1.b == 0x02)</div><div class="line">		printf(&quot;big endian\n&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p>参考链接：<br><a href="http://blog.csdn.net/vvzaixian/article/details/7067221" target="_blank" rel="external">http://blog.csdn.net/vvzaixian/article/details/7067221</a><br><a href="http://www.360doc.com/content/12/0413/10/1016783_203216902.shtml" target="_blank" rel="external">http://www.360doc.com/content/12/0413/10/1016783_203216902.shtml</a><br><a href="https://my.oschina.net/chaenomeles/blog/673091" target="_blank" rel="external">https://my.oschina.net/chaenomeles/blog/673091</a><br><a href="http://blog.sina.com.cn/s/blog_4afb1c4c010009oa.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_4afb1c4c010009oa.html</a><br><a href="http://www.ruanyifeng.com/blog/2016/11/byte-order.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2016/11/byte-order.html</a></p>
+</blockquote>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/30/2016/2016-10-30-uart-spi-iic的比较/"  data-tooltip="uart/spi/iic的比较">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/30/2016/2016-10-30-字节对齐/" data-tooltip="字节对齐">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SIGUIENTE</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/10/30/2016/2016-10-30-大端和小端/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/10/30/2016/2016-10-30-大端和小端/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/10/30/2016/2016-10-30-大端和小端/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2017 John Doe. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/30/2016/2016-10-30-uart-spi-iic的比较/"  data-tooltip="uart/spi/iic的比较">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/30/2016/2016-10-30-字节对齐/" data-tooltip="字节对齐">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SIGUIENTE</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/10/30/2016/2016-10-30-大端和小端/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/10/30/2016/2016-10-30-大端和小端/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/10/30/2016/2016-10-30-大端和小端/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/10/30/2016/2016-10-30-大端和小端/">
+                <i class="fa fa-google-plus"></i><span class="">Compartir en Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/10/30/2016/2016-10-30-大端和小端/">
+                <i class="fa fa-facebook-official"></i><span>Compartir en Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/10/30/2016/2016-10-30-大端和小端/">
+                <i class="fa fa-twitter"></i><span>Compartir en Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">John Doe</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+</html>

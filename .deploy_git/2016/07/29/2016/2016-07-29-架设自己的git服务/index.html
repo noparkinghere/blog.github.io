@@ -1,51 +1,455 @@
-extends base
 
-block title
-  title= page.title + ' | ' + config.title
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hexo">
+    <title>架设自己的git服务 - Hexo</title>
+    <meta name="author" content="John Doe">
+    
+    
+    
+    <meta name="description" content="本实验使用的是实体机 ubuntu 16.04 和虚拟机 virtualbox 搭建 ubuntu—server 16.04 系统进行连接，其中用 ubuntu-server 搭建 git，实体机 ubuntu desktop 连接 ubuntu-server，后续如果有其他环境也会逐一补充。
+这边暂时没有在实体机上面尝试，先列举出在虚拟机上面架设 git 服务器
+使用 ssh 登陆 ubuntu">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="架设自己的git服务">
+<meta property="og:url" content="http://yoursite.com/2016/07/29/2016/2016-07-29-架设自己的git服务/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="本实验使用的是实体机 ubuntu 16.04 和虚拟机 virtualbox 搭建 ubuntu—server 16.04 系统进行连接，其中用 ubuntu-server 搭建 git，实体机 ubuntu desktop 连接 ubuntu-server，后续如果有其他环境也会逐一补充。
+这边暂时没有在实体机上面尝试，先列举出在虚拟机上面架设 git 服务器
+使用 ssh 登陆 ubuntu">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-29-git%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/DeepinScrot-2011.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-29-git%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/DeepinScrot-4326.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-29-git%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/DeepinScrot-4534.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-29-git%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/DeepinScrot-1126.png">
+<meta property="og:updated_time" content="2017-01-12T05:45:49.199Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="架设自己的git服务">
+<meta name="twitter:description" content="本实验使用的是实体机 ubuntu 16.04 和虚拟机 virtualbox 搭建 ubuntu—server 16.04 系统进行连接，其中用 ubuntu-server 搭建 git，实体机 ubuntu desktop 连接 ubuntu-server，后续如果有其他环境也会逐一补充。
+这边暂时没有在实体机上面尝试，先列举出在虚拟机上面架设 git 服务器
+使用 ssh 登陆 ubuntu">
+<meta name="twitter:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-29-git%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/DeepinScrot-2011.png">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    
+</head>
 
-block content
-  .post
-    h1.post-title= page.title
-    .post-meta= page.date.format('ll')
-      if page.categories.length > 0
-        span= ' | '
-        span.category
-          for category in page.categories.toArray()
-            a(href=url_for(category.path))= category.name
-      if theme.busuanzi == true
-        script(src='https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js', async)
-        span#busuanzi_container_page_pv= ' | '
-          span#busuanzi_value_page_pv
-          span= ' ' + __('Hits')
-    if theme.duoshuo
-      a.ds-thread-count(data-thread-key=page.path, href=url_for(page.path) + '#comments')
-    if theme.disqus
-      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
-    if page.toc
-      div(class='clear')
-        div(id='toc' class='toc-article')
-          div(class='toc-title')= __('contents')
-          != toc(page.content)
-    .post-content
-      != page.content
-    if theme.shareto == true
-      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
-      a.article-share-link(data-url='#{page.permalink}', data-id='#{page._id}')= __('shareto')
-    include _partial/tag
-    include _partial/post_nav
-    if theme.duoshuo
-      div(class='ds-share flat' data-thread-key=page.path, data-title=page.title, data-url=page.permalink)
-         .ds-share-inline
-            ul.ds-share-icons-16
-              li(data-toggle='ds-share-icons-more')
-                a(class='ds-more' href='javascript:void(0);') 分享到：
-              li
-                a(class='ds-weibo' href='javascript:void(0);' data-service='weibo') 微博
-              li
-                a(class='ds-qzone' href='javascript:void(0);' data-service='qzone') QQ空间
-              li
-                a(class='ds-qqt' href='javascript:void(0);' data-service='qqt') 腾讯微博
-              li
-                a(class='ds-wechat' href='javascript:void(0);' data-service='wechat') 微信
-            .ds-share-icons-more
-    include _partial/comments
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Hexo</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="4">
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Inicio</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categorías</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Etiquetas</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archivos</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Buscar</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">Acerca de</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            架设自己的git服务
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-07-29T12:22:00+08:00">
+	
+		    29 Jul 2016
+    	
+    </time>
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p><em>本实验使用的是实体机 ubuntu 16.04 和虚拟机 virtualbox 搭建 ubuntu—server 16.04 系统进行连接，其中用 ubuntu-server 搭建 git，实体机 ubuntu desktop 连接 ubuntu-server，后续如果有其他环境也会逐一补充。</em></p>
+<p><strong>这边暂时没有在实体机上面尝试，先列举出在虚拟机上面架设 git 服务器</strong></p>
+<h3 id="使用-ssh-登陆-ubuntu-server"><a href="#使用-ssh-登陆-ubuntu-server" class="headerlink" title="使用 ssh 登陆 ubuntu-server"></a>使用 ssh 登陆 ubuntu-server</h3><h4 id="ping-通两个系统："><a href="#ping-通两个系统：" class="headerlink" title="ping 通两个系统："></a>ping 通两个系统：</h4><p>看是否可以 ping 通两个系统，首先查看 ip 地址，<code>ifconfig</code>， 例如主机是： 192.168.18.60 ，虚拟机是 192.168.18.202。则在主机中 ping 192.168.18.60 ，当然事情往往并不会一帆风顺，很多设置的时候，为了可以链接外网，虚拟机选用了 NAT 模式。<em>貌似该模式无法使用ssh服务，虚拟机可以 ping 通主机，但主机无法 ping 通虚拟机。</em>这时候可以使用几种方法：</p>
+<ul>
+<li>更改虚拟机模式为桥接模式，弃用原来的 NAT 模式。</li>
+<li>使用实体机中的虚拟机网卡与虚拟机进行交互，但貌似 ubuntu 下面并无法找到这块虚拟网卡，解决办法可以手动建立一个虚拟网卡。</li>
+<li>创建一个新的链接方式，通过这个桥接到实体机，然后通过 NAT 访问外网。<em>这边详细介绍这种方式</em></li>
+</ul>
+<p>详细步骤：</p>
+<ul>
+<li>使用 virtualbox 新建一个新的 adapter，选用 bridge adapter。如下图：</li>
+</ul>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-29-git%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/DeepinScrot-2011.png" alt=""></p>
+<ul>
+<li>重启虚拟机系统，或者重启网络服务 <code>sudo /etc/init.d/networking restart</code> ，ifconfig -a 查看所有网卡，可以看到虚拟机中有一个网卡 enp0s8 并没有被使用，这个就是刚刚新建的那个桥接网卡。</li>
+<li>设置该网卡，修改/etc/network/interfaces文件，如下图：</li>
+</ul>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-29-git%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/DeepinScrot-4326.png" alt=""></p>
+<ul>
+<li><p>重启网络服务 <code>sudo /etc/init.d/networking restart</code>，ifconfig 查看网卡。如下图：<br>-<br><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-29-git%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/DeepinScrot-4534.png" alt=""></p>
+</li>
+<li><p>接着基本就可以尝试 ping 通两个系统了，实体机中使用 ping 192.168.18.202，虚拟机中 ping 192.168.18.60 。如果仍然不行可以尝试关闭防火墙：<code>sudo ufw disable</code>。</p>
+</li>
+</ul>
+<a id="more"></a>
+<h4 id="尝试ssh服务："><a href="#尝试ssh服务：" class="headerlink" title="尝试ssh服务："></a>尝试ssh服务：</h4><p><em>本步骤主要是建立链接，安装 ssh 服务，然后连接实体机可以登陆 ubuntu-server。因为这边 git 采用了 ssh 与服务器进行交互，所以 ssh 在这边是必须的。</em></p>
+<ul>
+<li>实体机和虚拟机，两个操作系统必须要同时安装 ssh 服务，如果只有实体机安装会出现链接失败。安装指令都是： <code>sudo apt-get install ssh或sudo apt-get install openssh-server</code>，<code>sudo /etc/init.d/ssh restart</code> 重启 ssh 服务。</li>
+<li>查看ssh服务是否启动, <code>ps –e | grep ssh</code>，响应的 sshd 和 ssh-agent 如果未打开则运行指令名字。</li>
+<li>修改实体机的 ip 配置文件 <code>/ect/hosts</code>，加入如下行： <code>192.168.18.202 ubuntu_server</code>，ubuntu_server 是你的虚拟机的主机名称，而 ubuntu_server 以后将代替 192.168.18.202 出现。如果你的虚拟机名不是 ubuntu_server ,可以修改 /etc/hostname 中的名称。</li>
+<li>通过以上设置后，你的主机基本可以通过 ssh 访问虚拟机了，你可以在虚拟机新建一个用户 adduser git，然后实体机可以使用如下命令 <code>ssh git@ubuntu_server 或者 ssh git@192.168.18.202</code> 进行登陆，输入密码就可以进行相关操作了。</li>
+</ul>
+<p>补充：<em>如果 ssh 还不能登录上，就修改 sshd 的默认配置，例如： ssh 出现 permission denied (publickey) 问题:</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">修改 /etc/ssh/sshd-config 文件.</div><div class="line">将其中的 PermitRootLogin no 修改为 yes</div><div class="line">PubkeyAuthentication yes 修改为 no</div><div class="line">AuthorizedKeysFile .ssh/authorized_keys 前面加上#屏蔽掉，</div><div class="line">PasswordAuthentication no 修改为 yes 就可以了。*</div></pre></td></tr></table></figure>
+<h3 id="git虚拟服务器搭建："><a href="#git虚拟服务器搭建：" class="headerlink" title="git虚拟服务器搭建："></a>git虚拟服务器搭建：</h3><p><em>安装 git，可以使用命令 <code>sudo apt-get install git-core</code> 或者 `sudo apt-get install git</em>` 。</p>
+<ul>
+<li>在实体机上，我们使用命令： ssh-keygen –t rsa 生成密钥。秘钥在当前用户目录的 .ssh 目录下。</li>
+<li>在虚拟机的 git 目录下新建一个 .ssh 目录</li>
+<li>在 .ssh 目录下，我们可以看到 id_rsa 和 id_rsa.pub 文件，id_rsa.pub 为公钥，我们 通过命令 <code>scp /home/git/.ssh/id_rsa.pub git@ubuntu_server:/home/git/.ssh/authorized_keys</code>将实体机上生成的公钥拷贝到虚拟机的git账户目录下上。如果是要添加公钥可以使用使用命令 <code>cat /home/git/id_rsa.pub&gt;&gt;/home/git/.ssh/authorized_keys</code></li>
+<li>使用命令 <code>git –-bare init /home/git/myRep.git</code> ,初始化化仓库。<strong>注意一定需要建立一个 –bare 的裸库。</strong></li>
+</ul>
+<h4 id="git操作"><a href="#git操作" class="headerlink" title="git操作"></a>git操作</h4><p><em>我们可以使用 <code>git clone git@gitServer:/home/git/myRep.git</code> 直接将库克隆下来，但一般推荐，在将本地库与远程库建立链接具体步骤如下：</em></p>
+<ul>
+<li>在实体机中新建一个文件夹， <code>mkdir test</code> ，进入该文件夹 <code>cd test</code></li>
+<li>初始化这个库， <code>git init</code>。</li>
+<li>随意添加几个文件，例如： <code>echo &quot;hello world&quot; &gt;&gt; test.txt</code></li>
+<li>常规git操作，加入stage并提交， <code>git add .  &amp;&amp;  git commit -m &quot;test&quot;</code></li>
+<li>查看下本地库的状态： git status</li>
+<li>一切正常的话，将远程库与本地库建立关系： <code>git remote add test git@ubuntu_server:/home/git/myRep.git</code>。这边的 test 为远程库的名称，默认一般为 origin，但如果你一个项目中同时有多个库，则建议你修改 origin 名称。</li>
+<li><code>git remote –v</code>，可查看版本库的网址，以及相关的库名称</li>
+</ul>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-29-git%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/DeepinScrot-1126.png" alt=""></p>
+<ul>
+<li>可以通过 <code>git push test master</code> 进行推送，注意这边远程库名为test而并不是默认的origin。也可以通过<code>git pull test master</code>对虚拟机中的远程库进行拉取。<em>注意因为不是默认名称，所以直接使用 git  push 或者 pull 会报错。</em></li>
+</ul>
+<p><strong>注意严格按照上面步骤执行，git 操作，一步错，可能就需要你删除 .git 以及 git remote remove test 等相关系列的操作，或者可以删除整个目录重新开始。值得注意的是， git 建立出来的每个库是相互独立的，除非全局设置，否则在添加远程库或者修改其他设置时，都不会对其他库有任何影响。</strong></p>
+<p><strong>建立好库，并且也 push 等操作都成功了，但查看虚拟机中远程库的源文件却发现招不到任何一个文件，事实上， git 远程裸库仅仅保存修改记录和分支，并不是用来查看的，只有当你 clone 或者 pull 之后才可以查看某条分支的完整结构。</strong></p>
+<blockquote>
+<p>参考链接：<br><a href="http://developer.51cto.com/art/201507/483448.htm" target="_blank" rel="external">http://developer.51cto.com/art/201507/483448.htm</a><br><a href="http://blog.sina.com.cn/s/blog_6ab9984801011k81.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_6ab9984801011k81.html</a><br><a href="http://stackoverflow.com/questions/20252294/ssh-could-not-resolve-hostname-hostname-nodename-nor-servname-provided-or-n" target="_blank" rel="external">http://stackoverflow.com/questions/20252294/ssh-could-not-resolve-hostname-hostname-nodename-nor-servname-provided-or-n</a><br><a href="http://www.cnblogs.com/xdzone/archive/2011/03/09/1978327.html" target="_blank" rel="external">http://www.cnblogs.com/xdzone/archive/2011/03/09/1978327.html</a><br><a href="http://blog.csdn.net/zht666/article/details/9340633" target="_blank" rel="external">http://blog.csdn.net/zht666/article/details/9340633</a><br><a href="http://blog.sina.com.cn/s/blog_5f435c130102v6pv.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_5f435c130102v6pv.html</a><br><a href="http://bbs.csdn.net/topics/390158779" target="_blank" rel="external">http://bbs.csdn.net/topics/390158779</a><br><a href="http://blog.163.com/danshiming@126/blog/static/109412748201251211140194/" target="_blank" rel="external">http://blog.163.com/danshiming@126/blog/static/109412748201251211140194/</a></p>
+</blockquote>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/08/03/2016/2016-08-03-gpio口详解/"  data-tooltip="GPIO口详解">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/07/27/2016/2016-07-27-多个发行版linux使用体验/" data-tooltip="多个发行版linux使用体验">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SIGUIENTE</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/07/29/2016/2016-07-29-架设自己的git服务/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/07/29/2016/2016-07-29-架设自己的git服务/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/07/29/2016/2016-07-29-架设自己的git服务/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2017 John Doe. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/08/03/2016/2016-08-03-gpio口详解/"  data-tooltip="GPIO口详解">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/07/27/2016/2016-07-27-多个发行版linux使用体验/" data-tooltip="多个发行版linux使用体验">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SIGUIENTE</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/07/29/2016/2016-07-29-架设自己的git服务/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/07/29/2016/2016-07-29-架设自己的git服务/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/07/29/2016/2016-07-29-架设自己的git服务/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/07/29/2016/2016-07-29-架设自己的git服务/">
+                <i class="fa fa-google-plus"></i><span class="">Compartir en Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/07/29/2016/2016-07-29-架设自己的git服务/">
+                <i class="fa fa-facebook-official"></i><span>Compartir en Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/07/29/2016/2016-07-29-架设自己的git服务/">
+                <i class="fa fa-twitter"></i><span>Compartir en Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">John Doe</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+</html>

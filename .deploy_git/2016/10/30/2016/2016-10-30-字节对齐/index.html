@@ -1,51 +1,430 @@
-extends base
 
-block title
-  title= page.title + ' | ' + config.title
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hexo">
+    <title>字节对齐 - Hexo</title>
+    <meta name="author" content="John Doe">
+    
+    
+    
+    <meta name="description" content="大小端和字节对齐，与 CPU 结构有关，与编译器没关系，只与编译器的默认代码约定规则有关。只要代码约定规则一样（可在代码中加入约定命令），不同编译器编译出来结果是一样的。
+我们常常看到“alignment”， “endian”之类的字眼， 但很少有 C 语言教材提到这些概念。 实际上它们是与处理器与内存接口， 编译器类型密切相关的。与 CPU 结构有关，与编译器没关系，只与编译器的默认代码约定规则">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="字节对齐">
+<meta property="og:url" content="http://yoursite.com/2016/10/30/2016/2016-10-30-字节对齐/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="大小端和字节对齐，与 CPU 结构有关，与编译器没关系，只与编译器的默认代码约定规则有关。只要代码约定规则一样（可在代码中加入约定命令），不同编译器编译出来结果是一样的。
+我们常常看到“alignment”， “endian”之类的字眼， 但很少有 C 语言教材提到这些概念。 实际上它们是与处理器与内存接口， 编译器类型密切相关的。与 CPU 结构有关，与编译器没关系，只与编译器的默认代码约定规则">
+<meta property="og:updated_time" content="2016-12-27T08:01:58.227Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="字节对齐">
+<meta name="twitter:description" content="大小端和字节对齐，与 CPU 结构有关，与编译器没关系，只与编译器的默认代码约定规则有关。只要代码约定规则一样（可在代码中加入约定命令），不同编译器编译出来结果是一样的。
+我们常常看到“alignment”， “endian”之类的字眼， 但很少有 C 语言教材提到这些概念。 实际上它们是与处理器与内存接口， 编译器类型密切相关的。与 CPU 结构有关，与编译器没关系，只与编译器的默认代码约定规则">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    
+</head>
 
-block content
-  .post
-    h1.post-title= page.title
-    .post-meta= page.date.format('ll')
-      if page.categories.length > 0
-        span= ' | '
-        span.category
-          for category in page.categories.toArray()
-            a(href=url_for(category.path))= category.name
-      if theme.busuanzi == true
-        script(src='https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js', async)
-        span#busuanzi_container_page_pv= ' | '
-          span#busuanzi_value_page_pv
-          span= ' ' + __('Hits')
-    if theme.duoshuo
-      a.ds-thread-count(data-thread-key=page.path, href=url_for(page.path) + '#comments')
-    if theme.disqus
-      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
-    if page.toc
-      div(class='clear')
-        div(id='toc' class='toc-article')
-          div(class='toc-title')= __('contents')
-          != toc(page.content)
-    .post-content
-      != page.content
-    if theme.shareto == true
-      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
-      a.article-share-link(data-url='#{page.permalink}', data-id='#{page._id}')= __('shareto')
-    include _partial/tag
-    include _partial/post_nav
-    if theme.duoshuo
-      div(class='ds-share flat' data-thread-key=page.path, data-title=page.title, data-url=page.permalink)
-         .ds-share-inline
-            ul.ds-share-icons-16
-              li(data-toggle='ds-share-icons-more')
-                a(class='ds-more' href='javascript:void(0);') 分享到：
-              li
-                a(class='ds-weibo' href='javascript:void(0);' data-service='weibo') 微博
-              li
-                a(class='ds-qzone' href='javascript:void(0);' data-service='qzone') QQ空间
-              li
-                a(class='ds-qqt' href='javascript:void(0);' data-service='qqt') 腾讯微博
-              li
-                a(class='ds-wechat' href='javascript:void(0);' data-service='wechat') 微信
-            .ds-share-icons-more
-    include _partial/comments
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Hexo</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="4">
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Inicio</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categorías</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Etiquetas</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archivos</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Buscar</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">Acerca de</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            字节对齐
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-10-30T07:32:00+08:00">
+	
+		    30 Oct 2016
+    	
+    </time>
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p><em>大小端和字节对齐，与 CPU 结构有关，与编译器没关系，只与编译器的默认代码约定规则有关。只要代码约定规则一样（可在代码中加入约定命令），不同编译器编译出来结果是一样的。</em></p>
+<p>我们常常看到“alignment”， “endian”之类的字眼， 但很少有 C 语言教材提到这些概念。 实际上它们是与处理器与内存接口， 编译器类型密切相关的。与 CPU 结构有关，与编译器没关系，只与编译器的默认代码约定规则有关。只要代码约定规则一样（可在代码中加入约定命令），不同编译器编译出来结果是一样的。</p>
+<h3 id="字节对齐（Byte-Alignment）"><a href="#字节对齐（Byte-Alignment）" class="headerlink" title="字节对齐（Byte Alignment）"></a>字节对齐（Byte Alignment）</h3><p>我们写程序的时候，不需要考虑对齐问题。编译器会替我们选择适合目标平台的对齐策略。当然，我们也可以通知给编译器传递预编译指令而改变对指定数据的对齐方法。但是，正因为我们一般不需要关心这个问题，所以因为编辑器对数据存放做了对齐，而我们不了解的话，常常会对一些问题感到迷惑。最常见的就是 struct 数据结构的 sizeof 结果，出乎意料。为此，我们需要对对齐算法所了解。</p>
+<p>现代计算机中内存空间都是按照 byte 划分的，从理论上讲似乎对任何类型的变量的访问可以从任何地址开始，但实际情况是在访问特定变量的时候经常在特定的内存地址访问，这就需要各类型数据按照一定的规则在空间上排列，而不是顺序的一个接一个的排放，这就是对齐。</p>
+<p>内存地址对齐，是一种在计算机内存中排列数据、访问数据的一种方式，包含了两种相互独立又相互关联的部分：基本数据对齐和结构体数据对齐。当今的计算机在计算机内存中读写数据时都是按字(word)大小块来进行操作的(在32位系统中，数据总线宽度为32，每次能读取4字节，地址总线宽度为32，因此最大的寻址空间为2^32=4GB，但是最低2位A[0]，A[1]是不用于寻址，A[2-31]才能存储器相连，因此只能访问4的倍数地址空间，但是总的寻址空间还是2^30 <em> 字长 = 4GB，因此在内存中所有存放的基本类型数据的首地址的最低两位都是0，除结构体中的成员变量)。<strong>基本类型数据对齐就是数据在内存中的偏移地址必须等于一个字的倍数</strong>，按这种存储数据的方式，可以提升系统在读取数据时的性能。<em>*为了对齐数据，可能必须在上一个数据结束和下一个数据开始的地方插入一些没有用处字节，这就是结构体数据对齐</em></em>。</p>
+<p>举个例子，假设计算机的字大小为4个字节，因此变量在内存中的首地址都是满足4地址对齐，CPU只能对4的倍数的地址进行读取，而每次能读取4个字节大小的数据。假设有一个整型的数据a的首地址不是4的倍数(如下图所示)，不妨设为0X00FFFFF3，则该整型数据存储在地址范围为0X00FFFFF3~0X00FFFFF6的存储空间中，而CPU每次只能对4的倍数内存地址进行读取，因此想读取a的数据，CPU要分别在0X00FFFFF0和0X00FFFFF4进行两次内存读取，而且还要对两次读取的数据进行处理才能得到a的数据，而一个程序的瓶颈往往不是CPU的速度，而是取决于内存的带宽，因为CPU得处理速度要远大于从内存中读取数据的速度，因此减少对内存空间的访问是提高程序性能的关键。从上例可以看出，采取内存地址对齐策略是提高程序性能的关键。</p>
+<p>结构体(struct)是C语言中非常有用的用户自定义数据类型，而结构体类型的变量以及其各成员在内存中的又是怎样布局的呢？怎样对齐的呢？很显然<strong>结构体变量首地址必须是4字节对齐的</strong>，但是<strong>结构体的每个成员有各自默认的对齐方式</strong>，结构体中各成员在内存中出现的位置是随它们的声明顺序依次递增的，并且<strong>第一个成员的首地址等于整个结构体变量的首地址</strong>。下面列出了在Microsoft，Borland，GNU上对于X86架构32位系统的结构体成员各种类型的默认对齐方式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">char(1字节)，1字节对齐</div><div class="line">short(2字节)，2字节对齐</div><div class="line">int(4字节)，4字节对齐</div><div class="line">float(4字节)，4字节对齐</div><div class="line">double(8字节)，Windows系统中8字节对齐，Linux系统中4字节对齐。</div><div class="line">*不同CPU的对其规则可能不同, 请参考手册。*</div></pre></td></tr></table></figure>
+<p>各个硬件平台对存储空间的处理上有很大的不同。一些平台对某些特定类型的数据只能从某些特定地址开始存取。其他平台可能没有这种情况，但是最常见的是如果不按照适合其平台要求对数据存放进行对齐，会在存取效率上带来损失。比如有些平台每次读都是从偶地址开始，如果一个int型（假设为 32 位系统）如果存放在偶地址开始的地方，那么一个读周期就可以读出，而如果存放在奇地址开始的地方，就可能会需要 2 个读周期，并对两次读出的结果的高低字节进行拼凑才能得到该 int 数据。显然在读取效率上下降很多。这也是空间和时间的博弈。</p>
+<a id="more"></a>
+<h3 id="对齐的算法："><a href="#对齐的算法：" class="headerlink" title="对齐的算法："></a>对齐的算法：</h3><p>由于各个平台和编译器的不同，现以 gcc 3.4.5 编译器（x64平台）为例，来讨论编译器对 struct 数据结构中的各成员如何进行对齐的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">测试程序如下：</div><div class="line"></div><div class="line">typedef struct</div><div class="line">&#123;</div><div class="line">	long int a;</div><div class="line">	char b;</div><div class="line">	short c;</div><div class="line">&#125;STRU_A;</div><div class="line"></div><div class="line">typedef struct</div><div class="line">&#123;</div><div class="line">	char b;</div><div class="line">	long int a;</div><div class="line">	short c;</div><div class="line">&#125;STRU_B;</div><div class="line"></div><div class="line">int main(void)</div><div class="line">&#123;</div><div class="line">	printf(&quot;%d, %d\n&quot;, sizeof (STRU_A), sizeof (STRU_B));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>结构体 A 中包含了 4 字节长度的 int 1个，1 字节长度的 char 1个和 2 字节长度的 short 型数据1个。所以 A 用到的空间应该是 7 字节。但是因为编译器要对数据成员在空间上进行对齐。所以使用 sizeof(STRU_A)值为 8。现在把该结构体调整成员变量的顺序。这时候同样是总共 7 个字节的变量，但是 sizeof(STRU_B)的值却是 12。</p>
+<p>程序编译器对结构存储的特殊处理确实提高了CPU的存储变量速度，但有时候也会带来一些麻烦，这边我们使用#pragma pack (value)来屏蔽掉变量默认的对齐方式。下面我们使用预编译指令#pragma pack (value)来告诉编译器，使用我们指定的对齐值来取代缺省的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">进一步我们修改代码：</div><div class="line"></div><div class="line">#pragma pack (2) /*指定按 2 字节对齐*/</div><div class="line">typedef struct</div><div class="line">&#123;</div><div class="line">	char b;</div><div class="line">	long int a;</div><div class="line">	short c;</div><div class="line">&#125;STRU1;</div><div class="line">#pragma pack () /*取消指定对齐，恢复缺省对齐*/</div><div class="line"></div><div class="line">#pragma pack (1) /*指定按 1 字节对齐*/</div><div class="line">typedef struct</div><div class="line">&#123;</div><div class="line">	char b;</div><div class="line">	long int a;</div><div class="line">	short c;</div><div class="line">&#125;STRU2;</div><div class="line">#pragma pack () /*取消指定对齐，恢复缺省对齐*/</div><div class="line"></div><div class="line">int main(void)</div><div class="line">&#123;</div><div class="line">	printf(&quot;%d, %d\n&quot;, sizeof (STRU1), sizeof (STRU2));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>sizeof(STRU1)值为 7。对于 char 型数据，其自身对齐值为 1，对于 short 型为 2，对于 int,float,double类型，其自身对齐值为 4，单位字节。</p>
+<p>这里面有四个概念值：</p>
+<ul>
+<li>数据类型自身的对齐值：就是上面交代的基本数据类型的自身对齐值。</li>
+<li>指定对齐值：#pragma pack (value)时的指定对齐值 value。</li>
+<li>结构体或者类的自身对齐值：其成员中自身对齐值最大的那个值。</li>
+<li>数据成员、结构体和类的有效对齐值：自身对齐值和指定对齐值中小的那个值。</li>
+</ul>
+<p>有了这些值，我们就可以很方便的来讨论具体数据结构的成员和其自身的对齐方式。有效对齐值 N 是最终用来决定数据存放地址方式的值，最重要。有效对齐N，就是 表示“对齐在 N 上”，也就是说该数据的”存放起始地址%N=0”.而数据结构中的数据变量都是按定义的先后顺序来排放的。第一个数据变量的起始地址就是数据结构的起始地址。结构体的成员变量要对齐排放，结构体本身也要根据自身的有效对齐值圆整(就是结构体成员变量占用总长度需要是对结构体有效对齐值的整数 倍，结合下面例子理解)。这样就不能理解上面的几个例子的值了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">例子分析：</div><div class="line">分析例子 B；</div><div class="line">struct B</div><div class="line">&#123;</div><div class="line">	char b;</div><div class="line">	int a;</div><div class="line">	short c;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>假设B从地址空间0x0000开始排放。该例子中没有定义指定对齐值，该值默认为4。第一个成员变量b的自身对齐值是1，比指定或者默认指定对齐值4小，所以其有效对齐值为1，所以其存放地址0x0000符合0x0000%1=0.第二个成员变量a，其自身对齐值为4，所以有效对齐值也为4，所以只能存放在起始地址为0x0004到0x0007这四个连续的字节空间中，复核0x0004%4=0,且紧靠第一个变量。第三个变量c,自身对齐值为2，所以有效对齐值也是2，可以存放在0x0008到0x0009这两个字节空间中，符合0x0008%2=0。所以从0x0000到0x0009存放的都是B内容。再看数据结构B的自身对齐值为其变量中最大对齐值(这里是b）所以就是4，所以结构体的有效对齐值也是4。根据结构体圆整的要求，0x0009到0x0000=10字节，（10＋2）％4＝0。所以0x0000A到0x000B也为结构体B所占用。故B从0x0000到0x000B共有12个字节,sizeof(struct B)=12;同理,分析上面例子C：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#pragma pack (2) /*指定按 2 字节对齐*/</div><div class="line">struct C</div><div class="line">&#123;</div><div class="line">	char b;</div><div class="line">	int a;</div><div class="line">	short c;</div><div class="line">&#125;;</div><div class="line">#pragma pack () /*取消指定对齐，恢复缺省对齐*/</div></pre></td></tr></table></figure>
+<p>第一个变量b的自身对齐值为1，指定对齐值为2，所以，其有效对齐值为1，假设C从0x0000开始，那么b存放在0x0000，符合0x0000%1=0;第二个变量，自身对齐值为4，指定对齐值为2，所以有效对齐值为2，所以顺序存放在0x0002、0x0003、0x0004、0x0005四个连续字节中，符合0x0002%2=0。第三个变量c的自身对齐值为2，所以有效对齐值为2，顺序存放在0x0006、0x0007中，符合0x0006%2=0。所以从0x0000到0x00007共八字节存放的是C的变量。又C的自身对齐值为4，所以C的有效对齐值为2。又8%2=0,C只占用0x0000到0x0007的八个字节。所以sizeof(struct C)=8。</p>
+<p>下面是一个有char，int，short三种类型，4个成员组成的结构体，该结构体在还未编译之前是大小占8个字节。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">struct AlignData</div><div class="line">&#123;</div><div class="line">	char a;</div><div class="line">	short b;</div><div class="line">	int c;</div><div class="line">	char d;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>编译之后，为了保持结构体中的每个成员都是按照各自的对齐，编译器会在一些成员之间插入一些padding，因此编译后得到如下的结构体：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">struct AlignData </div><div class="line">&#123;</div><div class="line">	char a;</div><div class="line">	char Padding0[1];</div><div class="line">	short b;</div><div class="line">	int c;</div><div class="line">	char d;</div><div class="line">	char Padding1[3];</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>编译后该结构体的大小为12个字节，<strong>最后一个成员d后面填充的字节数要使该结构体的总大小是其成员类型中拥有最大字节数的倍数</strong>(int拥有最大字节数)，因此d后面要填充3个字节。</p>
+<p>通过以上的详细分析，我们可以总结编译器在自动分配结构体类型对齐时，<strong>一般是以第一个数据为基准值，然后往后累加地址查找，最终确保将每个需要分配的数据分配到sizeof(data)整数倍的地址上面。至于那些在查找过程中不满足要求的存储空间就空出。</strong>一般主要满足以下规则：</p>
+<ul>
+<li>单个字节(char)能对齐到任意地址</li>
+<li>2字节(short)以2字节边界对齐</li>
+<li>4字节(int, long)以4字节边界对齐</li>
+</ul>
+<hr>
+<blockquote>
+<p>参考链接：<br><a href="http://blog.csdn.net/vvzaixian/article/details/7067221" target="_blank" rel="external">http://blog.csdn.net/vvzaixian/article/details/7067221</a><br><a href="http://www.360doc.com/content/12/0413/10/1016783_203216902.shtml" target="_blank" rel="external">http://www.360doc.com/content/12/0413/10/1016783_203216902.shtml</a><br><a href="https://my.oschina.net/chaenomeles/blog/673091" target="_blank" rel="external">https://my.oschina.net/chaenomeles/blog/673091</a><br><a href="http://blog.sina.com.cn/s/blog_4afb1c4c010009oa.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_4afb1c4c010009oa.html</a><br><a href="http://www.ruanyifeng.com/blog/2016/11/byte-order.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2016/11/byte-order.html</a></p>
+</blockquote>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/30/2016/2016-10-30-大端和小端/"  data-tooltip="大端和小端">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/29/2016/2016-10-29-spi通信详解/" data-tooltip="SPI通信详解">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SIGUIENTE</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/10/30/2016/2016-10-30-字节对齐/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/10/30/2016/2016-10-30-字节对齐/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/10/30/2016/2016-10-30-字节对齐/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2017 John Doe. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/30/2016/2016-10-30-大端和小端/"  data-tooltip="大端和小端">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/29/2016/2016-10-29-spi通信详解/" data-tooltip="SPI通信详解">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SIGUIENTE</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/10/30/2016/2016-10-30-字节对齐/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/10/30/2016/2016-10-30-字节对齐/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/10/30/2016/2016-10-30-字节对齐/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/10/30/2016/2016-10-30-字节对齐/">
+                <i class="fa fa-google-plus"></i><span class="">Compartir en Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/10/30/2016/2016-10-30-字节对齐/">
+                <i class="fa fa-facebook-official"></i><span>Compartir en Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/10/30/2016/2016-10-30-字节对齐/">
+                <i class="fa fa-twitter"></i><span>Compartir en Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">John Doe</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+</html>

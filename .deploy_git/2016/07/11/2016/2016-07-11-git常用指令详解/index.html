@@ -1,51 +1,437 @@
-extends base
 
-block title
-  title= page.title + ' | ' + config.title
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hexo">
+    <title>git常用指令详解 - Hexo</title>
+    <meta name="author" content="John Doe">
+    
+    
+    
+    <meta name="description" content="用git这个版本控制器也有一段时间了，但奈何一直停留在初浅的使用阶段，对诸如：分支，远程库，log，reflog，pull，clone等命令一直无法清晰的认识，仅仅是简单的add，commit，push，出了问题再查找。始终无法串接成自有的知识体系，git 作为当下最流行的版本控制器，不得不说我对她真是既爱又恨，喜欢她的小巧高效功能强大；恨上手困难，虽然也有了一些简单易懂的教程，但在在实际使用时，">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="git常用指令详解">
+<meta property="og:url" content="http://yoursite.com/2016/07/11/2016/2016-07-11-git常用指令详解/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="用git这个版本控制器也有一段时间了，但奈何一直停留在初浅的使用阶段，对诸如：分支，远程库，log，reflog，pull，clone等命令一直无法清晰的认识，仅仅是简单的add，commit，push，出了问题再查找。始终无法串接成自有的知识体系，git 作为当下最流行的版本控制器，不得不说我对她真是既爱又恨，喜欢她的小巧高效功能强大；恨上手困难，虽然也有了一些简单易懂的教程，但在在实际使用时，">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-11-git%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E8%AF%A6%E8%A7%A3/265643011.jpg">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-11-git%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E8%AF%A6%E8%A7%A3/0.png">
+<meta property="og:updated_time" content="2017-01-03T02:32:17.428Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git常用指令详解">
+<meta name="twitter:description" content="用git这个版本控制器也有一段时间了，但奈何一直停留在初浅的使用阶段，对诸如：分支，远程库，log，reflog，pull，clone等命令一直无法清晰的认识，仅仅是简单的add，commit，push，出了问题再查找。始终无法串接成自有的知识体系，git 作为当下最流行的版本控制器，不得不说我对她真是既爱又恨，喜欢她的小巧高效功能强大；恨上手困难，虽然也有了一些简单易懂的教程，但在在实际使用时，">
+<meta name="twitter:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-11-git%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E8%AF%A6%E8%A7%A3/265643011.jpg">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    
+</head>
 
-block content
-  .post
-    h1.post-title= page.title
-    .post-meta= page.date.format('ll')
-      if page.categories.length > 0
-        span= ' | '
-        span.category
-          for category in page.categories.toArray()
-            a(href=url_for(category.path))= category.name
-      if theme.busuanzi == true
-        script(src='https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js', async)
-        span#busuanzi_container_page_pv= ' | '
-          span#busuanzi_value_page_pv
-          span= ' ' + __('Hits')
-    if theme.duoshuo
-      a.ds-thread-count(data-thread-key=page.path, href=url_for(page.path) + '#comments')
-    if theme.disqus
-      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
-    if page.toc
-      div(class='clear')
-        div(id='toc' class='toc-article')
-          div(class='toc-title')= __('contents')
-          != toc(page.content)
-    .post-content
-      != page.content
-    if theme.shareto == true
-      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
-      a.article-share-link(data-url='#{page.permalink}', data-id='#{page._id}')= __('shareto')
-    include _partial/tag
-    include _partial/post_nav
-    if theme.duoshuo
-      div(class='ds-share flat' data-thread-key=page.path, data-title=page.title, data-url=page.permalink)
-         .ds-share-inline
-            ul.ds-share-icons-16
-              li(data-toggle='ds-share-icons-more')
-                a(class='ds-more' href='javascript:void(0);') 分享到：
-              li
-                a(class='ds-weibo' href='javascript:void(0);' data-service='weibo') 微博
-              li
-                a(class='ds-qzone' href='javascript:void(0);' data-service='qzone') QQ空间
-              li
-                a(class='ds-qqt' href='javascript:void(0);' data-service='qqt') 腾讯微博
-              li
-                a(class='ds-wechat' href='javascript:void(0);' data-service='wechat') 微信
-            .ds-share-icons-more
-    include _partial/comments
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Hexo</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="4">
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Inicio</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categorías</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Etiquetas</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archivos</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Buscar</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">Acerca de</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            git常用指令详解
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-07-11T12:12:00+08:00">
+	
+		    11 Jul 2016
+    	
+    </time>
+    
+        <span>en </span>
+        
+    <a class="category-link" href="/categories/read/">read</a>
+
+
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>用git这个版本控制器也有一段时间了，但奈何一直停留在初浅的使用阶段，对诸如：分支，远程库，log，reflog，pull，clone等命令一直无法清晰的认识，仅仅是简单的add，commit，push，出了问题再查找。<br>始终无法串接成自有的知识体系，git 作为当下最流行的版本控制器，不得不说我对她真是既爱又恨，喜欢她的小巧高效功能强大；恨上手困难，虽然也有了一些简单易懂的教程，但在在实际使用时，始终不能形成自己的知识体系，原因可能还是项目中实际用的过少，这篇文章，会花一段时间，详细的介绍git的大概工作过程，对一些常用命令精简的介绍，然后从我个人的角度来认识git，总结自己的经验。*</p>
+<a id="more"></a>
+<p><strong>这篇文章的过程意在记录自己使用git的学习经历，并不断的总结推荐一些良好的配置以及相关软件。</strong></p>
+<h3 id="GIT介绍："><a href="#GIT介绍：" class="headerlink" title="GIT介绍："></a>GIT介绍：</h3><p>Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。Git的读音为/gɪt/。Git是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。</p>
+<h4 id="版本控制器介绍："><a href="#版本控制器介绍：" class="headerlink" title="版本控制器介绍："></a>版本控制器介绍：</h4><p>版本控制透过文档控制（documentation control）记录程序各个模组的改动，并为每次改动编上序号。这种方法是工程图（engineering drawings）维护（maintenance）的标准做法， 它伴随着工程图从图的诞生一直到图的定型。 一种简单的版本控制形式，例如，赋给图的初版一个版本等级“A”。当做了第一次改变后，版本等级改为“B”，以此类推等等。</p>
+<h4 id="GIT特点："><a href="#GIT特点：" class="headerlink" title="GIT特点："></a>GIT特点：</h4><p><em>GIT采用分支的结构形式来记录所有文本的修改，可以看出分支和指针是git的核心，git因为指针的高速切换而高效。所有的分支名都是指针，且该指针无条件的指向这条分支的最末端，例如：master指针永远指向master这条分支的最后一个节点，而HEAD指针则指向的是当前位置，即用户目前所在的工作位置。在git的工作过程中最主要使用的是：add,commit,log,checkout这几个命令，而诸如reflog，reset等其实用的并不算多，如果有远程库的话还需要注意pull,push,remote。</em></p>
+<h3 id="常用GIT指令："><a href="#常用GIT指令：" class="headerlink" title="常用GIT指令："></a>常用GIT指令：</h3><ul>
+<li><p>git add filename:将相关文件加入到暂存区stage中，注意有新文件的话，add步骤不能少。如果是一个人做的项目，一般如果整个项目加入可以使用git add . 或者git add * 。</p>
+</li>
+<li><p>git commit -m “commment”：git的版本提交，执行完这步骤，你就完成了版本的创建提交了，也是最常用的步骤。<em>建议：使用git commit -m 即可，去配置文件中修改editor，这样可以调用如vim之类的编辑器，否则备注写起来麻烦，且字数有限制。</em></p>
+</li>
+<li><p>git branch：查看分支结构，git的颇有c语言和数据结构的风格，整个git的版本控制，类似于一颗数，可以不断创建新的分支，然后分支名称类似于一个tag指针，始终指向分支的末尾处，而head这个指针指向的地方就是当前你所能看到的处在的版本位置，<strong>严格的来说并不是指向当前，而是上一个提交了的版本的位置，当前如果做了一些修改，而没去提交，则使用reset会回到上一个提交的版本，修改的内容会丢失</strong>。</p>
+</li>
+<li><p><strong>git checkout</strong>(<em>该命令的理解贯穿git的始终，如果理解不精准，往往会遇到很多莫名其妙的错误。)</em>：<strong>用于控制head指针所指向的位置</strong>，也就是说控制当前用户的工作位置。该指令尤为重要，<strong>一般都是通过checkout找到过去的某个版本，然后在该位置创建分支结构，再进行相应修改。</strong>(<em>注意是切换HEAD的位置，此时仅仅用于查看该版本，而如果你没有在该位置建立新的分支，则无法对改版本进行修改，git的所有修改都是基于分支进行的，每条枝干的前后各个版本都是存在强关联性的，所有枝干的后一个节点都是基于前一个节点建立的，如果checkout到前一个节点对它进行了破坏，则后面也必然会受影响，这种情况一般是不允许发生的，因此checkout的每次修改都是要求该节点必须要重新开枝散叶，这样新的修改会在新的枝干上面进行，不会影响原有的内容。</em>)checkout的好处在于不会破坏原有的分支结构，可以任意在整个的目录树上面对head进行移动，方便用户查看各个版本。（<strong>再次注意：checkout只是用来控制head的，如果head通过checkout发生了移动，不再指向原有分支的末尾如：master，则必须建立新分支，才可以对文件进行提交修改。另外即便checkout指向原有分支的末尾，但如果是版本号的话也是没法进行修改的，必须要是指向master这个分支名才可以进行修改，类似于HEAD必须指向指针才可以，而不是指向某一个节点，这一点有指针操作经验的话，较容易理解。</strong>），<em>checkout – filename：回退某一个文件，注意需要加–，这一步并不是更改HEAD指向，而仅仅是回退某一个错误修改了的文件，这也是撤销修改文件最常用的命令。</em></p>
+</li>
+<li><p>git reset “branchname/editionnum”：事实上这个指令很少用的，或者说谨慎使用，一旦使用了就会破坏原有的分支结构，reset是一个回退功能，会将原有的分支剪掉，虽然仍然可以通过reflog查找出版本信息，强制指向某个回退之前的版本，但这并不是该有的操作，且很可能因为误操作造成更大麻烦。建议：<em>只有在确定很清楚自己要进行的操作和上次提交错误的情况下使用该指令，其他时候都不使用。</em>版本回退使用reset后面一般加上–hard彻底回退，否则有些修改了的未建立版本的文件仍然会保留。</p>
+</li>
+<li><p>git merge “branchname”：将两个分支进行合并，也是比较常用的操作，如果没有文件冲突，一般git会快速自动合并，如果有冲突，会需要你进行比较手动修改冲突，合并的过程是当前HEAD指向的分支名，会跳转到branchname的位置。</p>
+</li>
+<li><p>git branch -d dev：合并分支后，可以将被合并了的分支号删除。</p>
+</li>
+<li><p>git tag ：这个也是个比较有用的方法，毕竟版本号是一大串随机数字，即便只要输入前4个，你也很难记得，对某个特别的版本加入tag标签名，之后可以直接使用git checkout tagname来指向该版本。</p>
+</li>
+<li>git diff : 将当前所有状态同指令后面对应的版本状态进行比较。</li>
+</ul>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-11-git%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E8%AF%A6%E8%A7%A3/265643011.jpg" alt=""></p>
+<h4 id="简述分支策略："><a href="#简述分支策略：" class="headerlink" title="简述分支策略："></a>简述分支策略：</h4><p><strong>在实际开发中，我们应该按照几个基本原则进行分支管理：</strong></p>
+<ul>
+<li>master分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活；</li>
+<li>干活都在dev分支上，也就是说，dev分支是不稳定的，到某个时候，比如1.0版本发布时，再把dev分支合并到master上，在master分支发布1.0版本；</li>
+<li>每个人都在dev分支上干活，每个人都有自己的分支，时不时地往dev分支上合并就可以了。</li>
+</ul>
+<p><strong>团队合作示意图：</strong></p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-11-git%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E8%AF%A6%E8%A7%A3/0.png" alt=""></p>
+<blockquote>
+<p>参考链接：<br><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000</a><br><a href="http://baike.baidu.com/link?url=weNC33XuaXOCTBp5s3WeZVu-Z9LP41KY_M6_WdGxAJZpJs_sq7jcgZ-3B01u2EiqfK6gb0L6s3-IDiWp1cVgF_" target="_blank" rel="external">http://baike.baidu.com/link?url=weNC33XuaXOCTBp5s3WeZVu-Z9LP41KY_M6_WdGxAJZpJs_sq7jcgZ-3B01u2EiqfK6gb0L6s3-IDiWp1cVgF_</a></p>
+</blockquote>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">ETIQUETADO EN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/软件安装/">软件安装</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/07/11/2016/2016-07-11-linux正常学习办公/"  data-tooltip="linux正常学习办公">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/07/11/2016/2016-07-11-神州stm32案例练习/" data-tooltip="stm32F439案例汇总">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SIGUIENTE</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/07/11/2016/2016-07-11-git常用指令详解/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/07/11/2016/2016-07-11-git常用指令详解/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/07/11/2016/2016-07-11-git常用指令详解/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2017 John Doe. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/07/11/2016/2016-07-11-linux正常学习办公/"  data-tooltip="linux正常学习办公">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/07/11/2016/2016-07-11-神州stm32案例练习/" data-tooltip="stm32F439案例汇总">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SIGUIENTE</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/07/11/2016/2016-07-11-git常用指令详解/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/07/11/2016/2016-07-11-git常用指令详解/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/07/11/2016/2016-07-11-git常用指令详解/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/07/11/2016/2016-07-11-git常用指令详解/">
+                <i class="fa fa-google-plus"></i><span class="">Compartir en Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/07/11/2016/2016-07-11-git常用指令详解/">
+                <i class="fa fa-facebook-official"></i><span>Compartir en Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/07/11/2016/2016-07-11-git常用指令详解/">
+                <i class="fa fa-twitter"></i><span>Compartir en Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">John Doe</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+</html>

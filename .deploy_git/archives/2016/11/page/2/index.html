@@ -1,24 +1,324 @@
-extends base
 
-block title
-  if page.category
-     title= page.category + ' | ' + config.title
-  if page.tag
-     title= page.tag + ' | ' + config.title
-  if page.archive
-     title= __('archive') + ' | ' + config.title
-block content
-  if page.category || page.tag
-      h1.label-title=  __('reading_label', page.category || page.tag)
-  .post
-    .post-archive
-        //Use lodash to classify posts. See https://lodash.com/docs#groupBy
-        each posts, year in _.groupBy(page.posts.toArray(), function(p){return -p.date.format('YYYY')})
-          h2= -year
-          ul.listing
-            for post in posts
-              li
-                span.date= post.date.format('YYYY/MM/DD')
-                a(href=url_for(post.path), title=post.title)
-                  +title(post)
-  include _partial/paginator.jade
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hexo">
+    <title>Archivos: 2016/11 - Hexo</title>
+    <meta name="author" content="John Doe">
+    
+    
+    
+    <meta property="og:type" content="blog">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/archives/2016/11/page/2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="2">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Hexo</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="2">
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Inicio</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categorías</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Etiquetas</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archivos</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Buscar</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">Acerca de</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="2"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+    
+
+<section class="postShorten-group main-content-wrap">
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/11/10/2016/2016-11-10-c语言工程组建/">
+                            C语言工程组建
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-11-10T08:21:00+08:00">
+	
+		    10 Nov 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p>每个编程语言都有自己的一些特性，如果了解的很清楚能够减少你编译的时间，减少编译所生成的文件大小，提高你程序的执行效率。虽然现在计算机发展很快，在众多高级语言中已经很少考虑这种问题，但如果是使用c语言编写一些运行在资源较紧张的芯片或编写能耗敏感的一些项目时，仔细研究每个细节，合理的组建自己的工程等还是相当必要的。</p>
+                    
+                        <a href="/2016/11/10/2016/2016-11-10-c语言工程组建/" class="postShorten-excerpt_link link">
+                            Seguir leyendo
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/11/03/2016/2016-11-03-如何看待蓝绿大厂问鼎中国/">
+                            如何看待蓝绿大厂问鼎中国
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-11-03T22:25:00+08:00">
+	
+		    03 Nov 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p>根据IDC的数据，今年第三季度，OPPO和VIVO在中国市场的出货量再创新高，首度成为中国市场的冠亚军。OPPO和VIVO历来以低配高价而文明科技圈内，且低于红米的配置和软件优化，但却卖出几倍的价格，一味的再外观上模仿苹果，广告上轰炸观众，再加上市面上很难找到专业的评测机构来测评这两家的手机等一系列因素，因此很多人都会对这两家产品很是不屑，称他们为“蓝绿大厂，高价低配，专坑厂妹”。但本着存在即为合理的看法，OPPO和VIVO一定还是有很多可取之处的，不然不可能在竞争日益激烈的手机市场上面，站稳脚跟，国内销量先干掉小米，后挤掉华为，且业绩日益攀升。我将蓝绿厂家成功可以总结为以下几点。</p>
+<hr>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-03-%E5%A6%82%E4%BD%95%E7%9C%8B%E5%BE%85%E8%93%9D%E7%BB%BF%E5%A4%A7%E5%8E%82%E9%97%AE%E9%BC%8E%E4%B8%AD%E5%9B%BD/1.jpg" alt=""></p>
+<h3 id="差强人意"><a href="#差强人意" class="headerlink" title="差强人意"></a>差强人意</h3><p>就产品本身而言，两家主打的功能也都基本一致：自拍，音效，快充。这几点都算是手机某一项的特色功能，但老实说都不具备特色，因为国产手机大都在这些功能上面表现的不差，下面进行详细解析。</p>
+<p>在评价一个手机拍照性能时，大都以是否能够更加真实的还原场景为标准，常用的参考量为：解析力，白平衡，夜间成像能力等等。因为手机不同于单反之类的产品，毕竟机身空间有限，每次捕捉的光源数据会经过大量的加工处理才会得到样张的，所以硬件参数即便再好（光圈大，像素高），如果没有好的算法，往往会适得其反，这就是为何苹果800w摄像头可以秒杀别人1600w大光圈的原因。说完拍照来提一下自拍，自拍本身属于照骗的一个制造过程（拍的美不美，有可能你自拍出的照片你妈都不认识），摄像头要拍出真实的照片不容易，但要毁照的话，只需要进行一定的图像识别，加上特定的滤镜效果即可。市面上面除了iPhone功能单一外，其他手机大多有很强的自拍功能，什么深度磨破，瘦脸，背景虚化，多人拍照只对自己美化等，各种功能都深入到各家自身的ROM中去了，无需下载第三方软件。而OV两家因为主打自拍，所以前置摄像头像素极高，甚至超过了后置摄像头，这边到底拍的美不美，一来和你参数的选择有关，二来每个人的审美不尽相同。</p>
+<p>音效是一个模糊的概念，外放的音效极少有做的好的厂家，毕竟手机越做越小，虽然芯片在不断的发展，但数字电路很难做出模拟电路电路的音效体验。最近两年的主流中高端手机都不会在音效上面大做文章，显然有一道大家无法逾越的屏障拦在前面。目前中高端手机的外放基本只能判别音量大小，音效的好坏目前主要取决于耳机以及针对耳机的一些优化，但一个好耳机动辄千元起步，除了极少数用户，目前也几乎没有谁愿意为它买单。</p>
+<p>快充技术基本上在手机界已经普及（除了反应迟钝的苹果），市面上各种快充技术都不尽相同，升压，升流各种方式都有。来自高通的Quick Charge 2.0是随骁龙800开始盛行的快充技术，早在两年多前，小米4就已经实现了快充，另外MTK和麒麟处理器等也都相继推出了自身的快充技术，也就是说快充家家都有，只不过OV两家的广告让大家知道了他们手机有这个功能而已。</p>
+<p>在产品上面这两家算是没有任何特长的手机厂家，首先配置差，采用的一般是骁龙最新的中低端处理器（其他国产厂家一般会在千元左右的手机机使用该处理器）；其次是软件上开发能力较弱，缺失一些必备或者特色功能（如：远程协助，微信多开等功能都缺失，虽然可以通过第三方软件实现，但毕竟安全无保障），在一些手机自带功能上面的体验不足，如手势等操作识别错误，可能与这颗CPU性能较差，或者软件优化不足有关；再者其他诸如续航和通话信号等都没太多可以圈点的。综上这些，就可以知道为啥这么多人对它很诟病。</p>
+<p>软件和外观极度模仿苹果，很多交互方式和苹果一致，甚至连很多图标都一模一样，也许可以进一步满足很多人的虚荣心。</p>
+<p>说完这么多缺点，下面谈一下优点，两家厂家在手机使用上面都能够满足正常的需求，对于很久没试用过其他安卓手机的用户而言，这两款手机基本能够带来舒适愉快的体验，由于从14年开始，安卓手机配置基本上已经能够满足安卓系统的要求了，所以换句话说，14年的所有高配置的手机，只要没有质量问题，且你对拍照，三防等一些附加属性没有特殊要求，重新恢复出厂设置或者耍个新系统，现在一样可以当作新机来使用。</p>
+<p>举个例子：OV两家的CPU &lt; 荣耀6的CPU，OV两家的CPU &lt; MI4的CPU；OV两家的GPU &gt; 荣耀6的GPU，OV两家的GPU &lt; MI4的GPU。因此可以看出，在多任务切换体验来说（常规APP，不包含游戏，不包含系统自带软件功能），OV一般只能同时完美体验3-4个应用，荣耀6和MI3一般可以体验6-8个应用。荣耀6基本上已经不能胜任市面的中等要求的游戏（王者荣耀等），MI4和能够完全可以胜任中等要求的游戏，且可以冲击一些高负荷的游戏，OV能够胜任中等要求的游戏。</p>
+<p>因为这两年CPU和GPU虽然略有提升，但大多数人很少会玩大型游戏或者运行n多个APP，对CPU和GPU的型号，好坏与否并不关心，甚至很多人觉得手机不错，自始至终并不了解自己的手机比别家的好或者差。</p>
+<p>对特色功能的体验一般也仅仅限于手机重度爱好使用者，MIUI，FLYME和EMUI等各家系统很多功能虽然好用，但由于缺乏推广，普通用户并不关注，或者说从来没用过，不知道有这些功能。安卓手机从14年开始早已进入了厂商引导消费体验的阶段，普通消费者对手机已经不存在不满和需求，甚至觉得太强大，很多功能不会用，不会设置，而恰恰是厂家在帮用户思考增加哪些功能会让体验更加的完美，护眼模式，远程协助，单手模式，节电模式等都是各家厂家在提升用户体验上面的尝试。</p>
+<p>综上可以看出，在手机同质化的今天，OV基本可以满足市面上面的绝大多数需求，虽然还会有误触，略微卡顿等问题，但相比过去安卓的不响应，发热，死机重启等，已经好了太多，普通消费者看个视频，玩玩小游戏完全可以满足，从苹果转来的用户会觉得便宜几千体验也差不多了多少，较为满意，而从旧款安卓低端机转过来的用户，则会认为大屏不卡顿不死机，好了太多。满足刚需就好，其他能有的功能尽量往上加，作绝大多数普通消费者能够使用的手机即可，这也是OV两家作产品的精髓。</p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-03-%E5%A6%82%E4%BD%95%E7%9C%8B%E5%BE%85%E8%93%9D%E7%BB%BF%E5%A4%A7%E5%8E%82%E9%97%AE%E9%BC%8E%E4%B8%AD%E5%9B%BD/2.jpg" alt=""></p>
+                    
+                        <a href="/2016/11/03/2016/2016-11-03-如何看待蓝绿大厂问鼎中国/" class="postShorten-excerpt_link link">
+                            Seguir leyendo
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    <div class="pagination-bar">
+    <ul class="pagination">
+        
+        <li class="pagination-prev">
+            
+                <a class="btn btn--default btn--small" href="/ ">
+            
+                <i class="fa fa-angle-left text-base icon-mr"></i>
+                    <span>ARTÍCULOS RECIENTES</span>
+            </a>
+        </li>
+        
+        
+        <li class="pagination-number">página 2 de 2</li>
+    </ul>
+</div>
+
+</section>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2017 John Doe. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">John Doe</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+
+
+</html>

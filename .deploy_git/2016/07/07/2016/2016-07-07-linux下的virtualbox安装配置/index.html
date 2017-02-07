@@ -1,51 +1,450 @@
-extends base
 
-block title
-  title= page.title + ' | ' + config.title
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hexo">
+    <title>linux下的virtualbox安装配置 - Hexo</title>
+    <meta name="author" content="John Doe">
+    
+    
+    
+    <meta name="description" content="背景分析随着计算机技术的发展，硬件配置越来越高，跨平台软件，手机以及浏览器越来越强大，目前可以说linux下除了大型游戏意外，其他的办公学习娱乐基本都可以解决，比如：">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="linux下的virtualbox安装配置">
+<meta property="og:url" content="http://yoursite.com/2016/07/07/2016/2016-07-07-linux下的virtualbox安装配置/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="背景分析随着计算机技术的发展，硬件配置越来越高，跨平台软件，手机以及浏览器越来越强大，目前可以说linux下除了大型游戏意外，其他的办公学习娱乐基本都可以解决，比如：">
+<meta property="og:updated_time" content="2016-12-16T01:18:55.902Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux下的virtualbox安装配置">
+<meta name="twitter:description" content="背景分析随着计算机技术的发展，硬件配置越来越高，跨平台软件，手机以及浏览器越来越强大，目前可以说linux下除了大型游戏意外，其他的办公学习娱乐基本都可以解决，比如：">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    
+</head>
 
-block content
-  .post
-    h1.post-title= page.title
-    .post-meta= page.date.format('ll')
-      if page.categories.length > 0
-        span= ' | '
-        span.category
-          for category in page.categories.toArray()
-            a(href=url_for(category.path))= category.name
-      if theme.busuanzi == true
-        script(src='https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js', async)
-        span#busuanzi_container_page_pv= ' | '
-          span#busuanzi_value_page_pv
-          span= ' ' + __('Hits')
-    if theme.duoshuo
-      a.ds-thread-count(data-thread-key=page.path, href=url_for(page.path) + '#comments')
-    if theme.disqus
-      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
-    if page.toc
-      div(class='clear')
-        div(id='toc' class='toc-article')
-          div(class='toc-title')= __('contents')
-          != toc(page.content)
-    .post-content
-      != page.content
-    if theme.shareto == true
-      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
-      a.article-share-link(data-url='#{page.permalink}', data-id='#{page._id}')= __('shareto')
-    include _partial/tag
-    include _partial/post_nav
-    if theme.duoshuo
-      div(class='ds-share flat' data-thread-key=page.path, data-title=page.title, data-url=page.permalink)
-         .ds-share-inline
-            ul.ds-share-icons-16
-              li(data-toggle='ds-share-icons-more')
-                a(class='ds-more' href='javascript:void(0);') 分享到：
-              li
-                a(class='ds-weibo' href='javascript:void(0);' data-service='weibo') 微博
-              li
-                a(class='ds-qzone' href='javascript:void(0);' data-service='qzone') QQ空间
-              li
-                a(class='ds-qqt' href='javascript:void(0);' data-service='qqt') 腾讯微博
-              li
-                a(class='ds-wechat' href='javascript:void(0);' data-service='wechat') 微信
-            .ds-share-icons-more
-    include _partial/comments
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Hexo</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="4">
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Inicio</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categorías</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Etiquetas</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archivos</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Buscar</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">Acerca de</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            linux下的virtualbox安装配置
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-07-07T01:12:00+08:00">
+	
+		    07 Jul 2016
+    	
+    </time>
+    
+        <span>en </span>
+        
+    <a class="category-link" href="/categories/read/">read</a>
+
+
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <h3 id="背景分析"><a href="#背景分析" class="headerlink" title="背景分析"></a>背景分析</h3><p>随着计算机技术的发展，硬件配置越来越高，跨平台软件，手机以及浏览器越来越强大，目前可以说<br>linux下除了大型游戏意外，其他的办公学习娱乐基本都可以解决，比如：</p>
+<a id="more"></a>
+<ul>
+<li>购物可以电脑浏览，手机支付（很多win用户，估计也不怎么用u盾了）。</li>
+<li>音乐可以使用百度，qq在线音乐。</li>
+<li>至于编程等开发工具更是齐全。</li>
+</ul>
+<p>但仍然难免会有一些windows程序需要用户操心，个人主要需用使用的windows产品有：<br><em>迅雷，百度云，photoshop，illustrator，U盘系统制作工具等</em></p>
+<p>解决办法主要有：</p>
+<ul>
+<li>wine提供windows的类库，是软件windows软件直接可以在linux上面运行</li>
+<li>使用虚拟机，在linux上面虚拟一个windows xp出来，提供一定的硬件资源，运行需要使用的软件</li>
+</ul>
+<p><strong>这边我们选择虚拟机virtualbox，主要该软件开源小巧，且现在硬件强大，对资源的开销可以接收，外加wine向来不是太稳定，出现问题的几率高。</strong></p>
+<h4 id="系统环境"><a href="#系统环境" class="headerlink" title="系统环境"></a>系统环境</h4><ul>
+<li>ubuntu 16.04 终端输入： lsb_release -a</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">No LSB modules are available.</div><div class="line">Distributor ID:	Ubuntu</div><div class="line">Description:	Ubuntu 16.04 LTS</div><div class="line">Release:	16.04</div><div class="line">Codename:	xenial</div></pre></td></tr></table></figure>
+<h3 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h3><p>步骤如下：</p>
+<ol>
+<li>需要安装Oracle Virtualbox</li>
+</ol>
+<p>可以使用sudo apt-get install virutalbox 安装</p>
+<p>也可以通过官网下载地址：<code>https://www.virtualbox.org/wiki/Downloads</code></p>
+<p>安装增强包的方法介绍：<code>http://gaoke0820.blog.163.com/blog/static/21664965201332802833510/</code></p>
+<ol>
+<li>安装完之后，U盘识别</li>
+</ol>
+<p><em>如果如VirtualBox客户机挂载U盘中设置后，linux中还不能挂载u盘，而使用sudo启动virtualbox后里面的客户机可以挂载U盘，原因为 普通用户没有使用USB设备权限。</em></p>
+<p>2.1 方法1：</p>
+<p>让GUEST识别USB设备</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ sudo gedit   /etc/fstab</div><div class="line"></div><div class="line">在末尾加上</div><div class="line"># the USB group</div><div class="line"># 对所有用户开放USB设备的读写权限</div><div class="line">none /proc/bus/usb usbfs devmode=666 0 0</div><div class="line">然后就可以使用的USB设备了。</div></pre></td></tr></table></figure>
+<p><em>但是把USB设备的读写权限开放给所有用户的方式在一些情况下不太安全</em></p>
+<p>2.2 方法2：</p>
+<p>将用户名添加到vboxusers组,重启或注销后即可解决.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sudo adduser usrname vboxusers</div><div class="line"></div><div class="line">然后再输入：cat /etc/group |grep vboxusers</div><div class="line">这时可以看到显示：</div><div class="line">vboxusers:x:129:demon,hello</div></pre></td></tr></table></figure>
+<p><em>该方法使用后，基本能够使用，但使用之前每次需要手动添加设备</em></p>
+<p>2.3 方法3：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">增加用户组usbfs</div><div class="line">$sudo groupadd usbfs</div><div class="line"></div><div class="line">查看usbfs用户组的gid</div><div class="line">$ cat /etc/group | grep usbfs</div><div class="line">usbfs:x:1002:</div><div class="line"></div><div class="line">把当前用户增加到usbfs组</div><div class="line">sudo adduser demon usbfs</div></pre></td></tr></table></figure>
+<p>为USB设备重新设置权限,编辑/etc/fstab文件，添加下面两行，注意你的gid可能不是1002</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> $   sudo gedit /etc/fstab</div><div class="line">在末尾加上</div><div class="line"># 1002 is the USB group IDI</div><div class="line">none /proc/bus/usb usbfs devgid=1002,devmode=774 0 0</div></pre></td></tr></table></figure>
+<p>重新启动后，应该就可以在客户机中使用USB设备了。</p>
+<p>方法：插入一个USB设备后，如U盘、鼠标，右键点击虚拟机里右下脚的USB图标，选择已经识别的U盘，就可以正常使用了。<br>注意： 在客户机里使用USB设备前要先在主机里卸载。</p>
+<p>﻿</p>
+<ol>
+<li>在virtualbox里启动USB控制器</li>
+</ol>
+<ol>
+<li>打开虚拟机，这时在虚拟机的设备-分配USB设备中就可以看到USB设备了</li>
+</ol>
+<blockquote>
+<p>相关参考：<br><a href="http://blog.csdn.net/rongyongfeikai2/article/details/21795741" target="_blank" rel="external">http://blog.csdn.net/rongyongfeikai2/article/details/21795741</a><br><a href="http://www.linuxidc.com/Linux/2012-01/52502.htm" target="_blank" rel="external">http://www.linuxidc.com/Linux/2012-01/52502.htm</a><br><a href="http://xuantan.iteye.com/blog/1130808" target="_blank" rel="external">http://xuantan.iteye.com/blog/1130808</a><br><a href="http://www.iteedu.com/os/linux/mklinuxdiary/ch1tools/2.php" target="_blank" rel="external">http://www.iteedu.com/os/linux/mklinuxdiary/ch1tools/2.php</a></p>
+</blockquote>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">ETIQUETADO EN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/软件安装/">软件安装</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/07/10/2016/2016-07-10-chrome使用总结/"  data-tooltip="chrome使用总结">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/07/05/2016/2016-07-05-github本地推送/" data-tooltip="github本地推送">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SIGUIENTE</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/07/07/2016/2016-07-07-linux下的virtualbox安装配置/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/07/07/2016/2016-07-07-linux下的virtualbox安装配置/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/07/07/2016/2016-07-07-linux下的virtualbox安装配置/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2017 John Doe. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/07/10/2016/2016-07-10-chrome使用总结/"  data-tooltip="chrome使用总结">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/07/05/2016/2016-07-05-github本地推送/" data-tooltip="github本地推送">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SIGUIENTE</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/07/07/2016/2016-07-07-linux下的virtualbox安装配置/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/07/07/2016/2016-07-07-linux下的virtualbox安装配置/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/07/07/2016/2016-07-07-linux下的virtualbox安装配置/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/07/07/2016/2016-07-07-linux下的virtualbox安装配置/">
+                <i class="fa fa-google-plus"></i><span class="">Compartir en Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/07/07/2016/2016-07-07-linux下的virtualbox安装配置/">
+                <i class="fa fa-facebook-official"></i><span>Compartir en Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/07/07/2016/2016-07-07-linux下的virtualbox安装配置/">
+                <i class="fa fa-twitter"></i><span>Compartir en Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">John Doe</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+</html>

@@ -1,24 +1,701 @@
-extends base
 
-block title
-  if page.category
-     title= page.category + ' | ' + config.title
-  if page.tag
-     title= page.tag + ' | ' + config.title
-  if page.archive
-     title= __('archive') + ' | ' + config.title
-block content
-  if page.category || page.tag
-      h1.label-title=  __('reading_label', page.category || page.tag)
-  .post
-    .post-archive
-        //Use lodash to classify posts. See https://lodash.com/docs#groupBy
-        each posts, year in _.groupBy(page.posts.toArray(), function(p){return -p.date.format('YYYY')})
-          h2= -year
-          ul.listing
-            for post in posts
-              li
-                span.date= post.date.format('YYYY/MM/DD')
-                a(href=url_for(post.path), title=post.title)
-                  +title(post)
-  include _partial/paginator.jade
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hexo">
+    <title>Archivos: 2016 - Hexo</title>
+    <meta name="author" content="John Doe">
+    
+    
+    
+    <meta property="og:type" content="blog">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/archives/2016/page/2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="2">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Hexo</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="2">
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Inicio</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categorías</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Etiquetas</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archivos</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Buscar</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">Acerca de</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="2"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+    
+
+<section class="postShorten-group main-content-wrap">
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/11/28/2016/2016-11-28-vps-docker/">
+                            vps-docker
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-11-28T13:21:00+08:00">
+	
+		    28 Nov 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <a id="more"></a>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2016/11/28/2016/2016-11-28-vps-docker/#post-footer" class="postShorten-excerpt_link link">
+                                Comentar y compartir
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/11/26/2016/2016-11-26-检测VPS虚拟化技术/">
+                            检测VPS虚拟化技术
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-11-26T16:51:00+08:00">
+	
+		    26 Nov 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p>很多时候，我们需要知道自己的 VPS 是通过什么软件进行分配的，这是可以使用如下的几种方式：</p>
+<h3 id="方法1："><a href="#方法1：" class="headerlink" title="方法1："></a>方法1：</h3><p>使用如下命令运行</p>
+<p><code>wget -N --no-check-certificate https://raw.githubusercontent.com/91yun/code/master/vm_check.sh &amp;&amp; bash vm_check.sh</code></p>
+<p>代码运行结束就会在最后一行显示虚拟化技术：kvm还是openv或者是xen一目了然。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">...</div><div class="line">make[1]: Leaving directory `/root/virt-what-1.12&apos;</div><div class="line">openvz</div><div class="line">kvm</div></pre></td></tr></table></figure>
+                    
+                        <a href="/2016/11/26/2016/2016-11-26-检测VPS虚拟化技术/" class="postShorten-excerpt_link link">
+                            Seguir leyendo
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/11/25/2016/2016-11-25-vps-shadowsocks/">
+                            VPS : shadowsocks
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-11-25T09:30:00+08:00">
+	
+		    25 Nov 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p>日常生活中，由于GFW的强大，很多学习资料等内容我们无法获取或者检索，因此科学上网往往相当重要，本文章使用 VPS 搭建 shadowsocks 服务让安全的科学上网成为可能，需要注意的是 VPS 必须是境外服务器，推荐 vultr 搬瓦工等廉价vpn。</p>
+<h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><p><strong>这边可以参考<a href="http://vc2tea.com/whats-shadowsocks/">原文博客</a>，以下只是简单罗列一些原理：</strong></p>
+<ul>
+<li>早期互联网用户访问网站时，用户的请求通过互联网发送到服务提供方，服务提供方直接将信息反馈给用户： </li>
+</ul>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-25-vps-shadowsocks/ss1.png" alt=""></p>
+<ul>
+<li>GFW 出现后，每当用户需要获取信息，都经过了 GFW，GFW将它不喜欢的内容统统过滤掉，于是客户当触发 GFW 的过滤规则的时候，就会收到 Connection Reset 这样的响应内容，而无法接收到正常的内容 </li>
+</ul>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-25-vps-shadowsocks/ss2.png" alt=""></p>
+<ul>
+<li>为了绕过GFW的过滤（包含了各种HTTP代理服务、Socks服务、VPN服务等等），以 ssh tunnel 的方法为例：1) 首先用户和境外服务器基于 ssh 建立起一条加密的通道 2-3) 用户通过建立起的隧道进行代理，通过 ssh server 向真实的服务发起请求 4-5) 服务通过 ssh server，再通过创建好的隧道返回给用户。</li>
+</ul>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-25-vps-shadowsocks/ss3.png" alt=""></p>
+<p><strong>由于 ssh 本身就是基于 RSA 加密技术，所以 GFW 无法从数据传输的过程中的加密数据内容进行关键词分析，避免了被重置链接的问题，但由于创建隧道和数据传输的过程中，ssh 本身的特征是明显的，所以 GFW 一度通过分析连接的特征进行干扰，导致 ssh 存在被定向进行干扰的问题</strong></p>
+<ul>
+<li>shadowsocks 是将原来 ssh 创建的 Socks5 协议拆开成 server 端和 client 端，所以下面这个原理图基本上和利用 ssh tunnel 大致类似:1、6) 客户端发出的请求基于 Socks5 协议跟 ss-local 端进行通讯，由于这个 ss-local 一般是本机或路由器或局域网的其他机器，不经过 GFW，所以解决了上面被 GFW 通过特征分析进行干扰的问题 2、5) ss-local 和 ss-server 两端通过多种可选的加密方法进行通讯，经过 GFW 的时候是常规的TCP包，没有明显的特征码而且 GFW 也无法对通讯数据进行解密 3、4) ss-server 将收到的加密数据进行解密，还原原来的请求，再发送到用户需要访问的服务，获取响应原路返回:</li>
+</ul>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-25-vps-shadowsocks/ss4.png" alt=""></p>
+<ul>
+<li>GFW 就出现了，他像一个收过路费的强盗一样夹在了在用户和服务之间，每当用户需要获取信息，都经过了 GFW，GFW将它不喜欢的内容统统过滤掉，于是客户当触发 GFW 的过滤规则的时候，就会收到 Connection Reset 这样的响应内容，而无法接收到正常的内容 </li>
+</ul>
+<h3 id="软件简介："><a href="#软件简介：" class="headerlink" title="软件简介："></a>软件简介：</h3><h4 id="shadowsocks"><a href="#shadowsocks" class="headerlink" title="shadowsocks:"></a>shadowsocks:</h4><p><a href="https://shadowsocks.org/en/index.html">shadowsocks：A secure socks5 proxy,designed to protect your Internet traffic.</a>。</p>
+<p>Shadowsocks（中文名称：影梭）是使用Python、C++、C#等语言开发的、基于Apache许可证的开放源代码软件，用于保护网络流量、加密数据传输。Shadowsocks使用Socks5代理方式。Shadowsocks分为服务器端和客户端。在使用之前，需要先将服务器端部署到服务器上面，然后通过客户端连接并创建本地代理。在中国大陆，本工具也被广泛用于突破防火长城（GFW），以浏览被封锁、屏蔽或干扰的内容。在2015年8月22日，Shadowsocks原作者Clowwindy称受到了中国政府的压力，宣布停止维护此项目并移除其用户页面所载的源代码。</p>
+<p>Shadowsocks的运行原理与其他代理工具基本相同，使用特定的中转服务器完成数据传输。在服务器端部署完成后，用户需要按照指定的密码、加密方式和端口使用客户端软件与其连接。在成功连接到服务器后，客户端会在用户的电脑上构建一个本地Socks5代理。浏览网络时，网络流量会被分到本地socks5代理，客户端将其加密之后发送到服务器，服务器以同样的加密方式将流量回传给客户端，以此实现代理上网。</p>
+<ul>
+<li>Shadowsocks使用自行设计的协议进行加密通信。[4]加密算法有AES、Blowfish、IDEA、RC4等，除创建TCP连接外无需握手，每次请求只转发一个连接，因此使用起来网速较快，在移动设备上也比较省电。</li>
+<li>所有的流量都经过算法加密，允许自行选择算法，所以比较安全。</li>
+<li>Shadowsocks通过异步I/O和事件驱动程序运行，响应速度快。</li>
+<li>客户端覆盖多个主流操作系统和平台，包括Windows，OS X，Android和iOS系统和路由器（OpenWrt）等[5]。</li>
+<li>专为移动设备和无线网络优化。</li>
+</ul>
+<h4 id="supervisor"><a href="#supervisor" class="headerlink" title="supervisor:"></a>supervisor:</h4><p>Linux的后台进程运行有好几种方法，例如nohup，screen等，但是，如果是一个服务程序，要可靠地在后台运行，我们就需要把它做成daemon，最好还能监控进程状态，在意外结束时能自动重启。supervisor就是用Python开发的一套通用的进程管理程序，能将一个普通的命令行进程变为后台daemon，并监控进程状态，异常退出时能自动重启。</p>
+<h3 id="VPS-安装及配置："><a href="#VPS-安装及配置：" class="headerlink" title="VPS 安装及配置："></a>VPS 安装及配置：</h3><h4 id="软件列表："><a href="#软件列表：" class="headerlink" title="软件列表："></a>软件列表：</h4><ul>
+<li>vps（Debian GNU/Linux 7 ），这边采用 Debian 系列linux，ubuntu 应该步骤类似，如果使用 redhat 系列，部分指令需要自行更改，这边不做累述。</li>
+<li>shadowsocks-severs： 注意安装 shadowsocks 的 severs 版本</li>
+<li>supervisor ： 用于Linux后台进程管理的利器</li>
+</ul>
+                    
+                        <a href="/2016/11/25/2016/2016-11-25-vps-shadowsocks/" class="postShorten-excerpt_link link">
+                            Seguir leyendo
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/11/23/2016/2016-11-23-转-虚拟主机、vps和云主机/">
+                            (转)虚拟主机、VPS和云主机
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-11-23T21:03:00+08:00">
+	
+		    23 Nov 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <blockquote>
+<p>转载链接：<a href="http://www.chinaz.com/prime/2012/1021/279069.shtml">http://www.chinaz.com/prime/2012/1021/279069.shtml</a></p>
+</blockquote>
+<p>云计算时代，云主机其可扩展性、价格便宜、安全可靠的特性深受企业和开发者欢迎，但目前有些IDC企业，新瓶装旧酒，将虚拟主机、VPS进行包装推出所谓的云主机服务，为了帮助用户更好的辨别和挑选云主机，下文详细介绍虚拟主机、VPS和云主机产品的特点以及差异性。</p>
+<h3 id="一、虚拟主机、VPS和云主机"><a href="#一、虚拟主机、VPS和云主机" class="headerlink" title="一、虚拟主机、VPS和云主机"></a>一、虚拟主机、VPS和云主机</h3><p>共享主机也称虚拟主机，从互联网诞生至今，大部分站长都是从”共享主机”(shared hosting)开始学习建站的。所谓”共享主机”，就是一台服务器上有许多网站，大家共享这台服务器的硬件和带宽。如果它发生故障，那么上面的所有网站都无法访问。</p>
+<p>VPS主机(Virtual Private Server 虚拟专用服务器)，将一部服务器分割成多个虚拟专享服务器的优质服务。每个VPS都可分配独立公网IP地址、独立操作系统、独立超大空间、独立内存、独立CPU资源、独立执行程序和独立系统配置等。用户除了可以分配多个虚拟主机及无限企业邮箱外，更具有独立服务器功能，可自行安装程序，单独重启服务器。</p>
+<p>”云主机”(Cloud hosting)可以看成是新一代的共享主机。</p>
+<p>首先，主机公司将它的硬件和网络线路，做成一朵”云”，然后提供一些通向这朵”云”的网络接口API，供客户使用。这时，每个客户共享的不再是某一台特定的服务器，而是云里的所有服务器。</p>
+<p>比如，假设你要把本机的文件备份到网上，你可以使用共享主机，把文件传到某一台服务器上;也可以使用云主机，通过某种形式的接口，把它们传到云里。也就是说，共享主机用户直接面对特定的服务器，而云主机用户直接面对网络接口，看不到服务器内部。</p>
+<p>一个通俗的比喻是，你可以向银行租一个编号为”8888″的保险箱(共享主机)，也可以把贵重物品直接交给保管公司，听任他们保管。</p>
+<p>诸如Gmail、FaceBook、Twitter、Flickr这样的产品，都可以看作是基于”云主机”的服务。</p>
+<p>云主机能真正获得root权限，用户可以重装和升级操作系统，而VPS主机用户没有root权限，无法重装和升级操作系统。</p>
+                    
+                        <a href="/2016/11/23/2016/2016-11-23-转-虚拟主机、vps和云主机/" class="postShorten-excerpt_link link">
+                            Seguir leyendo
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/11/23/2016/2016-11-23-git-submodule-详解/">
+                            git submodule 详解
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-11-23T09:02:00+08:00">
+	
+		    23 Nov 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p>使用 git 也有一段时间，但不得不说 git 的功能相当强大和复杂，需要你不断的去摸索学习。这边介绍一个 git 很强大的功能：git submodule 。起初发现这个文件是在我本人 fork 了一个 awesome 的配置文件，用了也蛮久，但最近由于总是出现连接错误，然后手动去更改了一些文件，但意外发现更改的文件无法提交， status 中竟然没有这些文件的信息，另外通过其他官方文档 gitignore 中的几个 ignore 中仔细查看，很确定项目中并没有忽略这些文件，通过排查最后才发现是 .gitmodules 这个文件捣的鬼。仔细研究发现git-submodule是一个十分强大的功能，值得去学习研究。</p>
+                    
+                        <a href="/2016/11/23/2016/2016-11-23-git-submodule-详解/" class="postShorten-excerpt_link link">
+                            Seguir leyendo
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/11/22/2016/2016-11-22-crc校验/">
+                            CRC校验
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-11-22T09:23:00+08:00">
+	
+		    22 Nov 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><h3 id="原理规则"><a href="#原理规则" class="headerlink" title="原理规则"></a>原理规则</h3>
+                    
+                        <a href="/2016/11/22/2016/2016-11-22-crc校验/" class="postShorten-excerpt_link link">
+                            Seguir leyendo
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/11/21/2016/2016-11-21-vim学习/">
+                            vim学习
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-11-21T08:54:00+08:00">
+	
+		    21 Nov 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p>vim 和 emacs 一个号称编辑器之神，一个被称为神的编辑器。打开 vim 执行命令：vimtutor 则可以查看官方说明教程，vimtutor是vim使用入门教程。老实说，自从接触vim到现在也有好多年了，但一直没有强迫自己使用，以及它的难定制性，让我至今都还无法像那些大神一样，完全脱离鼠标和IDE，本文对现阶段我学习 vim 进行一个总结，后续还会不断记录更新。</p>
+<h3 id="最基本操作"><a href="#最基本操作" class="headerlink" title="最基本操作"></a>最基本操作</h3><ul>
+<li>请按<ESC>键(这是为了确保您处在正常模式)。</li>
+<li>h 的键位于左边，每次按下就会向左移动。</li>
+<li>l 的键位于右边，每次按下就会向右移动。</li>
+<li>j 键看起来很象一支尖端方向朝下的箭头。</li>
+<li>k朝上移动。</li>
+<li>:q! &lt;回车&gt;不保存退出。</li>
+<li>:wq &lt;回车&gt;保存并退出。</li>
+<li>gg 跳到首行</li>
+<li>G 跳到末行</li>
+<li>yy 复制</li>
+<li>p 粘贴</li>
+<li>dd 删除单行</li>
+<li>u 撤销上次操作</li>
+</ul>
+<h4 id="复制："><a href="#复制：" class="headerlink" title="复制："></a>复制：</h4><p>vim有12个粘贴板，分别是 <code>0、1、2、...、9、a、&quot;、+</code> 用 :reg 命令可以查看各个粘贴板里的内容。下面讲一下vim的粘贴板的基础知识：</p>
+<ul>
+<li>+号粘贴板是系统粘贴板，用 “+y 将内容复制到该粘贴板后可以使用 Ctrl＋V 将其粘贴到其他文档（如firefox、gedit）中，同理，要把在其他地方用 Ctrl＋C 或右键复制的内容复制到 vim 中，需要在正常模式下按 “+p 。</li>
+<li>“ 号粘贴板（临时粘贴板）比较特殊，直接按 y 就复制到这个粘贴板中了，直接按 p 就粘贴这个粘贴板中的内容；</li>
+<li>要将vim某个粘贴板里的内容粘贴进来，需要退出编辑模式，在正常模式按”Np，其中N为粘贴板号，如上所述，可以按”5p将5号粘贴板里的内容粘贴进来，也可以按”+p将系统全局粘贴板里的内容粘贴进来。</li>
+</ul>
+                    
+                        <a href="/2016/11/21/2016/2016-11-21-vim学习/" class="postShorten-excerpt_link link">
+                            Seguir leyendo
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/11/16/2016/2016-11-16-keil工程的代码优化/">
+                            keil工程的代码优化
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-11-16T16:39:00+08:00">
+	
+		    16 Nov 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <h3 id="C项目的工程优化"><a href="#C项目的工程优化" class="headerlink" title="C项目的工程优化"></a>C项目的工程优化</h3><p>这边主要参考另外一篇文章，不仅仅是针对C语言，C++等其他一些类C语言也同样适用。我们在构建自己的项目时，主要需要考虑：宏定义，类型，全局变量等的作用范围，针对头文件的引用和复制是否有存在的必要等。只有对每个细节都了如指掌，才能够减少代码的出错，以及优化代码空间等。就目前的芯片发展而言，很多时候都是硬件性能过剩，大多数程序员已经不再考虑或者极少考虑代码如何优化节省空间等问题了，往往更加注重代码的可阅读可扩展性，这边之所以注重这个问题，主要是考虑到工控节能领域，以及很多使用的模块可能存在代码量不足，不能胜任工作等问题。</p>
+<h3 id="keil"><a href="#keil" class="headerlink" title="keil"></a>keil</h3><p>keil是一款MCU的IDE，有文章介绍过详细配置和调试步骤，这边不再详细累述。因为针对的是MCU的代码优化，所以首先我们必须知道编译器生成的代码量等信息。</p>
+<p>每次点击编译后，下方会出现KEIL RVMDK编译后的信息，例如：Program Size: Code=19160 RO-data=6420 RW-data=108 ZI-data=1532，这边代表我的无任何优化的前提下，keil编译生成的代码为19160个字节。</p>
+<p><strong>Code是代码占用的空间；RO-data(Read Only) 是只读常量的大小，如const型；RW-data（Read Write）是初始化了的可读写变量的大小，ZI-data（Zero Initialize）是没有初始化的可读写变量的大小。ZI-data不会被算做代码里因为不会被初始化。Total ROM Size ：Code + RO Data + RW Data（ROM Size并不等于Code + RO Data，初始化不为零的 RW Data 数据本身也会占用相同大小的 ROM 和 RAM 存储单元，变量在 RAM 中，而变量的初始值存在 ROM 中） ，Total RW  Size：RW Data + ZI Data 。这边在考虑芯片的 ROM 和 RAM 选型时，注意： ROM &gt; Code + RO Data + RW Data  ， 而 RAM &gt; RW-data+ZI-data，具体我们可以查看 KDE 编译后生成的 .map文件。</strong></p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-16-keil%E5%B7%A5%E7%A8%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/1.png" alt=""></p>
+                    
+                        <a href="/2016/11/16/2016/2016-11-16-keil工程的代码优化/" class="postShorten-excerpt_link link">
+                            Seguir leyendo
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/11/15/2016/2016-11-15-notepad-和mingw/">
+                            notepad++和MinGW
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-11-15T16:16:00+08:00">
+	
+		    15 Nov 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p>今天写一个换算的小程序，但无奈手头没有编译工具，归根结底为何如此麻烦还是因为windows下的开发不友好不自带常规编译器所决定的，一个简单的程序编译需要你去安装庞大的IDE等。以前用windows偶尔弄点c代码编译或者查看一些文件都是使用notepad++的，有算是比较长的一段时间了，但不久前重装了系统，notepad++虽然仅仅需要选几个皮肤，简单配置作为文本编辑器即可，但无奈MinGW如何调用已经忘了，本文列出个简要步骤，以便下次查看。</p>
+<h3 id="实际需求"><a href="#实际需求" class="headerlink" title="实际需求"></a>实际需求</h3><p>Windows下编写C语言程序，使用如VS2010之类的IDE往往显得大材小用，并且这些集成开发环境都占用了大量的系统和硬件资源，且不如Notepad++之类的编辑器简单易用、定制性强大。最重要的一点在于学习编程的话，建议不要怕麻烦还是从最基础的学起，IDE往往屏蔽了很多的细节，并不利于初学者的学习。Linux下写C推荐可以研习emacs、vim配gcc。起初是想从网上直接找个教程按部就班执行，轻松配置完成的，但看了几个教程都不尽如人意，通过自己多次尝试最终找到了较为满意的解决方法，文章列出了部分参考网络教程的链接，下面对此详细阐述。而MinGW (Minimalist GNU for Windows)听名字就只是很强大，因为gcc的使用广泛和强大，无疑这个套件是编译的理想选择。</p>
+<h3 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h3><p><a href="https://pan.baidu.com/s/1slNDMtn">notepad++</a>只是一个文本编辑器，本身没有编译C/C++的功能。所以要想先配置，就要先装上一个编译器。MinGW是GNU开源社区面向windows用户提供的一个集成了个编译环境的软件包。一般可以通过搜索MinGW直接去官网下载安装，但官网貌似是在线安装，因此我从其他网站下载了<a href="https://pan.baidu.com/s/1bFK8TC">MinGW-5.1.6</a>离线包，安装步骤很简单，这边不具体阐述。</p>
+                    
+                        <a href="/2016/11/15/2016/2016-11-15-notepad-和mingw/" class="postShorten-excerpt_link link">
+                            Seguir leyendo
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/11/10/2016/2016-11-10-美国总统诞生了/">
+                            美国总统诞生了
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-11-10T08:53:00+08:00">
+	
+		    10 Nov 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p>2016年11月9日，美国大选计票结果显示：共和党候选人唐纳德·特朗普已获得了276张选举人票，超过270张选举人票的获胜标准，成为美国第45位总统。</p>
+<p>就在昨天美国总统诞生了，很多网络论坛称新一代总统为喷子界的骄傲。如果特朗普真如他做演讲时那样治国，无疑整个美国或者说全球会发生大的动荡，特朗普于历来总统都不太一样，就他演讲来说，几乎是完全站在美国贫民普通阶层这边的，因此我们通过谷歌各州的投票结果也可以看出，支持特朗普的几乎全是美国欠发达地区。特朗普的政治主张很反科技，甚至有点另类到要将劳动密集的行业重新带回美国，他的很多举止有点让人摸不着头脑，但也确实是针对美国一些顽疾的一剂猛药。这届美国总统是一个较大的变数，就特朗普的种种举措，可以分两点。</p>
+<p>其一，特朗普能够切实的成为一个出色的总统，通过降低税收，增强了创业公司的活力，通过自动化和本地工人结合创造了更多就业，解决了民生问题等。</p>
+<p>其二，将美国彻底的玩坏了，一味的打压科技公司，阻止了美国的发展，本地的一些民生政策也出现了较大的问题等。</p>
+<p>当然除了以上的一些猜测，不得不怀疑，特朗普是一个彻头彻尾的骗子，不择手段上台了之后，并没有履行任何他的承诺。</p>
+                    
+                        <a href="/2016/11/10/2016/2016-11-10-美国总统诞生了/" class="postShorten-excerpt_link link">
+                            Seguir leyendo
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    <div class="pagination-bar">
+    <ul class="pagination">
+        
+        <li class="pagination-prev">
+            
+                <a class="btn btn--default btn--small" href="/ ">
+            
+                <i class="fa fa-angle-left text-base icon-mr"></i>
+                    <span>ARTÍCULOS RECIENTES</span>
+            </a>
+        </li>
+        
+        
+        <li class="pagination-next">
+            <a class="btn btn--default btn--small" href="/archives/2016/page/3/">
+                    <span>ARTÍCULOS ANTERIORES</span>
+                <i class="fa fa-angle-right text-base icon-ml"></i>
+            </a>
+        </li>
+        
+        <li class="pagination-number">página 2 de 10</li>
+    </ul>
+</div>
+
+</section>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2017 John Doe. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">John Doe</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+
+
+</html>

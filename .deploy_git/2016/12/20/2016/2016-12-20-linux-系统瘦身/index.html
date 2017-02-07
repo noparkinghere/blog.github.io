@@ -1,51 +1,405 @@
-extends base
 
-block title
-  title= page.title + ' | ' + config.title
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hexo">
+    <title>linux 系统瘦身 - Hexo</title>
+    <meta name="author" content="John Doe">
+    
+    
+    
+    <meta name="description" content="目前 PC 市场中，硬盘内存等硬件设备越来越廉价不值钱，所以很多人不再考虑删减系统清除无用文件等来节省更多的空间。然而，很多不同的应用对存储空间运行空间等依然十分敏感，本文主要针对是在个人使用的 VPS 上，如何使用更少的资源运行更多的服务。
+系统以 ubuntu/debian 为例，作为 VPS 普通服务器的操作系统来使用，进行优化，删除不会经常使用的工具，保留一些个人认为有用的功能。
+清理下载">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="linux 系统瘦身">
+<meta property="og:url" content="http://yoursite.com/2016/12/20/2016/2016-12-20-linux-系统瘦身/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="目前 PC 市场中，硬盘内存等硬件设备越来越廉价不值钱，所以很多人不再考虑删减系统清除无用文件等来节省更多的空间。然而，很多不同的应用对存储空间运行空间等依然十分敏感，本文主要针对是在个人使用的 VPS 上，如何使用更少的资源运行更多的服务。
+系统以 ubuntu/debian 为例，作为 VPS 普通服务器的操作系统来使用，进行优化，删除不会经常使用的工具，保留一些个人认为有用的功能。
+清理下载">
+<meta property="og:updated_time" content="2017-01-05T01:37:56.214Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux 系统瘦身">
+<meta name="twitter:description" content="目前 PC 市场中，硬盘内存等硬件设备越来越廉价不值钱，所以很多人不再考虑删减系统清除无用文件等来节省更多的空间。然而，很多不同的应用对存储空间运行空间等依然十分敏感，本文主要针对是在个人使用的 VPS 上，如何使用更少的资源运行更多的服务。
+系统以 ubuntu/debian 为例，作为 VPS 普通服务器的操作系统来使用，进行优化，删除不会经常使用的工具，保留一些个人认为有用的功能。
+清理下载">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    
+</head>
 
-block content
-  .post
-    h1.post-title= page.title
-    .post-meta= page.date.format('ll')
-      if page.categories.length > 0
-        span= ' | '
-        span.category
-          for category in page.categories.toArray()
-            a(href=url_for(category.path))= category.name
-      if theme.busuanzi == true
-        script(src='https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js', async)
-        span#busuanzi_container_page_pv= ' | '
-          span#busuanzi_value_page_pv
-          span= ' ' + __('Hits')
-    if theme.duoshuo
-      a.ds-thread-count(data-thread-key=page.path, href=url_for(page.path) + '#comments')
-    if theme.disqus
-      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
-    if page.toc
-      div(class='clear')
-        div(id='toc' class='toc-article')
-          div(class='toc-title')= __('contents')
-          != toc(page.content)
-    .post-content
-      != page.content
-    if theme.shareto == true
-      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
-      a.article-share-link(data-url='#{page.permalink}', data-id='#{page._id}')= __('shareto')
-    include _partial/tag
-    include _partial/post_nav
-    if theme.duoshuo
-      div(class='ds-share flat' data-thread-key=page.path, data-title=page.title, data-url=page.permalink)
-         .ds-share-inline
-            ul.ds-share-icons-16
-              li(data-toggle='ds-share-icons-more')
-                a(class='ds-more' href='javascript:void(0);') 分享到：
-              li
-                a(class='ds-weibo' href='javascript:void(0);' data-service='weibo') 微博
-              li
-                a(class='ds-qzone' href='javascript:void(0);' data-service='qzone') QQ空间
-              li
-                a(class='ds-qqt' href='javascript:void(0);' data-service='qqt') 腾讯微博
-              li
-                a(class='ds-wechat' href='javascript:void(0);' data-service='wechat') 微信
-            .ds-share-icons-more
-    include _partial/comments
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Hexo</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="4">
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Inicio</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categorías</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Etiquetas</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archivos</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Buscar</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">Acerca de</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            linux 系统瘦身
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-12-20T13:07:00+08:00">
+	
+		    20 Dec 2016
+    	
+    </time>
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>目前 PC 市场中，硬盘内存等硬件设备越来越廉价不值钱，所以很多人不再考虑删减系统清除无用文件等来节省更多的空间。然而，很多不同的应用对存储空间运行空间等依然十分敏感，本文主要针对是在个人使用的 VPS 上，如何使用更少的资源运行更多的服务。</p>
+<p>系统以 ubuntu/debian 为例，作为 VPS 普通服务器的操作系统来使用，进行优化，删除不会经常使用的工具，保留一些个人认为有用的功能。</p>
+<h3 id="清理下载的缓存包"><a href="#清理下载的缓存包" class="headerlink" title="清理下载的缓存包"></a>清理下载的缓存包</h3><p>在 Ubuntu 中通过 sudo apt-get install 安装软件时，其下载的包都缓存在 /var/cache/apt/archives/ 目录中。如果要清理掉这些已下载的缓存包，那么可以执行命令：<br><code>sudo apt-get autoclean</code> 和 <code>sudo apt-get clean</code> 。</p>
+<a id="more"></a>
+<h3 id="清理不再需要的包"><a href="#清理不再需要的包" class="headerlink" title="清理不再需要的包"></a>清理不再需要的包</h3><p>在 Ubuntu 系统中安装软件时，该软件的依赖通常也会自动安装上。那么，在删除该软件后，其依赖可能需要我们手动删除之。可以运行 sudo apt-get autoremove 命令来解决这个问题。</p>
+<h3 id="清除-update-库"><a href="#清除-update-库" class="headerlink" title="清除 update 库"></a>清除 update 库</h3><p>清除 apt-get update 过程中所下载的软件库列表： <code>rm -rf /var/lib/apt/lists/*</code> 。但注意每次执行 apt-get update 后还会重新更新这些文件，因此在仍然需要安装软件的 VPS 上这个用处不大，但是如果服务器已经配置成功了，可以接连使用  <code>rm -rf /var/lib/apt/lists/* &amp;&amp;  apt-get autoclean &amp;&amp; apt-get autoremove</code> 来清除空间。</p>
+<h3 id="清理无用的语言文件"><a href="#清理无用的语言文件" class="headerlink" title="清理无用的语言文件"></a>清理无用的语言文件</h3><p>Ubuntu 与其他 Linux 发行版一样，是一个支持多语言界面的系统。其实，对使用自己母语的我们来说，通常保留中文即可，也可以保留自己所需要使用的语言，如英文。其他的语言文件则没有必要保留。为了清理这些无用的语言文件，需要在 Ubuntu 系统中安装一个名为 localepurge 的小工具，apt-get install localepurge。执行 localepurge，软件会提示你如何操作，服务器端建议只保留 en, en_US, en_US.UTF-8 。该软件分为两种界面，一种是直接按空格选择需要保留的包，另外一种是输入包序号选择保留包。</p>
+<h3 id="清理-build-essential"><a href="#清理-build-essential" class="headerlink" title="清理 build-essential"></a>清理 build-essential</h3><p>查看该软件包的依赖关系，可以看到以下内容：<br>$ apt-cache depends build-essential<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">build-essential</div><div class="line">|依赖: libc6-dev</div><div class="line">依赖: &lt;libc-dev&gt;</div><div class="line">libc6-dev</div><div class="line">依赖: gcc</div><div class="line">依赖: g++</div><div class="line">依赖: make</div><div class="line">依赖: dpkg-dev</div></pre></td></tr></table></figure></p>
+<p>也就是说，安装了该软件包，编译c/c++所需要的软件包也都会被安装。因此如果想在Ubuntu中编译c/c++程序，需要安装该软件包就可以了， build-essential 里面包含了最常用的编译工具，编译程序有了这个软件包<br>它才知道头文件在哪，也才知道库函数在哪，还会下载其他依赖的软件包，最后才组成一个开发环境。</p>
+<p>对于不开发 c/c++ 用的服务器来说，如果只是用安装包安装，不用源码编译的话，则可以卸载这个软件包。</p>
+<h3 id="清除部分文档帮助文件"><a href="#清除部分文档帮助文件" class="headerlink" title="清除部分文档帮助文件"></a>清除部分文档帮助文件</h3><p>清除其中的一些帮助说明文档： <code>rm -rf /usr/share/{doc,man}</code> 。</p>
+<h3 id="编辑器安装和卸载"><a href="#编辑器安装和卸载" class="headerlink" title="编辑器安装和卸载"></a>编辑器安装和卸载</h3><p>安装 vim，个人习惯只用 vim ，但 vim 的套件也会占用 20M 以上的空间，这边如果对编辑器没有特殊要求的可以安装使用 nano （约 2M 大小）。</p>
+<blockquote>
+<p>参考链接：<br><a href="https://zhidao.baidu.com/question/2051702708087103867.html" target="_blank" rel="external">https://zhidao.baidu.com/question/2051702708087103867.html</a><br><a href="http://www.cnblogs.com/dolphi/p/3622570.html" target="_blank" rel="external">http://www.cnblogs.com/dolphi/p/3622570.html</a></p>
+</blockquote>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/12/26/2016/2016-12-26-针对百度网盘限速的解决方案/"  data-tooltip="针对百度网盘限速的解决方案">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/12/19/2016/2016-12-19-vps-简介/" data-tooltip="VPS 简介">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SIGUIENTE</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/12/20/2016/2016-12-20-linux-系统瘦身/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/12/20/2016/2016-12-20-linux-系统瘦身/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/12/20/2016/2016-12-20-linux-系统瘦身/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2017 John Doe. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/12/26/2016/2016-12-26-针对百度网盘限速的解决方案/"  data-tooltip="针对百度网盘限速的解决方案">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/12/19/2016/2016-12-19-vps-简介/" data-tooltip="VPS 简介">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SIGUIENTE</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/12/20/2016/2016-12-20-linux-系统瘦身/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/12/20/2016/2016-12-20-linux-系统瘦身/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/12/20/2016/2016-12-20-linux-系统瘦身/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/12/20/2016/2016-12-20-linux-系统瘦身/">
+                <i class="fa fa-google-plus"></i><span class="">Compartir en Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/12/20/2016/2016-12-20-linux-系统瘦身/">
+                <i class="fa fa-facebook-official"></i><span>Compartir en Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/12/20/2016/2016-12-20-linux-系统瘦身/">
+                <i class="fa fa-twitter"></i><span>Compartir en Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">John Doe</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+</html>

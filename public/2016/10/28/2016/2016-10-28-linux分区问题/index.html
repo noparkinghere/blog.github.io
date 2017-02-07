@@ -1,51 +1,421 @@
-extends base
 
-block title
-  title= page.title + ' | ' + config.title
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hexo">
+    <title>linux分区问题 - Hexo</title>
+    <meta name="author" content="John Doe">
+    
+    
+    
+    <meta name="description" content="分区功能是个使用系统时候的必备功能，但却不特别常用，所以每次使用时难免会因为不记得指令或者错误使用指令而导致一些没必要的错误发生，建议如果不是经常分区，对步骤不是记得太清楚的话，在分区前还是搜索一下详细步骤，免得出了问题仍然不自知。笔者之所以写这篇文章就是潜意识中觉得分区步骤简单，然后出了问题，还不知道问题出在哪儿。
+简述分区步骤：
+df:可以查看下当前系统挂载了的分区，如下图所示
 
-block content
-  .post
-    h1.post-title= page.title
-    .post-meta= page.date.format('ll')
-      if page.categories.length > 0
-        span= ' | '
-        span.category
-          for category in page.categories.toArray()
-            a(href=url_for(category.path))= category.name
-      if theme.busuanzi == true
-        script(src='https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js', async)
-        span#busuanzi_container_page_pv= ' | '
-          span#busuanzi_value_page_pv
-          span= ' ' + __('Hits')
-    if theme.duoshuo
-      a.ds-thread-count(data-thread-key=page.path, href=url_for(page.path) + '#comments')
-    if theme.disqus
-      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
-    if page.toc
-      div(class='clear')
-        div(id='toc' class='toc-article')
-          div(class='toc-title')= __('contents')
-          != toc(page.content)
-    .post-content
-      != page.content
-    if theme.shareto == true
-      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
-      a.article-share-link(data-url='#{page.permalink}', data-id='#{page._id}')= __('shareto')
-    include _partial/tag
-    include _partial/post_nav
-    if theme.duoshuo
-      div(class='ds-share flat' data-thread-key=page.path, data-title=page.title, data-url=page.permalink)
-         .ds-share-inline
-            ul.ds-share-icons-16
-              li(data-toggle='ds-share-icons-more')
-                a(class='ds-more' href='javascript:void(0);') 分享到：
-              li
-                a(class='ds-weibo' href='javascript:void(0);' data-service='weibo') 微博
-              li
-                a(class='ds-qzone' href='javascript:void(0);' data-service='qzone') QQ空间
-              li
-                a(class='ds-qqt' href='javascript:void(0);' data-service='qqt') 腾讯微博
-              li
-                a(class='ds-wechat' href='javascript:void(0);' data-service='wechat') 微信
-            .ds-share-icons-more
-    include _partial/comments
+123456">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="linux分区问题">
+<meta property="og:url" content="http://yoursite.com/2016/10/28/2016/2016-10-28-linux分区问题/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="分区功能是个使用系统时候的必备功能，但却不特别常用，所以每次使用时难免会因为不记得指令或者错误使用指令而导致一些没必要的错误发生，建议如果不是经常分区，对步骤不是记得太清楚的话，在分区前还是搜索一下详细步骤，免得出了问题仍然不自知。笔者之所以写这篇文章就是潜意识中觉得分区步骤简单，然后出了问题，还不知道问题出在哪儿。
+简述分区步骤：
+df:可以查看下当前系统挂载了的分区，如下图所示
+
+123456">
+<meta property="og:updated_time" content="2016-12-16T01:49:52.443Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux分区问题">
+<meta name="twitter:description" content="分区功能是个使用系统时候的必备功能，但却不特别常用，所以每次使用时难免会因为不记得指令或者错误使用指令而导致一些没必要的错误发生，建议如果不是经常分区，对步骤不是记得太清楚的话，在分区前还是搜索一下详细步骤，免得出了问题仍然不自知。笔者之所以写这篇文章就是潜意识中觉得分区步骤简单，然后出了问题，还不知道问题出在哪儿。
+简述分区步骤：
+df:可以查看下当前系统挂载了的分区，如下图所示
+
+123456">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Hexo</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="4">
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Inicio</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categorías</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Etiquetas</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archivos</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Buscar</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">Acerca de</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            linux分区问题
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-10-28T08:46:00+08:00">
+	
+		    28 Oct 2016
+    	
+    </time>
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>分区功能是个使用系统时候的必备功能，但却不特别常用，所以每次使用时难免会因为不记得指令或者错误使用指令而导致一些没必要的错误发生，建议如果不是经常分区，对步骤不是记得太清楚的话，在分区前还是搜索一下详细步骤，免得出了问题仍然不自知。笔者之所以写这篇文章就是潜意识中觉得分区步骤简单，然后出了问题，还不知道问题出在哪儿。</p>
+<h3 id="简述分区步骤："><a href="#简述分区步骤：" class="headerlink" title="简述分区步骤："></a>简述分区步骤：</h3><ul>
+<li>df:可以查看下当前系统<strong>挂载了的分区</strong>，如下图所示</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Filesystem     1K-blocks     Used Available Use% Mounted on</div><div class="line">udev             4044748        0   4044748   0% /dev</div><div class="line">tmpfs             812844     9744    803100   2% /run</div><div class="line">/dev/sda2       47930248 11323396  34149048  25% /</div><div class="line">tmpfs            4064220   349608   3714612   9% /dev/shm</div><div class="line">tmpfs               5120        4      5116   1% /run/lock</div><div class="line">tmpfs            4064220        0   4064220   0% /sys/fs/cgroup</div><div class="line">/dev/sda1         497696     3668    494028   1% /boot/efi</div><div class="line">/dev/sda3       95990540 70935460  20155908  78% /home</div><div class="line">tmpfs             812844       12    812832   1% /run/user/1000</div><div class="line">/dev/sda5      142794248 34011608 101506060  26% /home/demon/Space</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<ul>
+<li>也可以使用sudo fdisk -l 看当前系统存在的分区信息</li>
+<li>下面开始分区，使用sudo fdisk /dev/sda，这边要对sda设备进行分区，主要看你要对哪块盘进行分区，如果有第二块盘，则是sdb。执行完这个指令后，会有帮助提示，跟着提示走，会很简单。</li>
+<li>这边我们新建分区，输入：n，选择分区码，起始扇区，结尾扇区。最后输入w写入分区表。这边出现警告：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">The partition table has been altered.</div><div class="line">Calling ioctl() to re-read partition table.</div><div class="line">Re-reading the partition table failed.: Device or resource busy</div><div class="line"></div><div class="line">The kernel still uses the old table. The new table will be used at the next reboot or after you run partprobe(8) or kpartx(8).</div></pre></td></tr></table></figure>
+<p>起初一直在纠结这个问题，后来通过网上查看发现仅仅是个警告，并非错误，而虽然完成但事实上这边没有格式化，值得注意的是，fdisk虽然选择了分区类型，但并没有格式化分区，而这边的分区类型仅仅是将分区类型的内容写入了MBR中，真正格式化还得手动执行。</p>
+<ul>
+<li>使用sudo fdisk -l 已经可以查看到分区列表了</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Device         Start        End    Sectors   Size Type</div><div class="line">/dev/sda1       2048     999423     997376   487M EFI System</div><div class="line">/dev/sda2     999424   98656255   97656832  46.6G Linux filesystem</div><div class="line">/dev/sda3   98656256  293967871  195311616  93.1G Linux filesystem</div><div class="line">/dev/sda4  293967872  309592063   15624192   7.5G Linux swap</div><div class="line">/dev/sda5  309592064  600000000  290407937 138.5G Linux filesystem</div><div class="line">/dev/sda6  600000512 1953525134 1353524623 645.4G Linux filesystem</div></pre></td></tr></table></figure>
+<ul>
+<li>下面真正格式化分区，格式化分区需要选择格式化类型，上面通过fdisk已经选定了分区为linux filesystem了，这边就要将其格式化为其对应的文件系统。sudo mkfs.ext4 /dev/sda6，再看分区sudo fdisk -l。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Device         Start        End    Sectors   Size Type</div><div class="line">/dev/sda1       2048     999423     997376   487M EFI System</div><div class="line">/dev/sda2     999424   98656255   97656832  46.6G Linux filesystem</div><div class="line">/dev/sda3   98656256  293967871  195311616  93.1G Linux filesystem</div><div class="line">/dev/sda4  293967872  309592063   15624192   7.5G Linux swap</div><div class="line">/dev/sda5  309592064  600000000  290407937 138.5G Linux filesystem</div><div class="line">/dev/sda6  600000512 1953525134 1353524623 645.4G Linux filesystem</div></pre></td></tr></table></figure>
+<ul>
+<li>最后一步就是挂载分区了，使用sudo mount /dev/sda6 ~/Extern 将sda6新分出来的分区挂载到当前用户目录下的Extern分区中即可。</li>
+<li>df再次查看可以发现，分区已经被挂载成功了。</li>
+</ul>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/29/2016/2016-10-29-msb-和-lsb/"  data-tooltip="MSB 和 LSB">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/27/2016/2016-10-27-aria2详解/" data-tooltip="Aria2详解">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SIGUIENTE</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/10/28/2016/2016-10-28-linux分区问题/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/10/28/2016/2016-10-28-linux分区问题/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/10/28/2016/2016-10-28-linux分区问题/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2017 John Doe. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/29/2016/2016-10-29-msb-和-lsb/"  data-tooltip="MSB 和 LSB">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/27/2016/2016-10-27-aria2详解/" data-tooltip="Aria2详解">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SIGUIENTE</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/10/28/2016/2016-10-28-linux分区问题/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/10/28/2016/2016-10-28-linux分区问题/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/10/28/2016/2016-10-28-linux分区问题/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/10/28/2016/2016-10-28-linux分区问题/">
+                <i class="fa fa-google-plus"></i><span class="">Compartir en Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/10/28/2016/2016-10-28-linux分区问题/">
+                <i class="fa fa-facebook-official"></i><span>Compartir en Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/10/28/2016/2016-10-28-linux分区问题/">
+                <i class="fa fa-twitter"></i><span>Compartir en Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">John Doe</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+</html>

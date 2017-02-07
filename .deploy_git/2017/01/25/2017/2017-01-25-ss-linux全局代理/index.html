@@ -1,51 +1,409 @@
-extends base
 
-block title
-  title= page.title + ' | ' + config.title
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hexo">
+    <title>linux-shadowsocks全局代理 - Hexo</title>
+    <meta name="author" content="John Doe">
+    
+    
+    
+    <meta name="description" content="windows 直接下载 ss 终端，稍加设置即可完成全局代理，linux 用户如果需要让某个软件可以使用 ss 一般都需要连接端口才行。例如本地 ss 配置为：12&amp;quot;server_port&amp;quot;:1800,&amp;quot;local_port&amp;quot;:1080,
+原理简述这边就相当于将本地的 127.0.0.1:1080 和 server_ip:1800 建立了连接关系。因此软件">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="linux-shadowsocks全局代理">
+<meta property="og:url" content="http://yoursite.com/2017/01/25/2017/2017-01-25-ss-linux全局代理/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="windows 直接下载 ss 终端，稍加设置即可完成全局代理，linux 用户如果需要让某个软件可以使用 ss 一般都需要连接端口才行。例如本地 ss 配置为：12&amp;quot;server_port&amp;quot;:1800,&amp;quot;local_port&amp;quot;:1080,
+原理简述这边就相当于将本地的 127.0.0.1:1080 和 server_ip:1800 建立了连接关系。因此软件">
+<meta property="og:updated_time" content="2017-01-25T03:06:43.366Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux-shadowsocks全局代理">
+<meta name="twitter:description" content="windows 直接下载 ss 终端，稍加设置即可完成全局代理，linux 用户如果需要让某个软件可以使用 ss 一般都需要连接端口才行。例如本地 ss 配置为：12&amp;quot;server_port&amp;quot;:1800,&amp;quot;local_port&amp;quot;:1080,
+原理简述这边就相当于将本地的 127.0.0.1:1080 和 server_ip:1800 建立了连接关系。因此软件">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    
+</head>
 
-block content
-  .post
-    h1.post-title= page.title
-    .post-meta= page.date.format('ll')
-      if page.categories.length > 0
-        span= ' | '
-        span.category
-          for category in page.categories.toArray()
-            a(href=url_for(category.path))= category.name
-      if theme.busuanzi == true
-        script(src='https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js', async)
-        span#busuanzi_container_page_pv= ' | '
-          span#busuanzi_value_page_pv
-          span= ' ' + __('Hits')
-    if theme.duoshuo
-      a.ds-thread-count(data-thread-key=page.path, href=url_for(page.path) + '#comments')
-    if theme.disqus
-      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
-    if page.toc
-      div(class='clear')
-        div(id='toc' class='toc-article')
-          div(class='toc-title')= __('contents')
-          != toc(page.content)
-    .post-content
-      != page.content
-    if theme.shareto == true
-      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
-      a.article-share-link(data-url='#{page.permalink}', data-id='#{page._id}')= __('shareto')
-    include _partial/tag
-    include _partial/post_nav
-    if theme.duoshuo
-      div(class='ds-share flat' data-thread-key=page.path, data-title=page.title, data-url=page.permalink)
-         .ds-share-inline
-            ul.ds-share-icons-16
-              li(data-toggle='ds-share-icons-more')
-                a(class='ds-more' href='javascript:void(0);') 分享到：
-              li
-                a(class='ds-weibo' href='javascript:void(0);' data-service='weibo') 微博
-              li
-                a(class='ds-qzone' href='javascript:void(0);' data-service='qzone') QQ空间
-              li
-                a(class='ds-qqt' href='javascript:void(0);' data-service='qqt') 腾讯微博
-              li
-                a(class='ds-wechat' href='javascript:void(0);' data-service='wechat') 微信
-            .ds-share-icons-more
-    include _partial/comments
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Hexo</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="4">
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Inicio</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categorías</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Etiquetas</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archivos</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Buscar</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">Acerca de</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            linux-shadowsocks全局代理
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2017-01-25T08:38:00+08:00">
+	
+		    25 Jan 2017
+    	
+    </time>
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>windows 直接下载 ss 终端，稍加设置即可完成全局代理，linux 用户如果需要让某个软件可以使用 ss 一般都需要连接端口才行。例如本地 ss 配置为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&quot;server_port&quot;:1800,</div><div class="line">&quot;local_port&quot;:1080,</div></pre></td></tr></table></figure></p>
+<h3 id="原理简述"><a href="#原理简述" class="headerlink" title="原理简述"></a>原理简述</h3><p>这边就相当于将本地的 127.0.0.1:1080 和 server_ip:1800 建立了连接关系。因此软件如果需要使用 vps 上面搭建的 ss 服务的话，则需要让该软件使用的协议连接到 127.0.0.1:1080 上。之前在 vps-shadowsocks 中介绍的 chrome 插件 SwitchyOmega 就是使用 SOCKS5 协议连接到 127.0.0.1:1080 上，让所有数据通过 SOCKS5 协议，然后从 127.0.0.1:1080 进行收发。</p>
+<p>可以看出如果我们需要让其他软件也能够使用 ss 则需要让他们也能够使用 127.0.0.1:1080 代理服务器，然而不幸的是，大多数软件并不支持代理服务的功能， windows 平台下的软件很多可以通过设置 IE 代理让其他软件使用代理服务（原理是：大多数软件都会优先读取 IE 的代理设置，再访问网络）。</p>
+<a id="more"></a>
+<h3 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h3><p>linux 下有个软件： proxychains 解决了我们的所有问题，该软件可以通过 <code>sudo apt-get install proxychains</code> 下载安装，一般为 3.1 版本。当然也可以去下载安装<a href="https://github.com/rofl0r/proxychains-ng" target="_blank" rel="external">源码</a>，源码安装版本较新，需要自行编译安装，一般为 4.x 版本。</p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>man proxychains 我们可以看到 proxychains 读取的配置文件地址，这边我们自定义 ~/.proxychains/proxychains.conf 文件，写入如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line">ins.conf  VER 3.1</div><div class="line">#</div><div class="line">#        HTTP, SOCKS4, SOCKS5 tunneling proxifier with DNS.</div><div class="line">#   </div><div class="line"></div><div class="line"># The option below identifies how the ProxyList is treated.</div><div class="line"># only one option should be uncommented at time,</div><div class="line"># otherwise the last appearing option will be accepted</div><div class="line">#</div><div class="line">#dynamic_chain</div><div class="line">#</div><div class="line"># Dynamic - Each connection will be done via chained proxies</div><div class="line"># all proxies chained in the order as they appear in the list</div><div class="line"># at least one proxy must be online to play in chain</div><div class="line"># (dead proxies are skipped)</div><div class="line"># otherwise EINTR is returned to the app</div><div class="line">#</div><div class="line">strict_chain</div><div class="line">#</div><div class="line"># Strict - Each connection will be done via chained proxies</div><div class="line"># all proxies chained in the order as they appear in the list</div><div class="line"># all proxies must be online to play in chain</div><div class="line"># otherwise EINTR is returned to the app</div><div class="line">#</div><div class="line">#random_chain</div><div class="line">#</div><div class="line"># Random - Each connection will be done via random proxy</div><div class="line"># (or proxy chain, see  chain_len) from the list.</div><div class="line"># this option is good to test your IDS :)</div><div class="line"></div><div class="line"># Make sense only if random_chain</div><div class="line">#chain_len = 2</div><div class="line"></div><div class="line"># Quiet mode (no output from library)</div><div class="line">#quiet_mode</div><div class="line"></div><div class="line"># Proxy DNS requests - no leak for DNS data</div><div class="line">proxy_dns </div><div class="line"></div><div class="line"># Some timeouts in milliseconds</div><div class="line">tcp_read_time_out 15000</div><div class="line">tcp_connect_time_out 8000</div><div class="line"></div><div class="line"># ProxyList format</div><div class="line">#       type  host  port [user pass]</div><div class="line">#       (values separated by &apos;tab&apos; or &apos;blank&apos;)</div><div class="line">#</div><div class="line">#</div><div class="line">#        Examples:</div><div class="line">#</div><div class="line">#               socks5192.168.67.781080lamersecret</div><div class="line">#       http192.168.89.38080justuhidden</div><div class="line">#       socks4192.168.1.491080</div><div class="line">#           http192.168.39.938080</div><div class="line">#       </div><div class="line">#</div><div class="line">#       proxy types: http, socks4, socks5</div><div class="line">#        ( auth types supported: &quot;basic&quot;-http  &quot;user/pass&quot;-socks  )</div><div class="line">#</div><div class="line">[ProxyList]</div><div class="line"># add proxy here ...</div><div class="line"># meanwile</div><div class="line"># defaults set to &quot;tor&quot;</div><div class="line">socks5 127.0.0.1 1080</div></pre></td></tr></table></figure>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ul>
+<li>输入 <code>proxychains curl www.google.com</code> 命令，我们可以看到提示内容，如果一直等待或者无法访问则代表设置失败。这是一种方法通过 proxychains + 命令。</li>
+</ul>
+<p><strong>这边值得注意的是使用 <code>proxychains curl www.google.com</code> 命令，博主一开始使用的是  <code>proxychains ping www.google.com</code> 一直无法 ping 通，也一致认为自己配置的有问题，后来才发现： ping 命令本身不调用 http ，socks5 等协议，ping也属于一个通信协议，是 TCP/IP 协议的一部分。而诸如：  http ，socks5，ssh 等都是基于 TCP/IP 或者 UPD 之上的协议，所以验证的时候一定要当心注意了使用其他调用 socks5 协议的软件才可以验证。</strong></p>
+<ul>
+<li>输入 <code>proxychains bash</code> 我们可以建立一个新的 shell 基于这个 shell 运行的所有命令和软件都会通过 <code>127.0.0.1:1080</code> 转发数据。</li>
+</ul>
+<p><strong>通过 proxychains 打开的软件，在使用时都会有详细的网络连接信息。</strong></p>
+<p>补充一个问题：如果使用时出现 <code>ERROR: ld.so: object &#39;libproxychains.so.3&#39; from LD_PRELOAD cannot be preloaded: ignored.</code> 原因是无法找到 libproxychains.so.3 文件，可以通过 <code>find /usr/lib/ -name libproxychains.so.3</code> 找到具体路径，然后 <code>export LD_PRELOAD=你找到的路径</code> 。</p>
+<h3 id="全局代理"><a href="#全局代理" class="headerlink" title="全局代理"></a>全局代理</h3><p>基于 <code>proxychains bash</code> 开启的所有软件都可以通过 ss 来访问外网，而这个 terminal 可以相当于是全局代理的，当然如果你需要设置整个系统都全局代理的话，应该也是可以修改 linux 下面的源码的，让密码认证通过后，启用的 login-bash 采用 proxychains 方式启用。这边未做详细研究，理论上可能可行。</p>
+<hr>
+<p><em>个人对网络研究很欠缺，如有错误还望指正。</em></p>
+<blockquote>
+<p>参考链接：<br><a href="http://www.tuicool.com/articles/rUNFF3" target="_blank" rel="external">http://www.tuicool.com/articles/rUNFF3</a><br><a href="http://askubuntu.com/questions/293649/proxychains-ld-preload-cannot-be-preloaded" target="_blank" rel="external">http://askubuntu.com/questions/293649/proxychains-ld-preload-cannot-be-preloaded</a><br><a href="http://blog.csdn.net/yusiguyuan/article/details/24269129" target="_blank" rel="external">http://blog.csdn.net/yusiguyuan/article/details/24269129</a></p>
+</blockquote>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/01/05/2017/2017-01-05-（转）中文技术文档的写作规范/" data-tooltip="（转）中文技术文档的写作规范">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SIGUIENTE</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/01/25/2017/2017-01-25-ss-linux全局代理/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/01/25/2017/2017-01-25-ss-linux全局代理/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/01/25/2017/2017-01-25-ss-linux全局代理/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2017 John Doe. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/01/05/2017/2017-01-05-（转）中文技术文档的写作规范/" data-tooltip="（转）中文技术文档的写作规范">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SIGUIENTE</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/01/25/2017/2017-01-25-ss-linux全局代理/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/01/25/2017/2017-01-25-ss-linux全局代理/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/01/25/2017/2017-01-25-ss-linux全局代理/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/01/25/2017/2017-01-25-ss-linux全局代理/">
+                <i class="fa fa-google-plus"></i><span class="">Compartir en Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/01/25/2017/2017-01-25-ss-linux全局代理/">
+                <i class="fa fa-facebook-official"></i><span>Compartir en Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/01/25/2017/2017-01-25-ss-linux全局代理/">
+                <i class="fa fa-twitter"></i><span>Compartir en Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">John Doe</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+</html>

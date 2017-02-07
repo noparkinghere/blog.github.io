@@ -1,24 +1,697 @@
-extends base
 
-block title
-  if page.category
-     title= page.category + ' | ' + config.title
-  if page.tag
-     title= page.tag + ' | ' + config.title
-  if page.archive
-     title= __('archive') + ' | ' + config.title
-block content
-  if page.category || page.tag
-      h1.label-title=  __('reading_label', page.category || page.tag)
-  .post
-    .post-archive
-        //Use lodash to classify posts. See https://lodash.com/docs#groupBy
-        each posts, year in _.groupBy(page.posts.toArray(), function(p){return -p.date.format('YYYY')})
-          h2= -year
-          ul.listing
-            for post in posts
-              li
-                span.date= post.date.format('YYYY/MM/DD')
-                a(href=url_for(post.path), title=post.title)
-                  +title(post)
-  include _partial/paginator.jade
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hexo">
+    <title>Archivos: 2016/10 - Hexo</title>
+    <meta name="author" content="John Doe">
+    
+    
+    
+    <meta property="og:type" content="blog">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/archives/2016/10/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="2">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Hexo</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="2">
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Inicio</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categorías</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Etiquetas</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archivos</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Buscar</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">Acerca de</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="2"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+    
+
+<section class="postShorten-group main-content-wrap">
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/10/30/2016/2016-10-30-uart-spi-iic的比较/">
+                            uart/spi/iic的比较
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-10-30T14:11:00+08:00">
+	
+		    30 Oct 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <a id="more"></a>
+<blockquote>
+<p>参考链接：<br><a href="http://wenku.baidu.com/view/2a0a7f9869dc5022abea001d.html" target="_blank" rel="external">http://wenku.baidu.com/view/2a0a7f9869dc5022abea001d.html</a><br><a href="http://blog.sina.com.cn/s/blog_50cfd0fc0101flsn.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_50cfd0fc0101flsn.html</a></p>
+</blockquote>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2016/10/30/2016/2016-10-30-uart-spi-iic的比较/#post-footer" class="postShorten-excerpt_link link">
+                                Comentar y compartir
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/10/30/2016/2016-10-30-大端和小端/">
+                            大端和小端
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-10-30T10:30:00+08:00">
+	
+		    30 Oct 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p><em>大小端和字节对齐，与 CPU 结构有关，与编译器没关系，只与编译器的默认代码约定规则有关。只要代码约定规则一样（可在代码中加入约定命令），不同编译器编译出来结果是一样的。</em></p>
+<p>我们常常看到“alignment”， “endian”之类的字眼， 但很少有 C 语言教材提到这些概念。 实际上它们是与处理器与内存接口， 编译器类型密切相关的。</p>
+<p><strong>端模式(Byte Endian)</strong> 是指字节在内存中的组织，所以也称它为Byte Ordering。这边所谓的端模式一般就是指大端或者小端存储，也就是每个字节的实际排放顺序，上面已经讨论过字节在内存中如何进行对齐，这边讨论字节的常见排放顺序。</p>
+<p>数据寻址时，一般读取的都是低位字节的地址（即存储数据的可能占用多个地址，但低位地址代表了这个数据的地址）。C 中的数据类型都是从内存的低地址向高地址扩展，取址运算”&amp;”都是取低地址。 所以就有高位地址和地位地址区别，一般来说数字大的就是高地址，数字小的是地址：比如 0x1000 相对于 0x1003 来说是低地址。数据低位和数据高位：比如 0x012345678 0x01 是数据高位（即使 Most Significant Byte，MSB 位），而 0x78 是数据低地址位（Least Significant Byte，LSB）。</p>
+<p>注意：有些地方 MSB 也可以代表 Most Significant Bit，LSB 则代表 Least Significant Bit 根据具体的场景来判别。如：FM25W256 铁电或者 EEPROM 中，描述的 MSB/LSB 根据时序图往往可以判别代表的高地位而不是字节。</p>
+<h3 id="端模式-Byte-Endian-简述"><a href="#端模式-Byte-Endian-简述" class="headerlink" title="端模式(Byte Endian)简述"></a>端模式(Byte Endian)简述</h3><ul>
+<li><p>大端模式：数据低位存放到地址高位。比如：存储数据0x01234567，按照0x01-&gt;1000，0x23-&gt;1001，0x45-&gt;1002，0x67-&gt;1003这种顺序存储。通讯中大都采用大段模式，因为数据通讯时，直接可以按照一个个位进行解析，无需每次调换顺序，大端模式往往在通讯中被广泛使用。</p>
+</li>
+<li><p>小端模式：一般也称作内存模式，数据高位存放到地址高位。比如：存储数据0x01234567，按照0x67-&gt;1000，0x45-&gt;1001，0x23-&gt;1002，0x01-&gt;1003这种顺序存储。小端比较符合人的一般思维逻辑。嵌入式芯片中目前主流就是小端模式，绝大多数ARM芯片默认也为小端模式，但可以进行更改设置，传统的51芯片为大端模式。</p>
+</li>
+</ul>
+<p>除了大小段模式外，还有一些协议自定义的转换标准，有的协议将两个字节(16bit)作为一个整体，如：传送数据0x00010203（按照内存模式/小端模式传送）时，会解析为0x0100，0x0302，具体分析，实际上采用的是大端模式，每次传输数据时，将16个作为个整体进行解析。</p>
+<h3 id="详细分析"><a href="#详细分析" class="headerlink" title="详细分析"></a>详细分析</h3><p>最近阮一峰老师的博客刚好也写了一篇有关大小端的文章，老实说，大小端本人也接触很久了，但也一直较为困惑，另外时间一长每次就忘了哪个是大端哪个是小端，这边给出一些个人的理解和分析。</p>
+<p>描述大小端时有一点表示的比较模糊，这边前后有两种含义：1.内存的寻址肯定是从低往高的，所以下面表示的前或者后，都是以内存作为参照，前表示内存的低地址，后表示内存高地址；2.通信过程中，传输在前表示先被传输打印过来的值，传输在后表示后被传输打印出来的值（传输的过程也需要明确一点，数据的传输打印不是被逐个挤到后面去的，而是在后面以append的形式显示，后来的数据显示在后方）。明确了这两点内容这边详细谈下大小端：</p>
+<ul>
+<li>大端字节序：高位字节在前，低位字节在后，这是人类读写数值的方法。内存中低地址对应数据的高位，传输中数据高位先被打印出来，因为先被打印出来（而打印按照从左往右的顺序逐个显示），所以例如：0x789A6B 就会显示为 78 9A 6B 这种更加符合人的阅读习惯。</li>
+<li>小端字节序：低位字节在前，高位字节在后，即以0x1122形式储存。内存中低地址对应数据的低位，传输中数据低位先被打印出来，因为先被打印出来（而打印按照从左往右的顺序逐个显示），所以例如：0x789A6B 就会显示为 6B 9A 78 这种更加符合人的阅读习惯。</li>
+</ul>
+<p>这边有些同学可能又有疑惑，为何 6B 可以解析为 6B(01101011) 而不是反过来 D6(11010110) 呢？事实上计算机在传输过程中确实有一个接近统一的标准的，无论是大端还是小端或者各种通讯协议（至少各种协议我还没有见过违背这个准则的），都满足原则：<strong>先传输字符的低位，后传输字符的高位。</strong></p>
+<ul>
+<li><em>以下内容引用自阮一峰老师的博客：</em>  </li>
+</ul>
+<blockquote>
+<p>首先，为什么会有小端字节序？答案是，计算机电路先处理低位字节，效率比较高，因为计算都是从低位开始的。所以，计算机的内部处理都是小端字节序。<br>但是，人类还是习惯读写大端字节序。所以，除了计算机的内部处理，其他的场合几乎都是大端字节序，比如网络传输和文件储存。</p>
+</blockquote>
+<p>个人认为该内容有待斟酌，如 51 单片机就是大端模式，另外很多 ARM 的 MCU 都是默认小端，且可以用户自己设置选用大端还是小端模式的。个人认为计算机内部并不会因为大小端而影响效率，在设计芯片时应该已经决定了它的特性。小端模式在不考虑传输，人工查看的前提下，对例如：00 78 9A 6B 用 6B所对应的地址来表示 0x789A6B 这个数据数据的存储位置，也是有一定道理的。</p>
+<h3 id="记忆方法"><a href="#记忆方法" class="headerlink" title="记忆方法"></a>记忆方法</h3><blockquote>
+<p>在乔纳森·斯威夫特的著名讽刺小说《格列夫游记》中，小人国内部分裂成Big-endian和Little-endian两派，区别在于一派要求从鸡蛋的大头把鸡蛋打破，另一派要求从鸡蛋的小头把鸡蛋打破。斯威夫特借以讽刺英国的政党之争，在计算机工业中指数据储存顺序的分歧。</p>
+</blockquote>
+<p>这边首先需要有个参照物，计算机按照从低位往高位寻址这是毋容置疑的，存储时，也都是讲内存的低位用完后，指针加一，再使用更高的位。大端意味着内存的低位存储了数据的高位，小端则是内存的低位对应了数据的低位。</p>
+<h3 id="测试大小端参考代码："><a href="#测试大小端参考代码：" class="headerlink" title="测试大小端参考代码："></a>测试大小端参考代码：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">方法1：</div><div class="line">typedef unsigned char u8;</div><div class="line"></div><div class="line">int main(void)</div><div class="line">&#123;</div><div class="line">	unsigned long int a = 0x01020304;</div><div class="line"></div><div class="line">	for (u8 i = 0; i &lt; 4; i++)</div><div class="line">	&#123;</div><div class="line">		printf(&quot;%d&quot;, *((u8 *)&amp;a + i));  // 注意先加a的地址转换为无符号字符型再加地址，否则每次加1，地址会增加4。</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">如果结果为：4321则为小端模式，而1234为大端模式。</div><div class="line"></div><div class="line">方法2：</div><div class="line"></div><div class="line">typedef union</div><div class="line">&#123;</div><div class="line">	unsigned short int a;</div><div class="line">	unsigned char b;</div><div class="line">&#125;Union;</div><div class="line"></div><div class="line"></div><div class="line">int main(void)</div><div class="line">&#123;</div><div class="line">	Union u1;</div><div class="line">	u1.a = 0x0201;</div><div class="line"></div><div class="line">	if (u1.b == 0x01)</div><div class="line">		printf(&quot;little endian\n&quot;);</div><div class="line">	else if (u1.b == 0x02)</div><div class="line">		printf(&quot;big endian\n&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p>参考链接：<br><a href="http://blog.csdn.net/vvzaixian/article/details/7067221" target="_blank" rel="external">http://blog.csdn.net/vvzaixian/article/details/7067221</a><br><a href="http://www.360doc.com/content/12/0413/10/1016783_203216902.shtml" target="_blank" rel="external">http://www.360doc.com/content/12/0413/10/1016783_203216902.shtml</a><br><a href="https://my.oschina.net/chaenomeles/blog/673091" target="_blank" rel="external">https://my.oschina.net/chaenomeles/blog/673091</a><br><a href="http://blog.sina.com.cn/s/blog_4afb1c4c010009oa.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_4afb1c4c010009oa.html</a><br><a href="http://www.ruanyifeng.com/blog/2016/11/byte-order.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2016/11/byte-order.html</a></p>
+</blockquote>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2016/10/30/2016/2016-10-30-大端和小端/#post-footer" class="postShorten-excerpt_link link">
+                                Comentar y compartir
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/10/30/2016/2016-10-30-字节对齐/">
+                            字节对齐
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-10-30T07:32:00+08:00">
+	
+		    30 Oct 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p><em>大小端和字节对齐，与 CPU 结构有关，与编译器没关系，只与编译器的默认代码约定规则有关。只要代码约定规则一样（可在代码中加入约定命令），不同编译器编译出来结果是一样的。</em></p>
+<p>我们常常看到“alignment”， “endian”之类的字眼， 但很少有 C 语言教材提到这些概念。 实际上它们是与处理器与内存接口， 编译器类型密切相关的。与 CPU 结构有关，与编译器没关系，只与编译器的默认代码约定规则有关。只要代码约定规则一样（可在代码中加入约定命令），不同编译器编译出来结果是一样的。</p>
+<h3 id="字节对齐（Byte-Alignment）"><a href="#字节对齐（Byte-Alignment）" class="headerlink" title="字节对齐（Byte Alignment）"></a>字节对齐（Byte Alignment）</h3><p>我们写程序的时候，不需要考虑对齐问题。编译器会替我们选择适合目标平台的对齐策略。当然，我们也可以通知给编译器传递预编译指令而改变对指定数据的对齐方法。但是，正因为我们一般不需要关心这个问题，所以因为编辑器对数据存放做了对齐，而我们不了解的话，常常会对一些问题感到迷惑。最常见的就是 struct 数据结构的 sizeof 结果，出乎意料。为此，我们需要对对齐算法所了解。</p>
+<p>现代计算机中内存空间都是按照 byte 划分的，从理论上讲似乎对任何类型的变量的访问可以从任何地址开始，但实际情况是在访问特定变量的时候经常在特定的内存地址访问，这就需要各类型数据按照一定的规则在空间上排列，而不是顺序的一个接一个的排放，这就是对齐。</p>
+<p>内存地址对齐，是一种在计算机内存中排列数据、访问数据的一种方式，包含了两种相互独立又相互关联的部分：基本数据对齐和结构体数据对齐。当今的计算机在计算机内存中读写数据时都是按字(word)大小块来进行操作的(在32位系统中，数据总线宽度为32，每次能读取4字节，地址总线宽度为32，因此最大的寻址空间为2^32=4GB，但是最低2位A[0]，A[1]是不用于寻址，A[2-31]才能存储器相连，因此只能访问4的倍数地址空间，但是总的寻址空间还是2^30 <em> 字长 = 4GB，因此在内存中所有存放的基本类型数据的首地址的最低两位都是0，除结构体中的成员变量)。<strong>基本类型数据对齐就是数据在内存中的偏移地址必须等于一个字的倍数</strong>，按这种存储数据的方式，可以提升系统在读取数据时的性能。<em>*为了对齐数据，可能必须在上一个数据结束和下一个数据开始的地方插入一些没有用处字节，这就是结构体数据对齐</em></em>。</p>
+<p>举个例子，假设计算机的字大小为4个字节，因此变量在内存中的首地址都是满足4地址对齐，CPU只能对4的倍数的地址进行读取，而每次能读取4个字节大小的数据。假设有一个整型的数据a的首地址不是4的倍数(如下图所示)，不妨设为0X00FFFFF3，则该整型数据存储在地址范围为0X00FFFFF3~0X00FFFFF6的存储空间中，而CPU每次只能对4的倍数内存地址进行读取，因此想读取a的数据，CPU要分别在0X00FFFFF0和0X00FFFFF4进行两次内存读取，而且还要对两次读取的数据进行处理才能得到a的数据，而一个程序的瓶颈往往不是CPU的速度，而是取决于内存的带宽，因为CPU得处理速度要远大于从内存中读取数据的速度，因此减少对内存空间的访问是提高程序性能的关键。从上例可以看出，采取内存地址对齐策略是提高程序性能的关键。</p>
+<p>结构体(struct)是C语言中非常有用的用户自定义数据类型，而结构体类型的变量以及其各成员在内存中的又是怎样布局的呢？怎样对齐的呢？很显然<strong>结构体变量首地址必须是4字节对齐的</strong>，但是<strong>结构体的每个成员有各自默认的对齐方式</strong>，结构体中各成员在内存中出现的位置是随它们的声明顺序依次递增的，并且<strong>第一个成员的首地址等于整个结构体变量的首地址</strong>。下面列出了在Microsoft，Borland，GNU上对于X86架构32位系统的结构体成员各种类型的默认对齐方式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">char(1字节)，1字节对齐</div><div class="line">short(2字节)，2字节对齐</div><div class="line">int(4字节)，4字节对齐</div><div class="line">float(4字节)，4字节对齐</div><div class="line">double(8字节)，Windows系统中8字节对齐，Linux系统中4字节对齐。</div><div class="line">*不同CPU的对其规则可能不同, 请参考手册。*</div></pre></td></tr></table></figure>
+<p>各个硬件平台对存储空间的处理上有很大的不同。一些平台对某些特定类型的数据只能从某些特定地址开始存取。其他平台可能没有这种情况，但是最常见的是如果不按照适合其平台要求对数据存放进行对齐，会在存取效率上带来损失。比如有些平台每次读都是从偶地址开始，如果一个int型（假设为 32 位系统）如果存放在偶地址开始的地方，那么一个读周期就可以读出，而如果存放在奇地址开始的地方，就可能会需要 2 个读周期，并对两次读出的结果的高低字节进行拼凑才能得到该 int 数据。显然在读取效率上下降很多。这也是空间和时间的博弈。</p>
+                    
+                        <a href="/2016/10/30/2016/2016-10-30-字节对齐/" class="postShorten-excerpt_link link">
+                            Seguir leyendo
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/10/29/2016/2016-10-29-spi通信详解/">
+                            SPI通信详解
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-10-29T14:09:00+08:00">
+	
+		    29 Oct 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <a id="more"></a>
+<blockquote>
+<p>参考链接：<br><a href="http://wenku.baidu.com/view/2a0a7f9869dc5022abea001d.html" target="_blank" rel="external">http://wenku.baidu.com/view/2a0a7f9869dc5022abea001d.html</a><br><a href="http://baike.baidu.com/item/SPI" target="_blank" rel="external">http://baike.baidu.com/item/SPI</a><br><a href="https://my.oschina.net/freeblues/blog/67400" target="_blank" rel="external">https://my.oschina.net/freeblues/blog/67400</a></p>
+</blockquote>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2016/10/29/2016/2016-10-29-spi通信详解/#post-footer" class="postShorten-excerpt_link link">
+                                Comentar y compartir
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/10/29/2016/2016-10-29-msb-和-lsb/">
+                            MSB 和 LSB
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-10-29T11:23:00+08:00">
+	
+		    29 Oct 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p>MSB 和 LSB 在计算机中的意思并不唯一确定，这边分为两种解释：</p>
+<ul>
+<li>MSB ： Most Significant Bit，LSB ： Least Significant Bit</li>
+<li>MSB ： Most Significant Byte，LSB ： Least Significant Byte</li>
+</ul>
+<p>但有一点可以确定的是：MS 往往代表是重要的，而 LS 则代表不重要的，比如 传递数据 1001 时，高位的数据单位是千，肯定比低位数据单位是个来的更加重要，所以往往丢失低位数据的影响要远远小于丢失高位数据。</p>
+<h3 id="高低位"><a href="#高低位" class="headerlink" title="高低位"></a>高低位</h3><p>MSB 可以代表 Most Significant Bit，LSB 则代表 Least Significant Bit 根据具体的场景来判别。在很多涉及到 SPI/IIC 通讯的芯片手册中，如：FM25W256 铁电或者 EEPROM 中，描述的 MSB/LSB 根据时序图往往可以判别代表的是高地位而不是字节。</p>
+<p>一般而言，采用 Data is written MSB first 的方式会更好些，如上面所叙述的那样， MSB 代表的是<strong>重要位（Most Significant Bit</strong>，先传递重要位，能够减少重要位被丢失的可能性，目前像 I2C，SPI等通讯协议都保留了设置先传递 MSB 还是先传递 LSB 的功能，但是绝大多数的厂家的芯片手册都会注明<strong>Data is written MSB first</strong>。</p>
+<p>但值得注意的是，uart 通讯中全部采用<strong>Data is written LSB first</strong>，即先传递低位数据，且芯片配置中是无法更改 uart 传递位的次序的，换言之，uart 是一种较古老的通讯协议，通讯中一定是从低位往高位传递数据。大家在使用时基本不需要考虑 MSB 和 LSB 的先写入顺序，因为已经固定死了，所有使用该设备的 232/485，上/下位机，都必须遵守这个规则。</p>
+<h3 id="高低字节"><a href="#高低字节" class="headerlink" title="高低字节"></a>高低字节</h3><p>MSB 可以代表 Most Significant Byte，LSB 则代表 Least Significant Byte 根据具体的场景来判别。一般在串口通讯场景中， MSB 和 LSB 代表的是字节。</p>
+<p>数据寻址时，一般读取的都是低位字节的地址（即存储数据的可能占用多个地址，但低位地址代表了这个数据的存储地址）。C 中的数据类型都是从内存的低地址向高地址扩展，取址运算”&amp;”都是取低地址。 所以就有高位地址和地位地址区别，一般来说数字大的就是高地址，数字小的是地址：比如 0x1000 相对于 0x1003 来说是低地址。数据低位和数据高位：比如 0x012345678 0x01 是数据高位（即使 Most Significant Byte，MSB 位），而 0x78 是数据低地址位（Least Significant Byte，LSB）。</p>
+<p>计算机中，究竟高字节先被存储还是低字节先被存储，以及传输过程中先发送高位字节还是低位字节这个往往取决于 CPU 的结构，是大端小端问题，可以参考具体文章。</p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2016/10/29/2016/2016-10-29-msb-和-lsb/#post-footer" class="postShorten-excerpt_link link">
+                                Comentar y compartir
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/10/28/2016/2016-10-28-linux分区问题/">
+                            linux分区问题
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-10-28T08:46:00+08:00">
+	
+		    28 Oct 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p>分区功能是个使用系统时候的必备功能，但却不特别常用，所以每次使用时难免会因为不记得指令或者错误使用指令而导致一些没必要的错误发生，建议如果不是经常分区，对步骤不是记得太清楚的话，在分区前还是搜索一下详细步骤，免得出了问题仍然不自知。笔者之所以写这篇文章就是潜意识中觉得分区步骤简单，然后出了问题，还不知道问题出在哪儿。</p>
+<h3 id="简述分区步骤："><a href="#简述分区步骤：" class="headerlink" title="简述分区步骤："></a>简述分区步骤：</h3><ul>
+<li>df:可以查看下当前系统<strong>挂载了的分区</strong>，如下图所示</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Filesystem     1K-blocks     Used Available Use% Mounted on</div><div class="line">udev             4044748        0   4044748   0% /dev</div><div class="line">tmpfs             812844     9744    803100   2% /run</div><div class="line">/dev/sda2       47930248 11323396  34149048  25% /</div><div class="line">tmpfs            4064220   349608   3714612   9% /dev/shm</div><div class="line">tmpfs               5120        4      5116   1% /run/lock</div><div class="line">tmpfs            4064220        0   4064220   0% /sys/fs/cgroup</div><div class="line">/dev/sda1         497696     3668    494028   1% /boot/efi</div><div class="line">/dev/sda3       95990540 70935460  20155908  78% /home</div><div class="line">tmpfs             812844       12    812832   1% /run/user/1000</div><div class="line">/dev/sda5      142794248 34011608 101506060  26% /home/demon/Space</div></pre></td></tr></table></figure>
+                    
+                        <a href="/2016/10/28/2016/2016-10-28-linux分区问题/" class="postShorten-excerpt_link link">
+                            Seguir leyendo
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/10/27/2016/2016-10-27-aria2详解/">
+                            Aria2详解
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-10-27T16:18:00+08:00">
+	
+		    27 Oct 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p>Aria2应该来说是最流行的免费下载工具之一，因为它的轻量级以及支持各种协议而被广为使用。</p>
+<p><em>这个东西折腾了很长时间，终于配好了，老实说仅仅是配置使用的话应该是相当简单的，但由于一开始参考了mac下配置的那篇文章，虽然更改了路径等内容，但每次启动aria2的时候总是经常启动不起来，或者启动后自动被kill了，反复往返，看了很多教程官方文档说明等，一直查不出问题所在，最后没办法，直接自己写配置文件，终于可以使用了。</em></p>
+<h3 id="aria2配置"><a href="#aria2配置" class="headerlink" title="aria2配置"></a>aria2配置</h3><p>根据man文档aria2的默认配置在$HOME/.aria2/aria2.conf中，你也可以在每次加载的过程中人为修改位置如：<code>aria2c --conf-path=/etc/.aria2/aria2.conf</code>。</p>
+<p>配置如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">#保存路径，注意这边必须写完整路径</div><div class="line">dir=/home/demon/Downloads</div><div class="line">#允许rpc</div><div class="line">enable-rpc=true</div><div class="line">#允许所有来源, web界面跨域权限需要</div><div class="line">rpc-allow-origin-all=true</div><div class="line">##允许非外部访问</div><div class="line">rpc-listen-all=true</div><div class="line">#RPC端口, 仅当默认端口被占用时修改</div><div class="line">rpc-listen-port=6800</div><div class="line">#disable-ipv6=true</div><div class="line">#最大同时下载数(任务数), 路由建议值: 3</div><div class="line">max-concurrent-downloads=10</div><div class="line">#断点续传</div><div class="line">continue=true</div><div class="line">#同服务器连接数</div><div class="line">max-connection-per-server=10</div><div class="line">#最小文件分片大小, 下载线程数上限取决于能分出多少片, 对于小文件重要</div><div class="line">min-split-size=10M</div><div class="line">#单文件最大线程数, 路由建议值: 5</div><div class="line">split=10</div><div class="line">#下载速度限制</div><div class="line">max-overall-download-limit=0</div><div class="line">#单文件速度限制</div><div class="line">max-download-limit=0</div><div class="line">#上传速度限制</div><div class="line">max-overall-upload-limit=0</div></pre></td></tr></table></figure>
+                    
+                        <a href="/2016/10/27/2016/2016-10-27-aria2详解/" class="postShorten-excerpt_link link">
+                            Seguir leyendo
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/10/24/2016/2016-10-24-linux免密码命令/">
+                            linux免密码命令
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-10-24T11:12:00+08:00">
+	
+		    24 Oct 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p>在使用ubuntu的过程中，部分命令必须要具备root权限才可以执行，然后root权限需要输入密码，很多常用的命令如:reboot等，甚至需要每次输入密码，部分用户也许会很不满意。另外当如果在写脚本时也会出现这种问题，脚本中可能会包含一些sudo指令，但用户不想每次都输入密码。这边介绍几种方法以供参考。</p>
+                    
+                        <a href="/2016/10/24/2016/2016-10-24-linux免密码命令/" class="postShorten-excerpt_link link">
+                            Seguir leyendo
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/10/20/2016/2016-10-20-iic通信详解/">
+                            IIC通信详解
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-10-20T21:59:00+08:00">
+	
+		    20 Oct 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p>我们在使用单片机的过程中，IIC通信可以说是最被广泛使用和采纳的一个协议，这边</p>
+                    
+                        <a href="/2016/10/20/2016/2016-10-20-iic通信详解/" class="postShorten-excerpt_link link">
+                            Seguir leyendo
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/10/19/2016/2016-10-19-usb转串口/">
+                            usb转串口
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-10-19T19:28:00+08:00">
+	
+		    19 Oct 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p>使用单片机，对硬件编程的时候，可以说串口是最常用的交互方式，毕竟要安装一个显示器，显示屏等设备需要额外的开销，大量增加代码量，且很多场景并非必备外设。这篇文章将会详细的介绍单片机中最常使用的串口通信功能，这边通过<strong>多篇文章</strong>以51单片机和stm32为例，对串口（以ttl电平，232，485等）进行详细的论述。</p>
+<p>在实验调试单片机时，串口相当重要以及常用，而现在电脑却一般仅有usb口（考虑到串口非专业人士不再使用）。因此我们在使用单片机读取串口数据时，往往需要<strong>将相应的串口转换为usb口</strong>。由于串口这边根据串口的不同，主要介绍常见的几种转接方式。</p>
+<h3 id="串口ttl转usb"><a href="#串口ttl转usb" class="headerlink" title="串口ttl转usb"></a>串口ttl转usb</h3><p>常规调试过程中，我们可以将单片机ttl电平的串口信号TX和RX，通过转换芯片变成usb总线的信号。<strong>注意该过程既不是RS232也不是RS485，而是ttl的串口信号，该信号一般仅仅用来测试和下载，仅仅是方便使用而已。</strong></p>
+<p>通常我们用来讲ttl串口信号转换为usb信号的芯片可以分为三种：FT232,CH340,PL2303，价位由高到低。这边我仅仅使用过CH340,PL2303这两款芯片的模块，对比后缺失PL2303误码率较高（当然不排除厂家因素）。一般情况我们使用CH340较多，相对稳定且价格便宜。实现的原理如下，其他集中芯片也大体一致：</p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-10-19-usb%E8%BD%AC%E4%B8%B2%E5%8F%A3/1.png" alt=""></p>
+<p>建议大家使用CH340的模块，价格也很便宜，这边给出完整的电路原理图：</p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-10-19-usb%E8%BD%AC%E4%B8%B2%E5%8F%A3/2.jpg" alt=""></p>
+                    
+                        <a href="/2016/10/19/2016/2016-10-19-usb转串口/" class="postShorten-excerpt_link link">
+                            Seguir leyendo
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    <div class="pagination-bar">
+    <ul class="pagination">
+        
+        
+        <li class="pagination-next">
+            <a class="btn btn--default btn--small" href="/archives/2016/10/page/2/">
+                    <span>ARTÍCULOS ANTERIORES</span>
+                <i class="fa fa-angle-right text-base icon-ml"></i>
+            </a>
+        </li>
+        
+        <li class="pagination-number">página 1 de 2</li>
+    </ul>
+</div>
+
+</section>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2017 John Doe. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">John Doe</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+
+
+</html>

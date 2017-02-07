@@ -64,7 +64,7 @@ Windows XP，是微软公司（Microsoft）推出的供个人电脑使用的操�
 
 xp的安装同以上安装略有不同，原因根据查找可能是xp本身系统是不完全支持优盘引导的，所以在制作优盘XP引导时，如果仅仅使用ultraISO是很可能无法成功的。如下图：
 
-[![7fcd28a57248aff4bd7b63fb5ae5bb7c.md.jpg](http://tc.ffsky.net/images/2016/07/01/7fcd28a57248aff4bd7b63fb5ae5bb7c.md.jpg)](http://tc.ffsky.net/image/Wbv)
+![](/img/2016-06-30-windowsXP纯净版安装/1.jpg)
 
 
 为了解决这个问题，我们通过另外一个软件 WinSetupFromUSB 来制作 XP 优盘引导。
@@ -83,36 +83,45 @@ xp的安装同以上安装略有不同，原因根据查找可能是xp本身系�
 
 #### 3.2制作步骤：
 
-![b70b2a9e6f0757deb589cb07014d6402.jpg](http://tc.ffsky.net/images/2016/07/01/b70b2a9e6f0757deb589cb07014d6402.jpg)
+![](/img/2016-06-30-windowsXP纯净版安装/2.jpg)
 
 
-![b7d784d068cb293e6a74a5568ed9816e.jpg](http://tc.ffsky.net/images/2016/07/01/b7d784d068cb293e6a74a5568ed9816e.jpg)
+
+![](/img/2016-06-30-windowsXP纯净版安装/3.jpg)
+
 
 - 在 3 BootOption 栏目中选择 XP/BartPE bootable[NTLDR]，在 4 FILESYSTEM and OVERRIDES中选择 NTFS和BOOT as HDD，然后点击 6 Prepare Drive
 
-![c5c2a5552e243c750c972c552e7dba4b.jpg](http://tc.ffsky.net/images/2016/07/01/c5c2a5552e243c750c972c552e7dba4b.jpg)
+![](/img/2016-06-30-windowsXP纯净版安装/4.jpg)
+
 
 - 开始写入引导文件
 
-![1cc0d164d5c9fe753796104fce4c1e64.jpg](http://tc.ffsky.net/images/2016/07/01/1cc0d164d5c9fe753796104fce4c1e64.jpg)
+![](/img/2016-06-30-windowsXP纯净版安装/5.jpg)
 
-![d1574f68352799a6f217390b52ac4193.jpg](http://tc.ffsky.net/images/2016/07/01/d1574f68352799a6f217390b52ac4193.jpg)
+
+![](/img/2016-06-30-windowsXP纯净版安装/6.jpg)
+
 
 - 待窗口关闭后返回 RMPrepUSB 界面，点击 exit 退出
 
-![d041a1cd3f085fdf7ded088c6b3caa9e.jpg](http://tc.ffsky.net/images/2016/07/01/d041a1cd3f085fdf7ded088c6b3caa9e.jpg)
+![](/img/2016-06-30-windowsXP纯净版安装/7.jpg)
+
 
 - 指定安装文件路径回到 WinSetupFromUSB 主界面，选中 Windows 2000/XP/2003 Setup，指定安装盘所在盘符（I386文件夹的父目录），我使用虚拟光驱把xp的镜像加载到E盘。
 
-![5827c5290779337679ec2284a7fc5a69.jpg](http://tc.ffsky.net/images/2016/07/01/5827c5290779337679ec2284a7fc5a69.jpg)
+![](/img/2016-06-30-windowsXP纯净版安装/8.jpg)
+
 
 - 等待启动 U 盘制作完毕，这个过程极为漫长，参考资料说 10 分钟，但实际用了 40 分钟左右。
 
-![b1e63764034d7fbafbf04047718344ca.jpg](http://tc.ffsky.net/images/2016/07/01/b1e63764034d7fbafbf04047718344ca.jpg)
+![](/img/2016-06-30-windowsXP纯净版安装/9.jpg)
+
 
 - 完毕就绪
 
-![62656789586b865cd946fe922f35e9f5.jpg](http://tc.ffsky.net/images/2016/07/01/62656789586b865cd946fe922f35e9f5.jpg)
+![](/img/2016-06-30-windowsXP纯净版安装/10.jpg)
+
 
 #### 3.3安装步骤：
 
@@ -120,7 +129,8 @@ xp的安装同以上安装略有不同，原因根据查找可能是xp本身系�
 
 - XP安装界面，如果是全新硬盘，需要分区等操作，先使用 winPE 等工具，安装位置选择 C 盘（主分区）默认选项安装即可。
 
-![09c20c79f0dd85293285271a02875f10.jpg](http://tc.ffsky.net/images/2016/07/01/09c20c79f0dd85293285271a02875f10.jpg)
+![](/img/2016-06-30-windowsXP纯净版安装/11.jpg)
+
 
 - 现在 CPU 和硬盘普遍读取速度快，XP 可能显示需要安装 30 分钟以上，但实际一个固态硬盘 +intel i5 以上的处理体只需要5分钟左右即可安装完毕。
 

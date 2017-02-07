@@ -54,7 +54,7 @@ SSH 为 Secure Shell 的缩写，由 IETF 的网络小组（Network Working Grou
 输入指令：ifconfig
 下面出现的ppp0就是虚拟出来的VPN网卡。
 ```
-![](/img/2016-06-24-ssh_error-via-vpn.pic/2016-06-23-remarkable-install.png)
+![](/img/2016-06-28-linux下ssh通过VPN推送失败/2016-06-23-remarkable-install.png)
 
 
 
@@ -63,7 +63,7 @@ SSH 为 Secure Shell 的缩写，由 IETF 的网络小组（Network Working Grou
 ```
 ip route list
 ```
-![](/img/2016-06-24-ssh_error-via-vpn.pic/DeepinScrot-3457.png)
+![](/img/2016-06-28-linux下ssh通过VPN推送失败/DeepinScrot-3457.png)
 
 
 - 获取目标网站IP地址
@@ -86,7 +86,7 @@ ip route list
 ```
 
 - 最终完成推送
-![](/img/2016-06-24-ssh_error-via-vpn.pic/DeepinScrot-3044.png)
+![](/img/2016-06-28-linux下ssh通过VPN推送失败/DeepinScrot-3044.png)
 
 
 

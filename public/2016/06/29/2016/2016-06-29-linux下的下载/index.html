@@ -1,0 +1,474 @@
+
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hexo">
+    <title>linux的下载工具 - Hexo</title>
+    <meta name="author" content="John Doe">
+    
+    
+    
+    <meta name="description" content="linux命令行下载外网文件或内网进行大文件传输，经常使用的文本下载工具wget、curl，今天给大家推荐支持Linux命令行多线程、断点续传下载工具axel和myget。
+系统环境Linux系统如何查看版本信息12345678输入&amp;quot;uname -a &amp;quot;,可显示电脑以及操作系统的相关信息。Linux系统如何查看版本信息输入&amp;quot;cat /proc/version&amp;quot">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="linux的下载工具">
+<meta property="og:url" content="http://yoursite.com/2016/06/29/2016/2016-06-29-linux下的下载/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="linux命令行下载外网文件或内网进行大文件传输，经常使用的文本下载工具wget、curl，今天给大家推荐支持Linux命令行多线程、断点续传下载工具axel和myget。
+系统环境Linux系统如何查看版本信息12345678输入&amp;quot;uname -a &amp;quot;,可显示电脑以及操作系统的相关信息。Linux系统如何查看版本信息输入&amp;quot;cat /proc/version&amp;quot">
+<meta property="og:updated_time" content="2017-01-12T02:52:23.163Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux的下载工具">
+<meta name="twitter:description" content="linux命令行下载外网文件或内网进行大文件传输，经常使用的文本下载工具wget、curl，今天给大家推荐支持Linux命令行多线程、断点续传下载工具axel和myget。
+系统环境Linux系统如何查看版本信息12345678输入&amp;quot;uname -a &amp;quot;,可显示电脑以及操作系统的相关信息。Linux系统如何查看版本信息输入&amp;quot;cat /proc/version&amp;quot">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Hexo</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="4">
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archives</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Search</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            linux的下载工具
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-06-29T12:00:00+08:00">
+	
+		    Jun 29, 2016
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/read/">read</a>
+
+
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>linux命令行下载外网文件或内网进行大文件传输，经常使用的文本下载工具wget、curl，今天给大家推荐支持Linux命令行多线程、断点续传下载工具axel和myget。</p>
+<h3 id="系统环境"><a href="#系统环境" class="headerlink" title="系统环境"></a>系统环境</h3><h4 id="Linux系统如何查看版本信息"><a href="#Linux系统如何查看版本信息" class="headerlink" title="Linux系统如何查看版本信息"></a>Linux系统如何查看版本信息</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">输入&quot;uname -a &quot;,可显示电脑以及操作系统的相关信息。</div><div class="line">Linux系统如何查看版本信息</div><div class="line">输入&quot;cat /proc/version&quot;,说明正在运行的内核版本。</div><div class="line">Linux系统如何查看版本信息</div><div class="line">输入&quot;cat /etc/issue&quot;, 显示的是发行版本信息</div><div class="line">Linux系统如何查看版本信息</div><div class="line">lsb_release -a (适用于所有的linux，包括Redhat、SuSE、Debian等发行版，但是在debian下要安装lsb)</div><div class="line">Linux系统如何查看版本信息</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="查看本机的信息"><a href="#查看本机的信息" class="headerlink" title="查看本机的信息"></a>查看本机的信息</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># lsb_release -a(适用于所有的linux，包括Redhat、SuSE、Debian等发行版，但是在debian下要安装lsb)</div><div class="line">Distributor ID:	Ubuntu</div><div class="line">Description:	Ubuntu 16.04 LTS</div><div class="line">Release:	16.04</div><div class="line">Codename:	xenial</div></pre></td></tr></table></figure>
+<h3 id="下载工具安装、使用方法介绍"><a href="#下载工具安装、使用方法介绍" class="headerlink" title="下载工具安装、使用方法介绍"></a>下载工具安装、使用方法介绍</h3><h4 id="wget"><a href="#wget" class="headerlink" title="wget"></a>wget</h4><ul>
+<li>ubuntu安装请运行</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># sudo apt-get install wget</div><div class="line">wget版本信息</div><div class="line"># wget -V</div><div class="line">GNU Wget 1.17.1 built on linux-gnu.</div></pre></td></tr></table></figure>
+<ul>
+<li>此工具比较常用，使用方法、参数略</li>
+</ul>
+<h4 id="Axel-下载-安装"><a href="#Axel-下载-安装" class="headerlink" title="Axel 下载 安装"></a>Axel 下载 安装</h4><ul>
+<li>官方站点<a href="http://axel.alioth.debian.org/" target="_blank" rel="external">http://axel.alioth.debian.org/</a></li>
+<li>安装axel</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"># sudo apt-get install axel</div><div class="line">axel版本</div><div class="line"># axel -V</div><div class="line">Axel version 2.5 (Linux)</div><div class="line"></div><div class="line">Copyright 2001-2007 Wilmer van der Gaast,</div><div class="line">          2015      Joao Eriberto Mota Filho,</div><div class="line">                    and others.</div><div class="line">Please, see the CREDITS file.</div></pre></td></tr></table></figure>
+<ul>
+<li>axel命令使用方法：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">axel [选项参数] url1 [url2] [url……]</div><div class="line">axel 参数：</div><div class="line">--max-speed=x    #限速值最高速度</div><div class="line"> -s x</div><div class="line">Specify maximum speed (bytes per second)</div><div class="line"> --num-connections=x</div><div class="line"> -n x #连接数</div><div class="line">Specify maximum number of connections</div><div class="line"> --output=f #下载为本地文件</div><div class="line"> -o f</div><div class="line">Specify local output file</div><div class="line"> --search[=x] #搜索镜像</div><div class="line"> -S [x]</div><div class="line">Search for mirrors and download from x servers</div><div class="line"> --header=x  </div><div class="line"> -H x     #添加头文件字符串</div><div class="line">Add header string</div><div class="line"> --user-agent=x #设置UA</div><div class="line"> -U x  </div><div class="line">Set user agent</div><div class="line"> --no-proxy     #不使用代理服务器</div><div class="line"> -N  </div><div class="line">Just don&apos;t use any proxy server --quiet  </div><div class="line"> --quiet, -q  </div><div class="line">No output to stdout. #静默模式，不输出到标准输出  </div><div class="line">--verbose  </div><div class="line"> -v  </div><div class="line">More status information #更多状态信息  </div><div class="line"> --alternate  </div><div class="line"> --help #帮助  </div><div class="line"> -h  </div><div class="line">--version #版本  </div><div class="line"> -V</div></pre></td></tr></table></figure>
+<h4 id="myget-下载、安装"><a href="#myget-下载、安装" class="headerlink" title="myget 下载、安装"></a>myget 下载、安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">wget http://myget.sourceforge.net/release/myget-0.1.2.tar.gz</div><div class="line">tar -zxvf myget-0.1.2.tar.gz</div><div class="line">cd myget-0.1.2</div><div class="line"># ./configure &amp;&amp; make &amp;&amp; make install</div><div class="line">mytget版本，注意myget命令为mytget</div><div class="line"># mytget -v</div><div class="line">myget 0.1.1</div></pre></td></tr></table></figure>
+<ul>
+<li>命令mytget用法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">mytget [选项] [url]</div><div class="line">参数</div><div class="line"> -b, --debug          Show the debug message #看调试信息</div><div class="line"> -c, --count=num      Set the retry count to [num], no limit when &quot;0&quot;, the default is &quot;99&quot; #设置重试次数，0为无限，默认是99次。</div><div class="line"> -d, --directory=dir Set the local direcotry to [dir], the default is &quot;.&quot; #指定下载本地目录，默认是当前目录</div><div class="line"> -f, --file=file      Rename the file to [file] #重命名下载到本地的文件名</div><div class="line"> -h, --help           A brief summary of all the options #简短的帮助摘要</div><div class="line"> -i, --interval=num   Set the ftp retry interval to [num] seconds, the default is &quot;5&quot; #设置ftp重试间隔，单位s，默认5秒</div><div class="line"> -n, --number=num     Use [num] connections instead of the default (4) #指定连接数，默认4</div><div class="line"> -r, --referer=URL    Include `Referer: [URL]&apos; header in HTTP request. #包含请求头 Referer</div><div class="line"> -t, --timeout=num    Set the connection timeout to [num] seconds, the default is &quot;30&quot; #设置连接超时时间，默认30秒</div><div class="line"> -v, --version        Show the version of the myget and exit #查看版本信息</div><div class="line"> -x, --proxy=URL      Set the proxy [URL]  #设置代理</div></pre></td></tr></table></figure>
+<h3 id="wget、axel、myget测试下载速度对比"><a href="#wget、axel、myget测试下载速度对比" class="headerlink" title="wget、axel、myget测试下载速度对比"></a>wget、axel、myget测试下载速度对比</h3><h4 id="下载速度对比"><a href="#下载速度对比" class="headerlink" title="下载速度对比"></a>下载速度对比</h4><p>说明：同一台机器下载同一个数据源链接</p>
+<ul>
+<li>wget下载</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># wget http://url/iso/Centos/x86_64/CentOS-6.4-x86_64-bin-DVD1.iso</div><div class="line">--2013-03-11 09:29:46-- http://url/iso/Centos/x86_64/CentOS-6.4-x86_64-bin-DVD1.iso</div><div class="line">Connecting to 10.0.251.154:80... connected.</div><div class="line">HTTP request sent, awaiting response... 200 OK</div><div class="line">Length: 4353378304 (4.1G) [application/octet-stream]</div><div class="line">Saving to: `CentOS-6.4-x86_64-bin-DVD1.iso&apos;</div></pre></td></tr></table></figure>
+<ul>
+<li>axel下载</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"># axel http://url/iso/Centos/x86_64/CentOS-6.4-x86_64-bin-DVD1.iso</div><div class="line">Initializing download: http://url/iso/Centos/x86_64/CentOS-6.4-x86_64-bin-DVD1.iso</div><div class="line">File size: 4353378304 bytes</div><div class="line">Opening output file CentOS-6.4-x86_64-bin-DVD1.iso.0</div><div class="line">Starting download</div><div class="line"></div><div class="line">[ 0%] .......... .......... .......... .......... .......... [ 382.3KB/s]</div><div class="line">[ 0%] .......... .......... .......... .......... .......... [ 610.9KB/s]</div><div class="line">[ 0%] .......... .......... .......... .......... .......... [ 826.5KB/s]</div><div class="line">[ 0%] .......... .......... .......... .......... .......... [1003.1KB/s]</div><div class="line">略</div><div class="line">[ 0%] .......... .......... .......... .......... .......... [2055.8KB/s]</div><div class="line">[ 0%] .......... .......... .......... .......... .......... [2074.8KB/s]</div><div class="line">[ 0%] .......... .......... .......... .......... .......... [2093.6KB/s]</div><div class="line">[ 0%] .......... .......... .......... .......... .......... [2111.0KB/s]</div><div class="line">[ 0%] .......... .......... .......... .......... ...</div><div class="line">Downloaded 2693.8 kilobytes in 1 second. (2113.05 KB/s)</div><div class="line"># rm -f CentOS-6.4-x86_64-bin-DVD1.iso*</div></pre></td></tr></table></figure>
+<ul>
+<li>axel  使用10个线程下载</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"># axel -n 10 http://url/iso/Centos/x86_64/CentOS-6.4-x86_64-bin-DVD1.iso</div><div class="line">Initializing download: http://url/iso/Centos/x86_64/CentOS-6.4-x86_64-bin-DVD1.iso</div><div class="line">File size: 4353378304 bytes</div><div class="line">Opening output file CentOS-6.4-x86_64-bin-DVD1.iso</div><div class="line">Starting download</div><div class="line">[ 0%] .......... .......... .......... .......... .......... [ 440.9KB/s]</div><div class="line">[ 0%] .......... .......... .......... .......... .......... [ 707.9KB/s]</div><div class="line">[ 0%] .......... .......... .......... .......... .......... [ 935.1KB/s]</div><div class="line">[ 0%] .......... .......... .......... .......... .......... [1138.8KB/s]</div><div class="line">[ 0%] .......... .......... .......... .......... .......... [1310.5KB/s]</div><div class="line">略</div><div class="line">[ 0%] .......... .......... .......... .......... .......... [2180.3KB/s]</div><div class="line">[ 0%] .......... .......... .......... .......... .......... [2196.9KB/s]</div><div class="line">[ 0%] .......... .......... .......... .......... .......... [2189.7KB/s]</div><div class="line">[ 0%] .......... .......... .........</div><div class="line">Downloaded 4139.5 kilobytes in 1 second. (2176.65 KB/s)</div></pre></td></tr></table></figure>
+<h4 id="myget下载"><a href="#myget下载" class="headerlink" title="myget下载"></a>myget下载</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># mytget http://url/iso/Centos/x86_64/CentOS-6.4-x86_64-bin-DVD1.iso</div><div class="line">Begin to download: CentOS-6.4-x86_64-bin-DVD1.iso</div><div class="line">Filesize: 4.1G</div><div class="line"> 0% [                       &gt;                       &gt;                       &gt;                         ] [ 27M] [2.5M/s] [ETA:26:58]</div></pre></td></tr></table></figure>
+<ul>
+<li>myget指定10个线程下载</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># mytget -n 10 http://url/iso/Centos/x86_64/CentOS-6.4-x86_64-bin-DVD1.iso</div><div class="line">Begin to download: CentOS-6.4-x86_64-bin-DVD1.iso</div><div class="line">Filesize: 4.1G</div><div class="line"> 0% [        &gt;         &gt;         &gt;        &gt;         &gt;         &gt;        &gt;         &gt;         &gt;          ] [ 39M] [2.6M/s] [ETA:26:27]</div><div class="line"># ll CentOS-6.4-x86_64-bin-DVD1.iso.mg\!</div><div class="line">-rw-r--r-- 1 root root 4353378404 Mar 11 12:53 CentOS-6.4-x86_64-bin-DVD1.iso.mg!</div><div class="line">下载速度对比结论：axel、myget支持多线程，且速度较快都在2M。</div></pre></td></tr></table></figure>
+<h3 id="断点续传对比测试"><a href="#断点续传对比测试" class="headerlink" title="断点续传对比测试"></a>断点续传对比测试</h3><h4 id="axel"><a href="#axel" class="headerlink" title="axel"></a>axel</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"># axel -n 10 http://url/iso/Centos/x86_64/CentOS-6.4-x86_64-bin-DVD1.iso</div><div class="line">Initializing download: http://url/iso/Centos/x86_64/CentOS-6.4-x86_64-bin-DVD1.iso</div><div class="line">File size: 4353378304 bytes</div><div class="line">Opening output file CentOS-6.4-x86_64-bin-DVD1.iso</div><div class="line">Starting download</div><div class="line">[ 0%] .......... .......... .......... .......... .......... [ 491.8KB/s]</div><div class="line">[ 0%] .......... .......... .......... .......... .......... [ 748.4KB/s]</div><div class="line">[ 0%] .......... .......... .......... .......... .......... [1007.5KB/s]</div><div class="line">略</div><div class="line">[ 1%] .......... ........... .......... .......... .......... [2509.3KB/s]</div><div class="line">[ 1%] .......... .......... .......... .......... .......... [2509.5KB/s]</div><div class="line">[ 1%] .......... .......... .......... ....</div><div class="line">Downloaded 45.3 megabytes in 18 seconds. (2510.95 KB/s)</div><div class="line">中止下载，进度已经到1%，下载了45.3mb</div></pre></td></tr></table></figure>
+<ul>
+<li>再次运行下载命令，继续从1%断点续传</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"># axel -n 10 http://url/iso/Centos/x86_64/CentOS-6.4-x86_64-bin-DVD1.iso</div><div class="line">Initializing download: http://url/iso/Centos/x86_64/CentOS-6.4-x86_64-bin-DVD1.iso</div><div class="line">File size: 4353378304 bytes</div><div class="line">Opening output file CentOS-6.4-x86_64-bin-DVD1.iso</div><div class="line">State file found: 47549233 bytes downloaded, 4305829071 to go.</div><div class="line">Starting download</div><div class="line">        ,,,,,,,,,, ,,,,,,,,,, ,,,,,,,,,, ,,,,...... .......... [ 314.4KB/s]</div><div class="line">[ 1%] .......... .......... .......... .......... .......... [ 603.0KB/s]</div><div class="line">[ 1%] .......... .......... .......... .......... .......... [ 839.7KB/s]</div><div class="line">               略</div><div class="line">[ 1%] .......... .......... .......... .......... .......... [1547.1KB/s]</div><div class="line">[ 1%] .......... .......... .......... .......... .......... [1548.8KB/s]</div><div class="line"># rm -f CentOS-6.4-x86_64-bin-DVD1.iso*</div></pre></td></tr></table></figure>
+<h4 id="wget-1"><a href="#wget-1" class="headerlink" title="wget"></a>wget</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># wget http://url/iso/Centos/x86_64/CentOS-6.4-x86_64-bin-DVD1.iso</div><div class="line">--2013-03-11 09:51:46-- http://url/iso/Centos/x86_64/CentOS-6.4-x86_64-bin-DVD1.iso</div><div class="line">Connecting to 10.0.251.154:80... connected.</div><div class="line">HTTP request sent, awaiting response... 200 OK</div><div class="line">Length: 4353378304 (4.1G) [application/octet-stream]</div><div class="line">Saving to: `CentOS-6.4-x86_64-bin-DVD1.iso&apos;</div><div class="line"> 1% [                                                                               ] 47,760,647 1.49M/s eta 47m 42s</div></pre></td></tr></table></figure>
+<ul>
+<li>wget在进度1%中止已经下载47,760,647，再次运行命令，重新开始下载</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># wget http://url/iso/Centos/x86_64/CentOS-6.4-x86_64-bin-DVD1.iso</div><div class="line">--2013-03-11 09:53:24-- http://url/iso/Centos/x86_64/CentOS-6.4-x86_64-bin-DVD1.iso</div><div class="line">Connecting to 10.0.251.154:80... connected.</div><div class="line">HTTP request sent, awaiting response... 200 OK</div><div class="line">Length: 4353378304 (4.1G) [application/octet-stream]</div><div class="line">Saving to: `CentOS-6.4-x86_64-bin-DVD1.iso.1&apos;</div><div class="line"> 0% [                                                                               ] 1,032,445   1.21M/s</div></pre></td></tr></table></figure>
+<ul>
+<li>wget直接运行不支持断点续传</li>
+</ul>
+<p><code># rm -f CentOS-6.4-x86_64-bin-DVD1.iso*</code></p>
+<ul>
+<li>wget重新测试使其支持断点续传</li>
+</ul>
+<p><code># wget http://url/iso/Centos/x86_64/CentOS-6.4-x86_64-bin-DVD1.iso</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">--2013-03-11 12:40:15-- http://url/iso/Centos/x86_64/CentOS-6.4-x86_64-bin-DVD1.iso</div><div class="line">Connecting to 10.0.251.154:80... connected.</div><div class="line">HTTP request sent, awaiting response... 200 OK</div><div class="line">Length: 4353378304 (4.1G) [application/octet-stream]</div><div class="line">Saving to: `CentOS-6.4-x86_64-bin-DVD1.iso&apos;</div><div class="line"> 1% [&gt;                                                                                          ] 52,620,206  1.57M/s eta 44m 58s</div><div class="line">在进度1%，已经下载52,620,206处停止</div></pre></td></tr></table></figure>
+<ul>
+<li>wget 加-c再次下载，支持断点续传</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># wget -c http://url/iso/Centos/x86_64/CentOS-6.4-x86_64-bin-DVD1.iso</div><div class="line">--2013-03-11 12:40:56-- http://url/iso/Centos/x86_64/CentOS-6.4-x86_64-bin-DVD1.iso</div><div class="line">Connecting to 10.0.251.154:80... connected.</div><div class="line">HTTP request sent, awaiting response... 206 Partial Content</div><div class="line">Length: 4353378304 (4.1G), 4300661972 (4.0G) remaining [application/octet-stream]</div><div class="line">Saving to: `CentOS-6.4-x86_64-bin-DVD1.iso&apos;</div><div class="line"> 1% [+                                                                                          ] 59,663,080 1.59M/s eta 44m 14s</div><div class="line"># rm -f CentOS-6.4-x86_64-bin-DVD1.iso.mg\!</div></pre></td></tr></table></figure>
+<p>4.3 myget</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"># mytget http://url/iso/Centos/x86_64/CentOS-6.4-x86_64-bin-DVD1.iso</div><div class="line">Begin to download: CentOS-6.4-x86_64-bin-DVD1.iso</div><div class="line">Filesize: 4.1G</div><div class="line"> 1% [                       &gt;                       &gt;                        &gt;                        ] [ 45M] [2.1M/s] [ETA:33:06]</div><div class="line">下载进度到1% 文件大小45M</div><div class="line"># ll CentOS-6.4-x86_64-bin-DVD1.iso.mg\!</div><div class="line">-rw-r--r-- 1 root root 4353378404 Mar 11 12:54 CentOS-6.4-x86_64-bin-DVD1.iso.mg!</div><div class="line">再次执行命令，直接从进度1%开始下载</div><div class="line"># mytget http://url/iso/Centos/x86_64/CentOS-6.4-x86_64-bin-DVD1.iso</div><div class="line">Begin to download: CentOS-6.4-x86_64-bin-DVD1.iso</div><div class="line">Filesize: 4.1G</div><div class="line"> 1% [                       &gt;                       &gt;                        &gt;                        ] [ 51M] [2.9M/s] [ETA:23:57]</div></pre></td></tr></table></figure>
+<p><strong>断点续传对比，三个工具都支持，但wget需要增加-c参数，axel、myget再次执行命令即可。<br>综上对比推荐大家工作中使用axel或myget提高效率，个人比较喜欢axel。<br>注意内网传输根据隧道带宽进行限速，别影响线上生产服务数据传输。</strong></p>
+<h3 id="aria2c-The-ultra-fast-download-utility"><a href="#aria2c-The-ultra-fast-download-utility" class="headerlink" title="aria2c (The ultra fast download utility)"></a>aria2c (The ultra fast download utility)</h3><p>强烈推荐这个下载工具，可以说是 linux 下的下载神器，速度比 windows 下的迅雷还要快不少。aria2c 并不仅是一个简单的下载工具，里面配置选项相当多，另外也有不少 GUI 工具支持 aria2c 这边不做详细的介绍，具体可以参考本博客中的 Aria2 详解这篇文章。</p>
+<p><em>未完待续</em></p>
+<blockquote>
+<p>相关链接：<br><a href="http://dreamway.blog.51cto.com/1281816/1151886" target="_blank" rel="external">http://dreamway.blog.51cto.com/1281816/1151886</a> (centos版本)<br><a href="http://sydi.org/posts/linux/aria2c-usage-sample-cns.html" target="_blank" rel="external">http://sydi.org/posts/linux/aria2c-usage-sample-cns.html</a></p>
+</blockquote>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/问题总结/">问题总结</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/06/30/2016/2016-06-30-windowsXP纯净版安装/"  data-tooltip="u盘安装XP系统">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/06/28/2016/2016-06-28-linux下ssh通过VPN推送失败/" data-tooltip="linux下ssh通过VPN推送失败">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/06/29/2016/2016-06-29-linux下的下载/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/06/29/2016/2016-06-29-linux下的下载/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/06/29/2016/2016-06-29-linux下的下载/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2017 John Doe. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/06/30/2016/2016-06-30-windowsXP纯净版安装/"  data-tooltip="u盘安装XP系统">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/06/28/2016/2016-06-28-linux下ssh通过VPN推送失败/" data-tooltip="linux下ssh通过VPN推送失败">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/06/29/2016/2016-06-29-linux下的下载/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/06/29/2016/2016-06-29-linux下的下载/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/06/29/2016/2016-06-29-linux下的下载/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/06/29/2016/2016-06-29-linux下的下载/">
+                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/06/29/2016/2016-06-29-linux下的下载/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/06/29/2016/2016-06-29-linux下的下载/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">John Doe</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+</html>

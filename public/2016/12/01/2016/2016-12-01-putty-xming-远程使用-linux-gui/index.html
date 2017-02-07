@@ -1,0 +1,428 @@
+
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hexo">
+    <title>PuTTY + Xming 远程使用 Linux GUI - Hexo</title>
+    <meta name="author" content="John Doe">
+    
+    
+    
+    <meta name="description" content="就目前而言，将 linux 作为个人电脑操作系统使用的人还比较少，而 linux 也一直以来因为其占用资源少，系统稳定，强大的 CLI 而闻名于世。因此显而易见，广大用户一般都是通过 ssh 等方式登录连接 linux ，然后使用 CLI 完成需要的操作，而使用 linux GUI 用户较少，甚至可以被忽略，但出于个人的需要，本人需要通过 windows 远程登录 linux 然后通过 chrom">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="PuTTY + Xming 远程使用 Linux GUI">
+<meta property="og:url" content="http://yoursite.com/2016/12/01/2016/2016-12-01-putty-xming-远程使用-linux-gui/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="就目前而言，将 linux 作为个人电脑操作系统使用的人还比较少，而 linux 也一直以来因为其占用资源少，系统稳定，强大的 CLI 而闻名于世。因此显而易见，广大用户一般都是通过 ssh 等方式登录连接 linux ，然后使用 CLI 完成需要的操作，而使用 linux GUI 用户较少，甚至可以被忽略，但出于个人的需要，本人需要通过 windows 远程登录 linux 然后通过 chrom">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-12-01-putty-xming-%E8%BF%9C%E7%A8%8B%E4%BD%BF%E7%94%A8-linux-gui/1.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-12-01-putty-xming-%E8%BF%9C%E7%A8%8B%E4%BD%BF%E7%94%A8-linux-gui/2.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-12-01-putty-xming-%E8%BF%9C%E7%A8%8B%E4%BD%BF%E7%94%A8-linux-gui/3.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-12-01-putty-xming-%E8%BF%9C%E7%A8%8B%E4%BD%BF%E7%94%A8-linux-gui/4.png">
+<meta property="og:updated_time" content="2016-12-16T01:51:05.895Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PuTTY + Xming 远程使用 Linux GUI">
+<meta name="twitter:description" content="就目前而言，将 linux 作为个人电脑操作系统使用的人还比较少，而 linux 也一直以来因为其占用资源少，系统稳定，强大的 CLI 而闻名于世。因此显而易见，广大用户一般都是通过 ssh 等方式登录连接 linux ，然后使用 CLI 完成需要的操作，而使用 linux GUI 用户较少，甚至可以被忽略，但出于个人的需要，本人需要通过 windows 远程登录 linux 然后通过 chrom">
+<meta name="twitter:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-12-01-putty-xming-%E8%BF%9C%E7%A8%8B%E4%BD%BF%E7%94%A8-linux-gui/1.png">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Hexo</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="4">
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archives</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Search</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            PuTTY + Xming 远程使用 Linux GUI
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-12-01T12:11:00+08:00">
+	
+		    Dec 01, 2016
+    	
+    </time>
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>就目前而言，将 linux 作为个人电脑操作系统使用的人还比较少，而 linux 也一直以来因为其占用资源少，系统稳定，强大的 CLI 而闻名于世。因此显而易见，广大用户一般都是通过 ssh 等方式登录连接 linux ，然后使用 CLI 完成需要的操作，而使用 linux GUI 用户较少，甚至可以被忽略，但出于个人的需要，本人需要通过 windows 远程登录 linux 然后通过 chrome 等</p>
+<h3 id="操作系统："><a href="#操作系统：" class="headerlink" title="操作系统："></a>操作系统：</h3><ul>
+<li>windows 7 x64 中文旗舰版</li>
+<li>ubuntu 16.04 </li>
+</ul>
+<a id="more"></a>
+<h3 id="软件配置："><a href="#软件配置：" class="headerlink" title="软件配置："></a>软件配置：</h3><h4 id="Xming-："><a href="#Xming-：" class="headerlink" title="Xming ："></a>Xming ：</h4><p>Xming是一个在 Microsoft Windows 操作系统上运行 X Window System 的自由软件。其主要功能是通过在Linux平台上通过交叉编译的方法，实现了跨越操作系统对X GUI的表现。</p>
+<p>正常安装该软件：这边使用过的是： Xming-6-9-0-31-setup.exe 的版本，正常安装过，一般都没有问题，设置按照下图选择不安装 ssh client。 Display 设置按照个人习惯进行设置，如果仅是打开个别 GUI 窗口的话，建议采用 Multiple windows ，可以讲所有的 GUI 窗口作为一个个应用进行打开。接下来按照默认设置进行下一步即可，另外最后一步可以保存当前设置作为一个快捷方式，下次直接打开即可。</p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-12-01-putty-xming-%E8%BF%9C%E7%A8%8B%E4%BD%BF%E7%94%A8-linux-gui/1.png" alt=""></p>
+<h4 id="putty"><a href="#putty" class="headerlink" title="putty :"></a>putty :</h4><p>PuTTY是一个Telnet、SSH、rlogin、纯TCP以及串行接口连接软件。较早的版本仅支持Windows平台，在最近的版本中开始支持各类Unix平台，并打算移植至Mac OS X上。自带SSH Forwarding的功能，包括X11 Forwarding。</p>
+<ul>
+<li>输入需要拨号的地址（这边注意本机和目标机器在同一个网段）</li>
+</ul>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-12-01-putty-xming-%E8%BF%9C%E7%A8%8B%E4%BD%BF%E7%94%A8-linux-gui/2.png" alt=""></p>
+<ul>
+<li>设置拨号的账户名，方便下次登录</li>
+</ul>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-12-01-putty-xming-%E8%BF%9C%E7%A8%8B%E4%BD%BF%E7%94%A8-linux-gui/3.png" alt=""></p>
+<ul>
+<li>一定要打开 X11 转发模式，可以让 ssh 图形化转发给 Xming 进行工作。</li>
+</ul>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-12-01-putty-xming-%E8%BF%9C%E7%A8%8B%E4%BD%BF%E7%94%A8-linux-gui/4.png" alt=""></p>
+<h4 id="SecureCRT-方式（可以跳过）"><a href="#SecureCRT-方式（可以跳过）" class="headerlink" title="SecureCRT 方式（可以跳过）"></a>SecureCRT 方式（可以跳过）</h4><p>这边补充 SecureCRT 这个软件的方式，原理和 putty 类似，得益于 SecureCRT 在用户界面上面更加友好方便，常常用作远程管理使用，如果已经使用了 putty 的这边可以跳过，两种方式选其一即可。</p>
+<p>SecureCRT 同 putty 类似，设置时，需要在 session options -&gt; connection -&gt; port forwarding -&gt; remote/x11 中勾选 x11 forwarding 下面的 forward x11 packets 和 enforce x11 authentication 。注意：不需要添加 remotely forwarded connections 中的内容。</p>
+<h4 id="linux端设置"><a href="#linux端设置" class="headerlink" title="linux端设置"></a>linux端设置</h4><ul>
+<li>要允许Linux主机上的SSH X转发，查看 /etc/ssh/sshd_config 文件，加入以下一行，<code>X11Forwrding yes</code> 至此配置完成。</li>
+<li>保证 linux 端至少要有多个可以访问的用户。</li>
+</ul>
+<h4 id="工作运行"><a href="#工作运行" class="headerlink" title="工作运行"></a>工作运行</h4><ul>
+<li>上述部分 putty 设置完成后，开始登录，注意使用不同于 linux 上已经登录图形界面的账户登录 putty 。</li>
+<li>在 windows 上使用 PuTTY 连接到 linux ，输入 xclock &amp; ，可以看到一个图形化时钟出现了，说明图形化转发已经成功了。</li>
+<li>输入 <code>google-chrome</code> 则可以在 xming 中打开 chrome 浏览器进行需要的操作了。</li>
+<li>输入 <code>gnome-session</code> 则可以远程打开 GUI 交互环境。</li>
+</ul>
+<p><strong>这边要注意的是：如果 putty 和 linux GUI 登录了同一个账号，则输入相关命令可能会无法打开相关 GUI，检查发现事实上，你要打开的窗口在 linux 主机上面被打开了，因此最好的办法是登录一个新的账号，进行相关的图形化操作。</strong></p>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><p>通过步骤可以发现，PuTTY + Xming 或 SecureCRT + Xming 的配置较为简单，但效率较低，即便传输速率达到 4mb/s 图像依然刷新较慢，体验效果很差。可能是 ssh 的直接访问方式，没有对视频等多媒体进行过优化，推荐可以采用其他方式进行远程桌面连接，这边可以参考博客中另外一篇文章 <em>TeamViewer 远程控制</em>。</p>
+<blockquote>
+<p>参考链接：<br><a href="http://www.zw1840.com/blog/zw1840/2008/10/putty-xming-linux-gui.html" target="_blank" rel="external">http://www.zw1840.com/blog/zw1840/2008/10/putty-xming-linux-gui.html</a></p>
+</blockquote>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/12/08/2016/2016-12-08-efm32-开发板问题总结/"  data-tooltip="efm32 开发板问题总结">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/28/2016/2016-11-28-vps-docker/" data-tooltip="vps-docker">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/12/01/2016/2016-12-01-putty-xming-远程使用-linux-gui/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/12/01/2016/2016-12-01-putty-xming-远程使用-linux-gui/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/12/01/2016/2016-12-01-putty-xming-远程使用-linux-gui/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2017 John Doe. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/12/08/2016/2016-12-08-efm32-开发板问题总结/"  data-tooltip="efm32 开发板问题总结">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/28/2016/2016-11-28-vps-docker/" data-tooltip="vps-docker">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/12/01/2016/2016-12-01-putty-xming-远程使用-linux-gui/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/12/01/2016/2016-12-01-putty-xming-远程使用-linux-gui/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/12/01/2016/2016-12-01-putty-xming-远程使用-linux-gui/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/12/01/2016/2016-12-01-putty-xming-远程使用-linux-gui/">
+                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/12/01/2016/2016-12-01-putty-xming-远程使用-linux-gui/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/12/01/2016/2016-12-01-putty-xming-远程使用-linux-gui/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">John Doe</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+</html>

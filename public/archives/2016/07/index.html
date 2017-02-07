@@ -1,0 +1,672 @@
+
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hexo">
+    <title>Archives: 2016/7 - Hexo</title>
+    <meta name="author" content="John Doe">
+    
+    
+    
+    <meta property="og:type" content="blog">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/archives/2016/07/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="2">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Hexo</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="2">
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archives</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Search</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="2"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+    
+
+<section class="postShorten-group main-content-wrap">
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/07/29/2016/2016-07-29-架设自己的git服务/">
+                            架设自己的git服务
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-07-29T12:22:00+08:00">
+	
+		    Jul 29, 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p><em>本实验使用的是实体机 ubuntu 16.04 和虚拟机 virtualbox 搭建 ubuntu—server 16.04 系统进行连接，其中用 ubuntu-server 搭建 git，实体机 ubuntu desktop 连接 ubuntu-server，后续如果有其他环境也会逐一补充。</em></p>
+<p><strong>这边暂时没有在实体机上面尝试，先列举出在虚拟机上面架设 git 服务器</strong></p>
+<h3 id="使用-ssh-登陆-ubuntu-server"><a href="#使用-ssh-登陆-ubuntu-server" class="headerlink" title="使用 ssh 登陆 ubuntu-server"></a>使用 ssh 登陆 ubuntu-server</h3><h4 id="ping-通两个系统："><a href="#ping-通两个系统：" class="headerlink" title="ping 通两个系统："></a>ping 通两个系统：</h4><p>看是否可以 ping 通两个系统，首先查看 ip 地址，<code>ifconfig</code>， 例如主机是： 192.168.18.60 ，虚拟机是 192.168.18.202。则在主机中 ping 192.168.18.60 ，当然事情往往并不会一帆风顺，很多设置的时候，为了可以链接外网，虚拟机选用了 NAT 模式。<em>貌似该模式无法使用ssh服务，虚拟机可以 ping 通主机，但主机无法 ping 通虚拟机。</em>这时候可以使用几种方法：</p>
+<ul>
+<li>更改虚拟机模式为桥接模式，弃用原来的 NAT 模式。</li>
+<li>使用实体机中的虚拟机网卡与虚拟机进行交互，但貌似 ubuntu 下面并无法找到这块虚拟网卡，解决办法可以手动建立一个虚拟网卡。</li>
+<li>创建一个新的链接方式，通过这个桥接到实体机，然后通过 NAT 访问外网。<em>这边详细介绍这种方式</em></li>
+</ul>
+<p>详细步骤：</p>
+<ul>
+<li>使用 virtualbox 新建一个新的 adapter，选用 bridge adapter。如下图：</li>
+</ul>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-29-git%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/DeepinScrot-2011.png" alt=""></p>
+<ul>
+<li>重启虚拟机系统，或者重启网络服务 <code>sudo /etc/init.d/networking restart</code> ，ifconfig -a 查看所有网卡，可以看到虚拟机中有一个网卡 enp0s8 并没有被使用，这个就是刚刚新建的那个桥接网卡。</li>
+<li>设置该网卡，修改/etc/network/interfaces文件，如下图：</li>
+</ul>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-29-git%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/DeepinScrot-4326.png" alt=""></p>
+<ul>
+<li><p>重启网络服务 <code>sudo /etc/init.d/networking restart</code>，ifconfig 查看网卡。如下图：<br>-<br><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-29-git%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/DeepinScrot-4534.png" alt=""></p>
+</li>
+<li><p>接着基本就可以尝试 ping 通两个系统了，实体机中使用 ping 192.168.18.202，虚拟机中 ping 192.168.18.60 。如果仍然不行可以尝试关闭防火墙：<code>sudo ufw disable</code>。</p>
+</li>
+</ul>
+                    
+                        <a href="/2016/07/29/2016/2016-07-29-架设自己的git服务/" class="postShorten-excerpt_link link">
+                            Continue reading
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/07/27/2016/2016-07-27-多个发行版linux使用体验/">
+                            多个发行版linux使用体验
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-07-27T11:22:00+08:00">
+	
+		    Jul 27, 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p><em>本文主要记录自己使用多个linux的发行版的一些感受体验，会包括CLI和GUI的一些体验。本文具有一定的主观性，仅供参考。</em></p>
+<p>发行版包括：ubuntu，debian，centOS，openSUSE等<br>窗口管理器包括：gnome，kde，awesome等</p>
+                    
+                        <a href="/2016/07/27/2016/2016-07-27-多个发行版linux使用体验/" class="postShorten-excerpt_link link">
+                            Continue reading
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/07/25/2016/2016-07-25-桥接、nat、host-only上网方式的区别/">
+                            桥接、NAT、Host-only上网方式的区别
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-07-25T13:53:00+08:00">
+	
+		    Jul 25, 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p><em>经常使用虚拟机的小伙伴们都遇到过网络链接过程中的各种问题，仔细查看设置会发现有：桥接、NAT、Host-only 等设置，vmware 等虚拟机后还会自动生成vmnet1和vmnet8，初学者可能会一头雾水，为啥只有两个？不是三种模式吗？另外每个模式代表什么？他们又有什么区别？无论是 vmware 还是 vitualbox 这些内容都大同小异，而 vmware 中看起来可能会更加直观些，这边以windows下的安装使用为例，进行深入的详解。</em></p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-25-%E6%A1%A5%E6%8E%A5%E3%80%81nat%E3%80%81host-only%E4%B8%8A%E7%BD%91%E6%96%B9%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/0.png" alt=""></p>
+<p><strong>本文会尽可能详细地总结和罗列出三者的含义和区别，以及虚拟机中该如何配置他们更加合适。</strong></p>
+<h3 id="桥接"><a href="#桥接" class="headerlink" title="桥接:"></a>桥接:</h3><p>简而言之桥接就是指：<strong>就是通过一台设备（可能不止一个）把几个网络串起来形成的连接</strong>。这边主要介绍虚拟机所采用的桥接方式，虚拟出来的操作系统就像是局域网中的一独立的主机，它可以通过路由器网线访问网内任何一台机器。不过虚拟机需要占用你同一个网段的一个 IP 地址，当且仅当虚拟机和实体机在同一个网段，两者才可以进行通信，如：<em>虚拟机 IP：192.168.1.101，实体机 IP：192.168.1.100</em>。</p>
+<p>在桥接模式下，例如在 windows 下使用 vmware 时，明显看到会生成多个虚拟网卡出来，但却没有一个网卡是属于桥接的，原因是虚拟机采用桥接方式时，是不需要虚拟网卡的，这时候<em>虚拟机操作系统和实体机操作系统同时使用真实网卡工作，然后真是网卡发送数据出去，而如果虚拟机发送数据给真实机，则数据流向是：<strong>虚拟机系统-&gt;真实网卡-&gt;路由器-&gt;真实网卡-&gt;实体机系统</strong>，不难看出同一个数据经过网卡在路由器上面绕了一圈又回到了网卡。</em></p>
+<p>通过上述内容发现，桥接必须经过真实网卡和路由器，因此当你的电脑没有链接有线网或者无线网的话，你的实体机是无法和虚拟机进行交互的，即便看起来两者很近也不行。<em>而选用桥接还是 NAT 等方式是在虚拟机软件中选定，进入虚拟的操作系统后，所有的设置和真实电脑没有本质区别，如果路由器允许自动分配 IP 地址，则操作系统设置为自动获取 IP 即可，如果不能自动分配，也可以在操作系统中手动分配 IP 地址。另外值得注意的是</em>某些公司路由器绑定了电脑 mac 地址和 IP 地址，这时候虚拟机中的桥接也相当于一个真实电脑，也需要完成相关的绑定才可以访问网络。*</p>
+<p>可以看出：如果你想利用VMware在局域网内新建一个虚拟服务器，为局域网用户提供网络服务，就应该选择桥接模式。下面举个栗子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">例如大学宿舍里有一个路由器，宿舍里四个人连接这个路由器，路由器的 wanip 就不理会了，这个 ip 是动态获取的，而一般lanip默认是192.168.1.1,子网掩码是255.255.255.0。而其他四个人是自动获取ip，假设四个人的 ip 是:</div><div class="line"></div><div class="line">A: 192.168.1.100/255.255.255.0,  B: 192.168.1.101/255.255.255.0,  C: 192.168.1.102/255.255.255.0,  D: 192.168.1.103/255.255.255.0</div><div class="line"></div><div class="line">那么虚拟机的 ip 可以设置的 ip 地址是 192.168.1.2-192.168.1.99, 192.168.1.104-192.168.1.254 (网络地址 0 和 1 的除外，再除去 ABCD 四个人的 ip 地址)</div><div class="line"></div><div class="line">那么虚拟机的 ip 地址可以设置为 192.168.1.98/255.255.255.0,设置了这个 ip 地址，ABCD 这四个人就可以通过 192.168.1.98 访问虚拟机了，如果虚拟机需要上外网，那么还需要配置虚拟机的路由地址，就是 192.168.1.1 了，这样，虚拟机就可以上外网了，但是，上网我们一般是通过域名去访问外网的，所以我们还需要为虚拟机配置一个 dns 服务器，我们可以简单点，把 dns 服务器地址配置为 google 的 dns 服务器 :8.8.8.8，到此，虚拟机就可以上网了。</div></pre></td></tr></table></figure>
+<p>综上所述，<em>同一个数据经过网卡在路由器上面绕了一圈又回到了网卡。</em>而虚拟机的桥接也只在其他电脑需要访问你电脑的虚拟机时，或者你虚拟机需要访问其他外部设备时才有相关需求*，一般情况还是建议配置成操作方便使用简单的 NAT 方式。</p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-25-%E6%A1%A5%E6%8E%A5%E3%80%81nat%E3%80%81host-only%E4%B8%8A%E7%BD%91%E6%96%B9%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/1.png" alt=""></p>
+                    
+                        <a href="/2016/07/25/2016/2016-07-25-桥接、nat、host-only上网方式的区别/" class="postShorten-excerpt_link link">
+                            Continue reading
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/07/21/2016/2016-07-21-githubpage-jekyll搭建博客/">
+                            githubpage+jekyll搭建博客
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-07-21T19:03:00+08:00">
+	
+		    Jul 21, 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p>使用 githubpage+jekyll 搭建博客也有半年时间了，这篇文章早该写好，但一致迟迟没有下笔。怎么说呢，githubpage+jekyll 搭建博客的静态博客，操作起来可视化成都较低，缺少 wordpress 等知名博客酷炫的管理后台，也很少能够找到炫酷的模板（文章下方链接给出了 jekyll 的一些模板），以上缺点也是显而易见，简而言之就是 jekyll 的界面丑陋用起来麻烦。但因为 githubpage 是 jekyll 提供的服务，所以好处就是 jekyll 文件无需每次本地编译，直接 push 到 github 上面，就可以生成页面，另外本地也会同时保存一份完整的源文件，书写时只需要按照 markdown 语法码字，更换平台博客搬家更是轻松。</p>
+                    
+                        <a href="/2016/07/21/2016/2016-07-21-githubpage-jekyll搭建博客/" class="postShorten-excerpt_link link">
+                            Continue reading
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/07/16/2016/2016-07-16-windows7安装详解/">
+                            windows7安装详解
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-07-16T16:41:00+08:00">
+	
+		    Jul 16, 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p><em>早在上学时,就安装过很多次win7,老是说,win7出了略微的比xp多占用了点资源外,确实好用。外观美观，性能也算不错。</em></p>
+<h3 id="windows-7简介："><a href="#windows-7简介：" class="headerlink" title="windows 7简介："></a>windows 7简介：</h3><p>Windows 7 是由微软公司（Microsoft）开发的操作系统，版本有：入门版（Starter）、家庭普通版（Home Basic）、家庭高级版（Home Premium）、专业版（Professional）、企业版（Enterprise）（非零售）、旗舰版（Ultimate）。Windows 7 的设计主要围绕五个重点——针对笔记本电脑的特有设计；基于应用服务的设计；用户的个性化；视听娱乐的优化；用户易用性的新引擎。 跳跃列表，系统故障快速修复等，这些新功能令Windows 7成为比较美观易用的操作系统。</p>
+<h3 id="必要的软件下载："><a href="#必要的软件下载：" class="headerlink" title="必要的软件下载："></a>必要的软件下载：</h3><ul>
+<li>[windows 7 64位]<br><code>ed2k://|file|cn_windows_7_ultimate_with_sp1_x64_dvd_u_677408.iso|3420557312|B58548681854236C7939003B583A8078|/</code></li>
+<li>[windows 7 32位]<br><code>ed2k://|file|cn_windows_7_ultimate_with_sp1_x86_dvd_u_677486.iso|2653276160|7503E4B9B8738DFCB95872445C72AEFB|/</code></li>
+<li><a href="https://pan.baidu.com/s/1o8GRTb0">大白菜windows PE</a></li>
+<li><a href="https://pan.baidu.com/s/1micuzrE">驱动精灵2015网卡版</a></li>
+</ul>
+                    
+                        <a href="/2016/07/16/2016/2016-07-16-windows7安装详解/" class="postShorten-excerpt_link link">
+                            Continue reading
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/07/15/2016/2016-07-05-（转）github_markdown/">
+                            （转）github_markdown
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-07-15T18:12:00+08:00">
+	
+		    Jul 15, 2016
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/read/">read</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p><em>本内容主要例举了github适用的markdown语法，类似于基于基础markdown定制的语法特性，并非适用于所有的其他markdown编辑器，尤其是下述表情包基本上其他编辑器都不一定能够支持，本人使用的是atom外加一些github的插件，基本能够显示大多数内容，但仍由部分不能支持，另外本文的主要适用范围：<strong>在新建项目工程，书写readme时使用，其他如github page或者其他一些站点的markdown页面请勿参考本文。</strong></em></p>
+<h4 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a><a href="https://github.com/guodongxiaren/README">实现效果</a></h4>
+                    
+                        <a href="/2016/07/15/2016/2016-07-05-（转）github_markdown/" class="postShorten-excerpt_link link">
+                            Continue reading
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/07/15/2016/2016-07-15-atom使用总结/">
+                            atom使用总结
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-07-15T13:50:00+08:00">
+	
+		    Jul 15, 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p>Atom 是 Github 出的一款免费跨平台的 IDE，软件 15 年发布，至今时间较短，国内有一些文章或者帖子介绍该软件，但为数不多。笔者最初写也只是为了写文章而想在 linux 下找一款友好的 markdown 编辑器，翻阅了很多都不尽如人意，最后无意中发现了这款软件，简直爱不释手。<em>文章最下方的参考链接都写的比较详细，值得拿来参考阅读。</em></p>
+<h3 id="Atom简介："><a href="#Atom简介：" class="headerlink" title="Atom简介："></a>Atom简介：</h3><p>Atom 是 github 专门为程序员推出的一个跨平台文本编辑器。具有简洁和直观的图形用户界面，并有很多有趣的特点：支持 CSS，HTML，JavaScript 等网页编程语言。它支持宏，自动完成分屏功能，集成了文件管理器。继承了 SublimeText 和 vim 的众多优点（除了占用资源，和开启速度慢，当然现在内存越来越不值钱，以及固态硬盘速度奇快，这些都会是问题），很大程度上不仅如此。据称，在目前IDE如此之多的情况下，开发这个软件是为了替代 vim（当然这么宣传也可能只是噱头，但 atom 确实扩展性强且容易配置），让更新更优秀的功能能够被体验，因此事实上Atom这款软件中是包含了vim模式的，当然用惯了vim的大神未必服。另外 Atom 在 web 前端相当出名，基本上可以取代老牌编辑器： SublimeText ，且功能类似vim可以无限将其配置成任何你需要的环境（如：C/C++ 开发环境，python 开发环境，markdown 写作软件等等），可见，学习这款软件无论是功能性能还是面向将来都是值得的。</p>
+<p>这边给出几个最主要的链接：<a href="https://atom.io/">atom官网</a>，<a href="https://atom.io/packages">atom插件中心</a>，<a href="http://flight-manual.atom.io/">atom官方手册英文版</a>，<a href="https://atom-china.org/">atom中文社区</a>，<a href="https://github.com/atom/atom">atom源码</a>。</p>
+<h3 id="快捷键的使用"><a href="#快捷键的使用" class="headerlink" title="快捷键的使用:"></a>快捷键的使用:</h3><p>atom 的很多操作方式都和 chrome 等软件类似，如果习惯使用这些软件的人会觉得很得心应手，例如：ctrl+w 关闭标签页，ctrl+shift+t 重新打开之前关闭的标签等等。</p>
+<p>ctrl+.  :  调用按键查看器<br>ctrl+\  :  文件目录结构管理<br>ctrl+,  :  setting设置<br>ctrl-shift-M : Markdown预览</p>
+                    
+                        <a href="/2016/07/15/2016/2016-07-15-atom使用总结/" class="postShorten-excerpt_link link">
+                            Continue reading
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/07/14/2016/2016-07-14-Caps_Lock与右Ctrl互换/">
+                            Caps_Lock与右Ctrl互换
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-07-14T08:59:00+08:00">
+	
+		    Jul 14, 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p><em>实现该功能的目的主要是切换中英文输入法，在使用 ctrl 或者 shift 切换时，很明显这两个键的位置远不如caps按起来方便，且 shift 往往作为大小写功能使用，用来作为切换中英文输入会恨混乱，而 caps 作为大小写时用起来相当罕见，作为中文输入来说更可以说完全是鸡肋的功能。大写完全可以用 shift 代替的用户群中，无疑是占用了一个最好的位置，却几乎完全被遗忘的一个按键。下面将会总结一个既保留 Caps_Lock 键功能，又可以充分利用这个最好位置的按键映射方法。</em></p>
+<h3 id="linux系统下的实现"><a href="#linux系统下的实现" class="headerlink" title="linux系统下的实现"></a>linux系统下的实现</h3><h4 id="按键值查询"><a href="#按键值查询" class="headerlink" title="按键值查询"></a>按键值查询</h4><p>linux 下可以通过命令小程序对绝大多数按键值进行查找，要想修改键值映射, 先要知道按键的键值. 用如下命令查看: <code>xev | grep keycode</code>。</p>
+<p>同时我们可以查看需要映射的按键的映射名称：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">例如, 执行命令查看 Menu 键相关的按键名:</div><div class="line"></div><div class="line">xmodmap -pke | grep menu -i</div><div class="line">显示结果为:</div><div class="line"></div><div class="line">keycode 135 = Menu NoSymbol Menu</div><div class="line">keycode 147 = XF86MenuKB NoSymbol XF86MenuKB</div></pre></td></tr></table></figure>
+<p>比如想把键盘的右边的 Alt 改为 Menu : <code>xmodmap -e &quot;keycode 108=Menu&quot;</code>，简而言之 xmodmap 程序就是用来控制系统按键的，需要详细了解这个软件的操作，可以查看帮助文档。</p>
+                    
+                        <a href="/2016/07/14/2016/2016-07-14-Caps_Lock与右Ctrl互换/" class="postShorten-excerpt_link link">
+                            Continue reading
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/07/12/2016/2016-07-12-jlink相关问题汇总/">
+                            jlink相关问题汇总
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-07-12T16:09:00+08:00">
+	
+		    Jul 12, 2016
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/read/">read</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <h3 id="jlink简介"><a href="#jlink简介" class="headerlink" title="jlink简介"></a>jlink简介</h3><h3 id="MDK如何让jlink不跳出升级"><a href="#MDK如何让jlink不跳出升级" class="headerlink" title="MDK如何让jlink不跳出升级"></a>MDK如何让jlink不跳出升级</h3><p>有三种方法(注意盗版的 jlink 谨慎升级),推荐方法3。</p>
+<ol>
+<li>升级 Keil 自带的 J-link 程序,新版本 jlink 的一般盗版的 v8 都没法直接升级。</li>
+<li>使用之前版本 keil 自带的 J-link 驱动替换掉现在的,也就是将 ..\Keil\ARM\Segger 文件夹替换为老版本的,这样里面的 J-Link 驱动也是老版本的,就不会提示 J-Link 更新了,这种需要有之前的 keil 才可以,如果是直接安装新版的 keil 5 默认自带为 4.8 的版本。</li>
+<li>卸载 segger，下载了比较新的驱动重新安装，并将 segger/jlinkarm_v440 目录下的 jlinkarm。dll 拷贝到 keil/arm/segger 的目录下。再次使用 MDK，提示升级，确定升级，但这次升级后，jlink 确实可以识别。这个版本需要注意的是 jlink 的版本必须在 4.4 以后(如 4.1x 的复制 jlinkarm.dll 软件会出错),另外复制前做好 jlinkarm.dll 的备份。</li>
+</ol>
+                    
+                        <a href="/2016/07/12/2016/2016-07-12-jlink相关问题汇总/" class="postShorten-excerpt_link link">
+                            Continue reading
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/07/12/2016/2016-07-12-linux下vpn配置/">
+                            linux下vpn配置
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-07-12T08:26:00+08:00">
+	
+		    Jul 12, 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p>由于众所周知的原因，国内用户无法访问外网，或者即便可以访问，也会遇到访问速度慢，网页无法刷新等问题。因此如果你要访问谷歌，Facebook等网站，就需要学会科学上网，本文主要使用 VPN 的方式来绕过 GFW 的过滤，让小伙伴们能够轻松畅游天地，无拘无束。</p>
+<h3 id="推荐-VPN"><a href="#推荐-VPN" class="headerlink" title="推荐 VPN"></a>推荐 VPN</h3><p>这边首推国内最出名的 <a href="http://gjsq.me/web">Green VPN</a>，域名经常会被查封，以上给出的这个网址一般会自动跳转，大多数情况不会变化。Green VPN 的费用一般在 ￥150/year 左右，可以两个客户端同时使用，特点是使用起来方便，速度稳定，一般带宽在 4M 以上，但不能长期链接，每天可能会断线一次。Green VPN 算是一家老牌的 VPN 了，价格虽然不算最便宜，但稳定性服务等都比较有保证，市面上面冒充 Green VPN 诈骗的也比较多，购买时需要当心注意。</p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-12-linux%E4%B8%8Bvpn%E9%85%8D%E7%BD%AE/1.png" alt=""></p>
+                    
+                        <a href="/2016/07/12/2016/2016-07-12-linux下vpn配置/" class="postShorten-excerpt_link link">
+                            Continue reading
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    <div class="pagination-bar">
+    <ul class="pagination">
+        
+        
+        <li class="pagination-next">
+            <a class="btn btn--default btn--small" href="/archives/2016/07/page/2/">
+                    <span>OLDER POSTS</span>
+                <i class="fa fa-angle-right text-base icon-ml"></i>
+            </a>
+        </li>
+        
+        <li class="pagination-number">page 1 of 2</li>
+    </ul>
+</div>
+
+</section>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2017 John Doe. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">John Doe</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+
+
+</html>

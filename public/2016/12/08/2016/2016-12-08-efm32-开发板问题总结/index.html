@@ -1,0 +1,423 @@
+
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hexo">
+    <title>efm32 开发板问题总结 - Hexo</title>
+    <meta name="author" content="John Doe">
+    
+    
+    
+    <meta name="description" content="silabs 的 EFM 系列芯片历来以低能耗，可信的加密而文明，比较遗憾的是，国内用的较少，且基本上没有什么中文参考资料，刚刚开办没多久的官方中文论坛贴出来的资料也大都是英文版，且论坛在 GFW 下访问相当困难。因为项目需求，这边我入手了两个系列的 EFM 开发板，但都出了大大小小的问题。
+个人总结：1.因为前期缺少相关指导，且官方指导手册仅告诉要如何做，却没指示相关工具的位置和使用。2.该芯片">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="efm32 开发板问题总结">
+<meta property="og:url" content="http://yoursite.com/2016/12/08/2016/2016-12-08-efm32-开发板问题总结/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="silabs 的 EFM 系列芯片历来以低能耗，可信的加密而文明，比较遗憾的是，国内用的较少，且基本上没有什么中文参考资料，刚刚开办没多久的官方中文论坛贴出来的资料也大都是英文版，且论坛在 GFW 下访问相当困难。因为项目需求，这边我入手了两个系列的 EFM 开发板，但都出了大大小小的问题。
+个人总结：1.因为前期缺少相关指导，且官方指导手册仅告诉要如何做，却没指示相关工具的位置和使用。2.该芯片">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-12-08-efm32-%E5%BC%80%E5%8F%91%E6%9D%BF%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/1.png">
+<meta property="og:updated_time" content="2016-12-16T01:50:57.999Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="efm32 开发板问题总结">
+<meta name="twitter:description" content="silabs 的 EFM 系列芯片历来以低能耗，可信的加密而文明，比较遗憾的是，国内用的较少，且基本上没有什么中文参考资料，刚刚开办没多久的官方中文论坛贴出来的资料也大都是英文版，且论坛在 GFW 下访问相当困难。因为项目需求，这边我入手了两个系列的 EFM 开发板，但都出了大大小小的问题。
+个人总结：1.因为前期缺少相关指导，且官方指导手册仅告诉要如何做，却没指示相关工具的位置和使用。2.该芯片">
+<meta name="twitter:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-12-08-efm32-%E5%BC%80%E5%8F%91%E6%9D%BF%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/1.png">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Hexo</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="4">
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archives</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Search</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            efm32 开发板问题总结
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-12-08T16:03:00+08:00">
+	
+		    Dec 08, 2016
+    	
+    </time>
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>silabs 的 EFM 系列芯片历来以低能耗，可信的加密而文明，比较遗憾的是，国内用的较少，且基本上没有什么中文参考资料，刚刚开办没多久的官方中文论坛贴出来的资料也大都是英文版，且论坛在 GFW 下访问相当困难。因为项目需求，这边我入手了两个系列的 EFM 开发板，但都出了大大小小的问题。</p>
+<p>个人总结：1.因为前期缺少相关指导，且官方指导手册仅告诉要如何做，却没指示相关工具的位置和使用。2.该芯片配备专有 IDE 且还分好几个版本，无疑增加了摸索的难度。3.个人经验不足，之前上手的都是开发板，没接触过这种官方自带的评估板。</p>
+<p>其实上手这个评估板并不困难，困难的是没有一个详尽的指导手册，不知道如何用评估板去烧录上面的 MCU ，如何用评估板烧录自己产品的 MCU等。</p>
+<h3 id="评估板简介："><a href="#评估板简介：" class="headerlink" title="评估板简介："></a>评估板简介：</h3><p>EFM32 配套评估板 上 Jlink 是从Segger授权的, 功能上应该没有缩减。因此价格也较贵，原价 $69 现价 $29 ，一般网购的价格在 ￥200 左右，这个价位对于国内 STM32 满地跑，部分 STM32 开发板价格甚至在 100 左右来说的话，还是较贵的，最关键的是淘宝购买的厂家不承担售后服务之类的，出问题只能自己解决。</p>
+<p>另外，EFM32 官方配套软件很强大，将编码，烧录，仿真，能耗监控，文档，样例等等都集成在了一起，很多资料都需要去这个 IDE 中查找，对英语不好或者不善于摸索的人来说也是一道门槛。</p>
+<p>评估板的功能：</p>
+<ul>
+<li>根据你的版型，不同的板子有不同的功能，一般都会有显示器，按键，led等基本功能</li>
+<li>能耗检测模块</li>
+<li>板载 Jlink ：可以烧录板载 MCU，也可以烧录外置芯片。</li>
+<li>可以使用外置 Jlink 来烧录板载的 MCU。</li>
+<li>大多数引脚引出，且预留焊盘，另外还有 EXP 扩展口（注意 debug-out 是小灯，而不是指 EXP 扩展口）。</li>
+</ul>
+<a id="more"></a>
+<h3 id="使用方法："><a href="#使用方法：" class="headerlink" title="使用方法："></a>使用方法：</h3><p>评估板的 debug 主要分为 in,out,mcu,off 等选项，这几个选项至关重要，我们可以不使用 simplicity studio 这个 IDE，但如果需要使用这个评估板，就必须得弄清楚如何设置评估板的 debug 模式。</p>
+<p>这边我使用 simplicity v3 版本，设置 debug 模式，需要通过一个 commander 的软件，该软件在 simplicity v3 安装包中可以检索到，如果需要在 simplicity studio 中打开，则安装时需要安装无线模块套件（如果不安装这个套件，软件中无法打开这个 commander 工具，因此建议新手安装完整版的 simplicity v3 而不是只安装你所需要的芯片组建），打开 simplicity IDE 然后在 file 中打开 simplicity commander。</p>
+<p>每次使用评估板要进行相关操作时，都需要使用 commander 进行设置，详细配置说明：</p>
+<ul>
+<li>debug-in ： 烧录评估板上面的 jlink 固件，注意烧录的是 jlink 而不是评估板的 EFM芯片。</li>
+<li>debug-out : 使用评估板作为 jlink 烧录其他板子上面的外置芯片。mcu 资料中可以读出外置芯片具体信息，另外评估板有个 debug-out 灯会亮起。</li>
+<li>debug-mcu : 烧录评估板上面自带的 EFM 芯片。mcu 资料中可以读出板载芯片具体信息。</li>
+</ul>
+<p><strong>评估板作为 jlink 是官方正版授权的，烧录程序一般没有问题，但如果需要打多个断点进行仿真，则可能会仿真失败，应该是和 jink 采用的芯片有关系。</strong></p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-12-08-efm32-%E5%BC%80%E5%8F%91%E6%9D%BF%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/1.png" alt=""></p>
+<h3 id="固件烧录"><a href="#固件烧录" class="headerlink" title="固件烧录"></a>固件烧录</h3><p>普通升级，官方推荐使用 Kit Manager 打开后会自动判断固件是否需要升级，事实上 Kit Manager 和 simplicity commander 功能基本相同，但 Kit Manager 更显得傻瓜式，而且也会经常出现无法打开，无法连接芯片等问题，如果遇到了这些问题，建议还是使用 simplicity commander 进行所有操作。</p>
+<p>如果无法找到 commander 工具，这边推荐给出两个该工具的下载地址：</p>
+<p>固件烧录失败后，如何重新烧录固件，步骤差不多如下：</p>
+<ul>
+<li>将评估板的 bootloader 接地（bootloader 位置各个开发板不尽相同，可以参照原理图，或者查看下面给出的参考连接），接下来连接电脑，打开 simplicity commander ，如果 bootloader 接地成功则会显示 j-link device 信息，否则读取不到信息。</li>
+<li>设置 debug mode:in 烧录 jlink 芯片，找到固件包，安装包（包为 .emz 格式，在 simplicity 安装目录中，可以电脑自行检索包路径）。</li>
+</ul>
+<blockquote>
+<p>参考链接：<br><a href="http://m.blog.csdn.net/article/details?id=41648431" target="_blank" rel="external">http://m.blog.csdn.net/article/details?id=41648431</a><br><a href="http://community.silabs.com/t5/32-bit-MCU-Knowledge-Base/Recover-EFM32-or-EFM8-kit-that-was-bricked-during-firmware/ta-p/122142" target="_blank" rel="external">http://community.silabs.com/t5/32-bit-MCU-Knowledge-Base/Recover-EFM32-or-EFM8-kit-that-was-bricked-during-firmware/ta-p/122142</a><br><a href="http://community.silabs.com/t5/32-bit-MCU-Knowledge-Base/Unlock-a-Bricked-EFM32/ta-p/122776" target="_blank" rel="external">http://community.silabs.com/t5/32-bit-MCU-Knowledge-Base/Unlock-a-Bricked-EFM32/ta-p/122776</a><br><a href="http://wenku.baidu.com/view/ee891f3a5a8102d276a22ffc.html?re=view" target="_blank" rel="external">http://wenku.baidu.com/view/ee891f3a5a8102d276a22ffc.html?re=view</a><br><a href="http://community.silabs.com/t5/ChineseForum/%E7%96%91%E4%BC%BC%E8%8A%AF%E7%89%87%E6%98%AF%E5%90%A6%E7%83%A7%E5%9D%8F%E4%BA%86/m-p/184134/highlight/false#M1227" target="_blank" rel="external">http://community.silabs.com/t5/ChineseForum/%E7%96%91%E4%BC%BC%E8%8A%AF%E7%89%87%E6%98%AF%E5%90%A6%E7%83%A7%E5%9D%8F%E4%BA%86/m-p/184134/highlight/false#M1227</a><br><a href="http://www.silabs.com/products/mcu/32-bit/efm32-gecko/pages/efm32-gecko.aspx" target="_blank" rel="external">http://www.silabs.com/products/mcu/32-bit/efm32-gecko/pages/efm32-gecko.aspx</a></p>
+</blockquote>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/12/09/2016/2016-12-09-lamp-环境搭建/"  data-tooltip="LAMP 环境搭建">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/12/01/2016/2016-12-01-putty-xming-远程使用-linux-gui/" data-tooltip="PuTTY + Xming 远程使用 Linux GUI">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/12/08/2016/2016-12-08-efm32-开发板问题总结/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/12/08/2016/2016-12-08-efm32-开发板问题总结/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/12/08/2016/2016-12-08-efm32-开发板问题总结/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2017 John Doe. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/12/09/2016/2016-12-09-lamp-环境搭建/"  data-tooltip="LAMP 环境搭建">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/12/01/2016/2016-12-01-putty-xming-远程使用-linux-gui/" data-tooltip="PuTTY + Xming 远程使用 Linux GUI">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/12/08/2016/2016-12-08-efm32-开发板问题总结/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/12/08/2016/2016-12-08-efm32-开发板问题总结/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/12/08/2016/2016-12-08-efm32-开发板问题总结/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/12/08/2016/2016-12-08-efm32-开发板问题总结/">
+                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/12/08/2016/2016-12-08-efm32-开发板问题总结/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/12/08/2016/2016-12-08-efm32-开发板问题总结/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">John Doe</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+</html>

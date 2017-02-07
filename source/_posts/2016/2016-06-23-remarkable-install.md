@@ -8,7 +8,7 @@ date: "2016-06-23 12:12"
 
 ### 界面展示
 
-![](/img/2016-06-23-remarkable-install/remarkable.png)
+![](../../img/2016-06-23-remarkable-install/remarkable.png)
 
 ### 下载安装
 安装环境位ubuntu 16.04(64位)，markdown的网站无法正确的下载软件。
@@ -31,7 +31,7 @@ date: "2016-06-23 12:12"
 
 * 编辑 /usr/share/remarkable/ui/RemarkableWindow.ui将834~842之间的代码注释掉即可以解决问题：
 
-```sh
+```ssh
 <!--
                 <child>
                   <object class="GtkMenuItem" id="mnu_about">

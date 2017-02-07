@@ -33,7 +33,7 @@ Node.js 是一个开放源代码、跨平台的、可用于服务器端和网络
 
 - 创建并进入目录 Hexo ：`mkdir Hexo && cd Hexo`
 - 使用 hexo 生成博客框架。依次执行如下命令(hexo init blog 过程可能会比较慢，需要耐心等待。)：
-```
+```ssh
 $ hexo init blog 
 $ cd blog
 $ npm install 
@@ -83,7 +83,7 @@ $ hexo server (通过 hexo server 运行起 hexo 内置的服务器。这时候�
 由于访问网页最终都是访问的 html 文件，因此这边需要通过本地 hexo generate 工具生成所需的 html 页面代码，然后每次将你的 html 页面覆盖到 github 的项目中去。
 
 执行如下命令：
-```
+```ssh
 	hexo g
 	cp -R public/* [你的仓库名]
 	cd [你的仓库名]
@@ -97,7 +97,7 @@ $ hexo server (通过 hexo server 运行起 hexo 内置的服务器。这时候�
 注意，实际上 github page 是可以自己按照 jekyll 的方式将源码生成 html 文件的，但是 对于 hexo 等其他源码，如果需要展示出来，则必须本地生成 html 代码，然后把生成的代码部署到服务器上面才行，这边我们可以使用如上面的方式（将 public 目录下面生成的 html 文件直接复制到服务器的根目录下）， hexo 提供了更加人性化的方式，通过 hexo deploy 可以一键完成部署（无需在通过 push 手动推送了），每次部署的步骤，可按以下两步：
 
 - 修改 该配置文件：vim _config.yml，执行如下命令才能使用 git 部署 `npm install hexo-deployer-git --save`
-```
+```ssh
 deploy:
   type: git
   repository: https://github.com/username/username.github.io.git
@@ -106,7 +106,7 @@ deploy:
 *注：type: git 老版本可能是 github，repository 后也可以采用 ssh 的地址，https 每次需要输入密码，而 ssh 需要配置好公钥私钥免密码。*
 
 - 执行以下命令无需手动将代码 push 上去
-```
+```ssh
 hexo clean
 hexo generate
 hexo deploy

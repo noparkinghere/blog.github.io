@@ -32,7 +32,7 @@ linux下除了大型游戏意外，其他的办公学习娱乐基本都可以解
 
 - ubuntu 16.04 终端输入： lsb_release -a
 
-```
+```ssh
 No LSB modules are available.
 Distributor ID:	Ubuntu
 Description:	Ubuntu 16.04 LTS
@@ -60,7 +60,7 @@ Codename:	xenial
 
 让GUEST识别USB设备
 
-```
+```ssh
 $ sudo gedit   /etc/fstab
 
 在末尾加上
@@ -77,7 +77,7 @@ none /proc/bus/usb usbfs devmode=666 0 0
 
 将用户名添加到vboxusers组,重启或注销后即可解决.
 
-```
+```ssh
 sudo adduser usrname vboxusers
 
 然后再输入：cat /etc/group |grep vboxusers
@@ -89,7 +89,7 @@ vboxusers:x:129:demon,hello
 
 2.3 方法3：
 
-```
+```ssh
 增加用户组usbfs
 $sudo groupadd usbfs
 
@@ -103,7 +103,7 @@ sudo adduser demon usbfs
 
 为USB设备重新设置权限,编辑/etc/fstab文件，添加下面两行，注意你的gid可能不是1002
 
-```
+```ssh
  $   sudo gedit /etc/fstab
 在末尾加上
 # 1002 is the USB group IDI

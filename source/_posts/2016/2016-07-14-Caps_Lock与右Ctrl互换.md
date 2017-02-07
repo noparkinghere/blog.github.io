@@ -14,7 +14,7 @@ linux 下可以通过命令小程序对绝大多数按键值进行查找，要�
 
 同时我们可以查看需要映射的按键的映射名称：
 
-```
+```ssh
 例如, 执行命令查看 Menu 键相关的按键名:
 
 xmodmap -pke | grep menu -i
@@ -33,7 +33,7 @@ keycode 147 = XF86MenuKB NoSymbol XF86MenuKB
 #### 将Caps_Lock和键盘右边的Ctrl调换
 在当前的用户根目录下～创建 .Xmodmap 文件(尤其注意:这边名称是Xmodmap首字母大写,很多教程都忽略了这个问题,往往导致配置出来有问题)，书写内容如下：
 
-```
+```ssh
 remove Lock = Caps_Lock
 remove Control = Control_R
 keysym Control_R = Caps_Lock
@@ -56,7 +56,7 @@ add Control = Control_R
 
 打开注册表，在运行（win+R）中输入 regedit ，注册表位置：[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout]  （注意： KeyBoard Layout, 而不是 KeyBoard Layouts）如果没有此键，就新建一个二进制值的 Key，名叫： Scancode Map（注意名称不能够写错，错一个字母都没法实现功能）。
 
-```
+```ssh
 输入如下的值：
 　　00,00,00,00
 　　00,00,00,00
@@ -70,7 +70,7 @@ add Control = Control_R
 
 #### windows 各个键位值的参考：
 
-```
+```ssh
 　　Escape 01 00
 　　Tab 0F 00
 　　Caps Lock 3A 00

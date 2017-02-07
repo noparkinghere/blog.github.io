@@ -72,7 +72,7 @@ Linux的后台进程运行有好几种方法，例如nohup，screen等，但是�
 - 安装软件，终端输入：`apt-get install python-pip && pip install shadowsocks`。
 - 写 shadowsocks 配置文件： vim /etc/shadowsocks.json ， 具体内容如下：
 
-```
+```ssh
 {
     "server":"0.0.0.0",
     "server_port":50003,
@@ -117,7 +117,7 @@ method 加密方法
 - 安装 supervisor： apt-get install supervisor
 - 将 shadowsocks 加入到 supervisor 中进行管理：vim /etc/supervisor/supervisord.conf 在末尾加入如下内容：
 
-```
+```ssh
 [program:shadowsocks]
 command=ssserver -c /etc/shadowsocks.json
 autostart=true
@@ -149,7 +149,7 @@ logfile=/var/log/shadowsocks.log
 
 - 安装 shadowsocks （我们这边不采用 GUI 软件而直接使用 shadowsocks 命令工具连接 shadowsocks 服务器。）步骤如下：
 
-```
+```ssh
 sudo apt-get update
 sudo apt-get install python-pip
 sudo apt-get install python-setuptools m2crypto
@@ -161,7 +161,7 @@ pip install shadowsocks
 
 - 配置 Shadowsocks ：同服务器类似， 也是配置 shadowsocks.json 这个文件，可以在你想要指定的目录下新建这个文件如：~/.config/shadowsocks.json ， 编辑该文件：
 
-```
+```ssh
 {
     "server":"www.baidu.com",
     "server_port":50003,
@@ -199,7 +199,7 @@ password 需要和 Shadowsocks 服务器保持一致
 - 安装 supervisor： sudo apt-get install supervisor
 - 将 shadowsocks 加入到 supervisor 中进行管理：vim /etc/supervisor/supervisor.conf 在末尾加入如下内容，或者在 /etc/supervisor/conf.d 下新建新的文件增加如下内容（注意 shadowsocks.json 文件路径写对）：
 
-```
+```ssh
 [program:shadowsocks]
 command=sslocal -c /home/username/.config/shadowsocks.json
 autostart=true

@@ -70,8 +70,8 @@ $ hexo server (通过 hexo server 运行起 hexo 内置的服务器。这时候�
 
 #### 插入图片
 
-- 在hexo/source目录下新建一个img文件夹，将图片放入该文件夹下，插入图片时链接即为/img/图片名称。 
-- 也可以使用[图床](http://tc.ffsky.net/)外链来存储图片，。
+- 在 hexo/source 目录下新建一个img文件夹，将图片放入该文件夹下，插入图片时链接即为/img/图片名称。 注意目录必须为 hexo/source，且图片文件夹为 img ，否则通过 hexo generate 可能无法生成目标图片。
+- 也可以使用[图床](http://tc.ffsky.net/)外链来存储图片。
 
 ### 部署到 github page
 
@@ -113,6 +113,7 @@ hexo deploy
 ```
 
 以上步骤虽然看起来貌似繁琐，但实际可以写成 bash 脚本，这样每次就会自动生成 public 自动复制以及上传了。
+
 
 
 ### 扩展补充

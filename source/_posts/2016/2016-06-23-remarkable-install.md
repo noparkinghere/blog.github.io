@@ -8,7 +8,7 @@ date: "2016-06-23 12:12"
 
 ### 界面展示
 
-![358bcf75911e433aed0abba8ff61ee2b.png](http://tc.ffsky.net/images/2016/07/01/358bcf75911e433aed0abba8ff61ee2b.png)
+![](/img/2016-06-23-remarkable-install/remarkable.png)
 
 ### 下载安装
 安装环境位ubuntu 16.04(64位)，markdown的网站无法正确的下载软件。

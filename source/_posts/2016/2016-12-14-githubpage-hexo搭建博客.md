@@ -7,6 +7,11 @@ date: "2016-12-14 19:01"
 
 个人博客是使用 githubpage+jekyll 搭建的，且博客已经工作有半年了，但由于期初的模板没有找好，加上一些其他的问题，导致博客看起来比较凌乱，这边给出另外一个 GithubPage+Hexo 的博客搭建方法供大家参考，本文操作系统主要使用的是 ubuntu 16.04，使用其他 linux 发行版的用户，可以参考本文。附上最终效果图如下：
 
+![](/img/2016-12-14-githubpage-hexo搭建博客/1.png)
+
+![](/img/2016-12-14-githubpage-hexo搭建博客/2.png)
+
+<!-- more -->
 
 ### 安装步骤
 
@@ -19,7 +24,7 @@ Node.js 是一个开放源代码、跨平台的、可用于服务器端和网络
 
 需要安装 nrm ， nrm 是 npm 的资源管理器，借助各个工具可以方便快捷地对 npm 的源进行管理。另外，由于国内网络环境原因在使用 npm 默认下载源的时候不仅速度非常慢而且常常会超时，因此这里还手动指定了从淘宝源下载。`sudo npm install nrm -g --registry https://registry.npm.taobao.org`，`nrm use taobao`（如果出现无法找到 node 则执行： `sudo  ln -s /usr/bin/nodejs /usr/bin/node` ）
 
-<!-- more -->
+
 
 
 #### 安装 git
@@ -52,15 +57,6 @@ $ hexo server (通过 hexo server 运行起 hexo 内置的服务器。这时候�
 - themes/ ：主题文件，自带默认主题 landscape 。
 
 ### 操作指导
-
-#### 主题配置
-
-下载并解压缩 [NexT 主题](https://github.com/iissnan/hexo-theme-next)，`wget http://labfile.oss.aliyuncs.com/courses/700/next.zip && unzip next.zip` 需要将主题文件放入 Hexo/blog/themes 下，打开 ../blog/_config.yml 修改 theme 后的内容就可以更改主题了。
-
-这会博客就套上了我们的新模板了。但是我们发现博客菜单上的文字是英文的于是我们还要重新配置以下，让主题以中文的方式显示。再次编辑 _config.yml 文件，将 language 项设置为 zh-Hans 。
-
-注意更改主题后每次需要重启 `hexo server` 服务才可以刷新网页。
-
 
 #### 文章创建
 
@@ -114,11 +110,28 @@ hexo deploy
 
 以上步骤虽然看起来貌似繁琐，但实际可以写成 bash 脚本，这样每次就会自动生成 public 自动复制以及上传了。
 
+#### CNAME 配置
+
+github page 可以使用上面提供的网址也可以让每次访问时跳转自己的域名地址，一般 github page 需要在根目录下新建一个 CNAME 文件，其中写下你的域名地址如：`www.google.com`。
+
+因为 hexo 每次需要生成好文件再上传，这边将 CNAME 文件放入 source 目录下，每次 hexo g && hexo generate 后则会上传 CNAME 到 github page了。
 
 
 ### 扩展补充
 
 上述虽然配置完成了 hexo 博客，但博客功能过于简单，使用起来不方便，可以添加图片，摘要，标签页与分类页等内容。
+
+#### 主题配置
+
+下载并解压缩 [NexT 主题](https://github.com/iissnan/hexo-theme-next)
+
+`wget http://labfile.oss.aliyuncs.com/courses/700/next.zip && unzip next.zip` 
+
+需要将主题文件放入 Hexo/blog/themes 下，打开 ../blog/_config.yml 修改 theme 后的内容就可以更改主题了。这会博客就套上了我们的新模板了。但是我们发现博客菜单上的文字是英文的于是我们还要重新配置以下，让主题以中文的方式显示。再次编辑 _config.yml 文件，将 language 项设置为 zh-Hans 。
+
+注意更改主题后每次需要重启 `hexo server` 服务才可以刷新网页。
+
+*到 github 上面搜索，可以找到更多出色的主题，这儿给出一个[主题汇总](https://www.zhihu.com/question/24422335)。*
 
 
 ### 小结
@@ -131,3 +144,10 @@ hexo 比 jekyll 布局更简单，更加容易操作，但每次需要本地生�
 > http://www.runoob.com/w3cnote/git-guide.html
 > http://baixin.io/2015/08/HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/
 > http://blog.csdn.net/u012307002/article/details/51298705
+> https://www.zhihu.com/question/24422335
+> http://www.jianshu.com/p/1d427e888dda
+> http://www.jianshu.com/p/f4dce0e76886
+> http://baixin.io/2015/08/HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/
+> http://www.jianshu.com/p/2b9f202c13fd
+> http://c4fun.cn/blog/2014/03/03/use-hexo-blog/
+> http://www.cnfeat.com/blog/2014/05/10/how-to-build-a-blog/

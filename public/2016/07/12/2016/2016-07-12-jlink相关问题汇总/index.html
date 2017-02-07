@@ -1,427 +1,51 @@
+extends base
 
-<!DOCTYPE html>
-<html lang="null">
-    
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hexo">
-    <title>jlink相关问题汇总 - Hexo</title>
-    <meta name="author" content="John Doe">
-    
-    
-    
-    <meta name="description" content="jlink简介MDK如何让jlink不跳出升级有三种方法(注意盗版的 jlink 谨慎升级),推荐方法3。
+block title
+  title= page.title + ' | ' + config.title
 
-升级 Keil 自带的 J-link 程序,新版本 jlink 的一般盗版的 v8 都没法直接升级。
-使用之前版本 keil 自带的 J-link 驱动替换掉现在的,也就是将 ..\Keil\ARM\Segger 文件夹替换为老版本的,这样里面的 J-Link 驱动也是老版本的,就不会提示">
-<meta property="og:type" content="blog">
-<meta property="og:title" content="jlink相关问题汇总">
-<meta property="og:url" content="http://yoursite.com/2016/07/12/2016/2016-07-12-jlink相关问题汇总/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="jlink简介MDK如何让jlink不跳出升级有三种方法(注意盗版的 jlink 谨慎升级),推荐方法3。
-
-升级 Keil 自带的 J-link 程序,新版本 jlink 的一般盗版的 v8 都没法直接升级。
-使用之前版本 keil 自带的 J-link 驱动替换掉现在的,也就是将 ..\Keil\ARM\Segger 文件夹替换为老版本的,这样里面的 J-Link 驱动也是老版本的,就不会提示">
-<meta property="og:updated_time" content="2017-01-12T03:29:59.959Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jlink相关问题汇总">
-<meta name="twitter:description" content="jlink简介MDK如何让jlink不跳出升级有三种方法(注意盗版的 jlink 谨慎升级),推荐方法3。
-
-升级 Keil 自带的 J-link 程序,新版本 jlink 的一般盗版的 v8 都没法直接升级。
-使用之前版本 keil 自带的 J-link 驱动替换掉现在的,也就是将 ..\Keil\ARM\Segger 文件夹替换为老版本的,这样里面的 J-Link 驱动也是老版本的,就不会提示">
-    
-    
-        
-    
-    
-    
-    
-    
-    <!--STYLES-->
-    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
-    <!--STYLES END-->
-    
-    
-</head>
-
-    <body>
-        <div id="blog">
-            <!-- Define author's picture -->
-
-
-    
-
-<header id="header" data-behavior="4">
-    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
-    <h1 class="header-title">
-        <a class="header-title-link" href="/ ">Hexo</a>
-    </h1>
-    
-        
-            <a  class="header-right-picture "
-                href="#about">
-        
-        
-        </a>
-    
-</header>
-
-            <!-- Define author's picture -->
-
-
-<nav id="sidebar" data-behavior="4">
-    
-    
-        <ul class="sidebar-buttons">
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="/ "
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
-                    <span class="sidebar-button-desc">Home</span>
-                </a>
-        </li>
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="/all-categories"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
-                    <span class="sidebar-button-desc">Categories</span>
-                </a>
-        </li>
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="/all-tags"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
-                    <span class="sidebar-button-desc">Tags</span>
-                </a>
-        </li>
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="/all-archives"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
-                    <span class="sidebar-button-desc">Archives</span>
-                </a>
-        </li>
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link st-search-show-outputs"
-                         href="#search"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
-                    <span class="sidebar-button-desc">Search</span>
-                </a>
-        </li>
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="#about"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
-                    <span class="sidebar-button-desc">About</span>
-                </a>
-        </li>
-        
-    </ul>
-    
-        <ul class="sidebar-buttons">
-        
-    </ul>
-    
-        <ul class="sidebar-buttons">
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="/atom.xml"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
-                    <span class="sidebar-button-desc">RSS</span>
-                </a>
-        </li>
-        
-    </ul>
-    
-</nav>
-
-            
-            <div id="main" data-behavior="4"
-                 class="
-                        hasCoverMetaIn
-                        ">
-                
-<article class="post" itemscope itemType="http://schema.org/BlogPosting">
-    
-    
-        <div class="post-header main-content-wrap text-left">
-    
-        <h1 class="post-title" itemprop="headline">
-            jlink相关问题汇总
-        </h1>
-    
-    <div class="post-meta">
-    <time itemprop="datePublished" datetime="2016-07-12T16:09:00+08:00">
-	
-		    Jul 12, 2016
-    	
-    </time>
-    
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/read/">read</a>
-
-
-    
-</div>
-
-</div>
-    
-    <div class="post-content markdown" itemprop="articleBody">
-        <div class="main-content-wrap">
-            <h3 id="jlink简介"><a href="#jlink简介" class="headerlink" title="jlink简介"></a>jlink简介</h3><h3 id="MDK如何让jlink不跳出升级"><a href="#MDK如何让jlink不跳出升级" class="headerlink" title="MDK如何让jlink不跳出升级"></a>MDK如何让jlink不跳出升级</h3><p>有三种方法(注意盗版的 jlink 谨慎升级),推荐方法3。</p>
-<ol>
-<li>升级 Keil 自带的 J-link 程序,新版本 jlink 的一般盗版的 v8 都没法直接升级。</li>
-<li>使用之前版本 keil 自带的 J-link 驱动替换掉现在的,也就是将 ..\Keil\ARM\Segger 文件夹替换为老版本的,这样里面的 J-Link 驱动也是老版本的,就不会提示 J-Link 更新了,这种需要有之前的 keil 才可以,如果是直接安装新版的 keil 5 默认自带为 4.8 的版本。</li>
-<li>卸载 segger，下载了比较新的驱动重新安装，并将 segger/jlinkarm_v440 目录下的 jlinkarm。dll 拷贝到 keil/arm/segger 的目录下。再次使用 MDK，提示升级，确定升级，但这次升级后，jlink 确实可以识别。这个版本需要注意的是 jlink 的版本必须在 4.4 以后(如 4.1x 的复制 jlinkarm.dll 软件会出错),另外复制前做好 jlinkarm.dll 的备份。</li>
-</ol>
-<a id="more"></a>
-<h3 id="JLINK刷固件步骤"><a href="#JLINK刷固件步骤" class="headerlink" title="JLINK刷固件步骤"></a>JLINK刷固件步骤</h3><p><em>如果通过上面的方法,结果盗版jlink变板砖了,可以使用下面方法重新烧录固件。</em></p>
-<h4 id="清除原有固件-烧录新固件"><a href="#清除原有固件-烧录新固件" class="headerlink" title="清除原有固件,烧录新固件"></a>清除原有固件,烧录新固件</h4><ul>
-<li>下载安装提供的相关软件: jlink, Install AT91-ISP v1.13, 以及固件。</li>
-<li>按照说明文档一步步操作,烧录固件,<strong>步骤先后顺序一定要完全一致,如果失败则重复多次</strong>。<a href="https://github.com/noparkinghere/blog.github.io/raw/gh-pages/_post/2016/2016-07-13-jlink%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/JLinkV8%E5%9B%BA%E4%BB%B6%E7%83%A7%E5%BD%95%E6%8C%87%E5%AF%BC.pdf" title="JLinkV8固件烧录指导" target="_blank" rel="external">JLinkV8固件烧录指导</a></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#### 升级方法:</div><div class="line">- 使用XP的环境, win7 大多都不行。</div><div class="line">- 打开 jLink command 软件,注意不要升级固件。</div><div class="line">- 在命令行下输入: Exec SetSN=XXXXXXXX  回车。**注：XXXXXXXX 为你自己想要的 SN,SN 必须是8个数字。**</div><div class="line">- 关闭 jLink command 软件再从新打开。即可生效。</div><div class="line">*注意:只能设置一次 SN,设置前请想好你的SN。*</div><div class="line"></div><div class="line">然后就可以正常升级了。</div></pre></td></tr></table></figure>
-<h3 id="出现问题"><a href="#出现问题" class="headerlink" title="出现问题"></a>出现问题</h3><h4 id="MDK-用-JTAG-仿真器下载代码时，提示-cannot-load-flash-device-description！"><a href="#MDK-用-JTAG-仿真器下载代码时，提示-cannot-load-flash-device-description！" class="headerlink" title="MDK 用 JTAG 仿真器下载代码时，提示 cannot load flash device description！"></a>MDK 用 JTAG 仿真器下载代码时，提示 cannot load flash device description！</h4><ul>
-<li>如果 jlink 链接没有问题,且能够找到芯片的话,一般为 flash programming algorithm 丢失。<br><a href="http://www.openedv.com/posts/list/50048.htm" target="_blank" rel="external">参考网址 </a></li>
-</ul>
-<blockquote>
-<p>参考链接:<br><a href="http://zhidao.baidu.com/link?url=jM6YRhn1aPQe7uPfdmIDP9-_k4Hl8XTWvAnBMJV0TE176gUBb5kGXK_XksirP6xdXkUkMofUD5YIhrNbYTxiBBQpSKZ_4QJWjj64vJT7xXu" target="_blank" rel="external">http://zhidao.baidu.com/link?url=jM6YRhn1aPQe7uPfdmIDP9-_k4Hl8XTWvAnBMJV0TE176gUBb5kGXK_XksirP6xdXkUkMofUD5YIhrNbYTxiBBQpSKZ_4QJWjj64vJT7xXu</a><br><a href="http://www.openedv.com/posts/list/50048.htm" target="_blank" rel="external">http://www.openedv.com/posts/list/50048.htm</a></p>
-</blockquote>
-<hr>
-<p>TO be continued…</p>
-
-            
-        </div>
-    </div>
-    <div id="post-footer" class="post-footer main-content-wrap">
-        
-            <div class="post-footer-tags">
-                <span class="text-color-light text-small">TAGGED IN</span><br/>
-                
-    <a class="tag tag--primary tag--small t-link" href="/tags/问题总结/">问题总结</a>
-
-            </div>
-        
-        <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/07/14/2016/2016-07-14-Caps_Lock与右Ctrl互换/"  data-tooltip="Caps_Lock与右Ctrl互换">
-                
-                    <i class="fa fa-angle-left"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
-                </a>
-            </li>
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/07/12/2016/2016-07-12-linux下vpn配置/" data-tooltip="linux下vpn配置">
-                
-                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
-                    <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
-                <i class="fa fa-share-alt"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/07/12/2016/2016-07-12-jlink相关问题汇总/">
-                <i class="fa fa-google-plus"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/07/12/2016/2016-07-12-jlink相关问题汇总/">
-                <i class="fa fa-facebook-official"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/07/12/2016/2016-07-12-jlink相关问题汇总/">
-                <i class="fa fa-twitter"></i>
-            </a>
-        </li>
-        
-        <li class="post-action">
-            
-                <a class="post-action-btn btn btn--default" href="#">
-            
-                <i class="fa fa-list"></i>
-            </a>
-        </li>
-    </ul>
-</div>
-
-
-        
-            
-        
-    </div>
-</article>
-
-
-
-                <footer id="footer" class="main-content-wrap">
-    <span class="copyrights">
-        Copyrights &copy; 2017 John Doe. All Rights Reserved.
-    </span>
-</footer>
-
-            </div>
-            
-                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
-                    <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/07/14/2016/2016-07-14-Caps_Lock与右Ctrl互换/"  data-tooltip="Caps_Lock与右Ctrl互换">
-                
-                    <i class="fa fa-angle-left"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
-                </a>
-            </li>
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/07/12/2016/2016-07-12-linux下vpn配置/" data-tooltip="linux下vpn配置">
-                
-                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
-                    <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
-                <i class="fa fa-share-alt"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/07/12/2016/2016-07-12-jlink相关问题汇总/">
-                <i class="fa fa-google-plus"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/07/12/2016/2016-07-12-jlink相关问题汇总/">
-                <i class="fa fa-facebook-official"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/07/12/2016/2016-07-12-jlink相关问题汇总/">
-                <i class="fa fa-twitter"></i>
-            </a>
-        </li>
-        
-        <li class="post-action">
-            
-                <a class="post-action-btn btn btn--default" href="#">
-            
-                <i class="fa fa-list"></i>
-            </a>
-        </li>
-    </ul>
-</div>
-
-
-                </div>
-                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
-    <ul class="share-options">
-        <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/07/12/2016/2016-07-12-jlink相关问题汇总/">
-                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
-            </a>
-        </li>
-        <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/07/12/2016/2016-07-12-jlink相关问题汇总/">
-                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
-            </a>
-        </li>
-        <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/07/12/2016/2016-07-12-jlink相关问题汇总/">
-                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
-            </a>
-        </li>
-    </ul>
-</div>
-<div id="share-options-mask" class="share-options-mask"></div>
-            
-        </div>
-        
-
-
-<div id="about">
-    <div id="about-card">
-        <div id="about-btn-close">
-            <i class="fa fa-remove"></i>
-        </div>
-        
-            <h4 id="about-card-name">John Doe</h4>
-        
-            <h5 id="about-card-bio"><p>author.bio</p>
-</h5>
-        
-        
-            <h5 id="about-card-job">
-                <i class="fa fa-briefcase"></i>
-                <br/>
-                <p>author.job</p>
-
-            </h5>
-        
-        
-    </div>
-</div>
-
-        
-<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
-    </body>
-    <!--SCRIPTS-->
-<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
-<!--SCRIPTS END-->
-
-    
-
-
-
-</html>
+block content
+  .post
+    h1.post-title= page.title
+    .post-meta= page.date.format('ll')
+      if page.categories.length > 0
+        span= ' | '
+        span.category
+          for category in page.categories.toArray()
+            a(href=url_for(category.path))= category.name
+      if theme.busuanzi == true
+        script(src='https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js', async)
+        span#busuanzi_container_page_pv= ' | '
+          span#busuanzi_value_page_pv
+          span= ' ' + __('Hits')
+    if theme.duoshuo
+      a.ds-thread-count(data-thread-key=page.path, href=url_for(page.path) + '#comments')
+    if theme.disqus
+      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
+    if page.toc
+      div(class='clear')
+        div(id='toc' class='toc-article')
+          div(class='toc-title')= __('contents')
+          != toc(page.content)
+    .post-content
+      != page.content
+    if theme.shareto == true
+      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
+      a.article-share-link(data-url='#{page.permalink}', data-id='#{page._id}')= __('shareto')
+    include _partial/tag
+    include _partial/post_nav
+    if theme.duoshuo
+      div(class='ds-share flat' data-thread-key=page.path, data-title=page.title, data-url=page.permalink)
+         .ds-share-inline
+            ul.ds-share-icons-16
+              li(data-toggle='ds-share-icons-more')
+                a(class='ds-more' href='javascript:void(0);') 分享到：
+              li
+                a(class='ds-weibo' href='javascript:void(0);' data-service='weibo') 微博
+              li
+                a(class='ds-qzone' href='javascript:void(0);' data-service='qzone') QQ空间
+              li
+                a(class='ds-qqt' href='javascript:void(0);' data-service='qqt') 腾讯微博
+              li
+                a(class='ds-wechat' href='javascript:void(0);' data-service='wechat') 微信
+            .ds-share-icons-more
+    include _partial/comments

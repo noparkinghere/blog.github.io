@@ -1,406 +1,51 @@
+extends base
 
-<!DOCTYPE html>
-<html lang="null">
-    
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hexo">
-    <title>C语言中宏定义存在位置 - Hexo</title>
-    <meta name="author" content="John Doe">
-    
-    
-    
-    <meta name="description" content="宏定义作为C语言的一个传统内容，如果使用新标准的话，一般也只用宏定义来结局编译的一些问题如：#ifndef，#if undefined()等。
-宏定义究竟放在什么地方，在使用 C 语言老款编辑器情况下，一些程序大量使用宏定义，且很多程序都是将宏定义作为申明一样全部放在头文件中的，这个没有一个统一的说法，其中各有利弊，每个人风格不尽相同。
-首先，宏定义的常量在编译的时候是作为内容直接替换的，因此这部">
-<meta property="og:type" content="blog">
-<meta property="og:title" content="C语言中宏定义存在位置">
-<meta property="og:url" content="http://yoursite.com/2016/08/24/2016/2016-08-24-c语言中宏定义存在位置/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="宏定义作为C语言的一个传统内容，如果使用新标准的话，一般也只用宏定义来结局编译的一些问题如：#ifndef，#if undefined()等。
-宏定义究竟放在什么地方，在使用 C 语言老款编辑器情况下，一些程序大量使用宏定义，且很多程序都是将宏定义作为申明一样全部放在头文件中的，这个没有一个统一的说法，其中各有利弊，每个人风格不尽相同。
-首先，宏定义的常量在编译的时候是作为内容直接替换的，因此这部">
-<meta property="og:updated_time" content="2017-01-12T05:27:40.006Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C语言中宏定义存在位置">
-<meta name="twitter:description" content="宏定义作为C语言的一个传统内容，如果使用新标准的话，一般也只用宏定义来结局编译的一些问题如：#ifndef，#if undefined()等。
-宏定义究竟放在什么地方，在使用 C 语言老款编辑器情况下，一些程序大量使用宏定义，且很多程序都是将宏定义作为申明一样全部放在头文件中的，这个没有一个统一的说法，其中各有利弊，每个人风格不尽相同。
-首先，宏定义的常量在编译的时候是作为内容直接替换的，因此这部">
-    
-    
-        
-    
-    
-    
-    
-    
-    <!--STYLES-->
-    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
-    <!--STYLES END-->
-    
-    
-</head>
+block title
+  title= page.title + ' | ' + config.title
 
-    <body>
-        <div id="blog">
-            <!-- Define author's picture -->
-
-
-    
-
-<header id="header" data-behavior="4">
-    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
-    <h1 class="header-title">
-        <a class="header-title-link" href="/ ">Hexo</a>
-    </h1>
-    
-        
-            <a  class="header-right-picture "
-                href="#about">
-        
-        
-        </a>
-    
-</header>
-
-            <!-- Define author's picture -->
-
-
-<nav id="sidebar" data-behavior="4">
-    
-    
-        <ul class="sidebar-buttons">
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="/ "
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
-                    <span class="sidebar-button-desc">Home</span>
-                </a>
-        </li>
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="/all-categories"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
-                    <span class="sidebar-button-desc">Categories</span>
-                </a>
-        </li>
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="/all-tags"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
-                    <span class="sidebar-button-desc">Tags</span>
-                </a>
-        </li>
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="/all-archives"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
-                    <span class="sidebar-button-desc">Archives</span>
-                </a>
-        </li>
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link st-search-show-outputs"
-                         href="#search"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
-                    <span class="sidebar-button-desc">Search</span>
-                </a>
-        </li>
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="#about"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
-                    <span class="sidebar-button-desc">About</span>
-                </a>
-        </li>
-        
-    </ul>
-    
-        <ul class="sidebar-buttons">
-        
-    </ul>
-    
-        <ul class="sidebar-buttons">
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="/atom.xml"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
-                    <span class="sidebar-button-desc">RSS</span>
-                </a>
-        </li>
-        
-    </ul>
-    
-</nav>
-
-            
-            <div id="main" data-behavior="4"
-                 class="
-                        hasCoverMetaIn
-                        ">
-                
-<article class="post" itemscope itemType="http://schema.org/BlogPosting">
-    
-    
-        <div class="post-header main-content-wrap text-left">
-    
-        <h1 class="post-title" itemprop="headline">
-            C语言中宏定义存在位置
-        </h1>
-    
-    <div class="post-meta">
-    <time itemprop="datePublished" datetime="2016-08-24T18:34:00+08:00">
-	
-		    Aug 24, 2016
-    	
-    </time>
-    
-</div>
-
-</div>
-    
-    <div class="post-content markdown" itemprop="articleBody">
-        <div class="main-content-wrap">
-            <p><em>宏定义作为C语言的一个传统内容，如果使用新标准的话，一般也只用宏定义来结局编译的一些问题如：#ifndef，#if undefined()等。</em></p>
-<p>宏定义究竟放在什么地方，在使用 C 语言老款编辑器情况下，一些程序大量使用宏定义，且很多程序都是将宏定义作为申明一样全部放在头文件中的，这个没有一个统一的说法，其中各有利弊，每个人风格不尽相同。</p>
-<p>首先，宏定义的常量在编译的时候是作为内容直接替换的，因此这部分并不会因此占用你堆、栈等存储空间。所以这就导致无论你将宏定义放在头文件还是放在源文件中，资源消耗上面没有太大差别。差别就是在头文件和源文件中可以使用的作用域不同。</p>
-<h3 id="1-放在头文件中："><a href="#1-放在头文件中：" class="headerlink" title="1. 放在头文件中："></a>1. 放在头文件中：</h3><ul>
-<li>作用域更广，不仅仅对应源文件可以使用，且其他所有的源文件包含这个都可以使用，即便一些常量现在不会被使用，将来也可能会使用。</li>
-<li>作用域太宽，可能会与其他文件中的某个宏定义命名冲突，需要定义较长的名字。</li>
-<li>方便集中在一起进行管理，看起来代码更加显得整洁。</li>
-</ul>
-<a id="more"></a>
-<h3 id="2-放在头文件中："><a href="#2-放在头文件中：" class="headerlink" title="2. 放在头文件中："></a>2. 放在头文件中：</h3><ul>
-<li>没有统一管理，分部零散，查找较麻烦，将来一些需要引用的话，重新修改程序。</li>
-<li>只作用需要使用到的范围，减少与其他文件的关联性，出错几率更低。</li>
-<li>宏定义名称无所谓起多长，作用域有限，不会与其他文件冲突。</li>
-<li>只将需要在其他文件中使用的宏定义放在头文件中，按需进行分配。</li>
-</ul>
-<p>个人建议：<br><strong>采用方法 2，将宏定义绝大多数放在 .c 文件中，只将极个别需要其他源文件引用的宏定义放在 .h 中，这可以有效控制一些源文件没必要的相关性，虽然较长的定义名也避免了出错，但为了减少耦合性，按照需求来进行分配算是一个良好的编程习惯，否则工程一旦复杂性增加难免会出现一些意想不到的问题。</strong></p>
-
-            
-        </div>
-    </div>
-    <div id="post-footer" class="post-footer main-content-wrap">
-        
-        <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/08/25/2016/2016-08-25-（转）谈谈写程序与学英语/"  data-tooltip="（转）谈谈写程序与学英语">
-                
-                    <i class="fa fa-angle-left"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
-                </a>
-            </li>
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/08/24/2016/2016-08-24-头文件交叉引用/" data-tooltip="头文件交叉引用">
-                
-                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
-                    <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
-                <i class="fa fa-share-alt"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/08/24/2016/2016-08-24-c语言中宏定义存在位置/">
-                <i class="fa fa-google-plus"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/08/24/2016/2016-08-24-c语言中宏定义存在位置/">
-                <i class="fa fa-facebook-official"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/08/24/2016/2016-08-24-c语言中宏定义存在位置/">
-                <i class="fa fa-twitter"></i>
-            </a>
-        </li>
-        
-        <li class="post-action">
-            
-                <a class="post-action-btn btn btn--default" href="#">
-            
-                <i class="fa fa-list"></i>
-            </a>
-        </li>
-    </ul>
-</div>
-
-
-        
-            
-        
-    </div>
-</article>
-
-
-
-                <footer id="footer" class="main-content-wrap">
-    <span class="copyrights">
-        Copyrights &copy; 2017 John Doe. All Rights Reserved.
-    </span>
-</footer>
-
-            </div>
-            
-                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
-                    <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/08/25/2016/2016-08-25-（转）谈谈写程序与学英语/"  data-tooltip="（转）谈谈写程序与学英语">
-                
-                    <i class="fa fa-angle-left"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
-                </a>
-            </li>
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/08/24/2016/2016-08-24-头文件交叉引用/" data-tooltip="头文件交叉引用">
-                
-                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
-                    <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
-                <i class="fa fa-share-alt"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/08/24/2016/2016-08-24-c语言中宏定义存在位置/">
-                <i class="fa fa-google-plus"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/08/24/2016/2016-08-24-c语言中宏定义存在位置/">
-                <i class="fa fa-facebook-official"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/08/24/2016/2016-08-24-c语言中宏定义存在位置/">
-                <i class="fa fa-twitter"></i>
-            </a>
-        </li>
-        
-        <li class="post-action">
-            
-                <a class="post-action-btn btn btn--default" href="#">
-            
-                <i class="fa fa-list"></i>
-            </a>
-        </li>
-    </ul>
-</div>
-
-
-                </div>
-                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
-    <ul class="share-options">
-        <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/08/24/2016/2016-08-24-c语言中宏定义存在位置/">
-                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
-            </a>
-        </li>
-        <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/08/24/2016/2016-08-24-c语言中宏定义存在位置/">
-                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
-            </a>
-        </li>
-        <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/08/24/2016/2016-08-24-c语言中宏定义存在位置/">
-                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
-            </a>
-        </li>
-    </ul>
-</div>
-<div id="share-options-mask" class="share-options-mask"></div>
-            
-        </div>
-        
-
-
-<div id="about">
-    <div id="about-card">
-        <div id="about-btn-close">
-            <i class="fa fa-remove"></i>
-        </div>
-        
-            <h4 id="about-card-name">John Doe</h4>
-        
-            <h5 id="about-card-bio"><p>author.bio</p>
-</h5>
-        
-        
-            <h5 id="about-card-job">
-                <i class="fa fa-briefcase"></i>
-                <br/>
-                <p>author.job</p>
-
-            </h5>
-        
-        
-    </div>
-</div>
-
-        
-<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
-    </body>
-    <!--SCRIPTS-->
-<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
-<!--SCRIPTS END-->
-
-    
-
-
-
-</html>
+block content
+  .post
+    h1.post-title= page.title
+    .post-meta= page.date.format('ll')
+      if page.categories.length > 0
+        span= ' | '
+        span.category
+          for category in page.categories.toArray()
+            a(href=url_for(category.path))= category.name
+      if theme.busuanzi == true
+        script(src='https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js', async)
+        span#busuanzi_container_page_pv= ' | '
+          span#busuanzi_value_page_pv
+          span= ' ' + __('Hits')
+    if theme.duoshuo
+      a.ds-thread-count(data-thread-key=page.path, href=url_for(page.path) + '#comments')
+    if theme.disqus
+      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
+    if page.toc
+      div(class='clear')
+        div(id='toc' class='toc-article')
+          div(class='toc-title')= __('contents')
+          != toc(page.content)
+    .post-content
+      != page.content
+    if theme.shareto == true
+      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
+      a.article-share-link(data-url='#{page.permalink}', data-id='#{page._id}')= __('shareto')
+    include _partial/tag
+    include _partial/post_nav
+    if theme.duoshuo
+      div(class='ds-share flat' data-thread-key=page.path, data-title=page.title, data-url=page.permalink)
+         .ds-share-inline
+            ul.ds-share-icons-16
+              li(data-toggle='ds-share-icons-more')
+                a(class='ds-more' href='javascript:void(0);') 分享到：
+              li
+                a(class='ds-weibo' href='javascript:void(0);' data-service='weibo') 微博
+              li
+                a(class='ds-qzone' href='javascript:void(0);' data-service='qzone') QQ空间
+              li
+                a(class='ds-qqt' href='javascript:void(0);' data-service='qqt') 腾讯微博
+              li
+                a(class='ds-wechat' href='javascript:void(0);' data-service='wechat') 微信
+            .ds-share-icons-more
+    include _partial/comments

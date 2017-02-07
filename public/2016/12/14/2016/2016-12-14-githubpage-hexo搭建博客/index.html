@@ -1,433 +1,51 @@
+extends base
 
-<!DOCTYPE html>
-<html lang="null">
-    
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hexo">
-    <title>GithubPage+Hexo搭建博客 - Hexo</title>
-    <meta name="author" content="John Doe">
-    
-    
-    
-    <meta name="description" content="个人博客是使用 githubpage+jekyll 搭建的，且博客已经工作有半年了，但由于期初的模板没有找好，加上一些其他的问题，导致博客看起来比较凌乱，这边给出另外一个 GithubPage+Hexo 的博客搭建方法供大家参考，本文操作系统主要使用的是 ubuntu 16.04，使用其他 linux 发行版的用户，可以参考本文。附上最终效果图如下：
-安装步骤安装 node.jsNode.js 是">
-<meta property="og:type" content="blog">
-<meta property="og:title" content="GithubPage+Hexo搭建博客">
-<meta property="og:url" content="http://yoursite.com/2016/12/14/2016/2016-12-14-githubpage-hexo搭建博客/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="个人博客是使用 githubpage+jekyll 搭建的，且博客已经工作有半年了，但由于期初的模板没有找好，加上一些其他的问题，导致博客看起来比较凌乱，这边给出另外一个 GithubPage+Hexo 的博客搭建方法供大家参考，本文操作系统主要使用的是 ubuntu 16.04，使用其他 linux 发行版的用户，可以参考本文。附上最终效果图如下：
-安装步骤安装 node.jsNode.js 是">
-<meta property="og:updated_time" content="2017-02-07T04:04:01.164Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GithubPage+Hexo搭建博客">
-<meta name="twitter:description" content="个人博客是使用 githubpage+jekyll 搭建的，且博客已经工作有半年了，但由于期初的模板没有找好，加上一些其他的问题，导致博客看起来比较凌乱，这边给出另外一个 GithubPage+Hexo 的博客搭建方法供大家参考，本文操作系统主要使用的是 ubuntu 16.04，使用其他 linux 发行版的用户，可以参考本文。附上最终效果图如下：
-安装步骤安装 node.jsNode.js 是">
-    
-    
-        
-    
-    
-    
-    
-    
-    <!--STYLES-->
-    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
-    <!--STYLES END-->
-    
-    
-</head>
+block title
+  title= page.title + ' | ' + config.title
 
-    <body>
-        <div id="blog">
-            <!-- Define author's picture -->
-
-
-    
-
-<header id="header" data-behavior="4">
-    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
-    <h1 class="header-title">
-        <a class="header-title-link" href="/ ">Hexo</a>
-    </h1>
-    
-        
-            <a  class="header-right-picture "
-                href="#about">
-        
-        
-        </a>
-    
-</header>
-
-            <!-- Define author's picture -->
-
-
-<nav id="sidebar" data-behavior="4">
-    
-    
-        <ul class="sidebar-buttons">
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="/ "
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
-                    <span class="sidebar-button-desc">Home</span>
-                </a>
-        </li>
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="/all-categories"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
-                    <span class="sidebar-button-desc">Categories</span>
-                </a>
-        </li>
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="/all-tags"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
-                    <span class="sidebar-button-desc">Tags</span>
-                </a>
-        </li>
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="/all-archives"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
-                    <span class="sidebar-button-desc">Archives</span>
-                </a>
-        </li>
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link st-search-show-outputs"
-                         href="#search"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
-                    <span class="sidebar-button-desc">Search</span>
-                </a>
-        </li>
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="#about"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
-                    <span class="sidebar-button-desc">About</span>
-                </a>
-        </li>
-        
-    </ul>
-    
-        <ul class="sidebar-buttons">
-        
-    </ul>
-    
-        <ul class="sidebar-buttons">
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="/atom.xml"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
-                    <span class="sidebar-button-desc">RSS</span>
-                </a>
-        </li>
-        
-    </ul>
-    
-</nav>
-
-            
-            <div id="main" data-behavior="4"
-                 class="
-                        hasCoverMetaIn
-                        ">
-                
-<article class="post" itemscope itemType="http://schema.org/BlogPosting">
-    
-    
-        <div class="post-header main-content-wrap text-left">
-    
-        <h1 class="post-title" itemprop="headline">
-            GithubPage+Hexo搭建博客
-        </h1>
-    
-    <div class="post-meta">
-    <time itemprop="datePublished" datetime="2016-12-14T19:01:00+08:00">
-	
-		    Dec 14, 2016
-    	
-    </time>
-    
-</div>
-
-</div>
-    
-    <div class="post-content markdown" itemprop="articleBody">
-        <div class="main-content-wrap">
-            <p>个人博客是使用 githubpage+jekyll 搭建的，且博客已经工作有半年了，但由于期初的模板没有找好，加上一些其他的问题，导致博客看起来比较凌乱，这边给出另外一个 GithubPage+Hexo 的博客搭建方法供大家参考，本文操作系统主要使用的是 ubuntu 16.04，使用其他 linux 发行版的用户，可以参考本文。附上最终效果图如下：</p>
-<h3 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h3><h4 id="安装-node-js"><a href="#安装-node-js" class="headerlink" title="安装 node.js"></a>安装 node.js</h4><p>Node.js 是一个开放源代码、跨平台的、可用于服务器端和网络应用的运行环境，该应用由 C++ 语言写成，在 Node.js 运行时运行。Node.js 提供事件驱动和非阻塞 I/O API，可优化应用程序的吞吐量和规模。这些技术通常被用于实时应用程序。并且它是采用 Google 的 V8 引擎来执行代码，它的大部分基本模块都是用 JavaScript 写成的，包含有一系列内置模块，使得程序可以作为独立服务器运行，从而脱离 Apache HTTP Server 或 IIS 运行。npm 也即 Node包管理器（Node Package Manager），它是一个以 Javascript 编写的软件包管理系统，默认环境为 Node.js 。</p>
-<ul>
-<li>安装 nodejs ： sudo apt-get install nodejs , 注意 ubuntu 16.04 使用：sudo apt install nodejs</li>
-<li>安装 npm ： sudo apt-get install npm ， 注意 ubuntu 16.04 使用：sudo apt install npm</li>
-</ul>
-<p>需要安装 nrm ， nrm 是 npm 的资源管理器，借助各个工具可以方便快捷地对 npm 的源进行管理。另外，由于国内网络环境原因在使用 npm 默认下载源的时候不仅速度非常慢而且常常会超时，因此这里还手动指定了从淘宝源下载。<code>sudo npm install nrm -g --registry https://registry.npm.taobao.org</code>，<code>nrm use taobao</code>（如果出现无法找到 node 则执行： <code>sudo  ln -s /usr/bin/nodejs /usr/bin/node</code> ）</p>
-<a id="more"></a>
-<h4 id="安装-git"><a href="#安装-git" class="headerlink" title="安装 git"></a>安装 git</h4><p>这边步骤在多篇博文中都有详细描述，这边就不再累述了，可以直接搜索引擎搜索，或者在本博客的其他文章中找到。</p>
-<h4 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h4><p><a href="https://hexo.io/zh-cn/" target="_blank" rel="external">Hexo</a> 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。接下来我们开始使用 Hexo 搭建博客。</p>
-<ul>
-<li>创建并进入目录 Hexo ：<code>mkdir Hexo &amp;&amp; cd Hexo</code></li>
-<li>使用 hexo 生成博客框架。依次执行如下命令(hexo init blog 过程可能会比较慢，需要耐心等待。)：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ hexo init blog </div><div class="line">$ cd blog</div><div class="line">$ npm install </div><div class="line">$ hexo generate (hexo generate 为我们生成了静态文件存储于 public 文件夹之下，并且在一开始默认情况下执行这句将会为我们生成一个 Hello World 的页面。)</div><div class="line">$ hexo server (通过 hexo server 运行起 hexo 内置的服务器。这时候就可以开始在本地访问了，默认地址为 localhost:4000 。)</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>注意：hexo 中的 generate, server, dpoly 等操作都可以简写为首字母，所以 hexo generate 等同于 hexo g ，hexo server 等同于 hexo s，。</p>
-<h3 id="模块简介"><a href="#模块简介" class="headerlink" title="模块简介"></a>模块简介</h3><p>通过 tree | less 可以查看以下 blog 的目录结构，主要的几个文件和目录的作用分别如下：</p>
-<ul>
-<li>_config.yml ：配置文件，可以修改网站的主题、标题、作者等信息。</li>
-<li>public ：由 hexo 根据 source 文件夹中的资源进行渲染生成的文件夹，里边存储着最终的静态网页文件。</li>
-<li>scaffolds/ ：模板文件，当要给博客添加新文章的时候，将根据对应的模板进行创建。</li>
-<li>source/ ：用于存储用户资源，比如文章与新页面等。其中以 _ 开头的文件夹中除了 _posts 文件夹中的 markdown 或 HTML 文件会在执行 generate 操作的时候被渲染添加到 public 文件夹中之外，其他均被忽略。而且在初始化博客的过程中 _posts 目录底会自带一个 hello-world.md 的文件。</li>
-<li>themes/ ：主题文件，自带默认主题 landscape 。</li>
-</ul>
-<h3 id="操作指导"><a href="#操作指导" class="headerlink" title="操作指导"></a>操作指导</h3><h4 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h4><p>下载并解压缩 <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">NexT 主题</a>，<code>wget http://labfile.oss.aliyuncs.com/courses/700/next.zip &amp;&amp; unzip next.zip</code> 需要将主题文件放入 Hexo/blog/themes 下，打开 ../blog/_config.yml 修改 theme 后的内容就可以更改主题了。</p>
-<p>这会博客就套上了我们的新模板了。但是我们发现博客菜单上的文字是英文的于是我们还要重新配置以下，让主题以中文的方式显示。再次编辑 _config.yml 文件，将 language 项设置为 zh-Hans 。</p>
-<p>注意更改主题后每次需要重启 <code>hexo server</code> 服务才可以刷新网页。</p>
-<h4 id="文章创建"><a href="#文章创建" class="headerlink" title="文章创建"></a>文章创建</h4><p><code>hexo new [layout] &lt;filename&gt;</code> 其中 layout 为可选参数，指定了新创建的文件布局，默认为 post 文件。 filename 为必填参数，指定了文件名，如果文件名中有空格则需要把文件名用引号”” 包裹起来。例如： 终端输入：  <code>hexo new &quot;我的第一篇文章&quot;</code> ，这时候我们发现 hexo 在 source/_post 目录之下创建了一个 我的第一篇文章.md 的文件。打开该文件进行编辑。我们也可以通过 atom 等常用的 markdown 编辑工具直接在 source/_post 目录下创建文章进行编辑即可。刷新浏览器就可以看到我们博客更新的内容了。</p>
-<p>至此我们基本配置好了本地 hexo 服务，能够自己写点内容了。</p>
-<h4 id="部署到-github-page"><a href="#部署到-github-page" class="headerlink" title="部署到 github page"></a>部署到 github page</h4><p>访问 github，创建库 <code>git账户名.github.io</code> ， 这一这个名字是固定的，一般的库没法修改跳转地址，只能显示为 github page 。</p>
-<p>将远程库同步到本地，<code>git clone [你的仓库的 url]</code>，本地会多出一个 <code>git账户名.github.io</code> 的文件夹，然后把 public 文件目录下的博客文件都复制到你的本地仓库中，并将本地仓库 push 到 github 仓库上。这样当其他人访问你的博客链接的时候 github 将会自动将该仓库中的相应文件展示出来。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ cp -R public/* [你的仓库名]</div><div class="line">$ cd [你的仓库名]</div><div class="line">$ git add .</div><div class="line">$ git commit -m &apos;update blog&apos;</div><div class="line">$ git push</div></pre></td></tr></table></figure></p>
-<p>注意，实际上 github page 是可以自己按照 jekyll 的方式将源码生成 html 文件的，但是 对于 hexo 等其他源码，如果需要展示出来，则必须本地生成 html 代码，然后把生成的代码部署到服务器上面才行，这边我们可以使用如上面的方式（讲 public 目录下面生成的 html 文件直接复制到服务器的根目录下）， hexo 提供了更加人性化的方式，通过 hexo deploy 可以一键完成部署，每次部署的步骤，可按以下两步：</p>
-<ul>
-<li><p>修改 该配置文件：vim _config.yml，执行如下命令才能使用git部署<code>npm install hexo-deployer-git --save</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repository: https://github.com/leopardpan/leopardpan.github.io.git（也可以采用 ssh 的地址）</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
-</li>
-<li><p>执行以下命令无需手动将代码 push 上去</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line">hexo generate</div><div class="line">hexo deploy</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>以上步骤虽然看起来貌似繁琐，但实际可以写成 bash 脚本，这样每次就会自动生成 public 自动复制以及上传了。</p>
-<h3 id="扩展补充"><a href="#扩展补充" class="headerlink" title="扩展补充"></a>扩展补充</h3><p>上述虽然配置完成了 hexo 博客，但博客功能过于简单，使用起来不方便，可以添加图片，摘要，标签页与分类页等内容。</p>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>hexo 比 jekyll 布局更简单，更加容易操作，但每次需要本地生成 html 然后上传同步，虽然这不是问题，可以用脚本实现，但对于图片等内容，需要依赖第三方图床就显得很是无奈了。</p>
-<blockquote>
-<p>参考链接：<br><a href="http://behappyli.cn/2015/12/05/hexo%E6%95%99%E7%A8%8B/" target="_blank" rel="external">http://behappyli.cn/2015/12/05/hexo%E6%95%99%E7%A8%8B/</a><br><a href="http://www.runoob.com/w3cnote/git-guide.html" target="_blank" rel="external">http://www.runoob.com/w3cnote/git-guide.html</a><br><a href="http://baixin.io/2015/08/HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_blank" rel="external">http://baixin.io/2015/08/HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</a></p>
-</blockquote>
-
-            
-        </div>
-    </div>
-    <div id="post-footer" class="post-footer main-content-wrap">
-        
-        <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/12/19/2016/2016-12-19-vps-简介/"  data-tooltip="VPS 简介">
-                
-                    <i class="fa fa-angle-left"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
-                </a>
-            </li>
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/12/12/2016/2016-12-12-teamviewer-远程控制/" data-tooltip="TeamViewer 远程控制">
-                
-                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
-                    <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
-                <i class="fa fa-share-alt"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/12/14/2016/2016-12-14-githubpage-hexo搭建博客/">
-                <i class="fa fa-google-plus"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/12/14/2016/2016-12-14-githubpage-hexo搭建博客/">
-                <i class="fa fa-facebook-official"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/12/14/2016/2016-12-14-githubpage-hexo搭建博客/">
-                <i class="fa fa-twitter"></i>
-            </a>
-        </li>
-        
-        <li class="post-action">
-            
-                <a class="post-action-btn btn btn--default" href="#">
-            
-                <i class="fa fa-list"></i>
-            </a>
-        </li>
-    </ul>
-</div>
-
-
-        
-            
-        
-    </div>
-</article>
-
-
-
-                <footer id="footer" class="main-content-wrap">
-    <span class="copyrights">
-        Copyrights &copy; 2017 John Doe. All Rights Reserved.
-    </span>
-</footer>
-
-            </div>
-            
-                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
-                    <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/12/19/2016/2016-12-19-vps-简介/"  data-tooltip="VPS 简介">
-                
-                    <i class="fa fa-angle-left"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
-                </a>
-            </li>
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/12/12/2016/2016-12-12-teamviewer-远程控制/" data-tooltip="TeamViewer 远程控制">
-                
-                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
-                    <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
-                <i class="fa fa-share-alt"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/12/14/2016/2016-12-14-githubpage-hexo搭建博客/">
-                <i class="fa fa-google-plus"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/12/14/2016/2016-12-14-githubpage-hexo搭建博客/">
-                <i class="fa fa-facebook-official"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/12/14/2016/2016-12-14-githubpage-hexo搭建博客/">
-                <i class="fa fa-twitter"></i>
-            </a>
-        </li>
-        
-        <li class="post-action">
-            
-                <a class="post-action-btn btn btn--default" href="#">
-            
-                <i class="fa fa-list"></i>
-            </a>
-        </li>
-    </ul>
-</div>
-
-
-                </div>
-                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
-    <ul class="share-options">
-        <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/12/14/2016/2016-12-14-githubpage-hexo搭建博客/">
-                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
-            </a>
-        </li>
-        <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/12/14/2016/2016-12-14-githubpage-hexo搭建博客/">
-                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
-            </a>
-        </li>
-        <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/12/14/2016/2016-12-14-githubpage-hexo搭建博客/">
-                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
-            </a>
-        </li>
-    </ul>
-</div>
-<div id="share-options-mask" class="share-options-mask"></div>
-            
-        </div>
-        
-
-
-<div id="about">
-    <div id="about-card">
-        <div id="about-btn-close">
-            <i class="fa fa-remove"></i>
-        </div>
-        
-            <h4 id="about-card-name">John Doe</h4>
-        
-            <h5 id="about-card-bio"><p>author.bio</p>
-</h5>
-        
-        
-            <h5 id="about-card-job">
-                <i class="fa fa-briefcase"></i>
-                <br/>
-                <p>author.job</p>
-
-            </h5>
-        
-        
-    </div>
-</div>
-
-        
-<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
-    </body>
-    <!--SCRIPTS-->
-<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
-<!--SCRIPTS END-->
-
-    
-
-
-
-</html>
+block content
+  .post
+    h1.post-title= page.title
+    .post-meta= page.date.format('ll')
+      if page.categories.length > 0
+        span= ' | '
+        span.category
+          for category in page.categories.toArray()
+            a(href=url_for(category.path))= category.name
+      if theme.busuanzi == true
+        script(src='https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js', async)
+        span#busuanzi_container_page_pv= ' | '
+          span#busuanzi_value_page_pv
+          span= ' ' + __('Hits')
+    if theme.duoshuo
+      a.ds-thread-count(data-thread-key=page.path, href=url_for(page.path) + '#comments')
+    if theme.disqus
+      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
+    if page.toc
+      div(class='clear')
+        div(id='toc' class='toc-article')
+          div(class='toc-title')= __('contents')
+          != toc(page.content)
+    .post-content
+      != page.content
+    if theme.shareto == true
+      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
+      a.article-share-link(data-url='#{page.permalink}', data-id='#{page._id}')= __('shareto')
+    include _partial/tag
+    include _partial/post_nav
+    if theme.duoshuo
+      div(class='ds-share flat' data-thread-key=page.path, data-title=page.title, data-url=page.permalink)
+         .ds-share-inline
+            ul.ds-share-icons-16
+              li(data-toggle='ds-share-icons-more')
+                a(class='ds-more' href='javascript:void(0);') 分享到：
+              li
+                a(class='ds-weibo' href='javascript:void(0);' data-service='weibo') 微博
+              li
+                a(class='ds-qzone' href='javascript:void(0);' data-service='qzone') QQ空间
+              li
+                a(class='ds-qqt' href='javascript:void(0);' data-service='qqt') 腾讯微博
+              li
+                a(class='ds-wechat' href='javascript:void(0);' data-service='wechat') 微信
+            .ds-share-icons-more
+    include _partial/comments

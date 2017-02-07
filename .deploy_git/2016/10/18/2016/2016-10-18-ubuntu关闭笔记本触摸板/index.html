@@ -1,401 +1,51 @@
+extends base
 
-<!DOCTYPE html>
-<html lang="null">
-    
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hexo">
-    <title>ubuntu关闭笔记本触摸板 - Hexo</title>
-    <meta name="author" content="John Doe">
-    
-    
-    
-    <meta name="description" content="ubuntu 16.04的版本中，试过多个笔记本都可以通过键盘的快捷按键关闭触摸板的使用，但仍然显得不够智能，因为缺乏相关的程序和驱动，无法做到自动选择触摸板和鼠标。另外虽然我用的是ubuntu的系统但因为没有使用它的WM所以触摸板无法直接禁用，必须通过手动的方式才可以实现。
-本文搜集了一些比较通用的触摸板禁用方式，另外后续如果找到更好的方法，还会补充上来。以下在dell的超极本和msi的游戏本上">
-<meta property="og:type" content="blog">
-<meta property="og:title" content="ubuntu关闭笔记本触摸板">
-<meta property="og:url" content="http://yoursite.com/2016/10/18/2016/2016-10-18-ubuntu关闭笔记本触摸板/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="ubuntu 16.04的版本中，试过多个笔记本都可以通过键盘的快捷按键关闭触摸板的使用，但仍然显得不够智能，因为缺乏相关的程序和驱动，无法做到自动选择触摸板和鼠标。另外虽然我用的是ubuntu的系统但因为没有使用它的WM所以触摸板无法直接禁用，必须通过手动的方式才可以实现。
-本文搜集了一些比较通用的触摸板禁用方式，另外后续如果找到更好的方法，还会补充上来。以下在dell的超极本和msi的游戏本上">
-<meta property="og:updated_time" content="2016-12-16T01:49:12.946Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ubuntu关闭笔记本触摸板">
-<meta name="twitter:description" content="ubuntu 16.04的版本中，试过多个笔记本都可以通过键盘的快捷按键关闭触摸板的使用，但仍然显得不够智能，因为缺乏相关的程序和驱动，无法做到自动选择触摸板和鼠标。另外虽然我用的是ubuntu的系统但因为没有使用它的WM所以触摸板无法直接禁用，必须通过手动的方式才可以实现。
-本文搜集了一些比较通用的触摸板禁用方式，另外后续如果找到更好的方法，还会补充上来。以下在dell的超极本和msi的游戏本上">
-    
-    
-        
-    
-    
-    
-    
-    
-    <!--STYLES-->
-    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
-    <!--STYLES END-->
-    
-    
-</head>
+block title
+  title= page.title + ' | ' + config.title
 
-    <body>
-        <div id="blog">
-            <!-- Define author's picture -->
-
-
-    
-
-<header id="header" data-behavior="4">
-    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
-    <h1 class="header-title">
-        <a class="header-title-link" href="/ ">Hexo</a>
-    </h1>
-    
-        
-            <a  class="header-right-picture "
-                href="#about">
-        
-        
-        </a>
-    
-</header>
-
-            <!-- Define author's picture -->
-
-
-<nav id="sidebar" data-behavior="4">
-    
-    
-        <ul class="sidebar-buttons">
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="/ "
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
-                    <span class="sidebar-button-desc">Home</span>
-                </a>
-        </li>
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="/all-categories"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
-                    <span class="sidebar-button-desc">Categories</span>
-                </a>
-        </li>
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="/all-tags"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
-                    <span class="sidebar-button-desc">Tags</span>
-                </a>
-        </li>
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="/all-archives"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
-                    <span class="sidebar-button-desc">Archives</span>
-                </a>
-        </li>
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link st-search-show-outputs"
-                         href="#search"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
-                    <span class="sidebar-button-desc">Search</span>
-                </a>
-        </li>
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="#about"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
-                    <span class="sidebar-button-desc">About</span>
-                </a>
-        </li>
-        
-    </ul>
-    
-        <ul class="sidebar-buttons">
-        
-    </ul>
-    
-        <ul class="sidebar-buttons">
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="/atom.xml"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
-                    <span class="sidebar-button-desc">RSS</span>
-                </a>
-        </li>
-        
-    </ul>
-    
-</nav>
-
-            
-            <div id="main" data-behavior="4"
-                 class="
-                        hasCoverMetaIn
-                        ">
-                
-<article class="post" itemscope itemType="http://schema.org/BlogPosting">
-    
-    
-        <div class="post-header main-content-wrap text-left">
-    
-        <h1 class="post-title" itemprop="headline">
-            ubuntu关闭笔记本触摸板
-        </h1>
-    
-    <div class="post-meta">
-    <time itemprop="datePublished" datetime="2016-10-18T14:09:00+08:00">
-	
-		    Oct 18, 2016
-    	
-    </time>
-    
-</div>
-
-</div>
-    
-    <div class="post-content markdown" itemprop="articleBody">
-        <div class="main-content-wrap">
-            <p><em>ubuntu 16.04的版本中，试过多个笔记本都可以通过键盘的快捷按键关闭触摸板的使用，但仍然显得不够智能，因为缺乏相关的程序和驱动，无法做到自动选择触摸板和鼠标。另外虽然我用的是ubuntu的系统但因为没有使用它的WM所以触摸板无法直接禁用，必须通过手动的方式才可以实现。</em></p>
-<p>本文搜集了一些比较通用的触摸板禁用方式，另外后续如果找到更好的方法，还会补充上来。以下在dell的超极本和msi的游戏本上面实现过，且实验环境是ubuntu 16.04，其他系统和笔记本不能确保一定可以实现。</p>
-<h3 id="详细步骤："><a href="#详细步骤：" class="headerlink" title="详细步骤："></a>详细步骤：</h3><h4 id="方法1："><a href="#方法1：" class="headerlink" title="方法1："></a>方法1：</h4><ul>
-<li>sudo rmmod psmouse    这个是禁用触摸板</li>
-<li>sudo modprobe psmouse 这个是启用触摸板</li>
-</ul>
-<p>方式简单快捷，但是会将触点和触板都禁用了，一般还是希望保持触点是启用的，且仅有启用和禁用的两个功能，每次需要指令才可以实现，无法做到智能识别鼠标自动启用禁用。</p>
-<a id="more"></a>
-<h4 id="方法2："><a href="#方法2：" class="headerlink" title="方法2："></a>方法2：</h4><p>在软件中心中搜索”pointing-device”安装，图形化界面操作简单方便。</p>
-<p>但新问题出现了：禁用之后，如果敲击键盘的话，那么触板又会启用。这个问题当时很头大啊。经测试发现，只要将系统自带的管理器中“敲击键盘时禁用触摸板”这一项的勾去掉。那么就不会出问题了。<br>小结：以上就是对在Ubuntu系统下关闭触摸板很有用的两种方法，这两种方法使得以后再出现这样的情况时就可以采用的哦！</p>
-<p><em>该方法我并没有尝试过，因为较少使用ubuntu自带的软件中心，有兴趣的朋友可以尝试下。</em></p>
-<blockquote>
-<p>参考链接：<br><a href="http://www.285868.com/a/xtjc/5798.html" target="_blank" rel="external">http://www.285868.com/a/xtjc/5798.html</a></p>
-</blockquote>
-
-            
-        </div>
-    </div>
-    <div id="post-footer" class="post-footer main-content-wrap">
-        
-        <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/19/2016/2016-10-19-串口RS485通信详解/"  data-tooltip="串口RS485通信详解">
-                
-                    <i class="fa fa-angle-left"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
-                </a>
-            </li>
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/18/2016/2016-10-18-计算机中的通信简介/" data-tooltip="计算机中的通信简介">
-                
-                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
-                    <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
-                <i class="fa fa-share-alt"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/10/18/2016/2016-10-18-ubuntu关闭笔记本触摸板/">
-                <i class="fa fa-google-plus"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/10/18/2016/2016-10-18-ubuntu关闭笔记本触摸板/">
-                <i class="fa fa-facebook-official"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/10/18/2016/2016-10-18-ubuntu关闭笔记本触摸板/">
-                <i class="fa fa-twitter"></i>
-            </a>
-        </li>
-        
-        <li class="post-action">
-            
-                <a class="post-action-btn btn btn--default" href="#">
-            
-                <i class="fa fa-list"></i>
-            </a>
-        </li>
-    </ul>
-</div>
-
-
-        
-            
-        
-    </div>
-</article>
-
-
-
-                <footer id="footer" class="main-content-wrap">
-    <span class="copyrights">
-        Copyrights &copy; 2017 John Doe. All Rights Reserved.
-    </span>
-</footer>
-
-            </div>
-            
-                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
-                    <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/19/2016/2016-10-19-串口RS485通信详解/"  data-tooltip="串口RS485通信详解">
-                
-                    <i class="fa fa-angle-left"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
-                </a>
-            </li>
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/18/2016/2016-10-18-计算机中的通信简介/" data-tooltip="计算机中的通信简介">
-                
-                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
-                    <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
-                <i class="fa fa-share-alt"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/10/18/2016/2016-10-18-ubuntu关闭笔记本触摸板/">
-                <i class="fa fa-google-plus"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/10/18/2016/2016-10-18-ubuntu关闭笔记本触摸板/">
-                <i class="fa fa-facebook-official"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/10/18/2016/2016-10-18-ubuntu关闭笔记本触摸板/">
-                <i class="fa fa-twitter"></i>
-            </a>
-        </li>
-        
-        <li class="post-action">
-            
-                <a class="post-action-btn btn btn--default" href="#">
-            
-                <i class="fa fa-list"></i>
-            </a>
-        </li>
-    </ul>
-</div>
-
-
-                </div>
-                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
-    <ul class="share-options">
-        <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/10/18/2016/2016-10-18-ubuntu关闭笔记本触摸板/">
-                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
-            </a>
-        </li>
-        <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/10/18/2016/2016-10-18-ubuntu关闭笔记本触摸板/">
-                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
-            </a>
-        </li>
-        <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/10/18/2016/2016-10-18-ubuntu关闭笔记本触摸板/">
-                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
-            </a>
-        </li>
-    </ul>
-</div>
-<div id="share-options-mask" class="share-options-mask"></div>
-            
-        </div>
-        
-
-
-<div id="about">
-    <div id="about-card">
-        <div id="about-btn-close">
-            <i class="fa fa-remove"></i>
-        </div>
-        
-            <h4 id="about-card-name">John Doe</h4>
-        
-            <h5 id="about-card-bio"><p>author.bio</p>
-</h5>
-        
-        
-            <h5 id="about-card-job">
-                <i class="fa fa-briefcase"></i>
-                <br/>
-                <p>author.job</p>
-
-            </h5>
-        
-        
-    </div>
-</div>
-
-        
-<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
-    </body>
-    <!--SCRIPTS-->
-<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
-<!--SCRIPTS END-->
-
-    
-
-
-
-</html>
+block content
+  .post
+    h1.post-title= page.title
+    .post-meta= page.date.format('ll')
+      if page.categories.length > 0
+        span= ' | '
+        span.category
+          for category in page.categories.toArray()
+            a(href=url_for(category.path))= category.name
+      if theme.busuanzi == true
+        script(src='https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js', async)
+        span#busuanzi_container_page_pv= ' | '
+          span#busuanzi_value_page_pv
+          span= ' ' + __('Hits')
+    if theme.duoshuo
+      a.ds-thread-count(data-thread-key=page.path, href=url_for(page.path) + '#comments')
+    if theme.disqus
+      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
+    if page.toc
+      div(class='clear')
+        div(id='toc' class='toc-article')
+          div(class='toc-title')= __('contents')
+          != toc(page.content)
+    .post-content
+      != page.content
+    if theme.shareto == true
+      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
+      a.article-share-link(data-url='#{page.permalink}', data-id='#{page._id}')= __('shareto')
+    include _partial/tag
+    include _partial/post_nav
+    if theme.duoshuo
+      div(class='ds-share flat' data-thread-key=page.path, data-title=page.title, data-url=page.permalink)
+         .ds-share-inline
+            ul.ds-share-icons-16
+              li(data-toggle='ds-share-icons-more')
+                a(class='ds-more' href='javascript:void(0);') 分享到：
+              li
+                a(class='ds-weibo' href='javascript:void(0);' data-service='weibo') 微博
+              li
+                a(class='ds-qzone' href='javascript:void(0);' data-service='qzone') QQ空间
+              li
+                a(class='ds-qqt' href='javascript:void(0);' data-service='qqt') 腾讯微博
+              li
+                a(class='ds-wechat' href='javascript:void(0);' data-service='wechat') 微信
+            .ds-share-icons-more
+    include _partial/comments

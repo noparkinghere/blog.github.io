@@ -1,430 +1,51 @@
+extends base
 
-<!DOCTYPE html>
-<html lang="null">
-    
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hexo">
-    <title>Aria2详解 - Hexo</title>
-    <meta name="author" content="John Doe">
-    
-    
-    
-    <meta name="description" content="Aria2应该来说是最流行的免费下载工具之一，因为它的轻量级以及支持各种协议而被广为使用。
-这个东西折腾了很长时间，终于配好了，老实说仅仅是配置使用的话应该是相当简单的，但由于一开始参考了mac下配置的那篇文章，虽然更改了路径等内容，但每次启动aria2的时候总是经常启动不起来，或者启动后自动被kill了，反复往返，看了很多教程官方文档说明等，一直查不出问题所在，最后没办法，直接自己写配置文件，终">
-<meta property="og:type" content="blog">
-<meta property="og:title" content="Aria2详解">
-<meta property="og:url" content="http://yoursite.com/2016/10/27/2016/2016-10-27-aria2详解/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Aria2应该来说是最流行的免费下载工具之一，因为它的轻量级以及支持各种协议而被广为使用。
-这个东西折腾了很长时间，终于配好了，老实说仅仅是配置使用的话应该是相当简单的，但由于一开始参考了mac下配置的那篇文章，虽然更改了路径等内容，但每次启动aria2的时候总是经常启动不起来，或者启动后自动被kill了，反复往返，看了很多教程官方文档说明等，一直查不出问题所在，最后没办法，直接自己写配置文件，终">
-<meta property="og:updated_time" content="2017-01-12T02:47:02.051Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Aria2详解">
-<meta name="twitter:description" content="Aria2应该来说是最流行的免费下载工具之一，因为它的轻量级以及支持各种协议而被广为使用。
-这个东西折腾了很长时间，终于配好了，老实说仅仅是配置使用的话应该是相当简单的，但由于一开始参考了mac下配置的那篇文章，虽然更改了路径等内容，但每次启动aria2的时候总是经常启动不起来，或者启动后自动被kill了，反复往返，看了很多教程官方文档说明等，一直查不出问题所在，最后没办法，直接自己写配置文件，终">
-    
-    
-        
-    
-    
-    
-    
-    
-    <!--STYLES-->
-    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
-    <!--STYLES END-->
-    
-    
-</head>
+block title
+  title= page.title + ' | ' + config.title
 
-    <body>
-        <div id="blog">
-            <!-- Define author's picture -->
-
-
-    
-
-<header id="header" data-behavior="4">
-    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
-    <h1 class="header-title">
-        <a class="header-title-link" href="/ ">Hexo</a>
-    </h1>
-    
-        
-            <a  class="header-right-picture "
-                href="#about">
-        
-        
-        </a>
-    
-</header>
-
-            <!-- Define author's picture -->
-
-
-<nav id="sidebar" data-behavior="4">
-    
-    
-        <ul class="sidebar-buttons">
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="/ "
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
-                    <span class="sidebar-button-desc">Home</span>
-                </a>
-        </li>
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="/all-categories"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
-                    <span class="sidebar-button-desc">Categories</span>
-                </a>
-        </li>
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="/all-tags"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
-                    <span class="sidebar-button-desc">Tags</span>
-                </a>
-        </li>
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="/all-archives"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
-                    <span class="sidebar-button-desc">Archives</span>
-                </a>
-        </li>
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link st-search-show-outputs"
-                         href="#search"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
-                    <span class="sidebar-button-desc">Search</span>
-                </a>
-        </li>
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="#about"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
-                    <span class="sidebar-button-desc">About</span>
-                </a>
-        </li>
-        
-    </ul>
-    
-        <ul class="sidebar-buttons">
-        
-    </ul>
-    
-        <ul class="sidebar-buttons">
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="/atom.xml"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
-                    <span class="sidebar-button-desc">RSS</span>
-                </a>
-        </li>
-        
-    </ul>
-    
-</nav>
-
-            
-            <div id="main" data-behavior="4"
-                 class="
-                        hasCoverMetaIn
-                        ">
-                
-<article class="post" itemscope itemType="http://schema.org/BlogPosting">
-    
-    
-        <div class="post-header main-content-wrap text-left">
-    
-        <h1 class="post-title" itemprop="headline">
-            Aria2详解
-        </h1>
-    
-    <div class="post-meta">
-    <time itemprop="datePublished" datetime="2016-10-27T16:18:00+08:00">
-	
-		    Oct 27, 2016
-    	
-    </time>
-    
-</div>
-
-</div>
-    
-    <div class="post-content markdown" itemprop="articleBody">
-        <div class="main-content-wrap">
-            <p>Aria2应该来说是最流行的免费下载工具之一，因为它的轻量级以及支持各种协议而被广为使用。</p>
-<p><em>这个东西折腾了很长时间，终于配好了，老实说仅仅是配置使用的话应该是相当简单的，但由于一开始参考了mac下配置的那篇文章，虽然更改了路径等内容，但每次启动aria2的时候总是经常启动不起来，或者启动后自动被kill了，反复往返，看了很多教程官方文档说明等，一直查不出问题所在，最后没办法，直接自己写配置文件，终于可以使用了。</em></p>
-<h3 id="aria2配置"><a href="#aria2配置" class="headerlink" title="aria2配置"></a>aria2配置</h3><p>根据man文档aria2的默认配置在$HOME/.aria2/aria2.conf中，你也可以在每次加载的过程中人为修改位置如：<code>aria2c --conf-path=/etc/.aria2/aria2.conf</code>。</p>
-<p>配置如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">#保存路径，注意这边必须写完整路径</div><div class="line">dir=/home/demon/Downloads</div><div class="line">#允许rpc</div><div class="line">enable-rpc=true</div><div class="line">#允许所有来源, web界面跨域权限需要</div><div class="line">rpc-allow-origin-all=true</div><div class="line">##允许非外部访问</div><div class="line">rpc-listen-all=true</div><div class="line">#RPC端口, 仅当默认端口被占用时修改</div><div class="line">rpc-listen-port=6800</div><div class="line">#disable-ipv6=true</div><div class="line">#最大同时下载数(任务数), 路由建议值: 3</div><div class="line">max-concurrent-downloads=10</div><div class="line">#断点续传</div><div class="line">continue=true</div><div class="line">#同服务器连接数</div><div class="line">max-connection-per-server=10</div><div class="line">#最小文件分片大小, 下载线程数上限取决于能分出多少片, 对于小文件重要</div><div class="line">min-split-size=10M</div><div class="line">#单文件最大线程数, 路由建议值: 5</div><div class="line">split=10</div><div class="line">#下载速度限制</div><div class="line">max-overall-download-limit=0</div><div class="line">#单文件速度限制</div><div class="line">max-download-limit=0</div><div class="line">#上传速度限制</div><div class="line">max-overall-upload-limit=0</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h3 id="aria2c命令"><a href="#aria2c命令" class="headerlink" title="aria2c命令"></a>aria2c命令</h3><p>基本使用</p>
-<ul>
-<li>下载一个文件（Download a file）：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">aria2c http://host/image.iso</div><div class="line">说明：1.10.0以后的版本默认对每个 host 使用 1 个连接，你可以使用 –max-connection-per-server 或者 -x 选项进行改变。</div></pre></td></tr></table></figure>
-<ul>
-<li>用每个 host 两个连接从一个 host 下载一个文件（To download a file using 2 connections from single host）：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">aria2c -x2 http://host/image.iso</div><div class="line">说明：想要停止下载，可以按Ctrl-C。想要恢复下载，可以在同一个文件夹中执行相同的下载命令。只要URI指向同一个文件，URIs是可以被改变的。</div></pre></td></tr></table></figure>
-<ul>
-<li>同时使用两个连接下载同一文件（Download a file using 2 connections）：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">aria2c -s2 http://host/image.iso http://mirror1/image.iso http://mirror2/image.iso</div><div class="line"></div><div class="line">说明：你可以指定URIs的数量多余 -s 选项设定的数。在这个例子中，前两个URL会被用于下载，而第三个URL作为备用（如果前面两个有个挂了，第三个顶上）。</div></pre></td></tr></table></figure>
-<ul>
-<li>同时从FTP和HTTP源下载一个文件（Download a file from HTTP and FTP servers）：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">aria2c http://host1/file.zip ftp://host2/file.zip</div></pre></td></tr></table></figure>
-<ul>
-<li>并行下载任意数目的URI, metalink, torrent（Parallel downloads of arbitrary number of URI, metalink, torrent）：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">aria2c -Z http://host/file1 file2.torrent file3.metalink</div><div class="line">说明：如果你只是下载 torrent 和 metalink 的文件，那么选项 -Z 将不是必须的。所以你可以使用以下这个命令同时下载bt文件。</div><div class="line">aria2c file1.torrent file2.torrent</div></pre></td></tr></table></figure>
-<ul>
-<li>并发下载一个文件中的URI（Download files listed in a file concurrently）：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">aria2c -ifiles.txt -j5</div><div class="line">说明：选项 -j 用于指定同时下载的文件的数量。你可以在文件中指定本地的 torrent 和 metalink 文件。</div><div class="line">说明：你可以指定一些 选项 在下载文件（input list file）中。</div></pre></td></tr></table></figure>
-<ul>
-<li>在退出时保存错误/未完成的下载（Save error/unfinished downloads on exit）：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">aria2c -ifiles.txt --save-session=out.txt</div><div class="line">当你按下Ctrl-C或者 aria2 退出时，所有的错误（error）/未完成（unfinished）下载将会保存到 out.txt 文件中。注意通过 XML-RPC 方式(aria2.addTorrent and aria2.addMetalink)添加的下载不会被保存！你可以使用这个文件作为一个输入文件列表（input file list）来重新开始下载。</div><div class="line">aria2c -iout.txt</div></pre></td></tr></table></figure>
-<h3 id="uget"><a href="#uget" class="headerlink" title="uget"></a>uget</h3><p>uget可以说相当于一个图形化界面的下载器，这个下载器的优点是可以调用curl和aria2等工具，在设置–插件中选择aria2即可，具体的使用类似迅雷等一些下载器类似。一单设置选择了aria2的话，uget就会自动运行aria2这个进程，其他程序就无法调用aria2的部分功能了。这个软件占用资源较小，如果使用的linux操作系统，简单易用，基本上不需要配置，重点推荐。</p>
-<h3 id="web软件"><a href="#web软件" class="headerlink" title="web软件"></a>web软件</h3><p>aria2c有几个比较出名的web软件可以选择：<a href="http://ziahamza.github.io/webui-aria2/" target="_blank" rel="external">webui-aria2</a>，<a href="https://binux.github.io/yaaw/" target="_blank" rel="external">yaaw</a>。</p>
-<p>注意在使用这些UI工具时，实际仍然是调用aria2s命令，因此需要实现开启aria2的守护进程：<code>aria2c -D</code>，然后在浏览器上面可以执行相关操作。</p>
-<p>我个人在使用这两个工具时，研究了很久但一直不能使用，疑似无法读取本地的配置文件，极少情况能够加载成功，进行下载。<strong>待解决</strong></p>
-<hr>
-<blockquote>
-<p>参考链接：<br><a href="http://aria2c.com/usage.html" target="_blank" rel="external">http://aria2c.com/usage.html</a><br><a href="https://medium.com/@Justin___Smith/aria2%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B-mac%E5%92%8Cwindows-b31d0f64bd4e#.n6bvy48ay" target="_blank" rel="external">https://medium.com/@Justin___Smith/aria2%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B-mac%E5%92%8Cwindows-b31d0f64bd4e#.n6bvy48ay</a><br><a href="http://yalv.me/aria2/" target="_blank" rel="external">http://yalv.me/aria2/</a><br><a href="https://zhuanlan.zhihu.com/p/20563721?columnSlug=ChanTalk" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/20563721?columnSlug=ChanTalk</a><br><a href="http://wenku.baidu.com/link?url=bKJCYvk24K--RuZ7DuCzg_0TADnrIMt7aT8fSjTcElI57nOenrWsmKVmWuuHD0SKOt-0OrbvltqOSzXX8Ryj0qEJzhCegBN65X1_dNAA727" target="_blank" rel="external">http://wenku.baidu.com/link?url=bKJCYvk24K--RuZ7DuCzg_0TADnrIMt7aT8fSjTcElI57nOenrWsmKVmWuuHD0SKOt-0OrbvltqOSzXX8Ryj0qEJzhCegBN65X1_dNAA727</a><br><a href="http://www.cnblogs.com/RhinoC/p/aria2.html" target="_blank" rel="external">http://www.cnblogs.com/RhinoC/p/aria2.html</a><br><a href="https://aria2.github.io/" target="_blank" rel="external">https://aria2.github.io/</a><br><a href="http://sydi.org/posts/linux/aria2c-usage-sample-cns.html" target="_blank" rel="external">http://sydi.org/posts/linux/aria2c-usage-sample-cns.html</a><br><a href="http://chanjh.com/post/software/0012" target="_blank" rel="external">http://chanjh.com/post/software/0012</a></p>
-</blockquote>
-
-            
-        </div>
-    </div>
-    <div id="post-footer" class="post-footer main-content-wrap">
-        
-        <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/28/2016/2016-10-28-linux分区问题/"  data-tooltip="linux分区问题">
-                
-                    <i class="fa fa-angle-left"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
-                </a>
-            </li>
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/24/2016/2016-10-24-linux免密码命令/" data-tooltip="linux免密码命令">
-                
-                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
-                    <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
-                <i class="fa fa-share-alt"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/10/27/2016/2016-10-27-aria2详解/">
-                <i class="fa fa-google-plus"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/10/27/2016/2016-10-27-aria2详解/">
-                <i class="fa fa-facebook-official"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/10/27/2016/2016-10-27-aria2详解/">
-                <i class="fa fa-twitter"></i>
-            </a>
-        </li>
-        
-        <li class="post-action">
-            
-                <a class="post-action-btn btn btn--default" href="#">
-            
-                <i class="fa fa-list"></i>
-            </a>
-        </li>
-    </ul>
-</div>
-
-
-        
-            
-        
-    </div>
-</article>
-
-
-
-                <footer id="footer" class="main-content-wrap">
-    <span class="copyrights">
-        Copyrights &copy; 2017 John Doe. All Rights Reserved.
-    </span>
-</footer>
-
-            </div>
-            
-                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
-                    <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/28/2016/2016-10-28-linux分区问题/"  data-tooltip="linux分区问题">
-                
-                    <i class="fa fa-angle-left"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
-                </a>
-            </li>
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/24/2016/2016-10-24-linux免密码命令/" data-tooltip="linux免密码命令">
-                
-                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
-                    <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
-                <i class="fa fa-share-alt"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/10/27/2016/2016-10-27-aria2详解/">
-                <i class="fa fa-google-plus"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/10/27/2016/2016-10-27-aria2详解/">
-                <i class="fa fa-facebook-official"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/10/27/2016/2016-10-27-aria2详解/">
-                <i class="fa fa-twitter"></i>
-            </a>
-        </li>
-        
-        <li class="post-action">
-            
-                <a class="post-action-btn btn btn--default" href="#">
-            
-                <i class="fa fa-list"></i>
-            </a>
-        </li>
-    </ul>
-</div>
-
-
-                </div>
-                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
-    <ul class="share-options">
-        <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/10/27/2016/2016-10-27-aria2详解/">
-                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
-            </a>
-        </li>
-        <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/10/27/2016/2016-10-27-aria2详解/">
-                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
-            </a>
-        </li>
-        <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/10/27/2016/2016-10-27-aria2详解/">
-                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
-            </a>
-        </li>
-    </ul>
-</div>
-<div id="share-options-mask" class="share-options-mask"></div>
-            
-        </div>
-        
-
-
-<div id="about">
-    <div id="about-card">
-        <div id="about-btn-close">
-            <i class="fa fa-remove"></i>
-        </div>
-        
-            <h4 id="about-card-name">John Doe</h4>
-        
-            <h5 id="about-card-bio"><p>author.bio</p>
-</h5>
-        
-        
-            <h5 id="about-card-job">
-                <i class="fa fa-briefcase"></i>
-                <br/>
-                <p>author.job</p>
-
-            </h5>
-        
-        
-    </div>
-</div>
-
-        
-<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
-    </body>
-    <!--SCRIPTS-->
-<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
-<!--SCRIPTS END-->
-
-    
-
-
-
-</html>
+block content
+  .post
+    h1.post-title= page.title
+    .post-meta= page.date.format('ll')
+      if page.categories.length > 0
+        span= ' | '
+        span.category
+          for category in page.categories.toArray()
+            a(href=url_for(category.path))= category.name
+      if theme.busuanzi == true
+        script(src='https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js', async)
+        span#busuanzi_container_page_pv= ' | '
+          span#busuanzi_value_page_pv
+          span= ' ' + __('Hits')
+    if theme.duoshuo
+      a.ds-thread-count(data-thread-key=page.path, href=url_for(page.path) + '#comments')
+    if theme.disqus
+      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
+    if page.toc
+      div(class='clear')
+        div(id='toc' class='toc-article')
+          div(class='toc-title')= __('contents')
+          != toc(page.content)
+    .post-content
+      != page.content
+    if theme.shareto == true
+      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
+      a.article-share-link(data-url='#{page.permalink}', data-id='#{page._id}')= __('shareto')
+    include _partial/tag
+    include _partial/post_nav
+    if theme.duoshuo
+      div(class='ds-share flat' data-thread-key=page.path, data-title=page.title, data-url=page.permalink)
+         .ds-share-inline
+            ul.ds-share-icons-16
+              li(data-toggle='ds-share-icons-more')
+                a(class='ds-more' href='javascript:void(0);') 分享到：
+              li
+                a(class='ds-weibo' href='javascript:void(0);' data-service='weibo') 微博
+              li
+                a(class='ds-qzone' href='javascript:void(0);' data-service='qzone') QQ空间
+              li
+                a(class='ds-qqt' href='javascript:void(0);' data-service='qqt') 腾讯微博
+              li
+                a(class='ds-wechat' href='javascript:void(0);' data-service='wechat') 微信
+            .ds-share-icons-more
+    include _partial/comments

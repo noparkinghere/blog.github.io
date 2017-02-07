@@ -69,28 +69,37 @@ $ hexo server (通过 hexo server 运行起 hexo 内置的服务器。这时候�
 至此我们基本配置好了本地 hexo 服务，能够自己写点内容了。
 
 
-#### 部署到 github page
+### 部署到 github page
 
 访问 github，创建库 `git账户名.github.io` ， 这一这个名字是固定的，一般的库没法修改跳转地址，只能显示为 github page 。
 
 将远程库同步到本地，`git clone [你的仓库的 url]`，本地会多出一个 `git账户名.github.io` 的文件夹，然后把 public 文件目录下的博客文件都复制到你的本地仓库中，并将本地仓库 push 到 github 仓库上。这样当其他人访问你的博客链接的时候 github 将会自动将该仓库中的相应文件展示出来。
+
+#### 方法1
+由于访问网页最终都是访问的 html 文件，因此这边需要通过本地 hexo generate 工具生成所需的 html 页面代码，然后每次将你的 html 页面覆盖到 github 的项目中去。
+
+执行如下命令：
 ```
-$ cp -R public/* [你的仓库名]
-$ cd [你的仓库名]
-$ git add .
-$ git commit -m 'update blog'
-$ git push
+	hexo g
+	cp -R public/* [你的仓库名]
+	cd [你的仓库名]
+	git add .
+	git commit -m 'update blog'
+	git push
 ```
+
+#### 方法2
 
 注意，实际上 github page 是可以自己按照 jekyll 的方式将源码生成 html 文件的，但是 对于 hexo 等其他源码，如果需要展示出来，则必须本地生成 html 代码，然后把生成的代码部署到服务器上面才行，这边我们可以使用如上面的方式（讲 public 目录下面生成的 html 文件直接复制到服务器的根目录下）， hexo 提供了更加人性化的方式，通过 hexo deploy 可以一键完成部署，每次部署的步骤，可按以下两步：
 
-- 修改 该配置文件：vim _config.yml，执行如下命令才能使用git部署`npm install hexo-deployer-git --save`
+- 修改 该配置文件：vim _config.yml，执行如下命令才能使用 git 部署 `npm install hexo-deployer-git --save`
 ```
 deploy:
   type: git
-  repository: https://github.com/leopardpan/leopardpan.github.io.git（也可以采用 ssh 的地址）
+  repository: https://github.com/username/username.github.io.git
   branch: master
 ```
+*注：type: git 老版本可能是 github，repository 后也可以采用 ssh 的地址，https 每次需要输入密码，而 ssh 需要配置好公钥私钥免密码。*
 
 - 执行以下命令无需手动将代码 push 上去
 ```

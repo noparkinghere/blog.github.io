@@ -68,4 +68,6 @@ theme: tranquilpeak
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repository: git@github.com:noparkinghere/noparkinghere.github.io.git
+  branch: master

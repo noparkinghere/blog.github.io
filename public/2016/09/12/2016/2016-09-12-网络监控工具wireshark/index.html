@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>网络监控工具wireshark | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="wireshark简介Wireshark（前称Ethereal）是一个网络封包分析软件。网络封包分析软件的功能是撷取网络封包，并尽可能显示出最为详细的网络封包资料。Wireshark使用WinPCAP作为接口，直接与网卡进行数据报文交换。网络封包分析软件的功能可想像成 “电工技师使用电表来量测电流、电压、电阻” 的工作 - 只是将场景移植到网络上，并将电线替换成网络线。在过去，网络封包分析软件是非">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络监控工具wireshark">
+<meta property="og:url" content="http://yoursite.com/2016/09/12/2016/2016-09-12-网络监控工具wireshark/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="wireshark简介Wireshark（前称Ethereal）是一个网络封包分析软件。网络封包分析软件的功能是撷取网络封包，并尽可能显示出最为详细的网络封包资料。Wireshark使用WinPCAP作为接口，直接与网卡进行数据报文交换。网络封包分析软件的功能可想像成 “电工技师使用电表来量测电流、电压、电阻” 的工作 - 只是将场景移植到网络上，并将电线替换成网络线。在过去，网络封包分析软件是非">
+<meta property="og:updated_time" content="2016-12-16T01:47:49.966Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="网络监控工具wireshark">
+<meta name="twitter:description" content="wireshark简介Wireshark（前称Ethereal）是一个网络封包分析软件。网络封包分析软件的功能是撷取网络封包，并尽可能显示出最为详细的网络封包资料。Wireshark使用WinPCAP作为接口，直接与网卡进行数据报文交换。网络封包分析软件的功能可想像成 “电工技师使用电表来量测电流、电压、电阻” 的工作 - 只是将场景移植到网络上，并将电线替换成网络线。在过去，网络封包分析软件是非">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2016/2016-09-12-网络监控工具wireshark" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/12/2016/2016-09-12-网络监控工具wireshark/" class="article-date">
+  <time datetime="2016-09-12T02:17:00.000Z" itemprop="datePublished">2016-09-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      网络监控工具wireshark
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="wireshark简介"><a href="#wireshark简介" class="headerlink" title="wireshark简介"></a>wireshark简介</h3><p>Wireshark（前称Ethereal）是一个网络封包分析软件。网络封包分析软件的功能是撷取网络封包，并尽可能显示出最为详细的网络封包资料。Wireshark使用WinPCAP作为接口，直接与网卡进行数据报文交换。网络封包分析软件的功能可想像成 “电工技师使用电表来量测电流、电压、电阻” 的工作 - 只是将场景移植到网络上，并将电线替换成网络线。在过去，网络封包分析软件是非常昂贵的，或是专门属于营利用的软件。Ethereal的出现改变了这一切。在GNUGPL通用许可证的保障范围底下，使用者可以以免费的代价取得软件与其源代码，并拥有针对其源代码修改及客制化的权利。Ethereal是目前全世界最广泛的网络封包分析软件之一。</p>
+<a id="more"></a>
+<h3 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h3><h4 id="linux下的安装"><a href="#linux下的安装" class="headerlink" title="linux下的安装"></a>linux下的安装</h4><p>首先，安装只要一个命令行(由于之前装过了，所以没有在安装什么了)：sudo apt-get install wireshark 。已经将wireshark安装完毕，接下来我没就可以通过：终端输入wireshark 用来启动它的图形界面。<br>然而，dumpcap需要root权限才能使用的,以普通用户打开Wireshark，Wireshark当然没有权限使用dumpcap进行截取封包。虽然可以用:sudo wireshark来完成。但是，以sudo的方式用root打开Wireshark显然是不安全的，也不是很方便，因为得到的封包数据也属于root用户。于是，我们提供下面的方法来完成普通用户下的操作。</p>
+<ul>
+<li>添加wireshark用户组<code>sudo groupadd  wireshark</code>，一般软件安装完成后，可能已经自动帮你生成了这个组。</li>
+<li>将dumpcap程序更改为所属组为wireshark用户组<code>sudo chgrp wireshark /usr/bin/dumpcap</code></li>
+<li>让wireshark用户组有root权限使用dumpcap即更改dumpcap的科执行权限，赋予所属组执行权限 <code>sudo chmod 4755 /usr/bin/dumpcap</code></li>
+<li>将需要使用的普通用户名加入wireshark用户组，我的用户是“demon”（需要根据具体用户名修改！在#前面可以找到哟），则需要使用命令：<code>sudo gpasswd -a demon wireshark</code></li>
+</ul>
+<p>通过以上步骤就可以以普通用户登陆打开Wireshark，也会有权限进行抓包了。</p>
+<h3 id="常规用法"><a href="#常规用法" class="headerlink" title="常规用法"></a>常规用法</h3><blockquote>
+<p>参考链接：<br><a href="http://fangxin.blog.51cto.com/1125131/735178" target="_blank" rel="external">http://fangxin.blog.51cto.com/1125131/735178</a><br><a href="http://blog.sina.com.cn/s/blog_5d527ff00100dwph.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_5d527ff00100dwph.html</a><br><a href="https://openmaniak.com/cn/wireshark_filters.php" target="_blank" rel="external">https://openmaniak.com/cn/wireshark_filters.php</a><br><a href="http://www.jianshu.com/p/400d4430a74a" target="_blank" rel="external">http://www.jianshu.com/p/400d4430a74a</a><br><a href="https://wiki.wireshark.org/CaptureSetup/CapturePrivileges" target="_blank" rel="external">https://wiki.wireshark.org/CaptureSetup/CapturePrivileges</a><br><a href="https://anonscm.debian.org/viewvc/collab-maint/ext-maint/wireshark/trunk/debian/README.Debian?view=markup" target="_blank" rel="external">https://anonscm.debian.org/viewvc/collab-maint/ext-maint/wireshark/trunk/debian/README.Debian?view=markup</a><br><a href="http://jingyan.baidu.com/article/c74d60009d992f0f6a595de6.html" target="_blank" rel="external">http://jingyan.baidu.com/article/c74d60009d992f0f6a595de6.html</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/09/12/2016/2016-09-12-网络监控工具wireshark/" data-id="ciyuv3aid002gmtmu3e9gwc99" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/09/12/2016/2016-09-12-解决重启网卡后ip-route-add丢失/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          解决重启网卡后ip route add丢失
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/09/09/2016/2016-09-09-ssh相关使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ssh相关使用</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/read/">read</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/“问题总结”/">“问题总结”</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂记/">杂记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件安装/">软件安装</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux基础/">linux基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂记/">杂记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件安装/">软件安装</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/问题总结/">问题总结</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/linux基础/" style="font-size: 10px;">linux基础</a> <a href="/tags/杂记/" style="font-size: 10px;">杂记</a> <a href="/tags/软件安装/" style="font-size: 15px;">软件安装</a> <a href="/tags/问题总结/" style="font-size: 20px;">问题总结</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/02/07/FAQ/EFM32芯片单步执行跳转错误/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/25/2017/2017-01-25-ss-linux全局代理/">linux-shadowsocks全局代理</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/05/2017/2017-01-05-（转）中文技术文档的写作规范/">（转）中文技术文档的写作规范</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/01/2017/2017-01-01-别了，2016；你好，2017/">别了，2016；你好，2017</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/28/2016/2016-12-28-mcu中的hardfault-handler问题/">MCU中的HardFault_Handler问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

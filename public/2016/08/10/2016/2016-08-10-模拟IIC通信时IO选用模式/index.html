@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>模拟IIC通信时IO选用模式 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="现如今很多芯片都已经包含有 IIC 通信功能，为何仍然选择模拟 IIC 呢？ 首先 IIC 通讯的版权掌握在飞利浦手中，部分厂家如：st 等，实现 IIC 通信较为繁琐，据说不是特别合理稳定；此外，芯片级的 IIC 不同的芯片就需要重新研究书写一次，而模拟 IIC 天生具有较好的移植性，可以做到一次书写，终身可移植。
+IIC 通信原理IIC 选用 IO 模式通过上面可以知道，IIC 在通信过程中，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="模拟IIC通信时IO选用模式">
+<meta property="og:url" content="http://yoursite.com/2016/08/10/2016/2016-08-10-模拟IIC通信时IO选用模式/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="现如今很多芯片都已经包含有 IIC 通信功能，为何仍然选择模拟 IIC 呢？ 首先 IIC 通讯的版权掌握在飞利浦手中，部分厂家如：st 等，实现 IIC 通信较为繁琐，据说不是特别合理稳定；此外，芯片级的 IIC 不同的芯片就需要重新研究书写一次，而模拟 IIC 天生具有较好的移植性，可以做到一次书写，终身可移植。
+IIC 通信原理IIC 选用 IO 模式通过上面可以知道，IIC 在通信过程中，">
+<meta property="og:updated_time" content="2017-01-12T05:48:11.981Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="模拟IIC通信时IO选用模式">
+<meta name="twitter:description" content="现如今很多芯片都已经包含有 IIC 通信功能，为何仍然选择模拟 IIC 呢？ 首先 IIC 通讯的版权掌握在飞利浦手中，部分厂家如：st 等，实现 IIC 通信较为繁琐，据说不是特别合理稳定；此外，芯片级的 IIC 不同的芯片就需要重新研究书写一次，而模拟 IIC 天生具有较好的移植性，可以做到一次书写，终身可移植。
+IIC 通信原理IIC 选用 IO 模式通过上面可以知道，IIC 在通信过程中，">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2016/2016-08-10-模拟IIC通信时IO选用模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/10/2016/2016-08-10-模拟IIC通信时IO选用模式/" class="article-date">
+  <time datetime="2016-08-10T03:36:00.000Z" itemprop="datePublished">2016-08-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      模拟IIC通信时IO选用模式
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>现如今很多芯片都已经包含有 IIC 通信功能，为何仍然选择模拟 IIC 呢？</em> <strong>首先 IIC 通讯的版权掌握在飞利浦手中，部分厂家如：st 等，实现 IIC 通信较为繁琐，据说不是特别合理稳定；此外，芯片级的 IIC 不同的芯片就需要重新研究书写一次，而模拟 IIC 天生具有较好的移植性，可以做到一次书写，终身可移植。</strong></p>
+<h3 id="IIC-通信原理"><a href="#IIC-通信原理" class="headerlink" title="IIC 通信原理"></a>IIC 通信原理</h3><h3 id="IIC-选用-IO-模式"><a href="#IIC-选用-IO-模式" class="headerlink" title="IIC 选用 IO 模式"></a>IIC 选用 IO 模式</h3><p>通过上面可以知道，IIC 在通信过程中，主设备SCL始终是保持发送状态，因此这边我们可以将 SCL 设置为推挽或者开漏输出。推挽的输出能力较强，开漏输出则需要加上拉电阻，而一般 IIC 的推荐电路就是需要人为增加了上拉电阻的，因此在考虑功耗等一些情况下，可能开漏输出更好。</p>
+<p><strong>而问题的关键是 SDA 到底设置为什么模式？</strong></p>
+<p>网上参考资料众说纷纭，这边以我自己做实验的亲身感受为例，我推荐在作为输出时将这个脚配置为开漏输出模式；在 MCU 需要接收信号的时候，如果 MCU 本身没有限制，或者不需要精简代码的话，则将其设置为输入模式。详解：</p>
+<a id="more"></a>
+<h4 id="将-SDA-直接设置为开漏模式："><a href="#将-SDA-直接设置为开漏模式：" class="headerlink" title="将 SDA 直接设置为开漏模式："></a>将 SDA 直接设置为开漏模式：</h4><p>这种方法一般用于之前程序的很多单片机中，开漏因为需要接上拉电阻才能改变电平，且具有线与的特性，通过读 IO 口的状态，即便是设置成了开漏输出，但仍然可以读取IO的数据状态，可以说一劳永逸，一种模式两种用途，虽然目前试过大多数MCU通过这种方式也都可以读取，但毕竟是输出模式，万一以后的设计更改了，无法读取了，则有潜在性的问题。</p>
+<h4 id="将-SDA-设置位推挽输出模式进行输出，需要读取数据时转换成输入模式："><a href="#将-SDA-设置位推挽输出模式进行输出，需要读取数据时转换成输入模式：" class="headerlink" title="将 SDA 设置位推挽输出模式进行输出，需要读取数据时转换成输入模式："></a>将 SDA 设置位推挽输出模式进行输出，需要读取数据时转换成输入模式：</h4><p>最近在不少地方看到用这种方式来对 IIC 器件进行读取，感觉较为灵活，之前也将开漏转换成了这种模式。但最近实验过程中发现了不少问题，在 SDA 发送数据结束后，等待应答的这个过程中，使用推挽模式，有明显的短路风险。这段时间虽然时间很短，且接下来会立即将推挽切换为输入模式，但在单步执行测试的过程中,实际会出现很高的电流，疑似推挽的高电平输出引起了断路，用这种模式必须较为谨慎，注意各种延时时间，千万不能让器件断路烧坏。<em>在使用一个 IIC 通信的 AD 芯片过程中，一段时间后出现测量值不准，疑似可能是这种原因引起的。</em></p>
+<h4 id="SCL-使用开漏输出模式，SDA-使用开漏输出-输入模式："><a href="#SCL-使用开漏输出模式，SDA-使用开漏输出-输入模式：" class="headerlink" title="SCL 使用开漏输出模式，SDA 使用开漏输出+输入模式："></a>SCL 使用开漏输出模式，SDA 使用开漏输出+输入模式：</h4><p>通过上面的讨论，最终个人认为 IIC 通信过程中：SCL 使用开漏输出模式，SDA 使用开漏输出发送数据，使用输入模式读取数据，这种方法较为合理。值得注意：SDA 需要模式切换，IIC 的延迟时间无需过长，否则影响效率，这些根据手册中的标准执行。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/08/10/2016/2016-08-10-模拟IIC通信时IO选用模式/" data-id="ciyuv3ahw0022mtmusjsjq1pq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/11/2016/2016-08-11-C编程规范/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          C/C++编程规范
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/06/2016/2016-08-06-常规的通讯校验/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">常规的通讯校验</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/read/">read</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/“问题总结”/">“问题总结”</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂记/">杂记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件安装/">软件安装</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux基础/">linux基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂记/">杂记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件安装/">软件安装</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/问题总结/">问题总结</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/linux基础/" style="font-size: 10px;">linux基础</a> <a href="/tags/杂记/" style="font-size: 10px;">杂记</a> <a href="/tags/软件安装/" style="font-size: 15px;">软件安装</a> <a href="/tags/问题总结/" style="font-size: 20px;">问题总结</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/02/07/FAQ/EFM32芯片单步执行跳转错误/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/25/2017/2017-01-25-ss-linux全局代理/">linux-shadowsocks全局代理</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/05/2017/2017-01-05-（转）中文技术文档的写作规范/">（转）中文技术文档的写作规范</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/01/2017/2017-01-01-别了，2016；你好，2017/">别了，2016；你好，2017</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/28/2016/2016-12-28-mcu中的hardfault-handler问题/">MCU中的HardFault_Handler问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

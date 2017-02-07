@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>通过git管理一个工程 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="GIT虽然能够实现各种版本控制，且功能强大，可以做到随时切换版本，回退等各种功能，但过多的分支，无效的分支，杂乱的提交，无意义的命名等等问题，往往会让像我这样的初学者，异常头痛，网络上关于git的往往都是指导你各个命令如何去用，部分命令的使用场景等，但却缺少一个完整工程项目的管理步骤。部分大神的确总结出了自己的使用习惯，但却不是作为教程来陈述的，下面我会将自己的一些习惯进行总结，后续可能遇到更好的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="通过git管理一个工程">
+<meta property="og:url" content="http://yoursite.com/2016/09/28/2016/2016-09-28-通过git管理一个工程/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="GIT虽然能够实现各种版本控制，且功能强大，可以做到随时切换版本，回退等各种功能，但过多的分支，无效的分支，杂乱的提交，无意义的命名等等问题，往往会让像我这样的初学者，异常头痛，网络上关于git的往往都是指导你各个命令如何去用，部分命令的使用场景等，但却缺少一个完整工程项目的管理步骤。部分大神的确总结出了自己的使用习惯，但却不是作为教程来陈述的，下面我会将自己的一些习惯进行总结，后续可能遇到更好的">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-28-%E9%80%9A%E8%BF%87git%E7%AE%A1%E7%90%86%E4%B8%80%E4%B8%AA%E5%B7%A5%E7%A8%8B/0.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-28-%E9%80%9A%E8%BF%87git%E7%AE%A1%E7%90%86%E4%B8%80%E4%B8%AA%E5%B7%A5%E7%A8%8B/master.png">
+<meta property="og:updated_time" content="2016-12-16T01:48:46.738Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="通过git管理一个工程">
+<meta name="twitter:description" content="GIT虽然能够实现各种版本控制，且功能强大，可以做到随时切换版本，回退等各种功能，但过多的分支，无效的分支，杂乱的提交，无意义的命名等等问题，往往会让像我这样的初学者，异常头痛，网络上关于git的往往都是指导你各个命令如何去用，部分命令的使用场景等，但却缺少一个完整工程项目的管理步骤。部分大神的确总结出了自己的使用习惯，但却不是作为教程来陈述的，下面我会将自己的一些习惯进行总结，后续可能遇到更好的">
+<meta name="twitter:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-28-%E9%80%9A%E8%BF%87git%E7%AE%A1%E7%90%86%E4%B8%80%E4%B8%AA%E5%B7%A5%E7%A8%8B/0.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2016/2016-09-28-通过git管理一个工程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/28/2016/2016-09-28-通过git管理一个工程/" class="article-date">
+  <time datetime="2016-09-28T08:45:00.000Z" itemprop="datePublished">2016-09-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      通过git管理一个工程
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>GIT虽然能够实现各种版本控制，且功能强大，可以做到随时切换版本，回退等各种功能，但过多的分支，无效的分支，杂乱的提交，无意义的命名等等问题，往往会让像我这样的初学者，异常头痛，网络上关于git的往往都是指导你各个命令如何去用，部分命令的使用场景等，但却缺少一个完整工程项目的管理步骤。部分大神的确总结出了自己的使用习惯，但却不是作为教程来陈述的，下面我会将自己的一些习惯进行总结，后续可能遇到更好的也还会不断的更改。</p>
+<p>下面是一张团队协作示意图：</p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-28-%E9%80%9A%E8%BF%87git%E7%AE%A1%E7%90%86%E4%B8%80%E4%B8%AA%E5%B7%A5%E7%A8%8B/0.png" alt=""></p>
+<p>通过这张图，我们可以初步了解git的工作流程，接下来将以这张图为基础，进行详细分析论述。</p>
+<h3 id="思路分析："><a href="#思路分析：" class="headerlink" title="思路分析："></a>思路分析：</h3><p>个人的GIT使用习惯，注意：不在master上面轻易进行提交，一般所有的工作步骤都放在develop分支上面进行，不做无意义的提交，所有提交最起码是能够通过编译的版本，有一定程度上的修改优化，且每次提交必须付上详细的commit说明。基于develop，如果平行进行多种不同类型版本的开发，则所有都建立相应的新分支dev_name，而基于dev_name，每个开发人员再次建立各自的分支，只有在完成相关开发后将各自分支合并到dev_name中。通过测试多个dev_name，选择最终确定的方案，将develop分支合并到某条dev_name上，继续开发，后续如果在遇到类似问题，继续重复上述步骤。默认的master分支只用来快速合并develop分支来确定发行版，对所有发行版都加入tag(release_name)。简单来说就是：GIT不断创建分支，master用来合并develop分支作为发行版发布；develop分支用来合并dev_name分支作为开发的主要分支；dev_name合并所有开发人员的各个提交的分支，在没有dev_name的情况下（即只有一个develop分支），develop分支用来合并所有开发人员的各个提交的分支。</p>
+<p><strong>git控制版本的过程就是分支不断提交合并的过程。</strong></p>
+<a id="more"></a>
+<h3 id="版本控制步骤："><a href="#版本控制步骤：" class="headerlink" title="版本控制步骤："></a>版本控制步骤：</h3><ul>
+<li>对项目初始化版本库（注意不能是裸库，裸库只能远程下载查看，无法本地查看，类似的github和git服务就是这种裸库）</li>
+<li>编辑好相应的.gitignore文件，该文件用来忽略一些文件，不让提交，一般可以是非必要的工程文件，编译生成的文件等。（.git目录下也存在类似.gitignore的忽略文件，但该文件不能被提交和push，因此强烈建议使用.gitignore）</li>
+<li>进行第一次空工程的提交，主要将.gitignore提交给master。</li>
+<li>建立分支develop，将工作分支切换到develop上。</li>
+<li>进行相应的程序编辑和编译，完成后，提交版本库。（因为上面已经checkout到了develop，所以默认的提交就是到develop，不进行分支切换的话，以后默认也都在这个分支上面进行。）</li>
+<li>假如这时候需要建立多个版本进行分别开发，这时候需要建立多个dev_name分支（注意这边是建议对所有版本都建立新的分支，作为develop的分支进行开发测试，而develop只用于最后对他们做合并。），需要开发哪个版本就切换到哪条dev_name分支上面进行开发提交。</li>
+<li>假设多个版本开发测试完毕，用户需要某个功能的测试版本，则给该分支的某个版本再建立新分支test_release，然后打上tag标记，可以简单发布。</li>
+<li>然而项目仍然需要推进，最终你需要在所有测试版本中选择出最优的一个合并到develop分支上，做接下来的开发。</li>
+<li>在develop分支上进一步进行开发，假设现在不再仅仅是你一个人接手这个项目，而是多个人的团队，则需要基于develop建立多个分支，让每个单独负责其中的一个分支。每个人所要进行的工作都各自在自己的分支上面进行。假如这时团队成员都各自任务完成了，所有人都提交版本，这时则由组长专门将所有分支再次逐个合并到develop分支上，当然这部分可能会有冲突，需要手动合并。</li>
+<li>假如再次需要建立多个版本进行分别开发测试，这时同上述步骤一只，再次建立多个dev_name分支，然后基于每个dev_name，为每个组员生成多个dev_name的子分支，每个组员各负责一条子分支。组员完成工作后，各个分支的负责人再次将把所有分支合并到各自的dev_name上，当所有版本测试完毕后，组长再次将所有dev_name合并<br>develop上。</li>
+<li>如此，开发过程中反复进行上述建立分支合并分支的操作。最终需要发布正式版本的时候，组长将develop的内容快速合并到master分支上，然后为这个节点打上tag（如：v1.0）。注意：master分支只用来快速合并和发布版本。</li>
+</ul>
+<p>上述步骤详细的导图：<br><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-09-28-%E9%80%9A%E8%BF%87git%E7%AE%A1%E7%90%86%E4%B8%80%E4%B8%AA%E5%B7%A5%E7%A8%8B/master.png" alt=""></p>
+<hr>
+<blockquote>
+<p>参考链接：<br><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000</a><br><a href="http://baike.baidu.com/link?url=weNC33XuaXOCTBp5s3WeZVu-Z9LP41KY_M6_WdGxAJZpJs_sq7jcgZ-3B01u2EiqfK6gb0L6s3-IDiWp1cVgF_" target="_blank" rel="external">http://baike.baidu.com/link?url=weNC33XuaXOCTBp5s3WeZVu-Z9LP41KY_M6_WdGxAJZpJs_sq7jcgZ-3B01u2EiqfK6gb0L6s3-IDiWp1cVgF_</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/09/28/2016/2016-09-28-通过git管理一个工程/" data-id="ciyuv3aim002omtmurwqbv0hd" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/09/28/2016/2016-09-28-关于手机的一些个人看法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          关于手机的一些个人看法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/09/28/2016/2016-09-28-git的配置及相关插件/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">git的配置及相关插件</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/read/">read</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/“问题总结”/">“问题总结”</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂记/">杂记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件安装/">软件安装</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux基础/">linux基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂记/">杂记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件安装/">软件安装</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/问题总结/">问题总结</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/linux基础/" style="font-size: 10px;">linux基础</a> <a href="/tags/杂记/" style="font-size: 10px;">杂记</a> <a href="/tags/软件安装/" style="font-size: 15px;">软件安装</a> <a href="/tags/问题总结/" style="font-size: 20px;">问题总结</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/02/07/FAQ/EFM32芯片单步执行跳转错误/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/25/2017/2017-01-25-ss-linux全局代理/">linux-shadowsocks全局代理</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/05/2017/2017-01-05-（转）中文技术文档的写作规范/">（转）中文技术文档的写作规范</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/01/2017/2017-01-01-别了，2016；你好，2017/">别了，2016；你好，2017</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/28/2016/2016-12-28-mcu中的hardfault-handler问题/">MCU中的HardFault_Handler问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

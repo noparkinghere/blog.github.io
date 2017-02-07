@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>架设自己的git服务 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本实验使用的是实体机 ubuntu 16.04 和虚拟机 virtualbox 搭建 ubuntu—server 16.04 系统进行连接，其中用 ubuntu-server 搭建 git，实体机 ubuntu desktop 连接 ubuntu-server，后续如果有其他环境也会逐一补充。
+这边暂时没有在实体机上面尝试，先列举出在虚拟机上面架设 git 服务器
+使用 ssh 登陆 ubuntu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="架设自己的git服务">
+<meta property="og:url" content="http://yoursite.com/2016/07/29/2016/2016-07-29-架设自己的git服务/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="本实验使用的是实体机 ubuntu 16.04 和虚拟机 virtualbox 搭建 ubuntu—server 16.04 系统进行连接，其中用 ubuntu-server 搭建 git，实体机 ubuntu desktop 连接 ubuntu-server，后续如果有其他环境也会逐一补充。
+这边暂时没有在实体机上面尝试，先列举出在虚拟机上面架设 git 服务器
+使用 ssh 登陆 ubuntu">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-29-git%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/DeepinScrot-2011.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-29-git%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/DeepinScrot-4326.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-29-git%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/DeepinScrot-4534.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-29-git%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/DeepinScrot-1126.png">
+<meta property="og:updated_time" content="2017-01-12T05:45:49.199Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="架设自己的git服务">
+<meta name="twitter:description" content="本实验使用的是实体机 ubuntu 16.04 和虚拟机 virtualbox 搭建 ubuntu—server 16.04 系统进行连接，其中用 ubuntu-server 搭建 git，实体机 ubuntu desktop 连接 ubuntu-server，后续如果有其他环境也会逐一补充。
+这边暂时没有在实体机上面尝试，先列举出在虚拟机上面架设 git 服务器
+使用 ssh 登陆 ubuntu">
+<meta name="twitter:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-29-git%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/DeepinScrot-2011.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2016/2016-07-29-架设自己的git服务" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/29/2016/2016-07-29-架设自己的git服务/" class="article-date">
+  <time datetime="2016-07-29T04:22:00.000Z" itemprop="datePublished">2016-07-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      架设自己的git服务
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>本实验使用的是实体机 ubuntu 16.04 和虚拟机 virtualbox 搭建 ubuntu—server 16.04 系统进行连接，其中用 ubuntu-server 搭建 git，实体机 ubuntu desktop 连接 ubuntu-server，后续如果有其他环境也会逐一补充。</em></p>
+<p><strong>这边暂时没有在实体机上面尝试，先列举出在虚拟机上面架设 git 服务器</strong></p>
+<h3 id="使用-ssh-登陆-ubuntu-server"><a href="#使用-ssh-登陆-ubuntu-server" class="headerlink" title="使用 ssh 登陆 ubuntu-server"></a>使用 ssh 登陆 ubuntu-server</h3><h4 id="ping-通两个系统："><a href="#ping-通两个系统：" class="headerlink" title="ping 通两个系统："></a>ping 通两个系统：</h4><p>看是否可以 ping 通两个系统，首先查看 ip 地址，<code>ifconfig</code>， 例如主机是： 192.168.18.60 ，虚拟机是 192.168.18.202。则在主机中 ping 192.168.18.60 ，当然事情往往并不会一帆风顺，很多设置的时候，为了可以链接外网，虚拟机选用了 NAT 模式。<em>貌似该模式无法使用ssh服务，虚拟机可以 ping 通主机，但主机无法 ping 通虚拟机。</em>这时候可以使用几种方法：</p>
+<ul>
+<li>更改虚拟机模式为桥接模式，弃用原来的 NAT 模式。</li>
+<li>使用实体机中的虚拟机网卡与虚拟机进行交互，但貌似 ubuntu 下面并无法找到这块虚拟网卡，解决办法可以手动建立一个虚拟网卡。</li>
+<li>创建一个新的链接方式，通过这个桥接到实体机，然后通过 NAT 访问外网。<em>这边详细介绍这种方式</em></li>
+</ul>
+<p>详细步骤：</p>
+<ul>
+<li>使用 virtualbox 新建一个新的 adapter，选用 bridge adapter。如下图：</li>
+</ul>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-29-git%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/DeepinScrot-2011.png" alt=""></p>
+<ul>
+<li>重启虚拟机系统，或者重启网络服务 <code>sudo /etc/init.d/networking restart</code> ，ifconfig -a 查看所有网卡，可以看到虚拟机中有一个网卡 enp0s8 并没有被使用，这个就是刚刚新建的那个桥接网卡。</li>
+<li>设置该网卡，修改/etc/network/interfaces文件，如下图：</li>
+</ul>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-29-git%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/DeepinScrot-4326.png" alt=""></p>
+<ul>
+<li><p>重启网络服务 <code>sudo /etc/init.d/networking restart</code>，ifconfig 查看网卡。如下图：<br>-<br><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-29-git%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/DeepinScrot-4534.png" alt=""></p>
+</li>
+<li><p>接着基本就可以尝试 ping 通两个系统了，实体机中使用 ping 192.168.18.202，虚拟机中 ping 192.168.18.60 。如果仍然不行可以尝试关闭防火墙：<code>sudo ufw disable</code>。</p>
+</li>
+</ul>
+<a id="more"></a>
+<h4 id="尝试ssh服务："><a href="#尝试ssh服务：" class="headerlink" title="尝试ssh服务："></a>尝试ssh服务：</h4><p><em>本步骤主要是建立链接，安装 ssh 服务，然后连接实体机可以登陆 ubuntu-server。因为这边 git 采用了 ssh 与服务器进行交互，所以 ssh 在这边是必须的。</em></p>
+<ul>
+<li>实体机和虚拟机，两个操作系统必须要同时安装 ssh 服务，如果只有实体机安装会出现链接失败。安装指令都是： <code>sudo apt-get install ssh或sudo apt-get install openssh-server</code>，<code>sudo /etc/init.d/ssh restart</code> 重启 ssh 服务。</li>
+<li>查看ssh服务是否启动, <code>ps –e | grep ssh</code>，响应的 sshd 和 ssh-agent 如果未打开则运行指令名字。</li>
+<li>修改实体机的 ip 配置文件 <code>/ect/hosts</code>，加入如下行： <code>192.168.18.202 ubuntu_server</code>，ubuntu_server 是你的虚拟机的主机名称，而 ubuntu_server 以后将代替 192.168.18.202 出现。如果你的虚拟机名不是 ubuntu_server ,可以修改 /etc/hostname 中的名称。</li>
+<li>通过以上设置后，你的主机基本可以通过 ssh 访问虚拟机了，你可以在虚拟机新建一个用户 adduser git，然后实体机可以使用如下命令 <code>ssh git@ubuntu_server 或者 ssh git@192.168.18.202</code> 进行登陆，输入密码就可以进行相关操作了。</li>
+</ul>
+<p>补充：<em>如果 ssh 还不能登录上，就修改 sshd 的默认配置，例如： ssh 出现 permission denied (publickey) 问题:</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">修改 /etc/ssh/sshd-config 文件.</div><div class="line">将其中的 PermitRootLogin no 修改为 yes</div><div class="line">PubkeyAuthentication yes 修改为 no</div><div class="line">AuthorizedKeysFile .ssh/authorized_keys 前面加上#屏蔽掉，</div><div class="line">PasswordAuthentication no 修改为 yes 就可以了。*</div></pre></td></tr></table></figure>
+<h3 id="git虚拟服务器搭建："><a href="#git虚拟服务器搭建：" class="headerlink" title="git虚拟服务器搭建："></a>git虚拟服务器搭建：</h3><p><em>安装 git，可以使用命令 <code>sudo apt-get install git-core</code> 或者 `sudo apt-get install git</em>` 。</p>
+<ul>
+<li>在实体机上，我们使用命令： ssh-keygen –t rsa 生成密钥。秘钥在当前用户目录的 .ssh 目录下。</li>
+<li>在虚拟机的 git 目录下新建一个 .ssh 目录</li>
+<li>在 .ssh 目录下，我们可以看到 id_rsa 和 id_rsa.pub 文件，id_rsa.pub 为公钥，我们 通过命令 <code>scp /home/git/.ssh/id_rsa.pub git@ubuntu_server:/home/git/.ssh/authorized_keys</code>将实体机上生成的公钥拷贝到虚拟机的git账户目录下上。如果是要添加公钥可以使用使用命令 <code>cat /home/git/id_rsa.pub&gt;&gt;/home/git/.ssh/authorized_keys</code></li>
+<li>使用命令 <code>git –-bare init /home/git/myRep.git</code> ,初始化化仓库。<strong>注意一定需要建立一个 –bare 的裸库。</strong></li>
+</ul>
+<h4 id="git操作"><a href="#git操作" class="headerlink" title="git操作"></a>git操作</h4><p><em>我们可以使用 <code>git clone git@gitServer:/home/git/myRep.git</code> 直接将库克隆下来，但一般推荐，在将本地库与远程库建立链接具体步骤如下：</em></p>
+<ul>
+<li>在实体机中新建一个文件夹， <code>mkdir test</code> ，进入该文件夹 <code>cd test</code></li>
+<li>初始化这个库， <code>git init</code>。</li>
+<li>随意添加几个文件，例如： <code>echo &quot;hello world&quot; &gt;&gt; test.txt</code></li>
+<li>常规git操作，加入stage并提交， <code>git add .  &amp;&amp;  git commit -m &quot;test&quot;</code></li>
+<li>查看下本地库的状态： git status</li>
+<li>一切正常的话，将远程库与本地库建立关系： <code>git remote add test git@ubuntu_server:/home/git/myRep.git</code>。这边的 test 为远程库的名称，默认一般为 origin，但如果你一个项目中同时有多个库，则建议你修改 origin 名称。</li>
+<li><code>git remote –v</code>，可查看版本库的网址，以及相关的库名称</li>
+</ul>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-29-git%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/DeepinScrot-1126.png" alt=""></p>
+<ul>
+<li>可以通过 <code>git push test master</code> 进行推送，注意这边远程库名为test而并不是默认的origin。也可以通过<code>git pull test master</code>对虚拟机中的远程库进行拉取。<em>注意因为不是默认名称，所以直接使用 git  push 或者 pull 会报错。</em></li>
+</ul>
+<p><strong>注意严格按照上面步骤执行，git 操作，一步错，可能就需要你删除 .git 以及 git remote remove test 等相关系列的操作，或者可以删除整个目录重新开始。值得注意的是， git 建立出来的每个库是相互独立的，除非全局设置，否则在添加远程库或者修改其他设置时，都不会对其他库有任何影响。</strong></p>
+<p><strong>建立好库，并且也 push 等操作都成功了，但查看虚拟机中远程库的源文件却发现招不到任何一个文件，事实上， git 远程裸库仅仅保存修改记录和分支，并不是用来查看的，只有当你 clone 或者 pull 之后才可以查看某条分支的完整结构。</strong></p>
+<blockquote>
+<p>参考链接：<br><a href="http://developer.51cto.com/art/201507/483448.htm" target="_blank" rel="external">http://developer.51cto.com/art/201507/483448.htm</a><br><a href="http://blog.sina.com.cn/s/blog_6ab9984801011k81.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_6ab9984801011k81.html</a><br><a href="http://stackoverflow.com/questions/20252294/ssh-could-not-resolve-hostname-hostname-nodename-nor-servname-provided-or-n" target="_blank" rel="external">http://stackoverflow.com/questions/20252294/ssh-could-not-resolve-hostname-hostname-nodename-nor-servname-provided-or-n</a><br><a href="http://www.cnblogs.com/xdzone/archive/2011/03/09/1978327.html" target="_blank" rel="external">http://www.cnblogs.com/xdzone/archive/2011/03/09/1978327.html</a><br><a href="http://blog.csdn.net/zht666/article/details/9340633" target="_blank" rel="external">http://blog.csdn.net/zht666/article/details/9340633</a><br><a href="http://blog.sina.com.cn/s/blog_5f435c130102v6pv.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_5f435c130102v6pv.html</a><br><a href="http://bbs.csdn.net/topics/390158779" target="_blank" rel="external">http://bbs.csdn.net/topics/390158779</a><br><a href="http://blog.163.com/danshiming@126/blog/static/109412748201251211140194/" target="_blank" rel="external">http://blog.163.com/danshiming@126/blog/static/109412748201251211140194/</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/07/29/2016/2016-07-29-架设自己的git服务/" data-id="ciyuv3ahy0023mtmuo0jvpvoy" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/03/2016/2016-08-03-gpio口详解/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          GPIO口详解
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/07/27/2016/2016-07-27-多个发行版linux使用体验/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">多个发行版linux使用体验</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/read/">read</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/“问题总结”/">“问题总结”</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂记/">杂记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件安装/">软件安装</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux基础/">linux基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂记/">杂记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件安装/">软件安装</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/问题总结/">问题总结</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/linux基础/" style="font-size: 10px;">linux基础</a> <a href="/tags/杂记/" style="font-size: 10px;">杂记</a> <a href="/tags/软件安装/" style="font-size: 15px;">软件安装</a> <a href="/tags/问题总结/" style="font-size: 20px;">问题总结</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/02/07/FAQ/EFM32芯片单步执行跳转错误/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/25/2017/2017-01-25-ss-linux全局代理/">linux-shadowsocks全局代理</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/05/2017/2017-01-05-（转）中文技术文档的写作规范/">（转）中文技术文档的写作规范</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/01/2017/2017-01-01-别了，2016；你好，2017/">别了，2016；你好，2017</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/28/2016/2016-12-28-mcu中的hardfault-handler问题/">MCU中的HardFault_Handler问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

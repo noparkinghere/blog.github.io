@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>linux-shadowsocks全局代理 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="windows 直接下载 ss 终端，稍加设置即可完成全局代理，linux 用户如果需要让某个软件可以使用 ss 一般都需要连接端口才行。例如本地 ss 配置为：12&amp;quot;server_port&amp;quot;:1800,&amp;quot;local_port&amp;quot;:1080,
+原理简述这边就相当于将本地的 127.0.0.1:1080 和 server_ip:1800 建立了连接关系。因此软件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux-shadowsocks全局代理">
+<meta property="og:url" content="http://yoursite.com/2017/01/25/2017/2017-01-25-ss-linux全局代理/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="windows 直接下载 ss 终端，稍加设置即可完成全局代理，linux 用户如果需要让某个软件可以使用 ss 一般都需要连接端口才行。例如本地 ss 配置为：12&amp;quot;server_port&amp;quot;:1800,&amp;quot;local_port&amp;quot;:1080,
+原理简述这边就相当于将本地的 127.0.0.1:1080 和 server_ip:1800 建立了连接关系。因此软件">
+<meta property="og:updated_time" content="2017-01-25T03:06:43.366Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux-shadowsocks全局代理">
+<meta name="twitter:description" content="windows 直接下载 ss 终端，稍加设置即可完成全局代理，linux 用户如果需要让某个软件可以使用 ss 一般都需要连接端口才行。例如本地 ss 配置为：12&amp;quot;server_port&amp;quot;:1800,&amp;quot;local_port&amp;quot;:1080,
+原理简述这边就相当于将本地的 127.0.0.1:1080 和 server_ip:1800 建立了连接关系。因此软件">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2017/2017-01-25-ss-linux全局代理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/25/2017/2017-01-25-ss-linux全局代理/" class="article-date">
+  <time datetime="2017-01-25T00:38:00.000Z" itemprop="datePublished">2017-01-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      linux-shadowsocks全局代理
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>windows 直接下载 ss 终端，稍加设置即可完成全局代理，linux 用户如果需要让某个软件可以使用 ss 一般都需要连接端口才行。例如本地 ss 配置为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&quot;server_port&quot;:1800,</div><div class="line">&quot;local_port&quot;:1080,</div></pre></td></tr></table></figure></p>
+<h3 id="原理简述"><a href="#原理简述" class="headerlink" title="原理简述"></a>原理简述</h3><p>这边就相当于将本地的 127.0.0.1:1080 和 server_ip:1800 建立了连接关系。因此软件如果需要使用 vps 上面搭建的 ss 服务的话，则需要让该软件使用的协议连接到 127.0.0.1:1080 上。之前在 vps-shadowsocks 中介绍的 chrome 插件 SwitchyOmega 就是使用 SOCKS5 协议连接到 127.0.0.1:1080 上，让所有数据通过 SOCKS5 协议，然后从 127.0.0.1:1080 进行收发。</p>
+<p>可以看出如果我们需要让其他软件也能够使用 ss 则需要让他们也能够使用 127.0.0.1:1080 代理服务器，然而不幸的是，大多数软件并不支持代理服务的功能， windows 平台下的软件很多可以通过设置 IE 代理让其他软件使用代理服务（原理是：大多数软件都会优先读取 IE 的代理设置，再访问网络）。</p>
+<a id="more"></a>
+<h3 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h3><p>linux 下有个软件： proxychains 解决了我们的所有问题，该软件可以通过 <code>sudo apt-get install proxychains</code> 下载安装，一般为 3.1 版本。当然也可以去下载安装<a href="https://github.com/rofl0r/proxychains-ng" target="_blank" rel="external">源码</a>，源码安装版本较新，需要自行编译安装，一般为 4.x 版本。</p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>man proxychains 我们可以看到 proxychains 读取的配置文件地址，这边我们自定义 ~/.proxychains/proxychains.conf 文件，写入如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line">ins.conf  VER 3.1</div><div class="line">#</div><div class="line">#        HTTP, SOCKS4, SOCKS5 tunneling proxifier with DNS.</div><div class="line">#   </div><div class="line"></div><div class="line"># The option below identifies how the ProxyList is treated.</div><div class="line"># only one option should be uncommented at time,</div><div class="line"># otherwise the last appearing option will be accepted</div><div class="line">#</div><div class="line">#dynamic_chain</div><div class="line">#</div><div class="line"># Dynamic - Each connection will be done via chained proxies</div><div class="line"># all proxies chained in the order as they appear in the list</div><div class="line"># at least one proxy must be online to play in chain</div><div class="line"># (dead proxies are skipped)</div><div class="line"># otherwise EINTR is returned to the app</div><div class="line">#</div><div class="line">strict_chain</div><div class="line">#</div><div class="line"># Strict - Each connection will be done via chained proxies</div><div class="line"># all proxies chained in the order as they appear in the list</div><div class="line"># all proxies must be online to play in chain</div><div class="line"># otherwise EINTR is returned to the app</div><div class="line">#</div><div class="line">#random_chain</div><div class="line">#</div><div class="line"># Random - Each connection will be done via random proxy</div><div class="line"># (or proxy chain, see  chain_len) from the list.</div><div class="line"># this option is good to test your IDS :)</div><div class="line"></div><div class="line"># Make sense only if random_chain</div><div class="line">#chain_len = 2</div><div class="line"></div><div class="line"># Quiet mode (no output from library)</div><div class="line">#quiet_mode</div><div class="line"></div><div class="line"># Proxy DNS requests - no leak for DNS data</div><div class="line">proxy_dns </div><div class="line"></div><div class="line"># Some timeouts in milliseconds</div><div class="line">tcp_read_time_out 15000</div><div class="line">tcp_connect_time_out 8000</div><div class="line"></div><div class="line"># ProxyList format</div><div class="line">#       type  host  port [user pass]</div><div class="line">#       (values separated by &apos;tab&apos; or &apos;blank&apos;)</div><div class="line">#</div><div class="line">#</div><div class="line">#        Examples:</div><div class="line">#</div><div class="line">#               socks5192.168.67.781080lamersecret</div><div class="line">#       http192.168.89.38080justuhidden</div><div class="line">#       socks4192.168.1.491080</div><div class="line">#           http192.168.39.938080</div><div class="line">#       </div><div class="line">#</div><div class="line">#       proxy types: http, socks4, socks5</div><div class="line">#        ( auth types supported: &quot;basic&quot;-http  &quot;user/pass&quot;-socks  )</div><div class="line">#</div><div class="line">[ProxyList]</div><div class="line"># add proxy here ...</div><div class="line"># meanwile</div><div class="line"># defaults set to &quot;tor&quot;</div><div class="line">socks5 127.0.0.1 1080</div></pre></td></tr></table></figure>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ul>
+<li>输入 <code>proxychains curl www.google.com</code> 命令，我们可以看到提示内容，如果一直等待或者无法访问则代表设置失败。这是一种方法通过 proxychains + 命令。</li>
+</ul>
+<p><strong>这边值得注意的是使用 <code>proxychains curl www.google.com</code> 命令，博主一开始使用的是  <code>proxychains ping www.google.com</code> 一直无法 ping 通，也一致认为自己配置的有问题，后来才发现： ping 命令本身不调用 http ，socks5 等协议，ping也属于一个通信协议，是 TCP/IP 协议的一部分。而诸如：  http ，socks5，ssh 等都是基于 TCP/IP 或者 UPD 之上的协议，所以验证的时候一定要当心注意了使用其他调用 socks5 协议的软件才可以验证。</strong></p>
+<ul>
+<li>输入 <code>proxychains bash</code> 我们可以建立一个新的 shell 基于这个 shell 运行的所有命令和软件都会通过 <code>127.0.0.1:1080</code> 转发数据。</li>
+</ul>
+<p><strong>通过 proxychains 打开的软件，在使用时都会有详细的网络连接信息。</strong></p>
+<p>补充一个问题：如果使用时出现 <code>ERROR: ld.so: object &#39;libproxychains.so.3&#39; from LD_PRELOAD cannot be preloaded: ignored.</code> 原因是无法找到 libproxychains.so.3 文件，可以通过 <code>find /usr/lib/ -name libproxychains.so.3</code> 找到具体路径，然后 <code>export LD_PRELOAD=你找到的路径</code> 。</p>
+<h3 id="全局代理"><a href="#全局代理" class="headerlink" title="全局代理"></a>全局代理</h3><p>基于 <code>proxychains bash</code> 开启的所有软件都可以通过 ss 来访问外网，而这个 terminal 可以相当于是全局代理的，当然如果你需要设置整个系统都全局代理的话，应该也是可以修改 linux 下面的源码的，让密码认证通过后，启用的 login-bash 采用 proxychains 方式启用。这边未做详细研究，理论上可能可行。</p>
+<hr>
+<p><em>个人对网络研究很欠缺，如有错误还望指正。</em></p>
+<blockquote>
+<p>参考链接：<br><a href="http://www.tuicool.com/articles/rUNFF3" target="_blank" rel="external">http://www.tuicool.com/articles/rUNFF3</a><br><a href="http://askubuntu.com/questions/293649/proxychains-ld-preload-cannot-be-preloaded" target="_blank" rel="external">http://askubuntu.com/questions/293649/proxychains-ld-preload-cannot-be-preloaded</a><br><a href="http://blog.csdn.net/yusiguyuan/article/details/24269129" target="_blank" rel="external">http://blog.csdn.net/yusiguyuan/article/details/24269129</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/01/25/2017/2017-01-25-ss-linux全局代理/" data-id="ciyuv3aga0007mtmuhtddmd4v" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/02/07/FAQ/EFM32芯片单步执行跳转错误/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/01/05/2017/2017-01-05-（转）中文技术文档的写作规范/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">（转）中文技术文档的写作规范</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/read/">read</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/“问题总结”/">“问题总结”</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂记/">杂记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件安装/">软件安装</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux基础/">linux基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂记/">杂记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件安装/">软件安装</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/问题总结/">问题总结</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/linux基础/" style="font-size: 10px;">linux基础</a> <a href="/tags/杂记/" style="font-size: 10px;">杂记</a> <a href="/tags/软件安装/" style="font-size: 15px;">软件安装</a> <a href="/tags/问题总结/" style="font-size: 20px;">问题总结</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/02/07/FAQ/EFM32芯片单步执行跳转错误/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/25/2017/2017-01-25-ss-linux全局代理/">linux-shadowsocks全局代理</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/05/2017/2017-01-05-（转）中文技术文档的写作规范/">（转）中文技术文档的写作规范</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/01/2017/2017-01-01-别了，2016；你好，2017/">别了，2016；你好，2017</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/28/2016/2016-12-28-mcu中的hardfault-handler问题/">MCU中的HardFault_Handler问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

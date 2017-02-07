@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>jlink相关问题汇总 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="jlink简介MDK如何让jlink不跳出升级有三种方法(注意盗版的 jlink 谨慎升级),推荐方法3。
+
+升级 Keil 自带的 J-link 程序,新版本 jlink 的一般盗版的 v8 都没法直接升级。
+使用之前版本 keil 自带的 J-link 驱动替换掉现在的,也就是将 ..\Keil\ARM\Segger 文件夹替换为老版本的,这样里面的 J-Link 驱动也是老版本的,就不会提示">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jlink相关问题汇总">
+<meta property="og:url" content="http://yoursite.com/2016/07/12/2016/2016-07-12-jlink相关问题汇总/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="jlink简介MDK如何让jlink不跳出升级有三种方法(注意盗版的 jlink 谨慎升级),推荐方法3。
+
+升级 Keil 自带的 J-link 程序,新版本 jlink 的一般盗版的 v8 都没法直接升级。
+使用之前版本 keil 自带的 J-link 驱动替换掉现在的,也就是将 ..\Keil\ARM\Segger 文件夹替换为老版本的,这样里面的 J-Link 驱动也是老版本的,就不会提示">
+<meta property="og:updated_time" content="2017-01-12T03:29:59.959Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jlink相关问题汇总">
+<meta name="twitter:description" content="jlink简介MDK如何让jlink不跳出升级有三种方法(注意盗版的 jlink 谨慎升级),推荐方法3。
+
+升级 Keil 自带的 J-link 程序,新版本 jlink 的一般盗版的 v8 都没法直接升级。
+使用之前版本 keil 自带的 J-link 驱动替换掉现在的,也就是将 ..\Keil\ARM\Segger 文件夹替换为老版本的,这样里面的 J-Link 驱动也是老版本的,就不会提示">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2016/2016-07-12-jlink相关问题汇总" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/12/2016/2016-07-12-jlink相关问题汇总/" class="article-date">
+  <time datetime="2016-07-12T08:09:00.000Z" itemprop="datePublished">2016-07-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/read/">read</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      jlink相关问题汇总
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="jlink简介"><a href="#jlink简介" class="headerlink" title="jlink简介"></a>jlink简介</h3><h3 id="MDK如何让jlink不跳出升级"><a href="#MDK如何让jlink不跳出升级" class="headerlink" title="MDK如何让jlink不跳出升级"></a>MDK如何让jlink不跳出升级</h3><p>有三种方法(注意盗版的 jlink 谨慎升级),推荐方法3。</p>
+<ol>
+<li>升级 Keil 自带的 J-link 程序,新版本 jlink 的一般盗版的 v8 都没法直接升级。</li>
+<li>使用之前版本 keil 自带的 J-link 驱动替换掉现在的,也就是将 ..\Keil\ARM\Segger 文件夹替换为老版本的,这样里面的 J-Link 驱动也是老版本的,就不会提示 J-Link 更新了,这种需要有之前的 keil 才可以,如果是直接安装新版的 keil 5 默认自带为 4.8 的版本。</li>
+<li>卸载 segger，下载了比较新的驱动重新安装，并将 segger/jlinkarm_v440 目录下的 jlinkarm。dll 拷贝到 keil/arm/segger 的目录下。再次使用 MDK，提示升级，确定升级，但这次升级后，jlink 确实可以识别。这个版本需要注意的是 jlink 的版本必须在 4.4 以后(如 4.1x 的复制 jlinkarm.dll 软件会出错),另外复制前做好 jlinkarm.dll 的备份。</li>
+</ol>
+<a id="more"></a>
+<h3 id="JLINK刷固件步骤"><a href="#JLINK刷固件步骤" class="headerlink" title="JLINK刷固件步骤"></a>JLINK刷固件步骤</h3><p><em>如果通过上面的方法,结果盗版jlink变板砖了,可以使用下面方法重新烧录固件。</em></p>
+<h4 id="清除原有固件-烧录新固件"><a href="#清除原有固件-烧录新固件" class="headerlink" title="清除原有固件,烧录新固件"></a>清除原有固件,烧录新固件</h4><ul>
+<li>下载安装提供的相关软件: jlink, Install AT91-ISP v1.13, 以及固件。</li>
+<li>按照说明文档一步步操作,烧录固件,<strong>步骤先后顺序一定要完全一致,如果失败则重复多次</strong>。<a href="https://github.com/noparkinghere/blog.github.io/raw/gh-pages/_post/2016/2016-07-13-jlink%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/JLinkV8%E5%9B%BA%E4%BB%B6%E7%83%A7%E5%BD%95%E6%8C%87%E5%AF%BC.pdf" title="JLinkV8固件烧录指导" target="_blank" rel="external">JLinkV8固件烧录指导</a></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#### 升级方法:</div><div class="line">- 使用XP的环境, win7 大多都不行。</div><div class="line">- 打开 jLink command 软件,注意不要升级固件。</div><div class="line">- 在命令行下输入: Exec SetSN=XXXXXXXX  回车。**注：XXXXXXXX 为你自己想要的 SN,SN 必须是8个数字。**</div><div class="line">- 关闭 jLink command 软件再从新打开。即可生效。</div><div class="line">*注意:只能设置一次 SN,设置前请想好你的SN。*</div><div class="line"></div><div class="line">然后就可以正常升级了。</div></pre></td></tr></table></figure>
+<h3 id="出现问题"><a href="#出现问题" class="headerlink" title="出现问题"></a>出现问题</h3><h4 id="MDK-用-JTAG-仿真器下载代码时，提示-cannot-load-flash-device-description！"><a href="#MDK-用-JTAG-仿真器下载代码时，提示-cannot-load-flash-device-description！" class="headerlink" title="MDK 用 JTAG 仿真器下载代码时，提示 cannot load flash device description！"></a>MDK 用 JTAG 仿真器下载代码时，提示 cannot load flash device description！</h4><ul>
+<li>如果 jlink 链接没有问题,且能够找到芯片的话,一般为 flash programming algorithm 丢失。<br><a href="http://www.openedv.com/posts/list/50048.htm" target="_blank" rel="external">参考网址 </a></li>
+</ul>
+<blockquote>
+<p>参考链接:<br><a href="http://zhidao.baidu.com/link?url=jM6YRhn1aPQe7uPfdmIDP9-_k4Hl8XTWvAnBMJV0TE176gUBb5kGXK_XksirP6xdXkUkMofUD5YIhrNbYTxiBBQpSKZ_4QJWjj64vJT7xXu" target="_blank" rel="external">http://zhidao.baidu.com/link?url=jM6YRhn1aPQe7uPfdmIDP9-_k4Hl8XTWvAnBMJV0TE176gUBb5kGXK_XksirP6xdXkUkMofUD5YIhrNbYTxiBBQpSKZ_4QJWjj64vJT7xXu</a><br><a href="http://www.openedv.com/posts/list/50048.htm" target="_blank" rel="external">http://www.openedv.com/posts/list/50048.htm</a></p>
+</blockquote>
+<hr>
+<p>TO be continued…</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/07/12/2016/2016-07-12-jlink相关问题汇总/" data-id="ciyuv3aha001emtmutu04mubt" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/问题总结/">问题总结</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/07/14/2016/2016-07-14-Caps_Lock与右Ctrl互换/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Caps_Lock与右Ctrl互换
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/07/12/2016/2016-07-12-linux下vpn配置/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">linux下vpn配置</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/read/">read</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/“问题总结”/">“问题总结”</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂记/">杂记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件安装/">软件安装</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux基础/">linux基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂记/">杂记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件安装/">软件安装</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/问题总结/">问题总结</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/linux基础/" style="font-size: 10px;">linux基础</a> <a href="/tags/杂记/" style="font-size: 10px;">杂记</a> <a href="/tags/软件安装/" style="font-size: 15px;">软件安装</a> <a href="/tags/问题总结/" style="font-size: 20px;">问题总结</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/02/07/FAQ/EFM32芯片单步执行跳转错误/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/25/2017/2017-01-25-ss-linux全局代理/">linux-shadowsocks全局代理</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/05/2017/2017-01-05-（转）中文技术文档的写作规范/">（转）中文技术文档的写作规范</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/01/2017/2017-01-01-别了，2016；你好，2017/">别了，2016；你好，2017</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/28/2016/2016-12-28-mcu中的hardfault-handler问题/">MCU中的HardFault_Handler问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

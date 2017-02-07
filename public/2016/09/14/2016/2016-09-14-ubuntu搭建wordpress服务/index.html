@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ubuntu搭建wordpress服务 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="wordpress 是目前比较流行的博客模板，精美的外观强可定制性收到了国内外很多bloger的亲睐，之前在虚拟机的ubuntu_server上面搭建过这个环境，个人所使用的blog是基于jekyll的静态页面，所以对wordpress不是特别了解，这边以腾讯云的ubuntu服务器为基础搭建自己的wordpress服务，当然现在很多云服务已经支持一键搭建wordpress的功能，但据说“访问速度和">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu搭建wordpress服务">
+<meta property="og:url" content="http://yoursite.com/2016/09/14/2016/2016-09-14-ubuntu搭建wordpress服务/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="wordpress 是目前比较流行的博客模板，精美的外观强可定制性收到了国内外很多bloger的亲睐，之前在虚拟机的ubuntu_server上面搭建过这个环境，个人所使用的blog是基于jekyll的静态页面，所以对wordpress不是特别了解，这边以腾讯云的ubuntu服务器为基础搭建自己的wordpress服务，当然现在很多云服务已经支持一键搭建wordpress的功能，但据说“访问速度和">
+<meta property="og:updated_time" content="2016-12-16T01:48:01.586Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ubuntu搭建wordpress服务">
+<meta name="twitter:description" content="wordpress 是目前比较流行的博客模板，精美的外观强可定制性收到了国内外很多bloger的亲睐，之前在虚拟机的ubuntu_server上面搭建过这个环境，个人所使用的blog是基于jekyll的静态页面，所以对wordpress不是特别了解，这边以腾讯云的ubuntu服务器为基础搭建自己的wordpress服务，当然现在很多云服务已经支持一键搭建wordpress的功能，但据说“访问速度和">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2016/2016-09-14-ubuntu搭建wordpress服务" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/14/2016/2016-09-14-ubuntu搭建wordpress服务/" class="article-date">
+  <time datetime="2016-09-14T01:02:00.000Z" itemprop="datePublished">2016-09-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ubuntu搭建wordpress服务
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em><a href="https://cn.wordpress.org/" target="_blank" rel="external">wordpress</a> 是目前比较流行的博客模板，精美的外观强可定制性收到了国内外很多bloger的亲睐，之前在虚拟机的ubuntu_server上面搭建过这个环境，个人所使用的blog是基于jekyll的静态页面，所以对wordpress不是特别了解，这边以腾讯云的ubuntu服务器为基础搭建自己的wordpress服务，当然现在很多云服务已经支持一键搭建wordpress的功能，但据说“访问速度和灵活性会受到很大影响”，这边有兴趣的朋友可以自己去尝试一下。</em></p>
+<h3 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h3><ul>
+<li>需要搭建一个服务器，首先需要选定自己使用哪些服务套件，这边我选用LAMP套装，即linux(ubuntu), apache2.0, mysql, php(wordpress)。</li>
+</ul>
+<a id="more"></a>
+<h3 id="详细安装步骤"><a href="#详细安装步骤" class="headerlink" title="详细安装步骤"></a>详细安装步骤</h3><h4 id="1-检查电脑是否安装了这些服务。"><a href="#1-检查电脑是否安装了这些服务。" class="headerlink" title="1.检查电脑是否安装了这些服务。"></a>1.检查电脑是否安装了这些服务。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dpkg -l | grep apache</div><div class="line">dpkg -l | grep php</div><div class="line">dpkg -l | grep mysql</div></pre></td></tr></table></figure>
+<h4 id="2-根据提示信息，如果没有安装则补安装。"><a href="#2-根据提示信息，如果没有安装则补安装。" class="headerlink" title="2.根据提示信息，如果没有安装则补安装。"></a>2.根据提示信息，如果没有安装则补安装。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install apache2 mysql-server php5 libapache2-mod-php5</div><div class="line">重启apache服务 `sudo /etc/init.d/apache2 restart`</div></pre></td></tr></table></figure>
+<h4 id="3-让apache、php支持mysql"><a href="#3-让apache、php支持mysql" class="headerlink" title="3.让apache、php支持mysql"></a>3.让apache、php支持mysql</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install libapache2-mod-auth-mysql php5-mysql</div><div class="line">重启apache服务 `sudo /etc/init.d/apache2 restart`</div></pre></td></tr></table></figure>
+<h4 id="4-安装phpMyAdmin"><a href="#4-安装phpMyAdmin" class="headerlink" title="4.安装phpMyAdmin"></a>4.安装phpMyAdmin</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install phpmyadmin</div><div class="line">此时的phpmyadmin文件夹被安装在/usr/share/phpmyadmin下，为了能在浏览器中访问到phpmyadmin，需要在/var/www下做一个软连接到该文件夹。</div><div class="line">进入/var/www文件夹，在该目录下执行如下操作:</div><div class="line">sudo ln -s /usr/share/phpmyadmin</div></pre></td></tr></table></figure>
+<h4 id="5-为Wordpress新建mysql数据库"><a href="#5-为Wordpress新建mysql数据库" class="headerlink" title="5.为Wordpress新建mysql数据库"></a>5.<a href="https://codex.wordpress.org/zh-cn:%E5%AE%89%E8%A3%85WordPress#.E7.AC.AC.E4.BA.8C.E6.AD.A5.EF.BC.9A.E5.88.9B.E5.BB.BAWordPress.E6.95.B0.E6.8D.AE.E5.BA.93.E5.92.8C.E4.B8.80.E4.B8.AA.E7.94.A8.E6.88.B7" target="_blank" rel="external">为Wordpress新建mysql数据库</a></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">$ mysql -u root -p	// 登陆管理数据库</div><div class="line">Enter password:</div><div class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</div><div class="line">Your MySQL connection id is 5340 to server version: 3.23.54</div><div class="line"> </div><div class="line">Type &apos;help;&apos; or &apos;\h&apos; for help. Type &apos;\c&apos; to clear the buffer.</div><div class="line"> </div><div class="line">mysql&gt; CREATE DATABASE blog;	// 创建数据库名称</div><div class="line">Query OK, 1 row affected (0.00 sec)</div><div class="line"> </div><div class="line">mysql&gt; GRANT ALL PRIVILEGES ON blog.* TO &quot;demon&quot;@&quot;hostname&quot; // 受理权限</div><div class="line">    -&gt; IDENTIFIED BY &quot;password&quot;;</div><div class="line">Query OK, 0 rows affected (0.00 sec)</div><div class="line">  </div><div class="line">mysql&gt; FLUSH PRIVILEGES;</div><div class="line">Query OK, 0 rows affected (0.01 sec)</div><div class="line"></div><div class="line">mysql&gt; EXIT</div><div class="line">Bye</div><div class="line">$</div></pre></td></tr></table></figure>
+<hr>
+<p>to be continued…</p>
+<blockquote>
+<p>参考链接：<br><a href="https://codex.wordpress.org/zh-cn:%E5%AE%89%E8%A3%85WordPress#.E6.AD.A5.E9.AA.A43:.E8.AE.BE.E7.BD.AEwp-config.php" target="_blank" rel="external">https://codex.wordpress.org/zh-cn:%E5%AE%89%E8%A3%85WordPress#.E6.AD.A5.E9.AA.A43:.E8.AE.BE.E7.BD.AEwp-config.php</a><br><a href="http://www.jianshu.com/p/7e6566b613a7" target="_blank" rel="external">http://www.jianshu.com/p/7e6566b613a7</a><br><a href="http://www.jianshu.com/p/26d9e752994e" target="_blank" rel="external">http://www.jianshu.com/p/26d9e752994e</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/09/14/2016/2016-09-14-ubuntu搭建wordpress服务/" data-id="ciyuv3aie002hmtmu7bkrzqm4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/09/20/2016/2016-09-20-windows-7个人使用环境配置/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          windows 7个人使用环境配置
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/09/12/2016/2016-09-12-解决重启网卡后ip-route-add丢失/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">解决重启网卡后ip route add丢失</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/read/">read</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/“问题总结”/">“问题总结”</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂记/">杂记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件安装/">软件安装</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux基础/">linux基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂记/">杂记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件安装/">软件安装</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/问题总结/">问题总结</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/linux基础/" style="font-size: 10px;">linux基础</a> <a href="/tags/杂记/" style="font-size: 10px;">杂记</a> <a href="/tags/软件安装/" style="font-size: 15px;">软件安装</a> <a href="/tags/问题总结/" style="font-size: 20px;">问题总结</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/02/07/FAQ/EFM32芯片单步执行跳转错误/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/25/2017/2017-01-25-ss-linux全局代理/">linux-shadowsocks全局代理</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/05/2017/2017-01-05-（转）中文技术文档的写作规范/">（转）中文技术文档的写作规范</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/01/2017/2017-01-01-别了，2016；你好，2017/">别了，2016；你好，2017</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/28/2016/2016-12-28-mcu中的hardfault-handler问题/">MCU中的HardFault_Handler问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

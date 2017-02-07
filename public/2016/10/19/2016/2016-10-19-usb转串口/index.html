@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>usb转串口 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="使用单片机，对硬件编程的时候，可以说串口是最常用的交互方式，毕竟要安装一个显示器，显示屏等设备需要额外的开销，大量增加代码量，且很多场景并非必备外设。这篇文章将会详细的介绍单片机中最常使用的串口通信功能，这边通过多篇文章以51单片机和stm32为例，对串口（以ttl电平，232，485等）进行详细的论述。
+在实验调试单片机时，串口相当重要以及常用，而现在电脑却一般仅有usb口（考虑到串口非专业人士">
+<meta property="og:type" content="article">
+<meta property="og:title" content="usb转串口">
+<meta property="og:url" content="http://yoursite.com/2016/10/19/2016/2016-10-19-usb转串口/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="使用单片机，对硬件编程的时候，可以说串口是最常用的交互方式，毕竟要安装一个显示器，显示屏等设备需要额外的开销，大量增加代码量，且很多场景并非必备外设。这篇文章将会详细的介绍单片机中最常使用的串口通信功能，这边通过多篇文章以51单片机和stm32为例，对串口（以ttl电平，232，485等）进行详细的论述。
+在实验调试单片机时，串口相当重要以及常用，而现在电脑却一般仅有usb口（考虑到串口非专业人士">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-10-19-usb%E8%BD%AC%E4%B8%B2%E5%8F%A3/1.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-10-19-usb%E8%BD%AC%E4%B8%B2%E5%8F%A3/2.jpg">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-10-19-usb%E8%BD%AC%E4%B8%B2%E5%8F%A3/3.png">
+<meta property="og:updated_time" content="2016-12-16T01:49:18.714Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="usb转串口">
+<meta name="twitter:description" content="使用单片机，对硬件编程的时候，可以说串口是最常用的交互方式，毕竟要安装一个显示器，显示屏等设备需要额外的开销，大量增加代码量，且很多场景并非必备外设。这篇文章将会详细的介绍单片机中最常使用的串口通信功能，这边通过多篇文章以51单片机和stm32为例，对串口（以ttl电平，232，485等）进行详细的论述。
+在实验调试单片机时，串口相当重要以及常用，而现在电脑却一般仅有usb口（考虑到串口非专业人士">
+<meta name="twitter:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-10-19-usb%E8%BD%AC%E4%B8%B2%E5%8F%A3/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2016/2016-10-19-usb转串口" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/10/19/2016/2016-10-19-usb转串口/" class="article-date">
+  <time datetime="2016-10-19T11:28:00.000Z" itemprop="datePublished">2016-10-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      usb转串口
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用单片机，对硬件编程的时候，可以说串口是最常用的交互方式，毕竟要安装一个显示器，显示屏等设备需要额外的开销，大量增加代码量，且很多场景并非必备外设。这篇文章将会详细的介绍单片机中最常使用的串口通信功能，这边通过<strong>多篇文章</strong>以51单片机和stm32为例，对串口（以ttl电平，232，485等）进行详细的论述。</p>
+<p>在实验调试单片机时，串口相当重要以及常用，而现在电脑却一般仅有usb口（考虑到串口非专业人士不再使用）。因此我们在使用单片机读取串口数据时，往往需要<strong>将相应的串口转换为usb口</strong>。由于串口这边根据串口的不同，主要介绍常见的几种转接方式。</p>
+<h3 id="串口ttl转usb"><a href="#串口ttl转usb" class="headerlink" title="串口ttl转usb"></a>串口ttl转usb</h3><p>常规调试过程中，我们可以将单片机ttl电平的串口信号TX和RX，通过转换芯片变成usb总线的信号。<strong>注意该过程既不是RS232也不是RS485，而是ttl的串口信号，该信号一般仅仅用来测试和下载，仅仅是方便使用而已。</strong></p>
+<p>通常我们用来讲ttl串口信号转换为usb信号的芯片可以分为三种：FT232,CH340,PL2303，价位由高到低。这边我仅仅使用过CH340,PL2303这两款芯片的模块，对比后缺失PL2303误码率较高（当然不排除厂家因素）。一般情况我们使用CH340较多，相对稳定且价格便宜。实现的原理如下，其他集中芯片也大体一致：</p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-10-19-usb%E8%BD%AC%E4%B8%B2%E5%8F%A3/1.png" alt=""></p>
+<p>建议大家使用CH340的模块，价格也很便宜，这边给出完整的电路原理图：</p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-10-19-usb%E8%BD%AC%E4%B8%B2%E5%8F%A3/2.jpg" alt=""></p>
+<a id="more"></a>
+<h3 id="RS232串口转usb"><a href="#RS232串口转usb" class="headerlink" title="RS232串口转usb"></a>RS232串口转usb</h3><p>实际上是先将RS232转换为ttl电平，然后在通过上述方式转为usb通讯。下面详细介绍下RS232如何转换为ttl电平。</p>
+<p>一般我们通过使用max232或者max3232将RS232电平（逻辑1(MARK)=-3V～-15V，逻辑0(SPACE)=+3～+15V）转换为ttl电平（5V系列（5V TTL和5V CMOS）、3.3V系列，2.5V系列和1.8V系列）。</p>
+<ul>
+<li>max232 供电电压5v，耗电5mA，外接4个1uF电容，传统5v供电单片机常用。</li>
+<li>max3232 供电电压5v或3.3V，耗电0.3mA，外接4个0.1uF电容其他特性都一样，价格略有差别。现在更为常用</li>
+</ul>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-10-19-usb%E8%BD%AC%E4%B8%B2%E5%8F%A3/3.png" alt=""></p>
+<p>也就是说如果RS232串口想要和单片机链接通讯中间必须要有max232或者max3232这样的转换芯片，而如果RS232串口想要通过usb链接电脑，则必须先通过max232或者max3232转换成ttl信号，然后在通过CH340转换为usb通讯。</p>
+<h3 id="RS485串口转usb"><a href="#RS485串口转usb" class="headerlink" title="RS485串口转usb"></a>RS485串口转usb</h3><p>RS485的转换就更为丰富了，包括以下几种：RS485&lt;-&gt;RS232，RS485&lt;-&gt;ttl，RS485&lt;-&gt;usb。网上基本也有各种转接头可以购买，这边仅做简要阐述。</p>
+<ul>
+<li>RS485&lt;-&gt;ttl：选用芯片MAX485(5V)或MAX3485(3.3V)类似上面提到的max232和max3232。</li>
+<li>RS485&lt;-&gt;RS232：一般核心采用MAX232+MAX485共同设计电路，但设计细节差异较大，可以参加文末给出的链接</li>
+<li>RS485&lt;-&gt;usb：分为两种方式：1.同RS232串口转usb类似，可以通过接MAX485转成ttl电平然后通过CH340转成usb通讯，2.将RS485转成RS232，然后再将RS232转成usb。</li>
+</ul>
+<hr>
+<blockquote>
+<p>参考链接：<br><a href="http://tieba.baidu.com/p/3263424064" target="_blank" rel="external">http://tieba.baidu.com/p/3263424064</a><br><a href="http://wenku.baidu.com/link?url=_l22igEh5jeC75_3TLzsRkLGv6s08EbKd2VFO_ZfDEUzjN45DeXM5wljNK8_B1Jn0ptTP9es6JNRw-iveGSyWK3WI2jQx8qj9QxkATRjFnO" target="_blank" rel="external">http://wenku.baidu.com/link?url=_l22igEh5jeC75_3TLzsRkLGv6s08EbKd2VFO_ZfDEUzjN45DeXM5wljNK8_B1Jn0ptTP9es6JNRw-iveGSyWK3WI2jQx8qj9QxkATRjFnO</a><br><a href="http://www.elecfans.com/article/88/131/189/2015/20150929385089.html" target="_blank" rel="external">http://www.elecfans.com/article/88/131/189/2015/20150929385089.html</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/10/19/2016/2016-10-19-usb转串口/" data-id="ciyuv3aiv002wmtmuxesi9f7m" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/10/20/2016/2016-10-20-iic通信详解/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          IIC通信详解
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/10/19/2016/2016-10-19-串口RS232通信详解/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">串口RS232通信详解</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/read/">read</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/“问题总结”/">“问题总结”</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂记/">杂记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件安装/">软件安装</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux基础/">linux基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂记/">杂记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件安装/">软件安装</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/问题总结/">问题总结</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/linux基础/" style="font-size: 10px;">linux基础</a> <a href="/tags/杂记/" style="font-size: 10px;">杂记</a> <a href="/tags/软件安装/" style="font-size: 15px;">软件安装</a> <a href="/tags/问题总结/" style="font-size: 20px;">问题总结</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/02/07/FAQ/EFM32芯片单步执行跳转错误/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/25/2017/2017-01-25-ss-linux全局代理/">linux-shadowsocks全局代理</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/05/2017/2017-01-05-（转）中文技术文档的写作规范/">（转）中文技术文档的写作规范</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/01/2017/2017-01-01-别了，2016；你好，2017/">别了，2016；你好，2017</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/28/2016/2016-12-28-mcu中的hardfault-handler问题/">MCU中的HardFault_Handler问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

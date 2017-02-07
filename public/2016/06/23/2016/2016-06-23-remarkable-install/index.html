@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ubuntu下安装remarkable | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="界面展示
+下载安装安装环境位ubuntu 16.04(64位)，markdown的网站无法正确的下载软件。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu下安装remarkable">
+<meta property="og:url" content="http://yoursite.com/2016/06/23/2016/2016-06-23-remarkable-install/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="界面展示
+下载安装安装环境位ubuntu 16.04(64位)，markdown的网站无法正确的下载软件。">
+<meta property="og:image" content="http://tc.ffsky.net/images/2016/07/01/358bcf75911e433aed0abba8ff61ee2b.png">
+<meta property="og:updated_time" content="2016-12-16T01:11:45.554Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ubuntu下安装remarkable">
+<meta name="twitter:description" content="界面展示
+下载安装安装环境位ubuntu 16.04(64位)，markdown的网站无法正确的下载软件。">
+<meta name="twitter:image" content="http://tc.ffsky.net/images/2016/07/01/358bcf75911e433aed0abba8ff61ee2b.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2016/2016-06-23-remarkable-install" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/23/2016/2016-06-23-remarkable-install/" class="article-date">
+  <time datetime="2016-06-23T04:12:00.000Z" itemprop="datePublished">2016-06-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/read/">read</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ubuntu下安装remarkable
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="界面展示"><a href="#界面展示" class="headerlink" title="界面展示"></a>界面展示</h3><p><img src="http://tc.ffsky.net/images/2016/07/01/358bcf75911e433aed0abba8ff61ee2b.png" alt="358bcf75911e433aed0abba8ff61ee2b.png"></p>
+<h3 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h3><p>安装环境位ubuntu 16.04(64位)，markdown的网站无法正确的下载软件。</p>
+<a id="more"></a>
+<blockquote>
+<p>附上其他下载地址：<a href="http://download.csdn.net/detail/ruanxingzhi/9402933" target="_blank" rel="external">http://download.csdn.net/detail/ruanxingzhi/9402933</a></p>
+</blockquote>
+<ol>
+<li><p>下载的deb文件</p>
+</li>
+<li><p>使用dpkg -i remarkable**.deb 命令安装</p>
+</li>
+<li><p>安装过程出现缺失错误，使用sudo apt-get install -f 修复依赖关系，最终软件能够正确安装</p>
+</li>
+<li><p>如果出现了步骤3的情况，则重新执行步骤2</p>
+</li>
+<li><p>新版ubuntu系统出现错误：</p>
+</li>
+</ol>
+<blockquote>
+<p><code>GLib.Error: gtk-builder-error-quark: /usr/share/remarkable/ui/RemarkableWindow.ui:835:58 Object with ID  not found (13)</code></p>
+</blockquote>
+<ul>
+<li>编辑 /usr/share/remarkable/ui/RemarkableWindow.ui将834~842之间的代码注释掉即可以解决问题：</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;!--</div><div class="line">                &lt;child&gt;</div><div class="line">                  &lt;object class=<span class="string">"GtkMenuItem"</span> id=<span class="string">"mnu_about"</span>&gt;</div><div class="line">                    &lt;property name=<span class="string">"related_action"</span>/&gt;</div><div class="line">                    &lt;property name=<span class="string">"visible"</span>&gt;True&lt;/property&gt;</div><div class="line">                    &lt;property name=<span class="string">"can_focus"</span>&gt;False&lt;/property&gt;</div><div class="line">                    &lt;property name=<span class="string">"label"</span> translatable=<span class="string">"yes"</span>&gt;About&lt;/property&gt;</div><div class="line">                    &lt;property name=<span class="string">"use_underline"</span>&gt;True&lt;/property&gt;</div><div class="line">                  &lt;/object&gt;</div><div class="line">                &lt;/child&gt;</div><div class="line">--&gt;</div></pre></td></tr></table></figure>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><ul>
+<li>安装软件显得较为简单，主要是出错之后的解决方法，因为软件较为小众，国内只能搜到两篇外文译稿，出错后也只能通过谷歌去一个个尝试解决办法。</li>
+<li>该软件虽然较为轻巧，启动速度快，基本功能有，但个人仍然选择了atom（github提供的一款软件）作为markdown的常用书写环境，另外linux下也推荐可以使用chrome下的马克飞象插件或者直接使用<code>https://maxiang.io/</code>在线编辑。当然如果是vim高手，这些软件都没有必要。</li>
+</ul>
+<hr>
+<blockquote>
+<h4 id="参考网址："><a href="#参考网址：" class="headerlink" title="参考网址："></a>参考网址：</h4><p><a href="https://github.com/remarkableapp/Remarkable-Linux/issues/14" target="_blank" rel="external">https://github.com/remarkableapp/Remarkable-Linux/issues/14</a><br><a href="https://linux.cn/article-3741-1.html#comment" target="_blank" rel="external">https://linux.cn/article-3741-1.html#comment</a>  </p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/06/23/2016/2016-06-23-remarkable-install/" data-id="ciyuv3agb0008mtmuxkir2306" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/软件安装/">软件安装</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/27/2016/2016-06-27-关于英国的独立日/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          关于英国的独立日
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/read/">read</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/“问题总结”/">“问题总结”</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂记/">杂记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件安装/">软件安装</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux基础/">linux基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂记/">杂记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件安装/">软件安装</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/问题总结/">问题总结</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/linux基础/" style="font-size: 10px;">linux基础</a> <a href="/tags/杂记/" style="font-size: 10px;">杂记</a> <a href="/tags/软件安装/" style="font-size: 15px;">软件安装</a> <a href="/tags/问题总结/" style="font-size: 20px;">问题总结</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/02/07/FAQ/EFM32芯片单步执行跳转错误/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/25/2017/2017-01-25-ss-linux全局代理/">linux-shadowsocks全局代理</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/05/2017/2017-01-05-（转）中文技术文档的写作规范/">（转）中文技术文档的写作规范</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/01/2017/2017-01-01-别了，2016；你好，2017/">别了，2016；你好，2017</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/28/2016/2016-12-28-mcu中的hardfault-handler问题/">MCU中的HardFault_Handler问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

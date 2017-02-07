@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ssh相关使用 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="使用ssh已经很多次，但每次用到都得查看相关说明，一些操作也不是特别熟悉，本文将总结自己使用的ssh服务说明。
+本地SSH配置
+首先我们需要检查你电脑上现有的ssh key：
+
+1$ cd ~/.ssh 检查本机的ssh密钥
+如果提示：No such file or directory 说明你是第一次使用git。
+
+生成新的SSH Key：
+
+1ssh-keygen -t rsa -C &amp;quot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ssh相关使用">
+<meta property="og:url" content="http://yoursite.com/2016/09/09/2016/2016-09-09-ssh相关使用/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="使用ssh已经很多次，但每次用到都得查看相关说明，一些操作也不是特别熟悉，本文将总结自己使用的ssh服务说明。
+本地SSH配置
+首先我们需要检查你电脑上现有的ssh key：
+
+1$ cd ~/.ssh 检查本机的ssh密钥
+如果提示：No such file or directory 说明你是第一次使用git。
+
+生成新的SSH Key：
+
+1ssh-keygen -t rsa -C &amp;quot">
+<meta property="og:updated_time" content="2016-12-16T01:47:32.918Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ssh相关使用">
+<meta name="twitter:description" content="使用ssh已经很多次，但每次用到都得查看相关说明，一些操作也不是特别熟悉，本文将总结自己使用的ssh服务说明。
+本地SSH配置
+首先我们需要检查你电脑上现有的ssh key：
+
+1$ cd ~/.ssh 检查本机的ssh密钥
+如果提示：No such file or directory 说明你是第一次使用git。
+
+生成新的SSH Key：
+
+1ssh-keygen -t rsa -C &amp;quot">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2016/2016-09-09-ssh相关使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/09/2016/2016-09-09-ssh相关使用/" class="article-date">
+  <time datetime="2016-09-09T09:41:00.000Z" itemprop="datePublished">2016-09-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ssh相关使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>使用ssh已经很多次，但每次用到都得查看相关说明，一些操作也不是特别熟悉，本文将总结自己使用的ssh服务说明。</em></p>
+<h3 id="本地SSH配置"><a href="#本地SSH配置" class="headerlink" title="本地SSH配置"></a>本地SSH配置</h3><ul>
+<li>首先我们需要检查你电脑上现有的ssh key：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cd ~/.ssh 检查本机的ssh密钥</div></pre></td></tr></table></figure>
+<p>如果提示：No such file or directory 说明你是第一次使用git。</p>
+<ul>
+<li>生成新的SSH Key：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C &quot;邮件地址@youremail.com&quot;</div></pre></td></tr></table></figure>
+<p><em>此处的邮箱地址，你可以输入自己的邮箱地址；注意2: 此处的「-C」的是大写的「C」</em></p>
+<ul>
+<li>然后系统会要你输入密码：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Enter passphrase (empty for no passphrase):&lt;输入加密串&gt;</div><div class="line">Enter same passphrase again:&lt;再次输入加密串&gt;</div></pre></td></tr></table></figure>
+<p><em>在回车中会提示你输入一个密码，这个密码会在你提交项目时使用，相当于二次的加密，如果为空的话提交项目时则不用输入。这个设置是防止别人往你的项目里提交内容。个人嫌麻烦一般不会再设定密码，本身ssh的访问就属于本地自动加密认真，就比较安全，除非你秘钥丢失，否则一般不会出问题，</em></p>
+<ul>
+<li><p>看到这样的界面，就成功设置了本地的ssh key了：</p>
+</li>
+<li><p>~/.ssh/id_rsa.pub 就是需要使用的公钥，将该公钥加入到其他系统上面或者支持ssh服务的软件上面即可实现访问。</p>
+</li>
+</ul>
+<a id="more"></a>
+<h3 id="将本地公钥上传到远程linux服务器"><a href="#将本地公钥上传到远程linux服务器" class="headerlink" title="将本地公钥上传到远程linux服务器"></a>将本地公钥上传到远程linux服务器</h3><blockquote>
+<p>不同的Linux之间copy文件常用有3种方法：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">第一种就是ftp，也就是其中一台Linux安装ftp Server，这样可以另外一台使用ftp的client程序来进行文件的copy。</div><div class="line"></div><div class="line">第二种方法就是采用samba服务，类似Windows文件copy 的方式来操作，比较简洁方便。</div><div class="line"></div><div class="line">第三种就是利用scp命令来进行文件复制。</div></pre></td></tr></table></figure>
+<p><strong>scp是有Security的文件copy，基于ssh登录。操作起来比较方便，比如要把当前一个文件copy到远程另外一台主机上，可以如下命令。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp /home/daisy/full.tar.gz root@172.19.2.75:/home/root</div></pre></td></tr></table></figure>
+<p>然后会提示你输入另外那台172.19.2.75主机的root用户的登录密码，接着就开始copy了。如果想反过来操作，把文件从远程主机copy到当前系统，也很简单。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp root@/full.tar.gz 172.19.2.75:/home/root/full.tar.gz home/daisy/full.tar.gz</div></pre></td></tr></table></figure>
+<ul>
+<li>我们将原始机的公钥拷贝到目标服务器的.ssh目录下，且命名为authorized_keys。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp /home/git/.ssh/id_rsa.pub git@ubuntu_server:/home/git/.ssh/authorized_keys</div></pre></td></tr></table></figure>
+<p><em>注意，ubuntu_server为ip对应的名称，这边可以改成ip地址，git为用户名。修改实体机(本地机而不是服务器)的ip配置文件<code>/ect/hosts</code>，加入如下行：<code>192.168.18.202 ubuntu_server</code>，ubuntu_server是你的虚拟机的主机名称，而ubuntu_server以后将代替192.168.18.202出现。如果你的虚拟机名不是ubuntu_server,可以修改/etc/hostname中的名称。</em></p>
+<p><strong>注意：ssh在使用时无法通过VPN，需要人为手动做一些修改，这边主要是通过将需要ssh访问的ip地址直接经过网卡而不经过vpn。详细内容参见<em>linux下ssh通过VPN推送失败</em>文章。</strong></p>
+<blockquote>
+<p><a href="http://cnfeat.com/blog/2014/05/10/how-to-build-a-blog/" target="_blank" rel="external">http://cnfeat.com/blog/2014/05/10/how-to-build-a-blog/</a><br><a href="http://www.cnblogs.com/hitwtx/archive/2011/11/16/2251254.html" target="_blank" rel="external">http://www.cnblogs.com/hitwtx/archive/2011/11/16/2251254.html</a><br><a href="http://blog.csdn.net/hunanchenxingyu/article/details/40544513" target="_blank" rel="external">http://blog.csdn.net/hunanchenxingyu/article/details/40544513</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/09/09/2016/2016-09-09-ssh相关使用/" data-id="ciyuv3ait002umtmu58fvql2a" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/09/12/2016/2016-09-12-网络监控工具wireshark/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          网络监控工具wireshark
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/09/09/2016/2016-09-09-国内云服务器体验/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">国内云服务器体验</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/read/">read</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/“问题总结”/">“问题总结”</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂记/">杂记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件安装/">软件安装</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux基础/">linux基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂记/">杂记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件安装/">软件安装</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/问题总结/">问题总结</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/linux基础/" style="font-size: 10px;">linux基础</a> <a href="/tags/杂记/" style="font-size: 10px;">杂记</a> <a href="/tags/软件安装/" style="font-size: 15px;">软件安装</a> <a href="/tags/问题总结/" style="font-size: 20px;">问题总结</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/02/07/FAQ/EFM32芯片单步执行跳转错误/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/25/2017/2017-01-25-ss-linux全局代理/">linux-shadowsocks全局代理</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/05/2017/2017-01-05-（转）中文技术文档的写作规范/">（转）中文技术文档的写作规范</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/01/2017/2017-01-01-别了，2016；你好，2017/">别了，2016；你好，2017</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/28/2016/2016-12-28-mcu中的hardfault-handler问题/">MCU中的HardFault_Handler问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

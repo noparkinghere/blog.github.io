@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="个人博客是使用 githubpage+jekyll 搭建的，且博客已经工作有半年了，但由于期初的模板没有找好，加上一些其他的问题，导致博客看起来比较凌乱，这边给出另外一个 GithubPage+Hexo 的博客搭建方法供大家参考，本文操作系统主要使用的是 ubuntu 16.04，使用其他 linux 发行版的用户，可以参考本文。附上最终效果图如下：
 安装步骤安装 node.jsNode.js 是">
-<meta property="og:updated_time" content="2017-01-25T06:03:43.639Z">
+<meta property="og:updated_time" content="2017-02-07T04:04:01.164Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GithubPage+Hexo搭建博客">
 <meta name="twitter:description" content="个人博客是使用 githubpage+jekyll 搭建的，且博客已经工作有半年了，但由于期初的模板没有找好，加上一些其他的问题，导致博客看起来比较凌乱，这边给出另外一个 GithubPage+Hexo 的博客搭建方法供大家参考，本文操作系统主要使用的是 ubuntu 16.04，使用其他 linux 发行版的用户，可以参考本文。附上最终效果图如下：
@@ -224,11 +224,20 @@
 <p>至此我们基本配置好了本地 hexo 服务，能够自己写点内容了。</p>
 <h4 id="部署到-github-page"><a href="#部署到-github-page" class="headerlink" title="部署到 github page"></a>部署到 github page</h4><p>访问 github，创建库 <code>git账户名.github.io</code> ， 这一这个名字是固定的，一般的库没法修改跳转地址，只能显示为 github page 。</p>
 <p>将远程库同步到本地，<code>git clone [你的仓库的 url]</code>，本地会多出一个 <code>git账户名.github.io</code> 的文件夹，然后把 public 文件目录下的博客文件都复制到你的本地仓库中，并将本地仓库 push 到 github 仓库上。这样当其他人访问你的博客链接的时候 github 将会自动将该仓库中的相应文件展示出来。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ cp -R public/* [你的仓库名]</div><div class="line">$ cd [你的仓库名]</div><div class="line">$ git add .</div><div class="line">$ git commit -m &apos;update blog&apos;</div><div class="line">$ git push</div></pre></td></tr></table></figure></p>
+<p>注意，实际上 github page 是可以自己按照 jekyll 的方式将源码生成 html 文件的，但是 对于 hexo 等其他源码，如果需要展示出来，则必须本地生成 html 代码，然后把生成的代码部署到服务器上面才行，这边我们可以使用如上面的方式（讲 public 目录下面生成的 html 文件直接复制到服务器的根目录下）， hexo 提供了更加人性化的方式，通过 hexo deploy 可以一键完成部署，每次部署的步骤，可按以下两步：</p>
+<ul>
+<li><p>修改 该配置文件：vim _config.yml，执行如下命令才能使用git部署<code>npm install hexo-deployer-git --save</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repository: https://github.com/leopardpan/leopardpan.github.io.git（也可以采用 ssh 的地址）</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
+</li>
+<li><p>执行以下命令无需手动将代码 push 上去</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line">hexo generate</div><div class="line">hexo deploy</div></pre></td></tr></table></figure>
+</li>
+</ul>
 <p>以上步骤虽然看起来貌似繁琐，但实际可以写成 bash 脚本，这样每次就会自动生成 public 自动复制以及上传了。</p>
 <h3 id="扩展补充"><a href="#扩展补充" class="headerlink" title="扩展补充"></a>扩展补充</h3><p>上述虽然配置完成了 hexo 博客，但博客功能过于简单，使用起来不方便，可以添加图片，摘要，标签页与分类页等内容。</p>
 <h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>hexo 比 jekyll 布局更简单，更加容易操作，但每次需要本地生成 html 然后上传同步，虽然这不是问题，可以用脚本实现，但对于图片等内容，需要依赖第三方图床就显得很是无奈了。</p>
 <blockquote>
-<p>参考链接：<br><a href="http://behappyli.cn/2015/12/05/hexo%E6%95%99%E7%A8%8B/" target="_blank" rel="external">http://behappyli.cn/2015/12/05/hexo%E6%95%99%E7%A8%8B/</a><br><a href="http://www.runoob.com/w3cnote/git-guide.html" target="_blank" rel="external">http://www.runoob.com/w3cnote/git-guide.html</a></p>
+<p>参考链接：<br><a href="http://behappyli.cn/2015/12/05/hexo%E6%95%99%E7%A8%8B/" target="_blank" rel="external">http://behappyli.cn/2015/12/05/hexo%E6%95%99%E7%A8%8B/</a><br><a href="http://www.runoob.com/w3cnote/git-guide.html" target="_blank" rel="external">http://www.runoob.com/w3cnote/git-guide.html</a><br><a href="http://baixin.io/2015/08/HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_blank" rel="external">http://baixin.io/2015/08/HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</a></p>
 </blockquote>
 
             

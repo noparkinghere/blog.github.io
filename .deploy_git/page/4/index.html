@@ -373,49 +373,6 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
-                        <a class="link-unstyled" href="/2016/10/19/2016/2016-10-19-串口RS232通信详解/">
-                            串口RS232通信详解
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2016-10-19T14:20:00+08:00">
-	
-		    Oct 19, 2016
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-excerpt" itemprop="articleBody">
-                    <p>串行接口是一种可以将接受来自CPU的并行数据字符转换为连续的串行数据流发送出去，同时可将接受的串行数据流转换为并行的数据字符供给CPU的器件。一般完成这种功能的电路，我们称为串行接口电路。曾经PC之间进行串口通信可以说是标配，很多老式电脑上面可以看到DB25的接头，但后来逐渐被DB9取代，早期鼠标打印机都通过串口进行数据传输的，但现在逐渐被USB和网络所取代，DB9的串口接头在PC和笔记本上面也较少能够看到了。做嵌入式开发可以看到有个DB9的串口标准接口，串口对于开发人员输入输出调试等有着至关重要的作用。串行接口按电气标准及协议来分包括RS-232-C、RS-422、RS485等，现在串口一般在工业嵌入式领域使用。</p>
-<p>波特率：单片机或计算机在串口通信时的速率。指的是信号被调制以后在单位时间内的变化，即单位时间内载波参数变化的次数，如每秒钟传送240个字符，而每个字符格式包含10位（1个起始位，1个停止位，8个数据位），这时的波特率为240Bd，比特率为10位*240个/秒=2400bps。（有单独文章详解）</p>
-<p>数据位：数据位为5-8位，它紧跟在起始位之后，是被传送字符的有效数据位。传送时先传送字符的低位，后传送字符的高位。数据位究竟是几位，可由硬件或软件来设定。当然，一般8位为一个字节，通常都喜欢设置为8位数据位传输。</p>
-<p>停止位：停止位为1位、1.5位或2位，可有软件设定。它一定是逻辑“1”电平，标志着传送一个字符的结束。</p>
-<p>奇偶校验位：奇偶校验位仅占一位，用于进行奇校验或偶校验，也可以不设奇偶位。</p>
-<p>同步通信和异步通信：异步通信是计算机通信中最常用的数据信息传输方式。它是以字符为单位进行传输的，字符之间没有固定的时间间隔要求，而每个字符中的各位则以固定的时间传送。</p>
-<p>注意：<strong>串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。</strong></p>
-                    
-                        <a href="/2016/10/19/2016/2016-10-19-串口RS232通信详解/" class="postShorten-excerpt_link link">
-                            Continue reading
-                        </a>
-                        
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
                         <a class="link-unstyled" href="/2016/10/19/2016/2016-10-19-串口RS485通信详解/">
                             串口RS485通信详解
                         </a>
@@ -446,6 +403,49 @@
 </ul>
                     
                         <a href="/2016/10/19/2016/2016-10-19-串口RS485通信详解/" class="postShorten-excerpt_link link">
+                            Continue reading
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/10/19/2016/2016-10-19-串口RS232通信详解/">
+                            串口RS232通信详解
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-10-19T14:20:00+08:00">
+	
+		    Oct 19, 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p>串行接口是一种可以将接受来自CPU的并行数据字符转换为连续的串行数据流发送出去，同时可将接受的串行数据流转换为并行的数据字符供给CPU的器件。一般完成这种功能的电路，我们称为串行接口电路。曾经PC之间进行串口通信可以说是标配，很多老式电脑上面可以看到DB25的接头，但后来逐渐被DB9取代，早期鼠标打印机都通过串口进行数据传输的，但现在逐渐被USB和网络所取代，DB9的串口接头在PC和笔记本上面也较少能够看到了。做嵌入式开发可以看到有个DB9的串口标准接口，串口对于开发人员输入输出调试等有着至关重要的作用。串行接口按电气标准及协议来分包括RS-232-C、RS-422、RS485等，现在串口一般在工业嵌入式领域使用。</p>
+<p>波特率：单片机或计算机在串口通信时的速率。指的是信号被调制以后在单位时间内的变化，即单位时间内载波参数变化的次数，如每秒钟传送240个字符，而每个字符格式包含10位（1个起始位，1个停止位，8个数据位），这时的波特率为240Bd，比特率为10位*240个/秒=2400bps。（有单独文章详解）</p>
+<p>数据位：数据位为5-8位，它紧跟在起始位之后，是被传送字符的有效数据位。传送时先传送字符的低位，后传送字符的高位。数据位究竟是几位，可由硬件或软件来设定。当然，一般8位为一个字节，通常都喜欢设置为8位数据位传输。</p>
+<p>停止位：停止位为1位、1.5位或2位，可有软件设定。它一定是逻辑“1”电平，标志着传送一个字符的结束。</p>
+<p>奇偶校验位：奇偶校验位仅占一位，用于进行奇校验或偶校验，也可以不设奇偶位。</p>
+<p>同步通信和异步通信：异步通信是计算机通信中最常用的数据信息传输方式。它是以字符为单位进行传输的，字符之间没有固定的时间间隔要求，而每个字符中的各位则以固定的时间传送。</p>
+<p>注意：<strong>串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。</strong></p>
+                    
+                        <a href="/2016/10/19/2016/2016-10-19-串口RS232通信详解/" class="postShorten-excerpt_link link">
                             Continue reading
                         </a>
                         

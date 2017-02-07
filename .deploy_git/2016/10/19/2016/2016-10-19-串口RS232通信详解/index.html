@@ -1,0 +1,448 @@
+
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hexo">
+    <title>串口RS232通信详解 - Hexo</title>
+    <meta name="author" content="John Doe">
+    
+    
+    
+    <meta name="description" content="串行接口是一种可以将接受来自CPU的并行数据字符转换为连续的串行数据流发送出去，同时可将接受的串行数据流转换为并行的数据字符供给CPU的器件。一般完成这种功能的电路，我们称为串行接口电路。曾经PC之间进行串口通信可以说是标配，很多老式电脑上面可以看到DB25的接头，但后来逐渐被DB9取代，早期鼠标打印机都通过串口进行数据传输的，但现在逐渐被USB和网络所取代，DB9的串口接头在PC和笔记本上面也较">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="串口RS232通信详解">
+<meta property="og:url" content="http://yoursite.com/2016/10/19/2016/2016-10-19-串口RS232通信详解/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="串行接口是一种可以将接受来自CPU的并行数据字符转换为连续的串行数据流发送出去，同时可将接受的串行数据流转换为并行的数据字符供给CPU的器件。一般完成这种功能的电路，我们称为串行接口电路。曾经PC之间进行串口通信可以说是标配，很多老式电脑上面可以看到DB25的接头，但后来逐渐被DB9取代，早期鼠标打印机都通过串口进行数据传输的，但现在逐渐被USB和网络所取代，DB9的串口接头在PC和笔记本上面也较">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-10-19-%E4%B8%B2%E5%8F%A3RS232%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/5.jpg">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-10-19-%E4%B8%B2%E5%8F%A3RS232%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/1.jpg">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-10-19-%E4%B8%B2%E5%8F%A3RS232%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/2.jpg">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-10-19-%E4%B8%B2%E5%8F%A3RS232%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/72.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-10-19-%E4%B8%B2%E5%8F%A3RS232%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/6.jpg">
+<meta property="og:updated_time" content="2016-12-16T01:49:21.823Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="串口RS232通信详解">
+<meta name="twitter:description" content="串行接口是一种可以将接受来自CPU的并行数据字符转换为连续的串行数据流发送出去，同时可将接受的串行数据流转换为并行的数据字符供给CPU的器件。一般完成这种功能的电路，我们称为串行接口电路。曾经PC之间进行串口通信可以说是标配，很多老式电脑上面可以看到DB25的接头，但后来逐渐被DB9取代，早期鼠标打印机都通过串口进行数据传输的，但现在逐渐被USB和网络所取代，DB9的串口接头在PC和笔记本上面也较">
+<meta name="twitter:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-10-19-%E4%B8%B2%E5%8F%A3RS232%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/5.jpg">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Hexo</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="4">
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archives</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Search</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            串口RS232通信详解
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-10-19T14:20:00+08:00">
+	
+		    Oct 19, 2016
+    	
+    </time>
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>串行接口是一种可以将接受来自CPU的并行数据字符转换为连续的串行数据流发送出去，同时可将接受的串行数据流转换为并行的数据字符供给CPU的器件。一般完成这种功能的电路，我们称为串行接口电路。曾经PC之间进行串口通信可以说是标配，很多老式电脑上面可以看到DB25的接头，但后来逐渐被DB9取代，早期鼠标打印机都通过串口进行数据传输的，但现在逐渐被USB和网络所取代，DB9的串口接头在PC和笔记本上面也较少能够看到了。做嵌入式开发可以看到有个DB9的串口标准接口，串口对于开发人员输入输出调试等有着至关重要的作用。串行接口按电气标准及协议来分包括RS-232-C、RS-422、RS485等，现在串口一般在工业嵌入式领域使用。</p>
+<p>波特率：单片机或计算机在串口通信时的速率。指的是信号被调制以后在单位时间内的变化，即单位时间内载波参数变化的次数，如每秒钟传送240个字符，而每个字符格式包含10位（1个起始位，1个停止位，8个数据位），这时的波特率为240Bd，比特率为10位*240个/秒=2400bps。（有单独文章详解）</p>
+<p>数据位：数据位为5-8位，它紧跟在起始位之后，是被传送字符的有效数据位。传送时先传送字符的低位，后传送字符的高位。数据位究竟是几位，可由硬件或软件来设定。当然，一般8位为一个字节，通常都喜欢设置为8位数据位传输。</p>
+<p>停止位：停止位为1位、1.5位或2位，可有软件设定。它一定是逻辑“1”电平，标志着传送一个字符的结束。</p>
+<p>奇偶校验位：奇偶校验位仅占一位，用于进行奇校验或偶校验，也可以不设奇偶位。</p>
+<p>同步通信和异步通信：异步通信是计算机通信中最常用的数据信息传输方式。它是以字符为单位进行传输的，字符之间没有固定的时间间隔要求，而每个字符中的各位则以固定的时间传送。</p>
+<p>注意：<strong>串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。</strong></p>
+<a id="more"></a>
+<h3 id="串口通讯—全双工和半双工方式"><a href="#串口通讯—全双工和半双工方式" class="headerlink" title="串口通讯—全双工和半双工方式"></a>串口通讯—全双工和半双工方式</h3><h4 id="全双工方式-full-duplex-："><a href="#全双工方式-full-duplex-：" class="headerlink" title="全双工方式(full duplex)："></a>全双工方式(full duplex)：</h4><p>当数据的发送和接收分流，分别由两根不同的传输线传送时，通信双方都能在同一时刻进行发送和接收操作，这样的传送方式就是全双工制。在全双工方式下，通信系统的每一端都设置了发送器和接收器，因此，能控制数据同时在两个方向上传送。全双工方式无需进行方向的切换，因此，没有切换操作所产生的时间延迟，这对那些不能有时间延误的交互式应用(例如远程监测和控制系统)十分有利。这种方式要求通讯双方均有发送器和接收器，同时，需要2根数据线传送数据信号。(可能还需要控制线和状态线，以及地线)。比如，计算机主机用串行接口连接显示终端，而显示终端带有键盘。这样，一方面键盘上输入的字符送到主机内存;另一方面，主机内存的信息可以送到屏幕显示。通常，往键盘上打入1个字符以后，先不显示，计算机主机收到字符后，立即回送到终端，然后终端再把这个字符显示出来。这样，前一个字符的回送过程和后一个字符的输入过程是同时进行的，即工作于全双工方式。</p>
+<h4 id="半双工方式-half-duplex"><a href="#半双工方式-half-duplex" class="headerlink" title="半双工方式(half duplex):"></a>半双工方式(half duplex):</h4><p>若使用同一根传输线既作接收又作发送，虽然数据可以在两个方向上传送，但通信双方不能同时收发数据，这样的传送方式就是半双工制。采用半双工方式时，通信系统每一端的发送器和接收器，通过收/发开关转接到通信线上，进行方向的切换，因此，会产生时间延迟。收/发开关实际上是由软件控制的电子开关。当计算机主机用串行接口连接显示终端时，在半双工方式中，输入过程和输出过程使用同一通路。有些计算机和显示终端之间采用半双工方式工作，这时，从键盘打入的字符在发送到主机的同时就被送到终端上显示出来，而不是用回送的办法，所以避免了接收过程和发送过程同时进行的情况。</p>
+<p>目前多数终端和串行接口都为半双工方式提供了换向能力，也为全双工方式提供了两条独立的引脚。在实际使用时，一般并不需要通信双方同时既发送又接收，像打印机这类的单向传送设备，半双工甚至单工就能胜任，也无需倒向。</p>
+<h3 id="连接方式"><a href="#连接方式" class="headerlink" title="连接方式"></a>连接方式</h3><p>首先需要明白两个概念，就是DTE和DCE。DTE是指数据终端设备，典型的DTE就是计算机和单片机。DCE是指数据通信设备，典型的DCE就是MODEM。RS232串口标准中的RXD和TXD都是站在DTE立场上的，而不是DCE。明白了这一点，再讲下面的接线方法，就很好理解了。</p>
+<p>单片机与计算机进行串口通信时，单片机的RXD接计算机的TXD，单片机的TXD接计算机的RXD。主要是在使用串口时，TXD和RXD都是成对的，因此值得注意的是如果都是标准串口链接方式，往往不能直接连接，必须要错开链接，而这常常有两种方式，一种是让其中一个端口的RXD和TXD对调（故意错开），然后导线直通；另外一种是两个端口都采用标准端口，但导线部分RXD和TXD对调（交叉线）。</p>
+<h3 id="同步和异步"><a href="#同步和异步" class="headerlink" title="同步和异步"></a>同步和异步</h3><p>同步通信和异步通信相反，就是主机在进行通信前要先建立同步，即要使用相同的时钟频率，发送方的发送频率和接受方的接受频率要同步。</p>
+<p>异步通信就是发送方在任意时刻都可以发送数据，前提是接收端已经做好了接受数据的准备（如果没有做好接受准备，数据肯定发送失败），也正是因为发送方的不确定性，所以接收方要时时刻刻的准备好接受数据，同时由于每次发送数据时间间隔的不确定性，所以，在每次发送数据时都要使用明确的界定符来标示数据（字符）的开始和结束位置，可以想象这种通信方式效率很低。虽然异步通信效率低，但是对设备的要求不高，通信设备简单。异步通信是计算机通信中最常用的数据信息传输方式。它是以字符为单位进行传输的，<strong>字符之间没有固定的时间间隔要求，而每个字符中的各位则以固定的时间传送。</strong></p>
+<p>即便串口拥有同步功能，一般也是作为uart（通用异步收发传输器）使用，在UART上追加同步方式的序列信号变换电路的产品，被称为USART(Universal Synchronous Asynchronous Receiver Transmitter)。事实上目前一般我们所说的串口通信就是指通用异步收发，极少采用同步通讯的方式。</p>
+<h3 id="硬件接口以及连线"><a href="#硬件接口以及连线" class="headerlink" title="硬件接口以及连线"></a>硬件接口以及连线</h3><p>传统的RS-232-C接口标准有22根线，采用标准25芯D型插头座（DB25），后来使用简化为9芯D型插座（DB9），现在应用中25芯插头座已很少采用。目前一般可以见到的串口接头都为DB9的232接口。</p>
+<p>RXD接TXD，TXD接RXD，无论是单片机和单片机相连还是计算机和单片机相连都是如此，发射部分TXD永远同RXD链接配对。具体连接见下图：</p>
+<ul>
+<li>使用串口直通线。设计电路时，单片机的RXD连接电路板DB9的TXD，单片机的TXD连接电路板DB9的RXD，具体实现可在232电平转换芯片处反接。</li>
+<li>使用串口交叉线。设计电路时，因为串口线已做交叉，单片机的RXD连接电路板DB9的RXD，单片机的TXD连接电路板DB9的TXD，均直连即可。</li>
+</ul>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-10-19-%E4%B8%B2%E5%8F%A3RS232%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/5.jpg" alt=""></p>
+<p>除非专门说明，否则所有引脚线序都是指串口外侧的线序，RS232串口的端口示意图如下：</p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-10-19-%E4%B8%B2%E5%8F%A3RS232%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/1.jpg" alt=""></p>
+<p>如果是作为RS-232C接口，则各引脚定义如表所示。</p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-10-19-%E4%B8%B2%E5%8F%A3RS232%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/2.jpg" alt=""></p>
+<p>值得注意的是：<strong>公头和母头的RS232口在所有引脚的定义上面都是一致的，因此在购买选链接线的时候会分很多种：公对公23交叉，公对公直通，母对母直通，母对母23交叉，公对母23交叉，公对母直通。如果不能确定是什么线，万用表测量串口线一端的引脚2与另一端的引脚2是否短接，是则是直连串口线，否则是交叉串口线。</strong></p>
+<p>各引脚的电气特性为：在TxD和RxD上，逻辑“1”为-3V~-15V； 逻辑“0”为+3V~+15V。在RTS、CTS、DSR、DTR和DCD等控制线上，信号有效为+3V~+15V；信号无效为-3V~-15V。对于数据信号，逻辑“1”为低于-3V，逻辑“0”为高于+3V；对于控制信号，接通ON为低于-3V；断开OFF为高于+3V；-3V~+3V、低于-15V、高于+15V都表示电压无意义。</p>
+<p><strong>串口异步传输在空闲状态时都必须是高电平。</strong></p>
+<h3 id="特征简述"><a href="#特征简述" class="headerlink" title="特征简述"></a>特征简述</h3><ul>
+<li>RS-232串口通信最远距离是50英尺，约为15m，可见232的距离传输并不是很远，由于正负逻辑电平的差量有限，232的抗干扰能力较弱。</li>
+<li>RS-232可做到双向传输，全双工通讯，最高传输速率20kbps（传统情况下232的传输速度有限一般就是在19200以下）</li>
+<li>RS-232C上传送的数字量采用负逻辑，且与地对称：逻辑1：-3 ～-15V  逻辑0：+3～+15V （使用过程中尤其需要注意232的电平，不能直接将单片机同RS-232C口中RX，TX直连，中间需要有相应的转换芯片才可）</li>
+</ul>
+<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><p>既然要详细介绍RS232的使用和通讯，这边肯定要附上常见的硬件设计电路和原理图的。</p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-10-19-%E4%B8%B2%E5%8F%A3RS232%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/72.png" alt=""></p>
+<h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><p>串口因为作为最常用的一个功能，有关串口的协议一般已经被迁入到了目前市面上几乎所有主流的芯片中了，目前绝大多数芯片本身自带串口相关功能，用户无需按照协议来模拟出高低电平和时间周期来发送码元，相关功能已经作为芯片自带功能嵌入到了相关寄存器中，用户仅仅需要根据参考文档，完成usart相关寄存器的配置和调用，即可实现串口的发送和接收了。</p>
+<h4 id="IO口模拟uart实现"><a href="#IO口模拟uart实现" class="headerlink" title="IO口模拟uart实现"></a>IO口模拟uart实现</h4><p>IO口模拟uart能够帮助我们更加深入了理解uart的相关协议，知道整个uart通信过程中，是如何工作，对一切细节特性都可以了如指掌，对于我们深入的研究学习串口通信还是比较有帮助的，且IO模拟出来的通信协议一般都更具兼容性，可以很方便的进行不同芯片的移植，而无需关注芯片本身寄存器和底层结构。</p>
+<p>众所周知数字电路实现的最主要功能就是输入输出，高低电平。所谓的协议虽然复杂但都是可以通过输入输出和高低电频给模拟出来的。下面主要以stm32芯片为例，使用IO口模拟出串口通讯，这边只附上主要程序片段，详细工程见链接。</p>
+<p>首先，必须要知道串口通讯时数据是怎样传输的？这里以异步传输字符为例子，如下图所示：</p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-10-19-%E4%B8%B2%E5%8F%A3RS232%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/6.jpg" alt=""></p>
+<p>注意：</p>
+<ul>
+<li>串口异步传输在空闲状态时都必须是高电平</li>
+<li>起始位是低电平，发完后有一个等待时间</li>
+<li>中间数据位个数以及是否有校验位需要和接收端保持一致，发完后有一个等待时间</li>
+<li>停止位为高电平</li>
+<li>每次发完后的等待时间由波特率所决定，停止位之后需要有一定的空闲时间，这个时间是超过等待时间的。</li>
+</ul>
+<p>以下为模拟串口接收发送的主要代码，<strong>仅仅是一个粗稿，实验使用，具体的工程项目存在较大的缺陷，还要进一步完善。</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div></pre></td><td class="code"><pre><div class="line">/* IO口设置，这边不详细写出，IO配置成LED灯的模式即可 */</div><div class="line"></div><div class="line">***以下为模拟uart的TX口发送数据***</div><div class="line"></div><div class="line">/*主要的打印字符串函数*/</div><div class="line">void my_printf(char * str, ...)</div><div class="line">&#123;</div><div class="line">	while (*str != &apos;\0&apos;)</div><div class="line">	&#123;</div><div class="line">		UART_SendData((u8)*str++);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/*串口发送每个数据包*/</div><div class="line">void UART_SendData(u8 data)</div><div class="line">&#123;</div><div class="line">	TX_LOW();</div><div class="line">	UART_DELAY();</div><div class="line"></div><div class="line">	//传输字节的过程中是从字节的低位开始发送的。</div><div class="line">    for (u8 i = 0; i &lt; 8; i++)</div><div class="line">	&#123;</div><div class="line">		if (data &amp; 0x01)</div><div class="line">		&#123;</div><div class="line">			TX_HIGH();</div><div class="line">		&#125;</div><div class="line">		else </div><div class="line">		&#123;</div><div class="line">			TX_LOW();</div><div class="line">		&#125;</div><div class="line">		data &gt;&gt;= 1;</div><div class="line">		</div><div class="line">		UART_DELAY();</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	TX_HIGH();</div><div class="line">	</div><div class="line">	// 值得注意的是在发送完毕后</div><div class="line">	UART_DELAY();</div><div class="line">	UART_DELAY();</div><div class="line">&#125;</div><div class="line"></div><div class="line">/*使用systick定时器精准制定波特率115200*/</div><div class="line">#define	UART_DELAY()	delay_com()</div><div class="line"></div><div class="line">void delay_com(void)</div><div class="line">&#123;		</div><div class="line">	u32 temp;	    	 </div><div class="line">	SysTick-&gt;LOAD =  SystemCoreClock / 8 / 115200; //时间加载	  		 </div><div class="line">	SysTick-&gt;VAL = 0x00;        //清空计数器</div><div class="line">	SysTick-&gt;CTRL |= SysTick_CTRL_ENABLE_Msk ;          //开始倒数	 </div><div class="line">	do</div><div class="line">	&#123;</div><div class="line">		temp = SysTick-&gt;CTRL;</div><div class="line">	&#125;while(temp &amp; 0x01 &amp;&amp; !(temp&amp;(1&lt;&lt;16)));//等待时间到达   </div><div class="line">	SysTick-&gt;CTRL &amp;= ~SysTick_CTRL_ENABLE_Msk;       //关闭计数器</div><div class="line">	SysTick-&gt;VAL = 0X00;       //清空计数器	 </div><div class="line">&#125;</div><div class="line"></div><div class="line">***以下为模拟uart的RX接收数据***</div><div class="line"></div><div class="line">这边内容较多，不做详细的累述，仅大致提供下思路，详细内容可以参见代码。</div><div class="line"></div><div class="line"></div><div class="line">/* 串口完整接收一个字节的数据 */</div><div class="line">u8 UART_GetByte(void)</div><div class="line">&#123;</div><div class="line">	u8 Data = 0;</div><div class="line"></div><div class="line">	for (u8 i = 0; i &lt; USART_DATA_LEN; i++)</div><div class="line">	&#123;</div><div class="line">		UART_DELAY();</div><div class="line">		Data |= RX1_READ()&lt;&lt;i;	</div><div class="line">	&#125;</div><div class="line">	return Data;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* 终端捕捉信号 */</div><div class="line">void EXTI15_10_IRQHandler(void) /* bit &amp; add */</div><div class="line">&#123;</div><div class="line">	/* about key2 bit*/</div><div class="line">    if(EXTI_GetITStatus(RX1_EXTI_LINE) != RESET)</div><div class="line">    &#123;</div><div class="line">		/* 每次有数据接受时，开启定时器用来计量数据采集的时间 */</div><div class="line">		TIM3-&gt;CNT = 0;</div><div class="line">		TIM_Cmd(TIMER_NUM[TIMER3], ENABLE); //使能定时器3</div><div class="line"></div><div class="line">		TIM3_Init_Ctrl(ENABLE);</div><div class="line"></div><div class="line">		g_TimeOut = 0;</div><div class="line">		</div><div class="line">		g_byStore[point++] = UART_GetByte();</div><div class="line"></div><div class="line">        /* 清除中断挂起标志位，否则会被认为中断没有被处理而循环再次进入中断 */</div><div class="line">      	EXTI_ClearITPendingBit(RX1_EXTI_LINE);</div><div class="line">    &#125; </div><div class="line">&#125;</div><div class="line"></div><div class="line">**这边的难点在于如何判断数据发送完毕**</div><div class="line">- 设置RX口为外部终端触发，当接收到第一个下降沿时，进入中断函数</div><div class="line">- 中断函数逐一执行接收数据的采集和捕捉</div><div class="line">- 我们通过采用一个定时器来每次收到外部中断时，完成一次计时，当计时超过一次数据接收的时间，则认为接收完毕</div></pre></td></tr></table></figure>
+<p> 一般字符传输都采用：1位起始位，8位数据位，1位停止位，没有校验位 的形式传输，其他形式的这里不讲。<strong>串口异步传输在空闲状态时都必须是高电平</strong>。第一位传输的是起始位，<strong>起始位会将原来空闲时的高电平拉成低电平</strong>，起始位用来来标识数据开始传输，提示接收方准备开始接收数据；当接收方第一次检测到一个下降沿时，就表示接收到了起始位。起始位后就是8位的数据位，接收方在接收每一位数据的时候会采集几十次，如果结果都是低电平，则接收到的数据位0，如果结果都是高电平，则接受到的数据位是1。1位停止位会将电平拉成高电平，为接收下一个数据做准备。</p>
+<h4 id="芯片自带uart实现"><a href="#芯片自带uart实现" class="headerlink" title="芯片自带uart实现"></a>芯片自带uart实现</h4><p>既然IO口也能够模拟出uart通信功能，为何众多芯片厂商还要费尽心思的将uart做入芯片里面呢？就我个人理解而言，IO虽然可以模拟出通信协议，但毕竟是IO口的操作，在能耗，速度还有计算资源占用上面都会是一个很大的开销。尤其对功耗而言，将这些做入芯片内部，可以最完美的匹配这些协议，降低能耗，另外虽然牺牲了一定的移植性，但模拟这些通讯协议可以减少代码复杂度，降低程序员编写代码的门槛，无需彻底的理解弄清这些协议，即可完成相关功能，这现在也被大家广泛接受，毕竟如：IIC，SPI等通信协议书完全用IO模拟写起来并不是太简单。这边主要以stm32中自带的串口驱动为例，本事例不具备普遍应用性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+<blockquote>
+<p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a><br><a href="http://www.baike.com/wiki/51+IO%E5%8F%A3%E6%A8%A1%E6%8B%9F%E4%B8%B2%E5%8F%A3%E9%80%9A%E8%AE%AFC%E6%BA%90%E7%A8%8B%E5%BA%8F" target="_blank" rel="external">http://www.baike.com/wiki/51+IO%E5%8F%A3%E6%A8%A1%E6%8B%9F%E4%B8%B2%E5%8F%A3%E9%80%9A%E8%AE%AFC%E6%BA%90%E7%A8%8B%E5%BA%8F</a><br><a href="http://ziye334.blog.163.com/blog/static/224306191201452833850647" target="_blank" rel="external">http://ziye334.blog.163.com/blog/static/224306191201452833850647</a></p>
+</blockquote>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/19/2016/2016-10-19-串口RS485通信详解/"  data-tooltip="串口RS485通信详解">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/18/2016/2016-10-18-ubuntu关闭笔记本触摸板/" data-tooltip="ubuntu关闭笔记本触摸板">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/10/19/2016/2016-10-19-串口RS232通信详解/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/10/19/2016/2016-10-19-串口RS232通信详解/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/10/19/2016/2016-10-19-串口RS232通信详解/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2017 John Doe. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/19/2016/2016-10-19-串口RS485通信详解/"  data-tooltip="串口RS485通信详解">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/18/2016/2016-10-18-ubuntu关闭笔记本触摸板/" data-tooltip="ubuntu关闭笔记本触摸板">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/10/19/2016/2016-10-19-串口RS232通信详解/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/10/19/2016/2016-10-19-串口RS232通信详解/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/10/19/2016/2016-10-19-串口RS232通信详解/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/10/19/2016/2016-10-19-串口RS232通信详解/">
+                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/10/19/2016/2016-10-19-串口RS232通信详解/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/10/19/2016/2016-10-19-串口RS232通信详解/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">John Doe</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+</html>

@@ -1,0 +1,411 @@
+
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hexo">
+    <title>notepad++和MinGW - Hexo</title>
+    <meta name="author" content="John Doe">
+    
+    
+    
+    <meta name="description" content="今天写一个换算的小程序，但无奈手头没有编译工具，归根结底为何如此麻烦还是因为windows下的开发不友好不自带常规编译器所决定的，一个简单的程序编译需要你去安装庞大的IDE等。以前用windows偶尔弄点c代码编译或者查看一些文件都是使用notepad++的，有算是比较长的一段时间了，但不久前重装了系统，notepad++虽然仅仅需要选几个皮肤，简单配置作为文本编辑器即可，但无奈MinGW如何调用">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="notepad++和MinGW">
+<meta property="og:url" content="http://yoursite.com/2016/11/15/2016/2016-11-15-notepad-和mingw/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="今天写一个换算的小程序，但无奈手头没有编译工具，归根结底为何如此麻烦还是因为windows下的开发不友好不自带常规编译器所决定的，一个简单的程序编译需要你去安装庞大的IDE等。以前用windows偶尔弄点c代码编译或者查看一些文件都是使用notepad++的，有算是比较长的一段时间了，但不久前重装了系统，notepad++虽然仅仅需要选几个皮肤，简单配置作为文本编辑器即可，但无奈MinGW如何调用">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-15-notepad-%E5%92%8Cmingw/2.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-15-notepad-%E5%92%8Cmingw/1.png">
+<meta property="og:updated_time" content="2016-12-16T01:50:23.115Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="notepad++和MinGW">
+<meta name="twitter:description" content="今天写一个换算的小程序，但无奈手头没有编译工具，归根结底为何如此麻烦还是因为windows下的开发不友好不自带常规编译器所决定的，一个简单的程序编译需要你去安装庞大的IDE等。以前用windows偶尔弄点c代码编译或者查看一些文件都是使用notepad++的，有算是比较长的一段时间了，但不久前重装了系统，notepad++虽然仅仅需要选几个皮肤，简单配置作为文本编辑器即可，但无奈MinGW如何调用">
+<meta name="twitter:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-15-notepad-%E5%92%8Cmingw/2.png">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Hexo</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="4">
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archives</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Search</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            notepad++和MinGW
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-11-15T16:16:00+08:00">
+	
+		    Nov 15, 2016
+    	
+    </time>
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>今天写一个换算的小程序，但无奈手头没有编译工具，归根结底为何如此麻烦还是因为windows下的开发不友好不自带常规编译器所决定的，一个简单的程序编译需要你去安装庞大的IDE等。以前用windows偶尔弄点c代码编译或者查看一些文件都是使用notepad++的，有算是比较长的一段时间了，但不久前重装了系统，notepad++虽然仅仅需要选几个皮肤，简单配置作为文本编辑器即可，但无奈MinGW如何调用已经忘了，本文列出个简要步骤，以便下次查看。</p>
+<h3 id="实际需求"><a href="#实际需求" class="headerlink" title="实际需求"></a>实际需求</h3><p>Windows下编写C语言程序，使用如VS2010之类的IDE往往显得大材小用，并且这些集成开发环境都占用了大量的系统和硬件资源，且不如Notepad++之类的编辑器简单易用、定制性强大。最重要的一点在于学习编程的话，建议不要怕麻烦还是从最基础的学起，IDE往往屏蔽了很多的细节，并不利于初学者的学习。Linux下写C推荐可以研习emacs、vim配gcc。起初是想从网上直接找个教程按部就班执行，轻松配置完成的，但看了几个教程都不尽如人意，通过自己多次尝试最终找到了较为满意的解决方法，文章列出了部分参考网络教程的链接，下面对此详细阐述。而MinGW (Minimalist GNU for Windows)听名字就只是很强大，因为gcc的使用广泛和强大，无疑这个套件是编译的理想选择。</p>
+<h3 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h3><p><a href="https://pan.baidu.com/s/1slNDMtn" target="_blank" rel="external">notepad++</a>只是一个文本编辑器，本身没有编译C/C++的功能。所以要想先配置，就要先装上一个编译器。MinGW是GNU开源社区面向windows用户提供的一个集成了个编译环境的软件包。一般可以通过搜索MinGW直接去官网下载安装，但官网貌似是在线安装，因此我从其他网站下载了<a href="https://pan.baidu.com/s/1bFK8TC" target="_blank" rel="external">MinGW-5.1.6</a>离线包，安装步骤很简单，这边不具体阐述。</p>
+<a id="more"></a>
+<h3 id="相关配置"><a href="#相关配置" class="headerlink" title="相关配置"></a>相关配置</h3><h4 id="MinGW"><a href="#MinGW" class="headerlink" title="MinGW"></a>MinGW</h4><p>环境变量，简而言之就是在终端中直接输入名称，系统能够识别，且运行的一些可执行文件名称。在（我的电脑右击－－&gt;系统属性－－&gt;高级－－&gt;环境变量－－&gt;系统变量 中）（以下目录都根据自己的电脑MinGW所在位置不同而改变）在PATH的值中加入“D:\MinGW\bin”（如果没有就新建一个PATH）。如果PATH中还有其他内容，需要用英文状态下使用分号进行分割。这是寻找gcc编译器的路径。（这一步中PATH的值根据你的MinGW安装的路径设定，要能够访问的gcc编译器，也就是MInGW安装目录里面的bin文件夹）</p>
+<p>下面两步作为可选步骤，如果有确切需求可以添加：新建LIBRARY_PATH变量，在其值中加入“D:\MinGW\lib”。这是标准库存放的路径。新建C_INCLUDE_PATH变量，在其值中加入“D:\MinGW\include”。这是Include查找头文件的路径。</p>
+<p>设置结束之后，在cmd控制台窗口下面，输入gcc -v。若已经成功安装好，会显示gcc的版本信息。比如说我的：</p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-15-notepad-%E5%92%8Cmingw/2.png" alt=""></p>
+<p>测试一下：<br>随便找个c文件，你也可以自己写个。使用命令提示符cd到c文件保存的目录，然后：输入<code>gcc -o test.exe (你的c文件名).c</code>如果有提示语法错误或者在当前目录生成了test.exe那说明gcc可用了，如果提示 ‘gcc’ 不是内部或外部命令，也不是可运行的程序或批处理文件。说明环境MinGW的环境变量未设置成功。</p>
+<h4 id="notepad"><a href="#notepad" class="headerlink" title="notepad++"></a>notepad++</h4><p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-15-notepad-%E5%92%8Cmingw/1.png" alt=""></p>
+<p>如上图，选用自己喜欢的风格模式，对里面的一些背景参数适当的设置，将行号等常用的功能打开，可以隐藏一些不需要的工具栏，菜单中列出了可以执行的一些操作，适当借用于快捷键可以更快的编写代码。</p>
+<p>由于这边主要是让notepad++可以一键编译c程序，所以为其加上编译，运行。</p>
+<ul>
+<li>编译：按F5输入<code>cmd /k gcc -o &quot;$(CURRENT_DIRECTORY)\$(NAME_PART).exe&quot; &quot;$(FULL_CURRENT_PATH)&quot; &amp; PAUSE &amp; EXIT</code> 点保存，设置快捷键为F9</li>
+<li>运行：按F5输入<code>cmd /k &quot;$(CURRENT_DIRECTORY)\$(NAME_PART).exe&quot; &amp; PAUSE &amp; EXIT</code>保存，设置快捷键为Ctrl+F9</li>
+</ul>
+<p>上述两步，环境搭建完成，当你用N++编写程序时，先保存再按F9可编译，然后再按Ctrl+F9开看到运行结果。</p>
+<p>熟练习惯后，可以将编译运行一起使用：<code>cmd /k gcc -std=c99 -o &quot;$(CURRENT_DIRECTORY)\$(NAME_PART).exe&quot; &quot;$(FULL_CURRENT_PATH)&quot; &amp; cmd /k &quot;$(CURRENT_DIRECTORY)\$(NAME_PART).exe&quot;&amp; PAUSE &amp; EXIT</code>或者<code>cmd /k gcc -std=c99 -o &quot;$(CURRENT_DIRECTORY)\$(NAME_PART).exe&quot; &quot;$(FULL_CURRENT_PATH)&quot; &amp; pause &amp; &quot;$(CURRENT_DIRECTORY)\$(NAME_PART).exe&quot;&amp; PAUSE &amp; EXIT</code>保存，设置快捷键为Ctrl+F5。</p>
+<p><strong>关键字说明：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">引号的使用是为了适用于文件名或者路径中带有空格的情况，一定不能省略。</div><div class="line">&amp; PAUSE 含义是命令运行后暂停等待键盘操作</div><div class="line">&amp; EXIT 含义是完成后退出运行窗口，回到notepad++</div><div class="line">$(NAME_PART) 代表当前正操作的文件的文件名，不含后缀；</div><div class="line">$(FULL_CURRENT_PATH) 代表当前正操作的文件的完整路径，包括盘符、路径、文件名、后缀；</div><div class="line">$(CURRENT_DIRECTORY) 代表当前文件所在的目录路径；</div><div class="line">通过以上三个环境变量可以很容易的理解上面一段指令的含义。</div><div class="line">至于gcc，-o参数就是将一个c文件编译成exe文件。gcc的bin目录已经之前在系统环境变量中进行过设定，否则需要补全gcc命令的绝对路径。(很简单，将&quot;g++.exe&quot;换成&quot;D:\MinGW\bin\g++.exe&quot;,还是要参照你安装的路径）</div></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p>参考链接：<br><a href="http://jingyan.baidu.com/article/9989c7461dc55ff648ecfe12.html" target="_blank" rel="external">http://jingyan.baidu.com/article/9989c7461dc55ff648ecfe12.html</a></p>
+</blockquote>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/16/2016/2016-11-16-keil工程的代码优化/"  data-tooltip="keil工程的代码优化">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/10/2016/2016-11-10-美国总统诞生了/" data-tooltip="美国总统诞生了">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/11/15/2016/2016-11-15-notepad-和mingw/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/11/15/2016/2016-11-15-notepad-和mingw/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/11/15/2016/2016-11-15-notepad-和mingw/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2017 John Doe. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/16/2016/2016-11-16-keil工程的代码优化/"  data-tooltip="keil工程的代码优化">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/10/2016/2016-11-10-美国总统诞生了/" data-tooltip="美国总统诞生了">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/11/15/2016/2016-11-15-notepad-和mingw/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/11/15/2016/2016-11-15-notepad-和mingw/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/11/15/2016/2016-11-15-notepad-和mingw/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/11/15/2016/2016-11-15-notepad-和mingw/">
+                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/11/15/2016/2016-11-15-notepad-和mingw/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/11/15/2016/2016-11-15-notepad-和mingw/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">John Doe</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+</html>

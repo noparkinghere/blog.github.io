@@ -1,0 +1,674 @@
+
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hexo">
+    <title>Archives: 2016 - Hexo</title>
+    <meta name="author" content="John Doe">
+    
+    
+    
+    <meta property="og:type" content="blog">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/archives/2016/page/7/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="2">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Hexo</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="2">
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archives</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Search</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="2"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+    
+
+<section class="postShorten-group main-content-wrap">
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/08/24/2016/2016-08-24-头文件交叉引用/">
+                            头文件交叉引用
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-08-24T18:32:00+08:00">
+	
+		    Aug 24, 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p><strong>尽可能将所需要包含的头文件文件在.c文件中包含定义如：#inlcude “x.h”，除非头文件必须的部分申明出现在其他头文件中定义过的结构体或者宏定义类型，这时候没办法，只能在.h中包含.h。</strong></p>
+<p>具体分析这样定义的原因：</p>
+<h4 id="1-减少编译展开所需时间"><a href="#1-减少编译展开所需时间" class="headerlink" title="1. 减少编译展开所需时间"></a>1. 减少编译展开所需时间</h4><p>虽然头文件中都加入了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#ifndef __KEY_H</div><div class="line">#define __KEY_H</div><div class="line">...</div><div class="line">#endif</div></pre></td></tr></table></figure></p>
+<p>一般编译不会再出现重定等错误，但是每次遇到#include的时候，都会将这段代码复制一边进行排查，而头文件多次被展开，会严重影响编译效率，且也没有什么好处。</p>
+                    
+                        <a href="/2016/08/24/2016/2016-08-24-头文件交叉引用/" class="postShorten-excerpt_link link">
+                            Continue reading
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/08/15/2016/2016-08-15-ubuntu的基本使用/">
+                            ubuntu的基本使用
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-08-15T14:25:00+08:00">
+	
+		    Aug 15, 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p><em>本文专门针对ubuntu这个linux发行版而写的，对ubuntu特有一些操作进行介绍和总结。</em></p>
+<h3 id="apt-get"><a href="#apt-get" class="headerlink" title="apt-get"></a>apt-get</h3><p><em>用过ubuntu的人都知道apt-get的方便</em></p>
+<h4 id="远程安装软件："><a href="#远程安装软件：" class="headerlink" title="远程安装软件："></a>远程安装软件：</h4><ul>
+<li>sudo apt-get install xxx 远程库一般会提供不少常见的软件，当然也可以手动添加源。</li>
+<li>sudo apt-get install -f 常用于手动安装软件后，出现错误，一般该指令可以解决大多数的依赖关系。</li>
+</ul>
+<h4 id="删除软件："><a href="#删除软件：" class="headerlink" title="删除软件："></a>删除软件：</h4><ul>
+<li>sudo apt-get remove xxx 删除一个软件包</li>
+</ul>
+                    
+                        <a href="/2016/08/15/2016/2016-08-15-ubuntu的基本使用/" class="postShorten-excerpt_link link">
+                            Continue reading
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/08/11/2016/2016-08-11-C编程规范/">
+                            C/C++编程规范
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-08-11T00:00:00+08:00">
+	
+		    Aug 11, 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p><em>文章阐述个人使用 C/C++ 的一些命名规范总结，当然现在很多编辑器强大，很多人不再注意这些规范，但由于本人记性较差，加上打字速度较快，所以这套规范虽然繁琐，但还是比较适合我自己的。</em></p>
+<h3 id="1-命名规范"><a href="#1-命名规范" class="headerlink" title="1. 命名规范"></a>1. 命名规范</h3><h4 id="1-1-宏定义的命名全部采用大写，中间间隔用隔开，要求常量名用大写，常量名用英文表达其意思。-当需要由多个单词表示时，单词与单词之间必须采用连字符”“连接。"><a href="#1-1-宏定义的命名全部采用大写，中间间隔用隔开，要求常量名用大写，常量名用英文表达其意思。-当需要由多个单词表示时，单词与单词之间必须采用连字符”“连接。" class="headerlink" title="1.1 宏定义的命名全部采用大写，中间间隔用隔开，要求常量名用大写，常量名用英文表达其意思。 当需要由多个单词表示时，单词与单词之间必须采用连字符”“连接。"></a>1.1 宏定义的命名全部采用大写，中间间隔用<em>隔开，要求常量名用大写，常量名用英文表达其意思。 当需要由多个单词表示时，单词与单词之间必须采用连字符”</em>“连接。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">如：</div><div class="line">#define CM_FILE_NOT_FOUND  CMMAKEHR(0X20B) 其中CM表示类别。</div></pre></td></tr></table></figure>
+<h4 id="1-2-变量的命名规则要求用“匈牙利命名法”。-即便很冗余且很多时候并没有实际作用，但方便查看，记性差防止跳过去查了就忘的情况"><a href="#1-2-变量的命名规则要求用“匈牙利命名法”。-即便很冗余且很多时候并没有实际作用，但方便查看，记性差防止跳过去查了就忘的情况" class="headerlink" title="1.2 变量的命名规则要求用“匈牙利命名法”。 (即便很冗余且很多时候并没有实际作用，但方便查看，记性差防止跳过去查了就忘的情况)"></a>1.2 变量的命名规则要求用“匈牙利命名法”。 (即便很冗余且很多时候并没有实际作用，但方便查看，记性差防止跳过去查了就忘的情况)</h4><p><em>这种命名法的出发点是把变量名按：属性+类型+对象描述的顺序组合起来：</em></p>
+                    
+                        <a href="/2016/08/11/2016/2016-08-11-C编程规范/" class="postShorten-excerpt_link link">
+                            Continue reading
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/08/10/2016/2016-08-10-模拟IIC通信时IO选用模式/">
+                            模拟IIC通信时IO选用模式
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-08-10T11:36:00+08:00">
+	
+		    Aug 10, 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p><em>现如今很多芯片都已经包含有 IIC 通信功能，为何仍然选择模拟 IIC 呢？</em> <strong>首先 IIC 通讯的版权掌握在飞利浦手中，部分厂家如：st 等，实现 IIC 通信较为繁琐，据说不是特别合理稳定；此外，芯片级的 IIC 不同的芯片就需要重新研究书写一次，而模拟 IIC 天生具有较好的移植性，可以做到一次书写，终身可移植。</strong></p>
+<h3 id="IIC-通信原理"><a href="#IIC-通信原理" class="headerlink" title="IIC 通信原理"></a>IIC 通信原理</h3><h3 id="IIC-选用-IO-模式"><a href="#IIC-选用-IO-模式" class="headerlink" title="IIC 选用 IO 模式"></a>IIC 选用 IO 模式</h3><p>通过上面可以知道，IIC 在通信过程中，主设备SCL始终是保持发送状态，因此这边我们可以将 SCL 设置为推挽或者开漏输出。推挽的输出能力较强，开漏输出则需要加上拉电阻，而一般 IIC 的推荐电路就是需要人为增加了上拉电阻的，因此在考虑功耗等一些情况下，可能开漏输出更好。</p>
+<p><strong>而问题的关键是 SDA 到底设置为什么模式？</strong></p>
+<p>网上参考资料众说纷纭，这边以我自己做实验的亲身感受为例，我推荐在作为输出时将这个脚配置为开漏输出模式；在 MCU 需要接收信号的时候，如果 MCU 本身没有限制，或者不需要精简代码的话，则将其设置为输入模式。详解：</p>
+                    
+                        <a href="/2016/08/10/2016/2016-08-10-模拟IIC通信时IO选用模式/" class="postShorten-excerpt_link link">
+                            Continue reading
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/08/06/2016/2016-08-06-常规的通讯校验/">
+                            常规的通讯校验
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-08-06T08:31:00+08:00">
+	
+		    Aug 06, 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <a id="more"></a>
+<blockquote>
+<p>参考链接：<br><a href="http://blog.csdn.net/liyuanbhu/article/details/7882789" target="_blank" rel="external">http://blog.csdn.net/liyuanbhu/article/details/7882789</a></p>
+</blockquote>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2016/08/06/2016/2016-08-06-常规的通讯校验/#post-footer" class="postShorten-excerpt_link link">
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/08/03/2016/2016-08-03-gpio口详解/">
+                            GPIO口详解
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-08-03T11:49:00+08:00">
+	
+		    Aug 03, 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p><em>在做 MCU 编程开发的时候，GPIO 可以说是最基础也是最重要的部分，MCU 的学习研究无非就是三点：高低电频，输入输出，通讯协议。而GPIO可以说贯穿始终，在模拟一些通讯协议时，GPIO 所采用的模式，往往会引起各种意想不到的问题。</em></p>
+<h3 id="GPIO-模式："><a href="#GPIO-模式：" class="headerlink" title="GPIO 模式："></a>GPIO 模式：</h3><h4 id="通用推挽输出（push-pull）："><a href="#通用推挽输出（push-pull）：" class="headerlink" title="通用推挽输出（push-pull）："></a>通用推挽输出（push-pull）：</h4><p>在功率放大器电路中大量采用推挽放大器电路，这种电路中用两只三极管构成一级放大器电路，两只三极管分别放大输入信号的正半周和负半周，即用一只三极管放大信号的正半周，用另一只三极管放大信号的负半周，两只三极管输出的半周信号在放大器负载上合并后得到一个完整周期的输出信号。原理图如下：</p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-08-03-gpio%E5%8F%A3%E8%AF%A6%E8%A7%A3/8b82b9014a90f6037a3d50aa3a12b31bb151ed4a.jpg" alt=""></p>
+<p>推挽放大器电路中，一只三极管工作在导通、放大状态时，另一只三极管处于截止状态，当输入信号变化到另一个半周后，原先导通、放大的三极管进入截止，而原先截止的三极管进入导通、放大状态，两只三极管在不断地交替导通放大和截止变化，所以称为<strong>推挽放大器</strong>。</p>
+<p><em>这种电路主要用于低功耗情况下能输出较大功率的交流信号，通常用于低频放大电路设计中。可增强输出的负载能力。这种输出结构带负载能力较强，你驱动个LED灯什么的操作IO口可以用推挽输出。</em></p>
+                    
+                        <a href="/2016/08/03/2016/2016-08-03-gpio口详解/" class="postShorten-excerpt_link link">
+                            Continue reading
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/07/29/2016/2016-07-29-架设自己的git服务/">
+                            架设自己的git服务
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-07-29T12:22:00+08:00">
+	
+		    Jul 29, 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p><em>本实验使用的是实体机 ubuntu 16.04 和虚拟机 virtualbox 搭建 ubuntu—server 16.04 系统进行连接，其中用 ubuntu-server 搭建 git，实体机 ubuntu desktop 连接 ubuntu-server，后续如果有其他环境也会逐一补充。</em></p>
+<p><strong>这边暂时没有在实体机上面尝试，先列举出在虚拟机上面架设 git 服务器</strong></p>
+<h3 id="使用-ssh-登陆-ubuntu-server"><a href="#使用-ssh-登陆-ubuntu-server" class="headerlink" title="使用 ssh 登陆 ubuntu-server"></a>使用 ssh 登陆 ubuntu-server</h3><h4 id="ping-通两个系统："><a href="#ping-通两个系统：" class="headerlink" title="ping 通两个系统："></a>ping 通两个系统：</h4><p>看是否可以 ping 通两个系统，首先查看 ip 地址，<code>ifconfig</code>， 例如主机是： 192.168.18.60 ，虚拟机是 192.168.18.202。则在主机中 ping 192.168.18.60 ，当然事情往往并不会一帆风顺，很多设置的时候，为了可以链接外网，虚拟机选用了 NAT 模式。<em>貌似该模式无法使用ssh服务，虚拟机可以 ping 通主机，但主机无法 ping 通虚拟机。</em>这时候可以使用几种方法：</p>
+<ul>
+<li>更改虚拟机模式为桥接模式，弃用原来的 NAT 模式。</li>
+<li>使用实体机中的虚拟机网卡与虚拟机进行交互，但貌似 ubuntu 下面并无法找到这块虚拟网卡，解决办法可以手动建立一个虚拟网卡。</li>
+<li>创建一个新的链接方式，通过这个桥接到实体机，然后通过 NAT 访问外网。<em>这边详细介绍这种方式</em></li>
+</ul>
+<p>详细步骤：</p>
+<ul>
+<li>使用 virtualbox 新建一个新的 adapter，选用 bridge adapter。如下图：</li>
+</ul>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-29-git%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/DeepinScrot-2011.png" alt=""></p>
+<ul>
+<li>重启虚拟机系统，或者重启网络服务 <code>sudo /etc/init.d/networking restart</code> ，ifconfig -a 查看所有网卡，可以看到虚拟机中有一个网卡 enp0s8 并没有被使用，这个就是刚刚新建的那个桥接网卡。</li>
+<li>设置该网卡，修改/etc/network/interfaces文件，如下图：</li>
+</ul>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-29-git%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/DeepinScrot-4326.png" alt=""></p>
+<ul>
+<li><p>重启网络服务 <code>sudo /etc/init.d/networking restart</code>，ifconfig 查看网卡。如下图：<br>-<br><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-29-git%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/DeepinScrot-4534.png" alt=""></p>
+</li>
+<li><p>接着基本就可以尝试 ping 通两个系统了，实体机中使用 ping 192.168.18.202，虚拟机中 ping 192.168.18.60 。如果仍然不行可以尝试关闭防火墙：<code>sudo ufw disable</code>。</p>
+</li>
+</ul>
+                    
+                        <a href="/2016/07/29/2016/2016-07-29-架设自己的git服务/" class="postShorten-excerpt_link link">
+                            Continue reading
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/07/27/2016/2016-07-27-多个发行版linux使用体验/">
+                            多个发行版linux使用体验
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-07-27T11:22:00+08:00">
+	
+		    Jul 27, 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p><em>本文主要记录自己使用多个linux的发行版的一些感受体验，会包括CLI和GUI的一些体验。本文具有一定的主观性，仅供参考。</em></p>
+<p>发行版包括：ubuntu，debian，centOS，openSUSE等<br>窗口管理器包括：gnome，kde，awesome等</p>
+                    
+                        <a href="/2016/07/27/2016/2016-07-27-多个发行版linux使用体验/" class="postShorten-excerpt_link link">
+                            Continue reading
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/07/25/2016/2016-07-25-桥接、nat、host-only上网方式的区别/">
+                            桥接、NAT、Host-only上网方式的区别
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-07-25T13:53:00+08:00">
+	
+		    Jul 25, 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p><em>经常使用虚拟机的小伙伴们都遇到过网络链接过程中的各种问题，仔细查看设置会发现有：桥接、NAT、Host-only 等设置，vmware 等虚拟机后还会自动生成vmnet1和vmnet8，初学者可能会一头雾水，为啥只有两个？不是三种模式吗？另外每个模式代表什么？他们又有什么区别？无论是 vmware 还是 vitualbox 这些内容都大同小异，而 vmware 中看起来可能会更加直观些，这边以windows下的安装使用为例，进行深入的详解。</em></p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-25-%E6%A1%A5%E6%8E%A5%E3%80%81nat%E3%80%81host-only%E4%B8%8A%E7%BD%91%E6%96%B9%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/0.png" alt=""></p>
+<p><strong>本文会尽可能详细地总结和罗列出三者的含义和区别，以及虚拟机中该如何配置他们更加合适。</strong></p>
+<h3 id="桥接"><a href="#桥接" class="headerlink" title="桥接:"></a>桥接:</h3><p>简而言之桥接就是指：<strong>就是通过一台设备（可能不止一个）把几个网络串起来形成的连接</strong>。这边主要介绍虚拟机所采用的桥接方式，虚拟出来的操作系统就像是局域网中的一独立的主机，它可以通过路由器网线访问网内任何一台机器。不过虚拟机需要占用你同一个网段的一个 IP 地址，当且仅当虚拟机和实体机在同一个网段，两者才可以进行通信，如：<em>虚拟机 IP：192.168.1.101，实体机 IP：192.168.1.100</em>。</p>
+<p>在桥接模式下，例如在 windows 下使用 vmware 时，明显看到会生成多个虚拟网卡出来，但却没有一个网卡是属于桥接的，原因是虚拟机采用桥接方式时，是不需要虚拟网卡的，这时候<em>虚拟机操作系统和实体机操作系统同时使用真实网卡工作，然后真是网卡发送数据出去，而如果虚拟机发送数据给真实机，则数据流向是：<strong>虚拟机系统-&gt;真实网卡-&gt;路由器-&gt;真实网卡-&gt;实体机系统</strong>，不难看出同一个数据经过网卡在路由器上面绕了一圈又回到了网卡。</em></p>
+<p>通过上述内容发现，桥接必须经过真实网卡和路由器，因此当你的电脑没有链接有线网或者无线网的话，你的实体机是无法和虚拟机进行交互的，即便看起来两者很近也不行。<em>而选用桥接还是 NAT 等方式是在虚拟机软件中选定，进入虚拟的操作系统后，所有的设置和真实电脑没有本质区别，如果路由器允许自动分配 IP 地址，则操作系统设置为自动获取 IP 即可，如果不能自动分配，也可以在操作系统中手动分配 IP 地址。另外值得注意的是</em>某些公司路由器绑定了电脑 mac 地址和 IP 地址，这时候虚拟机中的桥接也相当于一个真实电脑，也需要完成相关的绑定才可以访问网络。*</p>
+<p>可以看出：如果你想利用VMware在局域网内新建一个虚拟服务器，为局域网用户提供网络服务，就应该选择桥接模式。下面举个栗子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">例如大学宿舍里有一个路由器，宿舍里四个人连接这个路由器，路由器的 wanip 就不理会了，这个 ip 是动态获取的，而一般lanip默认是192.168.1.1,子网掩码是255.255.255.0。而其他四个人是自动获取ip，假设四个人的 ip 是:</div><div class="line"></div><div class="line">A: 192.168.1.100/255.255.255.0,  B: 192.168.1.101/255.255.255.0,  C: 192.168.1.102/255.255.255.0,  D: 192.168.1.103/255.255.255.0</div><div class="line"></div><div class="line">那么虚拟机的 ip 可以设置的 ip 地址是 192.168.1.2-192.168.1.99, 192.168.1.104-192.168.1.254 (网络地址 0 和 1 的除外，再除去 ABCD 四个人的 ip 地址)</div><div class="line"></div><div class="line">那么虚拟机的 ip 地址可以设置为 192.168.1.98/255.255.255.0,设置了这个 ip 地址，ABCD 这四个人就可以通过 192.168.1.98 访问虚拟机了，如果虚拟机需要上外网，那么还需要配置虚拟机的路由地址，就是 192.168.1.1 了，这样，虚拟机就可以上外网了，但是，上网我们一般是通过域名去访问外网的，所以我们还需要为虚拟机配置一个 dns 服务器，我们可以简单点，把 dns 服务器地址配置为 google 的 dns 服务器 :8.8.8.8，到此，虚拟机就可以上网了。</div></pre></td></tr></table></figure>
+<p>综上所述，<em>同一个数据经过网卡在路由器上面绕了一圈又回到了网卡。</em>而虚拟机的桥接也只在其他电脑需要访问你电脑的虚拟机时，或者你虚拟机需要访问其他外部设备时才有相关需求*，一般情况还是建议配置成操作方便使用简单的 NAT 方式。</p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-25-%E6%A1%A5%E6%8E%A5%E3%80%81nat%E3%80%81host-only%E4%B8%8A%E7%BD%91%E6%96%B9%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/1.png" alt=""></p>
+                    
+                        <a href="/2016/07/25/2016/2016-07-25-桥接、nat、host-only上网方式的区别/" class="postShorten-excerpt_link link">
+                            Continue reading
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2016/07/21/2016/2016-07-21-githubpage-jekyll搭建博客/">
+                            githubpage+jekyll搭建博客
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2016-07-21T19:03:00+08:00">
+	
+		    Jul 21, 2016
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p>使用 githubpage+jekyll 搭建博客也有半年时间了，这篇文章早该写好，但一致迟迟没有下笔。怎么说呢，githubpage+jekyll 搭建博客的静态博客，操作起来可视化成都较低，缺少 wordpress 等知名博客酷炫的管理后台，也很少能够找到炫酷的模板（文章下方链接给出了 jekyll 的一些模板），以上缺点也是显而易见，简而言之就是 jekyll 的界面丑陋用起来麻烦。但因为 githubpage 是 jekyll 提供的服务，所以好处就是 jekyll 文件无需每次本地编译，直接 push 到 github 上面，就可以生成页面，另外本地也会同时保存一份完整的源文件，书写时只需要按照 markdown 语法码字，更换平台博客搬家更是轻松。</p>
+                    
+                        <a href="/2016/07/21/2016/2016-07-21-githubpage-jekyll搭建博客/" class="postShorten-excerpt_link link">
+                            Continue reading
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    <div class="pagination-bar">
+    <ul class="pagination">
+        
+        <li class="pagination-prev">
+            
+                <a class="btn btn--default btn--small" href="/archives/2016/page/6/">
+            
+                <i class="fa fa-angle-left text-base icon-mr"></i>
+                    <span>NEWER POSTS</span>
+            </a>
+        </li>
+        
+        
+        <li class="pagination-next">
+            <a class="btn btn--default btn--small" href="/archives/2016/page/8/">
+                    <span>OLDER POSTS</span>
+                <i class="fa fa-angle-right text-base icon-ml"></i>
+            </a>
+        </li>
+        
+        <li class="pagination-number">page 7 of 10</li>
+    </ul>
+</div>
+
+</section>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2017 John Doe. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">John Doe</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+
+
+</html>

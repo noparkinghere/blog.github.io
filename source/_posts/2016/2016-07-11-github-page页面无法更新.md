@@ -24,7 +24,7 @@ GitHub_Page 使用的是jekyll服务生成page页面的。由于jekyll 3（githu
 - 网上说可以修改feed.xml文件，具体看参考链接。（本人没有实验成功）
 - 我使用的方法改写时间：
 
-```ssh
+```sh
 ---
 layout: "post"
 title: "GitHub_Page页面无法更新"

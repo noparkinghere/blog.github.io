@@ -18,7 +18,7 @@ date: "2016-09-14 09:02"
 
 #### 1.检查电脑是否安装了这些服务。
 
-```ssh
+```sh
 dpkg -l | grep apache
 dpkg -l | grep php
 dpkg -l | grep mysql
@@ -26,21 +26,21 @@ dpkg -l | grep mysql
 
 #### 2.根据提示信息，如果没有安装则补安装。
 
-```ssh
+```sh
 sudo apt-get install apache2 mysql-server php5 libapache2-mod-php5
 重启apache服务 `sudo /etc/init.d/apache2 restart`
 ```
 
 #### 3.让apache、php支持mysql
 
-```ssh
+```sh
 sudo apt-get install libapache2-mod-auth-mysql php5-mysql
 重启apache服务 `sudo /etc/init.d/apache2 restart`
 ```
 
 #### 4.安装phpMyAdmin 
 
-```ssh
+```sh
 sudo apt-get install phpmyadmin
 此时的phpmyadmin文件夹被安装在/usr/share/phpmyadmin下，为了能在浏览器中访问到phpmyadmin，需要在/var/www下做一个软连接到该文件夹。
 进入/var/www文件夹，在该目录下执行如下操作:
@@ -49,7 +49,7 @@ sudo ln -s /usr/share/phpmyadmin
 
 #### 5.[为Wordpress新建mysql数据库](https://codex.wordpress.org/zh-cn:%E5%AE%89%E8%A3%85WordPress#.E7.AC.AC.E4.BA.8C.E6.AD.A5.EF.BC.9A.E5.88.9B.E5.BB.BAWordPress.E6.95.B0.E6.8D.AE.E5.BA.93.E5.92.8C.E4.B8.80.E4.B8.AA.E7.94.A8.E6.88.B7)
 
-```ssh
+```sh
 $ mysql -u root -p	// 登陆管理数据库
 Enter password:
 Welcome to the MySQL monitor.  Commands end with ; or \g.

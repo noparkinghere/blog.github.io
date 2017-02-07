@@ -8,7 +8,7 @@ date: "2016-06-23 12:12"
 
 ### 界面展示
 
-![](../../img/2016-06-23-remarkable-install/remarkable.png)
+![](/img/2016-06-23-remarkable-install/remarkable.png)
 
 ### 下载安装
 安装环境位ubuntu 16.04(64位)，markdown的网站无法正确的下载软件。
@@ -26,12 +26,11 @@ date: "2016-06-23 12:12"
 4. 如果出现了步骤3的情况，则重新执行步骤2
 
 5. 新版ubuntu系统出现错误：
-
-> `GLib.Error: gtk-builder-error-quark: /usr/share/remarkable/ui/RemarkableWindow.ui:835:58 Object with ID  not found (13)`
+`GLib.Error: gtk-builder-error-quark: /usr/share/remarkable/ui/RemarkableWindow.ui:835:58 Object with ID  not found (13)`
 
 * 编辑 /usr/share/remarkable/ui/RemarkableWindow.ui将834~842之间的代码注释掉即可以解决问题：
 
-```ssh
+```sh
 <!--
                 <child>
                   <object class="GtkMenuItem" id="mnu_about">

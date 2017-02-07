@@ -90,7 +90,7 @@ $ hexo server (通过 hexo server 运行起 hexo 内置的服务器。这时候�
 
 #### 方法2
 
-注意，实际上 github page 是可以自己按照 jekyll 的方式将源码生成 html 文件的，但是 对于 hexo 等其他源码，如果需要展示出来，则必须本地生成 html 代码，然后把生成的代码部署到服务器上面才行，这边我们可以使用如上面的方式（讲 public 目录下面生成的 html 文件直接复制到服务器的根目录下）， hexo 提供了更加人性化的方式，通过 hexo deploy 可以一键完成部署，每次部署的步骤，可按以下两步：
+注意，实际上 github page 是可以自己按照 jekyll 的方式将源码生成 html 文件的，但是 对于 hexo 等其他源码，如果需要展示出来，则必须本地生成 html 代码，然后把生成的代码部署到服务器上面才行，这边我们可以使用如上面的方式（将 public 目录下面生成的 html 文件直接复制到服务器的根目录下）， hexo 提供了更加人性化的方式，通过 hexo deploy 可以一键完成部署（无需在通过 push 手动推送了），每次部署的步骤，可按以下两步：
 
 - 修改 该配置文件：vim _config.yml，执行如下命令才能使用 git 部署 `npm install hexo-deployer-git --save`
 ```

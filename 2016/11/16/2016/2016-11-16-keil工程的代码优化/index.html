@@ -1,0 +1,595 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="C项目的工程优化这边主要参考另外一篇文章，不仅仅是针对C语言，C++等其他一些类C语言也同样适用。我们在构建自己的项目时，主要需要考虑：宏定义，类型，全局变量等的作用范围，针对头文件的引用和复制是否有存在的必要等。只有对每个细节都了如指掌，才能够减少代码的出错，以及优化代码空间等。就目前的芯片发展而言，很多时候都是硬件性能过剩，大多数程序员已经不再考虑或者极少考虑代码如何优化节省空间等问题了，往往">
+<meta property="og:type" content="article">
+<meta property="og:title" content="keil工程的代码优化">
+<meta property="og:url" content="http://yoursite.com/2016/11/16/2016/2016-11-16-keil工程的代码优化/index.html">
+<meta property="og:site_name" content="blog">
+<meta property="og:description" content="C项目的工程优化这边主要参考另外一篇文章，不仅仅是针对C语言，C++等其他一些类C语言也同样适用。我们在构建自己的项目时，主要需要考虑：宏定义，类型，全局变量等的作用范围，针对头文件的引用和复制是否有存在的必要等。只有对每个细节都了如指掌，才能够减少代码的出错，以及优化代码空间等。就目前的芯片发展而言，很多时候都是硬件性能过剩，大多数程序员已经不再考虑或者极少考虑代码如何优化节省空间等问题了，往往">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-16-keil%E5%B7%A5%E7%A8%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/1.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-16-keil%E5%B7%A5%E7%A8%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/2.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-16-keil%E5%B7%A5%E7%A8%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/3.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-16-keil%E5%B7%A5%E7%A8%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/4.png">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-16-keil%E5%B7%A5%E7%A8%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/5.png">
+<meta property="og:updated_time" content="2017-01-25T06:53:21.249Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="keil工程的代码优化">
+<meta name="twitter:description" content="C项目的工程优化这边主要参考另外一篇文章，不仅仅是针对C语言，C++等其他一些类C语言也同样适用。我们在构建自己的项目时，主要需要考虑：宏定义，类型，全局变量等的作用范围，针对头文件的引用和复制是否有存在的必要等。只有对每个细节都了如指掌，才能够减少代码的出错，以及优化代码空间等。就目前的芯片发展而言，很多时候都是硬件性能过剩，大多数程序员已经不再考虑或者极少考虑代码如何优化节省空间等问题了，往往">
+<meta name="twitter:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-16-keil%E5%B7%A5%E7%A8%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/16/2016/2016-11-16-keil工程的代码优化/"/>
+
+
+  <title> keil工程的代码优化 | blog </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule" rel="section">
+            
+            日程
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                keil工程的代码优化
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-16T16:39:00+08:00" content="2016-11-16">
+              2016-11-16
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="C项目的工程优化"><a href="#C项目的工程优化" class="headerlink" title="C项目的工程优化"></a>C项目的工程优化</h3><p>这边主要参考另外一篇文章，不仅仅是针对C语言，C++等其他一些类C语言也同样适用。我们在构建自己的项目时，主要需要考虑：宏定义，类型，全局变量等的作用范围，针对头文件的引用和复制是否有存在的必要等。只有对每个细节都了如指掌，才能够减少代码的出错，以及优化代码空间等。就目前的芯片发展而言，很多时候都是硬件性能过剩，大多数程序员已经不再考虑或者极少考虑代码如何优化节省空间等问题了，往往更加注重代码的可阅读可扩展性，这边之所以注重这个问题，主要是考虑到工控节能领域，以及很多使用的模块可能存在代码量不足，不能胜任工作等问题。</p>
+<h3 id="keil"><a href="#keil" class="headerlink" title="keil"></a>keil</h3><p>keil是一款MCU的IDE，有文章介绍过详细配置和调试步骤，这边不再详细累述。因为针对的是MCU的代码优化，所以首先我们必须知道编译器生成的代码量等信息。</p>
+<p>每次点击编译后，下方会出现KEIL RVMDK编译后的信息，例如：Program Size: Code=19160 RO-data=6420 RW-data=108 ZI-data=1532，这边代表我的无任何优化的前提下，keil编译生成的代码为19160个字节。</p>
+<p><strong>Code是代码占用的空间；RO-data(Read Only) 是只读常量的大小，如const型；RW-data（Read Write）是初始化了的可读写变量的大小，ZI-data（Zero Initialize）是没有初始化的可读写变量的大小。ZI-data不会被算做代码里因为不会被初始化。Total ROM Size ：Code + RO Data + RW Data（ROM Size并不等于Code + RO Data，初始化不为零的 RW Data 数据本身也会占用相同大小的 ROM 和 RAM 存储单元，变量在 RAM 中，而变量的初始值存在 ROM 中） ，Total RW  Size：RW Data + ZI Data 。这边在考虑芯片的 ROM 和 RAM 选型时，注意： ROM &gt; Code + RO Data + RW Data  ， 而 RAM &gt; RW-data+ZI-data，具体我们可以查看 KDE 编译后生成的 .map文件。</strong></p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-16-keil%E5%B7%A5%E7%A8%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/1.png" alt=""></p>
+<a id="more"></a>
+<p>KDE 生成的 .map 文件分析：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div></pre></td><td class="code"><pre><div class="line">Product: MDK-ARM Standard 5.10</div><div class="line">Component: ARM Compiler 5.04 update 1 (build 49)</div><div class="line">Tool: armlink [5040049]</div><div class="line"></div><div class="line">==============================================================================</div><div class="line"></div><div class="line">Section Cross References</div><div class="line"></div><div class="line">    main.o(i.AdjustTask) refers to memseta.o(.text) for __aeabi_memclr4</div><div class="line">    main.o(i.AdjustTask) refers to analogin.o(i.AnalogInConvert) for AnalogInConvert</div><div class="line">	...</div><div class="line">	</div><div class="line">==============================================================================</div><div class="line"></div><div class="line">Removing Unused input sections from the image.</div><div class="line"></div><div class="line">    Removing main.o(.data), (1 bytes).</div><div class="line">    Removing main.o(.data), (4 bytes).</div><div class="line">	...</div><div class="line"></div><div class="line">329 unused section(s) (total 12428 bytes) removed from the image.</div><div class="line"></div><div class="line">==============================================================================</div><div class="line"></div><div class="line">Image Symbol Table</div><div class="line"></div><div class="line">    Local Symbols</div><div class="line"></div><div class="line">    Symbol Name                              Value     Ov Type        Size  Object(Section)</div><div class="line"></div><div class="line">    ../clib/../cmprslib/zerorunl2.c          0x00000000   Number         0  __dczerorl2.o ABSOLUTE</div><div class="line">    ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE</div><div class="line">	...</div><div class="line">	</div><div class="line">==============================================================================</div><div class="line"></div><div class="line">Memory Map of the image</div><div class="line"></div><div class="line">  Image Entry point : 0x08000131</div><div class="line"></div><div class="line">  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x0001c0c8, Max: 0x00080000, ABSOLUTE, COMPRESSED[0x0001bc94])</div><div class="line"></div><div class="line">    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x0001baa0, Max: 0x00080000, ABSOLUTE)</div><div class="line"></div><div class="line">    Base Addr    Size         Type   Attr      Idx    E Section Name        Object</div><div class="line"></div><div class="line">    0x08000000   0x00000130   Data   RO         4967    RESET               startup_stm32f10x_hd.o</div><div class="line">    0x08000130   0x00000000   Code   RO         5008  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)</div><div class="line">    0x08000130   0x00000004   Code   RO         5086    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)</div><div class="line">	...</div><div class="line">	</div><div class="line">    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x0000f050, Max: 0x00010000, ABSOLUTE, COMPRESSED[0x000001f4])</div><div class="line"></div><div class="line">    Base Addr    Size         Type   Attr      Idx    E Section Name        Object</div><div class="line"></div><div class="line">    0x20000000   0x00000038   Data   RW           27    .data               main.o</div><div class="line">    0x20000038   0x00000005   Data   RW          422    .data               analogin.o</div><div class="line">	...</div><div class="line">	</div><div class="line">==============================================================================</div><div class="line"></div><div class="line">Image component sizes</div><div class="line"></div><div class="line"></div><div class="line">      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name</div><div class="line"></div><div class="line">      1252        138          0          5        200       3550   analogin.o</div><div class="line">       704         74         12         24          0       5534   analogout.o</div><div class="line">	...</div><div class="line"></div><div class="line">==============================================================================</div><div class="line"></div><div class="line"></div><div class="line">      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   </div><div class="line"></div><div class="line">     80732       6214      32580       1576      59944     659393   Grand Totals</div><div class="line">     80732       6214      32580        500      59944     659393   ELF Image Totals (compressed)</div><div class="line">     80732       6214      32580        500          0          0   ROM Totals</div><div class="line"></div><div class="line">==============================================================================</div><div class="line"></div><div class="line">    Total RO  Size (Code + RO Data)               113312 ( 110.66kB)</div><div class="line">    Total RW  Size (RW Data + ZI Data)             61520 (  60.08kB)</div><div class="line">    Total ROM Size (Code + RO Data + RW Data)     113812 ( 111.14kB)</div><div class="line"></div><div class="line">==============================================================================</div></pre></td></tr></table></figure>
+<p>优化步骤如下：</p>
+<ul>
+<li>project &gt;&gt; Option for Target “**” 打开如图 2界面。选择“target”，勾选上“Use MicroLIB”再编译。</li>
+</ul>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-16-keil%E5%B7%A5%E7%A8%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/2.png" alt=""></p>
+<p><strong>分析：microLIB是缺省的C库，而且microLIB进行了高度优化。如果不勾选“Use MicroLIB”，keil会连接标准C库。所以勾选“Use MicroLIB”会减小code大小。</strong></p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-16-keil%E5%B7%A5%E7%A8%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/3.png" alt=""></p>
+<ul>
+<li>project &gt;&gt; Option for Target “**” 打开如界面。选择“C/C++”，勾选上“One ELF Section per Functin”再编译。</li>
+</ul>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-16-keil%E5%B7%A5%E7%A8%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/4.png" alt=""></p>
+<p><strong>分析：“One ELF Section per Functin”就是将每个函数都生成一个ELF文件，最会将需要的函数链接成一个大的ELF文件。但是如果没有勾选“One ELF Section per Functin”。Keil将每个文件编译成一个ELF文件（即使文件中用未被使用的函数），最会链接成一个ELF文件。所以勾选“One ELF Section per Functin”会使code变小。</strong></p>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-11-16-keil%E5%B7%A5%E7%A8%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/5.png" alt=""></p>
+<blockquote>
+<p>参考链接：<br><a href="http://blog.csdn.net/abclixu123/article/details/46923725" target="_blank" rel="external">http://blog.csdn.net/abclixu123/article/details/46923725</a><br><a href="http://blog.csdn.net/gasbi/article/details/6186312" target="_blank" rel="external">http://blog.csdn.net/gasbi/article/details/6186312</a></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/15/2016/2016-11-15-notepad-和mingw/" rel="next" title="notepad++和MinGW">
+                <i class="fa fa-chevron-left"></i> notepad++和MinGW
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/21/2016/2016-11-21-vim学习/" rel="prev" title="vim学习">
+                vim学习 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="damon" />
+          <p class="site-author-name" itemprop="name">damon</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">95</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#C项目的工程优化"><span class="nav-number">1.</span> <span class="nav-text">C项目的工程优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#keil"><span class="nav-number">2.</span> <span class="nav-text">keil</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">damon</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

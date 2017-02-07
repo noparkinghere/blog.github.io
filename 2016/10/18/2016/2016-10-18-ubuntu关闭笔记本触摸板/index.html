@@ -1,0 +1,582 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="ubuntu 16.04的版本中，试过多个笔记本都可以通过键盘的快捷按键关闭触摸板的使用，但仍然显得不够智能，因为缺乏相关的程序和驱动，无法做到自动选择触摸板和鼠标。另外虽然我用的是ubuntu的系统但因为没有使用它的WM所以触摸板无法直接禁用，必须通过手动的方式才可以实现。
+本文搜集了一些比较通用的触摸板禁用方式，另外后续如果找到更好的方法，还会补充上来。以下在dell的超极本和msi的游戏本上">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu关闭笔记本触摸板">
+<meta property="og:url" content="http://yoursite.com/2016/10/18/2016/2016-10-18-ubuntu关闭笔记本触摸板/index.html">
+<meta property="og:site_name" content="blog">
+<meta property="og:description" content="ubuntu 16.04的版本中，试过多个笔记本都可以通过键盘的快捷按键关闭触摸板的使用，但仍然显得不够智能，因为缺乏相关的程序和驱动，无法做到自动选择触摸板和鼠标。另外虽然我用的是ubuntu的系统但因为没有使用它的WM所以触摸板无法直接禁用，必须通过手动的方式才可以实现。
+本文搜集了一些比较通用的触摸板禁用方式，另外后续如果找到更好的方法，还会补充上来。以下在dell的超极本和msi的游戏本上">
+<meta property="og:updated_time" content="2017-01-25T06:53:21.245Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ubuntu关闭笔记本触摸板">
+<meta name="twitter:description" content="ubuntu 16.04的版本中，试过多个笔记本都可以通过键盘的快捷按键关闭触摸板的使用，但仍然显得不够智能，因为缺乏相关的程序和驱动，无法做到自动选择触摸板和鼠标。另外虽然我用的是ubuntu的系统但因为没有使用它的WM所以触摸板无法直接禁用，必须通过手动的方式才可以实现。
+本文搜集了一些比较通用的触摸板禁用方式，另外后续如果找到更好的方法，还会补充上来。以下在dell的超极本和msi的游戏本上">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/10/18/2016/2016-10-18-ubuntu关闭笔记本触摸板/"/>
+
+
+  <title> ubuntu关闭笔记本触摸板 | blog </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule" rel="section">
+            
+            日程
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                ubuntu关闭笔记本触摸板
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-18T14:09:00+08:00" content="2016-10-18">
+              2016-10-18
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><em>ubuntu 16.04的版本中，试过多个笔记本都可以通过键盘的快捷按键关闭触摸板的使用，但仍然显得不够智能，因为缺乏相关的程序和驱动，无法做到自动选择触摸板和鼠标。另外虽然我用的是ubuntu的系统但因为没有使用它的WM所以触摸板无法直接禁用，必须通过手动的方式才可以实现。</em></p>
+<p>本文搜集了一些比较通用的触摸板禁用方式，另外后续如果找到更好的方法，还会补充上来。以下在dell的超极本和msi的游戏本上面实现过，且实验环境是ubuntu 16.04，其他系统和笔记本不能确保一定可以实现。</p>
+<h3 id="详细步骤："><a href="#详细步骤：" class="headerlink" title="详细步骤："></a>详细步骤：</h3><h4 id="方法1："><a href="#方法1：" class="headerlink" title="方法1："></a>方法1：</h4><ul>
+<li>sudo rmmod psmouse    这个是禁用触摸板</li>
+<li>sudo modprobe psmouse 这个是启用触摸板</li>
+</ul>
+<p>方式简单快捷，但是会将触点和触板都禁用了，一般还是希望保持触点是启用的，且仅有启用和禁用的两个功能，每次需要指令才可以实现，无法做到智能识别鼠标自动启用禁用。</p>
+<a id="more"></a>
+<h4 id="方法2："><a href="#方法2：" class="headerlink" title="方法2："></a>方法2：</h4><p>在软件中心中搜索”pointing-device”安装，图形化界面操作简单方便。</p>
+<p>但新问题出现了：禁用之后，如果敲击键盘的话，那么触板又会启用。这个问题当时很头大啊。经测试发现，只要将系统自带的管理器中“敲击键盘时禁用触摸板”这一项的勾去掉。那么就不会出问题了。<br>小结：以上就是对在Ubuntu系统下关闭触摸板很有用的两种方法，这两种方法使得以后再出现这样的情况时就可以采用的哦！</p>
+<p><em>该方法我并没有尝试过，因为较少使用ubuntu自带的软件中心，有兴趣的朋友可以尝试下。</em></p>
+<blockquote>
+<p>参考链接：<br><a href="http://www.285868.com/a/xtjc/5798.html" target="_blank" rel="external">http://www.285868.com/a/xtjc/5798.html</a></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/18/2016/2016-10-18-计算机中的通信简介/" rel="next" title="计算机中的通信简介">
+                <i class="fa fa-chevron-left"></i> 计算机中的通信简介
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/19/2016/2016-10-19-串口RS485通信详解/" rel="prev" title="串口RS485通信详解">
+                串口RS485通信详解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="damon" />
+          <p class="site-author-name" itemprop="name">damon</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">95</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#详细步骤："><span class="nav-number">1.</span> <span class="nav-text">详细步骤：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法1："><span class="nav-number">1.1.</span> <span class="nav-text">方法1：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法2："><span class="nav-number">1.2.</span> <span class="nav-text">方法2：</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">damon</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

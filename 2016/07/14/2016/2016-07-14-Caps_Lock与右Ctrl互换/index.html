@@ -1,0 +1,587 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="实现该功能的目的主要是切换中英文输入法，在使用 ctrl 或者 shift 切换时，很明显这两个键的位置远不如caps按起来方便，且 shift 往往作为大小写功能使用，用来作为切换中英文输入会恨混乱，而 caps 作为大小写时用起来相当罕见，作为中文输入来说更可以说完全是鸡肋的功能。大写完全可以用 shift 代替的用户群中，无疑是占用了一个最好的位置，却几乎完全被遗忘的一个按键。下面将会总结一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Caps_Lock与右Ctrl互换">
+<meta property="og:url" content="http://yoursite.com/2016/07/14/2016/2016-07-14-Caps_Lock与右Ctrl互换/index.html">
+<meta property="og:site_name" content="blog">
+<meta property="og:description" content="实现该功能的目的主要是切换中英文输入法，在使用 ctrl 或者 shift 切换时，很明显这两个键的位置远不如caps按起来方便，且 shift 往往作为大小写功能使用，用来作为切换中英文输入会恨混乱，而 caps 作为大小写时用起来相当罕见，作为中文输入来说更可以说完全是鸡肋的功能。大写完全可以用 shift 代替的用户群中，无疑是占用了一个最好的位置，却几乎完全被遗忘的一个按键。下面将会总结一">
+<meta property="og:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-14-Caps_Lock%E4%B8%8E%E5%8F%B3Ctrl%E4%BA%92%E6%8D%A2/BaiduShurufa_2016-8-10_14-5-24.png">
+<meta property="og:updated_time" content="2017-01-25T06:53:21.229Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Caps_Lock与右Ctrl互换">
+<meta name="twitter:description" content="实现该功能的目的主要是切换中英文输入法，在使用 ctrl 或者 shift 切换时，很明显这两个键的位置远不如caps按起来方便，且 shift 往往作为大小写功能使用，用来作为切换中英文输入会恨混乱，而 caps 作为大小写时用起来相当罕见，作为中文输入来说更可以说完全是鸡肋的功能。大写完全可以用 shift 代替的用户群中，无疑是占用了一个最好的位置，却几乎完全被遗忘的一个按键。下面将会总结一">
+<meta name="twitter:image" content="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-14-Caps_Lock%E4%B8%8E%E5%8F%B3Ctrl%E4%BA%92%E6%8D%A2/BaiduShurufa_2016-8-10_14-5-24.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/07/14/2016/2016-07-14-Caps_Lock与右Ctrl互换/"/>
+
+
+  <title> Caps_Lock与右Ctrl互换 | blog </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule" rel="section">
+            
+            日程
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Caps_Lock与右Ctrl互换
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-14T08:59:00+08:00" content="2016-07-14">
+              2016-07-14
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><em>实现该功能的目的主要是切换中英文输入法，在使用 ctrl 或者 shift 切换时，很明显这两个键的位置远不如caps按起来方便，且 shift 往往作为大小写功能使用，用来作为切换中英文输入会恨混乱，而 caps 作为大小写时用起来相当罕见，作为中文输入来说更可以说完全是鸡肋的功能。大写完全可以用 shift 代替的用户群中，无疑是占用了一个最好的位置，却几乎完全被遗忘的一个按键。下面将会总结一个既保留 Caps_Lock 键功能，又可以充分利用这个最好位置的按键映射方法。</em></p>
+<h3 id="linux系统下的实现"><a href="#linux系统下的实现" class="headerlink" title="linux系统下的实现"></a>linux系统下的实现</h3><h4 id="按键值查询"><a href="#按键值查询" class="headerlink" title="按键值查询"></a>按键值查询</h4><p>linux 下可以通过命令小程序对绝大多数按键值进行查找，要想修改键值映射, 先要知道按键的键值. 用如下命令查看: <code>xev | grep keycode</code>。</p>
+<p>同时我们可以查看需要映射的按键的映射名称：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">例如, 执行命令查看 Menu 键相关的按键名:</div><div class="line"></div><div class="line">xmodmap -pke | grep menu -i</div><div class="line">显示结果为:</div><div class="line"></div><div class="line">keycode 135 = Menu NoSymbol Menu</div><div class="line">keycode 147 = XF86MenuKB NoSymbol XF86MenuKB</div></pre></td></tr></table></figure>
+<p>比如想把键盘的右边的 Alt 改为 Menu : <code>xmodmap -e &quot;keycode 108=Menu&quot;</code>，简而言之 xmodmap 程序就是用来控制系统按键的，需要详细了解这个软件的操作，可以查看帮助文档。</p>
+<a id="more"></a>
+<h4 id="将Caps-Lock和键盘右边的Ctrl调换"><a href="#将Caps-Lock和键盘右边的Ctrl调换" class="headerlink" title="将Caps_Lock和键盘右边的Ctrl调换"></a>将Caps_Lock和键盘右边的Ctrl调换</h4><p>在当前的用户根目录下～创建 .Xmodmap 文件(尤其注意:这边名称是Xmodmap首字母大写,很多教程都忽略了这个问题,往往导致配置出来有问题)，书写内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">remove Lock = Caps_Lock</div><div class="line">remove Control = Control_R</div><div class="line">keysym Control_R = Caps_Lock</div><div class="line">keysym Caps_Lock = Control_R</div><div class="line">add Lock = Caps_Lock</div><div class="line">add Control = Control_R</div></pre></td></tr></table></figure>
+<p>这样，caps lock 和 ctrl 就都是 ctrl 的功能。执行下<code>xmodmap ~/.Xmodmap  2&gt;/dev/null</code>即可立即生效。实际上，每次开机启动后，系统会通过 xmodmap 程序自动加载 .Xmodmap 程序，也就是一次创建更改 .Xmodmap 文件，终身配置有效。</p>
+<p><strong>注意:完成上述步骤即可，以下步骤为最初设置时,出现的问题,可以忽略不看。</strong></p>
+<h4 id="加入开机自启"><a href="#加入开机自启" class="headerlink" title="加入开机自启"></a>加入开机自启</h4><p>同大多数开机自启并没有太大区别，将<code>xmodmap ~/.xmodmap  2&gt;/dev/null</code>写入到 /etc/rc.local 中即可。该方法经常失效，不是太灵验，因此我设置了快捷键 ctrl+space ，每次按下这个快捷键时，会自动执行<code>xmodmap ~/.xmodmap  2&gt;/dev/null</code>。</p>
+<p>解决:由于上面命名错误, .Xmodmap 文件的首字母是大写，因此加载总是出错，另外使用 <code>xmodmap ~/.Xmodmap  2&gt;/dev/null</code> 命令后，每次无需再加入启动项了，一次配置成功即可。</p>
+<h3 id="windows下的更换按键"><a href="#windows下的更换按键" class="headerlink" title="windows下的更换按键"></a>windows下的更换按键</h3><p>打开注册表，在运行（win+R）中输入 regedit ，注册表位置：[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout]  （注意： KeyBoard Layout, 而不是 KeyBoard Layouts）如果没有此键，就新建一个二进制值的 Key，名叫： Scancode Map（注意名称不能够写错，错一个字母都没法实现功能）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">输入如下的值：</div><div class="line">　　00,00,00,00</div><div class="line">　　00,00,00,00</div><div class="line">　　03,00,00,00</div><div class="line">　　3A,00,1D,E0</div><div class="line">　　1D,E0,3A,00</div><div class="line">　　00,00,00,00</div></pre></td></tr></table></figure>
+<p><img src="https://github.com/noparkinghere/noparkinghere.github.io/raw/master/_pic/2016-07-14-Caps_Lock%E4%B8%8E%E5%8F%B3Ctrl%E4%BA%92%E6%8D%A2/BaiduShurufa_2016-8-10_14-5-24.png" alt=""></p>
+<h4 id="windows-各个键位值的参考："><a href="#windows-各个键位值的参考：" class="headerlink" title="windows 各个键位值的参考："></a>windows 各个键位值的参考：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">　　Escape 01 00</div><div class="line">　　Tab 0F 00</div><div class="line">　　Caps Lock 3A 00</div><div class="line">　　Left Alt 38 00</div><div class="line">　　Left Ctrl 1D 00</div><div class="line">　　Left Shift 2A 00</div><div class="line">　　Left Windows 5B E0</div><div class="line">　　Right Alt 38 E0</div><div class="line">　　Right Ctrl 1D E0</div><div class="line">　　Right Shift 36 00</div><div class="line">　　Right Windows 5C E0</div><div class="line">　　Backspace 0E 00</div><div class="line">　　Delete 53 E0</div><div class="line">　　Enter 1C 00</div><div class="line">　　Space 39 00</div><div class="line">　　Insert 52 E0</div><div class="line">　　HOME 47 E0</div><div class="line">　　End 4F E0</div><div class="line">　　Num Lock 45 00</div><div class="line">　　Page Down 51 E0</div><div class="line">　　Page Up 49 E0</div><div class="line">　　Scroll Lock 46 00</div></pre></td></tr></table></figure>
+<p>以上 windows 的按键更改仅在 windows 7 下实验过，其他系统有待验证。</p>
+<blockquote>
+<p>参考链接：<br><a href="http://www.cnblogs.com/xiaobaibuhei/p/3629133.html" target="_blank" rel="external">http://www.cnblogs.com/xiaobaibuhei/p/3629133.html</a><br><a href="http://hanjc.me/post/2015-09-14-win7-exchange-capslock-and-ctrl/" target="_blank" rel="external">http://hanjc.me/post/2015-09-14-win7-exchange-capslock-and-ctrl/</a><br><a href="http://www.mikewootc.com/wiki/linux/usage/linux_xmodmap_change_keyboard_map.html" target="_blank" rel="external">http://www.mikewootc.com/wiki/linux/usage/linux_xmodmap_change_keyboard_map.html</a><br><a href="http://baohaojun.github.io/blog/2015/01/12/0-How-to-swap-Escape-and-Caps-Lock-on-mainstream-PCs.html" target="_blank" rel="external">http://baohaojun.github.io/blog/2015/01/12/0-How-to-swap-Escape-and-Caps-Lock-on-mainstream-PCs.html</a><br><a href="http://www.xiaozhou.net/exchange_ctrl_and_capslock_key-2012-07-20.html" target="_blank" rel="external">http://www.xiaozhou.net/exchange_ctrl_and_capslock_key-2012-07-20.html</a><br><a href="http://xahlee.info/kbd/linux_make_capslock_esc_key.html" target="_blank" rel="external">http://xahlee.info/kbd/linux_make_capslock_esc_key.html</a></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/12/2016/2016-07-12-jlink相关问题汇总/" rel="next" title="jlink相关问题汇总">
+                <i class="fa fa-chevron-left"></i> jlink相关问题汇总
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/15/2016/2016-07-15-atom使用总结/" rel="prev" title="atom使用总结">
+                atom使用总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="damon" />
+          <p class="site-author-name" itemprop="name">damon</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">95</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#linux系统下的实现"><span class="nav-number">1.</span> <span class="nav-text">linux系统下的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#按键值查询"><span class="nav-number">1.1.</span> <span class="nav-text">按键值查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将Caps-Lock和键盘右边的Ctrl调换"><span class="nav-number">1.2.</span> <span class="nav-text">将Caps_Lock和键盘右边的Ctrl调换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加入开机自启"><span class="nav-number">1.3.</span> <span class="nav-text">加入开机自启</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#windows下的更换按键"><span class="nav-number">2.</span> <span class="nav-text">windows下的更换按键</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#windows-各个键位值的参考："><span class="nav-number">2.1.</span> <span class="nav-text">windows 各个键位值的参考：</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">damon</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

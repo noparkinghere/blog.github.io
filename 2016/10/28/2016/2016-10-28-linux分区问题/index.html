@@ -1,0 +1,602 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="分区功能是个使用系统时候的必备功能，但却不特别常用，所以每次使用时难免会因为不记得指令或者错误使用指令而导致一些没必要的错误发生，建议如果不是经常分区，对步骤不是记得太清楚的话，在分区前还是搜索一下详细步骤，免得出了问题仍然不自知。笔者之所以写这篇文章就是潜意识中觉得分区步骤简单，然后出了问题，还不知道问题出在哪儿。
+简述分区步骤：
+df:可以查看下当前系统挂载了的分区，如下图所示
+
+123456">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux分区问题">
+<meta property="og:url" content="http://yoursite.com/2016/10/28/2016/2016-10-28-linux分区问题/index.html">
+<meta property="og:site_name" content="blog">
+<meta property="og:description" content="分区功能是个使用系统时候的必备功能，但却不特别常用，所以每次使用时难免会因为不记得指令或者错误使用指令而导致一些没必要的错误发生，建议如果不是经常分区，对步骤不是记得太清楚的话，在分区前还是搜索一下详细步骤，免得出了问题仍然不自知。笔者之所以写这篇文章就是潜意识中觉得分区步骤简单，然后出了问题，还不知道问题出在哪儿。
+简述分区步骤：
+df:可以查看下当前系统挂载了的分区，如下图所示
+
+123456">
+<meta property="og:updated_time" content="2017-01-25T06:53:21.249Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux分区问题">
+<meta name="twitter:description" content="分区功能是个使用系统时候的必备功能，但却不特别常用，所以每次使用时难免会因为不记得指令或者错误使用指令而导致一些没必要的错误发生，建议如果不是经常分区，对步骤不是记得太清楚的话，在分区前还是搜索一下详细步骤，免得出了问题仍然不自知。笔者之所以写这篇文章就是潜意识中觉得分区步骤简单，然后出了问题，还不知道问题出在哪儿。
+简述分区步骤：
+df:可以查看下当前系统挂载了的分区，如下图所示
+
+123456">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/10/28/2016/2016-10-28-linux分区问题/"/>
+
+
+  <title> linux分区问题 | blog </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule" rel="section">
+            
+            日程
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                linux分区问题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-28T08:46:00+08:00" content="2016-10-28">
+              2016-10-28
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>分区功能是个使用系统时候的必备功能，但却不特别常用，所以每次使用时难免会因为不记得指令或者错误使用指令而导致一些没必要的错误发生，建议如果不是经常分区，对步骤不是记得太清楚的话，在分区前还是搜索一下详细步骤，免得出了问题仍然不自知。笔者之所以写这篇文章就是潜意识中觉得分区步骤简单，然后出了问题，还不知道问题出在哪儿。</p>
+<h3 id="简述分区步骤："><a href="#简述分区步骤：" class="headerlink" title="简述分区步骤："></a>简述分区步骤：</h3><ul>
+<li>df:可以查看下当前系统<strong>挂载了的分区</strong>，如下图所示</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Filesystem     1K-blocks     Used Available Use% Mounted on</div><div class="line">udev             4044748        0   4044748   0% /dev</div><div class="line">tmpfs             812844     9744    803100   2% /run</div><div class="line">/dev/sda2       47930248 11323396  34149048  25% /</div><div class="line">tmpfs            4064220   349608   3714612   9% /dev/shm</div><div class="line">tmpfs               5120        4      5116   1% /run/lock</div><div class="line">tmpfs            4064220        0   4064220   0% /sys/fs/cgroup</div><div class="line">/dev/sda1         497696     3668    494028   1% /boot/efi</div><div class="line">/dev/sda3       95990540 70935460  20155908  78% /home</div><div class="line">tmpfs             812844       12    812832   1% /run/user/1000</div><div class="line">/dev/sda5      142794248 34011608 101506060  26% /home/demon/Space</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<ul>
+<li>也可以使用sudo fdisk -l 看当前系统存在的分区信息</li>
+<li>下面开始分区，使用sudo fdisk /dev/sda，这边要对sda设备进行分区，主要看你要对哪块盘进行分区，如果有第二块盘，则是sdb。执行完这个指令后，会有帮助提示，跟着提示走，会很简单。</li>
+<li>这边我们新建分区，输入：n，选择分区码，起始扇区，结尾扇区。最后输入w写入分区表。这边出现警告：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">The partition table has been altered.</div><div class="line">Calling ioctl() to re-read partition table.</div><div class="line">Re-reading the partition table failed.: Device or resource busy</div><div class="line"></div><div class="line">The kernel still uses the old table. The new table will be used at the next reboot or after you run partprobe(8) or kpartx(8).</div></pre></td></tr></table></figure>
+<p>起初一直在纠结这个问题，后来通过网上查看发现仅仅是个警告，并非错误，而虽然完成但事实上这边没有格式化，值得注意的是，fdisk虽然选择了分区类型，但并没有格式化分区，而这边的分区类型仅仅是将分区类型的内容写入了MBR中，真正格式化还得手动执行。</p>
+<ul>
+<li>使用sudo fdisk -l 已经可以查看到分区列表了</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Device         Start        End    Sectors   Size Type</div><div class="line">/dev/sda1       2048     999423     997376   487M EFI System</div><div class="line">/dev/sda2     999424   98656255   97656832  46.6G Linux filesystem</div><div class="line">/dev/sda3   98656256  293967871  195311616  93.1G Linux filesystem</div><div class="line">/dev/sda4  293967872  309592063   15624192   7.5G Linux swap</div><div class="line">/dev/sda5  309592064  600000000  290407937 138.5G Linux filesystem</div><div class="line">/dev/sda6  600000512 1953525134 1353524623 645.4G Linux filesystem</div></pre></td></tr></table></figure>
+<ul>
+<li>下面真正格式化分区，格式化分区需要选择格式化类型，上面通过fdisk已经选定了分区为linux filesystem了，这边就要将其格式化为其对应的文件系统。sudo mkfs.ext4 /dev/sda6，再看分区sudo fdisk -l。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Device         Start        End    Sectors   Size Type</div><div class="line">/dev/sda1       2048     999423     997376   487M EFI System</div><div class="line">/dev/sda2     999424   98656255   97656832  46.6G Linux filesystem</div><div class="line">/dev/sda3   98656256  293967871  195311616  93.1G Linux filesystem</div><div class="line">/dev/sda4  293967872  309592063   15624192   7.5G Linux swap</div><div class="line">/dev/sda5  309592064  600000000  290407937 138.5G Linux filesystem</div><div class="line">/dev/sda6  600000512 1953525134 1353524623 645.4G Linux filesystem</div></pre></td></tr></table></figure>
+<ul>
+<li>最后一步就是挂载分区了，使用sudo mount /dev/sda6 ~/Extern 将sda6新分出来的分区挂载到当前用户目录下的Extern分区中即可。</li>
+<li>df再次查看可以发现，分区已经被挂载成功了。</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/27/2016/2016-10-27-aria2详解/" rel="next" title="Aria2详解">
+                <i class="fa fa-chevron-left"></i> Aria2详解
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/29/2016/2016-10-29-msb-和-lsb/" rel="prev" title="MSB 和 LSB">
+                MSB 和 LSB <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="damon" />
+          <p class="site-author-name" itemprop="name">damon</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">95</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简述分区步骤："><span class="nav-number">1.</span> <span class="nav-text">简述分区步骤：</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">damon</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

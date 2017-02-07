@@ -1,0 +1,411 @@
+
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hexo">
+    <title>MSB 和 LSB - Hexo</title>
+    <meta name="author" content="John Doe">
+    
+    
+    
+    <meta name="description" content="MSB 和 LSB 在计算机中的意思并不唯一确定，这边分为两种解释：
+
+MSB ： Most Significant Bit，LSB ： Least Significant Bit
+MSB ： Most Significant Byte，LSB ： Least Significant Byte
+
+但有一点可以确定的是：MS 往往代表是重要的，而 LS 则代表不重要的，比如 传递数据 1001 时，">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="MSB 和 LSB">
+<meta property="og:url" content="http://yoursite.com/2016/10/29/2016/2016-10-29-msb-和-lsb/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="MSB 和 LSB 在计算机中的意思并不唯一确定，这边分为两种解释：
+
+MSB ： Most Significant Bit，LSB ： Least Significant Bit
+MSB ： Most Significant Byte，LSB ： Least Significant Byte
+
+但有一点可以确定的是：MS 往往代表是重要的，而 LS 则代表不重要的，比如 传递数据 1001 时，">
+<meta property="og:updated_time" content="2016-12-28T03:50:29.440Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MSB 和 LSB">
+<meta name="twitter:description" content="MSB 和 LSB 在计算机中的意思并不唯一确定，这边分为两种解释：
+
+MSB ： Most Significant Bit，LSB ： Least Significant Bit
+MSB ： Most Significant Byte，LSB ： Least Significant Byte
+
+但有一点可以确定的是：MS 往往代表是重要的，而 LS 则代表不重要的，比如 传递数据 1001 时，">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Hexo</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="4">
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archives</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Search</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            MSB 和 LSB
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-10-29T11:23:00+08:00">
+	
+		    Oct 29, 2016
+    	
+    </time>
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>MSB 和 LSB 在计算机中的意思并不唯一确定，这边分为两种解释：</p>
+<ul>
+<li>MSB ： Most Significant Bit，LSB ： Least Significant Bit</li>
+<li>MSB ： Most Significant Byte，LSB ： Least Significant Byte</li>
+</ul>
+<p>但有一点可以确定的是：MS 往往代表是重要的，而 LS 则代表不重要的，比如 传递数据 1001 时，高位的数据单位是千，肯定比低位数据单位是个来的更加重要，所以往往丢失低位数据的影响要远远小于丢失高位数据。</p>
+<h3 id="高低位"><a href="#高低位" class="headerlink" title="高低位"></a>高低位</h3><p>MSB 可以代表 Most Significant Bit，LSB 则代表 Least Significant Bit 根据具体的场景来判别。在很多涉及到 SPI/IIC 通讯的芯片手册中，如：FM25W256 铁电或者 EEPROM 中，描述的 MSB/LSB 根据时序图往往可以判别代表的是高地位而不是字节。</p>
+<p>一般而言，采用 Data is written MSB first 的方式会更好些，如上面所叙述的那样， MSB 代表的是<strong>重要位（Most Significant Bit</strong>，先传递重要位，能够减少重要位被丢失的可能性，目前像 I2C，SPI等通讯协议都保留了设置先传递 MSB 还是先传递 LSB 的功能，但是绝大多数的厂家的芯片手册都会注明<strong>Data is written MSB first</strong>。</p>
+<p>但值得注意的是，uart 通讯中全部采用<strong>Data is written LSB first</strong>，即先传递低位数据，且芯片配置中是无法更改 uart 传递位的次序的，换言之，uart 是一种较古老的通讯协议，通讯中一定是从低位往高位传递数据。大家在使用时基本不需要考虑 MSB 和 LSB 的先写入顺序，因为已经固定死了，所有使用该设备的 232/485，上/下位机，都必须遵守这个规则。</p>
+<h3 id="高低字节"><a href="#高低字节" class="headerlink" title="高低字节"></a>高低字节</h3><p>MSB 可以代表 Most Significant Byte，LSB 则代表 Least Significant Byte 根据具体的场景来判别。一般在串口通讯场景中， MSB 和 LSB 代表的是字节。</p>
+<p>数据寻址时，一般读取的都是低位字节的地址（即存储数据的可能占用多个地址，但低位地址代表了这个数据的存储地址）。C 中的数据类型都是从内存的低地址向高地址扩展，取址运算”&amp;”都是取低地址。 所以就有高位地址和地位地址区别，一般来说数字大的就是高地址，数字小的是地址：比如 0x1000 相对于 0x1003 来说是低地址。数据低位和数据高位：比如 0x012345678 0x01 是数据高位（即使 Most Significant Byte，MSB 位），而 0x78 是数据低地址位（Least Significant Byte，LSB）。</p>
+<p>计算机中，究竟高字节先被存储还是低字节先被存储，以及传输过程中先发送高位字节还是低位字节这个往往取决于 CPU 的结构，是大端小端问题，可以参考具体文章。</p>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/29/2016/2016-10-29-spi通信详解/"  data-tooltip="SPI通信详解">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/28/2016/2016-10-28-linux分区问题/" data-tooltip="linux分区问题">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/10/29/2016/2016-10-29-msb-和-lsb/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/10/29/2016/2016-10-29-msb-和-lsb/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/10/29/2016/2016-10-29-msb-和-lsb/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2017 John Doe. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/29/2016/2016-10-29-spi通信详解/"  data-tooltip="SPI通信详解">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/10/28/2016/2016-10-28-linux分区问题/" data-tooltip="linux分区问题">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/10/29/2016/2016-10-29-msb-和-lsb/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/10/29/2016/2016-10-29-msb-和-lsb/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/10/29/2016/2016-10-29-msb-和-lsb/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/10/29/2016/2016-10-29-msb-和-lsb/">
+                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/10/29/2016/2016-10-29-msb-和-lsb/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/10/29/2016/2016-10-29-msb-和-lsb/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">John Doe</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+</html>

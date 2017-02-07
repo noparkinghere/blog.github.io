@@ -1,0 +1,399 @@
+
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hexo">
+    <title>ubuntu搭建wordpress服务 - Hexo</title>
+    <meta name="author" content="John Doe">
+    
+    
+    
+    <meta name="description" content="wordpress 是目前比较流行的博客模板，精美的外观强可定制性收到了国内外很多bloger的亲睐，之前在虚拟机的ubuntu_server上面搭建过这个环境，个人所使用的blog是基于jekyll的静态页面，所以对wordpress不是特别了解，这边以腾讯云的ubuntu服务器为基础搭建自己的wordpress服务，当然现在很多云服务已经支持一键搭建wordpress的功能，但据说“访问速度和">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="ubuntu搭建wordpress服务">
+<meta property="og:url" content="http://yoursite.com/2016/09/14/2016/2016-09-14-ubuntu搭建wordpress服务/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="wordpress 是目前比较流行的博客模板，精美的外观强可定制性收到了国内外很多bloger的亲睐，之前在虚拟机的ubuntu_server上面搭建过这个环境，个人所使用的blog是基于jekyll的静态页面，所以对wordpress不是特别了解，这边以腾讯云的ubuntu服务器为基础搭建自己的wordpress服务，当然现在很多云服务已经支持一键搭建wordpress的功能，但据说“访问速度和">
+<meta property="og:updated_time" content="2016-12-16T01:48:01.586Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ubuntu搭建wordpress服务">
+<meta name="twitter:description" content="wordpress 是目前比较流行的博客模板，精美的外观强可定制性收到了国内外很多bloger的亲睐，之前在虚拟机的ubuntu_server上面搭建过这个环境，个人所使用的blog是基于jekyll的静态页面，所以对wordpress不是特别了解，这边以腾讯云的ubuntu服务器为基础搭建自己的wordpress服务，当然现在很多云服务已经支持一键搭建wordpress的功能，但据说“访问速度和">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Hexo</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="4">
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archives</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Search</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            ubuntu搭建wordpress服务
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-09-14T09:02:00+08:00">
+	
+		    Sep 14, 2016
+    	
+    </time>
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p><em><a href="https://cn.wordpress.org/" target="_blank" rel="external">wordpress</a> 是目前比较流行的博客模板，精美的外观强可定制性收到了国内外很多bloger的亲睐，之前在虚拟机的ubuntu_server上面搭建过这个环境，个人所使用的blog是基于jekyll的静态页面，所以对wordpress不是特别了解，这边以腾讯云的ubuntu服务器为基础搭建自己的wordpress服务，当然现在很多云服务已经支持一键搭建wordpress的功能，但据说“访问速度和灵活性会受到很大影响”，这边有兴趣的朋友可以自己去尝试一下。</em></p>
+<h3 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h3><ul>
+<li>需要搭建一个服务器，首先需要选定自己使用哪些服务套件，这边我选用LAMP套装，即linux(ubuntu), apache2.0, mysql, php(wordpress)。</li>
+</ul>
+<a id="more"></a>
+<h3 id="详细安装步骤"><a href="#详细安装步骤" class="headerlink" title="详细安装步骤"></a>详细安装步骤</h3><h4 id="1-检查电脑是否安装了这些服务。"><a href="#1-检查电脑是否安装了这些服务。" class="headerlink" title="1.检查电脑是否安装了这些服务。"></a>1.检查电脑是否安装了这些服务。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dpkg -l | grep apache</div><div class="line">dpkg -l | grep php</div><div class="line">dpkg -l | grep mysql</div></pre></td></tr></table></figure>
+<h4 id="2-根据提示信息，如果没有安装则补安装。"><a href="#2-根据提示信息，如果没有安装则补安装。" class="headerlink" title="2.根据提示信息，如果没有安装则补安装。"></a>2.根据提示信息，如果没有安装则补安装。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install apache2 mysql-server php5 libapache2-mod-php5</div><div class="line">重启apache服务 `sudo /etc/init.d/apache2 restart`</div></pre></td></tr></table></figure>
+<h4 id="3-让apache、php支持mysql"><a href="#3-让apache、php支持mysql" class="headerlink" title="3.让apache、php支持mysql"></a>3.让apache、php支持mysql</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install libapache2-mod-auth-mysql php5-mysql</div><div class="line">重启apache服务 `sudo /etc/init.d/apache2 restart`</div></pre></td></tr></table></figure>
+<h4 id="4-安装phpMyAdmin"><a href="#4-安装phpMyAdmin" class="headerlink" title="4.安装phpMyAdmin"></a>4.安装phpMyAdmin</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install phpmyadmin</div><div class="line">此时的phpmyadmin文件夹被安装在/usr/share/phpmyadmin下，为了能在浏览器中访问到phpmyadmin，需要在/var/www下做一个软连接到该文件夹。</div><div class="line">进入/var/www文件夹，在该目录下执行如下操作:</div><div class="line">sudo ln -s /usr/share/phpmyadmin</div></pre></td></tr></table></figure>
+<h4 id="5-为Wordpress新建mysql数据库"><a href="#5-为Wordpress新建mysql数据库" class="headerlink" title="5.为Wordpress新建mysql数据库"></a>5.<a href="https://codex.wordpress.org/zh-cn:%E5%AE%89%E8%A3%85WordPress#.E7.AC.AC.E4.BA.8C.E6.AD.A5.EF.BC.9A.E5.88.9B.E5.BB.BAWordPress.E6.95.B0.E6.8D.AE.E5.BA.93.E5.92.8C.E4.B8.80.E4.B8.AA.E7.94.A8.E6.88.B7" target="_blank" rel="external">为Wordpress新建mysql数据库</a></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">$ mysql -u root -p	// 登陆管理数据库</div><div class="line">Enter password:</div><div class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</div><div class="line">Your MySQL connection id is 5340 to server version: 3.23.54</div><div class="line"> </div><div class="line">Type &apos;help;&apos; or &apos;\h&apos; for help. Type &apos;\c&apos; to clear the buffer.</div><div class="line"> </div><div class="line">mysql&gt; CREATE DATABASE blog;	// 创建数据库名称</div><div class="line">Query OK, 1 row affected (0.00 sec)</div><div class="line"> </div><div class="line">mysql&gt; GRANT ALL PRIVILEGES ON blog.* TO &quot;demon&quot;@&quot;hostname&quot; // 受理权限</div><div class="line">    -&gt; IDENTIFIED BY &quot;password&quot;;</div><div class="line">Query OK, 0 rows affected (0.00 sec)</div><div class="line">  </div><div class="line">mysql&gt; FLUSH PRIVILEGES;</div><div class="line">Query OK, 0 rows affected (0.01 sec)</div><div class="line"></div><div class="line">mysql&gt; EXIT</div><div class="line">Bye</div><div class="line">$</div></pre></td></tr></table></figure>
+<hr>
+<p>to be continued…</p>
+<blockquote>
+<p>参考链接：<br><a href="https://codex.wordpress.org/zh-cn:%E5%AE%89%E8%A3%85WordPress#.E6.AD.A5.E9.AA.A43:.E8.AE.BE.E7.BD.AEwp-config.php" target="_blank" rel="external">https://codex.wordpress.org/zh-cn:%E5%AE%89%E8%A3%85WordPress#.E6.AD.A5.E9.AA.A43:.E8.AE.BE.E7.BD.AEwp-config.php</a><br><a href="http://www.jianshu.com/p/7e6566b613a7" target="_blank" rel="external">http://www.jianshu.com/p/7e6566b613a7</a><br><a href="http://www.jianshu.com/p/26d9e752994e" target="_blank" rel="external">http://www.jianshu.com/p/26d9e752994e</a></p>
+</blockquote>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/09/20/2016/2016-09-20-windows-7个人使用环境配置/"  data-tooltip="windows 7个人使用环境配置">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/09/12/2016/2016-09-12-解决重启网卡后ip-route-add丢失/" data-tooltip="解决重启网卡后ip route add丢失">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/09/14/2016/2016-09-14-ubuntu搭建wordpress服务/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/09/14/2016/2016-09-14-ubuntu搭建wordpress服务/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/09/14/2016/2016-09-14-ubuntu搭建wordpress服务/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2017 John Doe. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/09/20/2016/2016-09-20-windows-7个人使用环境配置/"  data-tooltip="windows 7个人使用环境配置">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/09/12/2016/2016-09-12-解决重启网卡后ip-route-add丢失/" data-tooltip="解决重启网卡后ip route add丢失">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/09/14/2016/2016-09-14-ubuntu搭建wordpress服务/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/09/14/2016/2016-09-14-ubuntu搭建wordpress服务/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/09/14/2016/2016-09-14-ubuntu搭建wordpress服务/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/09/14/2016/2016-09-14-ubuntu搭建wordpress服务/">
+                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/09/14/2016/2016-09-14-ubuntu搭建wordpress服务/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/09/14/2016/2016-09-14-ubuntu搭建wordpress服务/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">John Doe</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+</html>

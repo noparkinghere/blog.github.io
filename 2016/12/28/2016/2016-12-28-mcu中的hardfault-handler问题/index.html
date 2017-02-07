@@ -1,0 +1,412 @@
+
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hexo">
+    <title>MCU中的HardFault_Handler问题 - Hexo</title>
+    <meta name="author" content="John Doe">
+    
+    
+    
+    <meta name="description" content="问题描述使用的工具 KDE-5.11 在调试目标芯片 EFM32 时出现问题，起初是调试铁电驱动，但在单步仿真时到某一步总会不再响应，或者结束仿真时 PC 跳转到了 HardFault_Handler 异常。为了解决这个问题，于是不断地缩减代码，之后发现程序从 startup 开始执行时，一进入 main 函数就会不响应或者跳转到 HardFault_Handler 中，一度怀疑自己的硬件 CMS">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="MCU中的HardFault_Handler问题">
+<meta property="og:url" content="http://yoursite.com/2016/12/28/2016/2016-12-28-mcu中的hardfault-handler问题/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="问题描述使用的工具 KDE-5.11 在调试目标芯片 EFM32 时出现问题，起初是调试铁电驱动，但在单步仿真时到某一步总会不再响应，或者结束仿真时 PC 跳转到了 HardFault_Handler 异常。为了解决这个问题，于是不断地缩减代码，之后发现程序从 startup 开始执行时，一进入 main 函数就会不响应或者跳转到 HardFault_Handler 中，一度怀疑自己的硬件 CMS">
+<meta property="og:updated_time" content="2017-01-19T04:57:44.290Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MCU中的HardFault_Handler问题">
+<meta name="twitter:description" content="问题描述使用的工具 KDE-5.11 在调试目标芯片 EFM32 时出现问题，起初是调试铁电驱动，但在单步仿真时到某一步总会不再响应，或者结束仿真时 PC 跳转到了 HardFault_Handler 异常。为了解决这个问题，于是不断地缩减代码，之后发现程序从 startup 开始执行时，一进入 main 函数就会不响应或者跳转到 HardFault_Handler 中，一度怀疑自己的硬件 CMS">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css">
+    <!--STYLES END-->
+    
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Hexo</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="4">
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archives</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Search</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            MCU中的HardFault_Handler问题
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-12-28T16:49:00+08:00">
+	
+		    Dec 28, 2016
+    	
+    </time>
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>使用的工具 KDE-5.11 在调试目标芯片 EFM32 时出现问题，起初是调试铁电驱动，但在单步仿真时到某一步总会不再响应，或者结束仿真时 PC 跳转到了 HardFault_Handler 异常。为了解决这个问题，于是不断地缩减代码，之后发现程序从 startup 开始执行时，一进入 main 函数就会不响应或者跳转到 HardFault_Handler 中，一度怀疑自己的硬件 CMSIS 移植有问题。为了解决这个问题，尝试了多个办法，包括并不仅仅限于更换调试工具，断点调试，评估板代替测试，重新移植底层代码，查看 RAM 占用，修改静态区全局变量占用大小等等。下面总结一些遇到 HardFault_Handler 异常的解决方法。</p>
+<a id="more"></a>
+<h3 id="HardFault-Handler-分析"><a href="#HardFault-Handler-分析" class="headerlink" title="HardFault_Handler 分析"></a>HardFault_Handler 分析</h3><p>一般 HardFault_Handler 错误是指 PC 指向了一个无法访问的位置，主要可以分为两种：</p>
+<ul>
+<li>内存溢出或者访问越界。这个需要自己写程序的时候规范代码，遇到了需要慢慢排查。</li>
+<li>堆栈溢出。增加堆栈的大小。</li>
+</ul>
+<p>仿真时，有时会出现 HardFault_Handler 这种错误，这种错误往往会涉及到一些编译运行时的深层次原理，但基本可以肯定的是一般都是 SP,LR,PC 这三个寄存器出了问题，下面介绍这三个寄存器：</p>
+<ul>
+<li><p>堆栈指针r13（SP）：每一种异常模式都有其自己独立的r13，它通常指向异常模式所专用的堆栈，也就是说五种异常模式、非异常模式（用户模式和系统模式），都有各自独立的堆栈，用不同的堆栈指针来索引。这样当ARM进入异常模式的时候，程序就可以把一般通用寄存器压入堆栈，返回时再出栈，保证了各种模式下程序的状态的完整性。</p>
+</li>
+<li><p>连接寄存器r14（LR）：每种模式下r14都有自身版组，它有两个特殊功能：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">（1）保存子程序返回地址。使用BL或BLX时，跳转指令自动把返回地址放入r14中；子程序通过把r14复制到PC来实现返回，通常用下列指令之一：</div><div class="line">            MOV PC, LR </div><div class="line">            BX LR</div><div class="line"></div><div class="line">	通常子程序这样写，保证了子程序中还可以调用子程序。</div><div class="line">             stmfd sp!, &#123;lr&#125;</div><div class="line">             ……</div><div class="line">             ldmfd sp!, &#123;pc&#125;</div><div class="line"></div><div class="line">（2）当异常发生时，异常模式的r14用来保存异常返回地址，将r14如栈可以处理嵌套中断。</div></pre></td></tr></table></figure>
+<ul>
+<li>程序计数器r15（PC）：PC是有读写限制的。当没有超过读取限制的时候，读取的值是指令的地址加上8个字节，由于ARM指令总是以字对齐的，故bit[1:0]总是00。当用str或stm存储PC的时候，偏移量有可能是8或12等其它值。在V3及以下版本中，写入bit[1:0]的值将被忽略，而在V4及以上版本写入r15的bit[1:0]必须为00，否则后果不可预测。</li>
+</ul>
+<p>需要研究到底寄存器、函数是如何跳转调用的，我们需要使用 KDE 中的两个仿真工具： Register 和 Call Stack+Locals。Register 中主要观察 SP,LR,PC 三个寄存器的数据，PC永远指向 CPU 正在执行工作的位置，LR 会保存你调用子函数之前的跳转地址，也就是说当子函数完成返回时，会回到 LR 值对应的地址继续执行下面的程序。我这边实验时，能够看出每次执行错误后， PC 会跳转到一个很大的错误地址。</p>
+<h3 id="指针跑飞"><a href="#指针跑飞" class="headerlink" title="指针跑飞"></a>指针跑飞</h3><p>在 HardFault_Handler 中的 while(1) 设置断点，然后运行，给它触发 HardFault_Handler 的条件，然后到断点处之后，查看 watch 窗口中的 Call Stack+Locals，也就是堆栈以及局部变量，程序执行到哪一句发生的错误，以及当时各个压栈的函数的各个局部变量的值一目了然。一般而言最常出现的就是<strong>指针跑飞，数组越界</strong>，这两种其实可以看做一个情况，都是指针访问了无权限访问的空间，通过 Call Stack+Locals 窗口往往能够定位到该函数，然后可以采用单步执行，看到具体在哪一步触发了异常。</p>
+<h3 id="RAM溢出"><a href="#RAM溢出" class="headerlink" title="RAM溢出"></a>RAM溢出</h3><p>这种情况也是我排查的一种情况，编译完成之后，全局变量已经占用了相应大小 RAM 中的静态存储区域，如果你的 MCU 本身不够大，例如我的只有 8K RAM空间，而 COM 的缓冲数组占用了过多的全局变量，这边就存在一定的可能 RAM 不够分配而越界。</p>
+<h3 id="底层-CMSIS-问题"><a href="#底层-CMSIS-问题" class="headerlink" title="底层 CMSIS 问题"></a>底层 CMSIS 问题</h3><p>因为我的项目是在进入 main 函数一开始就出错了，所以为了排除是不是之前的跳转就有问题，所以重新移植 startup.s 文件</p>
+<h3 id="Jlink"><a href="#Jlink" class="headerlink" title="Jlink"></a>Jlink</h3><p>不排除调试器存在缺陷，所以更换了调试器，将自己的程序移植到评估板上面运行，进一步验证，直接使用官方自带例程，在评估板上面运行。</p>
+<h3 id="inline函数无法捕捉"><a href="#inline函数无法捕捉" class="headerlink" title="inline函数无法捕捉"></a>inline函数无法捕捉</h3><p>这边是我主要出现错误的情况，一般较为少见，根本原因在于 inline 函数是类似于宏定义，直接本地展开的，如果使用断点是无法捕捉到的，这边我的 inline 函数中又调用了一个普通函数，因为 inline 函数是原地展开，LR 没有载入它的地址，而每次普通函数在返回时，无法获取到 inline 函数的返回地址，然后就跳转了异常，这本身并不能算是一个问题，在 MCU 正常运行时不会产生任何影响，影响的仅是你的调试过程。另外我个人在调试 SPI 驱动时，因为也调用了固件库自带的 inline 函数，所以导致也没法单步执行这段程序。</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>虽然这边查出我的问题出现在内联函数上面，但是，以上的集中方法都可以作为常用排查 HardFault_Handler 异常的方法，且一般而言出现指针跑飞的可能性最高。</p>
+<blockquote>
+<p>参考链接：<br><a href="http://blog.csdn.net/zyboy2000/article/details/7668331" target="_blank" rel="external">http://blog.csdn.net/zyboy2000/article/details/7668331</a><br><a href="http://www.51hei.com/bbs/dpj-39846-1.html" target="_blank" rel="external">http://www.51hei.com/bbs/dpj-39846-1.html</a><br><a href="http://blog.csdn.net/jimmy2013_1_1/article/details/9723461" target="_blank" rel="external">http://blog.csdn.net/jimmy2013_1_1/article/details/9723461</a><br><a href="http://blog.chinaunix.net/uid-26967414-id-3823606.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-26967414-id-3823606.html</a><br><a href="http://blog.csdn.net/zhou1232006/article/details/6149548" target="_blank" rel="external">http://blog.csdn.net/zhou1232006/article/details/6149548</a><br><a href="http://blog.csdn.net/pony_maggie/article/details/5270501" target="_blank" rel="external">http://blog.csdn.net/pony_maggie/article/details/5270501</a><br><a href="http://wenku.baidu.com/view/f7bf4ad6b14e852458fb576a.html?re=view" target="_blank" rel="external">http://wenku.baidu.com/view/f7bf4ad6b14e852458fb576a.html?re=view</a></p>
+</blockquote>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/01/01/2017/2017-01-01-别了，2016；你好，2017/"  data-tooltip="别了，2016；你好，2017">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/12/27/2016/2016-12-27-ssh-使用详解/" data-tooltip="ssh 使用详解">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/12/28/2016/2016-12-28-mcu中的hardfault-handler问题/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/12/28/2016/2016-12-28-mcu中的hardfault-handler问题/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/12/28/2016/2016-12-28-mcu中的hardfault-handler问题/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2017 John Doe. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/01/01/2017/2017-01-01-别了，2016；你好，2017/"  data-tooltip="别了，2016；你好，2017">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/12/27/2016/2016-12-27-ssh-使用详解/" data-tooltip="ssh 使用详解">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/12/28/2016/2016-12-28-mcu中的hardfault-handler问题/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/12/28/2016/2016-12-28-mcu中的hardfault-handler问题/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/12/28/2016/2016-12-28-mcu中的hardfault-handler问题/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/12/28/2016/2016-12-28-mcu中的hardfault-handler问题/">
+                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/12/28/2016/2016-12-28-mcu中的hardfault-handler问题/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/12/28/2016/2016-12-28-mcu中的hardfault-handler问题/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">John Doe</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+</html>

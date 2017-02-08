@@ -1,6 +1,8 @@
 ---
 layout: "post"
 title: "Caps_Lock与右Ctrl互换"
+category: "推荐配置"
+tags:  
 date: "2016-07-14 08:59"
 ---
 

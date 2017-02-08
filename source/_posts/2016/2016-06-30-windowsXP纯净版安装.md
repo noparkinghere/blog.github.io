@@ -1,8 +1,7 @@
 ---
 layout: post
-category: "read"
-title:  u盘安装XP系统
-tags:   软件安装
+title:  "u盘安装XP系统"
+category: "软件安装"
 date: "2016-06-30 18:12"
 ---
 

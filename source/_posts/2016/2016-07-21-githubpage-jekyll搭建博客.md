@@ -1,6 +1,7 @@
 ---
 layout: "post"
 title: "githubpage+jekyll搭建博客"
+category: "软件安装"
 date: "2016-07-21 19:03"
 ---
 

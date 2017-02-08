@@ -1,6 +1,8 @@
 ---
 layout: "post"
 title: "MCU中的HardFault_Handler问题"
+category: "嵌入式"
+tags: 
 date: "2016-12-28 16:49"
 ---
 

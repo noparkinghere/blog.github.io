@@ -1,6 +1,8 @@
 ---
 layout: "post"
 title: "GithubPage+Hexo搭建博客"
+category: "软件应用"
+tags: 
 date: "2016-12-14 19:01"
 ---
 

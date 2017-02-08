@@ -1,8 +1,7 @@
 ---
 layout: post
-category: "read"
 title:  "linux下的virtualbox安装配置"
-tags:   软件安装
+category: "软件应用"
 date: "2016-07-07 1:12"
 ---
 

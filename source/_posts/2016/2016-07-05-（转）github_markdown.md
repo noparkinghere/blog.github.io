@@ -1,8 +1,7 @@
 ---
 layout: post
 title:  （转）github_markdown
-category: "read"
-tags:   问题总结
+category: "问题总结" 
 date: "2016-07-15 18:12"
 ---
 

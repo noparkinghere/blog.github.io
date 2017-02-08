@@ -1,6 +1,8 @@
 ---
 layout: "post"
 title: "uart/spi/iic的比较"
+category: "嵌入式"
+tags: 
 date: "2016-10-30 14:11"
 ---
 

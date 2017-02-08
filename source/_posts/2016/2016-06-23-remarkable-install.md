@@ -1,8 +1,7 @@
 ---
 layout: post
-category: "read"
 title:  ubuntu下安装remarkable
-tags:   软件安装
+category: "软件安装"
 date: "2016-06-23 12:12"
 ---
 

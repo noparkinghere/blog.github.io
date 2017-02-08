@@ -1,8 +1,7 @@
 ---
 layout: post
-category: "read"
 title:  linux下ssh通过VPN推送失败
-tags:   问题总结
+category: "问题总结"
 date: "2016-06-28 12:12"
 ---
 

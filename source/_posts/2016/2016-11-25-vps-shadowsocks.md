@@ -1,6 +1,8 @@
 ---
 layout: "post"
 title: "VPS : shadowsocks"
+category: "软件应用"
+tags: 
 date: "2016-11-25 09:30"
 ---
 

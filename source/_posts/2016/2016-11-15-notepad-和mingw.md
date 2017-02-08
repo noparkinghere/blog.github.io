@@ -1,6 +1,8 @@
 ---
 layout: "post"
 title: "notepad++和MinGW"
+category: "软件应用"
+tags: 
 date: "2016-11-15 16:16"
 ---
 

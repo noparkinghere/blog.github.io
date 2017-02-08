@@ -1,6 +1,8 @@
 ---
 layout: "post"
 title: "git submodule 详解"
+category: "软件应用"
+tags: 
 date: "2016-11-23 09:02"
 ---
 

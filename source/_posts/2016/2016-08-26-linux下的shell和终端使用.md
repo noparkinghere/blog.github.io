@@ -1,6 +1,7 @@
 ---
 layout: "post"
 title: "linux下的shell和终端使用"
+category: "软件应用"
 date: "2016-08-26 16:11"
 ---
 

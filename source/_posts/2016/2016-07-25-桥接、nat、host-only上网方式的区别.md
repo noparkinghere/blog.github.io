@@ -1,6 +1,8 @@
 ---
 layout: "post"
 title: "桥接、NAT、Host-only上网方式的区别"
+category: "问题总结"
+tags:   问题总结
 date: "2016-07-25 13:53"
 ---
 

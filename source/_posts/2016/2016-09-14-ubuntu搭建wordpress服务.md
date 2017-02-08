@@ -1,6 +1,8 @@
 ---
 layout: "post"
 title: "ubuntu搭建wordpress服务"
+category: "软件安装"
+tags:  
 date: "2016-09-14 09:02"
 ---
 

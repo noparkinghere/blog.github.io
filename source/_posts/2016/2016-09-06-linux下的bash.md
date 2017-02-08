@@ -1,6 +1,8 @@
 ---
 layout: "post"
 title: "linux下的bash"
+category: "linux"
+tags:   问题总结
 date: "2016-09-06 11:19"
 ---
 

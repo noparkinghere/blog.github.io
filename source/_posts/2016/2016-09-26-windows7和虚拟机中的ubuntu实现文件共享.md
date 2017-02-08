@@ -1,6 +1,8 @@
 ---
 layout: "post"
 title: "windows7和虚拟机中的ubuntu实现文件共享"
+category: "软件应用"
+tags:  
 date: "2016-09-26 14:06"
 ---
 

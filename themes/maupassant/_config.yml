@@ -46,12 +46,17 @@ links:
     url: https://news.ycombinator.com/
   - title: Jobbole
     url: http://blog.jobbole.com/
+  - title: 阮一峰的网络日志
+    url: http://www.ruanyifeng.com/blog/   
+  - title: 潘学文个人博客
+    url: http://www.panxw.com/
   - title: 屠城
     url: https://www.haomwei.com/
   - title: 0xBBC
     url: https://blog.0xbbc.com/
   - title: Sakara Hiroya
     url: https://emiria.io/
+
     
 timeline:
   - num: 1

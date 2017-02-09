@@ -1,0 +1,187 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Hard work makes things easier."><title>（转）中文技术文档的写作规范 | Damon's Blog</title><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/5.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">（转）中文技术文档的写作规范</h1><a id="logo" href="/.">Damon's Blog</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/about/"><i class="fa fa-user"> About</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">（转）中文技术文档的写作规范</h1><div class="post-meta">Jan 5, 2017<span> | </span><span class="category"><a href="/categories/问题总结/">问题总结</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-thread-key="2017/01/05/2017/2017-01-05-（转）中文技术文档的写作规范/" href="/2017/01/05/2017/2017-01-05-（转）中文技术文档的写作规范/#comments" class="ds-thread-count"></a><a data-disqus-identifier="2017/01/05/2017/2017-01-05-（转）中文技术文档的写作规范/" href="/2017/01/05/2017/2017-01-05-（转）中文技术文档的写作规范/#disqus_thread" class="disqus-comment-count"></a><div class="post-content"><p>这篇文章转自<a href="https://github.com/noparkinghere/document-style-guide" target="_blank" rel="external">阮一峰老师的 github 项目</a>，写博客也有一段时间了，也不断地修改格式排版等内容，但始终缺乏一个规范标准，直到看到这篇文章。文章中写的内容个人觉得大都算是在情在理，很适合像我这样用 markdown 写博客的人去遵循。</p>
+<h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><h2 id="层级"><a href="#层级" class="headerlink" title="层级"></a>层级</h2><p>标题分为四级。</p>
+<ul>
+<li>一级标题：文章的标题</li>
+<li>二级标题：文章主要部分的大标题</li>
+<li>三级标题：二级标题下面一级的小标题</li>
+<li>四级标题：三级标题下面某一方面的小标题</li>
+</ul>
+<h2 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h2><ul>
+<li>一级标题下，不能直接出现三级标题。</li>
+<li>标题要避免孤立编号（即同级标题只有一个）。</li>
+<li>下级标题不重复上一级标题的内容。</li>
+<li>谨慎使用四级标题，尽量避免出现，保持层级的简单和防止出现过于复杂的章节。如果三级标题下有并列性的内容，建议只使用项目列表（Item list）。</li>
+</ul>
+<a id="more"></a>
+<h1 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h1><h2 id="字间距"><a href="#字间距" class="headerlink" title="字间距"></a>字间距</h2><p>全角中文字符与半角英文字符之间，应有一个半角空格。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">错误：本文介绍如何快速启动Windows系统。</div><div class="line"></div><div class="line">正确：本文介绍如何快速启动 Windows 系统。</div></pre></td></tr></table></figure>
+<p>全角中文字符与半角阿拉伯数字之间，有没有半角空格都可，但必须保证风格统一，不能两种风格混杂。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">正确：2011年5月15日，我订购了5台笔记本电脑与10台平板电脑。</div><div class="line"></div><div class="line">正确：2011 年 5 月 15 日，我订购了 5 台笔记本电脑与 10 台平板电脑。</div></pre></td></tr></table></figure>
+<p>半角的百分号，视同阿拉伯数字。</p>
+<p>英文单位若不翻译，单位前的阿拉伯数字与单位间不留空格。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">错误：一部容量为 16 GB 的智能手机</div><div class="line"></div><div class="line">正确：一部容量为 16GB 的智能手机</div></pre></td></tr></table></figure>
+<p>半角英文字符和半角阿拉伯数字，与全角标点符号之间不留空格。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">错误：他的电脑是 MacBook Air 。</div><div class="line"></div><div class="line">正确：他的电脑是 MacBook Air。</div></pre></td></tr></table></figure>
+<h2 id="句子"><a href="#句子" class="headerlink" title="句子"></a>句子</h2><ul>
+<li>避免使用长句。一个句子建议不超过 100 字或者正文的 3 行。</li>
+<li>尽量使用简单句和并列句，避免使用复合句。</li>
+</ul>
+<h2 id="写作风格"><a href="#写作风格" class="headerlink" title="写作风格"></a>写作风格</h2><p>尽量不使用被动语态，改为使用主动语态。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">错误：假如此软件尚未被安装，</div><div class="line"></div><div class="line">正确：假如尚未安装这个软件，</div></pre></td></tr></table></figure>
+<p>不使用非正式的语言风格。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">错误：Lady Gaga 的演唱会真是酷毙了，从没看过这么给力的表演！！！</div><div class="line"></div><div class="line">正确：无法参加本次活动，我深感遗憾。</div></pre></td></tr></table></figure>
+<p>用对“的”、“地”、“得”。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">她露出了开心的笑容。</div><div class="line">（形容词＋的＋名词）</div><div class="line"></div><div class="line">她开心地笑了。</div><div class="line">（副词＋地＋动词）</div><div class="line"></div><div class="line">她笑得很开心。</div><div class="line">（动词＋得＋副词）</div></pre></td></tr></table></figure>
+<p>使用代词时（比如“其”、“该”、“此”、“这”等词），必须明确指代的内容，保证只有一个含义。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">错误：从管理系统可以监视中继系统和受其直接控制的分配系统。</div><div class="line"></div><div class="line">正确：从管理系统可以监视两个系统：中继系统和受中继系统直接控制的分配系统。</div></pre></td></tr></table></figure>
+<p>名词前不要使用过多的形式词。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">错误：此设备的使用必须在接受过本公司举办的正式的设备培训的技师的指导下进行。</div><div class="line"></div><div class="line">正确：此设备必须在技师的指导下使用，且指导技师必须接受过由本公司举办的正式设备培训。</div></pre></td></tr></table></figure>
+<p>单个句子的长度尽量保持在 20 个字以内；20～29 个字的句子，可以接受；30～39 个字的句子，语义必须明确，才能接受；多于 40 个字的句子，在任何情况下都不能接受。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">错误：本产品适用于从由一台服务器进行动作控制的单一节点结构到由多台服务器进行动作控制的并行处理程序结构等多种体系结构。</div><div class="line"></div><div class="line">正确：本产品适用于多种体系结构。无论是由一台服务器（单一节点结构），还是由多台服务器（并行处理结构）进行动作控制，均可以使用本产品。</div></pre></td></tr></table></figure>
+<p>同样一个意思，尽量使用肯定句表达，不使用否定句表达。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">错误：请确认没有接通装置的电源。</div><div class="line"></div><div class="line">正确：请确认装置的电源已关闭。</div></pre></td></tr></table></figure>
+<p>避免使用双重否定句。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">错误：没有删除权限的用户，不能删除此文件。</div><div class="line"></div><div class="line">正确：用户必须拥有删除权限，才能删除此文件。</div></pre></td></tr></table></figure>
+<h2 id="英文处理"><a href="#英文处理" class="headerlink" title="英文处理"></a>英文处理</h2><p>英文原文如果使用了复数形式，翻译成中文时，应该将其还原为单数形式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">英文：⋯information stored in random access memory (RAMs)⋯</div><div class="line"></div><div class="line">中文：……存储在随机存取存储器（RAM）里的信息……</div></pre></td></tr></table></figure>
+<p>外文缩写可以使用半角圆点(<code>.</code>)表示缩写。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">U.S.A.</div><div class="line">Apple, Inc.</div></pre></td></tr></table></figure>
+<p>表示中文时，英文省略号（<code>⋯</code>）应改为中文省略号（<code>……</code>）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">英文：5 minutes later⋯</div><div class="line"></div><div class="line">中文：5 分钟过去了⋯⋯</div></pre></td></tr></table></figure>
+<p>英文书名或电影名改用中文表达时，双引号应改为书名号。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">英文：He published an article entitled &quot;The Future of the Aviation&quot;.</div><div class="line"></div><div class="line">中文：他发表了一篇名为《航空业的未来》的文章。</div></pre></td></tr></table></figure>
+<p>第一次出现英文词汇时，在括号中给出中文标注。此后再次出现时，直接使用英文缩写即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">IOC（International Olympic Committee，国际奥林匹克委员会）。这样定义后，便可以直接使用“IOC”了。</div></pre></td></tr></table></figure>
+<p>专有名词中每个词第一个字母均应大写，非专有名词则不需要大写。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">“American Association of Physicists in Medicine”（美国医学物理学家协会）是专有名词，需要大写。</div><div class="line"></div><div class="line">“online transaction processing”（在线事务处理）不是专有名词，不应大写。</div></pre></td></tr></table></figure>
+<h1 id="段落"><a href="#段落" class="headerlink" title="段落"></a>段落</h1><h2 id="原则-1"><a href="#原则-1" class="headerlink" title="原则"></a>原则</h2><ul>
+<li>一个段落只能有一个主题，或一个中心句子。</li>
+<li>段落的中心句子放在段首，对全段内容进行概述。后面陈述的句子为核心句服务。</li>
+<li>一个段落的长度不能超过七行，最佳段落长度小于等于四行。</li>
+<li>段落的句子语气要使用陈述和肯定语气，避免使用感叹语气。</li>
+<li>段落之间使用一个空行隔开。</li>
+<li>段落开头不要留出空白字符。</li>
+</ul>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>引用第三方内容时，应注明出处。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">One man’s constant is another man’s variable. — Alan Perlis</div></pre></td></tr></table></figure>
+<p>如果是全篇转载，请在全文开头显著位置注明作者和出处，并链接至原文。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">本文转载自 WikiQuote</div></pre></td></tr></table></figure>
+<p>使用外部图片时，必须在图片下方或文末标明来源。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">本文部分图片来自 Wikipedia</div></pre></td></tr></table></figure>
+<h1 id="数值"><a href="#数值" class="headerlink" title="数值"></a>数值</h1><h2 id="半角数字"><a href="#半角数字" class="headerlink" title="半角数字"></a>半角数字</h2><p>数字一律使用半角形式，不得使用全角形式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">错误： 这件商品的价格是１０００元。</div><div class="line"></div><div class="line">正确： 这件商品的价格是 1000 元。</div></pre></td></tr></table></figure>
+<h2 id="千分号"><a href="#千分号" class="headerlink" title="千分号"></a>千分号</h2><p>数值为千位以上，应添加千分号（半角逗号）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">XXX 公司的实收资本为 RMB1,258,000。</div></pre></td></tr></table></figure>
+<p>对于 4 ～ 6 位的数值，千分号是选用的，比如<code>1000</code>和<code>1,000</code>都可以接受。对于7位及以上的数值，千分号是必须的。</p>
+<p>多位小数要从小数点后从左向右添加千分号，比如<code>4.234,345</code>。</p>
+<h2 id="货币"><a href="#货币" class="headerlink" title="货币"></a>货币</h2><p>货币应为阿拉伯数字，并在数字前写出货币符号，或在数字后写出货币中文名称。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$1,000</div><div class="line">1,000 美元</div></pre></td></tr></table></figure>
+<h2 id="数值范围"><a href="#数值范围" class="headerlink" title="数值范围"></a>数值范围</h2><p>表示数值范围时，用<code>～</code>连接。参见《标点符号》一节的“连接号”部分。</p>
+<p>带有单位或百分号时，两个数字都要加上单位或百分号，不能只加后面一个。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">正确：132kg～234kg</div><div class="line">错误：132～234kg</div><div class="line"></div><div class="line">正确：67%～89%</div><div class="line">错误：67～89%</div></pre></td></tr></table></figure>
+<h2 id="变化程度的表示法"><a href="#变化程度的表示法" class="headerlink" title="变化程度的表示法"></a>变化程度的表示法</h2><p>数字的增加要使用“增加了”、“增加到”。“了”表示增量，“到”表示定量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">增加到过去的两倍</div><div class="line">（过去为一，现在为二）</div><div class="line"></div><div class="line">增加了两倍</div><div class="line">（过去为一，现在为三）</div></pre></td></tr></table></figure>
+<p>数字的减少要使用“降低了”、“降低到”。“了”表示增量，“到”表示定量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">降低到百分之八十</div><div class="line">（定额是一百，现在是八十）</div><div class="line"></div><div class="line">降低了百分之八十</div><div class="line">（原来是一百，现在是二十）</div></pre></td></tr></table></figure>
+<p>不能用“降低N倍”或“减少N倍”的表示法，要用“降低百分之几”或“减少百分之几”。因为减少（或降低）一倍表示数值原来为一百，现在等于零。</p>
+<h1 id="标点符号"><a href="#标点符号" class="headerlink" title="标点符号"></a>标点符号</h1><h2 id="原则-2"><a href="#原则-2" class="headerlink" title="原则"></a>原则</h2><ul>
+<li>中文语句的标点符号，均应该采取全角符号，这样可以保证视觉的一致。</li>
+<li>如果整句为英文，则该句使用英文/半角标点。</li>
+<li>句号、问号、叹号、逗号、顿号、分号和冒号不得出现在一行之首。</li>
+</ul>
+<h2 id="句号"><a href="#句号" class="headerlink" title="句号"></a>句号</h2><p>中文语句中的结尾处应该用全角句号（<code>。</code>）。</p>
+<p>句子末尾用括号加注时，句号应在括号之外。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">错误：关于文件的输出，请参照第 1.3 节（见第 26 页。）</div><div class="line"></div><div class="line">正确：关于文件的输出，请参照第 1.3 节（见第 26 页）。</div></pre></td></tr></table></figure>
+<h2 id="逗号"><a href="#逗号" class="headerlink" title="逗号"></a>逗号</h2><p>逗号<code>，</code>表示句子内部的一般性停顿。</p>
+<p>注意避免“一逗到底”，即整个段落除了结尾，全部停顿都使用逗号。</p>
+<h2 id="顿号"><a href="#顿号" class="headerlink" title="顿号"></a>顿号</h2><p>句子内部的并列词，应该用全角顿号(<code>、</code>) 分隔，而不用逗号，即使并列词是英语也是如此。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">错误：我最欣赏的科技公司有 Google, Facebook, 腾讯, 阿里和百度等。</div><div class="line"></div><div class="line">正确：我最欣赏的科技公司有 Google、Facebook、腾讯、阿里和百度等。</div></pre></td></tr></table></figure>
+<p>英文句子中，并列词语之间使用半角逗号（<code>,</code>）分隔。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">例句：Microsoft Office includes Word, Excel, PowerPoint, Outlook and other components.</div></pre></td></tr></table></figure>
+<h2 id="分号"><a href="#分号" class="headerlink" title="分号"></a>分号</h2><p>分号<code>；</code>表示复句内部并列分句之间的停顿。</p>
+<h2 id="引号"><a href="#引号" class="headerlink" title="引号"></a>引号</h2><p>引用时，应该使用全角双引号（<code>“ ”</code>），注意前后双引号不同。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">例句：许多人都认为客户服务的核心是“友好”和“专业”。</div></pre></td></tr></table></figure>
+<p>引号里面还要用引号时，外面一层用双引号，里面一层用单引号（<code>‘ ’</code>），注意前后单引号不同。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">例句：鲍勃解释道：“我要放音乐，可萨利说，‘不行！’。”</div></pre></td></tr></table></figure>
+<h2 id="圆括号"><a href="#圆括号" class="headerlink" title="圆括号"></a>圆括号</h2><p>补充说明时，使用全角圆括号<code>（）</code>，括号前后不加空格。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">例句：请确认所有的连接（电缆和接插件）均安装牢固。</div></pre></td></tr></table></figure>
+<h2 id="冒号"><a href="#冒号" class="headerlink" title="冒号"></a>冒号</h2><p>全角冒号（<code>：</code>）常用在需要解释的词语后边，引出解释和说明。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">例句：请确认以下几项内容：时间、地点、活动名称，以及来宾数量。</div></pre></td></tr></table></figure>
+<p>表示时间时，应使用半角冒号（<code>:</code>）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">例句：早上 8:00</div></pre></td></tr></table></figure>
+<h2 id="省略号"><a href="#省略号" class="headerlink" title="省略号"></a>省略号</h2><p>省略号<code>……</code>表示语句未完、或者语气的不连续。它占两个汉字空间、包含六个省略点，不要使用<code>。。。</code>或<code>...</code>等非标准形式。</p>
+<p>省略号不应与“等”这个词一起使用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">错误：我们为会餐准备了香蕉、苹果、梨…等各色水果。</div><div class="line"></div><div class="line">正确：我们为会餐准备了各色水果，有香蕉、苹果、梨……</div><div class="line"></div><div class="line">正确：我们为会餐准备了香蕉、苹果、梨等各色水果。</div></pre></td></tr></table></figure>
+<h2 id="感叹号"><a href="#感叹号" class="headerlink" title="感叹号"></a>感叹号</h2><p>应该使用平静的语气叙述，尽量避免使用感叹号<code>！</code>。</p>
+<p>不得多个感叹号连用，比如<code>！！</code>和<code>!!!</code>。</p>
+<h2 id="破折号"><a href="#破折号" class="headerlink" title="破折号"></a>破折号</h2><p>破折号<code>————</code>一般用于做进一步解释。破折号应占两个汉字的位置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">例句：直觉————尽管它并不总是可靠的————告诉我，这事可能出了些问题。</div></pre></td></tr></table></figure>
+<h2 id="连接号"><a href="#连接号" class="headerlink" title="连接号"></a>连接号</h2><p>连接号用于连接两个类似的词。</p>
+<p>以下场合应该使用直线连接号（<code>-</code>），占一个半角字符的位置。</p>
+<ul>
+<li>两个名词的复合</li>
+<li>图表编号</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">例句：氧化-还原反应</div><div class="line"></div><div class="line">例句：图 1-1</div></pre></td></tr></table></figure>
+<p>以下场合应该使用波浪连接号（<code>～</code>），占一个全角字符的位置。</p>
+<ul>
+<li>数值范围（例如日期、时间或数字）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">例句：2009 年～2011 年</div></pre></td></tr></table></figure>
+<p>注意，波浪连接号前后两个值都应该加上单位。</p>
+<p>波浪连接号也可以用汉字“至”代替。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">例句：周围温度：-20°C 至 -10°C</div></pre></td></tr></table></figure>
+<h1 id="章节结构"><a href="#章节结构" class="headerlink" title="章节结构"></a>章节结构</h1><p>软件手册是一部完整的书，建议采用下面的结构。</p>
+<ul>
+<li><strong>简介</strong>（Introduction）： [必备] [文件] 提供对产品和文档本身的总体的、扼要的说明</li>
+<li><strong>快速上手</strong>（Getting Started）：[可选] [文件] 如何最快速地使用产品</li>
+<li><strong>入门篇</strong>（Basics）： [必备] [目录] 又称”使用篇“，提供初级的使用教程<ul>
+<li><strong>环境准备</strong>（Prerequisite）：[必备] [文件] 软件使用需要满足的前置条件</li>
+<li><strong>安装</strong>（Installation）：[可选] [文件] 软件的安装方法</li>
+<li><strong>设置</strong>（Configuration）：[必备] [文件] 软件的设置</li>
+</ul>
+</li>
+<li><strong>进阶篇</strong>（Advanced)：[可选] [目录] 又称”开发篇“，提供中高级的开发教程</li>
+<li><strong>API</strong>（Reference）：[可选] [目录|文件] 软件API的逐一介绍</li>
+<li><strong>FAQ</strong>：[可选] [文件] 常见问题解答</li>
+<li><strong>附录</strong>（Appendix）：[可选] [目录] 不属于教程本身、但对阅读教程有帮助的内容<ul>
+<li><strong>Glossary</strong>：[可选] [文件] 名词解释</li>
+<li><strong>Recipes</strong>：[可选] [文件] 最佳实践</li>
+<li><strong>Troubleshooting</strong>：[可选] [文件] 故障处理</li>
+<li><strong>ChangeLog</strong>：[可选] [文件] 版本说明</li>
+<li><strong>Feedback</strong>：[可选] [文件] 反馈方式</li>
+</ul>
+</li>
+</ul>
+<p><strong>范例</strong></p>
+<ul>
+<li><a href="http://redux.js.org/index.html" target="_blank" rel="external">Redux 手册</a></li>
+<li><a href="http://flight-manual.atom.io/" target="_blank" rel="external">Atom 手册</a></li>
+</ul>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><blockquote>
+<p><a href="http://wenku.baidu.com/view/23cc1a6527d3240c8447efbf.html" target="_blank" rel="external">产品手册中文写作规范</a>, by 华为<br><a href="http://docs.daocloud.io/write-docs/format" target="_blank" rel="external">写作规范和格式规范</a>, by DaoCloud<br><a href="http://www.hitachi-tc.co.jp/company/thesis/thesis.pdf" target="_blank" rel="external">技术写作技巧在日汉翻译中的应用</a>, by 刘方<br><a href="https://www.lengoo.de/documents/styleguides/lengoo_styleguide_ZH.pdf" target="_blank" rel="external">简体中文规范指南</a>，by lengoo<br><a href="https://open.leancloud.cn/copywriting-style-guide.html" target="_blank" rel="external">文档风格指南</a>, by LeanCloud<br><a href="https://docs.google.com/document/d/1R8lMCPf6zCD5KEA8ekZ5knK77iw9J-vJ6vEopPemqZM/edit" target="_blank" rel="external">豌豆荚文案风格指南</a>, by 豌豆荚<br><a href="https://github.com/sparanoid/chinese-copywriting-guidelines" target="_blank" rel="external">中文文案排版指北</a>，by sparanoid<br><a href="http://w3c.github.io/clreq/" target="_blank" rel="external">中文排版需求</a>，by W3C  </p>
+</blockquote>
+<hr>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://yoursite.com/2017/01/05/2017/2017-01-05-（转）中文技术文档的写作规范/" data-id="ciyxoxk390065whmuxoia86zm" class="article-share-link">Share</a><div class="tags"></div><div class="post-nav"><a href="/2017/01/25/2017/2017-01-25-ss-linux全局代理/" class="pre">linux-shadowsocks全局代理</a><a href="/2017/01/01/2017/2017-01-01-别了，2016；你好，2017/" class="next">别了，2016；你好，2017</a></div><div data-thread-key="2017/01/05/2017/2017-01-05-（转）中文技术文档的写作规范/" data-title="（转）中文技术文档的写作规范" data-url="http://yoursite.com/2017/01/05/2017/2017-01-05-（转）中文技术文档的写作规范/" class="ds-share flat"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><a href="javascript:void(0);" class="ds-more">分享到：</a></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qzone" class="ds-qzone">QQ空间</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div><div data-thread-key="2017/01/05/2017/2017-01-05-（转）中文技术文档的写作规范/" data-title="（转）中文技术文档的写作规范" data-url="http://yoursite.com/2017/01/05/2017/2017-01-05-（转）中文技术文档的写作规范/" data-author-key="1" class="ds-thread"></div><div id="disqus_thread"><script>var disqus_shortname = 'noparkinghere';
+var disqus_identifier = '2017/01/05/2017/2017-01-05-（转）中文技术文档的写作规范/';
+var disqus_title = '（转）中文技术文档的写作规范';
+var disqus_url = 'http://yoursite.com/2017/01/05/2017/2017-01-05-（转）中文技术文档的写作规范/';
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//noparkinghere.disqus.com/count.js" async></script></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://yoursite.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/嵌入式/">嵌入式</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程技巧/">编程技巧</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件安装/">软件安装</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件应用/">软件应用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/配置推荐/">配置推荐</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/问题总结/">问题总结</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/杂谈/" style="font-size: 15px;">杂谈</a> <a href="/tags/版本控制/" style="font-size: 15px;">版本控制</a> <a href="/tags/问题总结/" style="font-size: 15px;">问题总结</a> <a href="/tags/软件安装/" style="font-size: 15px;">软件安装</a> <a href="/tags/MCU/" style="font-size: 15px;">MCU</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/01/25/2017/2017-01-25-ss-linux全局代理/">linux-shadowsocks全局代理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/05/2017/2017-01-05-（转）中文技术文档的写作规范/">（转）中文技术文档的写作规范</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/01/2017/2017-01-01-别了，2016；你好，2017/">别了，2016；你好，2017</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/28/2016/2016-12-28-mcu中的hardfault-handler问题/">MCU中的HardFault_Handler问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/27/2016/2016-12-27-ssh-使用详解/">ssh 使用详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/26/2016/2016-12-26-针对百度网盘限速的解决方案/">针对百度网盘限速的解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/20/2016/2016-12-20-linux-系统瘦身/">linux 系统瘦身</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/19/2016/2016-12-19-vps-简介/">VPS 简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/14/2016/2016-12-14-githubpage-hexo搭建博客/">GithubPage+Hexo搭建博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/12/2016/2016-12-12-teamviewer-远程控制/">TeamViewer 远程控制</a></li></ul></div><div class="widget"><div class="comments-title"><i class="fa fa-comment-o"> Recent Comments</i></div><div data-num-items="5" data-show-avatars="0" data-show-time="1" data-show-admin="0" data-excerpt-length="32" data-show-title="1" class="ds-recent-comments"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> Recent Comments</i></div><script type="text/javascript" src="//noparkinghere.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Blogroll</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">Damon's Blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script>var duoshuoQuery = {short_name:'noparkinghere'};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','UA-80280728-1','auto');ga('send','pageview');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

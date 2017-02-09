@@ -42,13 +42,17 @@ widgets: ## Six widgets in sidebar provided: search, category, tag, recent_posts
   - links
 
 links:
-  - title: site-name1
-    url: http://www.example1.com/
-  - title: site-name2
-    url: http://www.example2.com/
-  - title: site-name3
-    url: http://www.example3.com/
-
+  - title: Hacker News
+    url: https://news.ycombinator.com/
+  - title: Jobbole
+    url: http://blog.jobbole.com/
+  - title: 屠城
+    url: https://www.haomwei.com/
+  - title: 0xBBC
+    url: https://blog.0xbbc.com/
+  - title: Sakara Hiroya
+    url: https://emiria.io/
+    
 timeline:
   - num: 1
     word: 2016/06/12-Start

@@ -1,0 +1,91 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Hard work makes things easier."><title>Damon's Blog</title><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/5.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Damon's Blog</h1><a id="logo" href="/.">Damon's Blog</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/about/"><i class="fa fa-user"> About</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h2 class="post-title"><a href="/2016/12/09/2016/2016-12-09-lamp-环境搭建/">LAMP 环境搭建</a></h2><div class="post-meta">2016-12-09</div><div class="post-content"><p>之前写过一些服务器的配置文章，但当时都只是按部就班，对于相关服务的理解很欠缺。由于很多的博客系统，网站都依赖于：操作系统，服务器软件，数据库，后台编程语言等，本质上他们都存在很大的共性，细心品尝里面的门道其实不可谓不多，这边重新梳理 LAMP 环境的搭建，帮助学习和理解。</p></div><p class="readmore"><a href="/2016/12/09/2016/2016-12-09-lamp-环境搭建/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2016/12/08/2016/2016-12-08-efm32-开发板问题总结/">efm32 开发板问题总结</a></h2><div class="post-meta">2016-12-08</div><div class="post-content"><p>silabs 的 EFM 系列芯片历来以低能耗，可信的加密而文明，比较遗憾的是，国内用的较少，且基本上没有什么中文参考资料，刚刚开办没多久的官方中文论坛贴出来的资料也大都是英文版，且论坛在 GFW 下访问相当困难。因为项目需求，这边我入手了两个系列的 EFM 开发板，但都出了大大小小的问题。</p>
+<p>个人总结：1.因为前期缺少相关指导，且官方指导手册仅告诉要如何做，却没指示相关工具的位置和使用。2.该芯片配备专有 IDE 且还分好几个版本，无疑增加了摸索的难度。3.个人经验不足，之前上手的都是开发板，没接触过这种官方自带的评估板。</p>
+<p>其实上手这个评估板并不困难，困难的是没有一个详尽的指导手册，不知道如何用评估板去烧录上面的 MCU ，如何用评估板烧录自己产品的 MCU等。</p>
+<h3 id="评估板简介："><a href="#评估板简介：" class="headerlink" title="评估板简介："></a>评估板简介：</h3><p>EFM32 配套评估板 上 Jlink 是从Segger授权的, 功能上应该没有缩减。因此价格也较贵，原价 $69 现价 $29 ，一般网购的价格在 ￥200 左右，这个价位对于国内 STM32 满地跑，部分 STM32 开发板价格甚至在 100 左右来说的话，还是较贵的，最关键的是淘宝购买的厂家不承担售后服务之类的，出问题只能自己解决。</p>
+<p>另外，EFM32 官方配套软件很强大，将编码，烧录，仿真，能耗监控，文档，样例等等都集成在了一起，很多资料都需要去这个 IDE 中查找，对英语不好或者不善于摸索的人来说也是一道门槛。</p>
+<p>评估板的功能：</p>
+<ul>
+<li>根据你的版型，不同的板子有不同的功能，一般都会有显示器，按键，led等基本功能</li>
+<li>能耗检测模块</li>
+<li>板载 Jlink ：可以烧录板载 MCU，也可以烧录外置芯片。</li>
+<li>可以使用外置 Jlink 来烧录板载的 MCU。</li>
+<li>大多数引脚引出，且预留焊盘，另外还有 EXP 扩展口（注意 debug-out 是小灯，而不是指 EXP 扩展口）。</li>
+</ul></div><p class="readmore"><a href="/2016/12/08/2016/2016-12-08-efm32-开发板问题总结/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2016/12/01/2016/2016-12-01-putty-xming-远程使用-linux-gui/">PuTTY + Xming 远程使用 Linux GUI</a></h2><div class="post-meta">2016-12-01</div><div class="post-content"><p>就目前而言，将 linux 作为个人电脑操作系统使用的人还比较少，而 linux 也一直以来因为其占用资源少，系统稳定，强大的 CLI 而闻名于世。因此显而易见，广大用户一般都是通过 ssh 等方式登录连接 linux ，然后使用 CLI 完成需要的操作，而使用 linux GUI 用户较少，甚至可以被忽略，但出于个人的需要，本人需要通过 windows 远程登录 linux 然后通过 chrome 等</p>
+<h3 id="操作系统："><a href="#操作系统：" class="headerlink" title="操作系统："></a>操作系统：</h3><ul>
+<li>windows 7 x64 中文旗舰版</li>
+<li>ubuntu 16.04 </li>
+</ul></div><p class="readmore"><a href="/2016/12/01/2016/2016-12-01-putty-xming-远程使用-linux-gui/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2016/11/28/2016/2016-11-28-vps-docker/">vps-docker</a></h2><div class="post-meta">2016-11-28</div><div class="post-content"><a id="more"></a>
+</div><p class="readmore"><a href="/2016/11/28/2016/2016-11-28-vps-docker/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2016/11/26/2016/2016-11-26-检测VPS虚拟化技术/">检测VPS虚拟化技术</a></h2><div class="post-meta">2016-11-26</div><div class="post-content"><p>很多时候，我们需要知道自己的 VPS 是通过什么软件进行分配的，这是可以使用如下的几种方式：</p>
+<h3 id="方法1："><a href="#方法1：" class="headerlink" title="方法1："></a>方法1：</h3><p>使用如下命令运行</p>
+<p><code>wget -N --no-check-certificate https://raw.githubusercontent.com/91yun/code/master/vm_check.sh &amp;&amp; bash vm_check.sh</code></p>
+<p>代码运行结束就会在最后一行显示虚拟化技术：kvm还是openv或者是xen一目了然。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">...</div><div class="line">make[1]: Leaving directory `/root/virt-what-1.12<span class="string">'</div><div class="line">openvz</div><div class="line">kvm</span></div></pre></td></tr></table></figure></div><p class="readmore"><a href="/2016/11/26/2016/2016-11-26-检测VPS虚拟化技术/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2016/11/25/2016/2016-11-25-vps-shadowsocks/">VPS : shadowsocks</a></h2><div class="post-meta">2016-11-25</div><div class="post-content"><p>日常生活中，由于GFW的强大，很多学习资料等内容我们无法获取或者检索，因此科学上网往往相当重要，本文章使用 VPS 搭建 shadowsocks 服务让安全的科学上网成为可能，需要注意的是 VPS 必须是境外服务器，推荐 vultr 搬瓦工等廉价vpn。</p>
+<h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><p><strong>这边可以参考<a href="http://vc2tea.com/whats-shadowsocks/">原文博客</a>，以下只是简单罗列一些原理：</strong></p>
+<ul>
+<li>早期互联网用户访问网站时，用户的请求通过互联网发送到服务提供方，服务提供方直接将信息反馈给用户： </li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-11-25-vps-shadowsocks/ss1.png" alt=""></p>
+<ul>
+<li>GFW 出现后，每当用户需要获取信息，都经过了 GFW，GFW将它不喜欢的内容统统过滤掉，于是客户当触发 GFW 的过滤规则的时候，就会收到 Connection Reset 这样的响应内容，而无法接收到正常的内容 </li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-11-25-vps-shadowsocks/ss2.png" alt=""></p>
+<ul>
+<li>为了绕过GFW的过滤（包含了各种HTTP代理服务、Socks服务、VPN服务等等），以 ssh tunnel 的方法为例：1) 首先用户和境外服务器基于 ssh 建立起一条加密的通道 2-3) 用户通过建立起的隧道进行代理，通过 ssh server 向真实的服务发起请求 4-5) 服务通过 ssh server，再通过创建好的隧道返回给用户。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-11-25-vps-shadowsocks/ss3.png" alt=""></p>
+<p><strong>由于 ssh 本身就是基于 RSA 加密技术，所以 GFW 无法从数据传输的过程中的加密数据内容进行关键词分析，避免了被重置链接的问题，但由于创建隧道和数据传输的过程中，ssh 本身的特征是明显的，所以 GFW 一度通过分析连接的特征进行干扰，导致 ssh 存在被定向进行干扰的问题</strong></p>
+<ul>
+<li>shadowsocks 是将原来 ssh 创建的 Socks5 协议拆开成 server 端和 client 端，所以下面这个原理图基本上和利用 ssh tunnel 大致类似:1、6) 客户端发出的请求基于 Socks5 协议跟 ss-local 端进行通讯，由于这个 ss-local 一般是本机或路由器或局域网的其他机器，不经过 GFW，所以解决了上面被 GFW 通过特征分析进行干扰的问题 2、5) ss-local 和 ss-server 两端通过多种可选的加密方法进行通讯，经过 GFW 的时候是常规的TCP包，没有明显的特征码而且 GFW 也无法对通讯数据进行解密 3、4) ss-server 将收到的加密数据进行解密，还原原来的请求，再发送到用户需要访问的服务，获取响应原路返回:</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-11-25-vps-shadowsocks/ss4.png" alt=""></p>
+<ul>
+<li>GFW 就出现了，他像一个收过路费的强盗一样夹在了在用户和服务之间，每当用户需要获取信息，都经过了 GFW，GFW将它不喜欢的内容统统过滤掉，于是客户当触发 GFW 的过滤规则的时候，就会收到 Connection Reset 这样的响应内容，而无法接收到正常的内容 </li>
+</ul>
+<h3 id="软件简介："><a href="#软件简介：" class="headerlink" title="软件简介："></a>软件简介：</h3><h4 id="shadowsocks"><a href="#shadowsocks" class="headerlink" title="shadowsocks:"></a>shadowsocks:</h4><p><a href="https://shadowsocks.org/en/index.html">shadowsocks：A secure socks5 proxy,designed to protect your Internet traffic.</a>。</p>
+<p>Shadowsocks（中文名称：影梭）是使用Python、C++、C#等语言开发的、基于Apache许可证的开放源代码软件，用于保护网络流量、加密数据传输。Shadowsocks使用Socks5代理方式。Shadowsocks分为服务器端和客户端。在使用之前，需要先将服务器端部署到服务器上面，然后通过客户端连接并创建本地代理。在中国大陆，本工具也被广泛用于突破防火长城（GFW），以浏览被封锁、屏蔽或干扰的内容。在2015年8月22日，Shadowsocks原作者Clowwindy称受到了中国政府的压力，宣布停止维护此项目并移除其用户页面所载的源代码。</p>
+<p>Shadowsocks的运行原理与其他代理工具基本相同，使用特定的中转服务器完成数据传输。在服务器端部署完成后，用户需要按照指定的密码、加密方式和端口使用客户端软件与其连接。在成功连接到服务器后，客户端会在用户的电脑上构建一个本地Socks5代理。浏览网络时，网络流量会被分到本地socks5代理，客户端将其加密之后发送到服务器，服务器以同样的加密方式将流量回传给客户端，以此实现代理上网。</p>
+<ul>
+<li>Shadowsocks使用自行设计的协议进行加密通信。[4]加密算法有AES、Blowfish、IDEA、RC4等，除创建TCP连接外无需握手，每次请求只转发一个连接，因此使用起来网速较快，在移动设备上也比较省电。</li>
+<li>所有的流量都经过算法加密，允许自行选择算法，所以比较安全。</li>
+<li>Shadowsocks通过异步I/O和事件驱动程序运行，响应速度快。</li>
+<li>客户端覆盖多个主流操作系统和平台，包括Windows，OS X，Android和iOS系统和路由器（OpenWrt）等[5]。</li>
+<li>专为移动设备和无线网络优化。</li>
+</ul>
+<h4 id="supervisor"><a href="#supervisor" class="headerlink" title="supervisor:"></a>supervisor:</h4><p>Linux的后台进程运行有好几种方法，例如nohup，screen等，但是，如果是一个服务程序，要可靠地在后台运行，我们就需要把它做成daemon，最好还能监控进程状态，在意外结束时能自动重启。supervisor就是用Python开发的一套通用的进程管理程序，能将一个普通的命令行进程变为后台daemon，并监控进程状态，异常退出时能自动重启。</p>
+<h3 id="VPS-安装及配置："><a href="#VPS-安装及配置：" class="headerlink" title="VPS 安装及配置："></a>VPS 安装及配置：</h3><h4 id="软件列表："><a href="#软件列表：" class="headerlink" title="软件列表："></a>软件列表：</h4><ul>
+<li>vps（Debian GNU/Linux 7 ），这边采用 Debian 系列linux，ubuntu 应该步骤类似，如果使用 redhat 系列，部分指令需要自行更改，这边不做累述。</li>
+<li>shadowsocks-severs： 注意安装 shadowsocks 的 severs 版本</li>
+<li>supervisor ： 用于Linux后台进程管理的利器</li>
+</ul></div><p class="readmore"><a href="/2016/11/25/2016/2016-11-25-vps-shadowsocks/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2016/11/23/2016/2016-11-23-转-虚拟主机、vps和云主机/">(转)虚拟主机、VPS和云主机</a></h2><div class="post-meta">2016-11-23</div><div class="post-content"><blockquote>
+<p>转载链接：<a href="http://www.chinaz.com/prime/2012/1021/279069.shtml">http://www.chinaz.com/prime/2012/1021/279069.shtml</a></p>
+</blockquote>
+<p>云计算时代，云主机其可扩展性、价格便宜、安全可靠的特性深受企业和开发者欢迎，但目前有些IDC企业，新瓶装旧酒，将虚拟主机、VPS进行包装推出所谓的云主机服务，为了帮助用户更好的辨别和挑选云主机，下文详细介绍虚拟主机、VPS和云主机产品的特点以及差异性。</p>
+<h3 id="一、虚拟主机、VPS和云主机"><a href="#一、虚拟主机、VPS和云主机" class="headerlink" title="一、虚拟主机、VPS和云主机"></a>一、虚拟主机、VPS和云主机</h3><p>共享主机也称虚拟主机，从互联网诞生至今，大部分站长都是从”共享主机”(shared hosting)开始学习建站的。所谓”共享主机”，就是一台服务器上有许多网站，大家共享这台服务器的硬件和带宽。如果它发生故障，那么上面的所有网站都无法访问。</p>
+<p>VPS主机(Virtual Private Server 虚拟专用服务器)，将一部服务器分割成多个虚拟专享服务器的优质服务。每个VPS都可分配独立公网IP地址、独立操作系统、独立超大空间、独立内存、独立CPU资源、独立执行程序和独立系统配置等。用户除了可以分配多个虚拟主机及无限企业邮箱外，更具有独立服务器功能，可自行安装程序，单独重启服务器。</p>
+<p>”云主机”(Cloud hosting)可以看成是新一代的共享主机。</p>
+<p>首先，主机公司将它的硬件和网络线路，做成一朵”云”，然后提供一些通向这朵”云”的网络接口API，供客户使用。这时，每个客户共享的不再是某一台特定的服务器，而是云里的所有服务器。</p>
+<p>比如，假设你要把本机的文件备份到网上，你可以使用共享主机，把文件传到某一台服务器上;也可以使用云主机，通过某种形式的接口，把它们传到云里。也就是说，共享主机用户直接面对特定的服务器，而云主机用户直接面对网络接口，看不到服务器内部。</p>
+<p>一个通俗的比喻是，你可以向银行租一个编号为”8888″的保险箱(共享主机)，也可以把贵重物品直接交给保管公司，听任他们保管。</p>
+<p>诸如Gmail、FaceBook、Twitter、Flickr这样的产品，都可以看作是基于”云主机”的服务。</p>
+<p>云主机能真正获得root权限，用户可以重装和升级操作系统，而VPS主机用户没有root权限，无法重装和升级操作系统。</p></div><p class="readmore"><a href="/2016/11/23/2016/2016-11-23-转-虚拟主机、vps和云主机/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2016/11/23/2016/2016-11-23-git-submodule-详解/">git submodule 详解</a></h2><div class="post-meta">2016-11-23</div><div class="post-content"><p>使用 git 也有一段时间，但不得不说 git 的功能相当强大和复杂，需要你不断的去摸索学习。这边介绍一个 git 很强大的功能：git submodule 。起初发现这个文件是在我本人 fork 了一个 awesome 的配置文件，用了也蛮久，但最近由于总是出现连接错误，然后手动去更改了一些文件，但意外发现更改的文件无法提交， status 中竟然没有这些文件的信息，另外通过其他官方文档 gitignore 中的几个 ignore 中仔细查看，很确定项目中并没有忽略这些文件，通过排查最后才发现是 .gitmodules 这个文件捣的鬼。仔细研究发现git-submodule是一个十分强大的功能，值得去学习研究。</p></div><p class="readmore"><a href="/2016/11/23/2016/2016-11-23-git-submodule-详解/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2016/11/22/2016/2016-11-22-crc校验/">CRC校验</a></h2><div class="post-meta">2016-11-22</div><div class="post-content"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><h3 id="原理规则"><a href="#原理规则" class="headerlink" title="原理规则"></a>原理规则</h3></div><p class="readmore"><a href="/2016/11/22/2016/2016-11-22-crc校验/">Read More</a></p></div><div class="post"><h2 class="post-title"><a href="/2016/11/21/2016/2016-11-21-vim学习/">vim学习</a></h2><div class="post-meta">2016-11-21</div><div class="post-content"><p>vim 和 emacs 一个号称编辑器之神，一个被称为神的编辑器。打开 vim 执行命令：vimtutor 则可以查看官方说明教程，vimtutor是vim使用入门教程。老实说，自从接触vim到现在也有好多年了，但一直没有强迫自己使用，以及它的难定制性，让我至今都还无法像那些大神一样，完全脱离鼠标和IDE，本文对现阶段我学习 vim 进行一个总结，后续还会不断记录更新。</p>
+<h3 id="最基本操作"><a href="#最基本操作" class="headerlink" title="最基本操作"></a>最基本操作</h3><ul>
+<li>请按<ESC>键(这是为了确保您处在正常模式)。</li>
+<li>h 的键位于左边，每次按下就会向左移动。</li>
+<li>l 的键位于右边，每次按下就会向右移动。</li>
+<li>j 键看起来很象一支尖端方向朝下的箭头。</li>
+<li>k朝上移动。</li>
+<li>:q! &lt;回车&gt;不保存退出。</li>
+<li>:wq &lt;回车&gt;保存并退出。</li>
+<li>gg 跳到首行</li>
+<li>G 跳到末行</li>
+<li>yy 复制</li>
+<li>p 粘贴</li>
+<li>dd 删除单行</li>
+<li>u 撤销上次操作</li>
+</ul>
+<h4 id="复制："><a href="#复制：" class="headerlink" title="复制："></a>复制：</h4><p>vim有12个粘贴板，分别是 <code>0、1、2、...、9、a、&quot;、+</code> 用 :reg 命令可以查看各个粘贴板里的内容。下面讲一下vim的粘贴板的基础知识：</p>
+<ul>
+<li>+号粘贴板是系统粘贴板，用 “+y 将内容复制到该粘贴板后可以使用 Ctrl＋V 将其粘贴到其他文档（如firefox、gedit）中，同理，要把在其他地方用 Ctrl＋C 或右键复制的内容复制到 vim 中，需要在正常模式下按 “+p 。</li>
+<li>“ 号粘贴板（临时粘贴板）比较特殊，直接按 y 就复制到这个粘贴板中了，直接按 p 就粘贴这个粘贴板中的内容；</li>
+<li>要将vim某个粘贴板里的内容粘贴进来，需要退出编辑模式，在正常模式按”Np，其中N为粘贴板号，如上所述，可以按”5p将5号粘贴板里的内容粘贴进来，也可以按”+p将系统全局粘贴板里的内容粘贴进来。</li>
+</ul></div><p class="readmore"><a href="/2016/11/21/2016/2016-11-21-vim学习/">Read More</a></p></div><nav class="page-navigator"><a class="extend prev" rel="prev" href="/">Previous</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/3/">Next</a></nav></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://yoursite.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/嵌入式/">嵌入式</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程技巧/">编程技巧</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件安装/">软件安装</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件应用/">软件应用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/配置推荐/">配置推荐</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/问题总结/">问题总结</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/杂谈/" style="font-size: 15px;">杂谈</a> <a href="/tags/版本控制/" style="font-size: 15px;">版本控制</a> <a href="/tags/问题总结/" style="font-size: 15px;">问题总结</a> <a href="/tags/软件安装/" style="font-size: 15px;">软件安装</a> <a href="/tags/MCU/" style="font-size: 15px;">MCU</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/01/25/2017/2017-01-25-ss-linux全局代理/">linux-shadowsocks全局代理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/05/2017/2017-01-05-（转）中文技术文档的写作规范/">（转）中文技术文档的写作规范</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/01/2017/2017-01-01-别了，2016；你好，2017/">别了，2016；你好，2017</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/28/2016/2016-12-28-mcu中的hardfault-handler问题/">MCU中的HardFault_Handler问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/27/2016/2016-12-27-ssh-使用详解/">ssh 使用详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/26/2016/2016-12-26-针对百度网盘限速的解决方案/">针对百度网盘限速的解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/20/2016/2016-12-20-linux-系统瘦身/">linux 系统瘦身</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/19/2016/2016-12-19-vps-简介/">VPS 简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/14/2016/2016-12-14-githubpage-hexo搭建博客/">GithubPage+Hexo搭建博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/12/2016/2016-12-12-teamviewer-远程控制/">TeamViewer 远程控制</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Blogroll</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">Damon's Blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

@@ -8,17 +8,17 @@ comments: false
 
 ### 1. Personal Info
 
-> Name: damon  
-> Gender: Male  
-> City: ShangHai, China  
+> **Name**: damon  
+> **Gender**: Male  
+> **City**: ShangHai, China  
 
 
 ### 2. My Links
 
-> Blog: <http://noparkinghere.site>  
-> GitHub: <https://github.com/noparkinghere>  
+> **Blog**: <http://noparkinghere.site>  
+> **GitHub**: <https://github.com/noparkinghere>  
 
 
 ### 3. Contact
 
-> Email: noparkinghere#foxmail.com
+> **Email**: noparkinghere#foxmail.com

@@ -1,7 +1,6 @@
 ---
 layout: page
 comments: false
-title: "About"
 ---
 
 ## Welcome to visit my blog!

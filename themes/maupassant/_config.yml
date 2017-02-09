@@ -23,6 +23,12 @@ menu:
   - page: about
     directory: about/
     icon: fa-user
+  - page: Blogroll
+    directory: blogroll/
+    icon: fa-rss
+  - page: Msg
+    directory: msg/
+    icon: fa-comments
 #  - page: rss
 #    directory: atom.xml
 #    icon: fa-rss

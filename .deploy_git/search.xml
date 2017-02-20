@@ -5,7 +5,7 @@
     
     <entry>
       <title><![CDATA[linux-shadowsocks全局代理]]></title>
-      <url>http://yoursite.com/2017/01/25/2017/2017-01-25-ss-linux%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86/</url>
+      <url>http://noparkinghere.site/2017/01/25/2017/2017-01-25-ss-linux%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86/</url>
       <content type="html"><![CDATA[<p>windows 直接下载 ss 终端，稍加设置即可完成全局代理，linux 用户如果需要让某个软件可以使用 ss 一般都需要连接端口才行。例如本地 ss 配置为：<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"server_port"</span>:<span class="number">1800</span>,</div><div class="line"><span class="string">"local_port"</span>:<span class="number">1080</span>,</div></pre></td></tr></table></figure></p>
 <h3 id="原理简述"><a href="#原理简述" class="headerlink" title="原理简述"></a>原理简述</h3><p>这边就相当于将本地的 127.0.0.1:1080 和 server_ip:1800 建立了连接关系。因此软件如果需要使用 vps 上面搭建的 ss 服务的话，则需要让该软件使用的协议连接到 127.0.0.1:1080 上。之前在 vps-shadowsocks 中介绍的 chrome 插件 SwitchyOmega 就是使用 SOCKS5 协议连接到 127.0.0.1:1080 上，让所有数据通过 SOCKS5 协议，然后从 127.0.0.1:1080 进行收发。</p>
 <p>可以看出如果我们需要让其他软件也能够使用 ss 则需要让他们也能够使用 127.0.0.1:1080 代理服务器，然而不幸的是，大多数软件并不支持代理服务的功能， windows 平台下的软件很多可以通过设置 IE 代理让其他软件使用代理服务（原理是：大多数软件都会优先读取 IE 的代理设置，再访问网络）。</p>
@@ -33,7 +33,7 @@
     
     <entry>
       <title><![CDATA[（转）中文技术文档的写作规范]]></title>
-      <url>http://yoursite.com/2017/01/05/2017/2017-01-05-%EF%BC%88%E8%BD%AC%EF%BC%89%E4%B8%AD%E6%96%87%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3%E7%9A%84%E5%86%99%E4%BD%9C%E8%A7%84%E8%8C%83/</url>
+      <url>http://noparkinghere.site/2017/01/05/2017/2017-01-05-%EF%BC%88%E8%BD%AC%EF%BC%89%E4%B8%AD%E6%96%87%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3%E7%9A%84%E5%86%99%E4%BD%9C%E8%A7%84%E8%8C%83/</url>
       <content type="html"><![CDATA[<p>这篇文章转自<a href="https://github.com/noparkinghere/document-style-guide" target="_blank" rel="external">阮一峰老师的 github 项目</a>，写博客也有一段时间了，也不断地修改格式排版等内容，但始终缺乏一个规范标准，直到看到这篇文章。文章中写的内容个人觉得大都算是在情在理，很适合像我这样用 markdown 写博客的人去遵循。</p>
 <h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><h2 id="层级"><a href="#层级" class="headerlink" title="层级"></a>层级</h2><p>标题分为四级。</p>
 <ul>
@@ -203,7 +203,7 @@
     
     <entry>
       <title><![CDATA[别了，2016；你好，2017]]></title>
-      <url>http://yoursite.com/2017/01/01/2017/2017-01-01-%E5%88%AB%E4%BA%86%EF%BC%8C2016%EF%BC%9B%E4%BD%A0%E5%A5%BD%EF%BC%8C2017/</url>
+      <url>http://noparkinghere.site/2017/01/01/2017/2017-01-01-%E5%88%AB%E4%BA%86%EF%BC%8C2016%EF%BC%9B%E4%BD%A0%E5%A5%BD%EF%BC%8C2017/</url>
       <content type="html"><![CDATA[<p>这篇文章写的晚了，本来是想年前写得，结果一耽搁已经是2017了，过去得一年有太多值得说得，新的一年也有太多值得期待的，这篇文章中只会写有关学习工作上面的得失，个人生活不做涉及。</p>
 <p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-01-01-别了，2016；你好，2017/1.jpg" alt=""><br><a id="more"></a></p>
 <h3 id="别了，2016"><a href="#别了，2016" class="headerlink" title="别了，2016"></a>别了，2016</h3><h4 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h4><p>2016 对我来说也算是一个特殊的年份，但其实细想起来所有的得失也基本都集中在了下半年，其中最值得一提的可以分为如下几点：</p>
@@ -233,7 +233,7 @@
     
     <entry>
       <title><![CDATA[MCU中的HardFault_Handler问题]]></title>
-      <url>http://yoursite.com/2016/12/28/2016/2016-12-28-mcu%E4%B8%AD%E7%9A%84hardfault-handler%E9%97%AE%E9%A2%98/</url>
+      <url>http://noparkinghere.site/2016/12/28/2016/2016-12-28-mcu%E4%B8%AD%E7%9A%84hardfault-handler%E9%97%AE%E9%A2%98/</url>
       <content type="html"><![CDATA[<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>使用的工具 KDE-5.11 在调试目标芯片 EFM32 时出现问题，起初是调试铁电驱动，但在单步仿真时到某一步总会不再响应，或者结束仿真时 PC 跳转到了 HardFault_Handler 异常。为了解决这个问题，于是不断地缩减代码，之后发现程序从 startup 开始执行时，一进入 main 函数就会不响应或者跳转到 HardFault_Handler 中，一度怀疑自己的硬件 CMSIS 移植有问题。为了解决这个问题，尝试了多个办法，包括并不仅仅限于更换调试工具，断点调试，评估板代替测试，重新移植底层代码，查看 RAM 占用，修改静态区全局变量占用大小等等。下面总结一些遇到 HardFault_Handler 异常的解决方法。</p>
 <a id="more"></a>
 <h3 id="HardFault-Handler-分析"><a href="#HardFault-Handler-分析" class="headerlink" title="HardFault_Handler 分析"></a>HardFault_Handler 分析</h3><p>一般 HardFault_Handler 错误是指 PC 指向了一个无法访问的位置，主要可以分为两种：</p>
@@ -267,7 +267,7 @@
     
     <entry>
       <title><![CDATA[ssh 使用详解]]></title>
-      <url>http://yoursite.com/2016/12/27/2016/2016-12-27-ssh-%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3/</url>
+      <url>http://noparkinghere.site/2016/12/27/2016/2016-12-27-ssh-%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<a id="more"></a>
 <blockquote>
 <p>参考链接：<br><a href="http://www.ibm.com/developerworks/cn/linux/l-cn-sshforward/" target="_blank" rel="external">http://www.ibm.com/developerworks/cn/linux/l-cn-sshforward/</a><br><a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html</a><br><a href="http://www.ruanyifeng.com/blog/2011/12/ssh_port_forwarding.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2011/12/ssh_port_forwarding.html</a></p>
@@ -277,7 +277,7 @@
     
     <entry>
       <title><![CDATA[针对百度网盘限速的解决方案]]></title>
-      <url>http://yoursite.com/2016/12/26/2016/2016-12-26-%E9%92%88%E5%AF%B9%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E9%99%90%E9%80%9F%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+      <url>http://noparkinghere.site/2016/12/26/2016/2016-12-26-%E9%92%88%E5%AF%B9%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E9%99%90%E9%80%9F%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
       <content type="html"><![CDATA[<p>虽然百度这家公司在道德水准上面没下限（卖假药，开赌场等），大多数产品做的也都比较烂（界面丑，体验差），但在搜索引擎和网盘这两个领域，因为国内种种众所周知的原因，还是只能用这家的产品。面对百度网盘下载速度越来越慢，收费越来越高，服务越来越差等特点，本文主要介绍一些方法，让我们能够更快地下载百度网盘中的资源。参考自<a href="http://www.runningcheese.com/baiduyun?from=singlemessage&amp;nsukey=%2FdzDPL5oNO1chDPgm3EdQmoQJUF%2BMIslSStmsD899bHiLizX7%2BbA5dJq5gbDAeFPwVxr%2BXSK2bx1X8578hc8gj2ZstvXGjsWoXdGDpR2KwqlaeJ3aLAZujniUz%2FMDo6YptCoB1k%2BDSc5wqLoCsrPlXfhWhx%2BfXdKnWRcDVfGQQw%3D" target="_blank" rel="external">文章</a> 主要的方法可以分为两种，破解版的百度云管家和直链下载。</p>
 <a id="more"></a>
 <h3 id="破解版百度云管家"><a href="#破解版百度云管家" class="headerlink" title="破解版百度云管家"></a>破解版百度云管家</h3><p>经常使用百度云的用户，无疑客户端是最佳的选择，破解版本的百度云管家是可以让你<strong>无限时的免费试用百度云管家</strong>。可以去<a href="http://www.52pojie.cn/" target="_blank" rel="external">吾爱破解</a>等论坛下载最新破解版本的百度云，但这边不推荐这种方法，主要原因是客户端破解版很容易失效。</p>
@@ -299,7 +299,7 @@
     
     <entry>
       <title><![CDATA[linux 系统瘦身]]></title>
-      <url>http://yoursite.com/2016/12/20/2016/2016-12-20-linux-%E7%B3%BB%E7%BB%9F%E7%98%A6%E8%BA%AB/</url>
+      <url>http://noparkinghere.site/2016/12/20/2016/2016-12-20-linux-%E7%B3%BB%E7%BB%9F%E7%98%A6%E8%BA%AB/</url>
       <content type="html"><![CDATA[<p>目前 PC 市场中，硬盘内存等硬件设备越来越廉价不值钱，所以很多人不再考虑删减系统清除无用文件等来节省更多的空间。然而，很多不同的应用对存储空间运行空间等依然十分敏感，本文主要针对是在个人使用的 VPS 上，如何使用更少的资源运行更多的服务。</p>
 <p>系统以 ubuntu/debian 为例，作为 VPS 普通服务器的操作系统来使用，进行优化，删除不会经常使用的工具，保留一些个人认为有用的功能。</p>
 <h3 id="清理下载的缓存包"><a href="#清理下载的缓存包" class="headerlink" title="清理下载的缓存包"></a>清理下载的缓存包</h3><p>在 Ubuntu 中通过 sudo apt-get install 安装软件时，其下载的包都缓存在 /var/cache/apt/archives/ 目录中。如果要清理掉这些已下载的缓存包，那么可以执行命令：<br><code>sudo apt-get autoclean</code> 和 <code>sudo apt-get clean</code> 。</p>
@@ -321,7 +321,7 @@
     
     <entry>
       <title><![CDATA[VPS 简介]]></title>
-      <url>http://yoursite.com/2016/12/19/2016/2016-12-19-vps-%E7%AE%80%E4%BB%8B/</url>
+      <url>http://noparkinghere.site/2016/12/19/2016/2016-12-19-vps-%E7%AE%80%E4%BB%8B/</url>
       <content type="html"><![CDATA[<p>起初对云服务很好奇，完全不知所云，无从下手的感觉，但经过一段时间的摸索研究，也基本能够搭建一些自己想要的服务了，这边根据一些网络资料和自己的学习研究，对这阶段进行一个总结，希望对那些刚刚开始尝试搭建云服务的网友有所帮助。</p>
 <h3 id="虚拟技术"><a href="#虚拟技术" class="headerlink" title="虚拟技术"></a>虚拟技术</h3><p>利用虚拟话技术在一台物理服务器上面创建多个相互隔离的虚拟化私有主机(“Virtual Private Server – VPS”)，可以看出原理和 PC 上面用虚拟机自己虚拟出来的系统并没有什么本质区别，只不过 VPS 是虚拟化之后放到网络上面使用的而已。对用户和应用程序来说，每个 VPS 平台的运行和管理都与一台独立主机完全相同，每个 VPS 均可以独立进行重启并且拥有 root 访问权限，用户，IP地址，内存，进程，文件，应用程序，系统函数库以及配置文件等。</p>
 <p>目前一般 VPS 结构是这样的：最底层为 Host Hardware 硬件， 然后是 Host Operating System 宿主机/真实系统，再然后是真实系统上面运行的虚拟化软件，最后是虚拟机软件内部运行的操作系统 Guest OS 访客系统（这边看上去和我们个人电脑 PC 上面跑的虚拟机中的虚拟操作系统并没啥区别）。</p>
@@ -367,7 +367,7 @@
     
     <entry>
       <title><![CDATA[GithubPage+Hexo搭建博客]]></title>
-      <url>http://yoursite.com/2016/12/14/2016/2016-12-14-githubpage-hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
+      <url>http://noparkinghere.site/2016/12/14/2016/2016-12-14-githubpage-hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
       <content type="html"><![CDATA[<p>个人博客是使用 githubpage+jekyll 搭建的，且博客已经工作有半年了，但由于期初的模板没有找好，加上一些其他的问题，导致博客看起来比较凌乱，这边给出另外一个 GithubPage+Hexo 的博客搭建方法供大家参考，本文操作系统主要使用的是 ubuntu 16.04，使用其他 linux 发行版的用户，可以参考本文。附上最终效果图如下：</p>
 <p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-12-14-githubpage-hexo搭建博客/1.png" alt=""></p>
 <p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-12-14-githubpage-hexo搭建博客/2.png" alt=""></p>
@@ -432,7 +432,7 @@
     
     <entry>
       <title><![CDATA[TeamViewer 远程控制]]></title>
-      <url>http://yoursite.com/2016/12/12/2016/2016-12-12-teamviewer-%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/</url>
+      <url>http://noparkinghere.site/2016/12/12/2016/2016-12-12-teamviewer-%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/</url>
       <content type="html"><![CDATA[<p>TeamViewer 是一款最流行的远程桌面连接工具，特点：连接稳定，功能强大，跨平台，对网络稳定性要求低等等，几乎集成了市面上大多数远程工具的优点，实时性很强，且资源消耗低，这些都远不是 qq 等国内软件的远程服务可以比拟的。本篇文章就是 windows 远程连接 Ubuntu 桌面编辑完成的。</p>
 <p>本文主要介绍如何在局域网内使用 TeamViewer 完成远程桌面的设置。</p>
 <h3 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h3><p>这边给出<a href="https://www.teamviewer.com/zhcn/download/linux/" target="_blank" rel="external">官方下载地址</a>，可以看到官方提供了目前主流移动端和 PC 端的各个版本的软件。这边根据你自己的平台下载需要的版本。因为平台需要这边我下载的是 windows 版本和 Ubuntu 版本。需要注意的是：下载版本为完整版，而不是缩减版（缩减版中需要联网登录，且不直接存在登录远程功能），图示如下：</p>
@@ -456,7 +456,7 @@
     
     <entry>
       <title><![CDATA[LAMP 环境搭建]]></title>
-      <url>http://yoursite.com/2016/12/09/2016/2016-12-09-lamp-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
+      <url>http://noparkinghere.site/2016/12/09/2016/2016-12-09-lamp-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
       <content type="html"><![CDATA[<p>之前写过一些服务器的配置文章，但当时都只是按部就班，对于相关服务的理解很欠缺。由于很多的博客系统，网站都依赖于：操作系统，服务器软件，数据库，后台编程语言等，本质上他们都存在很大的共性，细心品尝里面的门道其实不可谓不多，这边重新梳理 LAMP 环境的搭建，帮助学习和理解。</p>
 <a id="more"></a>
 ]]></content>
@@ -464,7 +464,7 @@
     
     <entry>
       <title><![CDATA[efm32 开发板问题总结]]></title>
-      <url>http://yoursite.com/2016/12/08/2016/2016-12-08-efm32-%E5%BC%80%E5%8F%91%E6%9D%BF%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
+      <url>http://noparkinghere.site/2016/12/08/2016/2016-12-08-efm32-%E5%BC%80%E5%8F%91%E6%9D%BF%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
       <content type="html"><![CDATA[<p>silabs 的 EFM 系列芯片历来以低能耗，可信的加密而文明，比较遗憾的是，国内用的较少，且基本上没有什么中文参考资料，刚刚开办没多久的官方中文论坛贴出来的资料也大都是英文版，且论坛在 GFW 下访问相当困难。因为项目需求，这边我入手了两个系列的 EFM 开发板，但都出了大大小小的问题。</p>
 <p>个人总结：1.因为前期缺少相关指导，且官方指导手册仅告诉要如何做，却没指示相关工具的位置和使用。2.该芯片配备专有 IDE 且还分好几个版本，无疑增加了摸索的难度。3.个人经验不足，之前上手的都是开发板，没接触过这种官方自带的评估板。</p>
 <p>其实上手这个评估板并不困难，困难的是没有一个详尽的指导手册，不知道如何用评估板去烧录上面的 MCU ，如何用评估板烧录自己产品的 MCU等。</p>
@@ -504,7 +504,7 @@
     
     <entry>
       <title><![CDATA[PuTTY + Xming 远程使用 Linux GUI]]></title>
-      <url>http://yoursite.com/2016/12/01/2016/2016-12-01-putty-xming-%E8%BF%9C%E7%A8%8B%E4%BD%BF%E7%94%A8-linux-gui/</url>
+      <url>http://noparkinghere.site/2016/12/01/2016/2016-12-01-putty-xming-%E8%BF%9C%E7%A8%8B%E4%BD%BF%E7%94%A8-linux-gui/</url>
       <content type="html"><![CDATA[<p>就目前而言，将 linux 作为个人电脑操作系统使用的人还比较少，而 linux 也一直以来因为其占用资源少，系统稳定，强大的 CLI 而闻名于世。因此显而易见，广大用户一般都是通过 ssh 等方式登录连接 linux ，然后使用 CLI 完成需要的操作，而使用 linux GUI 用户较少，甚至可以被忽略，但出于个人的需要，本人需要通过 windows 远程登录 linux 然后通过 chrome 等</p>
 <h3 id="操作系统："><a href="#操作系统：" class="headerlink" title="操作系统："></a>操作系统：</h3><ul>
 <li>windows 7 x64 中文旗舰版</li>
@@ -549,14 +549,14 @@
     
     <entry>
       <title><![CDATA[vps-docker]]></title>
-      <url>http://yoursite.com/2016/11/28/2016/2016-11-28-vps-docker/</url>
+      <url>http://noparkinghere.site/2016/11/28/2016/2016-11-28-vps-docker/</url>
       <content type="html"><![CDATA[<a id="more"></a>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[检测VPS虚拟化技术]]></title>
-      <url>http://yoursite.com/2016/11/26/2016/2016-11-26-%E6%A3%80%E6%B5%8BVPS%E8%99%9A%E6%8B%9F%E5%8C%96%E6%8A%80%E6%9C%AF/</url>
+      <url>http://noparkinghere.site/2016/11/26/2016/2016-11-26-%E6%A3%80%E6%B5%8BVPS%E8%99%9A%E6%8B%9F%E5%8C%96%E6%8A%80%E6%9C%AF/</url>
       <content type="html"><![CDATA[<p>很多时候，我们需要知道自己的 VPS 是通过什么软件进行分配的，这是可以使用如下的几种方式：</p>
 <h3 id="方法1："><a href="#方法1：" class="headerlink" title="方法1："></a>方法1：</h3><p>使用如下命令运行</p>
 <p><code>wget -N --no-check-certificate https://raw.githubusercontent.com/91yun/code/master/vm_check.sh &amp;&amp; bash vm_check.sh</code></p>
@@ -578,7 +578,7 @@
     
     <entry>
       <title><![CDATA[VPS : shadowsocks]]></title>
-      <url>http://yoursite.com/2016/11/25/2016/2016-11-25-vps-shadowsocks/</url>
+      <url>http://noparkinghere.site/2016/11/25/2016/2016-11-25-vps-shadowsocks/</url>
       <content type="html"><![CDATA[<p>日常生活中，由于GFW的强大，很多学习资料等内容我们无法获取或者检索，因此科学上网往往相当重要，本文章使用 VPS 搭建 shadowsocks 服务让安全的科学上网成为可能，需要注意的是 VPS 必须是境外服务器，推荐 vultr 搬瓦工等廉价vpn。</p>
 <h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><p><strong>这边可以参考<a href="http://vc2tea.com/whats-shadowsocks/" target="_blank" rel="external">原文博客</a>，以下只是简单罗列一些原理：</strong></p>
 <ul>
@@ -680,7 +680,7 @@
     
     <entry>
       <title><![CDATA[(转)虚拟主机、VPS和云主机]]></title>
-      <url>http://yoursite.com/2016/11/23/2016/2016-11-23-%E8%BD%AC-%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E3%80%81vps%E5%92%8C%E4%BA%91%E4%B8%BB%E6%9C%BA/</url>
+      <url>http://noparkinghere.site/2016/11/23/2016/2016-11-23-%E8%BD%AC-%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E3%80%81vps%E5%92%8C%E4%BA%91%E4%B8%BB%E6%9C%BA/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>转载链接：<a href="http://www.chinaz.com/prime/2012/1021/279069.shtml" target="_blank" rel="external">http://www.chinaz.com/prime/2012/1021/279069.shtml</a></p>
 </blockquote>
@@ -732,7 +732,7 @@
     
     <entry>
       <title><![CDATA[git submodule 详解]]></title>
-      <url>http://yoursite.com/2016/11/23/2016/2016-11-23-git-submodule-%E8%AF%A6%E8%A7%A3/</url>
+      <url>http://noparkinghere.site/2016/11/23/2016/2016-11-23-git-submodule-%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<p>使用 git 也有一段时间，但不得不说 git 的功能相当强大和复杂，需要你不断的去摸索学习。这边介绍一个 git 很强大的功能：git submodule 。起初发现这个文件是在我本人 fork 了一个 awesome 的配置文件，用了也蛮久，但最近由于总是出现连接错误，然后手动去更改了一些文件，但意外发现更改的文件无法提交， status 中竟然没有这些文件的信息，另外通过其他官方文档 gitignore 中的几个 ignore 中仔细查看，很确定项目中并没有忽略这些文件，通过排查最后才发现是 .gitmodules 这个文件捣的鬼。仔细研究发现git-submodule是一个十分强大的功能，值得去学习研究。</p>
 <a id="more"></a>
 <blockquote>
@@ -743,7 +743,7 @@
     
     <entry>
       <title><![CDATA[CRC校验]]></title>
-      <url>http://yoursite.com/2016/11/22/2016/2016-11-22-crc%E6%A0%A1%E9%AA%8C/</url>
+      <url>http://noparkinghere.site/2016/11/22/2016/2016-11-22-crc%E6%A0%A1%E9%AA%8C/</url>
       <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><h3 id="原理规则"><a href="#原理规则" class="headerlink" title="原理规则"></a>原理规则</h3><a id="more"></a>
 <h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><blockquote>
 <p>参考链接：<br><a href="http://wenku.baidu.com/link?url=FLbB1d-cPj5uuxsaORgTaLYDUcEwziU4VFE3dHzIxv_2UNwvBiBAo4_n5D2n9zbmgM3kJMJHKOptYbd6bJd21sHtDIOLysViDIHcHN5UpgK" target="_blank" rel="external">http://wenku.baidu.com/link?url=FLbB1d-cPj5uuxsaORgTaLYDUcEwziU4VFE3dHzIxv_2UNwvBiBAo4_n5D2n9zbmgM3kJMJHKOptYbd6bJd21sHtDIOLysViDIHcHN5UpgK</a><br><a href="http://wenku.baidu.com/link?url=_jgyTFPUC5EdnDykoVR-hbtutdNnZjgOhlbHaJ0Ipcy04SZiLHCaUY2zTyiZjn4WpNPxQZUDtBXJD5Z1K56EUffQ7nk3qM5lxH0ux9Qz7OS" target="_blank" rel="external">http://wenku.baidu.com/link?url=_jgyTFPUC5EdnDykoVR-hbtutdNnZjgOhlbHaJ0Ipcy04SZiLHCaUY2zTyiZjn4WpNPxQZUDtBXJD5Z1K56EUffQ7nk3qM5lxH0ux9Qz7OS</a><br><a href="http://blog.csdn.net/husion01/article/details/17440333" target="_blank" rel="external">http://blog.csdn.net/husion01/article/details/17440333</a></p>
@@ -753,7 +753,7 @@
     
     <entry>
       <title><![CDATA[vim学习]]></title>
-      <url>http://yoursite.com/2016/11/21/2016/2016-11-21-vim%E5%AD%A6%E4%B9%A0/</url>
+      <url>http://noparkinghere.site/2016/11/21/2016/2016-11-21-vim%E5%AD%A6%E4%B9%A0/</url>
       <content type="html"><![CDATA[<p>vim 和 emacs 一个号称编辑器之神，一个被称为神的编辑器。打开 vim 执行命令：vimtutor 则可以查看官方说明教程，vimtutor是vim使用入门教程。老实说，自从接触vim到现在也有好多年了，但一直没有强迫自己使用，以及它的难定制性，让我至今都还无法像那些大神一样，完全脱离鼠标和IDE，本文对现阶段我学习 vim 进行一个总结，后续还会不断记录更新。</p>
 <h3 id="最基本操作"><a href="#最基本操作" class="headerlink" title="最基本操作"></a>最基本操作</h3><ul>
 <li>请按<esc>键(这是为了确保您处在正常模式)。</esc></li>
@@ -785,7 +785,7 @@
     
     <entry>
       <title><![CDATA[keil工程的代码优化]]></title>
-      <url>http://yoursite.com/2016/11/16/2016/2016-11-16-keil%E5%B7%A5%E7%A8%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/</url>
+      <url>http://noparkinghere.site/2016/11/16/2016/2016-11-16-keil%E5%B7%A5%E7%A8%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/</url>
       <content type="html"><![CDATA[<h3 id="C项目的工程优化"><a href="#C项目的工程优化" class="headerlink" title="C项目的工程优化"></a>C项目的工程优化</h3><p>这边主要参考另外一篇文章，不仅仅是针对C语言，C++等其他一些类C语言也同样适用。我们在构建自己的项目时，主要需要考虑：宏定义，类型，全局变量等的作用范围，针对头文件的引用和复制是否有存在的必要等。只有对每个细节都了如指掌，才能够减少代码的出错，以及优化代码空间等。就目前的芯片发展而言，很多时候都是硬件性能过剩，大多数程序员已经不再考虑或者极少考虑代码如何优化节省空间等问题了，往往更加注重代码的可阅读可扩展性，这边之所以注重这个问题，主要是考虑到工控节能领域，以及很多使用的模块可能存在代码量不足，不能胜任工作等问题。</p>
 <h3 id="keil"><a href="#keil" class="headerlink" title="keil"></a>keil</h3><p>keil是一款MCU的IDE，有文章介绍过详细配置和调试步骤，这边不再详细累述。因为针对的是MCU的代码优化，所以首先我们必须知道编译器生成的代码量等信息。</p>
 <p>每次点击编译后，下方会出现KEIL RVMDK编译后的信息，例如：Program Size: Code=19160 RO-data=6420 RW-data=108 ZI-data=1532，这边代表我的无任何优化的前提下，keil编译生成的代码为19160个字节。</p>
@@ -815,7 +815,7 @@
     
     <entry>
       <title><![CDATA[notepad++和MinGW]]></title>
-      <url>http://yoursite.com/2016/11/15/2016/2016-11-15-notepad-%E5%92%8Cmingw/</url>
+      <url>http://noparkinghere.site/2016/11/15/2016/2016-11-15-notepad-%E5%92%8Cmingw/</url>
       <content type="html"><![CDATA[<p>今天写一个换算的小程序，但无奈手头没有编译工具，归根结底为何如此麻烦还是因为windows下的开发不友好不自带常规编译器所决定的，一个简单的程序编译需要你去安装庞大的IDE等。以前用windows偶尔弄点c代码编译或者查看一些文件都是使用notepad++的，有算是比较长的一段时间了，但不久前重装了系统，notepad++虽然仅仅需要选几个皮肤，简单配置作为文本编辑器即可，但无奈MinGW如何调用已经忘了，本文列出个简要步骤，以便下次查看。</p>
 <h3 id="实际需求"><a href="#实际需求" class="headerlink" title="实际需求"></a>实际需求</h3><p>Windows下编写C语言程序，使用如VS2010之类的IDE往往显得大材小用，并且这些集成开发环境都占用了大量的系统和硬件资源，且不如Notepad++之类的编辑器简单易用、定制性强大。最重要的一点在于学习编程的话，建议不要怕麻烦还是从最基础的学起，IDE往往屏蔽了很多的细节，并不利于初学者的学习。Linux下写C推荐可以研习emacs、vim配gcc。起初是想从网上直接找个教程按部就班执行，轻松配置完成的，但看了几个教程都不尽如人意，通过自己多次尝试最终找到了较为满意的解决方法，文章列出了部分参考网络教程的链接，下面对此详细阐述。而MinGW (Minimalist GNU for Windows)听名字就只是很强大，因为gcc的使用广泛和强大，无疑这个套件是编译的理想选择。</p>
 <h3 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h3><p><a href="https://pan.baidu.com/s/1slNDMtn" target="_blank" rel="external">notepad++</a>只是一个文本编辑器，本身没有编译C/C++的功能。所以要想先配置，就要先装上一个编译器。MinGW是GNU开源社区面向windows用户提供的一个集成了个编译环境的软件包。一般可以通过搜索MinGW直接去官网下载安装，但官网貌似是在线安装，因此我从其他网站下载了<a href="https://pan.baidu.com/s/1bFK8TC" target="_blank" rel="external">MinGW-5.1.6</a>离线包，安装步骤很简单，这边不具体阐述。</p>
@@ -845,7 +845,7 @@
     
     <entry>
       <title><![CDATA[美国总统诞生了]]></title>
-      <url>http://yoursite.com/2016/11/10/2016/2016-11-10-%E7%BE%8E%E5%9B%BD%E6%80%BB%E7%BB%9F%E8%AF%9E%E7%94%9F%E4%BA%86/</url>
+      <url>http://noparkinghere.site/2016/11/10/2016/2016-11-10-%E7%BE%8E%E5%9B%BD%E6%80%BB%E7%BB%9F%E8%AF%9E%E7%94%9F%E4%BA%86/</url>
       <content type="html"><![CDATA[<p>2016年11月9日，美国大选计票结果显示：共和党候选人唐纳德·特朗普已获得了276张选举人票，超过270张选举人票的获胜标准，成为美国第45位总统。</p>
 <p>就在昨天美国总统诞生了，很多网络论坛称新一代总统为喷子界的骄傲。如果特朗普真如他做演讲时那样治国，无疑整个美国或者说全球会发生大的动荡，特朗普于历来总统都不太一样，就他演讲来说，几乎是完全站在美国贫民普通阶层这边的，因此我们通过谷歌各州的投票结果也可以看出，支持特朗普的几乎全是美国欠发达地区。特朗普的政治主张很反科技，甚至有点另类到要将劳动密集的行业重新带回美国，他的很多举止有点让人摸不着头脑，但也确实是针对美国一些顽疾的一剂猛药。这届美国总统是一个较大的变数，就特朗普的种种举措，可以分两点。</p>
 <p>其一，特朗普能够切实的成为一个出色的总统，通过降低税收，增强了创业公司的活力，通过自动化和本地工人结合创造了更多就业，解决了民生问题等。</p>
@@ -857,7 +857,7 @@
     
     <entry>
       <title><![CDATA[C语言工程组建]]></title>
-      <url>http://yoursite.com/2016/11/10/2016/2016-11-10-c%E8%AF%AD%E8%A8%80%E5%B7%A5%E7%A8%8B%E7%BB%84%E5%BB%BA/</url>
+      <url>http://noparkinghere.site/2016/11/10/2016/2016-11-10-c%E8%AF%AD%E8%A8%80%E5%B7%A5%E7%A8%8B%E7%BB%84%E5%BB%BA/</url>
       <content type="html"><![CDATA[<p>每个编程语言都有自己的一些特性，如果了解的很清楚能够减少你编译的时间，减少编译所生成的文件大小，提高你程序的执行效率。虽然现在计算机发展很快，在众多高级语言中已经很少考虑这种问题，但如果是使用c语言编写一些运行在资源较紧张的芯片或编写能耗敏感的一些项目时，仔细研究每个细节，合理的组建自己的工程等还是相当必要的。</p>
 <a id="more"></a>
 ]]></content>
@@ -865,7 +865,7 @@
     
     <entry>
       <title><![CDATA[如何看待蓝绿大厂问鼎中国]]></title>
-      <url>http://yoursite.com/2016/11/03/2016/2016-11-03-%E5%A6%82%E4%BD%95%E7%9C%8B%E5%BE%85%E8%93%9D%E7%BB%BF%E5%A4%A7%E5%8E%82%E9%97%AE%E9%BC%8E%E4%B8%AD%E5%9B%BD/</url>
+      <url>http://noparkinghere.site/2016/11/03/2016/2016-11-03-%E5%A6%82%E4%BD%95%E7%9C%8B%E5%BE%85%E8%93%9D%E7%BB%BF%E5%A4%A7%E5%8E%82%E9%97%AE%E9%BC%8E%E4%B8%AD%E5%9B%BD/</url>
       <content type="html"><![CDATA[<p>根据IDC的数据，今年第三季度，OPPO和VIVO在中国市场的出货量再创新高，首度成为中国市场的冠亚军。OPPO和VIVO历来以低配高价而文明科技圈内，且低于红米的配置和软件优化，但却卖出几倍的价格，一味的再外观上模仿苹果，广告上轰炸观众，再加上市面上很难找到专业的评测机构来测评这两家的手机等一系列因素，因此很多人都会对这两家产品很是不屑，称他们为“蓝绿大厂，高价低配，专坑厂妹”。但本着存在即为合理的看法，OPPO和VIVO一定还是有很多可取之处的，不然不可能在竞争日益激烈的手机市场上面，站稳脚跟，国内销量先干掉小米，后挤掉华为，且业绩日益攀升。我将蓝绿厂家成功可以总结为以下几点。</p>
 <hr>
 <p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-11-03-%E5%A6%82%E4%BD%95%E7%9C%8B%E5%BE%85%E8%93%9D%E7%BB%BF%E5%A4%A7%E5%8E%82%E9%97%AE%E9%BC%8E%E4%B8%AD%E5%9B%BD/1.jpg" alt=""></p>
@@ -901,7 +901,7 @@
     
     <entry>
       <title><![CDATA[uart/spi/iic的比较]]></title>
-      <url>http://yoursite.com/2016/10/30/2016/2016-10-30-uart-spi-iic%E7%9A%84%E6%AF%94%E8%BE%83/</url>
+      <url>http://noparkinghere.site/2016/10/30/2016/2016-10-30-uart-spi-iic%E7%9A%84%E6%AF%94%E8%BE%83/</url>
       <content type="html"><![CDATA[<a id="more"></a>
 <blockquote>
 <p>参考链接：<br><a href="http://wenku.baidu.com/view/2a0a7f9869dc5022abea001d.html" target="_blank" rel="external">http://wenku.baidu.com/view/2a0a7f9869dc5022abea001d.html</a><br><a href="http://blog.sina.com.cn/s/blog_50cfd0fc0101flsn.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_50cfd0fc0101flsn.html</a></p>
@@ -911,7 +911,7 @@
     
     <entry>
       <title><![CDATA[大端和小端]]></title>
-      <url>http://yoursite.com/2016/10/30/2016/2016-10-30-%E5%A4%A7%E7%AB%AF%E5%92%8C%E5%B0%8F%E7%AB%AF/</url>
+      <url>http://noparkinghere.site/2016/10/30/2016/2016-10-30-%E5%A4%A7%E7%AB%AF%E5%92%8C%E5%B0%8F%E7%AB%AF/</url>
       <content type="html"><![CDATA[<p><em>大小端和字节对齐，与 CPU 结构有关，与编译器没关系，只与编译器的默认代码约定规则有关。只要代码约定规则一样（可在代码中加入约定命令），不同编译器编译出来结果是一样的。</em></p>
 <p>我们常常看到“alignment”， “endian”之类的字眼， 但很少有 C 语言教材提到这些概念。 实际上它们是与处理器与内存接口， 编译器类型密切相关的。</p>
 <p><strong>端模式(Byte Endian)</strong> 是指字节在内存中的组织，所以也称它为Byte Ordering。这边所谓的端模式一般就是指大端或者小端存储，也就是每个字节的实际排放顺序，上面已经讨论过字节在内存中如何进行对齐，这边讨论字节的常见排放顺序。</p>
@@ -952,7 +952,7 @@
     
     <entry>
       <title><![CDATA[字节对齐]]></title>
-      <url>http://yoursite.com/2016/10/30/2016/2016-10-30-%E5%AD%97%E8%8A%82%E5%AF%B9%E9%BD%90/</url>
+      <url>http://noparkinghere.site/2016/10/30/2016/2016-10-30-%E5%AD%97%E8%8A%82%E5%AF%B9%E9%BD%90/</url>
       <content type="html"><![CDATA[<p><em>大小端和字节对齐，与 CPU 结构有关，与编译器没关系，只与编译器的默认代码约定规则有关。只要代码约定规则一样（可在代码中加入约定命令），不同编译器编译出来结果是一样的。</em></p>
 <p>我们常常看到“alignment”， “endian”之类的字眼， 但很少有 C 语言教材提到这些概念。 实际上它们是与处理器与内存接口， 编译器类型密切相关的。与 CPU 结构有关，与编译器没关系，只与编译器的默认代码约定规则有关。只要代码约定规则一样（可在代码中加入约定命令），不同编译器编译出来结果是一样的。</p>
 <h3 id="字节对齐（Byte-Alignment）"><a href="#字节对齐（Byte-Alignment）" class="headerlink" title="字节对齐（Byte Alignment）"></a>字节对齐（Byte Alignment）</h3><p>我们写程序的时候，不需要考虑对齐问题。编译器会替我们选择适合目标平台的对齐策略。当然，我们也可以通知给编译器传递预编译指令而改变对指定数据的对齐方法。但是，正因为我们一般不需要关心这个问题，所以因为编辑器对数据存放做了对齐，而我们不了解的话，常常会对一些问题感到迷惑。最常见的就是 struct 数据结构的 sizeof 结果，出乎意料。为此，我们需要对对齐算法所了解。</p>
@@ -1001,7 +1001,7 @@
     
     <entry>
       <title><![CDATA[SPI通信详解]]></title>
-      <url>http://yoursite.com/2016/10/29/2016/2016-10-29-spi%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
+      <url>http://noparkinghere.site/2016/10/29/2016/2016-10-29-spi%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<a id="more"></a>
 <blockquote>
 <p>参考链接：<br><a href="http://wenku.baidu.com/view/2a0a7f9869dc5022abea001d.html" target="_blank" rel="external">http://wenku.baidu.com/view/2a0a7f9869dc5022abea001d.html</a><br><a href="http://baike.baidu.com/item/SPI" target="_blank" rel="external">http://baike.baidu.com/item/SPI</a><br><a href="https://my.oschina.net/freeblues/blog/67400" target="_blank" rel="external">https://my.oschina.net/freeblues/blog/67400</a></p>
@@ -1011,7 +1011,7 @@
     
     <entry>
       <title><![CDATA[MSB 和 LSB]]></title>
-      <url>http://yoursite.com/2016/10/29/2016/2016-10-29-msb-%E5%92%8C-lsb/</url>
+      <url>http://noparkinghere.site/2016/10/29/2016/2016-10-29-msb-%E5%92%8C-lsb/</url>
       <content type="html"><![CDATA[<p>MSB 和 LSB 在计算机中的意思并不唯一确定，这边分为两种解释：</p>
 <ul>
 <li>MSB ： Most Significant Bit，LSB ： Least Significant Bit</li>
@@ -1029,7 +1029,7 @@
     
     <entry>
       <title><![CDATA[linux分区问题]]></title>
-      <url>http://yoursite.com/2016/10/28/2016/2016-10-28-linux%E5%88%86%E5%8C%BA%E9%97%AE%E9%A2%98/</url>
+      <url>http://noparkinghere.site/2016/10/28/2016/2016-10-28-linux%E5%88%86%E5%8C%BA%E9%97%AE%E9%A2%98/</url>
       <content type="html"><![CDATA[<p>分区功能是个使用系统时候的必备功能，但却不特别常用，所以每次使用时难免会因为不记得指令或者错误使用指令而导致一些没必要的错误发生，建议如果不是经常分区，对步骤不是记得太清楚的话，在分区前还是搜索一下详细步骤，免得出了问题仍然不自知。笔者之所以写这篇文章就是潜意识中觉得分区步骤简单，然后出了问题，还不知道问题出在哪儿。</p>
 <h3 id="简述分区步骤："><a href="#简述分区步骤：" class="headerlink" title="简述分区步骤："></a>简述分区步骤：</h3><ul>
 <li>df:可以查看下当前系统<strong>挂载了的分区</strong>，如下图所示</li>
@@ -1060,7 +1060,7 @@
     
     <entry>
       <title><![CDATA[Aria2详解]]></title>
-      <url>http://yoursite.com/2016/10/27/2016/2016-10-27-aria2%E8%AF%A6%E8%A7%A3/</url>
+      <url>http://noparkinghere.site/2016/10/27/2016/2016-10-27-aria2%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<p>Aria2应该来说是最流行的免费下载工具之一，因为它的轻量级以及支持各种协议而被广为使用。</p>
 <p><em>这个东西折腾了很长时间，终于配好了，老实说仅仅是配置使用的话应该是相当简单的，但由于一开始参考了mac下配置的那篇文章，虽然更改了路径等内容，但每次启动aria2的时候总是经常启动不起来，或者启动后自动被kill了，反复往返，看了很多教程官方文档说明等，一直查不出问题所在，最后没办法，直接自己写配置文件，终于可以使用了。</em></p>
 <h3 id="aria2配置"><a href="#aria2配置" class="headerlink" title="aria2配置"></a>aria2配置</h3><p>根据man文档aria2的默认配置在$HOME/.aria2/aria2.conf中，你也可以在每次加载的过程中人为修改位置如：<code>aria2c --conf-path=/etc/.aria2/aria2.conf</code>。</p>
@@ -1109,7 +1109,7 @@
     
     <entry>
       <title><![CDATA[linux免密码命令]]></title>
-      <url>http://yoursite.com/2016/10/24/2016/2016-10-24-linux%E5%85%8D%E5%AF%86%E7%A0%81%E5%91%BD%E4%BB%A4/</url>
+      <url>http://noparkinghere.site/2016/10/24/2016/2016-10-24-linux%E5%85%8D%E5%AF%86%E7%A0%81%E5%91%BD%E4%BB%A4/</url>
       <content type="html"><![CDATA[<p>在使用ubuntu的过程中，部分命令必须要具备root权限才可以执行，然后root权限需要输入密码，很多常用的命令如:reboot等，甚至需要每次输入密码，部分用户也许会很不满意。另外当如果在写脚本时也会出现这种问题，脚本中可能会包含一些sudo指令，但用户不想每次都输入密码。这边介绍几种方法以供参考。</p>
 <a id="more"></a>
 <h3 id="写入配置文件"><a href="#写入配置文件" class="headerlink" title="写入配置文件"></a>写入配置文件</h3><p>将免密码文件写入到 /etc/sudoers 配置文件中，书写格式如下：</p>
@@ -1122,7 +1122,7 @@
     
     <entry>
       <title><![CDATA[IIC通信详解]]></title>
-      <url>http://yoursite.com/2016/10/20/2016/2016-10-20-iic%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
+      <url>http://noparkinghere.site/2016/10/20/2016/2016-10-20-iic%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<p>我们在使用单片机的过程中，IIC通信可以说是最被广泛使用和采纳的一个协议，这边</p>
 <a id="more"></a>
 <blockquote>
@@ -1133,7 +1133,7 @@
     
     <entry>
       <title><![CDATA[usb转串口]]></title>
-      <url>http://yoursite.com/2016/10/19/2016/2016-10-19-usb%E8%BD%AC%E4%B8%B2%E5%8F%A3/</url>
+      <url>http://noparkinghere.site/2016/10/19/2016/2016-10-19-usb%E8%BD%AC%E4%B8%B2%E5%8F%A3/</url>
       <content type="html"><![CDATA[<p>使用单片机，对硬件编程的时候，可以说串口是最常用的交互方式，毕竟要安装一个显示器，显示屏等设备需要额外的开销，大量增加代码量，且很多场景并非必备外设。这篇文章将会详细的介绍单片机中最常使用的串口通信功能，这边通过<strong>多篇文章</strong>以51单片机和stm32为例，对串口（以ttl电平，232，485等）进行详细的论述。</p>
 <p>在实验调试单片机时，串口相当重要以及常用，而现在电脑却一般仅有usb口（考虑到串口非专业人士不再使用）。因此我们在使用单片机读取串口数据时，往往需要<strong>将相应的串口转换为usb口</strong>。由于串口这边根据串口的不同，主要介绍常见的几种转接方式。</p>
 <h3 id="串口ttl转usb"><a href="#串口ttl转usb" class="headerlink" title="串口ttl转usb"></a>串口ttl转usb</h3><p>常规调试过程中，我们可以将单片机ttl电平的串口信号TX和RX，通过转换芯片变成usb总线的信号。<strong>注意该过程既不是RS232也不是RS485，而是ttl的串口信号，该信号一般仅仅用来测试和下载，仅仅是方便使用而已。</strong></p>
@@ -1165,7 +1165,7 @@
     
     <entry>
       <title><![CDATA[串口RS485通信详解]]></title>
-      <url>http://yoursite.com/2016/10/19/2016/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
+      <url>http://noparkinghere.site/2016/10/19/2016/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<p><strong>注意：串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。串口的一些内容不再逐一介绍说明，可以参加之前的usb转串口及RS232通信等文章</strong></p>
 <h3 id="特性介绍"><a href="#特性介绍" class="headerlink" title="特性介绍"></a>特性介绍</h3><p>485（一般称作 RS485/EIA-485）是隶属于 OSI 模型物理层的电气特性规定为 2 线，半双工，多点通信的标准。它的电气特性和 RS-232 大不一样。用缆线两端的电压差值来表示传递信号。值得注意的是：RS485 仅仅规定了接受端和发送端的电气特性，它没有规定或推荐任何数据协议。</p>
 <p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/1.jpg" alt=""></p>
@@ -1196,7 +1196,7 @@
     
     <entry>
       <title><![CDATA[串口RS232通信详解]]></title>
-      <url>http://yoursite.com/2016/10/19/2016/2016-10-19-%E4%B8%B2%E5%8F%A3RS232%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
+      <url>http://noparkinghere.site/2016/10/19/2016/2016-10-19-%E4%B8%B2%E5%8F%A3RS232%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<p>串行接口是一种可以将接受来自CPU的并行数据字符转换为连续的串行数据流发送出去，同时可将接受的串行数据流转换为并行的数据字符供给CPU的器件。一般完成这种功能的电路，我们称为串行接口电路。曾经PC之间进行串口通信可以说是标配，很多老式电脑上面可以看到DB25的接头，但后来逐渐被DB9取代，早期鼠标打印机都通过串口进行数据传输的，但现在逐渐被USB和网络所取代，DB9的串口接头在PC和笔记本上面也较少能够看到了。做嵌入式开发可以看到有个DB9的串口标准接口，串口对于开发人员输入输出调试等有着至关重要的作用。串行接口按电气标准及协议来分包括RS-232-C、RS-422、RS485等，现在串口一般在工业嵌入式领域使用。</p>
 <p>波特率：单片机或计算机在串口通信时的速率。指的是信号被调制以后在单位时间内的变化，即单位时间内载波参数变化的次数，如每秒钟传送240个字符，而每个字符格式包含10位（1个起始位，1个停止位，8个数据位），这时的波特率为240Bd，比特率为10位*240个/秒=2400bps。（有单独文章详解）</p>
 <p>数据位：数据位为5-8位，它紧跟在起始位之后，是被传送字符的有效数据位。传送时先传送字符的低位，后传送字符的高位。数据位究竟是几位，可由硬件或软件来设定。当然，一般8位为一个字节，通常都喜欢设置为8位数据位传输。</p>
@@ -1260,7 +1260,7 @@
     
     <entry>
       <title><![CDATA[ubuntu关闭笔记本触摸板]]></title>
-      <url>http://yoursite.com/2016/10/18/2016/2016-10-18-ubuntu%E5%85%B3%E9%97%AD%E7%AC%94%E8%AE%B0%E6%9C%AC%E8%A7%A6%E6%91%B8%E6%9D%BF/</url>
+      <url>http://noparkinghere.site/2016/10/18/2016/2016-10-18-ubuntu%E5%85%B3%E9%97%AD%E7%AC%94%E8%AE%B0%E6%9C%AC%E8%A7%A6%E6%91%B8%E6%9D%BF/</url>
       <content type="html"><![CDATA[<p><em>ubuntu 16.04的版本中，试过多个笔记本都可以通过键盘的快捷按键关闭触摸板的使用，但仍然显得不够智能，因为缺乏相关的程序和驱动，无法做到自动选择触摸板和鼠标。另外虽然我用的是ubuntu的系统但因为没有使用它的WM所以触摸板无法直接禁用，必须通过手动的方式才可以实现。</em></p>
 <p>本文搜集了一些比较通用的触摸板禁用方式，另外后续如果找到更好的方法，还会补充上来。以下在dell的超极本和msi的游戏本上面实现过，且实验环境是ubuntu 16.04，其他系统和笔记本不能确保一定可以实现。</p>
 <h3 id="详细步骤："><a href="#详细步骤：" class="headerlink" title="详细步骤："></a>详细步骤：</h3><h4 id="方法1："><a href="#方法1：" class="headerlink" title="方法1："></a>方法1：</h4><ul>
@@ -1280,7 +1280,7 @@
     
     <entry>
       <title><![CDATA[计算机中的通信简介]]></title>
-      <url>http://yoursite.com/2016/10/18/2016/2016-10-18-%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E7%9A%84%E9%80%9A%E4%BF%A1%E7%AE%80%E4%BB%8B/</url>
+      <url>http://noparkinghere.site/2016/10/18/2016/2016-10-18-%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E7%9A%84%E9%80%9A%E4%BF%A1%E7%AE%80%E4%BB%8B/</url>
       <content type="html"><![CDATA[<p>计算机从最初发展到现在已经有半个多世纪的历史，众所周知其实计算机就是一堆电路的组成，传统最为通用的计算功能仅仅是控制高低电平，输入输出（0和1）。而计算机中的CPU和其他设备如内存，硬盘，主板的其他电路连接过程中，控制的过程就是通过相关的通信协议，让一堆的高低电平输入输出最终可以转化为我们我们工作需要的内容，而赋予这些0,1实际意义的就是通信协议。计算机中有着众多的通信协议，有些协议已经逐渐被淘汰，而另外一些经过这么多年的发展仍然在各行各业经久不衰，一些更新更稳定更满足这个时代需求的协议也正在被越来越多的智能设备移动设备所采纳。本文仅仅是简要的叙述计算机嵌入式中最常用的一些协议。</p>
 <p>这边如果对码元，波特率等还不是恨清除的可以参考<strong>传输速率</strong>这篇文章。</p>
 <p><em>在了解通信协议和传输前，得先弄明白：总线和协议，串行传输和并行传输，同步通信和异步通信，全双工和半双工等基本概念，至于具体的通信方式和协议，这边仅作简述，有单独文章进行具体阐述。</em></p>
@@ -1331,7 +1331,7 @@
     
     <entry>
       <title><![CDATA[杂谈小纪]]></title>
-      <url>http://yoursite.com/2016/10/17/2016/2016-10-17-%E6%9D%82%E8%B0%88%E5%B0%8F%E7%BA%AA/</url>
+      <url>http://noparkinghere.site/2016/10/17/2016/2016-10-17-%E6%9D%82%E8%B0%88%E5%B0%8F%E7%BA%AA/</url>
       <content type="html"><![CDATA[<p>2016转眼又快结束，这个月加上国庆休假一下子又过去了半个多月，直到今天才开始上班。今年除了工作上面的几个项目进一步完善外，这边为16年最后几个月制定一个小计划：</p>
 <ul>
 <li>按照自己的风格，为神州王开发板写一套完整的学习案例，并同步到github。</li>
@@ -1344,7 +1344,7 @@
     
     <entry>
       <title><![CDATA[Note 7 的一些个人看法]]></title>
-      <url>http://yoursite.com/2016/10/16/2016/2016-10-16-note-7-%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%AA%E4%BA%BA%E7%9C%8B%E6%B3%95/</url>
+      <url>http://noparkinghere.site/2016/10/16/2016/2016-10-16-note-7-%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%AA%E4%BA%BA%E7%9C%8B%E6%B3%95/</url>
       <content type="html"><![CDATA[<p><em>本文是一篇杂谈笔记，一直比较关注科技圈多年，喜欢各种电子产品，且能够DIY或者修理一些小东西，虽然对三星这家公司一直缺乏好感，但还是吐槽一番。</em></p>
 <p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-16-note-7-%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%AA%E4%BA%BA%E7%9C%8B%E6%B3%95/1.jpg" alt=""></p>
 <p>最近闹的比较火的三星Note 7手榴弹事件，终于在这两天落下了帷幕，最终三星将中国市场和海外市场同等对待，停售并回收所有该款机型，无需退还相关赠送配件，允许用户退换或者置换手机，并作出一系列相关补偿。事情看起来似乎是皆大欢喜，恶势力最终向国人低头。</p>
@@ -1358,7 +1358,7 @@
     
     <entry>
       <title><![CDATA[多种电平的区分]]></title>
-      <url>http://yoursite.com/2016/10/09/2016/2016-10-09-%E5%A4%9A%E7%A7%8D%E7%94%B5%E5%B9%B3%E7%9A%84%E5%8C%BA%E5%88%86/</url>
+      <url>http://noparkinghere.site/2016/10/09/2016/2016-10-09-%E5%A4%9A%E7%A7%8D%E7%94%B5%E5%B9%B3%E7%9A%84%E5%8C%BA%E5%88%86/</url>
       <content type="html"><![CDATA[<p><strong>电平</strong>就是指电路中两点或几点在相同阻抗下电量的相对比值，即电量水平。常用逻辑电平：有TTL、CMOS、LVTTL、ECL、PECL、GTL；RS232、RS422、LVDS等。</p>
 <h3 id="TTL电平"><a href="#TTL电平" class="headerlink" title="TTL电平"></a>TTL电平</h3><p>TTL和CMOS的逻辑电平按典型电压可分为四类：5V系列（5V TTL和5V CMOS）、3.3V系列，2.5V系列和1.8V系列。</p>
 <ul>
@@ -1376,7 +1376,7 @@
     
     <entry>
       <title><![CDATA[传输速率]]></title>
-      <url>http://yoursite.com/2016/10/02/2016/2016-10-02-%E4%BC%A0%E8%BE%93%E9%80%9F%E7%8E%87/</url>
+      <url>http://noparkinghere.site/2016/10/02/2016/2016-10-02-%E4%BC%A0%E8%BE%93%E9%80%9F%E7%8E%87/</url>
       <content type="html"><![CDATA[<p>数据传输过程中常常会涉及到传输速率，这边详细区分和介绍下波特率和比特率的区别。另一种说法是：在使用时间域（或简称为时域）的波形表示数字信号时，代表不同离散数值的基本波形就称为码元。码元，承载信息量的基本信号单位。</p>
 <h3 id="码元："><a href="#码元：" class="headerlink" title="码元："></a>码元：</h3><p>书面解释：在数字通信中常常用时间间隔相同的符号来表示一个二进制数字，这样的时间间隔内的信号称为(二进制）码元。 而这个间隔被称为码元长度。值得注意的是当码元的离散状态有大于2个时（如M大于2个） 时，此时码元为M进制码元。</p>
 <p>码元通俗的说就是信号，一个数字脉冲就是一个码元。但事实这种解释不够全面，同一个时间段，信号可以变化3次，也可以变化1次。实际上，正如码元的定义一样，码元是与时间相联系的。这边的时间并不是一个明确的时间，例如：串口通信时，双方约定波特率为9600（9600bps），则代表一秒钟传输9600个位（bit），这时每个码元所在的时间片段就约为1/9600s。再例如：I2C的传输速率最大为400Kbps，而I2C的通信更加的自由，实际使用过程中，双方并不会事先指定好通信速度，而是采用一根单独的SCL总线来限定通信的速度即码元所间隔的时间，在SDA保持恒定的情况下，SCL总线每次变化电平时的这段时间间隔就作为一个码元所在的时间片段。</p>
@@ -1399,7 +1399,7 @@
     
     <entry>
       <title><![CDATA[ubuntu下安装搜狗输入法]]></title>
-      <url>http://yoursite.com/2016/10/01/2016/2016-10-01-ubuntu%E4%B8%8B%E5%AE%89%E8%A3%85%E6%90%9C%E7%8B%97%E8%BE%93%E5%85%A5%E6%B3%95/</url>
+      <url>http://noparkinghere.site/2016/10/01/2016/2016-10-01-ubuntu%E4%B8%8B%E5%AE%89%E8%A3%85%E6%90%9C%E7%8B%97%E8%BE%93%E5%85%A5%E6%B3%95/</url>
       <content type="html"><![CDATA[<p>一个系统输入法很重要，尤其对于中文输入法来说，而国内目前而言，肯定是搜狗的输入法最本土化，制作的也最出众了，主要还是有网络词库的功能，除了无法实现账户登录同步外，其他基本和windows没有任何区别。</p>
 <p>搜狗输入法的配置针对不同的系统有时还真有点小麻烦，本来是不打算写这篇文章的，因为之前的几次配置都是轻松的完成了，但这次就花了个吧小时都没搞定，主要原因还是对ubuntu图形界面一些设置位置无法找到，加上搜狗输入依赖诸如fcitx之类的软件并不能即装即用。错误往往出在某一部做的不够完善，下面列举出详细安装配置步骤。</p>
 <h3 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h3><ul>
@@ -1412,7 +1412,7 @@
 <a id="more"></a>
 <h3 id="简单配置"><a href="#简单配置" class="headerlink" title="简单配置"></a>简单配置</h3><ul>
 <li>隐藏状态栏</li>
-<li>中英文切换使用ctrl键，切换时保留输入窗口字符上屏，个人<a href="http://noparkinghere.site/posts/Caps_Lock%E4%B8%8E%E5%8F%B3Ctrl%E4%BA%92%E6%8D%A2.html" target="_blank" rel="external">将ctrl和caps lock进行互换</a>了，这样切换起来更加方便</li>
+<li>中英文切换使用ctrl键，切换时保留输入窗口字符上屏，个人<a href="http://noparkinghere.site/posts/Caps_Lock%E4%B8%8E%E5%8F%B3Ctrl%E4%BA%92%E6%8D%A2.html">将ctrl和caps lock进行互换</a>了，这样切换起来更加方便</li>
 <li>候选词9个，模糊拼音等 </li>
 </ul>
 <h3 id="存在问题"><a href="#存在问题" class="headerlink" title="存在问题"></a>存在问题</h3><p>每次开机重启后，第一次使用搜狗都会出现无法加载，只是一个小框显示正在输入，不载入搜狗的皮肤也不显示中文，然后等几秒钟状态栏会切换一次fcitx，再切换回搜狗拼音，就可以使用了。有没有什么解决问题的办法？系统是ubuntu16.04，WM用的是awesome。</p>
@@ -1436,7 +1436,7 @@
     
     <entry>
       <title><![CDATA[GP22芯片详解]]></title>
-      <url>http://yoursite.com/2016/09/30/2016/2016-09-30-GP22%E8%8A%AF%E7%89%87%E8%AF%A6%E8%A7%A3/</url>
+      <url>http://noparkinghere.site/2016/09/30/2016/2016-09-30-GP22%E8%8A%AF%E7%89%87%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<p>GP22是一款工业计算时间的芯片，由于其精度高在几十ps级别，所以被广泛的应用在气表水表上面。本人由于工作上面的原因，有机会接触到这款芯片，但该芯片的研究学习并不简单，由于有多个寄存器，再加上寄存器的配置复用位数很多，所以注定这款芯片不简单，另外一些模拟数字电路，晶振校准能耗，采样精度等等各种功能很是繁杂，所以可以说这款芯片已经是类似于51单片机这种需要学习研究一下的芯片了。这篇文章将不断地总结记录，在使用这种芯片的重点，已经一些问题的总结。</p>
 <a id="more"></a>
 <hr>
@@ -1448,7 +1448,7 @@
     
     <entry>
       <title><![CDATA[（转）机器人工程师学习计划]]></title>
-      <url>http://yoursite.com/2016/09/28/2016/2016-09-28-%EF%BC%88%E8%BD%AC%EF%BC%89%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%B7%A5%E7%A8%8B%E5%B8%88%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</url>
+      <url>http://noparkinghere.site/2016/09/28/2016/2016-09-28-%EF%BC%88%E8%BD%AC%EF%BC%89%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%B7%A5%E7%A8%8B%E5%B8%88%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</url>
       <content type="html"><![CDATA[<p><em>本文是转载的一篇知乎专栏上的文章，写的相当好。可惜当年上学的时候无人指点，浪费了太多的光影。</em></p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">作者：YY硕</div><div class="line">链接：https:<span class="regexp">//</span>zhuanlan.zhihu.com<span class="regexp">/p/</span><span class="number">22266788</span></div><div class="line">来源：知乎</div><div class="line">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</div></pre></td></tr></table></figure>
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>很多朋友私信问我对机器人和人工智能感兴趣，该怎么展开学习。最近稍微有点空，我写写我的看法。</p>
@@ -1600,7 +1600,7 @@
     
     <entry>
       <title><![CDATA[关于手机的一些个人看法]]></title>
-      <url>http://yoursite.com/2016/09/28/2016/2016-09-28-%E5%85%B3%E4%BA%8E%E6%89%8B%E6%9C%BA%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%AA%E4%BA%BA%E7%9C%8B%E6%B3%95/</url>
+      <url>http://noparkinghere.site/2016/09/28/2016/2016-09-28-%E5%85%B3%E4%BA%8E%E6%89%8B%E6%9C%BA%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%AA%E4%BA%BA%E7%9C%8B%E6%B3%95/</url>
       <content type="html"><![CDATA[<p>个人一直很喜欢电子产品，且关于电子科技类新闻较多，近几年来可以说每日必看，曾经也经常混迹于各大论坛贴吧微博等。本文当然仅仅代表本人（一个非专业人事）对各个手机厂家品牌的一些看法，文章可能不会一次性写完，会随着我对手机了解成都的不断加深而更新本文。</p>
 <a id="more"></a>
 <p>To be continued…</p>
@@ -1610,7 +1610,7 @@
     
     <entry>
       <title><![CDATA[git的配置及相关插件]]></title>
-      <url>http://yoursite.com/2016/09/28/2016/2016-09-28-git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6/</url>
+      <url>http://noparkinghere.site/2016/09/28/2016/2016-09-28-git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6/</url>
       <content type="html"><![CDATA[<p>一个好的工具，需要不断的打磨和熟悉使用技巧才可以把它用的炉火纯青，git同样如此，本文主要是推荐一些git常用的配置以及配套的一些工具。</p>
 <h3 id="git的相关配置："><a href="#git的相关配置：" class="headerlink" title="git的相关配置："></a>git的相关配置：</h3><h4 id="gitignore配置"><a href="#gitignore配置" class="headerlink" title=".gitignore配置"></a>.gitignore配置</h4><a id="more"></a>
 <h3 id="推荐的git插件："><a href="#推荐的git插件：" class="headerlink" title="推荐的git插件："></a>推荐的git插件：</h3><h4 id="tig"><a href="#tig" class="headerlink" title="tig"></a>tig</h4><p>首先推荐<a href="http://jonas.nitro.dk/tig/" target="_blank" rel="external">tig</a>（名字刚好和git相反），是一个专门针对git的小软件，官方这么介绍<em>text-mode interface for Git</em>。</p>
@@ -1623,7 +1623,7 @@
     
     <entry>
       <title><![CDATA[通过git管理一个工程]]></title>
-      <url>http://yoursite.com/2016/09/28/2016/2016-09-28-%E9%80%9A%E8%BF%87git%E7%AE%A1%E7%90%86%E4%B8%80%E4%B8%AA%E5%B7%A5%E7%A8%8B/</url>
+      <url>http://noparkinghere.site/2016/09/28/2016/2016-09-28-%E9%80%9A%E8%BF%87git%E7%AE%A1%E7%90%86%E4%B8%80%E4%B8%AA%E5%B7%A5%E7%A8%8B/</url>
       <content type="html"><![CDATA[<p>GIT虽然能够实现各种版本控制，且功能强大，可以做到随时切换版本，回退等各种功能，但过多的分支，无效的分支，杂乱的提交，无意义的命名等等问题，往往会让像我这样的初学者，异常头痛，网络上关于git的往往都是指导你各个命令如何去用，部分命令的使用场景等，但却缺少一个完整工程项目的管理步骤。部分大神的确总结出了自己的使用习惯，但却不是作为教程来陈述的，下面我会将自己的一些习惯进行总结，后续可能遇到更好的也还会不断的更改。</p>
 <p>下面是一张团队协作示意图：</p>
 <p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-09-28-%E9%80%9A%E8%BF%87git%E7%AE%A1%E7%90%86%E4%B8%80%E4%B8%AA%E5%B7%A5%E7%A8%8B/0.png" alt=""></p>
@@ -1654,7 +1654,7 @@
     
     <entry>
       <title><![CDATA[windows7和虚拟机中的ubuntu实现文件共享]]></title>
-      <url>http://yoursite.com/2016/09/26/2016/2016-09-26-windows7%E5%92%8C%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E7%9A%84ubuntu%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB/</url>
+      <url>http://noparkinghere.site/2016/09/26/2016/2016-09-26-windows7%E5%92%8C%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E7%9A%84ubuntu%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB/</url>
       <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>国内很多用户习惯于使用windows系类操作系统，然而其中部分人员需要使用ubuntu进行一些开发测试，但他们并不想完全脱离windows系统，这时候虚拟机满足了他们的需求，虚拟机以安装配置简单，镜像还原起来方便安全，而被广大学习爱好者所喜爱。但有些时候，需要将真实机中的一些文档或者数据传输到虚拟机中，而如何实现虚拟机同真实机的共享往往是一些初学者头痛的事情。下面我列举出几种方法，可以满足解决这些问题。</p>
 <h3 id="通过网盘进行传输"><a href="#通过网盘进行传输" class="headerlink" title="通过网盘进行传输"></a>通过网盘进行传输</h3><p>首先可以参照我之前写的<em>桥接、nat、host-only上网方式的区别</em>里面介绍了如何配置虚拟机上网，一般虚拟机上方较为方便，如：vmware或者virtualbox之类的都可以一键安装系统，即便手动安装，通过虚拟机拓展工具也都可以补全网卡显示上网的。如果对你所使用的linux发行版不是太熟悉，且极少传输文件的话，可以使用这种方法。推荐使用百度云之类的网盘，先将本地数据文件上传，然后再通过linux中的浏览器将数据文件下载下来。这种方式的好处是无需学习，没有门槛，不需要了解任何linux的知识，只需要当做一个桌面系统使用即可，坏处显而易见：1.依赖外网，2.机密文件不方便上传，3.必须上传下载，大型文件速度慢。</p>
 <a id="more"></a>
@@ -1704,7 +1704,7 @@
     
     <entry>
       <title><![CDATA[字符编码]]></title>
-      <url>http://yoursite.com/2016/09/22/2016/2016-09-22-%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/</url>
+      <url>http://noparkinghere.site/2016/09/22/2016/2016-09-22-%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/</url>
       <content type="html"><![CDATA[<a id="more"></a>
 <blockquote>
 <p><a href="https://www.zhihu.com/question/20650946" target="_blank" rel="external">https://www.zhihu.com/question/20650946</a></p>
@@ -1714,7 +1714,7 @@
     
     <entry>
       <title><![CDATA[windows 7个人使用环境配置]]></title>
-      <url>http://yoursite.com/2016/09/20/2016/2016-09-20-windows-7%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</url>
+      <url>http://noparkinghere.site/2016/09/20/2016/2016-09-20-windows-7%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</url>
       <content type="html"><![CDATA[<p>windows 7作为个人使用最久的一个系统，无论是稳定性美观程度等等都相当优秀，虽然windows是商业软件，源代码不开放定制性差，但通过一些日常的配置，配合常用的软件还是能够将它打造成一个个性化很强用起来恨顺畅的系统。本人因为工作需要经常会用到windows系统，另外周围也有不少朋友都用的这个系统，所以这边着重总结个人的一些常用配置，以及推荐一些非专业类软件。通过本文的文章和截图，后续重装系统，也能够轻松对照配置修改回来。</p>
 <p><strong>假设你已经安装完了系统，这一个纯净版（非ghost版本，一般我都是安装这个版本）的windows 7，桌面仅有一个垃圾桶，没有其他软件。</strong></p>
 <h3 id="windows-配置"><a href="#windows-配置" class="headerlink" title="windows 配置"></a>windows 配置</h3><h4 id="配置任务栏"><a href="#配置任务栏" class="headerlink" title="配置任务栏"></a>配置任务栏</h4><p>个人习惯采用小图标，窄任务栏，这样的好处是屏幕可以显示更多的内容。见下图：</p>
@@ -1778,7 +1778,7 @@
     
     <entry>
       <title><![CDATA[ubuntu搭建wordpress服务]]></title>
-      <url>http://yoursite.com/2016/09/14/2016/2016-09-14-ubuntu%E6%90%AD%E5%BB%BAwordpress%E6%9C%8D%E5%8A%A1/</url>
+      <url>http://noparkinghere.site/2016/09/14/2016/2016-09-14-ubuntu%E6%90%AD%E5%BB%BAwordpress%E6%9C%8D%E5%8A%A1/</url>
       <content type="html"><![CDATA[<p><em><a href="https://cn.wordpress.org/" target="_blank" rel="external">wordpress</a> 是目前比较流行的博客模板，精美的外观强可定制性收到了国内外很多bloger的亲睐，之前在虚拟机的ubuntu_server上面搭建过这个环境，个人所使用的blog是基于jekyll的静态页面，所以对wordpress不是特别了解，这边以腾讯云的ubuntu服务器为基础搭建自己的wordpress服务，当然现在很多云服务已经支持一键搭建wordpress的功能，但据说“访问速度和灵活性会受到很大影响”，这边有兴趣的朋友可以自己去尝试一下。</em></p>
 <h3 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h3><ul>
 <li>需要搭建一个服务器，首先需要选定自己使用哪些服务套件，这边我选用LAMP套装，即linux(ubuntu), apache2.0, mysql, php(wordpress)。</li>
@@ -1799,14 +1799,14 @@
     
     <entry>
       <title><![CDATA[解决重启网卡后ip route add丢失]]></title>
-      <url>http://yoursite.com/2016/09/12/2016/2016-09-12-%E8%A7%A3%E5%86%B3%E9%87%8D%E5%90%AF%E7%BD%91%E5%8D%A1%E5%90%8Eip-route-add%E4%B8%A2%E5%A4%B1/</url>
+      <url>http://noparkinghere.site/2016/09/12/2016/2016-09-12-%E8%A7%A3%E5%86%B3%E9%87%8D%E5%90%AF%E7%BD%91%E5%8D%A1%E5%90%8Eip-route-add%E4%B8%A2%E5%A4%B1/</url>
       <content type="html"><![CDATA[<a id="more"></a>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[网络监控工具wireshark]]></title>
-      <url>http://yoursite.com/2016/09/12/2016/2016-09-12-%E7%BD%91%E7%BB%9C%E7%9B%91%E6%8E%A7%E5%B7%A5%E5%85%B7wireshark/</url>
+      <url>http://noparkinghere.site/2016/09/12/2016/2016-09-12-%E7%BD%91%E7%BB%9C%E7%9B%91%E6%8E%A7%E5%B7%A5%E5%85%B7wireshark/</url>
       <content type="html"><![CDATA[<h3 id="wireshark简介"><a href="#wireshark简介" class="headerlink" title="wireshark简介"></a>wireshark简介</h3><p>Wireshark（前称Ethereal）是一个网络封包分析软件。网络封包分析软件的功能是撷取网络封包，并尽可能显示出最为详细的网络封包资料。Wireshark使用WinPCAP作为接口，直接与网卡进行数据报文交换。网络封包分析软件的功能可想像成 “电工技师使用电表来量测电流、电压、电阻” 的工作 - 只是将场景移植到网络上，并将电线替换成网络线。在过去，网络封包分析软件是非常昂贵的，或是专门属于营利用的软件。Ethereal的出现改变了这一切。在GNUGPL通用许可证的保障范围底下，使用者可以以免费的代价取得软件与其源代码，并拥有针对其源代码修改及客制化的权利。Ethereal是目前全世界最广泛的网络封包分析软件之一。</p>
 <a id="more"></a>
 <h3 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h3><h4 id="linux下的安装"><a href="#linux下的安装" class="headerlink" title="linux下的安装"></a>linux下的安装</h4><p>首先，安装只要一个命令行(由于之前装过了，所以没有在安装什么了)：sudo apt-get install wireshark 。已经将wireshark安装完毕，接下来我没就可以通过：终端输入wireshark 用来启动它的图形界面。<br>然而，dumpcap需要root权限才能使用的,以普通用户打开Wireshark，Wireshark当然没有权限使用dumpcap进行截取封包。虽然可以用:sudo wireshark来完成。但是，以sudo的方式用root打开Wireshark显然是不安全的，也不是很方便，因为得到的封包数据也属于root用户。于是，我们提供下面的方法来完成普通用户下的操作。</p>
@@ -1825,7 +1825,7 @@
     
     <entry>
       <title><![CDATA[ssh相关使用]]></title>
-      <url>http://yoursite.com/2016/09/09/2016/2016-09-09-ssh%E7%9B%B8%E5%85%B3%E4%BD%BF%E7%94%A8/</url>
+      <url>http://noparkinghere.site/2016/09/09/2016/2016-09-09-ssh%E7%9B%B8%E5%85%B3%E4%BD%BF%E7%94%A8/</url>
       <content type="html"><![CDATA[<p><em>使用ssh已经很多次，但每次用到都得查看相关说明，一些操作也不是特别熟悉，本文将总结自己使用的ssh服务说明。</em></p>
 <h3 id="本地SSH配置"><a href="#本地SSH配置" class="headerlink" title="本地SSH配置"></a>本地SSH配置</h3><ul>
 <li>首先我们需要检查你电脑上现有的ssh key：</li>
@@ -1871,7 +1871,7 @@
     
     <entry>
       <title><![CDATA[国内云服务器体验]]></title>
-      <url>http://yoursite.com/2016/09/09/2016/2016-09-09-%E5%9B%BD%E5%86%85%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%93%E9%AA%8C/</url>
+      <url>http://noparkinghere.site/2016/09/09/2016/2016-09-09-%E5%9B%BD%E5%86%85%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%93%E9%AA%8C/</url>
       <content type="html"><![CDATA[<p><em>首先本人作为一个web菜鸟，仅仅是能够基本使用linux的一些操作，对网络和服务器并不熟悉，自己安装过多个系统，也象征性的搭建过一些服务环境，但具体原理了解较少。本文主要是最近想玩些云服务，虽然博客搭建有一段时间了，但一直没使用自己的服务器，本文作为个人学习研究的一部分进行，包括最基础的一些网络搭建操作，重在体验几个国内现有的云服务器公司：阿里，腾讯。</em></p>
 <h3 id="域名申请"><a href="#域名申请" class="headerlink" title="域名申请"></a>域名申请</h3><p>要使得能够访问，首先得申请个域名，当然不申请域名，你搭建的服务也可以通过IP地址直接访问的，但是一般都不这么多，一个ip地址相当重要，且在万网（阿里云）上面申请ip也较便宜，一个可以.site,.top,.xyz结尾的一级域名一年也只要几块钱，并且值得推荐的是.top域名，该域名可以在国内备案，买个玩玩也是很不错的。</p>
 <h3 id="腾讯云试用"><a href="#腾讯云试用" class="headerlink" title="腾讯云试用"></a>腾讯云试用</h3><p>腾讯云注册后有5-7天的免费使用时间，个人感觉这个对从来没接触过云服务，第一次试用的同学来说，还是很不错的，最起码可以自己尝试搭建一些小型的网站如：博客之类的还是很不错的，当然时间很宝贵，要试用的话，还是得抓紧时间。</p>
@@ -1885,7 +1885,7 @@
     
     <entry>
       <title><![CDATA[linux-CLI下的常用命令]]></title>
-      <url>http://yoursite.com/2016/09/06/2016/2016-09-06-linux-CLI%E4%B8%8B%E7%9A%84%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+      <url>http://noparkinghere.site/2016/09/06/2016/2016-09-06-linux-CLI%E4%B8%8B%E7%9A%84%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
       <content type="html"><![CDATA[<p><em>本文主要学习总结，linux下的CLI的使用技巧，不以任何发行版为例，仅仅介绍最常用的一些软件命令功能，当然部分软件也都是可以跨平台操作的。</em></p>
 <h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><p>Linux中set,env和export这三个命令的区别</p>
 <p>set命令显示当前shell的变量，包括当前用户的变量;</p>
@@ -1952,7 +1952,7 @@
     
     <entry>
       <title><![CDATA[linux下的bash]]></title>
-      <url>http://yoursite.com/2016/09/06/2016/2016-09-06-linux%E4%B8%8B%E7%9A%84bash/</url>
+      <url>http://noparkinghere.site/2016/09/06/2016/2016-09-06-linux%E4%B8%8B%E7%9A%84bash/</url>
       <content type="html"><![CDATA[<p><em>本文主要学习总结，linux下的CLI的使用技巧，不以任何发行版为例，仅仅介绍最通用的bash下的快捷操作和相关技巧，当然bash本身也可以跨平台，在诸如OS X上面默认也使用bash，同样可以参考本文。</em></p>
 <a id="more"></a>
 ]]></content>
@@ -1960,7 +1960,7 @@
     
     <entry>
       <title><![CDATA[git问题总结FAQ]]></title>
-      <url>http://yoursite.com/2016/08/28/2016/2016-08-28-git%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93FAQ/</url>
+      <url>http://noparkinghere.site/2016/08/28/2016/2016-08-28-git%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93FAQ/</url>
       <content type="html"><![CDATA[<p>git的使用过程真心不容易，尤其对于我这样的初学者且没有其他版本控制器的使用经验，另外也比较容易丢三落四的人来说。按照网上所给的步骤操作，但万一漏做了一些步骤，或者做错了一些步骤，所引起的问题也是致命的，虽然肯定有解决问题的办法，但往往会引起分支结构混乱，经常做了一次提交然后就回不去了，或者经常不知名的无法进行提交，无法进行回退，pull失败等等。</p>
 <p><strong>可见要想真正让git成为你版本控制的工具，git的工作原理必定要相当清楚，版本控制的结构要特别清晰，一单出现问题立马就知道是哪一步做错了才行。</strong></p>
 <h3 id="问题总结："><a href="#问题总结：" class="headerlink" title="问题总结："></a>问题总结：</h3><h4 id="git-checkout-–-filename"><a href="#git-checkout-–-filename" class="headerlink" title="git checkout – filename:"></a>git checkout – filename:</h4><p>在文件没有stage时可以通过这个命令将该文件撤销回来。一旦文件add后用该命令不再有效。这时需要使用 git reset HEAD – filename 意味着将文件unstage出库，还原到add之前，再使用git checkout – filename撤销文件。而如果你使用git checkout HEAD – filename 则直接会丢弃掉stage中的暂存内容，将文件还原。</p>
@@ -2026,7 +2026,7 @@
     
     <entry>
       <title><![CDATA[linux下的shell和终端使用]]></title>
-      <url>http://yoursite.com/2016/08/26/2016/2016-08-26-linux%E4%B8%8B%E7%9A%84shell%E5%92%8C%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8/</url>
+      <url>http://noparkinghere.site/2016/08/26/2016/2016-08-26-linux%E4%B8%8B%E7%9A%84shell%E5%92%8C%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8/</url>
       <content type="html"><![CDATA[<h3 id="ZSH使用"><a href="#ZSH使用" class="headerlink" title="ZSH使用"></a>ZSH使用</h3><p><em>bash为linux和OS X传统的默认shell，但使用起来比较麻烦，缺少一些人性化的特性，而现在流行的ZSH补足了bash的这些问题，且通过<a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="external">oh-my-zsh</a>可以很方便的配置，因此已经广泛的被很多人使用。下面将会对网上的资料和自我使用经验做一个详细的总结。</em></p>
 <h3 id="Tmux使用"><a href="#Tmux使用" class="headerlink" title="Tmux使用"></a>Tmux使用</h3><a id="more"></a>
 <blockquote>
@@ -2037,7 +2037,7 @@
     
     <entry>
       <title><![CDATA[（转）谈谈写程序与学英语]]></title>
-      <url>http://yoursite.com/2016/08/25/2016/2016-08-25-%EF%BC%88%E8%BD%AC%EF%BC%89%E8%B0%88%E8%B0%88%E5%86%99%E7%A8%8B%E5%BA%8F%E4%B8%8E%E5%AD%A6%E8%8B%B1%E8%AF%AD/</url>
+      <url>http://noparkinghere.site/2016/08/25/2016/2016-08-25-%EF%BC%88%E8%BD%AC%EF%BC%89%E8%B0%88%E8%B0%88%E5%86%99%E7%A8%8B%E5%BA%8F%E4%B8%8E%E5%AD%A6%E8%8B%B1%E8%AF%AD/</url>
       <content type="html"><![CDATA[<p><em>注: 本文的作者是宋劲杉，<a href="http://songjinshan.com/blog/index.php/%E8%B0%88%E8%B0%88%E5%86%99%E7%A8%8B%E5%BA%8F%E4%B8%8E%E5%AD%A6%E8%8B%B1%E8%AF%AD%EF%BC%8D%EF%BC%8D%E8%87%B4%E4%BA%9A%E5%B5%8C%E5%B0%B1%E4%B8%9A%E7%8F%AD%E5%AD%A6%E5%91%98/" target="_blank" rel="external">原文链接</a>。转载自<a href="http://happypeter.github.io/on-english-and-prog.html" target="_blank" rel="external">网址</a></em></p>
 <p>俗话说，没有金刚钻，就别揽瓷器活儿。套用到IT业，英语不行，就别做程序员。网上关于程序员学英语的文章不少，但我想谈谈我自己的看法。首先详细讨论一下为什么程序员离了英语不行，然后针对程序员应该怎么学英语说说我的体会。</p>
 <p><strong>英语是计算机的母语，是程序的母语，所以必然是程序员的母语。</strong>程序中的变量名、函数名起得好不好是决定代码质量和可维护性的最关键因素。高质量的代码应该是这样的：代码基本上是自解释的（self-explanatory），不需要太多注释，不管代码的规模有多大，具有相关知识背景的读过文档的人都可以立刻上手、立刻参与维护和开发。要想使代码能够自解释，给变量和函数起个好名字很关键，很显然，只能用英文起名字，一是用汉语拼音起名字可读性很差，二是英文单词通常比汉语更expressive（看吧，如果用汉语来说，就得说“表达能力更强”、“更有表现力”这么罗嗦），由于程序的复杂性，变量和函数往往表示一些很抽象的概念，起个既准确又简洁的名字并不容易，可是很多时候，用汉语需要很多字才能说清楚的一件事，用英文一个单词再加点词形变化就能说清楚了。例如APUE上讲sleep函数的实现，其中有个变量表示“本来应该睡到某个时刻，但是提前被信号唤醒了，唤醒时与本来应该睡到的时刻相差的时间”，如果为了简洁而不求准确，这个变量名至少也得叫“未睡到”，而书中只用了一个单词unslept，非常准确、简洁地表达了这个意思。为了写程序而学英语需要学到什么水平？我认为能起出这种变量名就够水平了。很多在IT外企工作的中国人，说话写文章经常夹杂着英文单词（比我严重多了因为我不在外企），非常可以理解，确实是为了表达得更准确简洁的需要，而不是纯为了play zhuangbility。总之，要写程序必须学好英语，否则连变量名都起不好，这虽然是一个非技术问题，但却是个根本问题，比任何技术问题都重要。当然，现在很多编程语言也支持用Unicode字符给变量和函数起名，但是你见过有人用汉字写程序吗？根本不实用。有人会辩驳说一页英文翻译成中文往往只占半页，中文不是更简洁吗？但是你算算打一页英文和打半页中文哪个敲键盘次数多。另外，要读别人的代码也必须学好英语，如果你不知道unslept是由 sleep变形而来的，就体会不到其中的精妙，只有大量阅读高质量的代码，才能写出高质量的代码，创作都是从模仿开始的。</p>
@@ -2064,7 +2064,7 @@
     
     <entry>
       <title><![CDATA[C语言中宏定义存在位置]]></title>
-      <url>http://yoursite.com/2016/08/24/2016/2016-08-24-c%E8%AF%AD%E8%A8%80%E4%B8%AD%E5%AE%8F%E5%AE%9A%E4%B9%89%E5%AD%98%E5%9C%A8%E4%BD%8D%E7%BD%AE/</url>
+      <url>http://noparkinghere.site/2016/08/24/2016/2016-08-24-c%E8%AF%AD%E8%A8%80%E4%B8%AD%E5%AE%8F%E5%AE%9A%E4%B9%89%E5%AD%98%E5%9C%A8%E4%BD%8D%E7%BD%AE/</url>
       <content type="html"><![CDATA[<p><em>宏定义作为C语言的一个传统内容，如果使用新标准的话，一般也只用宏定义来结局编译的一些问题如：#ifndef，#if undefined()等。</em></p>
 <p>宏定义究竟放在什么地方，在使用 C 语言老款编辑器情况下，一些程序大量使用宏定义，且很多程序都是将宏定义作为申明一样全部放在头文件中的，这个没有一个统一的说法，其中各有利弊，每个人风格不尽相同。</p>
 <p>首先，宏定义的常量在编译的时候是作为内容直接替换的，因此这部分并不会因此占用你堆、栈等存储空间。所以这就导致无论你将宏定义放在头文件还是放在源文件中，资源消耗上面没有太大差别。差别就是在头文件和源文件中可以使用的作用域不同。</p>
@@ -2086,7 +2086,7 @@
     
     <entry>
       <title><![CDATA[头文件交叉引用]]></title>
-      <url>http://yoursite.com/2016/08/24/2016/2016-08-24-%E5%A4%B4%E6%96%87%E4%BB%B6%E4%BA%A4%E5%8F%89%E5%BC%95%E7%94%A8/</url>
+      <url>http://noparkinghere.site/2016/08/24/2016/2016-08-24-%E5%A4%B4%E6%96%87%E4%BB%B6%E4%BA%A4%E5%8F%89%E5%BC%95%E7%94%A8/</url>
       <content type="html"><![CDATA[<p><strong>尽可能将所需要包含的头文件文件在.c文件中包含定义如：#inlcude “x.h”，除非头文件必须的部分申明出现在其他头文件中定义过的结构体或者宏定义类型，这时候没办法，只能在.h中包含.h。</strong></p>
 <p>具体分析这样定义的原因：</p>
 <h4 id="1-减少编译展开所需时间"><a href="#1-减少编译展开所需时间" class="headerlink" title="1. 减少编译展开所需时间"></a>1. 减少编译展开所需时间</h4><p>虽然头文件中都加入了<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#ifndef __KEY_H</span></div><div class="line"><span class="comment">#define __KEY_H</span></div><div class="line">...</div><div class="line"><span class="comment">#endif</span></div></pre></td></tr></table></figure></p>
@@ -2099,7 +2099,7 @@
     
     <entry>
       <title><![CDATA[ubuntu的基本使用]]></title>
-      <url>http://yoursite.com/2016/08/15/2016/2016-08-15-ubuntu%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
+      <url>http://noparkinghere.site/2016/08/15/2016/2016-08-15-ubuntu%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
       <content type="html"><![CDATA[<p><em>本文专门针对ubuntu这个linux发行版而写的，对ubuntu特有一些操作进行介绍和总结。</em></p>
 <h3 id="apt-get"><a href="#apt-get" class="headerlink" title="apt-get"></a>apt-get</h3><p><em>用过ubuntu的人都知道apt-get的方便</em></p>
 <h4 id="远程安装软件："><a href="#远程安装软件：" class="headerlink" title="远程安装软件："></a>远程安装软件：</h4><ul>
@@ -2127,7 +2127,7 @@
     
     <entry>
       <title><![CDATA[C/C++编程规范]]></title>
-      <url>http://yoursite.com/2016/08/11/2016/2016-08-11-C%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/</url>
+      <url>http://noparkinghere.site/2016/08/11/2016/2016-08-11-C%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/</url>
       <content type="html"><![CDATA[<p><em>文章阐述个人使用 C/C++ 的一些命名规范总结，当然现在很多编辑器强大，很多人不再注意这些规范，但由于本人记性较差，加上打字速度较快，所以这套规范虽然繁琐，但还是比较适合我自己的。</em></p>
 <h3 id="1-命名规范"><a href="#1-命名规范" class="headerlink" title="1. 命名规范"></a>1. 命名规范</h3><h4 id="1-1-宏定义的命名全部采用大写，中间间隔用隔开，要求常量名用大写，常量名用英文表达其意思。-当需要由多个单词表示时，单词与单词之间必须采用连字符”“连接。"><a href="#1-1-宏定义的命名全部采用大写，中间间隔用隔开，要求常量名用大写，常量名用英文表达其意思。-当需要由多个单词表示时，单词与单词之间必须采用连字符”“连接。" class="headerlink" title="1.1 宏定义的命名全部采用大写，中间间隔用隔开，要求常量名用大写，常量名用英文表达其意思。 当需要由多个单词表示时，单词与单词之间必须采用连字符”“连接。"></a>1.1 宏定义的命名全部采用大写，中间间隔用<em>隔开，要求常量名用大写，常量名用英文表达其意思。 当需要由多个单词表示时，单词与单词之间必须采用连字符”</em>“连接。</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">如：</div><div class="line"><span class="comment">#define CM_FILE_NOT_FOUND  CMMAKEHR(0X20B) 其中CM表示类别。</span></div></pre></td></tr></table></figure>
 <h4 id="1-2-变量的命名规则要求用“匈牙利命名法”。-即便很冗余且很多时候并没有实际作用，但方便查看，记性差防止跳过去查了就忘的情况"><a href="#1-2-变量的命名规则要求用“匈牙利命名法”。-即便很冗余且很多时候并没有实际作用，但方便查看，记性差防止跳过去查了就忘的情况" class="headerlink" title="1.2 变量的命名规则要求用“匈牙利命名法”。 (即便很冗余且很多时候并没有实际作用，但方便查看，记性差防止跳过去查了就忘的情况)"></a>1.2 变量的命名规则要求用“匈牙利命名法”。 (即便很冗余且很多时候并没有实际作用，但方便查看，记性差防止跳过去查了就忘的情况)</h4><p><em>这种命名法的出发点是把变量名按：属性+类型+对象描述的顺序组合起来：</em></p>
@@ -2172,7 +2172,7 @@
     
     <entry>
       <title><![CDATA[模拟IIC通信时IO选用模式]]></title>
-      <url>http://yoursite.com/2016/08/10/2016/2016-08-10-%E6%A8%A1%E6%8B%9FIIC%E9%80%9A%E4%BF%A1%E6%97%B6IO%E9%80%89%E7%94%A8%E6%A8%A1%E5%BC%8F/</url>
+      <url>http://noparkinghere.site/2016/08/10/2016/2016-08-10-%E6%A8%A1%E6%8B%9FIIC%E9%80%9A%E4%BF%A1%E6%97%B6IO%E9%80%89%E7%94%A8%E6%A8%A1%E5%BC%8F/</url>
       <content type="html"><![CDATA[<p><em>现如今很多芯片都已经包含有 IIC 通信功能，为何仍然选择模拟 IIC 呢？</em> <strong>首先 IIC 通讯的版权掌握在飞利浦手中，部分厂家如：st 等，实现 IIC 通信较为繁琐，据说不是特别合理稳定；此外，芯片级的 IIC 不同的芯片就需要重新研究书写一次，而模拟 IIC 天生具有较好的移植性，可以做到一次书写，终身可移植。</strong></p>
 <h3 id="IIC-通信原理"><a href="#IIC-通信原理" class="headerlink" title="IIC 通信原理"></a>IIC 通信原理</h3><h3 id="IIC-选用-IO-模式"><a href="#IIC-选用-IO-模式" class="headerlink" title="IIC 选用 IO 模式"></a>IIC 选用 IO 模式</h3><p>通过上面可以知道，IIC 在通信过程中，主设备SCL始终是保持发送状态，因此这边我们可以将 SCL 设置为推挽或者开漏输出。推挽的输出能力较强，开漏输出则需要加上拉电阻，而一般 IIC 的推荐电路就是需要人为增加了上拉电阻的，因此在考虑功耗等一些情况下，可能开漏输出更好。</p>
 <p><strong>而问题的关键是 SDA 到底设置为什么模式？</strong></p>
@@ -2186,7 +2186,7 @@
     
     <entry>
       <title><![CDATA[常规的通讯校验]]></title>
-      <url>http://yoursite.com/2016/08/06/2016/2016-08-06-%E5%B8%B8%E8%A7%84%E7%9A%84%E9%80%9A%E8%AE%AF%E6%A0%A1%E9%AA%8C/</url>
+      <url>http://noparkinghere.site/2016/08/06/2016/2016-08-06-%E5%B8%B8%E8%A7%84%E7%9A%84%E9%80%9A%E8%AE%AF%E6%A0%A1%E9%AA%8C/</url>
       <content type="html"><![CDATA[<a id="more"></a>
 <blockquote>
 <p>参考链接：<br><a href="http://blog.csdn.net/liyuanbhu/article/details/7882789" target="_blank" rel="external">http://blog.csdn.net/liyuanbhu/article/details/7882789</a></p>
@@ -2196,7 +2196,7 @@
     
     <entry>
       <title><![CDATA[GPIO口详解]]></title>
-      <url>http://yoursite.com/2016/08/03/2016/2016-08-03-gpio%E5%8F%A3%E8%AF%A6%E8%A7%A3/</url>
+      <url>http://noparkinghere.site/2016/08/03/2016/2016-08-03-gpio%E5%8F%A3%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<p><em>在做 MCU 编程开发的时候，GPIO 可以说是最基础也是最重要的部分，MCU 的学习研究无非就是三点：高低电频，输入输出，通讯协议。而GPIO可以说贯穿始终，在模拟一些通讯协议时，GPIO 所采用的模式，往往会引起各种意想不到的问题。</em></p>
 <h3 id="GPIO-模式："><a href="#GPIO-模式：" class="headerlink" title="GPIO 模式："></a>GPIO 模式：</h3><h4 id="通用推挽输出（push-pull）："><a href="#通用推挽输出（push-pull）：" class="headerlink" title="通用推挽输出（push-pull）："></a>通用推挽输出（push-pull）：</h4><p>在功率放大器电路中大量采用推挽放大器电路，这种电路中用两只三极管构成一级放大器电路，两只三极管分别放大输入信号的正半周和负半周，即用一只三极管放大信号的正半周，用另一只三极管放大信号的负半周，两只三极管输出的半周信号在放大器负载上合并后得到一个完整周期的输出信号。原理图如下：</p>
 <p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-08-03-gpio%E5%8F%A3%E8%AF%A6%E8%A7%A3/8b82b9014a90f6037a3d50aa3a12b31bb151ed4a.jpg" alt=""></p>
@@ -2219,7 +2219,7 @@
     
     <entry>
       <title><![CDATA[架设自己的git服务]]></title>
-      <url>http://yoursite.com/2016/07/29/2016/2016-07-29-%E6%9E%B6%E8%AE%BE%E8%87%AA%E5%B7%B1%E7%9A%84git%E6%9C%8D%E5%8A%A1/</url>
+      <url>http://noparkinghere.site/2016/07/29/2016/2016-07-29-%E6%9E%B6%E8%AE%BE%E8%87%AA%E5%B7%B1%E7%9A%84git%E6%9C%8D%E5%8A%A1/</url>
       <content type="html"><![CDATA[<p><em>本实验使用的是实体机 ubuntu 16.04 和虚拟机 virtualbox 搭建 ubuntu—server 16.04 系统进行连接，其中用 ubuntu-server 搭建 git，实体机 ubuntu desktop 连接 ubuntu-server，后续如果有其他环境也会逐一补充。</em></p>
 <p><strong>这边暂时没有在实体机上面尝试，先列举出在虚拟机上面架设 git 服务器</strong></p>
 <h3 id="使用-ssh-登陆-ubuntu-server"><a href="#使用-ssh-登陆-ubuntu-server" class="headerlink" title="使用 ssh 登陆 ubuntu-server"></a>使用 ssh 登陆 ubuntu-server</h3><h4 id="ping-通两个系统："><a href="#ping-通两个系统：" class="headerlink" title="ping 通两个系统："></a>ping 通两个系统：</h4><p>看是否可以 ping 通两个系统，首先查看 ip 地址，<code>ifconfig</code>， 例如主机是： 192.168.18.60 ，虚拟机是 192.168.18.202。则在主机中 ping 192.168.18.60 ，当然事情往往并不会一帆风顺，很多设置的时候，为了可以链接外网，虚拟机选用了 NAT 模式。<em>貌似该模式无法使用ssh服务，虚拟机可以 ping 通主机，但主机无法 ping 通虚拟机。</em>这时候可以使用几种方法：</p>
@@ -2285,7 +2285,7 @@
     
     <entry>
       <title><![CDATA[多个发行版linux使用体验]]></title>
-      <url>http://yoursite.com/2016/07/27/2016/2016-07-27-%E5%A4%9A%E4%B8%AA%E5%8F%91%E8%A1%8C%E7%89%88linux%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/</url>
+      <url>http://noparkinghere.site/2016/07/27/2016/2016-07-27-%E5%A4%9A%E4%B8%AA%E5%8F%91%E8%A1%8C%E7%89%88linux%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/</url>
       <content type="html"><![CDATA[<p><em>本文主要记录自己使用多个linux的发行版的一些感受体验，会包括CLI和GUI的一些体验。本文具有一定的主观性，仅供参考。</em></p>
 <p>发行版包括：ubuntu，debian，centOS，openSUSE等<br>窗口管理器包括：gnome，kde，awesome等</p>
 <a id="more"></a>
@@ -2296,7 +2296,7 @@
     
     <entry>
       <title><![CDATA[桥接、NAT、Host-only上网方式的区别]]></title>
-      <url>http://yoursite.com/2016/07/25/2016/2016-07-25-%E6%A1%A5%E6%8E%A5%E3%80%81nat%E3%80%81host-only%E4%B8%8A%E7%BD%91%E6%96%B9%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+      <url>http://noparkinghere.site/2016/07/25/2016/2016-07-25-%E6%A1%A5%E6%8E%A5%E3%80%81nat%E3%80%81host-only%E4%B8%8A%E7%BD%91%E6%96%B9%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
       <content type="html"><![CDATA[<p><em>经常使用虚拟机的小伙伴们都遇到过网络链接过程中的各种问题，仔细查看设置会发现有：桥接、NAT、Host-only 等设置，vmware 等虚拟机后还会自动生成vmnet1和vmnet8，初学者可能会一头雾水，为啥只有两个？不是三种模式吗？另外每个模式代表什么？他们又有什么区别？无论是 vmware 还是 vitualbox 这些内容都大同小异，而 vmware 中看起来可能会更加直观些，这边以windows下的安装使用为例，进行深入的详解。</em></p>
 <p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-25-%E6%A1%A5%E6%8E%A5%E3%80%81nat%E3%80%81host-only%E4%B8%8A%E7%BD%91%E6%96%B9%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/0.png" alt=""></p>
 <p><strong>本文会尽可能详细地总结和罗列出三者的含义和区别，以及虚拟机中该如何配置他们更加合适。</strong></p>
@@ -2338,7 +2338,7 @@
     
     <entry>
       <title><![CDATA[githubpage+jekyll搭建博客]]></title>
-      <url>http://yoursite.com/2016/07/21/2016/2016-07-21-githubpage-jekyll%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
+      <url>http://noparkinghere.site/2016/07/21/2016/2016-07-21-githubpage-jekyll%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
       <content type="html"><![CDATA[<p>使用 githubpage+jekyll 搭建博客也有半年时间了，这篇文章早该写好，但一致迟迟没有下笔。怎么说呢，githubpage+jekyll 搭建博客的静态博客，操作起来可视化成都较低，缺少 wordpress 等知名博客酷炫的管理后台，也很少能够找到炫酷的模板（文章下方链接给出了 jekyll 的一些模板），以上缺点也是显而易见，简而言之就是 jekyll 的界面丑陋用起来麻烦。但因为 githubpage 是 jekyll 提供的服务，所以好处就是 jekyll 文件无需每次本地编译，直接 push 到 github 上面，就可以生成页面，另外本地也会同时保存一份完整的源文件，书写时只需要按照 markdown 语法码字，更换平台博客搬家更是轻松。</p>
 <a id="more"></a>
 <blockquote>
@@ -2349,7 +2349,7 @@
     
     <entry>
       <title><![CDATA[windows7安装详解]]></title>
-      <url>http://yoursite.com/2016/07/16/2016/2016-07-16-windows7%E5%AE%89%E8%A3%85%E8%AF%A6%E8%A7%A3/</url>
+      <url>http://noparkinghere.site/2016/07/16/2016/2016-07-16-windows7%E5%AE%89%E8%A3%85%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<p><em>早在上学时,就安装过很多次win7,老是说,win7出了略微的比xp多占用了点资源外,确实好用。外观美观，性能也算不错。</em></p>
 <h3 id="windows-7简介："><a href="#windows-7简介：" class="headerlink" title="windows 7简介："></a>windows 7简介：</h3><p>Windows 7 是由微软公司（Microsoft）开发的操作系统，版本有：入门版（Starter）、家庭普通版（Home Basic）、家庭高级版（Home Premium）、专业版（Professional）、企业版（Enterprise）（非零售）、旗舰版（Ultimate）。Windows 7 的设计主要围绕五个重点——针对笔记本电脑的特有设计；基于应用服务的设计；用户的个性化；视听娱乐的优化；用户易用性的新引擎。 跳跃列表，系统故障快速修复等，这些新功能令Windows 7成为比较美观易用的操作系统。</p>
 <h3 id="必要的软件下载："><a href="#必要的软件下载：" class="headerlink" title="必要的软件下载："></a>必要的软件下载：</h3><ul>
@@ -2432,7 +2432,7 @@
     
     <entry>
       <title><![CDATA[（转）github_markdown]]></title>
-      <url>http://yoursite.com/2016/07/15/2016/2016-07-05-%EF%BC%88%E8%BD%AC%EF%BC%89github_markdown/</url>
+      <url>http://noparkinghere.site/2016/07/15/2016/2016-07-05-%EF%BC%88%E8%BD%AC%EF%BC%89github_markdown/</url>
       <content type="html"><![CDATA[<p><em>本内容主要例举了github适用的markdown语法，类似于基于基础markdown定制的语法特性，并非适用于所有的其他markdown编辑器，尤其是下述表情包基本上其他编辑器都不一定能够支持，本人使用的是atom外加一些github的插件，基本能够显示大多数内容，但仍由部分不能支持，另外本文的主要适用范围：<strong>在新建项目工程，书写readme时使用，其他如github page或者其他一些站点的markdown页面请勿参考本文。</strong></em></p>
 <h4 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a><a href="https://github.com/guodongxiaren/README" target="_blank" rel="external">实现效果</a></h4><a id="more"></a>
 <h4 id="源码地址"><a href="#源码地址" class="headerlink" title="源码地址"></a><a href="https://github.com/guodongxiaren" target="_blank" rel="external">源码地址</a></h4><hr>
@@ -2444,7 +2444,7 @@
     
     <entry>
       <title><![CDATA[atom使用总结]]></title>
-      <url>http://yoursite.com/2016/07/15/2016/2016-07-15-atom%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</url>
+      <url>http://noparkinghere.site/2016/07/15/2016/2016-07-15-atom%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</url>
       <content type="html"><![CDATA[<p>Atom 是 Github 出的一款免费跨平台的 IDE，软件 15 年发布，至今时间较短，国内有一些文章或者帖子介绍该软件，但为数不多。笔者最初写也只是为了写文章而想在 linux 下找一款友好的 markdown 编辑器，翻阅了很多都不尽如人意，最后无意中发现了这款软件，简直爱不释手。<em>文章最下方的参考链接都写的比较详细，值得拿来参考阅读。</em></p>
 <h3 id="Atom简介："><a href="#Atom简介：" class="headerlink" title="Atom简介："></a>Atom简介：</h3><p>Atom 是 github 专门为程序员推出的一个跨平台文本编辑器。具有简洁和直观的图形用户界面，并有很多有趣的特点：支持 CSS，HTML，JavaScript 等网页编程语言。它支持宏，自动完成分屏功能，集成了文件管理器。继承了 SublimeText 和 vim 的众多优点（除了占用资源，和开启速度慢，当然现在内存越来越不值钱，以及固态硬盘速度奇快，这些都会是问题），很大程度上不仅如此。据称，在目前IDE如此之多的情况下，开发这个软件是为了替代 vim（当然这么宣传也可能只是噱头，但 atom 确实扩展性强且容易配置），让更新更优秀的功能能够被体验，因此事实上Atom这款软件中是包含了vim模式的，当然用惯了vim的大神未必服。另外 Atom 在 web 前端相当出名，基本上可以取代老牌编辑器： SublimeText ，且功能类似vim可以无限将其配置成任何你需要的环境（如：C/C++ 开发环境，python 开发环境，markdown 写作软件等等），可见，学习这款软件无论是功能性能还是面向将来都是值得的。</p>
 <p>这边给出几个最主要的链接：<a href="https://atom.io/" target="_blank" rel="external">atom官网</a>，<a href="https://atom.io/packages" target="_blank" rel="external">atom插件中心</a>，<a href="http://flight-manual.atom.io/" target="_blank" rel="external">atom官方手册英文版</a>，<a href="https://atom-china.org/" target="_blank" rel="external">atom中文社区</a>，<a href="https://github.com/atom/atom" target="_blank" rel="external">atom源码</a>。</p>
@@ -2480,7 +2480,7 @@
     
     <entry>
       <title><![CDATA[Caps_Lock与右Ctrl互换]]></title>
-      <url>http://yoursite.com/2016/07/14/2016/2016-07-14-Caps_Lock%E4%B8%8E%E5%8F%B3Ctrl%E4%BA%92%E6%8D%A2/</url>
+      <url>http://noparkinghere.site/2016/07/14/2016/2016-07-14-Caps_Lock%E4%B8%8E%E5%8F%B3Ctrl%E4%BA%92%E6%8D%A2/</url>
       <content type="html"><![CDATA[<p><em>实现该功能的目的主要是切换中英文输入法，在使用 ctrl 或者 shift 切换时，很明显这两个键的位置远不如caps按起来方便，且 shift 往往作为大小写功能使用，用来作为切换中英文输入会恨混乱，而 caps 作为大小写时用起来相当罕见，作为中文输入来说更可以说完全是鸡肋的功能。大写完全可以用 shift 代替的用户群中，无疑是占用了一个最好的位置，却几乎完全被遗忘的一个按键。下面将会总结一个既保留 Caps_Lock 键功能，又可以充分利用这个最好位置的按键映射方法。</em></p>
 <h3 id="linux系统下的实现"><a href="#linux系统下的实现" class="headerlink" title="linux系统下的实现"></a>linux系统下的实现</h3><h4 id="按键值查询"><a href="#按键值查询" class="headerlink" title="按键值查询"></a>按键值查询</h4><p>linux 下可以通过命令小程序对绝大多数按键值进行查找，要想修改键值映射, 先要知道按键的键值. 用如下命令查看: <code>xev | grep keycode</code>。</p>
 <p>同时我们可以查看需要映射的按键的映射名称：</p>
@@ -2506,7 +2506,7 @@
     
     <entry>
       <title><![CDATA[jlink相关问题汇总]]></title>
-      <url>http://yoursite.com/2016/07/12/2016/2016-07-12-jlink%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</url>
+      <url>http://noparkinghere.site/2016/07/12/2016/2016-07-12-jlink%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</url>
       <content type="html"><![CDATA[<h3 id="jlink简介"><a href="#jlink简介" class="headerlink" title="jlink简介"></a>jlink简介</h3><h3 id="MDK如何让jlink不跳出升级"><a href="#MDK如何让jlink不跳出升级" class="headerlink" title="MDK如何让jlink不跳出升级"></a>MDK如何让jlink不跳出升级</h3><p>有三种方法(注意盗版的 jlink 谨慎升级),推荐方法3。</p>
 <ol>
 <li>升级 Keil 自带的 J-link 程序,新版本 jlink 的一般盗版的 v8 都没法直接升级。</li>
@@ -2533,7 +2533,7 @@
     
     <entry>
       <title><![CDATA[linux下vpn配置]]></title>
-      <url>http://yoursite.com/2016/07/12/2016/2016-07-12-linux%E4%B8%8Bvpn%E9%85%8D%E7%BD%AE/</url>
+      <url>http://noparkinghere.site/2016/07/12/2016/2016-07-12-linux%E4%B8%8Bvpn%E9%85%8D%E7%BD%AE/</url>
       <content type="html"><![CDATA[<p>由于众所周知的原因，国内用户无法访问外网，或者即便可以访问，也会遇到访问速度慢，网页无法刷新等问题。因此如果你要访问谷歌，Facebook等网站，就需要学会科学上网，本文主要使用 VPN 的方式来绕过 GFW 的过滤，让小伙伴们能够轻松畅游天地，无拘无束。</p>
 <h3 id="推荐-VPN"><a href="#推荐-VPN" class="headerlink" title="推荐 VPN"></a>推荐 VPN</h3><p>这边首推国内最出名的 <a href="http://gjsq.me/web" target="_blank" rel="external">Green VPN</a>，域名经常会被查封，以上给出的这个网址一般会自动跳转，大多数情况不会变化。Green VPN 的费用一般在 ￥150/year 左右，可以两个客户端同时使用，特点是使用起来方便，速度稳定，一般带宽在 4M 以上，但不能长期链接，每天可能会断线一次。Green VPN 算是一家老牌的 VPN 了，价格虽然不算最便宜，但稳定性服务等都比较有保证，市面上面冒充 Green VPN 诈骗的也比较多，购买时需要当心注意。</p>
 <p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-12-linux%E4%B8%8Bvpn%E9%85%8D%E7%BD%AE/1.png" alt=""></p>
@@ -2557,7 +2557,7 @@
     
     <entry>
       <title><![CDATA[linux正常学习办公]]></title>
-      <url>http://yoursite.com/2016/07/11/2016/2016-07-11-linux%E6%AD%A3%E5%B8%B8%E5%AD%A6%E4%B9%A0%E5%8A%9E%E5%85%AC/</url>
+      <url>http://noparkinghere.site/2016/07/11/2016/2016-07-11-linux%E6%AD%A3%E5%B8%B8%E5%AD%A6%E4%B9%A0%E5%8A%9E%E5%85%AC/</url>
       <content type="html"><![CDATA[<p>本文章在于总结自己如何使用 linux 完成正常的办公学习。linux 向来以它的可定制性强，稳定性高而出名，但 linux 常用领域大多也只限制在个别的一些如服务器领域，而民用领域即便是安卓系统也是 linux 经过层层封装之后的产物，早已逝去了该系统的原汁原味。linux 从发展至今也已经有了20多年的历史，但桌面版本一致被大家诟病，非专业人事不能使用，自从 ubuntu 这个发行版出来后，确实可以说是降低了新人使用的门槛，但是这个发行版的 GUI 定制性差，不够稳定等一系列的问题也让用户体验直线下降。这边我是以 ubuntu 的系统为基础采用 awesome 这儿 WM 进行图形化管理，目前使用了数个月时间，体验还算是良好。</p>
 <h2 id="1-系统选择："><a href="#1-系统选择：" class="headerlink" title="1. 系统选择："></a>1. 系统选择：</h2><h3 id="1-1-为何选择ubuntu？"><a href="#1-1-为何选择ubuntu？" class="headerlink" title="1.1 为何选择ubuntu？"></a>1.1 为何选择ubuntu？</h3><p><em>现如今linux发行版很多，但真如ubuntu一样的美观，稳定又方便的真不多。说一下我用过的各个系统的体验吧：</em></p>
 <ul>
@@ -2602,7 +2602,7 @@
     
     <entry>
       <title><![CDATA[git常用指令详解]]></title>
-      <url>http://yoursite.com/2016/07/11/2016/2016-07-11-git%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E8%AF%A6%E8%A7%A3/</url>
+      <url>http://noparkinghere.site/2016/07/11/2016/2016-07-11-git%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<p>用git这个版本控制器也有一段时间了，但奈何一直停留在初浅的使用阶段，对诸如：分支，远程库，log，reflog，pull，clone等命令一直无法清晰的认识，仅仅是简单的add，commit，push，出了问题再查找。<br>始终无法串接成自有的知识体系，git 作为当下最流行的版本控制器，不得不说我对她真是既爱又恨，喜欢她的小巧高效功能强大；恨上手困难，虽然也有了一些简单易懂的教程，但在在实际使用时，始终不能形成自己的知识体系，原因可能还是项目中实际用的过少，这篇文章，会花一段时间，详细的介绍git的大概工作过程，对一些常用命令精简的介绍，然后从我个人的角度来认识git，总结自己的经验。*</p>
 <a id="more"></a>
 <p><strong>这篇文章的过程意在记录自己使用git的学习经历，并不断的总结推荐一些良好的配置以及相关软件。</strong></p>
@@ -2644,8 +2644,114 @@
     </entry>
     
     <entry>
+      <title><![CDATA[（转）回车、换行、和文件末尾空行]]></title>
+      <url>http://noparkinghere.site/2016/07/11/2016/2016-07-11-%EF%BC%88%E8%BD%AC%EF%BC%89%E5%9B%9E%E8%BD%A6%E3%80%81%E6%8D%A2%E8%A1%8C%E3%80%81%E5%92%8C%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E7%A9%BA%E8%A1%8C/</url>
+      <content type="html"><![CDATA[<h2 id="回车和换行"><a href="#回车和换行" class="headerlink" title="回车和换行"></a>回车和换行</h2><p>回车 (Carriage Return) 和换行 (Line Feed) 的区别，<a href="http://stackoverflow.com/questions/1761051/difference-between-n-and-r" target="_blank" rel="external">这里</a>有一个历史原因可参考：</p>
+<blockquote>
+<p>在计算机还没有出现之前，有一种叫做电传打字机（Teletype Model 33）的玩意，每秒钟可以打10个字符。但是它有一个问题，就是打完一行换行的时候，要用去0.2秒，正好可以打两个字符。要是在这0.2秒里面，又有新的字符传过来，那么这个字符将丢失。</p>
+<p>于是，研制人员想了个办法解决这个问题，就是在每行后面加两个表示结束的字符。一个叫做”回车”，告诉打字机把打印头定位在左边界；另一个叫做”换行”，告诉打字机把纸向下移一行。</p>
+</blockquote>
+<p>发明计算机时，这个概念被沿用下来，但因为条件的限制和设计者的喜好，有了一些分歧：</p>
+<ul>
+<li>Unix 系统里，每行结尾只有”&lt;换行&gt;”，即 “\n”</li>
+<li>Windows 系统里面，每行结尾是”&lt;回车&gt;&lt;换行&gt;”，即 “\r\n”</li>
+<li>在老的 Mac 系统里，每行结尾是”&lt;回车&gt;”，即 “\r”</li>
+</ul>
+<p>我们来验证一下，我在 Windows 下用记事本新建一个文本文件，它的二进制编码如下：</p>
+<pre><code>//源文件内容
+hello
+hello2
+
+//二进制内容
+0000000: 6865 6c6c 6f0d 0a68 656c 6c6f 32         hello..hello2
+</code></pre><p>同样在 Mac 下用 Vim 新建一个：</p>
+<pre><code>//源文件内容
+hello
+hello2
+
+//二进制内容
+0000000: 6865 6c6c 6f0a 6865 6c6c 6f32 0a         hello.hello2.
+</code></pre><p><code>0a</code>是 LF 的 ASCII 编码, <code>0d</code>是 CR 的 ASCII 编码。区别很明显了</p>
+<ul>
+<li>Mac 下的文本文件在 Windows 下打开会成为一行，因为 Windows 只认识 <code>\r\n</code>，也就是 <code>0d0a</code></li>
+<li>Windows 下的文本文件在 Mac 下打开，Vim 中会在每行末尾显示一个 <code>^M</code>，(不是两个字符组成的)</li>
+</ul>
+<a id="more"></a>
+<h2 id="文件末尾空行"><a href="#文件末尾空行" class="headerlink" title="文件末尾空行"></a>文件末尾空行</h2><p><a href="https://zh.wikipedia.org/zh-sg/POSIX" target="_blank" rel="external">POSIX</a>对行的<a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_206" target="_blank" rel="external">定义</a>如下：</p>
+<blockquote>
+<p>3.206 Line</p>
+<p>A sequence of zero or more non- <newline\> characters plus a terminating <newline\> character.</newline\></newline\></p>
+<p>行是由0个或者多个非 “换行” 符的字符组成，并且以 “换行” 符结尾。</p>
+</blockquote>
+<p>这样做有什么好处呢，举个例子：</p>
+<pre><code>//hello.c
+#include head.h
+print(&apos;hello&apos;)
+
+//world.c
+#include tail.h
+print(&apos;hello&apos;)
+</code></pre><p>如果这两个文件都按 POSIX 规范来写， 在<code>cat *.c</code>之后，是没有问题的：</p>
+<pre><code>//cat.c
+
+#include head.h
+print(&apos;hello&apos;)
+#include tail.h
+print(&apos;hello&apos;)
+</code></pre><p>如果缺少最后一行的换行符（如 Windows 文件那样的定义），<code>cat</code>之后，就有问题了：</p>
+<pre><code>//error.c
+
+#include head.h
+print(&apos;hello&apos;)#include tail.h
+print(&apos;hello&apos;)
+</code></pre><p>所以，从这点去理解 POSIX 对行的定义，非常合理，对于任意文件的拼接，也各自保持了文件的完整性。</p>
+<p>不遵守标准带来的则是：在一些编辑器下面，比如 Sublime，他把<code>\n</code>的当做了行之间的分隔符，于是文件最后一行的<code>\n</code>就看上去成了一个新的空行，这就是错误解读标准造成的，拼接文件时也会产生不必要的麻烦，比如上例。</p>
+<h2 id="No-new-line-at-end-of-file"><a href="#No-new-line-at-end-of-file" class="headerlink" title="\ No new line at end of file"></a>\ No new line at end of file</h2><p>基于上面的原因，再去看 git diff 的<code>\ No new line at end of file</code>信息，就很好解释了。</p>
+<p>各编辑器对于换行符的理解偏差，导致的文件确实发生了变化，多了或少了最后的<code>0a</code>，那么对于 diff 程序来说，这当然是不可忽略的，但因为<code>0a</code>是不可见字符，并且是长久以来的历史原因，所以 diff 程序有个专门的标记来说明这个变化，就是：</p>
+<p><code>\ No new line at end of file</code></p>
+<p>各编辑器也有相应的办法去解决这个问题，比如 Sublime，在<code>Default/Preferences.sublime-settings</code>中设置：</p>
+<pre><code>// Set to true to ensure the last line of the file ends in a newline
+// character when saving
+&quot;ensure_newline_at_eof_on_save&quot;: true,
+</code></pre><p>所以，请遵守规范。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[stm32F439案例汇总]]></title>
+      <url>http://noparkinghere.site/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
+      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
+<blockquote>
+<p>www.armjishu.com(无法访问)</p>
+</blockquote>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
+<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
+<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
+</ul>
+<a id="more"></a>
+<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
+<li>实验0 Template工程模板</li>
+<li>实验1 跑马灯</li>
+<li>实验2 蜂鸣器</li>
+<li>实验3 按键和外部中断</li>
+<li>实验4 看门狗（独立和窗口）</li>
+<li>实验5 待机唤醒</li>
+<li>实验6 串口通讯（232和485）</li>
+<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
+<li>实验8 PWM输出和输入捕获</li>
+</ul>
+<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
+<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
+</blockquote>
+<hr>
+<p><em>未完待续</em></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[MDK5安装及配置]]></title>
-      <url>http://yoursite.com/2016/07/11/2016/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
+      <url>http://noparkinghere.site/2016/07/11/2016/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
       <content type="html"><![CDATA[<h3 id="MDK简介"><a href="#MDK简介" class="headerlink" title="MDK简介"></a>MDK简介</h3><blockquote>
 <p>Keil MDK，也称MDK-ARM，Realview MDK、I-MDK、uVision4 等。Keil C51 是美国 Keil Software 公司出品的 51 系列兼容单片机 C 语言软件开发系统，被 ARM（英国）公司收购，作为在 51 单片机时代相当流行的一个软件。</p>
 </blockquote>
@@ -2720,114 +2826,8 @@
     </entry>
     
     <entry>
-      <title><![CDATA[stm32F439案例汇总]]></title>
-      <url>http://yoursite.com/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
-      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
-<blockquote>
-<p>www.armjishu.com(无法访问)</p>
-</blockquote>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
-<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
-<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
-</ul>
-<a id="more"></a>
-<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
-<li>实验0 Template工程模板</li>
-<li>实验1 跑马灯</li>
-<li>实验2 蜂鸣器</li>
-<li>实验3 按键和外部中断</li>
-<li>实验4 看门狗（独立和窗口）</li>
-<li>实验5 待机唤醒</li>
-<li>实验6 串口通讯（232和485）</li>
-<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
-<li>实验8 PWM输出和输入捕获</li>
-</ul>
-<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
-<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
-</blockquote>
-<hr>
-<p><em>未完待续</em></p>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[（转）回车、换行、和文件末尾空行]]></title>
-      <url>http://yoursite.com/2016/07/11/2016/2016-07-11-%EF%BC%88%E8%BD%AC%EF%BC%89%E5%9B%9E%E8%BD%A6%E3%80%81%E6%8D%A2%E8%A1%8C%E3%80%81%E5%92%8C%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E7%A9%BA%E8%A1%8C/</url>
-      <content type="html"><![CDATA[<h2 id="回车和换行"><a href="#回车和换行" class="headerlink" title="回车和换行"></a>回车和换行</h2><p>回车 (Carriage Return) 和换行 (Line Feed) 的区别，<a href="http://stackoverflow.com/questions/1761051/difference-between-n-and-r" target="_blank" rel="external">这里</a>有一个历史原因可参考：</p>
-<blockquote>
-<p>在计算机还没有出现之前，有一种叫做电传打字机（Teletype Model 33）的玩意，每秒钟可以打10个字符。但是它有一个问题，就是打完一行换行的时候，要用去0.2秒，正好可以打两个字符。要是在这0.2秒里面，又有新的字符传过来，那么这个字符将丢失。</p>
-<p>于是，研制人员想了个办法解决这个问题，就是在每行后面加两个表示结束的字符。一个叫做”回车”，告诉打字机把打印头定位在左边界；另一个叫做”换行”，告诉打字机把纸向下移一行。</p>
-</blockquote>
-<p>发明计算机时，这个概念被沿用下来，但因为条件的限制和设计者的喜好，有了一些分歧：</p>
-<ul>
-<li>Unix 系统里，每行结尾只有”&lt;换行&gt;”，即 “\n”</li>
-<li>Windows 系统里面，每行结尾是”&lt;回车&gt;&lt;换行&gt;”，即 “\r\n”</li>
-<li>在老的 Mac 系统里，每行结尾是”&lt;回车&gt;”，即 “\r”</li>
-</ul>
-<p>我们来验证一下，我在 Windows 下用记事本新建一个文本文件，它的二进制编码如下：</p>
-<pre><code>//源文件内容
-hello
-hello2
-
-//二进制内容
-0000000: 6865 6c6c 6f0d 0a68 656c 6c6f 32         hello..hello2
-</code></pre><p>同样在 Mac 下用 Vim 新建一个：</p>
-<pre><code>//源文件内容
-hello
-hello2
-
-//二进制内容
-0000000: 6865 6c6c 6f0a 6865 6c6c 6f32 0a         hello.hello2.
-</code></pre><p><code>0a</code>是 LF 的 ASCII 编码, <code>0d</code>是 CR 的 ASCII 编码。区别很明显了</p>
-<ul>
-<li>Mac 下的文本文件在 Windows 下打开会成为一行，因为 Windows 只认识 <code>\r\n</code>，也就是 <code>0d0a</code></li>
-<li>Windows 下的文本文件在 Mac 下打开，Vim 中会在每行末尾显示一个 <code>^M</code>，(不是两个字符组成的)</li>
-</ul>
-<a id="more"></a>
-<h2 id="文件末尾空行"><a href="#文件末尾空行" class="headerlink" title="文件末尾空行"></a>文件末尾空行</h2><p><a href="https://zh.wikipedia.org/zh-sg/POSIX" target="_blank" rel="external">POSIX</a>对行的<a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_206" target="_blank" rel="external">定义</a>如下：</p>
-<blockquote>
-<p>3.206 Line</p>
-<p>A sequence of zero or more non- <newline\> characters plus a terminating <newline\> character.</newline\></newline\></p>
-<p>行是由0个或者多个非 “换行” 符的字符组成，并且以 “换行” 符结尾。</p>
-</blockquote>
-<p>这样做有什么好处呢，举个例子：</p>
-<pre><code>//hello.c
-#include head.h
-print(&apos;hello&apos;)
-
-//world.c
-#include tail.h
-print(&apos;hello&apos;)
-</code></pre><p>如果这两个文件都按 POSIX 规范来写， 在<code>cat *.c</code>之后，是没有问题的：</p>
-<pre><code>//cat.c
-
-#include head.h
-print(&apos;hello&apos;)
-#include tail.h
-print(&apos;hello&apos;)
-</code></pre><p>如果缺少最后一行的换行符（如 Windows 文件那样的定义），<code>cat</code>之后，就有问题了：</p>
-<pre><code>//error.c
-
-#include head.h
-print(&apos;hello&apos;)#include tail.h
-print(&apos;hello&apos;)
-</code></pre><p>所以，从这点去理解 POSIX 对行的定义，非常合理，对于任意文件的拼接，也各自保持了文件的完整性。</p>
-<p>不遵守标准带来的则是：在一些编辑器下面，比如 Sublime，他把<code>\n</code>的当做了行之间的分隔符，于是文件最后一行的<code>\n</code>就看上去成了一个新的空行，这就是错误解读标准造成的，拼接文件时也会产生不必要的麻烦，比如上例。</p>
-<h2 id="No-new-line-at-end-of-file"><a href="#No-new-line-at-end-of-file" class="headerlink" title="\ No new line at end of file"></a>\ No new line at end of file</h2><p>基于上面的原因，再去看 git diff 的<code>\ No new line at end of file</code>信息，就很好解释了。</p>
-<p>各编辑器对于换行符的理解偏差，导致的文件确实发生了变化，多了或少了最后的<code>0a</code>，那么对于 diff 程序来说，这当然是不可忽略的，但因为<code>0a</code>是不可见字符，并且是长久以来的历史原因，所以 diff 程序有个专门的标记来说明这个变化，就是：</p>
-<p><code>\ No new line at end of file</code></p>
-<p>各编辑器也有相应的办法去解决这个问题，比如 Sublime，在<code>Default/Preferences.sublime-settings</code>中设置：</p>
-<pre><code>// Set to true to ensure the last line of the file ends in a newline
-// character when saving
-&quot;ensure_newline_at_eof_on_save&quot;: true,
-</code></pre><p>所以，请遵守规范。</p>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[GitHub_Page页面无法更新]]></title>
-      <url>http://yoursite.com/2016/07/11/2016/2016-07-11-github-page%E9%A1%B5%E9%9D%A2%E6%97%A0%E6%B3%95%E6%9B%B4%E6%96%B0/</url>
+      <url>http://noparkinghere.site/2016/07/11/2016/2016-07-11-github-page%E9%A1%B5%E9%9D%A2%E6%97%A0%E6%B3%95%E6%9B%B4%E6%96%B0/</url>
       <content type="html"><![CDATA[<h3 id="详细问题："><a href="#详细问题：" class="headerlink" title="详细问题："></a>详细问题：</h3><ul>
 <li>文章会在github的工程目录中出现，但github page中首页和存档都无法显示。</li>
 <li>仔细查看过套用的html等模板，未能发现有问题。</li>
@@ -2849,7 +2849,7 @@ print(&apos;hello&apos;)
     
     <entry>
       <title><![CDATA[chrome使用技巧]]></title>
-      <url>http://yoursite.com/2016/07/10/2016/2016-07-10-chrome%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</url>
+      <url>http://noparkinghere.site/2016/07/10/2016/2016-07-10-chrome%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</url>
       <content type="html"><![CDATA[<p><em>使用chrome虽然有好些年了，但其中的技巧种种，真的明白的并不多，本文着重总结chrome在日常使用中的一些快捷键，插件以及各种小技巧。</em></p>
 <p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-10-chrome使用技巧/1.jpg" alt=""></p>
 <p>Chrome其实有很多版本：</p>
@@ -2946,7 +2946,7 @@ print(&apos;hello&apos;)
     
     <entry>
       <title><![CDATA[linux下的virtualbox安装配置]]></title>
-      <url>http://yoursite.com/2016/07/07/2016/2016-07-07-linux%E4%B8%8B%E7%9A%84virtualbox%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</url>
+      <url>http://noparkinghere.site/2016/07/07/2016/2016-07-07-linux%E4%B8%8B%E7%9A%84virtualbox%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</url>
       <content type="html"><![CDATA[<h3 id="背景分析"><a href="#背景分析" class="headerlink" title="背景分析"></a>背景分析</h3><p>随着计算机技术的发展，硬件配置越来越高，跨平台软件，手机以及浏览器越来越强大，目前可以说<br>linux下除了大型游戏意外，其他的办公学习娱乐基本都可以解决，比如：</p>
 <a id="more"></a>
 <ul>
@@ -3005,7 +3005,7 @@ print(&apos;hello&apos;)
     
     <entry>
       <title><![CDATA[github本地推送]]></title>
-      <url>http://yoursite.com/2016/07/05/2016/2016-07-05-github%E6%9C%AC%E5%9C%B0%E6%8E%A8%E9%80%81/</url>
+      <url>http://noparkinghere.site/2016/07/05/2016/2016-07-05-github%E6%9C%AC%E5%9C%B0%E6%8E%A8%E9%80%81/</url>
       <content type="html"><![CDATA[<h3 id="操作环境"><a href="#操作环境" class="headerlink" title="操作环境"></a>操作环境</h3><ul>
 <li>ubuntu 16.04 终端输入： lsb_release -a</li>
 </ul>
@@ -3041,7 +3041,7 @@ print(&apos;hello&apos;)
     
     <entry>
       <title><![CDATA[linux下文件查找]]></title>
-      <url>http://yoursite.com/2016/07/01/2016/2016-07-01-linux%E4%B8%8B%E6%96%87%E4%BB%B6%E6%9F%A5%E6%89%BE/</url>
+      <url>http://noparkinghere.site/2016/07/01/2016/2016-07-01-linux%E4%B8%8B%E6%96%87%E4%BB%B6%E6%9F%A5%E6%89%BE/</url>
       <content type="html"><![CDATA[<p>linux 使用 CLI 的情况下，如果要查找文件还是很方便的，本身提供了多个搜索查找工具，这边主要列出一般随系统自带的工具：”find”；”locate”；”whereis”；”which”；”type”，这几个工具，一般绝大多数 linux 发行版都会自带；linux 是一个小而美的系统，基于 linux 内核之上，肯定还有一些发行版或者个人会提供一些更加强大的检索工具，这边不做详细介绍。</p>
 <h3 id="1-find"><a href="#1-find" class="headerlink" title="1. find"></a>1. find</h3><p>find是最常见和最强大的查找命令，你可以用它找到任何你想找的文件。<br>find的使用格式如下：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">find &lt;指定目录&gt; &lt;指定条件&gt; &lt;指定动作&gt;</div><div class="line">&lt;指定目录&gt;： 所要搜索的目录及其所有子目录。默认为当前目录。</div><div class="line">&lt;指定条件&gt;： 所要搜索的文件的特征。</div><div class="line">&lt;指定动作&gt;： 对搜索结果进行特定的处理。</div></pre></td></tr></table></figure>
@@ -3066,7 +3066,7 @@ print(&apos;hello&apos;)
     
     <entry>
       <title><![CDATA[u盘安装XP系统]]></title>
-      <url>http://yoursite.com/2016/06/30/2016/2016-06-30-windowsXP%E7%BA%AF%E5%87%80%E7%89%88%E5%AE%89%E8%A3%85/</url>
+      <url>http://noparkinghere.site/2016/06/30/2016/2016-06-30-windowsXP%E7%BA%AF%E5%87%80%E7%89%88%E5%AE%89%E8%A3%85/</url>
       <content type="html"><![CDATA[<blockquote>
 <p><strong>如果仅需要优盘安装XP可以直接查看Windows XP安装部分</strong></p>
 </blockquote>
@@ -3153,7 +3153,7 @@ print(&apos;hello&apos;)
     
     <entry>
       <title><![CDATA[linux的下载工具]]></title>
-      <url>http://yoursite.com/2016/06/29/2016/2016-06-29-linux%E4%B8%8B%E7%9A%84%E4%B8%8B%E8%BD%BD/</url>
+      <url>http://noparkinghere.site/2016/06/29/2016/2016-06-29-linux%E4%B8%8B%E7%9A%84%E4%B8%8B%E8%BD%BD/</url>
       <content type="html"><![CDATA[<p>linux命令行下载外网文件或内网进行大文件传输，经常使用的文本下载工具wget、curl，今天给大家推荐支持Linux命令行多线程、断点续传下载工具axel和myget。</p>
 <h3 id="系统环境"><a href="#系统环境" class="headerlink" title="系统环境"></a>系统环境</h3><h4 id="Linux系统如何查看版本信息"><a href="#Linux系统如何查看版本信息" class="headerlink" title="Linux系统如何查看版本信息"></a>Linux系统如何查看版本信息</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">输入<span class="string">"uname -a "</span>,可显示电脑以及操作系统的相关信息。</div><div class="line">Linux系统如何查看版本信息</div><div class="line">输入<span class="string">"cat /proc/version"</span>,说明正在运行的内核版本。</div><div class="line">Linux系统如何查看版本信息</div><div class="line">输入<span class="string">"cat /etc/issue"</span>, 显示的是发行版本信息</div><div class="line">Linux系统如何查看版本信息</div><div class="line">lsb_release <span class="_">-a</span> (适用于所有的linux，包括Redhat、SuSE、Debian等发行版，但是在debian下要安装lsb)</div><div class="line">Linux系统如何查看版本信息</div></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -3233,7 +3233,7 @@ print(&apos;hello&apos;)
     
     <entry>
       <title><![CDATA[linux下ssh通过VPN推送失败]]></title>
-      <url>http://yoursite.com/2016/06/28/2016/2016-06-28-linux%E4%B8%8Bssh%E9%80%9A%E8%BF%87VPN%E6%8E%A8%E9%80%81%E5%A4%B1%E8%B4%A5/</url>
+      <url>http://noparkinghere.site/2016/06/28/2016/2016-06-28-linux%E4%B8%8Bssh%E9%80%9A%E8%BF%87VPN%E6%8E%A8%E9%80%81%E5%A4%B1%E8%B4%A5/</url>
       <content type="html"><![CDATA[<p>本文主要用于解决 VPN 和 SSH 两者冲突不兼容的问题。</p>
 <h3 id="VPN"><a href="#VPN" class="headerlink" title="VPN"></a>VPN</h3><p>虚拟专用网络的功能是：在公用网络上建立专用网络，进行加密通讯。在企业网络中有广泛应用。VPN网关通过对数据包的加密和数据包目标地址的转换实现远程访问。VPN有多种分类方式，主要是按协议进行分类。VPN可通过服务器、硬件、软件等多种方式实现。</p>
 <p>VPN属于远程访问技术，简单地说就是利用公用网络架设专用网络。例如某公司员工出差到外地，他想访问企业内网的服务器资源，这种访问就属于远程访问。让外地员工访问到内网资源，利用VPN的解决方法就是在内网中架设一台VPN服务器。外地员工在当地连上互联网后，通过互联网连接VPN服务器，然后通过VPN服务器进入企业内网。为了保证数据安全，VPN服务器和客户机之间的通讯数据都进行了加密处理。有了数据加密，就可以认为数据是在一条专用的数据链路上进行安全传输，就如同专门架设了一个专用网络一样，但实际上VPN使用的是互联网上的公用链路，因此VPN称为虚拟专用网络，其实质上就是利用加密技术在公网上封装出一个数据通讯隧道。有了VPN技术，用户无论是在外地出差还是在家中办公，只要能上互联网就能利用VPN访问内网资源，这就是VPN在企业中应用得如此广泛的原因。</p>
@@ -3292,7 +3292,7 @@ print(&apos;hello&apos;)
     
     <entry>
       <title><![CDATA[关于英国的独立日]]></title>
-      <url>http://yoursite.com/2016/06/27/2016/2016-06-27-%E5%85%B3%E4%BA%8E%E8%8B%B1%E5%9B%BD%E7%9A%84%E7%8B%AC%E7%AB%8B%E6%97%A5/</url>
+      <url>http://noparkinghere.site/2016/06/27/2016/2016-06-27-%E5%85%B3%E4%BA%8E%E8%8B%B1%E5%9B%BD%E7%9A%84%E7%8B%AC%E7%AB%8B%E6%97%A5/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>6.24日英国通过公投，最终确认脱离欧盟。</p>
 <p><a href="http://money.sohu.com/20160620/n455207391.shtml" target="_blank" rel="external">http://money.sohu.com/20160620/n455207391.shtml</a></p>
@@ -3316,7 +3316,7 @@ print(&apos;hello&apos;)
     
     <entry>
       <title><![CDATA[ubuntu下安装remarkable]]></title>
-      <url>http://yoursite.com/2016/06/23/2016/2016-06-23-remarkable-install/</url>
+      <url>http://noparkinghere.site/2016/06/23/2016/2016-06-23-remarkable-install/</url>
       <content type="html"><![CDATA[<h3 id="界面展示"><a href="#界面展示" class="headerlink" title="界面展示"></a>界面展示</h3><p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-06-23-remarkable-install/remarkable.png" alt=""></p>
 <h3 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h3><p>安装环境位ubuntu 16.04(64位)，markdown的网站无法正确的下载软件。</p>
 <a id="more"></a>

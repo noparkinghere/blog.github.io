@@ -24,6 +24,8 @@
 <li>22:45-23:15 休息娱乐，看一集美剧或动漫</li>
 <li>23:20之前 入睡</li>
 </ul>
+<p>10 周阅读 6本书籍，&lt;自控力&gt;按章节计划内容执行，其他书籍两周阅读一本。</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-02-28-自控力学习日计划表/1.jpg" alt=""></p>
 <h3 id="当前现状"><a href="#当前现状" class="headerlink" title="当前现状"></a>当前现状</h3><p><em>以上内容，当然对于现在的我来说是不可能完成的，否则的话，我应该已经算是一个高自控力的达人了，上述内容算是 70 天的一个目标，计划是 8-9 周可以达成该目标，最后一周可以确切的执行该目标。</em></p>
 <ul>
 <li>07:50左右 前起床</li>
@@ -44,23 +46,27 @@
 <li>早晨完成部分英语单词的学习，剩余内容晚上完成</li>
 <li>每天锻炼半小时</li>
 <li>傍晚阅读推荐书籍半小时以上</li>
-<li>其余时间用来自有分配</li>
+<li>其余时间暂时不做限定</li>
 </ul>
-<h4 id="第二阶段（3-14-3-28）"><a href="#第二阶段（3-14-3-28）" class="headerlink" title="第二阶段（3.14-3.28）"></a>第二阶段（3.14-3.28）</h4><ul>
-<li>7点左右起床，7点半前吃完早餐</li>
-<li>8点前完成单词学习，且到公司</li>
-</ul>
+<hr>
+<p>待定…</p>
+<h3 id="学习小结"><a href="#学习小结" class="headerlink" title="学习小结"></a>学习小结</h3><p>为了达成计划，需要不断的完善自己，充分利用各种技巧。</p>
+<hr>
+<p>写作时间：7:30-8:20，9:30-10:00，总时长超过一个半小时。<br>写作同时忙别的，不够专注，需要改正。</p>
+<p>未完待续…</p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[如何更好地用简书写作]]></title>
       <url>http://noparkinghere.site/2017/02/27/2017/2017-02-27-%E5%A6%82%E4%BD%95%E6%9B%B4%E5%A5%BD%E5%9C%B0%E7%94%A8%E7%AE%80%E4%B9%A6%E5%86%99%E4%BD%9C/</url>
-      <content type="html"><![CDATA[<p>出于个人想提高个人写作技巧和培养写作习惯的目的，所以加入了<strong>自控力lab</strong>的小组 70 天的计划。虽然在简书上面已经混迹多日，但却没能发现一个简书阅读写作的说明书。在加入这个写作计划前，个人开通了博客，且部分文章也发在了简书这个平台上面了。基于上述原因，个人准备写一个简书的写作使用说明，以供各位新人参考。</p>
+      <content type="html"><![CDATA[<p>出于个人想提高个人写作技巧和培养写作习惯的目的，所以加入了<strong>自控力lab</strong>的小组 70 天的计划。虽然在简书上面已经混迹多日，但却没能发现一个简书阅读写作的说明书。在加入这个写作计划前，个人开通了博客，且部分文章也发在了简书这个平台上面了。基于上述原因，个人准备写一个简书的写作使用说明，以供各位简书新人参考。</p>
 <p><em>推荐各位如果有条件的话，最好采用网页版编辑文字，效率高，体验佳。</em></p>
-<h3 id="Markdown-带来优质的写作体验"><a href="#Markdown-带来优质的写作体验" class="headerlink" title="Markdown 带来优质的写作体验"></a>Markdown 带来优质的写作体验</h3><p>之所以使用简书这个平台，很大一部分原因是简书拥有其他博客所不具备的良好的阅读和写作体验。简书之所以能够带来良好的写作体验是因为支持目前十分流行的 Markdown 语法。Markdown 的优点就是文章所有排版都通过文字符号来完成，只要有一个 Markdown 解析器，就可以达到你的排版效果，跨平台，易移植，不需要依赖 word 等排版工具，同时 Markdown 写出来的文章也可以通过一些转换工具，直接转成 PDF 文档。</p>
-<p>听起来 Markdown 好像很高端，但其实很简单易学，这边再提供一个<a href="http://www.zealer.com/post/725.html" target="_blank" rel="external">Markdown体验视频</a>，视频仅供娱乐参考，介绍的不系统不详细，下面将会详细介绍下 Markdown 语法。为了让大伙儿学起来不困难，这边只会挑常用的一些语法进行陈述。</p>
-<p>简书使用 Markdown 语法需要先设置下，在个人页面基础设置中选用 Markdown 即可，如下图所示：</p>
+<h3 id="Markdown-带来优质的写作体验"><a href="#Markdown-带来优质的写作体验" class="headerlink" title="Markdown 带来优质的写作体验"></a>Markdown 带来优质的写作体验</h3><p>之所以使用简书这个平台，很大一部分原因是简书拥有其他博客所不具备的良好的阅读和写作体验。简书之所以能够带来良好的写作体验是因为支持目前十分流行的 Markdown 语法。</p>
+<p>默认简书使用的是富文本编辑方式，这种方式的特点是能够类似于 word 之类的软件，生成很多花哨的内容，但是书写起来极为复杂，如：<code>{\[rtf](http://baike.baidu.com/view/18817.htm)1\ansi\ansicpg936\deff0\deflang1033\deflangfe2052{\fonttbl{\f0\fmodern\fprq6\fcharset134 \&#39;cb\&#39;ce\&#39;cc\&#39;e5;}}{\*\generator Msftedit 5.41.21.2500;}\viewkind4\uc1\pard\lang2052\f0\fs20 Hello World!\par}</code> 很显然这样的书写方式一般只能借助工具进行排版，但是 Markdown解决了这样的问题。</p>
+<p>Markdown 的优点就是文章所有排版都通过文字符号来完成，且一学就会，只要有一个 Markdown 解析器，就可以达到你的排版效果，跨平台，易移植，不需要依赖 word 等排版工具，同时 Markdown 写出来的文章也可以通过一些转换工具，直接转成 PDF 文档。</p>
+<p>听起来 Markdown 好像很高端，但确实非常简单易学，这边再提供一个<a href="http://www.zealer.com/post/725.html" target="_blank" rel="external">Markdown体验视频</a>，视频仅供娱乐参考，介绍的不系统不详细，下面将会详细介绍下 Markdown 语法。为了让大伙儿学起来不困难，这边只会挑常用的一些语法进行陈述。</p>
+<p>简书默认是上述提及的富文本编辑方式，如果使用 Markdown 语法的话，需要先设置下，在个人页面基础设置中选用 Markdown 即可，如下图所示：</p>
 <p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img//2017-02-27-如何更好地用简书写作/1.png" alt="设置"></p>
 <a id="more"></a>
 <h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><p>Markdown 通过 <code>#</code> 来表示标题的等级，具体如下：</p>
@@ -79,7 +85,7 @@
 <li><code>()</code> 中才是真正图片的链接地址</li>
 </ul>
 <p>所以就是这种格式： <code>![](网上链接)</code>。</p>
-<p>简书有个很好的特点就是，你所使用的外链突变在文章发表后会转存为简书的图片，能够完全不影响阅读体验，同时，你的文章再次编辑或者打包下载时，里面的外链原始地址不会更改。</p>
+<p>简书有个很好的特点就是，你所使用的外链图片在文章发表后会转存为简书的图片，能够完全不影响阅读体验，同时，你的文章再次编辑或者打包下载时，里面的外链原始地址不会更改。</p>
 <p><em>以下为扩展内容，一般用不上的话，不需要详细了解：</em></p>
 <h4 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h4><p>分割线的语法只需要另起一行，连续输入三个星号 <em>*</em> 即可。</p>
 <h4 id="文字链接"><a href="#文字链接" class="headerlink" title="文字链接"></a>文字链接</h4><p>插入链接与插入图片的语法很像，区别在一个 <code>!</code> 号，格式为：<code>[文字](网上链接)</code>。</p>
@@ -1726,19 +1732,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[git的配置及相关插件]]></title>
-      <url>http://noparkinghere.site/2016/09/28/2016/2016-09-28-git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6/</url>
-      <content type="html"><![CDATA[<p>一个好的工具，需要不断的打磨和熟悉使用技巧才可以把它用的炉火纯青，git同样如此，本文主要是推荐一些git常用的配置以及配套的一些工具。</p>
-<h3 id="git的相关配置："><a href="#git的相关配置：" class="headerlink" title="git的相关配置："></a>git的相关配置：</h3><h4 id="gitignore配置"><a href="#gitignore配置" class="headerlink" title=".gitignore配置"></a>.gitignore配置</h4><a id="more"></a>
-<h3 id="推荐的git插件："><a href="#推荐的git插件：" class="headerlink" title="推荐的git插件："></a>推荐的git插件：</h3><h4 id="tig"><a href="#tig" class="headerlink" title="tig"></a>tig</h4><p>首先推荐<a href="http://jonas.nitro.dk/tig/" target="_blank" rel="external">tig</a>（名字刚好和git相反），是一个专门针对git的小软件，官方这么介绍<em>text-mode interface for Git</em>。</p>
-<p>推荐可以访问<a href="https://github.com/jonas/tig" target="_blank" rel="external">tig的github页面</a>,里面有相关的下载安装说明。</p>
-<ul>
-<li>软件能够恨清晰的看到你的版本目录结构</li>
-</ul>
-<h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><h4 id="小乌龟插件"><a href="#小乌龟插件" class="headerlink" title="小乌龟插件"></a>小乌龟插件</h4><h4 id="atom"><a href="#atom" class="headerlink" title="atom"></a>atom</h4>]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[通过git管理一个工程]]></title>
       <url>http://noparkinghere.site/2016/09/28/2016/2016-09-28-%E9%80%9A%E8%BF%87git%E7%AE%A1%E7%90%86%E4%B8%80%E4%B8%AA%E5%B7%A5%E7%A8%8B/</url>
       <content type="html"><![CDATA[<p>GIT虽然能够实现各种版本控制，且功能强大，可以做到随时切换版本，回退等各种功能，但过多的分支，无效的分支，杂乱的提交，无意义的命名等等问题，往往会让像我这样的初学者，异常头痛，网络上关于git的往往都是指导你各个命令如何去用，部分命令的使用场景等，但却缺少一个完整工程项目的管理步骤。部分大神的确总结出了自己的使用习惯，但却不是作为教程来陈述的，下面我会将自己的一些习惯进行总结，后续可能遇到更好的也还会不断的更改。</p>
@@ -1767,6 +1760,19 @@
 <p>参考链接：<br><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000</a><br><a href="http://baike.baidu.com/link?url=weNC33XuaXOCTBp5s3WeZVu-Z9LP41KY_M6_WdGxAJZpJs_sq7jcgZ-3B01u2EiqfK6gb0L6s3-IDiWp1cVgF_" target="_blank" rel="external">http://baike.baidu.com/link?url=weNC33XuaXOCTBp5s3WeZVu-Z9LP41KY_M6_WdGxAJZpJs_sq7jcgZ-3B01u2EiqfK6gb0L6s3-IDiWp1cVgF_</a></p>
 </blockquote>
 ]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[git的配置及相关插件]]></title>
+      <url>http://noparkinghere.site/2016/09/28/2016/2016-09-28-git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6/</url>
+      <content type="html"><![CDATA[<p>一个好的工具，需要不断的打磨和熟悉使用技巧才可以把它用的炉火纯青，git同样如此，本文主要是推荐一些git常用的配置以及配套的一些工具。</p>
+<h3 id="git的相关配置："><a href="#git的相关配置：" class="headerlink" title="git的相关配置："></a>git的相关配置：</h3><h4 id="gitignore配置"><a href="#gitignore配置" class="headerlink" title=".gitignore配置"></a>.gitignore配置</h4><a id="more"></a>
+<h3 id="推荐的git插件："><a href="#推荐的git插件：" class="headerlink" title="推荐的git插件："></a>推荐的git插件：</h3><h4 id="tig"><a href="#tig" class="headerlink" title="tig"></a>tig</h4><p>首先推荐<a href="http://jonas.nitro.dk/tig/" target="_blank" rel="external">tig</a>（名字刚好和git相反），是一个专门针对git的小软件，官方这么介绍<em>text-mode interface for Git</em>。</p>
+<p>推荐可以访问<a href="https://github.com/jonas/tig" target="_blank" rel="external">tig的github页面</a>,里面有相关的下载安装说明。</p>
+<ul>
+<li>软件能够恨清晰的看到你的版本目录结构</li>
+</ul>
+<h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><h4 id="小乌龟插件"><a href="#小乌龟插件" class="headerlink" title="小乌龟插件"></a>小乌龟插件</h4><h4 id="atom"><a href="#atom" class="headerlink" title="atom"></a>atom</h4>]]></content>
     </entry>
     
     <entry>
@@ -2761,76 +2767,34 @@
     </entry>
     
     <entry>
-      <title><![CDATA[（转）回车、换行、和文件末尾空行]]></title>
-      <url>http://noparkinghere.site/2016/07/11/2016/2016-07-11-%EF%BC%88%E8%BD%AC%EF%BC%89%E5%9B%9E%E8%BD%A6%E3%80%81%E6%8D%A2%E8%A1%8C%E3%80%81%E5%92%8C%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E7%A9%BA%E8%A1%8C/</url>
-      <content type="html"><![CDATA[<h2 id="回车和换行"><a href="#回车和换行" class="headerlink" title="回车和换行"></a>回车和换行</h2><p>回车 (Carriage Return) 和换行 (Line Feed) 的区别，<a href="http://stackoverflow.com/questions/1761051/difference-between-n-and-r" target="_blank" rel="external">这里</a>有一个历史原因可参考：</p>
+      <title><![CDATA[stm32F439案例汇总]]></title>
+      <url>http://noparkinghere.site/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
+      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
 <blockquote>
-<p>在计算机还没有出现之前，有一种叫做电传打字机（Teletype Model 33）的玩意，每秒钟可以打10个字符。但是它有一个问题，就是打完一行换行的时候，要用去0.2秒，正好可以打两个字符。要是在这0.2秒里面，又有新的字符传过来，那么这个字符将丢失。</p>
-<p>于是，研制人员想了个办法解决这个问题，就是在每行后面加两个表示结束的字符。一个叫做”回车”，告诉打字机把打印头定位在左边界；另一个叫做”换行”，告诉打字机把纸向下移一行。</p>
+<p>www.armjishu.com(无法访问)</p>
 </blockquote>
-<p>发明计算机时，这个概念被沿用下来，但因为条件的限制和设计者的喜好，有了一些分歧：</p>
-<ul>
-<li>Unix 系统里，每行结尾只有”&lt;换行&gt;”，即 “\n”</li>
-<li>Windows 系统里面，每行结尾是”&lt;回车&gt;&lt;换行&gt;”，即 “\r\n”</li>
-<li>在老的 Mac 系统里，每行结尾是”&lt;回车&gt;”，即 “\r”</li>
-</ul>
-<p>我们来验证一下，我在 Windows 下用记事本新建一个文本文件，它的二进制编码如下：</p>
-<pre><code>//源文件内容
-hello
-hello2
-
-//二进制内容
-0000000: 6865 6c6c 6f0d 0a68 656c 6c6f 32         hello..hello2
-</code></pre><p>同样在 Mac 下用 Vim 新建一个：</p>
-<pre><code>//源文件内容
-hello
-hello2
-
-//二进制内容
-0000000: 6865 6c6c 6f0a 6865 6c6c 6f32 0a         hello.hello2.
-</code></pre><p><code>0a</code>是 LF 的 ASCII 编码, <code>0d</code>是 CR 的 ASCII 编码。区别很明显了</p>
-<ul>
-<li>Mac 下的文本文件在 Windows 下打开会成为一行，因为 Windows 只认识 <code>\r\n</code>，也就是 <code>0d0a</code></li>
-<li>Windows 下的文本文件在 Mac 下打开，Vim 中会在每行末尾显示一个 <code>^M</code>，(不是两个字符组成的)</li>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
+<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
+<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
 </ul>
 <a id="more"></a>
-<h2 id="文件末尾空行"><a href="#文件末尾空行" class="headerlink" title="文件末尾空行"></a>文件末尾空行</h2><p><a href="https://zh.wikipedia.org/zh-sg/POSIX" target="_blank" rel="external">POSIX</a>对行的<a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_206" target="_blank" rel="external">定义</a>如下：</p>
-<blockquote>
-<p>3.206 Line</p>
-<p>A sequence of zero or more non- <newline\> characters plus a terminating <newline\> character.</newline\></newline\></p>
-<p>行是由0个或者多个非 “换行” 符的字符组成，并且以 “换行” 符结尾。</p>
+<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
+<li>实验0 Template工程模板</li>
+<li>实验1 跑马灯</li>
+<li>实验2 蜂鸣器</li>
+<li>实验3 按键和外部中断</li>
+<li>实验4 看门狗（独立和窗口）</li>
+<li>实验5 待机唤醒</li>
+<li>实验6 串口通讯（232和485）</li>
+<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
+<li>实验8 PWM输出和输入捕获</li>
+</ul>
+<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
+<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
 </blockquote>
-<p>这样做有什么好处呢，举个例子：</p>
-<pre><code>//hello.c
-#include head.h
-print(&apos;hello&apos;)
-
-//world.c
-#include tail.h
-print(&apos;hello&apos;)
-</code></pre><p>如果这两个文件都按 POSIX 规范来写， 在<code>cat *.c</code>之后，是没有问题的：</p>
-<pre><code>//cat.c
-
-#include head.h
-print(&apos;hello&apos;)
-#include tail.h
-print(&apos;hello&apos;)
-</code></pre><p>如果缺少最后一行的换行符（如 Windows 文件那样的定义），<code>cat</code>之后，就有问题了：</p>
-<pre><code>//error.c
-
-#include head.h
-print(&apos;hello&apos;)#include tail.h
-print(&apos;hello&apos;)
-</code></pre><p>所以，从这点去理解 POSIX 对行的定义，非常合理，对于任意文件的拼接，也各自保持了文件的完整性。</p>
-<p>不遵守标准带来的则是：在一些编辑器下面，比如 Sublime，他把<code>\n</code>的当做了行之间的分隔符，于是文件最后一行的<code>\n</code>就看上去成了一个新的空行，这就是错误解读标准造成的，拼接文件时也会产生不必要的麻烦，比如上例。</p>
-<h2 id="No-new-line-at-end-of-file"><a href="#No-new-line-at-end-of-file" class="headerlink" title="\ No new line at end of file"></a>\ No new line at end of file</h2><p>基于上面的原因，再去看 git diff 的<code>\ No new line at end of file</code>信息，就很好解释了。</p>
-<p>各编辑器对于换行符的理解偏差，导致的文件确实发生了变化，多了或少了最后的<code>0a</code>，那么对于 diff 程序来说，这当然是不可忽略的，但因为<code>0a</code>是不可见字符，并且是长久以来的历史原因，所以 diff 程序有个专门的标记来说明这个变化，就是：</p>
-<p><code>\ No new line at end of file</code></p>
-<p>各编辑器也有相应的办法去解决这个问题，比如 Sublime，在<code>Default/Preferences.sublime-settings</code>中设置：</p>
-<pre><code>// Set to true to ensure the last line of the file ends in a newline
-// character when saving
-&quot;ensure_newline_at_eof_on_save&quot;: true,
-</code></pre><p>所以，请遵守规范。</p>
+<hr>
+<p><em>未完待续</em></p>
 ]]></content>
     </entry>
     
@@ -2911,34 +2875,76 @@ print(&apos;hello&apos;)
     </entry>
     
     <entry>
-      <title><![CDATA[stm32F439案例汇总]]></title>
-      <url>http://noparkinghere.site/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
-      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
+      <title><![CDATA[（转）回车、换行、和文件末尾空行]]></title>
+      <url>http://noparkinghere.site/2016/07/11/2016/2016-07-11-%EF%BC%88%E8%BD%AC%EF%BC%89%E5%9B%9E%E8%BD%A6%E3%80%81%E6%8D%A2%E8%A1%8C%E3%80%81%E5%92%8C%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E7%A9%BA%E8%A1%8C/</url>
+      <content type="html"><![CDATA[<h2 id="回车和换行"><a href="#回车和换行" class="headerlink" title="回车和换行"></a>回车和换行</h2><p>回车 (Carriage Return) 和换行 (Line Feed) 的区别，<a href="http://stackoverflow.com/questions/1761051/difference-between-n-and-r" target="_blank" rel="external">这里</a>有一个历史原因可参考：</p>
 <blockquote>
-<p>www.armjishu.com(无法访问)</p>
+<p>在计算机还没有出现之前，有一种叫做电传打字机（Teletype Model 33）的玩意，每秒钟可以打10个字符。但是它有一个问题，就是打完一行换行的时候，要用去0.2秒，正好可以打两个字符。要是在这0.2秒里面，又有新的字符传过来，那么这个字符将丢失。</p>
+<p>于是，研制人员想了个办法解决这个问题，就是在每行后面加两个表示结束的字符。一个叫做”回车”，告诉打字机把打印头定位在左边界；另一个叫做”换行”，告诉打字机把纸向下移一行。</p>
 </blockquote>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
-<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
-<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
+<p>发明计算机时，这个概念被沿用下来，但因为条件的限制和设计者的喜好，有了一些分歧：</p>
+<ul>
+<li>Unix 系统里，每行结尾只有”&lt;换行&gt;”，即 “\n”</li>
+<li>Windows 系统里面，每行结尾是”&lt;回车&gt;&lt;换行&gt;”，即 “\r\n”</li>
+<li>在老的 Mac 系统里，每行结尾是”&lt;回车&gt;”，即 “\r”</li>
+</ul>
+<p>我们来验证一下，我在 Windows 下用记事本新建一个文本文件，它的二进制编码如下：</p>
+<pre><code>//源文件内容
+hello
+hello2
+
+//二进制内容
+0000000: 6865 6c6c 6f0d 0a68 656c 6c6f 32         hello..hello2
+</code></pre><p>同样在 Mac 下用 Vim 新建一个：</p>
+<pre><code>//源文件内容
+hello
+hello2
+
+//二进制内容
+0000000: 6865 6c6c 6f0a 6865 6c6c 6f32 0a         hello.hello2.
+</code></pre><p><code>0a</code>是 LF 的 ASCII 编码, <code>0d</code>是 CR 的 ASCII 编码。区别很明显了</p>
+<ul>
+<li>Mac 下的文本文件在 Windows 下打开会成为一行，因为 Windows 只认识 <code>\r\n</code>，也就是 <code>0d0a</code></li>
+<li>Windows 下的文本文件在 Mac 下打开，Vim 中会在每行末尾显示一个 <code>^M</code>，(不是两个字符组成的)</li>
 </ul>
 <a id="more"></a>
-<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
-<li>实验0 Template工程模板</li>
-<li>实验1 跑马灯</li>
-<li>实验2 蜂鸣器</li>
-<li>实验3 按键和外部中断</li>
-<li>实验4 看门狗（独立和窗口）</li>
-<li>实验5 待机唤醒</li>
-<li>实验6 串口通讯（232和485）</li>
-<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
-<li>实验8 PWM输出和输入捕获</li>
-</ul>
-<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
-<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
+<h2 id="文件末尾空行"><a href="#文件末尾空行" class="headerlink" title="文件末尾空行"></a>文件末尾空行</h2><p><a href="https://zh.wikipedia.org/zh-sg/POSIX" target="_blank" rel="external">POSIX</a>对行的<a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_206" target="_blank" rel="external">定义</a>如下：</p>
+<blockquote>
+<p>3.206 Line</p>
+<p>A sequence of zero or more non- <newline\> characters plus a terminating <newline\> character.</newline\></newline\></p>
+<p>行是由0个或者多个非 “换行” 符的字符组成，并且以 “换行” 符结尾。</p>
 </blockquote>
-<hr>
-<p><em>未完待续</em></p>
+<p>这样做有什么好处呢，举个例子：</p>
+<pre><code>//hello.c
+#include head.h
+print(&apos;hello&apos;)
+
+//world.c
+#include tail.h
+print(&apos;hello&apos;)
+</code></pre><p>如果这两个文件都按 POSIX 规范来写， 在<code>cat *.c</code>之后，是没有问题的：</p>
+<pre><code>//cat.c
+
+#include head.h
+print(&apos;hello&apos;)
+#include tail.h
+print(&apos;hello&apos;)
+</code></pre><p>如果缺少最后一行的换行符（如 Windows 文件那样的定义），<code>cat</code>之后，就有问题了：</p>
+<pre><code>//error.c
+
+#include head.h
+print(&apos;hello&apos;)#include tail.h
+print(&apos;hello&apos;)
+</code></pre><p>所以，从这点去理解 POSIX 对行的定义，非常合理，对于任意文件的拼接，也各自保持了文件的完整性。</p>
+<p>不遵守标准带来的则是：在一些编辑器下面，比如 Sublime，他把<code>\n</code>的当做了行之间的分隔符，于是文件最后一行的<code>\n</code>就看上去成了一个新的空行，这就是错误解读标准造成的，拼接文件时也会产生不必要的麻烦，比如上例。</p>
+<h2 id="No-new-line-at-end-of-file"><a href="#No-new-line-at-end-of-file" class="headerlink" title="\ No new line at end of file"></a>\ No new line at end of file</h2><p>基于上面的原因，再去看 git diff 的<code>\ No new line at end of file</code>信息，就很好解释了。</p>
+<p>各编辑器对于换行符的理解偏差，导致的文件确实发生了变化，多了或少了最后的<code>0a</code>，那么对于 diff 程序来说，这当然是不可忽略的，但因为<code>0a</code>是不可见字符，并且是长久以来的历史原因，所以 diff 程序有个专门的标记来说明这个变化，就是：</p>
+<p><code>\ No new line at end of file</code></p>
+<p>各编辑器也有相应的办法去解决这个问题，比如 Sublime，在<code>Default/Preferences.sublime-settings</code>中设置：</p>
+<pre><code>// Set to true to ensure the last line of the file ends in a newline
+// character when saving
+&quot;ensure_newline_at_eof_on_save&quot;: true,
+</code></pre><p>所以，请遵守规范。</p>
 ]]></content>
     </entry>
     

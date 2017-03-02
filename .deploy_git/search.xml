@@ -1422,6 +1422,37 @@
     </entry>
     
     <entry>
+      <title><![CDATA[串口RS485通信详解]]></title>
+      <url>http://noparkinghere.site/2016/10/19/2016/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<p><strong>注意：串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。串口的一些内容不再逐一介绍说明，可以参加之前的usb转串口及RS232通信等文章</strong></p>
+<h3 id="特性介绍"><a href="#特性介绍" class="headerlink" title="特性介绍"></a>特性介绍</h3><p>485（一般称作 RS485/EIA-485）是隶属于 OSI 模型物理层的电气特性规定为 2 线，半双工，多点通信的标准。它的电气特性和 RS-232 大不一样。用缆线两端的电压差值来表示传递信号。值得注意的是：RS485 仅仅规定了接受端和发送端的电气特性，它没有规定或推荐任何数据协议。</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/1.jpg" alt=""></p>
+<p>RS485接口可以只使用两根线进行通讯（其他串口通讯至少需要三根线，一根为地线作为参考电平），通过差分电平（利用两个信号的差值来判断信息，使用差分信号来传输的，也就是一根线传同相信号，一根线传反相，这样差值最大，抗干扰能力强。）来确定信号是0还是1，也正因为这个原因，所以RS485每次有且仅有一根线能够传输数据，另外一根线作为比对信号，因此RS485是半双工的通讯方式。主要特点如下：</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/2.jpg" alt=""></p>
+<ul>
+<li>接口电平低，不易损坏芯片。 RS485 的电气特性：逻辑“ 1”以两线间的电压差为+(2~6)V<br>表示；逻辑“ 0”以两线间的电压差为-(2~6)V 表示。接口信号电平比 RS232 降低了，<br>不易损坏接口电路的芯片，且该电平与 TTL 电平兼容，可方便与 TTL 电路连接。</li>
+<li>传输速率高。 10 米时， RS485 的数据最高传输速率可达 35Mbps，在 1200m 时，传输<br>速度可达 100Kbps。</li>
+<li>抗干扰能力强。 RS485 接口是采用平衡驱动器和差分接收器的组合，抗共模干扰能力<br>增强，即抗噪声干扰性好。 传输距离远，支持节点多。 RS485 总线最长可以传输 1200m<br>以上（速率≤100Kbps）</li>
+<li>一般最大支持 32 个节点，如果使用特制的 485 芯片，可以达到 128 个或者 256 个节点，<br>最大的可以支持到 400 个节点。</li>
+</ul>
+<a id="more"></a>
+<h3 id="类比RS232"><a href="#类比RS232" class="headerlink" title="类比RS232"></a>类比RS232</h3><p>实际上232串口在实际使用已经用处不大，但基于232发展出来的485等串口设备仍然被广泛使用，RS-485（EIA-485标准）是RS-422的改进，因为它增加了设备的个数，从10个增加到32个，同时定义了在最大设备个数情况下的电气特性，以保证足够的信号电压。有了多个设备的能力，你可以使用一个单个RS-485口建立设备网络。</p>
+<p>因为都是采用串口通信协议，所以软件端几乎可以直接使用，且RS485具备耗材少，抗干扰强等特点，在目前的工业领域仍然被广泛使用，这边主要列举出不同：</p>
+<ul>
+<li>从接线上，RS232是三线制，RS485是两线制</li>
+<li>从传输距离上，RS232只能传输15米，RS485最远可以传输1200米</li>
+<li>从速率上，RS232是全双工传输，RS485是半双工传输</li>
+<li>从协议层上，RS232只支持点对点通讯(1:1)，RS485支持总线形式通讯（1:N）</li>
+</ul>
+<p>RS232的接线：<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/3.jpg" alt="">)</p>
+<p>RS485的接线<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/4.jpg" alt=""></p>
+<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><blockquote>
+<p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a></p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[串口RS232通信详解]]></title>
       <url>http://noparkinghere.site/2016/10/19/2016/2016-10-19-%E4%B8%B2%E5%8F%A3RS232%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<p>串行接口是一种可以将接受来自CPU的并行数据字符转换为连续的串行数据流发送出去，同时可将接受的串行数据流转换为并行的数据字符供给CPU的器件。一般完成这种功能的电路，我们称为串行接口电路。曾经PC之间进行串口通信可以说是标配，很多老式电脑上面可以看到DB25的接头，但后来逐渐被DB9取代，早期鼠标打印机都通过串口进行数据传输的，但现在逐渐被USB和网络所取代，DB9的串口接头在PC和笔记本上面也较少能够看到了。做嵌入式开发可以看到有个DB9的串口标准接口，串口对于开发人员输入输出调试等有着至关重要的作用。串行接口按电气标准及协议来分包括RS-232-C、RS-422、RS485等，现在串口一般在工业嵌入式领域使用。</p>
@@ -1481,37 +1512,6 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
 <blockquote>
 <p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a><br><a href="http://www.baike.com/wiki/51+IO%E5%8F%A3%E6%A8%A1%E6%8B%9F%E4%B8%B2%E5%8F%A3%E9%80%9A%E8%AE%AFC%E6%BA%90%E7%A8%8B%E5%BA%8F" target="_blank" rel="external">http://www.baike.com/wiki/51+IO%E5%8F%A3%E6%A8%A1%E6%8B%9F%E4%B8%B2%E5%8F%A3%E9%80%9A%E8%AE%AFC%E6%BA%90%E7%A8%8B%E5%BA%8F</a><br><a href="http://ziye334.blog.163.com/blog/static/224306191201452833850647" target="_blank" rel="external">http://ziye334.blog.163.com/blog/static/224306191201452833850647</a></p>
-</blockquote>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[串口RS485通信详解]]></title>
-      <url>http://noparkinghere.site/2016/10/19/2016/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
-      <content type="html"><![CDATA[<p><strong>注意：串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。串口的一些内容不再逐一介绍说明，可以参加之前的usb转串口及RS232通信等文章</strong></p>
-<h3 id="特性介绍"><a href="#特性介绍" class="headerlink" title="特性介绍"></a>特性介绍</h3><p>485（一般称作 RS485/EIA-485）是隶属于 OSI 模型物理层的电气特性规定为 2 线，半双工，多点通信的标准。它的电气特性和 RS-232 大不一样。用缆线两端的电压差值来表示传递信号。值得注意的是：RS485 仅仅规定了接受端和发送端的电气特性，它没有规定或推荐任何数据协议。</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/1.jpg" alt=""></p>
-<p>RS485接口可以只使用两根线进行通讯（其他串口通讯至少需要三根线，一根为地线作为参考电平），通过差分电平（利用两个信号的差值来判断信息，使用差分信号来传输的，也就是一根线传同相信号，一根线传反相，这样差值最大，抗干扰能力强。）来确定信号是0还是1，也正因为这个原因，所以RS485每次有且仅有一根线能够传输数据，另外一根线作为比对信号，因此RS485是半双工的通讯方式。主要特点如下：</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/2.jpg" alt=""></p>
-<ul>
-<li>接口电平低，不易损坏芯片。 RS485 的电气特性：逻辑“ 1”以两线间的电压差为+(2~6)V<br>表示；逻辑“ 0”以两线间的电压差为-(2~6)V 表示。接口信号电平比 RS232 降低了，<br>不易损坏接口电路的芯片，且该电平与 TTL 电平兼容，可方便与 TTL 电路连接。</li>
-<li>传输速率高。 10 米时， RS485 的数据最高传输速率可达 35Mbps，在 1200m 时，传输<br>速度可达 100Kbps。</li>
-<li>抗干扰能力强。 RS485 接口是采用平衡驱动器和差分接收器的组合，抗共模干扰能力<br>增强，即抗噪声干扰性好。 传输距离远，支持节点多。 RS485 总线最长可以传输 1200m<br>以上（速率≤100Kbps）</li>
-<li>一般最大支持 32 个节点，如果使用特制的 485 芯片，可以达到 128 个或者 256 个节点，<br>最大的可以支持到 400 个节点。</li>
-</ul>
-<a id="more"></a>
-<h3 id="类比RS232"><a href="#类比RS232" class="headerlink" title="类比RS232"></a>类比RS232</h3><p>实际上232串口在实际使用已经用处不大，但基于232发展出来的485等串口设备仍然被广泛使用，RS-485（EIA-485标准）是RS-422的改进，因为它增加了设备的个数，从10个增加到32个，同时定义了在最大设备个数情况下的电气特性，以保证足够的信号电压。有了多个设备的能力，你可以使用一个单个RS-485口建立设备网络。</p>
-<p>因为都是采用串口通信协议，所以软件端几乎可以直接使用，且RS485具备耗材少，抗干扰强等特点，在目前的工业领域仍然被广泛使用，这边主要列举出不同：</p>
-<ul>
-<li>从接线上，RS232是三线制，RS485是两线制</li>
-<li>从传输距离上，RS232只能传输15米，RS485最远可以传输1200米</li>
-<li>从速率上，RS232是全双工传输，RS485是半双工传输</li>
-<li>从协议层上，RS232只支持点对点通讯(1:1)，RS485支持总线形式通讯（1:N）</li>
-</ul>
-<p>RS232的接线：<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/3.jpg" alt="">)</p>
-<p>RS485的接线<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/4.jpg" alt=""></p>
-<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><blockquote>
-<p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a></p>
 </blockquote>
 ]]></content>
     </entry>
@@ -2128,16 +2128,43 @@
     </entry>
     
     <entry>
-      <title><![CDATA[国内云服务器体验]]></title>
-      <url>http://noparkinghere.site/2016/09/09/2016/2016-09-09-%E5%9B%BD%E5%86%85%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%93%E9%AA%8C/</url>
-      <content type="html"><![CDATA[<p><em>首先本人作为一个web菜鸟，仅仅是能够基本使用linux的一些操作，对网络和服务器并不熟悉，自己安装过多个系统，也象征性的搭建过一些服务环境，但具体原理了解较少。本文主要是最近想玩些云服务，虽然博客搭建有一段时间了，但一直没使用自己的服务器，本文作为个人学习研究的一部分进行，包括最基础的一些网络搭建操作，重在体验几个国内现有的云服务器公司：阿里，腾讯。</em></p>
-<h3 id="域名申请"><a href="#域名申请" class="headerlink" title="域名申请"></a>域名申请</h3><p>要使得能够访问，首先得申请个域名，当然不申请域名，你搭建的服务也可以通过IP地址直接访问的，但是一般都不这么多，一个ip地址相当重要，且在万网（阿里云）上面申请ip也较便宜，一个可以.site,.top,.xyz结尾的一级域名一年也只要几块钱，并且值得推荐的是.top域名，该域名可以在国内备案，买个玩玩也是很不错的。</p>
-<h3 id="腾讯云试用"><a href="#腾讯云试用" class="headerlink" title="腾讯云试用"></a>腾讯云试用</h3><p>腾讯云注册后有5-7天的免费使用时间，个人感觉这个对从来没接触过云服务，第一次试用的同学来说，还是很不错的，最起码可以自己尝试搭建一些小型的网站如：博客之类的还是很不错的，当然时间很宝贵，要试用的话，还是得抓紧时间。</p>
-<p><em>这边首先以搭建一个wordpress为例</em></p>
+      <title><![CDATA[个人云服务器选择]]></title>
+      <url>http://noparkinghere.site/2016/09/09/2016/2016-09-09-%E4%B8%AA%E4%BA%BA%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%89%E6%8B%A9/</url>
+      <content type="html"><![CDATA[<p><em>首先声明，本人并非从事运维工作，玩服务器等也纯属业余爱好，个人作为一个web菜鸟，仅仅是能够安装系统，基本使用 linux 的一些操作，具体原理了解并不多。本文主要是针对那些和我一样的业余爱好者，想体验下云服务，且又不知道该如何选择的用户。</em></p>
+<p>虽然个人博客搭建了也有一段时间了，但一直都是投机取巧占用了其他网站的服务器，没使用自己的服务器，经过半年的摸索，也体验过多家的云服务（这边仅是体验，并没有长期使用），下面写写个人的小结。</p>
+<p>要使你的网站能够被访问，首先得申请个域名，当然不申请域名，你搭建的服务也可以通过 IP 地址直接访问的，但是一般都不这么做，固定 IP 地址的价格还是很昂贵的，不再本文讨论范畴之内，这边讨论下域名申请，一个可以 .site,.top,.xyz 结尾的一级域名一年也只要几块钱，但请注意，申请域名的时候目前支持备案的并不多（不备案的域名，使用国内服务器的话，就会强制你下线，不让访问），常用可以备案的域名为 .cn .com .org .edu 等。推荐购买域名国内的话可以去万网看看，定期会有打折，而国外也有一些网站，这边就不一一例举，免费的域名建议不要使用，因为每隔一两个月或者几天就可能被收回去。一个 .site 结尾的域名，可能价格才几元钱，所以如果只是想要买个玩玩的话，这些是不错的选择，但是如果你是商业用途，建议还是购买 .com .cn 结尾的域名，因为你需要国内的服务器让你的客户稳定访问，而要能够稳定访问，你的域名必须得备案。</p>
+<h3 id="阿里云"><a href="#阿里云" class="headerlink" title="阿里云"></a>阿里云</h3><p>首先谈及下国内第一大，云服务提供商阿里云，阿里云收购了原来万网的一系列服务，目前在 VPS 领域可以说是提供服务最完善，用户群体最多，功能最强的网站了，当然，价格也最贵，不是一般的非商业用户所能够承受的，对于我这样的非专业人士来说，上云暂时也仅仅是体验服务，学习研究之类的，所有阿里云会选择按量购买，毕竟个人觉得按月购买每个月价格还是蛮高的，如果不是有特别需求，或者盈利性质的网站，你可以选择按量购买，也就是说按你用来购买，不用的时候就关闭服务。这类似于手机流量一样，用多少流量卖多少，不用的时候就将服务关闭掉。</p>
+<p>阿里云的特点：</p>
+<ul>
+<li>稳定，毕竟国内最大的提供商</li>
+<li>价格昂贵，选择高带宽需要额外收费</li>
+<li>功能多，操作界面美观，商务范十足</li>
+</ul>
+<h3 id="腾讯云试用"><a href="#腾讯云试用" class="headerlink" title="腾讯云试用"></a>腾讯云试用</h3><p>腾讯云注册后有5-7天的免费使用时间，个人感觉这个对从来没接触过云服务，第一次试用的同学来说，还是很不错的，最起码可以自己尝试搭建一些小型的网站如：博客之类的还是很不错的，当然时间很宝贵，要试用的话，还是得抓紧时间。腾讯云的体验各种活动要比阿里云多不少，但操作略显简陋，只能说具备基本的功能。</p>
+<p>腾讯云特点：</p>
+<ul>
+<li>还算稳定，也算是国内的大公司</li>
+<li>同样，价格不便宜，比阿里云略低，选择不同的带宽需要额外付费</li>
+<li>功能基本具备，界面体验等一般</li>
+</ul>
 <a id="more"></a>
-<h3 id="阿里云"><a href="#阿里云" class="headerlink" title="阿里云"></a>阿里云</h3><p>阿里云收购了原来万网的一系列服务，目前在 VPS 领域可以说是提供服务最完善，用户群体最多，功能最强的网站了，当然，价格也最贵，不是一般的非商业用户所能够承受的，对于我这样的非专业人士来说，上云暂时也仅仅是体验服务，学习研究之类的，所有阿里云会选择按量购买，毕竟个人觉得按月购买每个月价格还是蛮高的，如果不是有特别需求，或者盈利性质的网站，还是别按量购买为好。</p>
+<h3 id="搬瓦工（BandwagonHost-VPS）"><a href="#搬瓦工（BandwagonHost-VPS）" class="headerlink" title="搬瓦工（BandwagonHost VPS）"></a><a href="https://bwh1.net/" target="_blank" rel="external">搬瓦工</a>（BandwagonHost VPS）</h3><p>目前来说国外性价比较高的一个 VPS 服务商，过去有过一些精巧型的服务提供，一个 500M 的硬盘，可能年付费才几美金。最大的特点就是价格便宜：</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="number">10</span> GB SSD RAID<span class="number">-10</span> Disk Space</div><div class="line"><span class="number">256</span> MB RAM</div><div class="line"><span class="number">500</span> GB Transfer</div><div class="line">Gigabit port</div><div class="line">Multiple locations</div><div class="line"></div><div class="line">$<span class="number">2.99</span>/month</div></pre></td></tr></table></figure>
+<p>如上所示，一个 VPS 价格才 $3/month 这意味着一年才 ￥200 多，国内的公司提供的同等服务，基本上都要 500-1000 元，且是限制带宽的，默认为 1M 带宽，而国外都是 100M/1000M 带宽。</p>
+<h3 id="vultr"><a href="#vultr" class="headerlink" title="vultr"></a><a href="https://www.vultr.com/pricing/" target="_blank" rel="external">vultr</a></h3><p>这网站也是国外比较出名的一个高性价 VPS 服务商，价格与搬瓦工差不多，竞争关系，时高时低。最低套餐如下：</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="number">20</span> GB SSD</div><div class="line"><span class="number">512</span> MB RAM</div><div class="line"><span class="number">500</span> GB Bandwidth</div><div class="line">$<span class="number">2.5</span>/month</div></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-09-09-个人云服务器选择/1.png" alt=""></p>
+<p>可见以上这个套餐还是很划算的，每个月不到 20 块，就可以享受这种套餐，20 GB SSD 首先速度有保证，其次也基本上能够完成你的所有实验用途了。</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>以上内容只列举了目前为止，我所体验过得 VPS 服务，当然国内也有很多小型服务商，可能价格会略微便宜，但之前打听过，价格也不低，目前情况不得而知。优先建议的话是选择国外的 VPS 来体验（因为能看本文的绝不会是从事商业用途的），国外的 VPS 购买后可以用来做什么？这边不具体展开详细说明，只做一个简要的说明参考：</p>
+<ul>
+<li>购买国外的 VPS 可以用来搭建科学上网服务（也就是绕过 GFW）</li>
+<li>搭建个人的博客，毕竟外国提供带宽很大，博客访问都是不错的，不用于商业用途应该没有影响</li>
+<li>学习服务搭建，用虚拟机虽然也能学习服务搭建，但毕竟没有实际操作来的更爽，更加直观（虽然 VPS 也是个虚拟机），搭建服务后，你可以在互联网中实际访问，这是虚拟机无法带给你的成就感。</li>
+</ul>
 <hr>
+<p>后续有新的体验和经验，仍然会更新…</p>
 <p>To be continued…</p>
+<p>写作时间：20:30-21:30</p>
 ]]></content>
     </entry>
     

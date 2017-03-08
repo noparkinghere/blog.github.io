@@ -10,7 +10,7 @@ date: "2017-03-08 11:06"
 
 一般使用时，第一个 PWM 延时一个周期影响并不会很大，但如果想输出指定个数的 PWM 波形的话，这就会存在很大的问题，增加实现难度。另外疑似 PWM 关闭一段时间后，想要再重启都会有一个周期的启动时间，具体原因官方并没有给出明确的解释。
 
-通过在 silabs 论坛的多次交流，以及官方给出了他们的实验结果，基本可以确定通用定时器在产生 PWM 波时确实会存在这样的问题。如下图所示，可见第一个时间周期中，PWM 信号未能发出：
+通过在 [silabs 论坛帖子](http://community.silabs.com/t5/32-bit-MCU/the-first-PWM-pulse-cannot-be-generated/m-p/190147#M13706)的多次交流，以及官方给出了他们的实验结果，基本可以确定通用定时器在产生 PWM 波时确实会存在这样的问题。如下图所示，可见第一个时间周期中，PWM 信号未能发出：
 
 ![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-03-08-EFM32G定时器PWM问题/1.jpg)
 

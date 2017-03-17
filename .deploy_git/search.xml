@@ -4,6 +4,16 @@
   
     
     <entry>
+      <title><![CDATA[英语表述问答]]></title>
+      <url>http://noparkinghere.site/2017/03/17/2017/2017-03-17-%E8%8B%B1%E8%AF%AD%E8%A1%A8%E8%BF%B0%E9%97%AE%E7%AD%94/</url>
+      <content type="html"><![CDATA[<p>本内容的主要出处是扇贝的<a href="https://www.shanbay.com/web/ask/answers/" target="_blank" rel="external">你问我答</a>。</p>
+<h3 id="“at-the-eleventh-hour”居然不是“在十一点”的意思？"><a href="#“at-the-eleventh-hour”居然不是“在十一点”的意思？" class="headerlink" title="“at the eleventh hour”居然不是“在十一点”的意思？"></a>“at the eleventh hour”居然不是“在十一点”的意思？</h3><p>“the eleventh hour”指的是“最后关头；最后时刻”，所以“at the eleventh hour”表示“在最后的关头”，真的不是“在十一点”的意思啦！比如，“At the eleventh hour, the hero appeared and saved the life of the heroine.”就是“在最后时刻，男主角出现，救了女主角”的意思。</p>
+<h3 id="你知道“张三李四”怎么说吗？"><a href="#你知道“张三李四”怎么说吗？" class="headerlink" title="你知道“张三李四”怎么说吗？"></a>你知道“张三李四”怎么说吗？</h3><p>中文里的“张三”“李四”都是假设的名字，表示“无关紧要的人；普通人”，而“Tom”“Dick”“Harry”在英语文化里，都是极其常见的男性名字，三个名字连在一起“Tom, Dick, and/or Harry”就可以表示“普通人；随便什么人”，和中文的“张三李四”十分契合。比如，“This painting is not for every Tom, Dick and Harry.”就是说“这幅画曲高和寡，不是随便什么张三李四都看得懂”的意思。</p>
+<h3 id="你知道“紫色”为何高贵吗？"><a href="#你知道“紫色”为何高贵吗？" class="headerlink" title="你知道“紫色”为何高贵吗？"></a>你知道“紫色”为何高贵吗？</h3><p>在古代，紫色染料提取自一种珍贵的海螺，这种海螺数量稀少，加上整个制作工艺非常繁琐，所以，紫色布料十分昂贵，成为权力和财富的代名词以及皇家王室的特供。“born to the purple”就表示“出身皇室”。很好，高贵端庄优雅矜持，我想我要开始喜欢紫色了～</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[健康饮食]]></title>
       <url>http://noparkinghere.site/2017/03/16/2017/2017-03-16-%E5%81%A5%E5%BA%B7%E9%A5%AE%E9%A3%9F/</url>
       <content type="html"><![CDATA[<p><em>本文内容，来自今晚听的荔枝微课，是由得姐传授的健康饮食经验，总结下来的笔记。</em></p>
@@ -669,7 +679,7 @@
     <entry>
       <title><![CDATA[linux-shadowsocks全局代理]]></title>
       <url>http://noparkinghere.site/2017/01/25/2017/2017-01-25-ss-linux%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86/</url>
-      <content type="html"><![CDATA[<p>windows 直接下载 ss 终端，稍加设置即可完成全局代理，linux 用户如果需要让某个软件可以使用 ss 一般都需要连接端口才行。例如本地 ss 配置为：<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"server_port"</span>:<span class="number">1800</span>,</div><div class="line"><span class="string">"local_port"</span>:<span class="number">1080</span>,</div></pre></td></tr></table></figure></p>
+      <content type="html"><![CDATA[<p>windows 直接下载 ss 终端，稍加设置即可完成全局代理，linux 用户如果需要让某个软件可以使用 ss 一般都需要连接端口才行。例如本地 ss 配置为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"server_port"</span>:1800,</div><div class="line"><span class="string">"local_port"</span>:1080,</div></pre></td></tr></table></figure></p>
 <h3 id="原理简述"><a href="#原理简述" class="headerlink" title="原理简述"></a>原理简述</h3><p>这边就相当于将本地的 127.0.0.1:1080 和 server_ip:1800 建立了连接关系。因此软件如果需要使用 vps 上面搭建的 ss 服务的话，则需要让该软件使用的协议连接到 127.0.0.1:1080 上。之前在 vps-shadowsocks 中介绍的 chrome 插件 SwitchyOmega 就是使用 SOCKS5 协议连接到 127.0.0.1:1080 上，让所有数据通过 SOCKS5 协议，然后从 127.0.0.1:1080 进行收发。</p>
 <p>可以看出如果我们需要让其他软件也能够使用 ss 则需要让他们也能够使用 127.0.0.1:1080 代理服务器，然而不幸的是，大多数软件并不支持代理服务的功能， windows 平台下的软件很多可以通过设置 IE 代理让其他软件使用代理服务（原理是：大多数软件都会优先读取 IE 的代理设置，再访问网络）。</p>
 <a id="more"></a>
@@ -1857,37 +1867,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[串口RS485通信详解]]></title>
-      <url>http://noparkinghere.site/2016/10/19/2016/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
-      <content type="html"><![CDATA[<p><strong>注意：串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。串口的一些内容不再逐一介绍说明，可以参加之前的usb转串口及RS232通信等文章</strong></p>
-<h3 id="特性介绍"><a href="#特性介绍" class="headerlink" title="特性介绍"></a>特性介绍</h3><p>485（一般称作 RS485/EIA-485）是隶属于 OSI 模型物理层的电气特性规定为 2 线，半双工，多点通信的标准。它的电气特性和 RS-232 大不一样。用缆线两端的电压差值来表示传递信号。值得注意的是：RS485 仅仅规定了接受端和发送端的电气特性，它没有规定或推荐任何数据协议。</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/1.jpg" alt=""></p>
-<p>RS485接口可以只使用两根线进行通讯（其他串口通讯至少需要三根线，一根为地线作为参考电平），通过差分电平（利用两个信号的差值来判断信息，使用差分信号来传输的，也就是一根线传同相信号，一根线传反相，这样差值最大，抗干扰能力强。）来确定信号是0还是1，也正因为这个原因，所以RS485每次有且仅有一根线能够传输数据，另外一根线作为比对信号，因此RS485是半双工的通讯方式。主要特点如下：</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/2.jpg" alt=""></p>
-<ul>
-<li>接口电平低，不易损坏芯片。 RS485 的电气特性：逻辑“ 1”以两线间的电压差为+(2~6)V<br>表示；逻辑“ 0”以两线间的电压差为-(2~6)V 表示。接口信号电平比 RS232 降低了，<br>不易损坏接口电路的芯片，且该电平与 TTL 电平兼容，可方便与 TTL 电路连接。</li>
-<li>传输速率高。 10 米时， RS485 的数据最高传输速率可达 35Mbps，在 1200m 时，传输<br>速度可达 100Kbps。</li>
-<li>抗干扰能力强。 RS485 接口是采用平衡驱动器和差分接收器的组合，抗共模干扰能力<br>增强，即抗噪声干扰性好。 传输距离远，支持节点多。 RS485 总线最长可以传输 1200m<br>以上（速率≤100Kbps）</li>
-<li>一般最大支持 32 个节点，如果使用特制的 485 芯片，可以达到 128 个或者 256 个节点，<br>最大的可以支持到 400 个节点。</li>
-</ul>
-<a id="more"></a>
-<h3 id="类比RS232"><a href="#类比RS232" class="headerlink" title="类比RS232"></a>类比RS232</h3><p>实际上232串口在实际使用已经用处不大，但基于232发展出来的485等串口设备仍然被广泛使用，RS-485（EIA-485标准）是RS-422的改进，因为它增加了设备的个数，从10个增加到32个，同时定义了在最大设备个数情况下的电气特性，以保证足够的信号电压。有了多个设备的能力，你可以使用一个单个RS-485口建立设备网络。</p>
-<p>因为都是采用串口通信协议，所以软件端几乎可以直接使用，且RS485具备耗材少，抗干扰强等特点，在目前的工业领域仍然被广泛使用，这边主要列举出不同：</p>
-<ul>
-<li>从接线上，RS232是三线制，RS485是两线制</li>
-<li>从传输距离上，RS232只能传输15米，RS485最远可以传输1200米</li>
-<li>从速率上，RS232是全双工传输，RS485是半双工传输</li>
-<li>从协议层上，RS232只支持点对点通讯(1:1)，RS485支持总线形式通讯（1:N）</li>
-</ul>
-<p>RS232的接线：<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/3.jpg" alt="">)</p>
-<p>RS485的接线<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/4.jpg" alt=""></p>
-<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><blockquote>
-<p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a></p>
-</blockquote>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[串口RS232通信详解]]></title>
       <url>http://noparkinghere.site/2016/10/19/2016/2016-10-19-%E4%B8%B2%E5%8F%A3RS232%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<p>串行接口是一种可以将接受来自CPU的并行数据字符转换为连续的串行数据流发送出去，同时可将接受的串行数据流转换为并行的数据字符供给CPU的器件。一般完成这种功能的电路，我们称为串行接口电路。曾经PC之间进行串口通信可以说是标配，很多老式电脑上面可以看到DB25的接头，但后来逐渐被DB9取代，早期鼠标打印机都通过串口进行数据传输的，但现在逐渐被USB和网络所取代，DB9的串口接头在PC和笔记本上面也较少能够看到了。做嵌入式开发可以看到有个DB9的串口标准接口，串口对于开发人员输入输出调试等有着至关重要的作用。串行接口按电气标准及协议来分包括RS-232-C、RS-422、RS485等，现在串口一般在工业嵌入式领域使用。</p>
@@ -1947,6 +1926,37 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
 <blockquote>
 <p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a><br><a href="http://www.baike.com/wiki/51+IO%E5%8F%A3%E6%A8%A1%E6%8B%9F%E4%B8%B2%E5%8F%A3%E9%80%9A%E8%AE%AFC%E6%BA%90%E7%A8%8B%E5%BA%8F" target="_blank" rel="external">http://www.baike.com/wiki/51+IO%E5%8F%A3%E6%A8%A1%E6%8B%9F%E4%B8%B2%E5%8F%A3%E9%80%9A%E8%AE%AFC%E6%BA%90%E7%A8%8B%E5%BA%8F</a><br><a href="http://ziye334.blog.163.com/blog/static/224306191201452833850647" target="_blank" rel="external">http://ziye334.blog.163.com/blog/static/224306191201452833850647</a></p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[串口RS485通信详解]]></title>
+      <url>http://noparkinghere.site/2016/10/19/2016/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<p><strong>注意：串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。串口的一些内容不再逐一介绍说明，可以参加之前的usb转串口及RS232通信等文章</strong></p>
+<h3 id="特性介绍"><a href="#特性介绍" class="headerlink" title="特性介绍"></a>特性介绍</h3><p>485（一般称作 RS485/EIA-485）是隶属于 OSI 模型物理层的电气特性规定为 2 线，半双工，多点通信的标准。它的电气特性和 RS-232 大不一样。用缆线两端的电压差值来表示传递信号。值得注意的是：RS485 仅仅规定了接受端和发送端的电气特性，它没有规定或推荐任何数据协议。</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/1.jpg" alt=""></p>
+<p>RS485接口可以只使用两根线进行通讯（其他串口通讯至少需要三根线，一根为地线作为参考电平），通过差分电平（利用两个信号的差值来判断信息，使用差分信号来传输的，也就是一根线传同相信号，一根线传反相，这样差值最大，抗干扰能力强。）来确定信号是0还是1，也正因为这个原因，所以RS485每次有且仅有一根线能够传输数据，另外一根线作为比对信号，因此RS485是半双工的通讯方式。主要特点如下：</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/2.jpg" alt=""></p>
+<ul>
+<li>接口电平低，不易损坏芯片。 RS485 的电气特性：逻辑“ 1”以两线间的电压差为+(2~6)V<br>表示；逻辑“ 0”以两线间的电压差为-(2~6)V 表示。接口信号电平比 RS232 降低了，<br>不易损坏接口电路的芯片，且该电平与 TTL 电平兼容，可方便与 TTL 电路连接。</li>
+<li>传输速率高。 10 米时， RS485 的数据最高传输速率可达 35Mbps，在 1200m 时，传输<br>速度可达 100Kbps。</li>
+<li>抗干扰能力强。 RS485 接口是采用平衡驱动器和差分接收器的组合，抗共模干扰能力<br>增强，即抗噪声干扰性好。 传输距离远，支持节点多。 RS485 总线最长可以传输 1200m<br>以上（速率≤100Kbps）</li>
+<li>一般最大支持 32 个节点，如果使用特制的 485 芯片，可以达到 128 个或者 256 个节点，<br>最大的可以支持到 400 个节点。</li>
+</ul>
+<a id="more"></a>
+<h3 id="类比RS232"><a href="#类比RS232" class="headerlink" title="类比RS232"></a>类比RS232</h3><p>实际上232串口在实际使用已经用处不大，但基于232发展出来的485等串口设备仍然被广泛使用，RS-485（EIA-485标准）是RS-422的改进，因为它增加了设备的个数，从10个增加到32个，同时定义了在最大设备个数情况下的电气特性，以保证足够的信号电压。有了多个设备的能力，你可以使用一个单个RS-485口建立设备网络。</p>
+<p>因为都是采用串口通信协议，所以软件端几乎可以直接使用，且RS485具备耗材少，抗干扰强等特点，在目前的工业领域仍然被广泛使用，这边主要列举出不同：</p>
+<ul>
+<li>从接线上，RS232是三线制，RS485是两线制</li>
+<li>从传输距离上，RS232只能传输15米，RS485最远可以传输1200米</li>
+<li>从速率上，RS232是全双工传输，RS485是半双工传输</li>
+<li>从协议层上，RS232只支持点对点通讯(1:1)，RS485支持总线形式通讯（1:N）</li>
+</ul>
+<p>RS232的接线：<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/3.jpg" alt="">)</p>
+<p>RS485的接线<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/4.jpg" alt=""></p>
+<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><blockquote>
+<p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a></p>
 </blockquote>
 ]]></content>
     </entry>
@@ -2302,19 +2312,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[git的配置及相关插件]]></title>
-      <url>http://noparkinghere.site/2016/09/28/2016/2016-09-28-git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6/</url>
-      <content type="html"><![CDATA[<p>一个好的工具，需要不断的打磨和熟悉使用技巧才可以把它用的炉火纯青，git同样如此，本文主要是推荐一些git常用的配置以及配套的一些工具。</p>
-<h3 id="git的相关配置："><a href="#git的相关配置：" class="headerlink" title="git的相关配置："></a>git的相关配置：</h3><h4 id="gitignore配置"><a href="#gitignore配置" class="headerlink" title=".gitignore配置"></a>.gitignore配置</h4><a id="more"></a>
-<h3 id="推荐的git插件："><a href="#推荐的git插件：" class="headerlink" title="推荐的git插件："></a>推荐的git插件：</h3><h4 id="tig"><a href="#tig" class="headerlink" title="tig"></a>tig</h4><p>首先推荐<a href="http://jonas.nitro.dk/tig/" target="_blank" rel="external">tig</a>（名字刚好和git相反），是一个专门针对git的小软件，官方这么介绍<em>text-mode interface for Git</em>。</p>
-<p>推荐可以访问<a href="https://github.com/jonas/tig" target="_blank" rel="external">tig的github页面</a>,里面有相关的下载安装说明。</p>
-<ul>
-<li>软件能够恨清晰的看到你的版本目录结构</li>
-</ul>
-<h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><h4 id="小乌龟插件"><a href="#小乌龟插件" class="headerlink" title="小乌龟插件"></a>小乌龟插件</h4><h4 id="atom"><a href="#atom" class="headerlink" title="atom"></a>atom</h4>]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[通过git管理一个工程]]></title>
       <url>http://noparkinghere.site/2016/09/28/2016/2016-09-28-%E9%80%9A%E8%BF%87git%E7%AE%A1%E7%90%86%E4%B8%80%E4%B8%AA%E5%B7%A5%E7%A8%8B/</url>
       <content type="html"><![CDATA[<p>GIT虽然能够实现各种版本控制，且功能强大，可以做到随时切换版本，回退等各种功能，但过多的分支，无效的分支，杂乱的提交，无意义的命名等等问题，往往会让像我这样的初学者，异常头痛，网络上关于git的往往都是指导你各个命令如何去用，部分命令的使用场景等，但却缺少一个完整工程项目的管理步骤。部分大神的确总结出了自己的使用习惯，但却不是作为教程来陈述的，下面我会将自己的一些习惯进行总结，后续可能遇到更好的也还会不断的更改。</p>
@@ -2343,6 +2340,19 @@
 <p>参考链接：<br><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000</a><br><a href="http://baike.baidu.com/link?url=weNC33XuaXOCTBp5s3WeZVu-Z9LP41KY_M6_WdGxAJZpJs_sq7jcgZ-3B01u2EiqfK6gb0L6s3-IDiWp1cVgF_" target="_blank" rel="external">http://baike.baidu.com/link?url=weNC33XuaXOCTBp5s3WeZVu-Z9LP41KY_M6_WdGxAJZpJs_sq7jcgZ-3B01u2EiqfK6gb0L6s3-IDiWp1cVgF_</a></p>
 </blockquote>
 ]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[git的配置及相关插件]]></title>
+      <url>http://noparkinghere.site/2016/09/28/2016/2016-09-28-git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6/</url>
+      <content type="html"><![CDATA[<p>一个好的工具，需要不断的打磨和熟悉使用技巧才可以把它用的炉火纯青，git同样如此，本文主要是推荐一些git常用的配置以及配套的一些工具。</p>
+<h3 id="git的相关配置："><a href="#git的相关配置：" class="headerlink" title="git的相关配置："></a>git的相关配置：</h3><h4 id="gitignore配置"><a href="#gitignore配置" class="headerlink" title=".gitignore配置"></a>.gitignore配置</h4><a id="more"></a>
+<h3 id="推荐的git插件："><a href="#推荐的git插件：" class="headerlink" title="推荐的git插件："></a>推荐的git插件：</h3><h4 id="tig"><a href="#tig" class="headerlink" title="tig"></a>tig</h4><p>首先推荐<a href="http://jonas.nitro.dk/tig/" target="_blank" rel="external">tig</a>（名字刚好和git相反），是一个专门针对git的小软件，官方这么介绍<em>text-mode interface for Git</em>。</p>
+<p>推荐可以访问<a href="https://github.com/jonas/tig" target="_blank" rel="external">tig的github页面</a>,里面有相关的下载安装说明。</p>
+<ul>
+<li>软件能够恨清晰的看到你的版本目录结构</li>
+</ul>
+<h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><h4 id="小乌龟插件"><a href="#小乌龟插件" class="headerlink" title="小乌龟插件"></a>小乌龟插件</h4><h4 id="atom"><a href="#atom" class="headerlink" title="atom"></a>atom</h4>]]></content>
     </entry>
     
     <entry>
@@ -2606,15 +2616,31 @@
     <entry>
       <title><![CDATA[linux基本命令]]></title>
       <url>http://noparkinghere.site/2016/09/06/2016/2016-09-06-linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/</url>
-      <content type="html"><![CDATA[<p><em>本文主要学习总结，使用 linux CLI 的基本命令，这边不以任何发行版为例，介绍的是绝大多数 linux 发行版上面都会含有的 CLI 软件，需要注意的是，这边是以完整安装为基础的，部分命令可能在最小安装上面无法使用。</em></p>
-<h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><p>Linux中set,env和export这三个命令的区别</p>
-<p>set命令显示当前shell的变量，包括当前用户的变量;</p>
-<p>env命令显示当前用户的变量;</p>
-<p>export命令显示当前导出成用户变量的shell变量。</p>
-<pre><code>每个shell有自己特有的变量（set）显示的变量，这个和用户变量是不同的，当前用户变量和你用什么shell无关，不管你用什么shell都在，比如HOME,SHELL等这些变量，
-</code></pre><p>但shell自己的变量不同shell是不同的，比如BASH_ARGC， BASH等，这些变量只有set才会显示，是bash特有的，export不加参数的时候，显示哪些变量被导出成了用户变量，因为一个shell自己的变量可以通过export “导出”变成一个用户变量。</p>
+      <content type="html"><![CDATA[<p><em>本文主要学习总结，使用 linux CLI 的基本命令，这边不以任何发行版为例，介绍的是绝大多数 linux 发行版上面都会含有的 CLI 软件，需要注意的是，这边是以完整安装为基础的，部分命令可能在最小安装上面无法使用。目前 安装 linux CLI 后可以使用的命令超过上千个，但最常用的命令一般只有 80 个左右，由于篇幅有限，本文会选取 80 个中的几十个最基本必须掌握的命令进行罗列和简介，不会展开详解，详细内容还是需要查看 manual 或者借助搜索引擎。</em></p>
+<p>shell 命令的一般格式为：command [option] [arguments]。具体如下：</p>
+<ul>
+<li>command 表示命令，command 事实上是一个可执行的软件，实上 linux 中所谓的命令绝大多数是预装的软件，因为地址被写入了全局，因此可以直接通过软件名来调用该软件。</li>
+<li>option 表示选项，命令行中，选项是包含一个或者多个字母的字符串，一般在选项前有一个“-”用于区分参数，如：-l，-s等，这些都是设计程序时就已经被写在软件中的，用于方便用户选择软件执行的模式，选项这个词是并不是平白无故的，因为只有设计软件时被采用的一些字符才可以被称为选项，因此使用某个命令时，我们重点需要查看有哪些选项可以使用，以及使用后会有什么样的效果。</li>
+<li>arguments 为参数，很多命令都可以接受参数，参数就是选项后紧跟的一个或多个字符串，这些字符串制定了命令的操作对象，如文件或者目录等。如：ls -al  /etc ，这边 /etc 就是一个参数，而 -al 则是一个选项。</li>
+</ul>
+<p><strong>因为 linux 中的每个软件都是不同开发者提供的，因此表示一种功能模式的参数却往往不尽相同，因此你如果需要使用某个软件时，需要以 manual 为准，而不是想当然的认为某个选项一定表示某个功能。</strong></p>
+<h3 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h3><h4 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h4><p>显示指定工作目录下的内容，常用参数：</p>
+<ul>
+<li>-a 可以显示全部内容包含隐藏文件。</li>
+<li>-l 用于列出文件的详细信息。</li>
+</ul>
+<h4 id="pwd"><a href="#pwd" class="headerlink" title="pwd"></a>pwd</h4><p>打印当前工作目录（print working directory），使用该命令后，你所在工作目录的绝对路径将会被打印出来。</p>
+<h4 id="cd"><a href="#cd" class="headerlink" title="cd"></a>cd</h4><p>改变当前工作目录（change directory），后面可以用绝对路径或者相对路径。</p>
+<h4 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h4><h4 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h4><h4 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h4><h4 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h4><h4 id="touch"><a href="#touch" class="headerlink" title="touch"></a>touch</h4><h4 id="ln"><a href="#ln" class="headerlink" title="ln"></a>ln</h4><h4 id="file"><a href="#file" class="headerlink" title="file"></a>file</h4><h4 id="find"><a href="#find" class="headerlink" title="find"></a>find</h4><h3 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h3><h4 id="passwd"><a href="#passwd" class="headerlink" title="passwd"></a>passwd</h4><p>passwd 用户修改用户密码，后面如果加用户名的话，可以直接修改该用户的登入密码，前提是你必须知道该原始登入密码。</p>
+<h4 id="su"><a href="#su" class="headerlink" title="su"></a>su</h4><p>su 主要用于改变用户登入身份，即切换登入。</p>
+<h4 id="who"><a href="#who" class="headerlink" title="who"></a>who</h4><h4 id="uname"><a href="#uname" class="headerlink" title="uname"></a>uname</h4><h4 id="w"><a href="#w" class="headerlink" title="w"></a>w</h4><h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><p>Linux中set,env和export这三个命令的区别</p>
+<h4 id="set"><a href="#set" class="headerlink" title="set"></a>set</h4><p>命令显示当前shell的变量，包括当前用户的变量;</p>
+<h4 id="env"><a href="#env" class="headerlink" title="env"></a>env</h4><p>命令显示当前用户的变量;</p>
+<h4 id="export"><a href="#export" class="headerlink" title="export"></a>export</h4><p>命令显示当前导出成用户变量的shell变量。</p>
+<p>每个shell有自己特有的变量（set）显示的变量，这个和用户变量是不同的，当前用户变量和你用什么shell无关，不管你用什么shell都在，比如HOME,SHELL等这些变量，</p>
+<p>但shell自己的变量不同shell是不同的，比如BASH_ARGC， BASH等，这些变量只有set才会显示，是bash特有的，export不加参数的时候，显示哪些变量被导出成了用户变量，因为一个shell自己的变量可以通过export “导出”变成一个用户变量。</p>
 <a id="more"></a>
-<h3 id="系统信息查看："><a href="#系统信息查看：" class="headerlink" title="系统信息查看："></a>系统信息查看：</h3><p><em>注意：以下命令如果在ubuntu下可能都需要root权限才可以执行。</em></p>
+<h3 id="压缩和解压"><a href="#压缩和解压" class="headerlink" title="压缩和解压"></a>压缩和解压</h3><h4 id="zip、unzip"><a href="#zip、unzip" class="headerlink" title="zip、unzip"></a>zip、unzip</h4><h4 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h4><h4 id="dd"><a href="#dd" class="headerlink" title="dd"></a>dd</h4><h4 id="cpio"><a href="#cpio" class="headerlink" title="cpio"></a>cpio</h4><h3 id="终端和文件查看"><a href="#终端和文件查看" class="headerlink" title="终端和文件查看"></a>终端和文件查看</h3><h4 id="clear"><a href="#clear" class="headerlink" title="clear"></a>clear</h4><h4 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h4><h4 id="less"><a href="#less" class="headerlink" title="less"></a>less</h4><h4 id="more"><a href="#more" class="headerlink" title="more"></a>more</h4><h4 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h4><h4 id="diff"><a href="#diff" class="headerlink" title="diff"></a>diff</h4><h4 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h4><h3 id="系统信息查看："><a href="#系统信息查看：" class="headerlink" title="系统信息查看："></a>系统信息查看：</h3><p><em>注意：以下命令如果在ubuntu下可能都需要root权限才可以执行。</em></p>
 <h4 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h4><ul>
 <li>lscpu : 查看的是cpu的统计信息.</li>
 <li>cat /proc/cpuinfo : 可以知道每个cpu信息，如每个CPU的型号，主频等。</li>
@@ -2661,8 +2687,9 @@
 <li>chkconfig –list : 列出所有系统服务 </li>
 <li>chkconfig –list | grep on : 列出所有启动的系统服务程序 </li>
 </ul>
-<h3 id="分屏功能"><a href="#分屏功能" class="headerlink" title="分屏功能"></a>分屏功能</h3><p>xrandr 命令，用于分屏驱动多个显示器，一般是底层控制的，虽然是显示功能，但分屏并非GUI的独享，图形界面的分屏控制大都是调用 xrandr 这个软件。</p>
-<h3 id="管理类"><a href="#管理类" class="headerlink" title="管理类"></a>管理类</h3><h3 id="du"><a href="#du" class="headerlink" title="du"></a>du</h3><h3 id="df"><a href="#df" class="headerlink" title="df"></a>df</h3><h3 id="top"><a href="#top" class="headerlink" title="top"></a>top</h3><h3 id="网络类"><a href="#网络类" class="headerlink" title="网络类"></a>网络类</h3><h3 id="ping"><a href="#ping" class="headerlink" title="ping"></a>ping</h3><h3 id="nslookup"><a href="#nslookup" class="headerlink" title="nslookup"></a>nslookup</h3><h3 id="ip"><a href="#ip" class="headerlink" title="ip"></a>ip</h3><h3 id="route"><a href="#route" class="headerlink" title="route"></a>route</h3><hr>
+<h4 id="date"><a href="#date" class="headerlink" title="date"></a>date</h4><p>显示或者修改系统时间和日期，只有超级用户可以用 date 设置时间，一般用户只可以显示时间。</p>
+<h4 id="uptime"><a href="#uptime" class="headerlink" title="uptime"></a>uptime</h4><h4 id="dmesg"><a href="#dmesg" class="headerlink" title="dmesg"></a>dmesg</h4><h4 id="last"><a href="#last" class="headerlink" title="last"></a>last</h4><h4 id="free"><a href="#free" class="headerlink" title="free"></a>free</h4><h4 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h4><h4 id="top"><a href="#top" class="headerlink" title="top"></a>top</h4><h3 id="分屏功能"><a href="#分屏功能" class="headerlink" title="分屏功能"></a>分屏功能</h3><p>xrandr 命令，用于分屏驱动多个显示器，一般是底层控制的，虽然是显示功能，但分屏并非GUI的独享，图形界面的分屏控制大都是调用 xrandr 这个软件。</p>
+<h3 id="管理类"><a href="#管理类" class="headerlink" title="管理类"></a>管理类</h3><h3 id="du"><a href="#du" class="headerlink" title="du"></a>du</h3><h3 id="df"><a href="#df" class="headerlink" title="df"></a>df</h3><h3 id="fsck"><a href="#fsck" class="headerlink" title="fsck"></a>fsck</h3><h3 id="sync"><a href="#sync" class="headerlink" title="sync"></a>sync</h3><h3 id="mount、unmount"><a href="#mount、unmount" class="headerlink" title="mount、unmount"></a>mount、unmount</h3><h3 id="top-1"><a href="#top-1" class="headerlink" title="top"></a>top</h3><h3 id="网络类"><a href="#网络类" class="headerlink" title="网络类"></a>网络类</h3><h4 id="ifconfig"><a href="#ifconfig" class="headerlink" title="ifconfig"></a>ifconfig</h4><h4 id="netstat"><a href="#netstat" class="headerlink" title="netstat"></a>netstat</h4><h4 id="traceroute"><a href="#traceroute" class="headerlink" title="traceroute"></a>traceroute</h4><h4 id="telnet"><a href="#telnet" class="headerlink" title="telnet"></a>telnet</h4><h4 id="wget"><a href="#wget" class="headerlink" title="wget"></a>wget</h4><h4 id="ping"><a href="#ping" class="headerlink" title="ping"></a>ping</h4><h4 id="nslookup"><a href="#nslookup" class="headerlink" title="nslookup"></a>nslookup</h4><h4 id="ip"><a href="#ip" class="headerlink" title="ip"></a>ip</h4><h4 id="route"><a href="#route" class="headerlink" title="route"></a>route</h4><h4 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h4><h4 id="scp"><a href="#scp" class="headerlink" title="scp"></a>scp</h4><hr>
 <p>To be continued…</p>
 <blockquote>
 <p>参考链接：<br><a href="http://www.2cto.com/os/201306/223758.html" target="_blank" rel="external">http://www.2cto.com/os/201306/223758.html</a><br><a href="http://www.ha97.com/2987.html" target="_blank" rel="external">http://www.ha97.com/2987.html</a><br><a href="http://blog.csdn.net/lhf_tiger/article/details/7102753" target="_blank" rel="external">http://blog.csdn.net/lhf_tiger/article/details/7102753</a><br><a href="http://www.cnblogs.com/ggjucheng/archive/2013/01/14/2859613.html" target="_blank" rel="external">http://www.cnblogs.com/ggjucheng/archive/2013/01/14/2859613.html</a></p>
@@ -3371,6 +3398,38 @@
     </entry>
     
     <entry>
+      <title><![CDATA[stm32F439案例汇总]]></title>
+      <url>http://noparkinghere.site/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
+      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
+<blockquote>
+<p>www.armjishu.com(无法访问)</p>
+</blockquote>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
+<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
+<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
+</ul>
+<a id="more"></a>
+<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
+<li>实验0 Template工程模板</li>
+<li>实验1 跑马灯</li>
+<li>实验2 蜂鸣器</li>
+<li>实验3 按键和外部中断</li>
+<li>实验4 看门狗（独立和窗口）</li>
+<li>实验5 待机唤醒</li>
+<li>实验6 串口通讯（232和485）</li>
+<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
+<li>实验8 PWM输出和输入捕获</li>
+</ul>
+<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
+<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
+</blockquote>
+<hr>
+<p><em>未完待续</em></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[MDK5安装及配置]]></title>
       <url>http://noparkinghere.site/2016/07/11/2016/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
       <content type="html"><![CDATA[<h3 id="MDK简介"><a href="#MDK简介" class="headerlink" title="MDK简介"></a>MDK简介</h3><blockquote>
@@ -3443,38 +3502,6 @@
 <blockquote>
 <p>参考链接：<br><a href="http://www.jb51.net/os/windows/211837.html" target="_blank" rel="external">http://www.jb51.net/os/windows/211837.html</a><br><a href="http://comm.chinaaet.com/adi/blogdetail/32471.html" target="_blank" rel="external">http://comm.chinaaet.com/adi/blogdetail/32471.html</a></p>
 </blockquote>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[stm32F439案例汇总]]></title>
-      <url>http://noparkinghere.site/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
-      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
-<blockquote>
-<p>www.armjishu.com(无法访问)</p>
-</blockquote>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
-<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
-<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
-</ul>
-<a id="more"></a>
-<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
-<li>实验0 Template工程模板</li>
-<li>实验1 跑马灯</li>
-<li>实验2 蜂鸣器</li>
-<li>实验3 按键和外部中断</li>
-<li>实验4 看门狗（独立和窗口）</li>
-<li>实验5 待机唤醒</li>
-<li>实验6 串口通讯（232和485）</li>
-<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
-<li>实验8 PWM输出和输入捕获</li>
-</ul>
-<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
-<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
-</blockquote>
-<hr>
-<p><em>未完待续</em></p>
 ]]></content>
     </entry>
     

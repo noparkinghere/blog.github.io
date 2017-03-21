@@ -4,6 +4,77 @@
   
     
     <entry>
+      <title><![CDATA[22/70 MCU内/外部启振]]></title>
+      <url>http://noparkinghere.site/2017/03/21/2017/2017-03-21-mcu%E5%86%85-%E5%A4%96%E9%83%A8%E5%90%AF%E6%8C%AF/</url>
+      <content type="html"><![CDATA[<p>振荡电路相当于 MCU 的心脏，需要为 MCU 提供频率和脉冲，因此一个精准可靠的振荡电路对于 MCU 来说相当重要。</p>
+<h3 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h3><p>振荡电路一般可以分为：LC振荡器，RC振荡器，晶体振荡器。<br>LC振荡器：LC振荡电路主要用来产生高频正弦信号，一般在1MHz以上。它与RC振荡电路的不同之处在于它由电感和电容组成。所以命名为LC振荡器。<br>RC振荡器：若用电阻，电容元件组成选频网络，就称为RC振荡器，一般用来产生1Hz-1MHz的低频信号。RC选频网络的选频作用不如LC谐振荡回路，故RC振荡器的波形和稳定度比LC振荡器差。<br>晶体振荡器：晶体振荡器是指从一块石英晶体上按一定方位角切下薄片（简称为晶片），石英晶体谐振器，简称为石英晶体或晶体、晶振；而在封装内部添加IC组成振荡电路的晶体元件称为晶体振荡器。其产品一般用金属外壳封装，也有用玻璃壳、陶瓷或塑料封装的。</p>
+<p>根据以上三种可以设计出多种不同的电路。</p>
+<h3 id="晶振和振子"><a href="#晶振和振子" class="headerlink" title="晶振和振子"></a>晶振和振子</h3><p>晶体全称叫晶体谐振器(crystal resonator)，是一种谐振器，具有压电特性,不能输出信号。</p>
+<p>晶振全称叫晶体振荡器(crystal oscillator)，是一种振荡器，振荡电路由晶体、主振有源器件、主振电容等元器件组成，能够输出信号。通常我们所指晶振时往往喜欢用 crystal 其实这是不准确，而国外有的文档却喜欢用 oscillator，一般在表述时，两者其实是一个东西。</p>
+<p>MCU 自带的内部振荡器，一般是 RCO （RC-oscillator），而外部配置的振荡电路可以是 RCO （RC-oscillator），也可以是有源晶振 XO（crystal resonator）。</p>
+<p>使用RC振荡是电容充放电；而使用晶振振荡时，晶振也是电容性质，它比RC振荡的电流大，如果你摸过正在工作的各种晶振，会发现有些晶振发热，而RC振荡从无发热现象；这在各种单片机中都适用。相对于单片机电路，使用外部晶振更耗电一些，因为外部晶振分为无源和有源，当用有源时，功耗那是明显高的，因为有源外部晶振需要从电源吸取能量。</p>
+<p>但使用内部晶振虽然能耗低，但晶振的稳定度和频率控制的都很差，很多都达到了 5% 以上的误差，仅作为不精准的定时简单的使用还可以，稍严格一些的场景都无法满足要求。</p>
+<p>使用内部振荡器往往可以配置 RCO 让 MCU 获得某些/某段特定的时钟频率，灵活度更高些；而使用外部晶振的话，一般晶振频率是固定的，MCU 仅能够对该频率进行分频或者倍频。</p>
+<hr>
+<blockquote>
+<p>参考链接：<br><a href="http://www.eetrend.com/blog/100024294" target="_blank" rel="external">http://www.eetrend.com/blog/100024294</a><br><a href="https://zhidao.baidu.com/question/464742897.html" target="_blank" rel="external">https://zhidao.baidu.com/question/464742897.html</a><br><a href="http://blog.csdn.net/qq_29350001/article/details/51142250" target="_blank" rel="external">http://blog.csdn.net/qq_29350001/article/details/51142250</a><br><a href="https://zh.wikipedia.org/wiki/%E7%94%B5%E5%AD%90%E6%8C%AF%E8%8D%A1%E5%99%A8" target="_blank" rel="external">https://zh.wikipedia.org/wiki/%E7%94%B5%E5%AD%90%E6%8C%AF%E8%8D%A1%E5%99%A8</a></p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[accessport问题总结]]></title>
+      <url>http://noparkinghere.site/2017/03/21/2017/2017-03-21-accessport%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
+      <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>AccessPort 是一款用于 PC 机串口(RS232)调试、监控的软件，作用于驱动层之前，可以和其他串口工具同时使用，监控串口的通讯数据。特点：</p>
+<ul>
+<li>监控串口：具有端口监控功能，可以监控、拦截、保存所收发的数据（ NT/2K/XP/Vista/Win7）。</li>
+<li>串口调试：支持常用的串口操作功能，支持大数据量的收发、保存，支持自动发送。</li>
+<li>动态变参：在不改变当前所打开端口的情况下，能动态改变端口参数（如：波特率、校验位、流控制等）。</li>
+<li>双模编辑：数据发送区内嵌十六进制编辑器（类似 UltraEdit），支持十六进制&lt;=&gt;文本双模式切换编辑，支持 unicode。</li>
+<li>国际版本：国际版，支持多国语言。</li>
+<li>无需安装：界面友好，方便易用。</li>
+</ul>
+<a id="more"></a>
+<h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><ul>
+<li>用于串口调试，支持常用的 110-256000 波特率，支持自定义波特率。</li>
+<li>能以字符或十六进制接收或发送任何数据，能发送、接收任意大小的文件。</li>
+<li>在不改变当前所打开端口的情况下，能动态改变端口参数（如：波特率、校验位、流控<br>制等）。</li>
+<li>数据发送区可实时编辑、发送文本数据。</li>
+<li>能将所接收的原始数据以及显示数据分别保存。</li>
+<li>数据发送区允许设置发送周期，自动发送数据。</li>
+<li>可调试的端口范围是 COM1-COM255，支持扩展端口(USB&lt;-&gt;RS232)。</li>
+<li>可设置字体、文字颜色、背景颜色。</li>
+<li>允许将发送区的数据在接收区回显，模拟终端操作。</li>
+<li>允许发送区数据以回车键作为发送操作信号。</li>
+<li>Terminal 模式支持自动应答功能，支持 Hex、 Text、浮点数等类型。</li>
+<li>Terminal 模式支持预定义数据发送，支持 Hex、 Text、浮点数等类型。</li>
+<li>Monitor 模式支持彩色文本显示,便于更好的区分、观察数据.</li>
+<li>允许 Monitor 模式下拦截到的数据以十六进制或字符方式显示。</li>
+<li>允许接收区在接收到的数据后添加回车字符(CRLF)，便于观察数据。</li>
+<li>可将 Terminal 模式下接收到的数据按照十六进制文本方式导出到文件或剪贴板。</li>
+<li>允许保存程序环境变量。</li>
+<li>定义热键，方便操作。</li>
+<li>国际版，支持多国语言。</li>
+<li>数据发送区内嵌十六进制编辑器，支持 unicode。</li>
+<li>支持串口监控功能，可以监控串口设置以及收发的数据。</li>
+<li>在线自动更新提示功能，当有可用新版本时提示用户下载。</li>
+<li>本程序线程安全，可以同时启动多个副本调试多个串口。</li>
+</ul>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>AccessPort 通常不作为串口调试工具使用，虽然你也可以直接用该软件来监控串口数据，但一般因为 AccessPort 可以运行在驱动层之上，所以往往我们用 AccessPort 来监控你上位机软件调用驱动的一些操作。AccessPort 本身不会占用串口，因为它不会像其他串口工具一样去进行数据收发，而仅作为监控你驱动层被调用的一种工具。</p>
+<p>一般而言需要先开启 AccessPort 的监控功能，然后再开启你的上位机软件，这样 AccessPort 才可以监控你的软件。</p>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>关闭 AccessPort 需要格外的小心，说白了 AccessPort 类似通过某种不合法的途径来获取你正常软件调用驱动时的状态，因此会有系统崩溃蓝屏的风险，注意做好数据备份。</p>
+<p>值得注意的是，停止 AccessPort 监控或者关闭该软件时会可能系统崩溃，这时，你需要注意软件关闭的先后顺序，一般我们可以试下以下几种方法：</p>
+<ul>
+<li>插入串口/usb 时，关闭 AccessPort 。</li>
+<li>拔掉串口/usb 时，关闭 AccessPort 。</li>
+<li>先关闭上位机软件，再关闭 AccessPort 。</li>
+<li>先关闭 AccessPort，再关闭上位机软件 。</li>
+</ul>
+<p>以上几种方式，需要逐一尝试，不同的电脑出现的情况不同，但基本是上面中的某一种/几种情况不会发生系统崩溃，具体原因据称可能是根据你使用的 usb 转串口的驱动（不同的 usb 转换芯片有不同的驱动）有关系。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[我眼中的写作]]></title>
       <url>http://noparkinghere.site/2017/03/19/2017/2017-03-19-%E6%88%91%E7%9C%BC%E4%B8%AD%E7%9A%84%E5%86%99%E4%BD%9C/</url>
       <content type="html"><![CDATA[<p>大约是一年前，开始搭建自己的博客，然后陆续开始码字，去年写作的题目有大约 80 多个，虽然只完成了大概一半左右，但毕竟刚开始写作算是有个好的开始。一方面个人博客主要写的是技术博客，有的内容自己没有切身实践过也不敢太轻易下结论，而有的内容仍然在不断更新中，因此不可能将所有文章都写完，另外一方面也认识到写作确实算是比较消耗时间的，没有足够的时间很难写出让自己满意的文章。</p>
@@ -3549,6 +3620,80 @@
     </entry>
     
     <entry>
+      <title><![CDATA[（转）回车、换行、和文件末尾空行]]></title>
+      <url>http://noparkinghere.site/2016/07/11/2016/2016-07-11-%EF%BC%88%E8%BD%AC%EF%BC%89%E5%9B%9E%E8%BD%A6%E3%80%81%E6%8D%A2%E8%A1%8C%E3%80%81%E5%92%8C%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E7%A9%BA%E8%A1%8C/</url>
+      <content type="html"><![CDATA[<h2 id="回车和换行"><a href="#回车和换行" class="headerlink" title="回车和换行"></a>回车和换行</h2><p>回车 (Carriage Return) 和换行 (Line Feed) 的区别，<a href="http://stackoverflow.com/questions/1761051/difference-between-n-and-r" target="_blank" rel="external">这里</a>有一个历史原因可参考：</p>
+<blockquote>
+<p>在计算机还没有出现之前，有一种叫做电传打字机（Teletype Model 33）的玩意，每秒钟可以打10个字符。但是它有一个问题，就是打完一行换行的时候，要用去0.2秒，正好可以打两个字符。要是在这0.2秒里面，又有新的字符传过来，那么这个字符将丢失。</p>
+<p>于是，研制人员想了个办法解决这个问题，就是在每行后面加两个表示结束的字符。一个叫做”回车”，告诉打字机把打印头定位在左边界；另一个叫做”换行”，告诉打字机把纸向下移一行。</p>
+</blockquote>
+<p>发明计算机时，这个概念被沿用下来，但因为条件的限制和设计者的喜好，有了一些分歧：</p>
+<ul>
+<li>Unix 系统里，每行结尾只有”&lt;换行&gt;”，即 “\n”</li>
+<li>Windows 系统里面，每行结尾是”&lt;回车&gt;&lt;换行&gt;”，即 “\r\n”</li>
+<li>在老的 Mac 系统里，每行结尾是”&lt;回车&gt;”，即 “\r”</li>
+</ul>
+<p>我们来验证一下，我在 Windows 下用记事本新建一个文本文件，它的二进制编码如下：</p>
+<pre><code>//源文件内容
+hello
+hello2
+
+//二进制内容
+0000000: 6865 6c6c 6f0d 0a68 656c 6c6f 32         hello..hello2
+</code></pre><p>同样在 Mac 下用 Vim 新建一个：</p>
+<pre><code>//源文件内容
+hello
+hello2
+
+//二进制内容
+0000000: 6865 6c6c 6f0a 6865 6c6c 6f32 0a         hello.hello2.
+</code></pre><p><code>0a</code>是 LF 的 ASCII 编码, <code>0d</code>是 CR 的 ASCII 编码。区别很明显了</p>
+<ul>
+<li>Mac 下的文本文件在 Windows 下打开会成为一行，因为 Windows 只认识 <code>\r\n</code>，也就是 <code>0d0a</code></li>
+<li>Windows 下的文本文件在 Mac 下打开，Vim 中会在每行末尾显示一个 <code>^M</code>，(不是两个字符组成的)</li>
+</ul>
+<a id="more"></a>
+<h2 id="文件末尾空行"><a href="#文件末尾空行" class="headerlink" title="文件末尾空行"></a>文件末尾空行</h2><p><a href="https://zh.wikipedia.org/zh-sg/POSIX" target="_blank" rel="external">POSIX</a>对行的<a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_206" target="_blank" rel="external">定义</a>如下：</p>
+<blockquote>
+<p>3.206 Line</p>
+<p>A sequence of zero or more non- <newline\> characters plus a terminating <newline\> character.</newline\></newline\></p>
+<p>行是由0个或者多个非 “换行” 符的字符组成，并且以 “换行” 符结尾。</p>
+</blockquote>
+<p>这样做有什么好处呢，举个例子：</p>
+<pre><code>//hello.c
+#include head.h
+print(&apos;hello&apos;)
+
+//world.c
+#include tail.h
+print(&apos;hello&apos;)
+</code></pre><p>如果这两个文件都按 POSIX 规范来写， 在<code>cat *.c</code>之后，是没有问题的：</p>
+<pre><code>//cat.c
+
+#include head.h
+print(&apos;hello&apos;)
+#include tail.h
+print(&apos;hello&apos;)
+</code></pre><p>如果缺少最后一行的换行符（如 Windows 文件那样的定义），<code>cat</code>之后，就有问题了：</p>
+<pre><code>//error.c
+
+#include head.h
+print(&apos;hello&apos;)#include tail.h
+print(&apos;hello&apos;)
+</code></pre><p>所以，从这点去理解 POSIX 对行的定义，非常合理，对于任意文件的拼接，也各自保持了文件的完整性。</p>
+<p>不遵守标准带来的则是：在一些编辑器下面，比如 Sublime，他把<code>\n</code>的当做了行之间的分隔符，于是文件最后一行的<code>\n</code>就看上去成了一个新的空行，这就是错误解读标准造成的，拼接文件时也会产生不必要的麻烦，比如上例。</p>
+<h2 id="No-new-line-at-end-of-file"><a href="#No-new-line-at-end-of-file" class="headerlink" title="\ No new line at end of file"></a>\ No new line at end of file</h2><p>基于上面的原因，再去看 git diff 的<code>\ No new line at end of file</code>信息，就很好解释了。</p>
+<p>各编辑器对于换行符的理解偏差，导致的文件确实发生了变化，多了或少了最后的<code>0a</code>，那么对于 diff 程序来说，这当然是不可忽略的，但因为<code>0a</code>是不可见字符，并且是长久以来的历史原因，所以 diff 程序有个专门的标记来说明这个变化，就是：</p>
+<p><code>\ No new line at end of file</code></p>
+<p>各编辑器也有相应的办法去解决这个问题，比如 Sublime，在<code>Default/Preferences.sublime-settings</code>中设置：</p>
+<pre><code>// Set to true to ensure the last line of the file ends in a newline
+// character when saving
+&quot;ensure_newline_at_eof_on_save&quot;: true,
+</code></pre><p>所以，请遵守规范。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[MDK5安装及配置]]></title>
       <url>http://noparkinghere.site/2016/07/11/2016/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
       <content type="html"><![CDATA[<h3 id="MDK简介"><a href="#MDK简介" class="headerlink" title="MDK简介"></a>MDK简介</h3><blockquote>
@@ -3621,80 +3766,6 @@
 <blockquote>
 <p>参考链接：<br><a href="http://www.jb51.net/os/windows/211837.html" target="_blank" rel="external">http://www.jb51.net/os/windows/211837.html</a><br><a href="http://comm.chinaaet.com/adi/blogdetail/32471.html" target="_blank" rel="external">http://comm.chinaaet.com/adi/blogdetail/32471.html</a></p>
 </blockquote>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[（转）回车、换行、和文件末尾空行]]></title>
-      <url>http://noparkinghere.site/2016/07/11/2016/2016-07-11-%EF%BC%88%E8%BD%AC%EF%BC%89%E5%9B%9E%E8%BD%A6%E3%80%81%E6%8D%A2%E8%A1%8C%E3%80%81%E5%92%8C%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E7%A9%BA%E8%A1%8C/</url>
-      <content type="html"><![CDATA[<h2 id="回车和换行"><a href="#回车和换行" class="headerlink" title="回车和换行"></a>回车和换行</h2><p>回车 (Carriage Return) 和换行 (Line Feed) 的区别，<a href="http://stackoverflow.com/questions/1761051/difference-between-n-and-r" target="_blank" rel="external">这里</a>有一个历史原因可参考：</p>
-<blockquote>
-<p>在计算机还没有出现之前，有一种叫做电传打字机（Teletype Model 33）的玩意，每秒钟可以打10个字符。但是它有一个问题，就是打完一行换行的时候，要用去0.2秒，正好可以打两个字符。要是在这0.2秒里面，又有新的字符传过来，那么这个字符将丢失。</p>
-<p>于是，研制人员想了个办法解决这个问题，就是在每行后面加两个表示结束的字符。一个叫做”回车”，告诉打字机把打印头定位在左边界；另一个叫做”换行”，告诉打字机把纸向下移一行。</p>
-</blockquote>
-<p>发明计算机时，这个概念被沿用下来，但因为条件的限制和设计者的喜好，有了一些分歧：</p>
-<ul>
-<li>Unix 系统里，每行结尾只有”&lt;换行&gt;”，即 “\n”</li>
-<li>Windows 系统里面，每行结尾是”&lt;回车&gt;&lt;换行&gt;”，即 “\r\n”</li>
-<li>在老的 Mac 系统里，每行结尾是”&lt;回车&gt;”，即 “\r”</li>
-</ul>
-<p>我们来验证一下，我在 Windows 下用记事本新建一个文本文件，它的二进制编码如下：</p>
-<pre><code>//源文件内容
-hello
-hello2
-
-//二进制内容
-0000000: 6865 6c6c 6f0d 0a68 656c 6c6f 32         hello..hello2
-</code></pre><p>同样在 Mac 下用 Vim 新建一个：</p>
-<pre><code>//源文件内容
-hello
-hello2
-
-//二进制内容
-0000000: 6865 6c6c 6f0a 6865 6c6c 6f32 0a         hello.hello2.
-</code></pre><p><code>0a</code>是 LF 的 ASCII 编码, <code>0d</code>是 CR 的 ASCII 编码。区别很明显了</p>
-<ul>
-<li>Mac 下的文本文件在 Windows 下打开会成为一行，因为 Windows 只认识 <code>\r\n</code>，也就是 <code>0d0a</code></li>
-<li>Windows 下的文本文件在 Mac 下打开，Vim 中会在每行末尾显示一个 <code>^M</code>，(不是两个字符组成的)</li>
-</ul>
-<a id="more"></a>
-<h2 id="文件末尾空行"><a href="#文件末尾空行" class="headerlink" title="文件末尾空行"></a>文件末尾空行</h2><p><a href="https://zh.wikipedia.org/zh-sg/POSIX" target="_blank" rel="external">POSIX</a>对行的<a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_206" target="_blank" rel="external">定义</a>如下：</p>
-<blockquote>
-<p>3.206 Line</p>
-<p>A sequence of zero or more non- <newline\> characters plus a terminating <newline\> character.</newline\></newline\></p>
-<p>行是由0个或者多个非 “换行” 符的字符组成，并且以 “换行” 符结尾。</p>
-</blockquote>
-<p>这样做有什么好处呢，举个例子：</p>
-<pre><code>//hello.c
-#include head.h
-print(&apos;hello&apos;)
-
-//world.c
-#include tail.h
-print(&apos;hello&apos;)
-</code></pre><p>如果这两个文件都按 POSIX 规范来写， 在<code>cat *.c</code>之后，是没有问题的：</p>
-<pre><code>//cat.c
-
-#include head.h
-print(&apos;hello&apos;)
-#include tail.h
-print(&apos;hello&apos;)
-</code></pre><p>如果缺少最后一行的换行符（如 Windows 文件那样的定义），<code>cat</code>之后，就有问题了：</p>
-<pre><code>//error.c
-
-#include head.h
-print(&apos;hello&apos;)#include tail.h
-print(&apos;hello&apos;)
-</code></pre><p>所以，从这点去理解 POSIX 对行的定义，非常合理，对于任意文件的拼接，也各自保持了文件的完整性。</p>
-<p>不遵守标准带来的则是：在一些编辑器下面，比如 Sublime，他把<code>\n</code>的当做了行之间的分隔符，于是文件最后一行的<code>\n</code>就看上去成了一个新的空行，这就是错误解读标准造成的，拼接文件时也会产生不必要的麻烦，比如上例。</p>
-<h2 id="No-new-line-at-end-of-file"><a href="#No-new-line-at-end-of-file" class="headerlink" title="\ No new line at end of file"></a>\ No new line at end of file</h2><p>基于上面的原因，再去看 git diff 的<code>\ No new line at end of file</code>信息，就很好解释了。</p>
-<p>各编辑器对于换行符的理解偏差，导致的文件确实发生了变化，多了或少了最后的<code>0a</code>，那么对于 diff 程序来说，这当然是不可忽略的，但因为<code>0a</code>是不可见字符，并且是长久以来的历史原因，所以 diff 程序有个专门的标记来说明这个变化，就是：</p>
-<p><code>\ No new line at end of file</code></p>
-<p>各编辑器也有相应的办法去解决这个问题，比如 Sublime，在<code>Default/Preferences.sublime-settings</code>中设置：</p>
-<pre><code>// Set to true to ensure the last line of the file ends in a newline
-// character when saving
-&quot;ensure_newline_at_eof_on_save&quot;: true,
-</code></pre><p>所以，请遵守规范。</p>
 ]]></content>
     </entry>
     

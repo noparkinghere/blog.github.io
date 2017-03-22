@@ -2479,6 +2479,19 @@
     </entry>
     
     <entry>
+      <title><![CDATA[git的配置及相关插件]]></title>
+      <url>http://noparkinghere.win/2016/09/28/2016/2016-09-28-git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6/</url>
+      <content type="html"><![CDATA[<p>一个好的工具，需要不断的打磨和熟悉使用技巧才可以把它用的炉火纯青，git同样如此，本文主要是推荐一些git常用的配置以及配套的一些工具。</p>
+<h3 id="git的相关配置："><a href="#git的相关配置：" class="headerlink" title="git的相关配置："></a>git的相关配置：</h3><h4 id="gitignore配置"><a href="#gitignore配置" class="headerlink" title=".gitignore配置"></a>.gitignore配置</h4><a id="more"></a>
+<h3 id="推荐的git插件："><a href="#推荐的git插件：" class="headerlink" title="推荐的git插件："></a>推荐的git插件：</h3><h4 id="tig"><a href="#tig" class="headerlink" title="tig"></a>tig</h4><p>首先推荐<a href="http://jonas.nitro.dk/tig/" target="_blank" rel="external">tig</a>（名字刚好和git相反），是一个专门针对git的小软件，官方这么介绍<em>text-mode interface for Git</em>。</p>
+<p>推荐可以访问<a href="https://github.com/jonas/tig" target="_blank" rel="external">tig的github页面</a>,里面有相关的下载安装说明。</p>
+<ul>
+<li>软件能够恨清晰的看到你的版本目录结构</li>
+</ul>
+<h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><h4 id="小乌龟插件"><a href="#小乌龟插件" class="headerlink" title="小乌龟插件"></a>小乌龟插件</h4><h4 id="atom"><a href="#atom" class="headerlink" title="atom"></a>atom</h4>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[通过git管理一个工程]]></title>
       <url>http://noparkinghere.win/2016/09/28/2016/2016-09-28-%E9%80%9A%E8%BF%87git%E7%AE%A1%E7%90%86%E4%B8%80%E4%B8%AA%E5%B7%A5%E7%A8%8B/</url>
       <content type="html"><![CDATA[<p>GIT虽然能够实现各种版本控制，且功能强大，可以做到随时切换版本，回退等各种功能，但过多的分支，无效的分支，杂乱的提交，无意义的命名等等问题，往往会让像我这样的初学者，异常头痛，网络上关于git的往往都是指导你各个命令如何去用，部分命令的使用场景等，但却缺少一个完整工程项目的管理步骤。部分大神的确总结出了自己的使用习惯，但却不是作为教程来陈述的，下面我会将自己的一些习惯进行总结，后续可能遇到更好的也还会不断的更改。</p>
@@ -2507,19 +2520,6 @@
 <p>参考链接：<br><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000</a><br><a href="http://baike.baidu.com/link?url=weNC33XuaXOCTBp5s3WeZVu-Z9LP41KY_M6_WdGxAJZpJs_sq7jcgZ-3B01u2EiqfK6gb0L6s3-IDiWp1cVgF_" target="_blank" rel="external">http://baike.baidu.com/link?url=weNC33XuaXOCTBp5s3WeZVu-Z9LP41KY_M6_WdGxAJZpJs_sq7jcgZ-3B01u2EiqfK6gb0L6s3-IDiWp1cVgF_</a></p>
 </blockquote>
 ]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[git的配置及相关插件]]></title>
-      <url>http://noparkinghere.win/2016/09/28/2016/2016-09-28-git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6/</url>
-      <content type="html"><![CDATA[<p>一个好的工具，需要不断的打磨和熟悉使用技巧才可以把它用的炉火纯青，git同样如此，本文主要是推荐一些git常用的配置以及配套的一些工具。</p>
-<h3 id="git的相关配置："><a href="#git的相关配置：" class="headerlink" title="git的相关配置："></a>git的相关配置：</h3><h4 id="gitignore配置"><a href="#gitignore配置" class="headerlink" title=".gitignore配置"></a>.gitignore配置</h4><a id="more"></a>
-<h3 id="推荐的git插件："><a href="#推荐的git插件：" class="headerlink" title="推荐的git插件："></a>推荐的git插件：</h3><h4 id="tig"><a href="#tig" class="headerlink" title="tig"></a>tig</h4><p>首先推荐<a href="http://jonas.nitro.dk/tig/" target="_blank" rel="external">tig</a>（名字刚好和git相反），是一个专门针对git的小软件，官方这么介绍<em>text-mode interface for Git</em>。</p>
-<p>推荐可以访问<a href="https://github.com/jonas/tig" target="_blank" rel="external">tig的github页面</a>,里面有相关的下载安装说明。</p>
-<ul>
-<li>软件能够恨清晰的看到你的版本目录结构</li>
-</ul>
-<h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><h4 id="小乌龟插件"><a href="#小乌龟插件" class="headerlink" title="小乌龟插件"></a>小乌龟插件</h4><h4 id="atom"><a href="#atom" class="headerlink" title="atom"></a>atom</h4>]]></content>
     </entry>
     
     <entry>
@@ -3606,6 +3606,38 @@
     </entry>
     
     <entry>
+      <title><![CDATA[stm32F439案例汇总]]></title>
+      <url>http://noparkinghere.win/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
+      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
+<blockquote>
+<p>www.armjishu.com(无法访问)</p>
+</blockquote>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
+<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
+<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
+</ul>
+<a id="more"></a>
+<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
+<li>实验0 Template工程模板</li>
+<li>实验1 跑马灯</li>
+<li>实验2 蜂鸣器</li>
+<li>实验3 按键和外部中断</li>
+<li>实验4 看门狗（独立和窗口）</li>
+<li>实验5 待机唤醒</li>
+<li>实验6 串口通讯（232和485）</li>
+<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
+<li>实验8 PWM输出和输入捕获</li>
+</ul>
+<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
+<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
+</blockquote>
+<hr>
+<p><em>未完待续</em></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[（转）回车、换行、和文件末尾空行]]></title>
       <url>http://noparkinghere.win/2016/07/11/2016/2016-07-11-%EF%BC%88%E8%BD%AC%EF%BC%89%E5%9B%9E%E8%BD%A6%E3%80%81%E6%8D%A2%E8%A1%8C%E3%80%81%E5%92%8C%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E7%A9%BA%E8%A1%8C/</url>
       <content type="html"><![CDATA[<h2 id="回车和换行"><a href="#回车和换行" class="headerlink" title="回车和换行"></a>回车和换行</h2><p>回车 (Carriage Return) 和换行 (Line Feed) 的区别，<a href="http://stackoverflow.com/questions/1761051/difference-between-n-and-r" target="_blank" rel="external">这里</a>有一个历史原因可参考：</p>
@@ -3752,38 +3784,6 @@ print(&apos;hello&apos;)
 <blockquote>
 <p>参考链接：<br><a href="http://www.jb51.net/os/windows/211837.html" target="_blank" rel="external">http://www.jb51.net/os/windows/211837.html</a><br><a href="http://comm.chinaaet.com/adi/blogdetail/32471.html" target="_blank" rel="external">http://comm.chinaaet.com/adi/blogdetail/32471.html</a></p>
 </blockquote>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[stm32F439案例汇总]]></title>
-      <url>http://noparkinghere.win/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
-      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
-<blockquote>
-<p>www.armjishu.com(无法访问)</p>
-</blockquote>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
-<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
-<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
-</ul>
-<a id="more"></a>
-<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
-<li>实验0 Template工程模板</li>
-<li>实验1 跑马灯</li>
-<li>实验2 蜂鸣器</li>
-<li>实验3 按键和外部中断</li>
-<li>实验4 看门狗（独立和窗口）</li>
-<li>实验5 待机唤醒</li>
-<li>实验6 串口通讯（232和485）</li>
-<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
-<li>实验8 PWM输出和输入捕获</li>
-</ul>
-<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
-<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
-</blockquote>
-<hr>
-<p><em>未完待续</em></p>
 ]]></content>
     </entry>
     

@@ -1321,7 +1321,8 @@
       <url>http://noparkinghere.win/2016/12/08/2016/2016-12-08-efm32-%E5%BC%80%E5%8F%91%E6%9D%BF%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
       <content type="html"><![CDATA[<p>silabs 的 EFM 系列芯片历来以低能耗，可信的加密而文明，比较遗憾的是，国内用的较少，且基本上没有什么中文参考资料，刚刚开办没多久的官方中文论坛贴出来的资料也大都是英文版，且论坛在 GFW 下访问相当困难。因为项目需求，这边我入手了两个系列的 EFM 开发板，但都出了大大小小的问题。</p>
 <p>个人总结：1.因为前期缺少相关指导，且官方指导手册仅告诉要如何做，却没指示相关工具的位置和使用。2.该芯片配备专有 IDE 且还分好几个版本，无疑增加了摸索的难度。3.个人经验不足，之前上手的都是开发板，没接触过这种官方自带的评估板。</p>
-<p>其实上手这个评估板并不困难，困难的是没有一个详尽的指导手册，不知道如何用评估板去烧录上面的 MCU ，如何用评估板烧录自己产品的 MCU等。</p>
+<p>其实上手这个评估板并不困难，困难的是没有一个详尽完整的指导手册，不知道如何用评估板去烧录上面的 MCU ，如何用评估板烧录自己产品的 MCU等。</p>
+<p>相比国内的开发板学习板而言，EFM 开发板大都是官方的评估板，并且大都是英文原版说明文档。最主要的一点，在购买 EFM 开发板时，官方是不会将开发板资料打包给你的，取而代之的是让你安装官方的软件 simplicity studio ，软件中会将你芯片的相关文档程序等进行罗列。虽然看起来更加人性化了，然而问题也出在这边，simplicity studio offline 罗列出来的文档/程序不全，部分你芯片的资料已经被装在电脑中了，但 simplicity studio 却没有将呈现给你，一般你还得自己手动在电脑中检索，或者去官网搜索。</p>
 <h3 id="评估板简介："><a href="#评估板简介：" class="headerlink" title="评估板简介："></a>评估板简介：</h3><p>EFM32 配套评估板 上 Jlink 是从Segger授权的, 功能上应该没有缩减。因此价格也较贵，原价 $69 现价 $29 ，一般网购的价格在 ￥200 左右，这个价位对于国内 STM32 满地跑，部分 STM32 开发板价格甚至在 100 左右来说的话，还是较贵的，最关键的是淘宝购买的厂家不承担售后服务之类的，出问题只能自己解决。</p>
 <p>另外，EFM32 官方配套软件很强大，将编码，烧录，仿真，能耗监控，文档，样例等等都集成在了一起，很多资料都需要去这个 IDE 中查找，对英语不好或者不善于摸索的人来说也是一道门槛。</p>
 <p>评估板的功能：</p>
@@ -1350,6 +1351,7 @@
 <li>将评估板的 bootloader 接地（bootloader 位置各个开发板不尽相同，可以参照原理图，或者查看下面给出的参考连接），接下来连接电脑，打开 simplicity commander ，如果 bootloader 接地成功则会显示 j-link device 信息，否则读取不到信息。</li>
 <li>设置 debug mode:in 烧录 jlink 芯片，找到固件包，安装包（包为 .emz 格式，在 simplicity 安装目录中，可以电脑自行检索包路径）。</li>
 </ul>
+<h3 id="常见问题总结"><a href="#常见问题总结" class="headerlink" title="常见问题总结"></a>常见问题总结</h3><p>这边附上一个中文版的问题总结，比较难得的一版中文资料，EFM32 系列微控制器 <a href="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-12-08-efm32-%E5%BC%80%E5%8F%91%E6%9D%BF%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/1.pdf" target="_blank" rel="external">FAQ</a></p>
 <blockquote>
 <p>参考链接：<br><a href="http://m.blog.csdn.net/article/details?id=41648431" target="_blank" rel="external">http://m.blog.csdn.net/article/details?id=41648431</a><br><a href="http://community.silabs.com/t5/32-bit-MCU-Knowledge-Base/Recover-EFM32-or-EFM8-kit-that-was-bricked-during-firmware/ta-p/122142" target="_blank" rel="external">http://community.silabs.com/t5/32-bit-MCU-Knowledge-Base/Recover-EFM32-or-EFM8-kit-that-was-bricked-during-firmware/ta-p/122142</a><br><a href="http://community.silabs.com/t5/32-bit-MCU-Knowledge-Base/Unlock-a-Bricked-EFM32/ta-p/122776" target="_blank" rel="external">http://community.silabs.com/t5/32-bit-MCU-Knowledge-Base/Unlock-a-Bricked-EFM32/ta-p/122776</a><br><a href="http://wenku.baidu.com/view/ee891f3a5a8102d276a22ffc.html?re=view" target="_blank" rel="external">http://wenku.baidu.com/view/ee891f3a5a8102d276a22ffc.html?re=view</a><br><a href="http://community.silabs.com/t5/ChineseForum/%E7%96%91%E4%BC%BC%E8%8A%AF%E7%89%87%E6%98%AF%E5%90%A6%E7%83%A7%E5%9D%8F%E4%BA%86/m-p/184134/highlight/false#M1227" target="_blank" rel="external">http://community.silabs.com/t5/ChineseForum/%E7%96%91%E4%BC%BC%E8%8A%AF%E7%89%87%E6%98%AF%E5%90%A6%E7%83%A7%E5%9D%8F%E4%BA%86/m-p/184134/highlight/false#M1227</a><br><a href="http://www.silabs.com/products/mcu/32-bit/efm32-gecko/pages/efm32-gecko.aspx" target="_blank" rel="external">http://www.silabs.com/products/mcu/32-bit/efm32-gecko/pages/efm32-gecko.aspx</a></p>
 </blockquote>

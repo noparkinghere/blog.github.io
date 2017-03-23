@@ -12,13 +12,14 @@
 <p>让评论更活跃、互动性更强的评论系统，永久免费且容易安装用微博、QQ、人人、豆瓣等帐号轻松评论和分享<br>智能识别垃圾评论、稳步提升网站流量。</p>
 <a id="more"></a>
 <h3 id="关闭原因"><a href="#关闭原因" class="headerlink" title="关闭原因"></a>关闭原因</h3><p>一年前，我个人开始把多说加到自己的博客上面的，但现在看来，是时候将其下架了。去年年底的时候 GFW 开始拦截 disqus 后，很多用户也只用选用国内的一些评论系统了，目前来看，多说关闭的并不是突发事情，在过去一年到现在多说的评论系统经常会突发各种问题，比如无法评论，无法加载，无法显示某些功能等等，现在看来那时就已经初现端倪了。</p>
-<p>评论一个业务/服务为何会关闭，最主要的原因就是赚不到钱，去年争议比较大的网站同样如此，虽然大片的用户在使用，但就是因为赚不到钱，加上政府打压，所以诸如华为云，360网盘等等就顺水推舟都关闭了自己的服务，反观百度网盘作为重灾区依旧能够生龙活虎，不难发现，问题本质就是出在钱上面。多说在国内没能够找到真正的付费用户，因此不难想象他最终的命运。</p>
+<p>评论一个业务/服务为何会关闭，最主要的原因就是赚不到钱，去年争议比较大的网站同样如此，虽然大片的用户在使用，但就是因为赚不到钱，加上 ZF 打压，所以诸如华为云，360网盘等等就顺水推舟都关闭了自己的服务，反观百度网盘作为重灾区依旧能够生龙活虎，不难发现，问题本质就是出在钱上面。多说在国内没能够找到真正的付费用户，因此不难想象他最终的命运。</p>
 <p>国内大多数软件/服务都是抄袭的国外的，这边我们并不讨论抄袭这个问题，因为抄袭的好的软件也有很多成功的典型，如：qq，qq空间，新浪微博等等，甚至很多公司都再他们的祖先倒下后还能够创造意想不到的市场效益。多说同样是一款本土化的国外软件，然而，他并没有那么幸运走到最后。</p>
 <p>分析原因大致如下：</p>
 <ul>
 <li>国内网络公司更加注重利益，因此更多的是把东西捏在自己手上，只有用户在自己手上才放心踏实，因此可以看到国内的几乎没有评论系统的商业用户，加上国内的开发人员很多，大小网站都有自己的一套评论系统，这显然就决定了多说难以转到商业用户的钱。</li>
 <li>国内自己搭建个人博客的一般知识层次都不会太差，通常也都会翻墙，多少看得懂英语，与其用多说，很多人更愿意使用 disqus，因此普通用户流量不足，跟无法产生更多的消费用户。</li>
 <li>一个模仿者却还没有始祖做的出色，可能多说之前做过一些特色功能，但我很不幸没有看到，至少在体验上面来说除了引入了国内的社交平台授权外，其他无论在界面美观，易用性，功能上面都不如 disqus。未能根据国内用户的习惯进行更多尝试，自身不够优秀的前提下，做再多别的也是枉然。</li>
+<li>ZF 压力，由于某些特殊的原因，国内对网民言论等进行了史上最严格的监管，多说本身因为管理经营上比较开放，因此很多为未备案的网站都可以使用多说，而这点无疑是和国情相背的。</li>
 </ul>
 <h3 id="其他可能"><a href="#其他可能" class="headerlink" title="其他可能"></a>其他可能</h3><p>以下为个人的一些看法，国内评论系统一般为博客用户使用，然而百度等国内网站在搜索文章时往往都很少能够检索到博客中的内容，相反百度文库，百度百科，知乎等等商业网站会排在首位具备更高的曝光度。多说完全在可以在满足市场的前提下，开辟自己的博客/文章导航网站，分类推荐各种文章，可以链接到各个博客或者经过协商授权后，将文章截取归类后重新整理出来，并附上原文链接。然后可以通过广告点击赚钱，当然这种归类的模式有点类似现在比较知名的码字网站简书之类的，但区别在于可以支持更多的私人博客，同时他也可以对小白用户开发，提供在线 markdown 写文，把私人博客内容和无博客在线用户两者结合在一些，同时站内也可以同做一个自己的搜索引擎，专门搜索个人博客和网络博客中的内容。</p>
 <blockquote>
@@ -1351,7 +1352,7 @@
 <li>将评估板的 bootloader 接地（bootloader 位置各个开发板不尽相同，可以参照原理图，或者查看下面给出的参考连接），接下来连接电脑，打开 simplicity commander ，如果 bootloader 接地成功则会显示 j-link device 信息，否则读取不到信息。</li>
 <li>设置 debug mode:in 烧录 jlink 芯片，找到固件包，安装包（包为 .emz 格式，在 simplicity 安装目录中，可以电脑自行检索包路径）。</li>
 </ul>
-<h3 id="常见问题总结"><a href="#常见问题总结" class="headerlink" title="常见问题总结"></a>常见问题总结</h3><p>这边附上一个中文版的问题总结，比较难得的一版中文资料，EFM32 系列微控制器 <a href="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-12-08-efm32-%E5%BC%80%E5%8F%91%E6%9D%BF%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/1.pdf" target="_blank" rel="external">FAQ</a></p>
+<h3 id="常见问题总结"><a href="#常见问题总结" class="headerlink" title="常见问题总结"></a>常见问题总结</h3><p>这边附上一个中文版的问题总结，比较难得的一版中文资料， <a href="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-12-08-efm32-%E5%BC%80%E5%8F%91%E6%9D%BF%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/1.pdf" target="_blank" rel="external">EFM32 系列微控制器 FAQ</a></p>
 <blockquote>
 <p>参考链接：<br><a href="http://m.blog.csdn.net/article/details?id=41648431" target="_blank" rel="external">http://m.blog.csdn.net/article/details?id=41648431</a><br><a href="http://community.silabs.com/t5/32-bit-MCU-Knowledge-Base/Recover-EFM32-or-EFM8-kit-that-was-bricked-during-firmware/ta-p/122142" target="_blank" rel="external">http://community.silabs.com/t5/32-bit-MCU-Knowledge-Base/Recover-EFM32-or-EFM8-kit-that-was-bricked-during-firmware/ta-p/122142</a><br><a href="http://community.silabs.com/t5/32-bit-MCU-Knowledge-Base/Unlock-a-Bricked-EFM32/ta-p/122776" target="_blank" rel="external">http://community.silabs.com/t5/32-bit-MCU-Knowledge-Base/Unlock-a-Bricked-EFM32/ta-p/122776</a><br><a href="http://wenku.baidu.com/view/ee891f3a5a8102d276a22ffc.html?re=view" target="_blank" rel="external">http://wenku.baidu.com/view/ee891f3a5a8102d276a22ffc.html?re=view</a><br><a href="http://community.silabs.com/t5/ChineseForum/%E7%96%91%E4%BC%BC%E8%8A%AF%E7%89%87%E6%98%AF%E5%90%A6%E7%83%A7%E5%9D%8F%E4%BA%86/m-p/184134/highlight/false#M1227" target="_blank" rel="external">http://community.silabs.com/t5/ChineseForum/%E7%96%91%E4%BC%BC%E8%8A%AF%E7%89%87%E6%98%AF%E5%90%A6%E7%83%A7%E5%9D%8F%E4%BA%86/m-p/184134/highlight/false#M1227</a><br><a href="http://www.silabs.com/products/mcu/32-bit/efm32-gecko/pages/efm32-gecko.aspx" target="_blank" rel="external">http://www.silabs.com/products/mcu/32-bit/efm32-gecko/pages/efm32-gecko.aspx</a></p>
 </blockquote>
@@ -3620,6 +3621,38 @@
     </entry>
     
     <entry>
+      <title><![CDATA[stm32F439案例汇总]]></title>
+      <url>http://noparkinghere.win/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
+      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
+<blockquote>
+<p>www.armjishu.com(无法访问)</p>
+</blockquote>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
+<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
+<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
+</ul>
+<a id="more"></a>
+<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
+<li>实验0 Template工程模板</li>
+<li>实验1 跑马灯</li>
+<li>实验2 蜂鸣器</li>
+<li>实验3 按键和外部中断</li>
+<li>实验4 看门狗（独立和窗口）</li>
+<li>实验5 待机唤醒</li>
+<li>实验6 串口通讯（232和485）</li>
+<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
+<li>实验8 PWM输出和输入捕获</li>
+</ul>
+<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
+<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
+</blockquote>
+<hr>
+<p><em>未完待续</em></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[（转）回车、换行、和文件末尾空行]]></title>
       <url>http://noparkinghere.win/2016/07/11/2016/2016-07-11-%EF%BC%88%E8%BD%AC%EF%BC%89%E5%9B%9E%E8%BD%A6%E3%80%81%E6%8D%A2%E8%A1%8C%E3%80%81%E5%92%8C%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E7%A9%BA%E8%A1%8C/</url>
       <content type="html"><![CDATA[<h2 id="回车和换行"><a href="#回车和换行" class="headerlink" title="回车和换行"></a>回车和换行</h2><p>回车 (Carriage Return) 和换行 (Line Feed) 的区别，<a href="http://stackoverflow.com/questions/1761051/difference-between-n-and-r" target="_blank" rel="external">这里</a>有一个历史原因可参考：</p>
@@ -3766,38 +3799,6 @@ print(&apos;hello&apos;)
 <blockquote>
 <p>参考链接：<br><a href="http://www.jb51.net/os/windows/211837.html" target="_blank" rel="external">http://www.jb51.net/os/windows/211837.html</a><br><a href="http://comm.chinaaet.com/adi/blogdetail/32471.html" target="_blank" rel="external">http://comm.chinaaet.com/adi/blogdetail/32471.html</a></p>
 </blockquote>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[stm32F439案例汇总]]></title>
-      <url>http://noparkinghere.win/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
-      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
-<blockquote>
-<p>www.armjishu.com(无法访问)</p>
-</blockquote>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
-<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
-<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
-</ul>
-<a id="more"></a>
-<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
-<li>实验0 Template工程模板</li>
-<li>实验1 跑马灯</li>
-<li>实验2 蜂鸣器</li>
-<li>实验3 按键和外部中断</li>
-<li>实验4 看门狗（独立和窗口）</li>
-<li>实验5 待机唤醒</li>
-<li>实验6 串口通讯（232和485）</li>
-<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
-<li>实验8 PWM输出和输入捕获</li>
-</ul>
-<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
-<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
-</blockquote>
-<hr>
-<p><em>未完待续</em></p>
 ]]></content>
     </entry>
     

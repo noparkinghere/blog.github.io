@@ -15,7 +15,7 @@ comments: false
 
 ### 2. My Links
 
-> **Blog**: <http://noparkinghere.site>  
+> **Blog**: <http://noparkinghere.win>  
 > **GitHub**: <https://github.com/noparkinghere>  
 
 

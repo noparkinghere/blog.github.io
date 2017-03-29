@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title><![CDATA[C语言回调函数]]></title>
+      <title><![CDATA[30/70 C语言回调函数]]></title>
       <url>http://noparkinghere.win/2017/03/29/2017/2017-03-29-c%E8%AF%AD%E8%A8%80%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/</url>
       <content type="html"><![CDATA[<p>使用 C 语言编程时，一般可以将函数调用增加一层封装，这样做可以让函数的使用更加灵活多变。</p>
 <h3 id="宏定义封装"><a href="#宏定义封装" class="headerlink" title="宏定义封装"></a>宏定义封装</h3><p><code>＃define MacroFunction() Afunction(a, b, c)</code> 将Afunction(a, b, c)的常用用法作为一个整体进行封装，这种封装形式，在后续使用时，如果需要修改值的话，可以直接修改<code>＃define MacroFunction() Bfunction(a, b, c)</code> 而无需再进行其他操作。但同时也存在问题，如果我们需要将一半的 Afunction(a, b, c) 改为 Bfunction(a, b, c) 就较为麻烦，如果采用这种方式的话就只能一个个查看替换了。遇到这种情况时，下一种方法是更好的选择。</p>
@@ -34,7 +34,7 @@
 <p>参考链接：<br><a href="http://c.biancheng.net/cpp/html/1202.html" target="_blank" rel="external">http://c.biancheng.net/cpp/html/1202.html</a><br><a href="http://blog.codingnow.com/2010/03/object_oriented_programming_in_c.html" target="_blank" rel="external">http://blog.codingnow.com/2010/03/object_oriented_programming_in_c.html</a><br><a href="https://www.zhihu.com/question/19801131" target="_blank" rel="external">https://www.zhihu.com/question/19801131</a><br><a href="http://blog.csdn.net/tzshlyt/article/details/52993282" target="_blank" rel="external">http://blog.csdn.net/tzshlyt/article/details/52993282</a><br><a href="http://www.cnblogs.com/kunhu/p/3713370.html" target="_blank" rel="external">http://www.cnblogs.com/kunhu/p/3713370.html</a></p>
 </blockquote>
 <hr>
-<p>写作时间：21:39-22:42</p>
+<p>写作时间：21:39-22:56</p>
 ]]></content>
     </entry>
     
@@ -3958,6 +3958,38 @@ print(&apos;hello&apos;)
     </entry>
     
     <entry>
+      <title><![CDATA[stm32F439案例汇总]]></title>
+      <url>http://noparkinghere.win/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
+      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
+<blockquote>
+<p>www.armjishu.com(无法访问)</p>
+</blockquote>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
+<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
+<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
+</ul>
+<a id="more"></a>
+<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
+<li>实验0 Template工程模板</li>
+<li>实验1 跑马灯</li>
+<li>实验2 蜂鸣器</li>
+<li>实验3 按键和外部中断</li>
+<li>实验4 看门狗（独立和窗口）</li>
+<li>实验5 待机唤醒</li>
+<li>实验6 串口通讯（232和485）</li>
+<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
+<li>实验8 PWM输出和输入捕获</li>
+</ul>
+<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
+<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
+</blockquote>
+<hr>
+<p><em>未完待续</em></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[MDK5安装及配置]]></title>
       <url>http://noparkinghere.win/2016/07/11/2016/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
       <content type="html"><![CDATA[<h3 id="MDK简介"><a href="#MDK简介" class="headerlink" title="MDK简介"></a>MDK简介</h3><blockquote>
@@ -4030,38 +4062,6 @@ print(&apos;hello&apos;)
 <blockquote>
 <p>参考链接：<br><a href="http://www.jb51.net/os/windows/211837.html" target="_blank" rel="external">http://www.jb51.net/os/windows/211837.html</a><br><a href="http://comm.chinaaet.com/adi/blogdetail/32471.html" target="_blank" rel="external">http://comm.chinaaet.com/adi/blogdetail/32471.html</a></p>
 </blockquote>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[stm32F439案例汇总]]></title>
-      <url>http://noparkinghere.win/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
-      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
-<blockquote>
-<p>www.armjishu.com(无法访问)</p>
-</blockquote>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
-<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
-<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
-</ul>
-<a id="more"></a>
-<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
-<li>实验0 Template工程模板</li>
-<li>实验1 跑马灯</li>
-<li>实验2 蜂鸣器</li>
-<li>实验3 按键和外部中断</li>
-<li>实验4 看门狗（独立和窗口）</li>
-<li>实验5 待机唤醒</li>
-<li>实验6 串口通讯（232和485）</li>
-<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
-<li>实验8 PWM输出和输入捕获</li>
-</ul>
-<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
-<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
-</blockquote>
-<hr>
-<p><em>未完待续</em></p>
 ]]></content>
     </entry>
     

@@ -4,6 +4,48 @@
   
     
     <entry>
+      <title><![CDATA[C语言回调函数]]></title>
+      <url>http://noparkinghere.win/2017/03/29/2017/2017-03-29-c%E8%AF%AD%E8%A8%80%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/</url>
+      <content type="html"><![CDATA[<p>使用 C 语言编程时，一般可以将函数调用增加一层封装，这样做可以让函数的使用更加灵活多变。</p>
+<h3 id="宏定义封装"><a href="#宏定义封装" class="headerlink" title="宏定义封装"></a>宏定义封装</h3><p><code>＃define MacroFunction() Afunction(a, b, c)</code> 将Afunction(a, b, c)的常用用法作为一个整体进行封装，这种封装形式，在后续使用时，如果需要修改值的话，可以直接修改<code>＃define MacroFunction() Bfunction(a, b, c)</code> 而无需再进行其他操作。但同时也存在问题，如果我们需要将一半的 Afunction(a, b, c) 改为 Bfunction(a, b, c) 就较为麻烦，如果采用这种方式的话就只能一个个查看替换了。遇到这种情况时，下一种方法是更好的选择。</p>
+<h3 id="静态入口函数"><a href="#静态入口函数" class="headerlink" title="静态入口函数"></a>静态入口函数</h3><p>静态的入口函数，保证函数名相同，利用标志位调用子函数。这样的典型应用很多，比如说网卡驱动里面有一个入口函数Nilan（int FunctionCode，Para*）。具体的参数是什么记不清楚了。不过NiLan的主体是这样的：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Long Nila（int FunctionCode，Para*）</div><div class="line">&#123;</div><div class="line">   Switch(FunctionCode)</div><div class="line">   &#123;</div><div class="line">	   Case SendPacket: send(….)</div><div class="line">	   Case ReceivePacket: receive(…)</div><div class="line">	   ...</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>写到这里大家明白什么意思了吧。保证相同的函数名就是说：网卡驱动是和pNA+协议栈互连的，那么如何保证pNA+协议栈和不同的驱动都兼容呢，一个简单的办法就是仅仅使用一个入口函数。</p>
+<p>另外即便是一些初学者在写程序时，也会潜移默化地使用这种方法，如：<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">int Fun(int flag)</div><div class="line">&#123;</div><div class="line">	<span class="keyword">if</span> (flag == <span class="number">0</span>)</div><div class="line">	&#123;</div><div class="line">		A<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (flag &gt; <span class="number">0</span>)</div><div class="line">	&#123;</div><div class="line">		B<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">else</span></div><div class="line">	&#123;</div><div class="line">		C<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>通过改变如果函数的参数值，来调用内部的各个函数。这样的做法是可以进化的：如果以后想调用新的函数，增加相应的函数参数值就好了。</p>
+<p>层与层之间的互连接口是很小的（这里是一个入口函数），一般是采用名字解析的办法而不是具体的函数调用（利用FunctionCode调用函数，Nilan仅仅实现名字解析的功能）。</p>
+<h3 id="回调-CALLBACK-函数"><a href="#回调-CALLBACK-函数" class="headerlink" title="回调(CALLBACK)函数"></a>回调(CALLBACK)函数</h3><h4 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h4><p>回调函数才是本文的重点，它比上面的两种方法更加灵活，定制性更强。它使得一个函数可以在不重新编译的情况下实现功能的添加。</p>
+<p>一般使用回调函数据说有以下两点问题：</p>
+<ul>
+<li>效率降低：回调函数使用了函数指针，一般会先访问函数指针找到函数存放的实际地址，然后才是真正的函数调用，同直接调用函数比，多了一个寻址函数存储位置的过程（普通函数在编译时已经转换成了地址常亮，而函数指正仍然作为一个变量使用）。性能问题现在已经不做过多的考虑，指正调用本身就比较快，且现在机器性能都过剩。</li>
+<li>会导致程序的“支离破碎”：在程序中，你读到一个函数指针的时候，并不知道这个函数指针指向的是哪个函数，调用食会让程序碎片化严重。这点我暂时还不是太明了。</li>
+</ul>
+<h4 id="基本注意点"><a href="#基本注意点" class="headerlink" title="基本注意点"></a>基本注意点</h4><p>回调函数并不属于 C 语言最基本的用法，应该算是 C 语言的一个技巧创新，可以让 C 操作起来更加灵活，但灵活的代价就是你要对 C 语言比价熟悉，各种指针能够区分清除。</p>
+<p>函数指针是指向函数的指针变量，即本质是一个指针变量。指向函数的指针包含了函数的地址，可以通过它来调用函数。声明格式如下：类型说明符 (*函数名)(参数)。</p>
+<p>注意：函数名本身就是代表着指针/地址，因此并不需要再去取地址，使用 &amp;/* 是没有太大的意义的。<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">void (*fptr)();</div><div class="line">void Function(void)</div><div class="line">&#123;</div><div class="line">	...</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* 以下两句等价 */</div><div class="line">fptr=&amp;Function;</div><div class="line">fptr=Function;</div><div class="line"></div><div class="line">/* 以下两句等价 */</div><div class="line">x=(*fptr)();</div><div class="line">x=fptr();</div></pre></td></tr></table></figure></p>
+<p><strong>虽然 <code>fptr=&amp;Function; 和 x=(*fptr)();</code>写起来都更加复杂，但是有些程序员倾向于使用这种格式，因为它明确指出是通过指针而非函数名来调用函数的，这边我也推荐使用这种写法。</strong></p>
+<h3 id="案例具体分析"><a href="#案例具体分析" class="headerlink" title="案例具体分析"></a>案例具体分析</h3><p>下面举个回调函数的简单实例：</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="built_in">int</span> Test2(<span class="built_in">int</span> num)</div><div class="line">&#123;</div><div class="line">	<span class="built_in">int</span> i<span class="comment">;</span></div><div class="line">	<span class="keyword">for</span> (i=<span class="number">0</span><span class="comment">; i&lt;num; i++)</span></div><div class="line">	&#123;</div><div class="line">		printf(<span class="string">"The %d th charactor is: %c/n"</span>, i, (char)(<span class="string">'a'</span> + i%<span class="number">26</span>))<span class="comment">;</span></div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span><span class="comment">;</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">void Caller2(<span class="built_in">int</span> n, <span class="built_in">int</span> (*<span class="built_in">ptr</span>)())//指向函数的指针作函数参数,这里第一个参数是为指向函数的指针服务的，</div><div class="line">&#123;　</div><div class="line">	//不能写成void Caller2(<span class="built_in">int</span> (*<span class="built_in">ptr</span>)(<span class="built_in">int</span> n))，这样的定义语法错误。</div><div class="line">	(*<span class="built_in">ptr</span>)(n)<span class="comment">;</span></div><div class="line">	<span class="keyword">return</span><span class="comment">;</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">int</span> main()</div><div class="line">&#123;</div><div class="line">	Caller2(<span class="number">30</span>, Test2)<span class="comment">; //相当于调用Test2(30);</span></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span><span class="comment">;</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>以上的例子过于简单，并没有多大的实际意义，但我们通过这样的例子可以看出回调函数和上面讲述的静态入口函数都是在原本的函数上面多加了一层封装，为了让函数调用起来更加灵活多变。</p>
+<p>更进一步，利用回调函数，C 语言能够实现很多技巧性的操作，下面扩充一个例子，用回调函数来实现的一个简单泛型程序：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">/* 以下的泛型只是举例，如果需要比较浮点型，字符型则需要补充完善回调函数 */</div><div class="line"></div><div class="line"><span class="comment">#include &lt;stdio.h&gt;</span></div><div class="line"></div><div class="line">typedef int (*cmp)(void *, void *);</div><div class="line"></div><div class="line">typedef struct</div><div class="line">&#123;</div><div class="line">    char *name;</div><div class="line">    <span class="built_in">float</span> score;</div><div class="line">&#125; stru_member, *pstru_member;</div><div class="line"></div><div class="line">void *Max(void *p[], int len, cmp fun)</div><div class="line">&#123;</div><div class="line">    void *res = p[0];</div><div class="line">    <span class="keyword">for</span> (int i = 0; i &lt; len; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> ((*fun)(p[i], res))		// 这边等价于 <span class="keyword">if</span> (fun(p[i], res))</div><div class="line">        &#123;</div><div class="line">            res = p[i];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> res;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int comp(int *a, int *b)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (*a &gt; *b)</div><div class="line">        <span class="built_in">return</span> 1;</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="built_in">return</span> 0;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int mcomp(pstru_member a, pstru_member b)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (a-&gt;score &gt; b-&gt;score)</div><div class="line">        <span class="built_in">return</span> 1;</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="built_in">return</span> 0;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main(void)</div><div class="line">&#123;</div><div class="line">    int *pres;</div><div class="line">    int data[5] = &#123;1, 12, 30, 4, 5&#125;;</div><div class="line">    int *pdata[5] = &#123;&amp;data[0], &amp;data[1], &amp;data[2], &amp;data[3], &amp;data[4]&#125;;</div><div class="line">    pres = Max((void **)pdata, 5, (cmp)&amp;comp);		// 这边等价于 pres = Max((void **)pdata, 5, (cmp)comp);	</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, *pres);</div><div class="line"></div><div class="line">    stru_member mem[3] = &#123;&#123;<span class="string">"no.1"</span>, 99.6&#125;, &#123;<span class="string">"no.2"</span>, 91.4&#125;, &#123;<span class="string">"no.3"</span>, 95.5&#125;&#125;;</div><div class="line">    pstru_member pmem[3] = &#123;&amp;mem[0], &amp;mem[1], &amp;mem[2]&#125;;</div><div class="line">    pstru_member pres2 = Max((void **)pmem, 3, (cmp)&amp;mcomp);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%s:%f\n"</span>, pres2-&gt;name, pres2-&gt;score);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><em>回调函数在 C 语言中太过常用，往往一些高级的操作都需要使用这个技巧，后续还会更新一些关于回调函数技巧使用的一些文章。</em></p>
+<hr>
+<blockquote>
+<p>参考链接：<br><a href="http://c.biancheng.net/cpp/html/1202.html" target="_blank" rel="external">http://c.biancheng.net/cpp/html/1202.html</a><br><a href="http://blog.codingnow.com/2010/03/object_oriented_programming_in_c.html" target="_blank" rel="external">http://blog.codingnow.com/2010/03/object_oriented_programming_in_c.html</a><br><a href="https://www.zhihu.com/question/19801131" target="_blank" rel="external">https://www.zhihu.com/question/19801131</a><br><a href="http://blog.csdn.net/tzshlyt/article/details/52993282" target="_blank" rel="external">http://blog.csdn.net/tzshlyt/article/details/52993282</a><br><a href="http://www.cnblogs.com/kunhu/p/3713370.html" target="_blank" rel="external">http://www.cnblogs.com/kunhu/p/3713370.html</a></p>
+</blockquote>
+<hr>
+<p>写作时间：21:39-22:42</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[C语言来实现面向对象编程]]></title>
+      <url>http://noparkinghere.win/2017/03/29/2017/2017-03-29-c%E8%AF%AD%E8%A8%80%E6%9D%A5%E5%AE%9E%E7%8E%B0%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/</url>
+      <content type="html"><![CDATA[<p>阅读本文之前先要对 C 语言有个比较深入的认识，能够灵活的使用指针，结构体，回调函数等。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[29/70 GDB使用小结]]></title>
       <url>http://noparkinghere.win/2017/03/28/2017/2017-03-28-gdb%E4%BD%BF%E7%94%A8%E5%B0%8F%E7%BB%93/</url>
       <content type="html"><![CDATA[<p>最近研究了下 GDB，这是一款调试工具中的神器，其实很久以前就有涉及过这款软件，但是由于交互不直观，太多的命令，操作较为复杂等原因，因此我一直以来都很少使用这个工具，实在没办法的时候往往也都是采用插入输出来排查错误。</p>
@@ -1079,7 +1121,7 @@
     <entry>
       <title><![CDATA[linux-shadowsocks全局代理]]></title>
       <url>http://noparkinghere.win/2017/01/25/2017/2017-01-25-ss-linux%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86/</url>
-      <content type="html"><![CDATA[<p>windows 直接下载 ss 终端，稍加设置即可完成全局代理，linux 用户如果需要让某个软件可以使用 ss 一般都需要连接端口才行。例如本地 ss 配置为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"server_port"</span>:1800,</div><div class="line"><span class="string">"local_port"</span>:1080,</div></pre></td></tr></table></figure></p>
+      <content type="html"><![CDATA[<p>windows 直接下载 ss 终端，稍加设置即可完成全局代理，linux 用户如果需要让某个软件可以使用 ss 一般都需要连接端口才行。例如本地 ss 配置为：<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"server_port"</span>:<span class="number">1800</span>,</div><div class="line"><span class="string">"local_port"</span>:<span class="number">1080</span>,</div></pre></td></tr></table></figure></p>
 <h3 id="原理简述"><a href="#原理简述" class="headerlink" title="原理简述"></a>原理简述</h3><p>这边就相当于将本地的 127.0.0.1:1080 和 server_ip:1800 建立了连接关系。因此软件如果需要使用 vps 上面搭建的 ss 服务的话，则需要让该软件使用的协议连接到 127.0.0.1:1080 上。之前在 vps-shadowsocks 中介绍的 chrome 插件 SwitchyOmega 就是使用 SOCKS5 协议连接到 127.0.0.1:1080 上，让所有数据通过 SOCKS5 协议，然后从 127.0.0.1:1080 进行收发。</p>
 <p>可以看出如果我们需要让其他软件也能够使用 ss 则需要让他们也能够使用 127.0.0.1:1080 代理服务器，然而不幸的是，大多数软件并不支持代理服务的功能， windows 平台下的软件很多可以通过设置 IE 代理让其他软件使用代理服务（原理是：大多数软件都会优先读取 IE 的代理设置，再访问网络）。</p>
 <a id="more"></a>
@@ -3842,38 +3884,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[stm32F439案例汇总]]></title>
-      <url>http://noparkinghere.win/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
-      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
-<blockquote>
-<p>www.armjishu.com(无法访问)</p>
-</blockquote>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
-<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
-<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
-</ul>
-<a id="more"></a>
-<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
-<li>实验0 Template工程模板</li>
-<li>实验1 跑马灯</li>
-<li>实验2 蜂鸣器</li>
-<li>实验3 按键和外部中断</li>
-<li>实验4 看门狗（独立和窗口）</li>
-<li>实验5 待机唤醒</li>
-<li>实验6 串口通讯（232和485）</li>
-<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
-<li>实验8 PWM输出和输入捕获</li>
-</ul>
-<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
-<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
-</blockquote>
-<hr>
-<p><em>未完待续</em></p>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[（转）回车、换行、和文件末尾空行]]></title>
       <url>http://noparkinghere.win/2016/07/11/2016/2016-07-11-%EF%BC%88%E8%BD%AC%EF%BC%89%E5%9B%9E%E8%BD%A6%E3%80%81%E6%8D%A2%E8%A1%8C%E3%80%81%E5%92%8C%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E7%A9%BA%E8%A1%8C/</url>
       <content type="html"><![CDATA[<h2 id="回车和换行"><a href="#回车和换行" class="headerlink" title="回车和换行"></a>回车和换行</h2><p>回车 (Carriage Return) 和换行 (Line Feed) 的区别，<a href="http://stackoverflow.com/questions/1761051/difference-between-n-and-r" target="_blank" rel="external">这里</a>有一个历史原因可参考：</p>
@@ -4020,6 +4030,38 @@ print(&apos;hello&apos;)
 <blockquote>
 <p>参考链接：<br><a href="http://www.jb51.net/os/windows/211837.html" target="_blank" rel="external">http://www.jb51.net/os/windows/211837.html</a><br><a href="http://comm.chinaaet.com/adi/blogdetail/32471.html" target="_blank" rel="external">http://comm.chinaaet.com/adi/blogdetail/32471.html</a></p>
 </blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[stm32F439案例汇总]]></title>
+      <url>http://noparkinghere.win/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
+      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
+<blockquote>
+<p>www.armjishu.com(无法访问)</p>
+</blockquote>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
+<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
+<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
+</ul>
+<a id="more"></a>
+<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
+<li>实验0 Template工程模板</li>
+<li>实验1 跑马灯</li>
+<li>实验2 蜂鸣器</li>
+<li>实验3 按键和外部中断</li>
+<li>实验4 看门狗（独立和窗口）</li>
+<li>实验5 待机唤醒</li>
+<li>实验6 串口通讯（232和485）</li>
+<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
+<li>实验8 PWM输出和输入捕获</li>
+</ul>
+<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
+<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
+</blockquote>
+<hr>
+<p><em>未完待续</em></p>
 ]]></content>
     </entry>
     

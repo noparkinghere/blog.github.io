@@ -53,24 +53,27 @@ $ hexo server (通过 hexo server 运行起 hexo 内置的服务器。这时候�
 
 
 ### 模块简介
+
 通过 tree | less 可以查看以下 blog 的目录结构，主要的几个文件和目录的作用分别如下：
-- _config.yml ：配置文件，可以修改网站的主题、标题、作者等信息。
-- public ：由 hexo 根据 source 文件夹中的资源进行渲染生成的文件夹，里边存储着最终的静态网页文件。
-- scaffolds/ ：模板文件，当要给博客添加新文章的时候，将根据对应的模板进行创建。
-- source/ ：用于存储用户资源，比如文章与新页面等。其中以 _ 开头的文件夹中除了 _posts 文件夹中的 markdown 或 HTML 文件会在执行 generate 操作的时候被渲染添加到 public 文件夹中之外，其他均被忽略。而且在初始化博客的过程中 _posts 目录底会自带一个 hello-world.md 的文件。
-- themes/ ：主题文件，自带默认主题 landscape 。
+
+- `_config.yml` ：配置文件，可以修改网站的主题、标题、作者等信息。
+- `public` ：由 hexo 根据 source 文件夹中的资源进行渲染生成的文件夹，里边存储着最终的静态网页文件。
+- `scaffolds/` ：模板文件，当要给博客添加新文章的时候，将根据对应的模板进行创建。
+- `source/` ：用于存储用户资源，比如文章与新页面等。其中以 _ 开头的文件夹中除了 `_posts` 文件夹中的 markdown 或 HTML 文件会在执行 generate 操作的时候被渲染添加到 public 文件夹中之外，其他均被忽略。而且在初始化博客的过程中 `_posts` 目录底会自带一个 hello-world.md 的文件。
+- `themes/` ：主题文件，自带默认主题 landscape 。
+
 
 ### 操作指导
 
 #### 文章创建
 
-`hexo new [layout] <filename>` 其中 layout 为可选参数，指定了新创建的文件布局，默认为 post 文件。 filename 为必填参数，指定了文件名，如果文件名中有空格则需要把文件名用引号"" 包裹起来。例如： 终端输入：  `hexo new "我的第一篇文章"` ，这时候我们发现 hexo 在 source/_post 目录之下创建了一个 我的第一篇文章.md 的文件。打开该文件进行编辑。我们也可以通过 atom 等常用的 markdown 编辑工具直接在 source/_post 目录下创建文章进行编辑即可。刷新浏览器就可以看到我们博客更新的内容了。
+`hexo new [layout] <filename>` 其中 layout 为可选参数，指定了新创建的文件布局，默认为 post 文件。 filename 为必填参数，指定了文件名，如果文件名中有空格则需要把文件名用引号"" 包裹起来。例如： 终端输入：  `hexo new "我的第一篇文章"` ，这时候我们发现 hexo 在 `source/_post` 目录之下创建了一个 我的第一篇文章.md 的文件。打开该文件进行编辑。我们也可以通过 atom 等常用的 markdown 编辑工具直接在 `source/_post` 目录下创建文章进行编辑即可。刷新浏览器就可以看到我们博客更新的内容了。
 
 至此我们基本配置好了本地 hexo 服务，能够自己写点内容了。
 
 #### 插入图片
 
-- 在 hexo/source 目录下新建一个img文件夹，将图片放入该文件夹下，插入图片时链接即为https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/图片名称。 注意目录必须为 hexo/source，且图片文件夹为 img ，否则通过 hexo generate 可能无法生成目标图片。
+- 在 hexo/source 目录下新建一个img文件夹，将图片放入该文件夹下，插入图片时链接即为`https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/` 图片名称。 注意目录必须为 `hexo/source`，且图片文件夹为 img ，否则通过 hexo generate 可能无法生成目标图片。
 - 也可以使用[图床](http://tc.ffsky.net/)外链来存储图片。
 
 ### 部署到 github page
@@ -96,7 +99,8 @@ $ hexo server (通过 hexo server 运行起 hexo 内置的服务器。这时候�
 
 注意，实际上 github page 是可以自己按照 jekyll 的方式将源码生成 html 文件的，但是 对于 hexo 等其他源码，如果需要展示出来，则必须本地生成 html 代码，然后把生成的代码部署到服务器上面才行，这边我们可以使用如上面的方式（将 public 目录下面生成的 html 文件直接复制到服务器的根目录下）， hexo 提供了更加人性化的方式，通过 hexo deploy 可以一键完成部署（无需在通过 push 手动推送了），每次部署的步骤，可按以下两步：
 
-- 修改 该配置文件：vim _config.yml，执行如下命令才能使用 git 部署 `npm install hexo-deployer-git --save`
+- 修改 该配置文件：vim `_config.yml`，执行如下命令才能使用 git 部署 `npm install hexo-deployer-git --save`:
+
 ```sh
 deploy:
   type: git
@@ -131,17 +135,22 @@ github page 可以使用上面提供的网址也可以让每次访问时跳转�
 
 `wget http://labfile.oss.aliyuncs.com/courses/700/next.zip && unzip next.zip`
 
-需要将主题文件放入 Hexo/blog/themes 下，打开 ../blog/_config.yml 修改 theme 后的内容就可以更改主题了。这会博客就套上了我们的新模板了。但是我们发现博客菜单上的文字是英文的于是我们还要重新配置以下，让主题以中文的方式显示。再次编辑 _config.yml 文件，将 language 项设置为 zh-Hans 。
+需要将主题文件放入 Hexo/blog/themes 下，打开 `../blog/_config.yml` 修改 theme 后的内容就可以更改主题了。这会博客就套上了我们的新模板了。但是我们发现博客菜单上的文字是英文的于是我们还要重新配置以下，让主题以中文的方式显示。再次编辑 `_config.yml` 文件，将 language 项设置为 zh-Hans 。
 
 注意更改主题后每次需要重启 `hexo server` 服务才可以刷新网页。
 
 *到 github 上面搜索，可以找到更多出色的主题，这儿给出一个[主题汇总](https://www.zhihu.com/question/24422335)。*
 
-
-### 小结
+### hexo 小结
 
 hexo 比 jekyll 布局更简单，更加容易操作，但每次需要本地生成 html 然后上传同步，虽然这不是问题，可以用脚本实现，但对于图片等内容，需要依赖第三方图床就显得很是无奈了。
 
+
+### 问题
+
+使用 Hexo 部署了数月，今天出现了新问题，今天又出现了新问题，hexo 部署无法推送到 github 上，疑似该问题出现了有一段时间了，`npm install hexo-deployer-git --save` 的插件读取了 `_config.yml` 文件的内容，但是上传到 github 时，出现错误，本来应该上传 public 内容，但是这边会上传文件夹中的全部内容。
+
+***
 
 > 参考链接：
 > http://behappyli.cn/2015/12/05/hexo%E6%95%99%E7%A8%8B/

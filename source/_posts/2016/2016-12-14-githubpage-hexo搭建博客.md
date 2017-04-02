@@ -38,7 +38,8 @@ Node.js 是一个开放源代码、跨平台的、可用于服务器端和网络
 
 [Hexo](https://hexo.io/zh-cn/) 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。接下来我们开始使用 Hexo 搭建博客。
 
-- npm install hexo-cli -g
+- sudo npm install hexo-cli -g 或者 sudo npm install -g hexo
+- 如果以上命令遇到错误或者警告，则更新 npm 版本，`sudo npm i npm -g`
 - 创建并进入目录 Hexo ：`mkdir Hexo && cd Hexo`
 - 使用 hexo 生成博客框架。依次执行如下命令(hexo init blog 过程可能会比较慢，需要耐心等待。)：
 ```sh

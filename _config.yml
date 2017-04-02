@@ -72,5 +72,5 @@ theme: maupassant
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: git@github.com:noparkinghere/noparkinghere.github.io.git
+  repository: https://github.com/noparkinghere/noparkinghere.github.io.git 
   branch: master

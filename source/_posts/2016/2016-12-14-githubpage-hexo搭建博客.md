@@ -2,7 +2,7 @@
 layout: "post"
 title: "GithubPage+Hexo搭建博客"
 category: "软件应用"
-tags: 
+tags:
 date: "2016-12-14 19:01"
 ---
 
@@ -38,12 +38,13 @@ Node.js 是一个开放源代码、跨平台的、可用于服务器端和网络
 
 [Hexo](https://hexo.io/zh-cn/) 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。接下来我们开始使用 Hexo 搭建博客。
 
+- npm install hexo-cli -g
 - 创建并进入目录 Hexo ：`mkdir Hexo && cd Hexo`
 - 使用 hexo 生成博客框架。依次执行如下命令(hexo init blog 过程可能会比较慢，需要耐心等待。)：
 ```sh
-$ hexo init blog 
+$ hexo init blog
 $ cd blog
-$ npm install 
+$ npm install
 $ hexo generate (hexo generate 为我们生成了静态文件存储于 public 文件夹之下，并且在一开始默认情况下执行这句将会为我们生成一个 Hello World 的页面。)
 $ hexo server (通过 hexo server 运行起 hexo 内置的服务器。这时候就可以开始在本地访问了，默认地址为 localhost:4000 。)
 ```
@@ -127,7 +128,7 @@ github page 可以使用上面提供的网址也可以让每次访问时跳转�
 
 下载并解压缩 [NexT 主题](https://github.com/iissnan/hexo-theme-next)
 
-`wget http://labfile.oss.aliyuncs.com/courses/700/next.zip && unzip next.zip` 
+`wget http://labfile.oss.aliyuncs.com/courses/700/next.zip && unzip next.zip`
 
 需要将主题文件放入 Hexo/blog/themes 下，打开 ../blog/_config.yml 修改 theme 后的内容就可以更改主题了。这会博客就套上了我们的新模板了。但是我们发现博客菜单上的文字是英文的于是我们还要重新配置以下，让主题以中文的方式显示。再次编辑 _config.yml 文件，将 language 项设置为 zh-Hans 。
 

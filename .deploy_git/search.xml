@@ -4,8 +4,26 @@
   
     
     <entry>
-      <title><![CDATA[GithubPage+Hexo搭建博客]]></title>
-      <url>http://noparkinghere.win/2017/04/02/2017/2017-04-02-githubpage-hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
+      <title><![CDATA[35/70 影评-乘风破浪]]></title>
+      <url>http://noparkinghere.win/2017/04/02/2017/2017-04-03-%E5%BD%B1%E8%AF%84-%E4%B9%98%E9%A3%8E%E7%A0%B4%E6%B5%AA/</url>
+      <content type="html"><![CDATA[<p>今晚观看了电影《乘风破浪》，这部电影是今年春节的贺岁片，听看过的人都说算是贺岁电影中比较不错的了，当然这个前提也会死基于现在这么差的国内电影水准的。</p>
+<p>《乘风破浪》是韩寒的第二部作品，第一部是几年前的一个公路片，主题和风格上，两者基本保持一致。在这部电影中，也是能够看到韩寒作为一个导演是有着很大的进步的。</p>
+<p>《乘风破浪》主要内容是一个年轻人穿越回过去，见证了自己的父亲和母亲的一段历史，通过亲眼所见来消除父子多年的矛盾和不睦。其实这种主题的电影已经被玩过很多次了，之前也看过欧美的小短片，有过这种教育题材的视频。</p>
+<p>该电影之所以觉得不错，应该可以归功于以下几点：</p>
+<ul>
+<li>剧情三关比较的真，随着这总题材被玩的很多，但玩的好的并不多。</li>
+<li>演员演技都还比较到位，剧中的演员都可以说是实力派的明星。</li>
+<li>轻戏剧类型，太过承重的文艺/故事片很难让人耐心看下去，如：白日焰火等</li>
+</ul>
+<p>总结下来，这部电影还是值得茶前饭后一看的。</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[34/70 GithubPage+Hexo搭建博客]]></title>
+      <url>http://noparkinghere.win/2017/04/02/2017/2017-04-02-GithubPage+Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
       <content type="html"><![CDATA[<p>个人博客是使用 githubpage+jekyll 搭建的，且博客已经工作有半年了，但由于期初的模板没有找好，加上一些其他的问题，导致博客看起来比较凌乱，这边给出另外一个 GithubPage+Hexo 的博客搭建方法供大家参考，本文操作系统主要使用的是 ubuntu 16.04，使用其他 linux 发行版的用户，可以参考本文。附上最终效果图如下：</p>
 <p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-12-14-githubpage-hexo搭建博客/1.png" alt=""></p>
 <p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-12-14-githubpage-hexo搭建博客/2.png" alt=""></p>
@@ -4680,6 +4698,10 @@
 <h4 id="deepin-scrot截图："><a href="#deepin-scrot截图：" class="headerlink" title="deepin-scrot截图："></a>deepin-scrot截图：</h4><p>效果虽然可以达到 windows 下的截图工具大部分功能，但不够稳定。速度慢，虽然截图功能不是什么大的应用，但奈何之前在 win 平台下的截图都太好用了，暂时还没有在 linux 平台下面找到能够完全满意的截图软件。</p>
 <h4 id="gthumb"><a href="#gthumb" class="headerlink" title="gthumb:"></a>gthumb:</h4><p>一款轻巧好用的图片查看编辑工具，基本具备大多数常用功能，但仍然不能算是满足日常工作需要，最起码标记涂鸦功能都没有。</p>
 <h4 id="分屏功能"><a href="#分屏功能" class="headerlink" title="分屏功能"></a>分屏功能</h4><p>xrandr命令，这是一个命令行软件，并非图形界面软件，但很实用，用于分屏驱动多个显示器，一般是底层控制的，虽然是显示功能，但分屏并非GUI的独享。</p>
+<ul>
+<li>输出当前可用设备：xrandr</li>
+<li>选用你需要使用的设备：xrandr –output HDMI1 –auto ,这边 HDMI1 就是上一条之前命令列出来的设备名称，模式选用自动，一般不会要在配置。</li>
+</ul>
 <h4 id="uget"><a href="#uget" class="headerlink" title="uget"></a>uget</h4><p>uget 工具类似于 windows 下的迅雷，但它调用其他的工具来下载，uget 仅是提供了一个图形界面，这边推荐使用 uget+aria2c 可以让你的速度飞起，比迅雷还要快很多。</p>
 <h4 id="搜狗拼音"><a href="#搜狗拼音" class="headerlink" title="搜狗拼音"></a>搜狗拼音</h4><p>国内最出名的输入法，虽然之前用 windows 时，一直没用过他家的产品，发现只有这家提供了 linux 的版本，除了不支持账号登录外，其他该有的功能基本上都有。</p>
 <h3 id="办公学习"><a href="#办公学习" class="headerlink" title="办公学习"></a>办公学习</h3><h4 id="wps"><a href="#wps" class="headerlink" title="wps"></a>wps</h4><p>linux 上面可以安装 openoffice，而 openoffice 类似于 Microsoft office 该有的功能也都有，但就是界面丑了点，这边我推荐国产的 WPS，让人惊喜的是这款软件目前除了账户同步功能没有，其他基本上和 windows 版本的没有太多区别。</p>

@@ -1,5 +1,6 @@
 #! /bin/bash
 
+cd ~/blog/
 git pull origin master
 hexo clean
 hexo generate

@@ -1,6 +1,6 @@
 ---
 layout: "post"
-title: "34/70 GithubPage+Hexo搭建博客"
+title: "GithubPage+Hexo搭建博客"
 category: "软件应用"
 tags:
 date: "2017-04-02 19:01"

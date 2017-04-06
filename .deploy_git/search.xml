@@ -12,7 +12,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[37/70 腾讯传读后感]]></title>
+      <title><![CDATA[腾讯传读后感]]></title>
       <url>http://noparkinghere.win/2017/04/05/2017/2017-04-05-%E8%85%BE%E8%AE%AF%E4%BC%A0%E8%AF%BB%E5%90%8E%E6%84%9F/</url>
       <content type="html"><![CDATA[<p>上周末阅读完的一本书，之前写过一篇阅读初感，总的来说这本书值得一看，但并不是让人特别满意。</p>
 <p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-03-23-腾讯传读后初感/1.jpg" alt=""></p>
@@ -40,7 +40,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[36/70 影评-我是英雄]]></title>
+      <title><![CDATA[影评-我是英雄]]></title>
       <url>http://noparkinghere.win/2017/04/04/2017/2017-04-04-%E5%BD%B1%E8%AF%84-%E6%88%91%E6%98%AF%E8%8B%B1%E9%9B%84/</url>
       <content type="html"><![CDATA[<p>晚上看了一部僵尸题材的电影：《我是英雄》，说起这个题材其实早就被电影游戏玩烂了，欧美的僵尸片可以说没有 100 部也有 50 部了。</p>
 <p>欧美僵尸题材中最出名的应该算是《生化危机》系列了，这部电影从大约十年前就开始连载了，前段时间有出了第六部。欧美可以说已经把这个题材真的玩烂了，这种电影往往都是在凑剧情，炫特效，这么多年过来，仍然在走着动作特效片，一般的观众大都也审美疲劳了。即便最新的《生化危机6》也是有着冗余的动作场景和特效场景，全片一大半时间在彰显特技，因此评分不可能特别高。</p>
@@ -54,7 +54,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[35/70 影评-乘风破浪]]></title>
+      <title><![CDATA[影评-乘风破浪]]></title>
       <url>http://noparkinghere.win/2017/04/03/2017/2017-04-03-%E5%BD%B1%E8%AF%84-%E4%B9%98%E9%A3%8E%E7%A0%B4%E6%B5%AA/</url>
       <content type="html"><![CDATA[<p>今晚观看了电影《乘风破浪》，这部电影是今年春节的贺岁片，听看过的人都说算是贺岁电影中比较不错的了，当然这个前提也会死基于现在这么差的国内电影水准的。</p>
 <p>《乘风破浪》是韩寒的第二部作品，第一部是几年前的一个公路片，主题和风格上，两者基本保持一致。在这部电影中，也是能够看到韩寒作为一个导演是有着很大的进步的。</p>
@@ -73,7 +73,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[34/70 GithubPage+Hexo搭建博客]]></title>
+      <title><![CDATA[GithubPage+Hexo搭建博客]]></title>
       <url>http://noparkinghere.win/2017/04/02/2017/2017-04-02-GithubPage+Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
       <content type="html"><![CDATA[<p>个人博客是使用 githubpage+jekyll 搭建的，且博客已经工作有半年了，但由于期初的模板没有找好，加上一些其他的问题，导致博客看起来比较凌乱，这边给出另外一个 GithubPage+Hexo 的博客搭建方法供大家参考，本文操作系统主要使用的是 ubuntu 16.04，使用其他 linux 发行版的用户，可以参考本文。附上最终效果图如下：</p>
 <p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-12-14-githubpage-hexo搭建博客/1.png" alt=""></p>
@@ -150,7 +150,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[33/70 跑步一周的体验]]></title>
+      <title><![CDATA[跑步一周的体验]]></title>
       <url>http://noparkinghere.win/2017/04/01/2017/2017-04-01-%E8%B7%91%E6%AD%A5%E4%B8%80%E5%91%A8%E7%9A%84%E4%BD%93%E9%AA%8C/</url>
       <content type="html"><![CDATA[<p>在三月的月初，我开始有计划的参加一些运动，最开始的时候，每天完成一组 seven（某知名手机 APP 的组合运动）。个人一直很羡慕那些能够长跑，能够跑马拉松的人，于是试着开始跑步，可惜由于太久没参加运动，以及缺乏运动常识，导致我第一次跑步就受伤了，之后有两周的时间左脚一走路就剧痛。</p>
 <p>在这周一开始，我觉得休息的差不多了，于是又开始跑步的计划，这周总共跑了 4 次，每次距离都在 1KM 左右，时间也都在 5 分多钟，个人感觉还是比较满意的。算上最开始的一次，这段时间总共有 5 次，下面说下我在这段时间的经验总结，也许对于刚跑起来的你有所启迪：</p>
@@ -173,7 +173,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[32/70 assert调试机制]]></title>
+      <title><![CDATA[assert调试机制]]></title>
       <url>http://noparkinghere.win/2017/03/31/2017/2017-03-31-assert%E8%B0%83%E8%AF%95%E6%9C%BA%E5%88%B6/</url>
       <content type="html"><![CDATA[<p>程序的调试排错往往会占用整个工作的绝大多数时间，很多高级语言都拥有一整套的调试方法。C 语言虽然比较底层，但在调试程序时，也可以使用我之前推荐的 GDB等调试工具，但很多高手绝对不会仅依赖于调试工具，大多数人还是喜欢在开发时用 assert 来排查错误，而开发结束后，更有一些人会使用更加高效完整的日志库等来监控可能出现的 bug。</p>
 <h3 id="C-标准库"><a href="#C-标准库" class="headerlink" title="C 标准库"></a>C 标准库</h3><p>C 标准库中自带了 assert.h 这个文件，可以说前人在使用时已经将排错考虑细致了，我们加入这个功能后即可以直接使用 assert 进行调试了，函数声明：<code>void assert(int expression);</code> expression 这可以是一个变量或任何 C 表达式。如果 expression 为 TRUE，assert() 不执行任何动作。如果 expression 为 FALSE，assert() 会在标准错误 stderr 上显示错误消息，并中止程序执行。实例如下：</p>
@@ -199,7 +199,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[31/70 影评-最终幻想15]]></title>
+      <title><![CDATA[影评-最终幻想15]]></title>
       <url>http://noparkinghere.win/2017/03/30/2017/2017-03-30-%E5%BD%B1%E8%AF%84-%E6%9C%80%E7%BB%88%E5%B9%BB%E6%83%B315/</url>
       <content type="html"><![CDATA[<p>有段时间没看电影了，前几天偶然在豆瓣上面看到《最终幻想15》正在上映，于是从网上下载下来，今晚看了下。</p>
 <p>就特效而言，该片还是可圈可点的，这部电影的特效应该算是顶级的水准了，一些景物建筑场景往往让你很难分辨出真伪。然而，该片的特效并非无人能及，虽然说是目前这种系列里面最顶级的，但也存在很多的不足。</p>
@@ -217,7 +217,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[30/70 C语言回调函数]]></title>
+      <title><![CDATA[C语言回调函数]]></title>
       <url>http://noparkinghere.win/2017/03/29/2017/2017-03-29-c%E8%AF%AD%E8%A8%80%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/</url>
       <content type="html"><![CDATA[<p>使用 C 语言编程时，一般可以将函数调用增加一层封装，这样做可以让函数的使用更加灵活多变。</p>
 <h3 id="宏定义封装"><a href="#宏定义封装" class="headerlink" title="宏定义封装"></a>宏定义封装</h3><p><code>＃define MacroFunction() Afunction(a, b, c)</code> 将Afunction(a, b, c)的常用用法作为一个整体进行封装，这种封装形式，在后续使用时，如果需要修改值的话，可以直接修改<code>＃define MacroFunction() Bfunction(a, b, c)</code> 而无需再进行其他操作。但同时也存在问题，如果我们需要将一半的 Afunction(a, b, c) 改为 Bfunction(a, b, c) 就较为麻烦，如果采用这种方式的话就只能一个个查看替换了。遇到这种情况时，下一种方法是更好的选择。</p>
@@ -276,7 +276,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[29/70 GDB使用小结]]></title>
+      <title><![CDATA[GDB使用小结]]></title>
       <url>http://noparkinghere.win/2017/03/28/2017/2017-03-28-gdb%E4%BD%BF%E7%94%A8%E5%B0%8F%E7%BB%93/</url>
       <content type="html"><![CDATA[<p>最近研究了下 GDB，这是一款调试工具中的神器，其实很久以前就有涉及过这款软件，但是由于交互不直观，太多的命令，操作较为复杂等原因，因此我一直以来都很少使用这个工具，实在没办法的时候往往也都是采用插入输出来排查错误。</p>
 <p>百度百科的介绍如下：UNIX及UNIX-like下的调试工具。或许，各位比较喜欢那种图形界面方式的，像VC、BCB等IDE的调试，但如果你是在 UNIX平台下做软件，你会发现GDB这个调试工具有比VC、BCB的图形化调试器更强大的功能。所谓“寸有所长，尺有所短”就是这个道理。</p>
@@ -319,7 +319,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[28/70 Kdevelop 使用问题]]></title>
+      <title><![CDATA[Kdevelop 使用问题]]></title>
       <url>http://noparkinghere.win/2017/03/27/2017/2017-03-27-kdevelop-%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/</url>
       <content type="html"><![CDATA[<p>在使用 C 语言想要做些测试时，往往找不到比较好的调试工具，一般 C 语言现在都会作为 C++ 附带的内容，很多现代编译器都不再单独列出来了。另一方面，keil 之类的软件虽然专业使用 C 语言做开发，但他们往往都是交叉编译的，不提供 windows 平台下的开发，可能可以选择编译器，但目前来说我没有找到。</p>
 <p>之前写过一篇文章<strong>notepad++和MinGW</strong>也是介绍如何将 notepad++ 配置为一个简易的 C 语言开发工具的，但比较遗憾的是，这个仅能算是一个简单的 C 语言开发工具， notepad++ 暂时还没有发现如何能够编译一个大的工程。另外做项目开发的话，调试相当重要，很可能需要要借助于 GDB 之类的工具监控数据。</p>
@@ -343,7 +343,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[27/70 周小结]]></title>
+      <title><![CDATA[自控力月小结]]></title>
       <url>http://noparkinghere.win/2017/03/26/2017/2017-03-26-%E5%91%A8%E5%B0%8F%E7%BB%93/</url>
       <content type="html"><![CDATA[<p>定期的总结十分重要，以后可能会两-四周写一次总结性文章。</p>
 <h3 id="过去"><a href="#过去" class="headerlink" title="过去"></a>过去</h3><p>最近一周，状态十分的差，主要表现在不但没有达成之前的目标，而且反而退步了，之前的日程如下：</p>
@@ -412,7 +412,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[26/70 如何看待TIM]]></title>
+      <title><![CDATA[如何看待TIM]]></title>
       <url>http://noparkinghere.win/2017/03/25/2017/2017-03-25-tim-%E4%BD%BF%E7%94%A8/</url>
       <content type="html"><![CDATA[<p>腾讯是一家 98 年成立的公司，早期靠 PC 端 qq 起家，数年前移动互联网普及后，又依靠微信再次巩固了自己霸主的低位，数十年来在即时通讯领域无论是国内还是国际上都几乎没有公司可以与之匹敌，2016 年底，腾讯又低调的推出了 TIM 这款 IM (即时通讯)软件。</p>
 <h3 id="TIM-的过去"><a href="#TIM-的过去" class="headerlink" title="TIM 的过去"></a>TIM 的过去</h3><p>早在 MSN 进入中国的时候起，腾讯就一直想要进入商务通讯领域，虽然说 qq 在商务领域一直占有着 50% 左右的市场，但过多的消息提示和广告弹窗让用户往往不厌其烦，加之期初的 qq 设计以及受众人群向来都是低幼化群体（低年龄，低收入，低地位）。因此中产阶层和都市白领历来对 qq 不屑一顾，即便 MSN 再难用，他们也会觉得具备高品味。而 qq 占用的 50% 市场也主要是中小型企业，主要得益于 qq 强大的功能和市场。</p>
@@ -455,7 +455,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[25/70 混乱局面下的中国手机市场]]></title>
+      <title><![CDATA[混乱局面下的中国手机市场]]></title>
       <url>http://noparkinghere.win/2017/03/24/2017/2017-03-24-%E6%B7%B7%E4%B9%B1%E5%B1%80%E9%9D%A2%E4%B8%8B%E7%9A%84%E4%B8%AD%E5%9B%BD%E6%89%8B%E6%9C%BA%E5%B8%82%E5%9C%BA/</url>
       <content type="html"><![CDATA[<p>今天正值周五，也是华为上半年发布旗舰手机的日子。从华为开始做手机时，我就一直用的他家手机，包括，荣耀1，荣耀2，荣耀3，荣耀6。然而透过数据不难发现，只到荣耀6，之所以如此，很大的原因在我这个手机买了将近 3 年，至今仍在使用。这边也许很多人会褒奖它质量好，然而，现在换手机的人大多数并非是因为手机坏了，之所以我不去换手机根本原因在于市面上找不到满意的产品。</p>
 <p>今天的发布会，一如以往，我并没有特地去看，我也并非一个真正的花粉，这些年见证了很多手机厂商潮起潮落，更多的是对这个市场已经麻木。</p>
@@ -477,7 +477,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[24/70 腾讯传读后初感]]></title>
+      <title><![CDATA[腾讯传读后初感]]></title>
       <url>http://noparkinghere.win/2017/03/23/2017/2017-03-23-%E8%85%BE%E8%AE%AF%E4%BC%A0%E8%AF%BB%E5%90%8E%E5%88%9D%E6%84%9F/</url>
       <content type="html"><![CDATA[<p>最近阅读了《腾讯传》这本书，顾名思义，该书是一本传记类书籍，主角是腾讯公司。这本书刚看了 1/3，但还是想把就该书而言的读后感写出来，本文不会讨论书中的情节，仅仅描述为何这个书与众不同。</p>
 <p>我个人大约是小学快毕业的时候开始阅读课外书籍的，至今也有十多年的时间了，过去个人比较偏爱小说，现在也阅读了一些技能类书籍和传记文学作品。</p>
@@ -502,7 +502,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[23/70 如何看待多说关闭服务]]></title>
+      <title><![CDATA[如何看待多说关闭服务]]></title>
       <url>http://noparkinghere.win/2017/03/22/2017/2017-03-22-%E5%A6%82%E4%BD%95%E7%9C%8B%E5%BE%85%E5%A4%9A%E8%AF%B4%E5%85%B3%E9%97%AD%E6%9C%8D%E5%8A%A1/</url>
       <content type="html"><![CDATA[<p>今天浏览个人博客时，无意中发现多说有一栏通知，期初还以为是个人授权到期，点开一看吓了一跳：<strong><a href="http://dev.duoshuo.com/threads/58d1169ae293b89a20c57241" target="_blank" rel="external">重要通知: 多说即将关闭</a></strong>。有些遗憾，毕竟算是国内首屈一指的网站评论系统了，然而细想一下，又觉得理所当然。</p>
 <h3 id="多说简介"><a href="#多说简介" class="headerlink" title="多说简介"></a>多说简介</h3><p>多说是一款追求极致体验的社会化评论框，可以用微博、QQ、人人、豆瓣等帐号登录并评论。多说帮助用户搭建更活跃，更互动的评论平台，功能强大且永久免费。它正在改变网站与用户之间，用户与用户之间的互动方式。这个专门基于社交网络的评论系统，能够轻松的帮网站主搭建自己互动性极强的社区，让留言的用户都有“家”的感觉。</p>
@@ -529,7 +529,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[22/70 MCU内/外部启振]]></title>
+      <title><![CDATA[MCU内/外部启振]]></title>
       <url>http://noparkinghere.win/2017/03/21/2017/2017-03-21-mcu%E5%86%85-%E5%A4%96%E9%83%A8%E5%90%AF%E6%8C%AF/</url>
       <content type="html"><![CDATA[<p>振荡电路相当于 MCU 的心脏，需要为 MCU 提供频率和脉冲，因此一个精准可靠的振荡电路对于 MCU 来说相当重要。</p>
 <h3 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h3><p>振荡电路一般可以分为：LC振荡器，RC振荡器，晶体振荡器。</p>
@@ -1472,7 +1472,7 @@
     <entry>
       <title><![CDATA[linux-shadowsocks全局代理]]></title>
       <url>http://noparkinghere.win/2017/01/25/2017/2017-01-25-ss-linux%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86/</url>
-      <content type="html"><![CDATA[<p>windows 直接下载 ss 终端，稍加设置即可完成全局代理，linux 用户如果需要让某个软件可以使用 ss 一般都需要连接端口才行。例如本地 ss 配置为：<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"server_port"</span>:<span class="number">1800</span>,</div><div class="line"><span class="string">"local_port"</span>:<span class="number">1080</span>,</div></pre></td></tr></table></figure></p>
+      <content type="html"><![CDATA[<p>windows 直接下载 ss 终端，稍加设置即可完成全局代理，linux 用户如果需要让某个软件可以使用 ss 一般都需要连接端口才行。例如本地 ss 配置为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"server_port"</span>:1800,</div><div class="line"><span class="string">"local_port"</span>:1080,</div></pre></td></tr></table></figure></p>
 <h3 id="原理简述"><a href="#原理简述" class="headerlink" title="原理简述"></a>原理简述</h3><p>这边就相当于将本地的 127.0.0.1:1080 和 server_ip:1800 建立了连接关系。因此软件如果需要使用 vps 上面搭建的 ss 服务的话，则需要让该软件使用的协议连接到 127.0.0.1:1080 上。之前在 vps-shadowsocks 中介绍的 chrome 插件 SwitchyOmega 就是使用 SOCKS5 协议连接到 127.0.0.1:1080 上，让所有数据通过 SOCKS5 协议，然后从 127.0.0.1:1080 进行收发。</p>
 <p>可以看出如果我们需要让其他软件也能够使用 ss 则需要让他们也能够使用 127.0.0.1:1080 代理服务器，然而不幸的是，大多数软件并不支持代理服务的功能， windows 平台下的软件很多可以通过设置 IE 代理让其他软件使用代理服务（原理是：大多数软件都会优先读取 IE 的代理设置，再访问网络）。</p>
 <a id="more"></a>
@@ -3417,27 +3417,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[git的配置及相关插件]]></title>
-      <url>http://noparkinghere.win/2016/09/28/2016/2016-09-28-git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6/</url>
-      <content type="html"><![CDATA[<p>一个好的工具，需要不断的打磨和熟悉使用技巧才可以把它用的炉火纯青，git同样如此，本文主要是推荐一些git常用的配置以及配套的一些工具。</p>
-<h3 id="git的相关配置："><a href="#git的相关配置：" class="headerlink" title="git的相关配置："></a>git的相关配置：</h3><h4 id="gitignore配置"><a href="#gitignore配置" class="headerlink" title=".gitignore配置"></a>.gitignore配置</h4><a id="more"></a>
-<h3 id="推荐的git插件："><a href="#推荐的git插件：" class="headerlink" title="推荐的git插件："></a>推荐的git插件：</h3><h4 id="tig"><a href="#tig" class="headerlink" title="tig"></a>tig</h4><p>首先推荐<a href="http://jonas.nitro.dk/tig/" target="_blank" rel="external">tig</a>（名字刚好和git相反），是一个专门针对git的小软件，官方这么介绍<em>text-mode interface for Git</em>。</p>
-<p>推荐可以访问<a href="https://github.com/jonas/tig" target="_blank" rel="external">tig的github页面</a>,里面有相关的下载安装说明。</p>
-<ul>
-<li>软件能够恨清晰的看到你的版本目录结构</li>
-</ul>
-<h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><h4 id="小乌龟插件"><a href="#小乌龟插件" class="headerlink" title="小乌龟插件"></a>小乌龟插件</h4><h4 id="atom"><a href="#atom" class="headerlink" title="atom"></a>atom</h4>]]></content>
-      
-        <categories>
-            
-            <category> 软件应用 </category>
-            
-        </categories>
-        
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[通过git管理一个工程]]></title>
       <url>http://noparkinghere.win/2016/09/28/2016/2016-09-28-%E9%80%9A%E8%BF%87git%E7%AE%A1%E7%90%86%E4%B8%80%E4%B8%AA%E5%B7%A5%E7%A8%8B/</url>
       <content type="html"><![CDATA[<p>GIT虽然能够实现各种版本控制，且功能强大，可以做到随时切换版本，回退等各种功能，但过多的分支，无效的分支，杂乱的提交，无意义的命名等等问题，往往会让像我这样的初学者，异常头痛，网络上关于git的往往都是指导你各个命令如何去用，部分命令的使用场景等，但却缺少一个完整工程项目的管理步骤。部分大神的确总结出了自己的使用习惯，但却不是作为教程来陈述的，下面我会将自己的一些习惯进行总结，后续可能遇到更好的也还会不断的更改。</p>
@@ -3466,6 +3445,27 @@
 <p>参考链接：<br><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000</a><br><a href="http://baike.baidu.com/link?url=weNC33XuaXOCTBp5s3WeZVu-Z9LP41KY_M6_WdGxAJZpJs_sq7jcgZ-3B01u2EiqfK6gb0L6s3-IDiWp1cVgF_" target="_blank" rel="external">http://baike.baidu.com/link?url=weNC33XuaXOCTBp5s3WeZVu-Z9LP41KY_M6_WdGxAJZpJs_sq7jcgZ-3B01u2EiqfK6gb0L6s3-IDiWp1cVgF_</a></p>
 </blockquote>
 ]]></content>
+      
+        <categories>
+            
+            <category> 软件应用 </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[git的配置及相关插件]]></title>
+      <url>http://noparkinghere.win/2016/09/28/2016/2016-09-28-git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6/</url>
+      <content type="html"><![CDATA[<p>一个好的工具，需要不断的打磨和熟悉使用技巧才可以把它用的炉火纯青，git同样如此，本文主要是推荐一些git常用的配置以及配套的一些工具。</p>
+<h3 id="git的相关配置："><a href="#git的相关配置：" class="headerlink" title="git的相关配置："></a>git的相关配置：</h3><h4 id="gitignore配置"><a href="#gitignore配置" class="headerlink" title=".gitignore配置"></a>.gitignore配置</h4><a id="more"></a>
+<h3 id="推荐的git插件："><a href="#推荐的git插件：" class="headerlink" title="推荐的git插件："></a>推荐的git插件：</h3><h4 id="tig"><a href="#tig" class="headerlink" title="tig"></a>tig</h4><p>首先推荐<a href="http://jonas.nitro.dk/tig/" target="_blank" rel="external">tig</a>（名字刚好和git相反），是一个专门针对git的小软件，官方这么介绍<em>text-mode interface for Git</em>。</p>
+<p>推荐可以访问<a href="https://github.com/jonas/tig" target="_blank" rel="external">tig的github页面</a>,里面有相关的下载安装说明。</p>
+<ul>
+<li>软件能够恨清晰的看到你的版本目录结构</li>
+</ul>
+<h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><h4 id="小乌龟插件"><a href="#小乌龟插件" class="headerlink" title="小乌龟插件"></a>小乌龟插件</h4><h4 id="atom"><a href="#atom" class="headerlink" title="atom"></a>atom</h4>]]></content>
       
         <categories>
             

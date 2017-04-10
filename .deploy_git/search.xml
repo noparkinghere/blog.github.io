@@ -277,7 +277,8 @@
     <entry>
       <title><![CDATA[C语言回调函数]]></title>
       <url>http://noparkinghere.win/2017/03/29/2017/2017-03-29-c%E8%AF%AD%E8%A8%80%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/</url>
-      <content type="html"><![CDATA[<p>使用 C 语言编程时，一般可以将函数调用增加一层封装，这样做可以让函数的使用更加灵活多变。</p>
+      <content type="html"><![CDATA[<h2 id="灵活性"><a href="#灵活性" class="headerlink" title="灵活性"></a>灵活性</h2><p>使用 C 语言编程时，一般可以将函数调用增加一层封装，这样做可以让函数的使用更加灵活多变。</p>
+<p>回调函数可以让函数功能调用起来更加的灵活，以下几种方式则是 C 语言中，实现代码重用的方法，他们由简单到灵活，也都是存在特定的使用背景的。</p>
 <h3 id="宏定义封装"><a href="#宏定义封装" class="headerlink" title="宏定义封装"></a>宏定义封装</h3><p><code>＃define MacroFunction() Afunction(a, b, c)</code> 将Afunction(a, b, c)的常用用法作为一个整体进行封装，这种封装形式，在后续使用时，如果需要修改值的话，可以直接修改<code>＃define MacroFunction() Bfunction(a, b, c)</code> 而无需再进行其他操作。但同时也存在问题，如果我们需要将一半的 Afunction(a, b, c) 改为 Bfunction(a, b, c) 就较为麻烦，如果采用这种方式的话就只能一个个查看替换了。遇到这种情况时，下一种方法是更好的选择。</p>
 <a id="more"></a>
 <h3 id="静态入口函数"><a href="#静态入口函数" class="headerlink" title="静态入口函数"></a>静态入口函数</h3><p>静态的入口函数，保证函数名相同，利用标志位调用子函数。这样的典型应用很多，比如说网卡驱动里面有一个入口函数Nilan（int FunctionCode，Para*）。具体的参数是什么记不清楚了。不过NiLan的主体是这样的：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Long Nila（int FunctionCode，Para*）</div><div class="line">&#123;</div><div class="line">   Switch(FunctionCode)</div><div class="line">   &#123;</div><div class="line">	   Case SendPacket: send(….)</div><div class="line">	   Case ReceivePacket: receive(…)</div><div class="line">	   ...</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -308,10 +309,25 @@
 <p>以上的例子过于简单，并没有多大的实际意义，但我们通过这样的例子可以看出回调函数和上面讲述的静态入口函数都是在原本的函数上面多加了一层封装，为了让函数调用起来更加灵活多变。</p>
 <p>更进一步，利用回调函数，C 语言能够实现很多技巧性的操作，下面扩充一个例子，用回调函数来实现的一个简单泛型程序：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">/* 以下的泛型只是举例，如果需要比较浮点型，字符型则需要补充完善回调函数 */</div><div class="line"></div><div class="line"><span class="comment">#include &lt;stdio.h&gt;</span></div><div class="line"></div><div class="line">typedef int (*cmp)(void *, void *);</div><div class="line"></div><div class="line">typedef struct</div><div class="line">&#123;</div><div class="line">    char *name;</div><div class="line">    <span class="built_in">float</span> score;</div><div class="line">&#125; stru_member, *pstru_member;</div><div class="line"></div><div class="line">void *Max(void *p[], int len, cmp fun)</div><div class="line">&#123;</div><div class="line">    void *res = p[0];</div><div class="line">    <span class="keyword">for</span> (int i = 0; i &lt; len; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> ((*fun)(p[i], res))		// 这边等价于 <span class="keyword">if</span> (fun(p[i], res))</div><div class="line">        &#123;</div><div class="line">            res = p[i];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> res;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int comp(int *a, int *b)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (*a &gt; *b)</div><div class="line">        <span class="built_in">return</span> 1;</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="built_in">return</span> 0;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int mcomp(pstru_member a, pstru_member b)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (a-&gt;score &gt; b-&gt;score)</div><div class="line">        <span class="built_in">return</span> 1;</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="built_in">return</span> 0;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main(void)</div><div class="line">&#123;</div><div class="line">    int *pres;</div><div class="line">    int data[5] = &#123;1, 12, 30, 4, 5&#125;;</div><div class="line">    int *pdata[5] = &#123;&amp;data[0], &amp;data[1], &amp;data[2], &amp;data[3], &amp;data[4]&#125;;</div><div class="line">    pres = Max((void **)pdata, 5, (cmp)&amp;comp);		// 这边等价于 pres = Max((void **)pdata, 5, (cmp)comp);	</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, *pres);</div><div class="line"></div><div class="line">    stru_member mem[3] = &#123;&#123;<span class="string">"no.1"</span>, 99.6&#125;, &#123;<span class="string">"no.2"</span>, 91.4&#125;, &#123;<span class="string">"no.3"</span>, 95.5&#125;&#125;;</div><div class="line">    pstru_member pmem[3] = &#123;&amp;mem[0], &amp;mem[1], &amp;mem[2]&#125;;</div><div class="line">    pstru_member pres2 = Max((void **)pmem, 3, (cmp)&amp;mcomp);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%s:%f\n"</span>, pres2-&gt;name, pres2-&gt;score);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="调用方式"><a href="#调用方式" class="headerlink" title="调用方式"></a>调用方式</h2><p>软件模块之间总是存在着一定的接口，从调用方式上，可以把他们分为三类：同步调用、回调和异步调用。同步调用是一种阻塞式调用，调用方要等待对方执行完毕才返回，它是一种单向调用；回调是一种双向调用模式，也就是说，被调用方在接口被调用时也会调用对方的接口；异步调用是一种类似消息或事件的机制，不过它的调用方向刚好相反，接口的服务在收到某种讯息或发生某种事件时，会主动通知客户方（即调用客户方的接口）。回调和异步调用的关系非常紧密，通常我们使用回调来实现异步消息的注册，通过异步调用来实现消息的通知。同步调用是三者当中最简单的，而回调又常常是异步调用的基础。</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-03-29-c语言回调函数/1.gif" alt=""></p>
+<p>这几种调用方式并不完全是 C 语言中的常用方式，往往我们需要加入一些小技巧才可以完成这些功能的实现。</p>
+<h3 id="同步调用"><a href="#同步调用" class="headerlink" title="同步调用"></a>同步调用</h3><p>现在有 A B C 三个事件，首先，A 事件完成了才可以触发 B 事件，然后 B 事件完成了，才可以触发 C 事件。这中间，如果 A 事件休眠了一段时间，B 也不得不等待，同样 B 出了问题，C 会等待 A 和 B 更长时间。<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> A complete</div><div class="line"><span class="keyword">do</span> B</div><div class="line"><span class="keyword">else</span> </div><div class="line"><span class="built_in">wait</span> A</div><div class="line"></div><div class="line"><span class="keyword">if</span> B complete</div><div class="line"><span class="keyword">do</span> C</div><div class="line"><span class="keyword">else</span></div><div class="line"><span class="built_in">wait</span> B</div></pre></td></tr></table></figure></p>
+<p>这种就是典型的阻塞机制，无论如何我们只能等待上一个任务的完成，如果没有完成我们只能继续等待，这样造成的问题是，我们一直在浪费系统资源。</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">void <span class="function"><span class="keyword">fun</span>(<span class="title">void</span></span>)</div><div class="line">&#123;</div><div class="line">    int temp = <span class="number">0</span>;  </div><div class="line">    <span class="keyword">while</span>(!temp)&#123;  </div><div class="line">      temp = wait(funA());  </div><div class="line">    &#125;    </div><div class="line">    temp = <span class="number">0</span>;  </div><div class="line">    <span class="keyword">while</span>(!temp)&#123;  </div><div class="line">      temp = wait(funB());  </div><div class="line">    &#125;  </div><div class="line">    temp = <span class="number">0</span>;  </div><div class="line">    <span class="keyword">while</span>(!temp)&#123;  </div><div class="line">      temp = wait(funC());  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="回调"><a href="#回调" class="headerlink" title="回调"></a>回调</h3><p>回调是一种双向调用模式，也就是说，被调用方在接口被调用时也会调用对方的接口。</p>
+<p>对于一般的结构化语言，可以通过回调函数来实现回调。回调函数也是一个函数或过程，不过它是一个由调用方自己实现，供被调用方使用的特殊函数。在面向对象的语言中，回调则是通过接口或抽象类来实现的，我们把实现这种接口的类成为回调类，回调类的对象成为回调对象。对于象C++或Object Pascal这些兼容了过程特性的对象语言，不仅提供了回调对象、回调方法等特性，也能兼容过程语言的回调函数机制。</p>
+<p>大家应该看到了，有两种做法，一种是先发送信号（执行回调函数），然后继续执行下面的代码。同样可以先执行代码再发送信号。</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> A <span class="keyword">Message</span>  </div><div class="line">send <span class="keyword">to</span> b   </div><div class="line"><span class="keyword">do</span> A  </div><div class="line">  </div><div class="line"><span class="keyword">if</span> B <span class="keyword">Message</span> From b  </div><div class="line"><span class="keyword">do</span> B  </div><div class="line">send <span class="keyword">to</span> c  </div><div class="line">  </div><div class="line"><span class="keyword">if</span> B complete  </div><div class="line"><span class="keyword">do</span> C  </div><div class="line"><span class="keyword">message</span> from c</div></pre></td></tr></table></figure>
+<p>这种就是在函数的参数中带有一个其他函数指针，当需要的时候我们可以通过函数指针名进行调用其他函数即发送消息到其他函数。</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">void <span class="function"><span class="keyword">fun</span>(<span class="title">A</span></span>, callback)</div><div class="line">&#123;  </div><div class="line">   callback();  </div><div class="line">   funA();  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line">void callback()</div><div class="line">&#123;  </div><div class="line">   funB();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="异步调用"><a href="#异步调用" class="headerlink" title="异步调用"></a>异步调用</h3><p>异步调用是一种类似消息或事件的机制，不过它的调用方向刚好相反，接口的服务在收到某种讯息或发生某种事件时，会主动通知客户方（即调用客户方的接口）。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">F tell A  </div><div class="line">  <span class="keyword">do</span> A  </div><div class="line">  <span class="keyword">time</span> <span class="number">2</span> hours  </div><div class="line">  <span class="keyword">if</span> A <span class="keyword">complete</span> Report <span class="keyword">to</span> F  </div><div class="line">F tell B  </div><div class="line">  <span class="keyword">do</span> B  </div><div class="line"> <span class="keyword">time</span> <span class="number">1</span> hours  </div><div class="line">  <span class="keyword">if</span> B <span class="keyword">complete</span> Report <span class="keyword">to</span> F  </div><div class="line">F tell C  </div><div class="line">  <span class="keyword">do</span> C  </div><div class="line"> <span class="keyword">time</span> <span class="number">1.5</span> hours  </div><div class="line">  <span class="keyword">if</span> C <span class="keyword">complete</span> Report <span class="keyword">to</span> F  </div><div class="line">F tell D  </div><div class="line">  <span class="keyword">do</span> D  </div><div class="line">  <span class="keyword">time</span> <span class="number">3</span> hours  </div><div class="line">  <span class="keyword">if</span> D <span class="keyword">complete</span> Report <span class="keyword">to</span> F</div></pre></td></tr></table></figure>
+<p>四个程序虽然有先后次序整体上看是依次执行的，但是执行的过程中，我们并不会因为前面的代码没有执行完，而不执行。</p>
 <p><em>回调函数在 C 语言中太过常用，往往一些高级的操作都需要使用这个技巧，后续还会更新一些关于回调函数技巧使用的一些文章。</em></p>
 <hr>
 <blockquote>
-<p>参考链接：<br><a href="http://c.biancheng.net/cpp/html/1202.html" target="_blank" rel="external">http://c.biancheng.net/cpp/html/1202.html</a><br><a href="http://blog.codingnow.com/2010/03/object_oriented_programming_in_c.html" target="_blank" rel="external">http://blog.codingnow.com/2010/03/object_oriented_programming_in_c.html</a><br><a href="https://www.zhihu.com/question/19801131" target="_blank" rel="external">https://www.zhihu.com/question/19801131</a><br><a href="http://blog.csdn.net/tzshlyt/article/details/52993282" target="_blank" rel="external">http://blog.csdn.net/tzshlyt/article/details/52993282</a><br><a href="http://www.cnblogs.com/kunhu/p/3713370.html" target="_blank" rel="external">http://www.cnblogs.com/kunhu/p/3713370.html</a><br><a href="http://www.cnblogs.com/kunhu/p/3700610.html" target="_blank" rel="external">http://www.cnblogs.com/kunhu/p/3700610.html</a></p>
+<p>参考链接：<br><a href="http://c.biancheng.net/cpp/html/1202.html" target="_blank" rel="external">http://c.biancheng.net/cpp/html/1202.html</a><br><a href="http://blog.codingnow.com/2010/03/object_oriented_programming_in_c.html" target="_blank" rel="external">http://blog.codingnow.com/2010/03/object_oriented_programming_in_c.html</a><br><a href="https://www.zhihu.com/question/19801131" target="_blank" rel="external">https://www.zhihu.com/question/19801131</a><br><a href="http://blog.csdn.net/tzshlyt/article/details/52993282" target="_blank" rel="external">http://blog.csdn.net/tzshlyt/article/details/52993282</a><br><a href="http://www.cnblogs.com/kunhu/p/3713370.html" target="_blank" rel="external">http://www.cnblogs.com/kunhu/p/3713370.html</a><br><a href="http://www.cnblogs.com/kunhu/p/3700610.html" target="_blank" rel="external">http://www.cnblogs.com/kunhu/p/3700610.html</a><br><a href="http://blog.csdn.net/dan_blog/article/details/7897852" target="_blank" rel="external">http://blog.csdn.net/dan_blog/article/details/7897852</a><br><a href="http://bbs.bccn.net/thread-457131-1-1.html" target="_blank" rel="external">http://bbs.bccn.net/thread-457131-1-1.html</a><br><a href="https://www.ibm.com/developerworks/cn/linux/l-callback/" target="_blank" rel="external">https://www.ibm.com/developerworks/cn/linux/l-callback/</a><br><a href="http://xenyinzen.wikidot.com/reship:080123-8" target="_blank" rel="external">http://xenyinzen.wikidot.com/reship:080123-8</a></p>
 </blockquote>
 <hr>
 <p>写作时间：21:39-22:56</p>
@@ -2930,45 +2946,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[串口RS485通信详解]]></title>
-      <url>http://noparkinghere.win/2016/10/19/2016/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
-      <content type="html"><![CDATA[<p><strong>注意：串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。串口的一些内容不再逐一介绍说明，可以参加之前的usb转串口及RS232通信等文章</strong></p>
-<h3 id="特性介绍"><a href="#特性介绍" class="headerlink" title="特性介绍"></a>特性介绍</h3><p>485（一般称作 RS485/EIA-485）是隶属于 OSI 模型物理层的电气特性规定为 2 线，半双工，多点通信的标准。它的电气特性和 RS-232 大不一样。用缆线两端的电压差值来表示传递信号。值得注意的是：RS485 仅仅规定了接受端和发送端的电气特性，它没有规定或推荐任何数据协议。</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/1.jpg" alt=""></p>
-<p>RS485接口可以只使用两根线进行通讯（其他串口通讯至少需要三根线，一根为地线作为参考电平），通过差分电平（利用两个信号的差值来判断信息，使用差分信号来传输的，也就是一根线传同相信号，一根线传反相，这样差值最大，抗干扰能力强。）来确定信号是0还是1，也正因为这个原因，所以RS485每次有且仅有一根线能够传输数据，另外一根线作为比对信号，因此RS485是半双工的通讯方式。主要特点如下：</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/2.jpg" alt=""></p>
-<ul>
-<li>接口电平低，不易损坏芯片。 RS485 的电气特性：逻辑“ 1”以两线间的电压差为+(2~6)V<br>表示；逻辑“ 0”以两线间的电压差为-(2~6)V 表示。接口信号电平比 RS232 降低了，<br>不易损坏接口电路的芯片，且该电平与 TTL 电平兼容，可方便与 TTL 电路连接。</li>
-<li>传输速率高。 10 米时， RS485 的数据最高传输速率可达 35Mbps，在 1200m 时，传输<br>速度可达 100Kbps。</li>
-<li>抗干扰能力强。 RS485 接口是采用平衡驱动器和差分接收器的组合，抗共模干扰能力<br>增强，即抗噪声干扰性好。 传输距离远，支持节点多。 RS485 总线最长可以传输 1200m<br>以上（速率≤100Kbps）</li>
-<li>一般最大支持 32 个节点，如果使用特制的 485 芯片，可以达到 128 个或者 256 个节点，<br>最大的可以支持到 400 个节点。</li>
-</ul>
-<a id="more"></a>
-<h3 id="类比RS232"><a href="#类比RS232" class="headerlink" title="类比RS232"></a>类比RS232</h3><p>实际上232串口在实际使用已经用处不大，但基于232发展出来的485等串口设备仍然被广泛使用，RS-485（EIA-485标准）是RS-422的改进，因为它增加了设备的个数，从10个增加到32个，同时定义了在最大设备个数情况下的电气特性，以保证足够的信号电压。有了多个设备的能力，你可以使用一个单个RS-485口建立设备网络。</p>
-<p>因为都是采用串口通信协议，所以软件端几乎可以直接使用，且RS485具备耗材少，抗干扰强等特点，在目前的工业领域仍然被广泛使用，这边主要列举出不同：</p>
-<ul>
-<li>从接线上，RS232是三线制，RS485是两线制</li>
-<li>从传输距离上，RS232只能传输15米，RS485最远可以传输1200米</li>
-<li>从速率上，RS232是全双工传输，RS485是半双工传输</li>
-<li>从协议层上，RS232只支持点对点通讯(1:1)，RS485支持总线形式通讯（1:N）</li>
-</ul>
-<p>RS232的接线：<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/3.jpg" alt="">)</p>
-<p>RS485的接线<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/4.jpg" alt=""></p>
-<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><blockquote>
-<p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a></p>
-</blockquote>
-]]></content>
-      
-        <categories>
-            
-            <category> 嵌入式 </category>
-            
-        </categories>
-        
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[串口RS232通信详解]]></title>
       <url>http://noparkinghere.win/2016/10/19/2016/2016-10-19-%E4%B8%B2%E5%8F%A3RS232%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<p>串行接口是一种可以将接受来自CPU的并行数据字符转换为连续的串行数据流发送出去，同时可将接受的串行数据流转换为并行的数据字符供给CPU的器件。一般完成这种功能的电路，我们称为串行接口电路。曾经PC之间进行串口通信可以说是标配，很多老式电脑上面可以看到DB25的接头，但后来逐渐被DB9取代，早期鼠标打印机都通过串口进行数据传输的，但现在逐渐被USB和网络所取代，DB9的串口接头在PC和笔记本上面也较少能够看到了。做嵌入式开发可以看到有个DB9的串口标准接口，串口对于开发人员输入输出调试等有着至关重要的作用。串行接口按电气标准及协议来分包括RS-232-C、RS-422、RS485等，现在串口一般在工业嵌入式领域使用。</p>
@@ -3028,6 +3005,45 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
 <blockquote>
 <p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a><br><a href="http://www.baike.com/wiki/51+IO%E5%8F%A3%E6%A8%A1%E6%8B%9F%E4%B8%B2%E5%8F%A3%E9%80%9A%E8%AE%AFC%E6%BA%90%E7%A8%8B%E5%BA%8F" target="_blank" rel="external">http://www.baike.com/wiki/51+IO%E5%8F%A3%E6%A8%A1%E6%8B%9F%E4%B8%B2%E5%8F%A3%E9%80%9A%E8%AE%AFC%E6%BA%90%E7%A8%8B%E5%BA%8F</a><br><a href="http://ziye334.blog.163.com/blog/static/224306191201452833850647" target="_blank" rel="external">http://ziye334.blog.163.com/blog/static/224306191201452833850647</a></p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> 嵌入式 </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[串口RS485通信详解]]></title>
+      <url>http://noparkinghere.win/2016/10/19/2016/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<p><strong>注意：串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。串口的一些内容不再逐一介绍说明，可以参加之前的usb转串口及RS232通信等文章</strong></p>
+<h3 id="特性介绍"><a href="#特性介绍" class="headerlink" title="特性介绍"></a>特性介绍</h3><p>485（一般称作 RS485/EIA-485）是隶属于 OSI 模型物理层的电气特性规定为 2 线，半双工，多点通信的标准。它的电气特性和 RS-232 大不一样。用缆线两端的电压差值来表示传递信号。值得注意的是：RS485 仅仅规定了接受端和发送端的电气特性，它没有规定或推荐任何数据协议。</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/1.jpg" alt=""></p>
+<p>RS485接口可以只使用两根线进行通讯（其他串口通讯至少需要三根线，一根为地线作为参考电平），通过差分电平（利用两个信号的差值来判断信息，使用差分信号来传输的，也就是一根线传同相信号，一根线传反相，这样差值最大，抗干扰能力强。）来确定信号是0还是1，也正因为这个原因，所以RS485每次有且仅有一根线能够传输数据，另外一根线作为比对信号，因此RS485是半双工的通讯方式。主要特点如下：</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/2.jpg" alt=""></p>
+<ul>
+<li>接口电平低，不易损坏芯片。 RS485 的电气特性：逻辑“ 1”以两线间的电压差为+(2~6)V<br>表示；逻辑“ 0”以两线间的电压差为-(2~6)V 表示。接口信号电平比 RS232 降低了，<br>不易损坏接口电路的芯片，且该电平与 TTL 电平兼容，可方便与 TTL 电路连接。</li>
+<li>传输速率高。 10 米时， RS485 的数据最高传输速率可达 35Mbps，在 1200m 时，传输<br>速度可达 100Kbps。</li>
+<li>抗干扰能力强。 RS485 接口是采用平衡驱动器和差分接收器的组合，抗共模干扰能力<br>增强，即抗噪声干扰性好。 传输距离远，支持节点多。 RS485 总线最长可以传输 1200m<br>以上（速率≤100Kbps）</li>
+<li>一般最大支持 32 个节点，如果使用特制的 485 芯片，可以达到 128 个或者 256 个节点，<br>最大的可以支持到 400 个节点。</li>
+</ul>
+<a id="more"></a>
+<h3 id="类比RS232"><a href="#类比RS232" class="headerlink" title="类比RS232"></a>类比RS232</h3><p>实际上232串口在实际使用已经用处不大，但基于232发展出来的485等串口设备仍然被广泛使用，RS-485（EIA-485标准）是RS-422的改进，因为它增加了设备的个数，从10个增加到32个，同时定义了在最大设备个数情况下的电气特性，以保证足够的信号电压。有了多个设备的能力，你可以使用一个单个RS-485口建立设备网络。</p>
+<p>因为都是采用串口通信协议，所以软件端几乎可以直接使用，且RS485具备耗材少，抗干扰强等特点，在目前的工业领域仍然被广泛使用，这边主要列举出不同：</p>
+<ul>
+<li>从接线上，RS232是三线制，RS485是两线制</li>
+<li>从传输距离上，RS232只能传输15米，RS485最远可以传输1200米</li>
+<li>从速率上，RS232是全双工传输，RS485是半双工传输</li>
+<li>从协议层上，RS232只支持点对点通讯(1:1)，RS485支持总线形式通讯（1:N）</li>
+</ul>
+<p>RS232的接线：<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/3.jpg" alt="">)</p>
+<p>RS485的接线<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/4.jpg" alt=""></p>
+<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><blockquote>
+<p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a></p>
 </blockquote>
 ]]></content>
       
@@ -3477,6 +3493,27 @@
     </entry>
     
     <entry>
+      <title><![CDATA[git的配置及相关插件]]></title>
+      <url>http://noparkinghere.win/2016/09/28/2016/2016-09-28-git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6/</url>
+      <content type="html"><![CDATA[<p>一个好的工具，需要不断的打磨和熟悉使用技巧才可以把它用的炉火纯青，git同样如此，本文主要是推荐一些git常用的配置以及配套的一些工具。</p>
+<h3 id="git的相关配置："><a href="#git的相关配置：" class="headerlink" title="git的相关配置："></a>git的相关配置：</h3><h4 id="gitignore配置"><a href="#gitignore配置" class="headerlink" title=".gitignore配置"></a>.gitignore配置</h4><a id="more"></a>
+<h3 id="推荐的git插件："><a href="#推荐的git插件：" class="headerlink" title="推荐的git插件："></a>推荐的git插件：</h3><h4 id="tig"><a href="#tig" class="headerlink" title="tig"></a>tig</h4><p>首先推荐<a href="http://jonas.nitro.dk/tig/" target="_blank" rel="external">tig</a>（名字刚好和git相反），是一个专门针对git的小软件，官方这么介绍<em>text-mode interface for Git</em>。</p>
+<p>推荐可以访问<a href="https://github.com/jonas/tig" target="_blank" rel="external">tig的github页面</a>,里面有相关的下载安装说明。</p>
+<ul>
+<li>软件能够恨清晰的看到你的版本目录结构</li>
+</ul>
+<h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><h4 id="小乌龟插件"><a href="#小乌龟插件" class="headerlink" title="小乌龟插件"></a>小乌龟插件</h4><h4 id="atom"><a href="#atom" class="headerlink" title="atom"></a>atom</h4>]]></content>
+      
+        <categories>
+            
+            <category> 软件应用 </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[通过git管理一个工程]]></title>
       <url>http://noparkinghere.win/2016/09/28/2016/2016-09-28-%E9%80%9A%E8%BF%87git%E7%AE%A1%E7%90%86%E4%B8%80%E4%B8%AA%E5%B7%A5%E7%A8%8B/</url>
       <content type="html"><![CDATA[<p>GIT虽然能够实现各种版本控制，且功能强大，可以做到随时切换版本，回退等各种功能，但过多的分支，无效的分支，杂乱的提交，无意义的命名等等问题，往往会让像我这样的初学者，异常头痛，网络上关于git的往往都是指导你各个命令如何去用，部分命令的使用场景等，但却缺少一个完整工程项目的管理步骤。部分大神的确总结出了自己的使用习惯，但却不是作为教程来陈述的，下面我会将自己的一些习惯进行总结，后续可能遇到更好的也还会不断的更改。</p>
@@ -3505,27 +3542,6 @@
 <p>参考链接：<br><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000</a><br><a href="http://baike.baidu.com/link?url=weNC33XuaXOCTBp5s3WeZVu-Z9LP41KY_M6_WdGxAJZpJs_sq7jcgZ-3B01u2EiqfK6gb0L6s3-IDiWp1cVgF_" target="_blank" rel="external">http://baike.baidu.com/link?url=weNC33XuaXOCTBp5s3WeZVu-Z9LP41KY_M6_WdGxAJZpJs_sq7jcgZ-3B01u2EiqfK6gb0L6s3-IDiWp1cVgF_</a></p>
 </blockquote>
 ]]></content>
-      
-        <categories>
-            
-            <category> 软件应用 </category>
-            
-        </categories>
-        
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[git的配置及相关插件]]></title>
-      <url>http://noparkinghere.win/2016/09/28/2016/2016-09-28-git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6/</url>
-      <content type="html"><![CDATA[<p>一个好的工具，需要不断的打磨和熟悉使用技巧才可以把它用的炉火纯青，git同样如此，本文主要是推荐一些git常用的配置以及配套的一些工具。</p>
-<h3 id="git的相关配置："><a href="#git的相关配置：" class="headerlink" title="git的相关配置："></a>git的相关配置：</h3><h4 id="gitignore配置"><a href="#gitignore配置" class="headerlink" title=".gitignore配置"></a>.gitignore配置</h4><a id="more"></a>
-<h3 id="推荐的git插件："><a href="#推荐的git插件：" class="headerlink" title="推荐的git插件："></a>推荐的git插件：</h3><h4 id="tig"><a href="#tig" class="headerlink" title="tig"></a>tig</h4><p>首先推荐<a href="http://jonas.nitro.dk/tig/" target="_blank" rel="external">tig</a>（名字刚好和git相反），是一个专门针对git的小软件，官方这么介绍<em>text-mode interface for Git</em>。</p>
-<p>推荐可以访问<a href="https://github.com/jonas/tig" target="_blank" rel="external">tig的github页面</a>,里面有相关的下载安装说明。</p>
-<ul>
-<li>软件能够恨清晰的看到你的版本目录结构</li>
-</ul>
-<h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><h4 id="小乌龟插件"><a href="#小乌龟插件" class="headerlink" title="小乌龟插件"></a>小乌龟插件</h4><h4 id="atom"><a href="#atom" class="headerlink" title="atom"></a>atom</h4>]]></content>
       
         <categories>
             
@@ -3597,9 +3613,77 @@
     <entry>
       <title><![CDATA[字符编码]]></title>
       <url>http://noparkinghere.win/2016/09/22/2016/2016-09-22-%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/</url>
-      <content type="html"><![CDATA[<a id="more"></a>
+      <content type="html"><![CDATA[<p>字符编码（英语：Character encoding）、字集码是把字符集中的字符编码为指定集合中某一对象（例如：比特模式、自然数序列、8位组或者电脉冲），以便文本在计算机中存储和通过通信网络的传递。计算机中的字符编码算是一个历史遗留性问题，因为各个国家种族对应着不同的问题，以及各个组织机构推出不同的标准，因此现在计算机中的字符编码格式繁多。</p>
+<p>打开某网页，或者用记事本打开某文本文件时，我们可能会看到一堆的乱码如”бЇЯАзЪСЯ”、”�????????”，出现这种问题，往往是我们选用的字符编码不对。</p>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>计算机中储存的信息都是用二进制数表示的；而我们在屏幕上看到的英文、汉字等字符是二进制数转换之后的结果。也就是说，我们在计算机中存储数据时，字母 ‘a’ 需要用什么二进制来表示，这便称为”编码”；反之，将存储在计算机中的二进制数解析显示出来，称为”解码”，如同密码学中的加密和解密。而如果在解码过程中我们使用了错误的规则，则会导致解码错误 ‘a’ 变成了 ‘0’。</p>
+<p>字符集（Charset）：是一个系统支持的所有抽象字符的集合。字符是各种文字和符号的总称，包括各国家文字、标点符号、图形符号、数字等。</p>
+<p>字符编码（Character Encoding）：是一套法则，使用该法则能够对自然语言的字符的一个集合（如字母表或音节表），与其他东西的一个集合（如号码或电脉冲）进行配对。即在符号集合与数字系统之间建立对应关系，它是信息处理的一项基本技术。通常人们用符号集合（一般情况下就是文字）来表达信息。而以计算机为基础的信息处理系统则是利用元件（硬件）不同状态的组合来存储和处理信息的。元件不同状态的组合能代表数字系统的数字，因此字符编码就是将符号转换为计算机可以接受的数字系统的数，称为数字代码。</p>
+<h3 id="常用编码"><a href="#常用编码" class="headerlink" title="常用编码"></a>常用编码</h3><p>常见字符编码为：ASCII,GB2312,UTF-8,Unicode,Big5等，下面我们对其中一些详细阐述。</p>
+<h4 id="ASCII"><a href="#ASCII" class="headerlink" title="ASCII"></a>ASCII</h4><p>ASCII（1963年）和EBCDIC（1964年）这样的字符集逐渐成为标准。最早的时候计算机ASCII码只能表示256个符号（含控制符号），这个字符集表示英文字母足够。使用7位（bits）表示一个字符，共128字符；但是7位编码的字符集只能支持128个字符，为了表示更多的欧洲常用字符对ASCII进行了扩展，我们通常成为扩展 ASCII 码，其使用 8位（bits）表示一个字符，共256字符。</p>
+<p>一般标准 ASCII 码是每个学计算机的人必须知道和了解的，对常用的一些字符所表示的二进制能够非常熟悉，例如：(0-9)-&gt;(0x30-0x39) (A-Z)-&gt;(0x41-0x5A) (a-z)-&gt;(0x61-7A) NULL-&gt;(0x00) 等。</p>
+<p>虽然 ASCII 的使用范围很广，但表示汉字、日语、韩语就不太够用了，汉字常用字有3000多个。这些字符集的局限很快就变得明显，于是人们开发了许多方法来扩展它们，于是就有了其他一些新兴字符集的出现。</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-09-22-字符编码/1.png" alt=""></p>
+<h4 id="GB2312"><a href="#GB2312" class="headerlink" title="GB2312"></a>GB2312</h4><p>计算机发明之处及后面很长一段时间，只用应用于美国及西方一些发达国家，ASCII能够很好满足用户的需求。但对于亚洲众多国家来说并不适用，当计算机传入我国后，为了显示中文，必须设计一套编码规则用于将汉字转换为计算机可以接受的数字系统的数。</p>
+<p>于是国内指定了国标 GB2312（中国国家标准简体中文字符集），全称《信息交换用汉字编码字符集·基本集》，又称GB0，由中国国家标准总局发布，1981年5月1日实施。GB2312编码通行于中国大陆；新加坡等地也采用此编码。</p>
+<p>中国大陆几乎所有的中文系统和国际化的软件都支持GB2312。GB2312的出现，基本满足了汉字的计算机处理需要，它所收录的汉字已经覆盖中国大陆99.75%的使用频率。对于人名、古汉语等方面出现的罕用字，GB2312不能处理，这导致了后来GBK及GB 18030汉字字符集的出现。</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-09-22-字符编码/2.png" alt=""></p>
+<p>GB2312 定义的规则如下：一个小于 127 的字符的意义与原来相同（即：兼容 ASCII 码标准），但两个大于 127 的字符连在一起时，就表示一个汉字，前面的一个字节（他称之为高字节）从 0xA1 用到 0xF7，后面一个字节（低字节）从 0xA1 到 0xFE，这样我们就可以组合出大约 7000 多个简体汉字了，GB2312 是对 ASCII 的中文扩展。</p>
+<p>在这些编码里，还把数学符号、罗马希腊的 字母、日文的假名们都编进去了，连在 ASCII 里本来就有的数字、标点、字母都统统重新编了两个字节长的编码，这就是常说的”全角”字符，而原来在 127 号以下的那些就叫”半角”字符了，也就不难看出为何我们平时选用全角输入数字字母时，会发现样式变宽了，占用了多个位置，这也是因为采用全角后，每个字符占用了两个字节，一般我应该要避免使用这种情况输入。</p>
+<p>GB2312 后来发现还是不够用，于是干脆不再要求低字节一定是127号之后的内码，只要第一个字节是大于127就固定表示这是一个汉字的开始，不管后面跟的是不是扩展字符集里的内容。结果扩展之后的编码方案被称为 GBK 标准，GBK 包括了 GB2312 的所有内容，同时又增加了近 20000 个新的汉字（包括繁体字）和符号。后来少数民族也要用电脑了，于是我们再扩展，又加了几千个新的少数民族的字，GBK 扩成了 GB18030。</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-09-22-字符编码/3.jpg" alt=""></p>
+<h4 id="Big5"><a href="#Big5" class="headerlink" title="Big5"></a>Big5</h4><p>Big5，又称为大五码或五大码，是使用繁体中文（正体中文）社区中最常用的电脑汉字字符集标准，共收录13,060个汉字。Big5虽普及于台湾、香港与澳门等繁体中文通行区，但长期以来并非当地的国家标准，而只是业界标准。Big5码是一套双字节字符集，使用了双八码存储方法，以两个字节来安放一个字。第一个字节称为”高位字节”，第二个字节称为”低位字节”。”高位字节”使用了0x81-0xFE，”低位字节”使用了0x40-0x7E，及0xA1-0xFE。这边不再对该编码做过多的介绍。</p>
+<h4 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h4><p>Unicode（统一码、万国码、单一码）是计算机科学领域里的一项业界标准,包括字符集、编码方案等。Unicode 是为了解决传统的字符编码方案的局限而产生的，它为每种语言中的每个字符设定了统一并且唯一的二进制编码，以满足跨语言、跨平台进行文本转换、处理的要求。1990年开始研发，1994年正式公布。</p>
+<p>Unicode当然是一个很大的集合，现在的规模可以容纳100多万个符号。每个符号的编码都不一样，比如，U+0639表示阿拉伯字母Ain，U+0041表示英语的大写字母A，U+4E25表示汉字”严”。具体的符号对应表，可以查询unicode.org，或者专门的汉字对应表。</p>
+<p>从unicode开始，无论是半角的英文字母，还是全角的汉字，它们都是统一的一个字符（并不是一个字节，而是两个字节）。在unicode中，一个字符就是两个字节，一个汉字不再类似于 GB2312 中当作两个字符来处理了。</p>
+<p>unicode同样有着自身的问题，一个是，如何才能区别 unicode 和 ascii 。计算机如何知道三个字节表示一个符号，而不是分别表示三个符号呢？二是，我们已经知道，英文字母只用一个字节表示就够了，如果unicode统一规定，每个符号用三个或四个字节表示，那么每个英文字母前都必然有二到三个字节是 0，这对于过去计算机来说存储空间极为珍贵，而这样做无疑造成了极大的浪费，文本文件的大小会因此大出两三倍，这是难以接受的。</p>
+<p>unicode在很长一段时间内无法推广，直到互联网的出现，为解决unicode如何在网络上传输的问题，于是面向传输的众多 UTF（UCS Transfer Format）标准出现了。UTF-8 就是每次8个位传输数据，而UTF-16就是每次16个位传输。UTF-8 就是在互联网上使用最广的一种 unicode 的实现方式，这是为传输而设计的编码，并使编码无国界，这样就可以显示全世界上所有文化的字符了。</p>
+<p><strong>可以这样理解：Unicode是字符集，UTF-32/ UTF-16/ UTF-8是三种字符编码方案。</strong></p>
+<h4 id="UTF-8"><a href="#UTF-8" class="headerlink" title="UTF-8"></a>UTF-8</h4><p>互联网的普及，强烈要求出现一种统一的编码方式。UTF-8就是在互联网上使用最广的一种Unicode的实现方式。其他实现方式还包括UTF-16（字符用两个字节或四个字节表示）和UTF-32（字符用四个字节表示），不过在互联网上基本不用。重复一遍，这里的关系是，UTF-8是Unicode的实现方式之一。</p>
+<p><strong>UTF-8 最大的一个特点，就是它是一种变长的编码方式。它可以使用1~4个字节表示一个符号，根据不同的符号而变化字节长度。</strong></p>
+<p>UTF-8 的编码规则很简单：</p>
+<ul>
+<li>对于单字节的符号，字节的第一位设为0，后面7位为这个符号的 unicode 码。因此对于英语字母，UTF-8编码和ASCII码是相同的。</li>
+<li>对于 n 字节的符号（n&gt;1），第一个字节的前 n 位都设为 1，第n+1位设为0，后面字节的前两位一律设为10。剩下的没有提及的二进制位，全部为这个符号的 unicode 码。</li>
+</ul>
+<p>下面是对比 Unicode 和 UTF-8 的对比：</p>
+<table>
+<thead>
+<tr>
+<th>Unicode 符号范围</th>
+<th>UTF-8 编码方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(十六进制)</td>
+<td>（二进制）</td>
+</tr>
+<tr>
+<td>0000 0000-0000 007F</td>
+<td>0xxxxxxx</td>
+</tr>
+<tr>
+<td>0000 0080-0000 07FF</td>
+<td>110xxxxx 10xxxxxx</td>
+</tr>
+<tr>
+<td>0000 0800-0000 FFFF</td>
+<td>1110xxxx 10xxxxxx 10xxxxxx</td>
+</tr>
+<tr>
+<td>0001 0000-0010 FFFF</td>
+<td>11110xxx 10xxxxxx 10xxxxxx 10xxxxxx</td>
+</tr>
+</tbody>
+</table>
+<p>下面，还是以汉字”严”为例，演示如何实现UTF-8编码。已知”严”的unicode是4E25（100111000100101），根据上表，可以发现4E25处在第三行的范围内（0000 0800-0000 FFFF），因此”严”的UTF-8编码需要三个字节，即格式是”1110xxxx 10xxxxxx 10xxxxxx”。然后，从”严”的最后一个二进制位开始，依次从后向前填入格式中的 x，多出的位补 0。这样就得到了，”严”的 UTF-8 编码是 “11100100 10111000 10100101”，转换成十六进制就是E4B8A5。</p>
+<h3 id="BOM头"><a href="#BOM头" class="headerlink" title="BOM头"></a>BOM头</h3><p>UTF-8 本来是兼容性最好的编码，但 Windows 偏要加 BOM 于是经常出问题。</p>
+<p>在 utf-8 编码文件中 BOM 在文件头部，占用三个字节，用来标识该文件属于 utf-8 编码，现在已经有很多软件识别 BOM 头，但还是有些不能识别 BOM 头，比如 PHP 就不能识别 BOM 头，这也就是用记事本编辑 utf-8 编码的 PHP 文件后，就会报错的原因。</p>
+<p>在windows环境下，用记事本打开任何一个文本文件，另存为utf-8格式后，这样文件就自动被加上了BOM头信息。含BOM头的文件，在文件开头处多出三个字节 0xefbbbf。</p>
+<p>windows 下一般不建议使用记事本打开文本文件，就如上面所提到的原因，记事本会加入 BOM 头，与此同时，记事本在处理其他平台传过来的文本时还有其他问题，因此计算机工作者，编辑文本时，推荐使用 notepad++ 或者 editplus。这些软件都可以兼容多个平台的文本文件，同时编辑能力强，打开速度快，能够直接各种格式的编码。</p>
+<a id="more"></a>
 <blockquote>
-<p><a href="https://www.zhihu.com/question/20650946" target="_blank" rel="external">https://www.zhihu.com/question/20650946</a></p>
+<p><a href="https://www.zhihu.com/question/20650946" target="_blank" rel="external">https://www.zhihu.com/question/20650946</a><br><a href="https://zh.wikipedia.org/wiki/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81" target="_blank" rel="external">https://zh.wikipedia.org/wiki/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81</a><br><a href="http://www.cnblogs.com/skynet/archive/2011/05/03/2035105.html" target="_blank" rel="external">http://www.cnblogs.com/skynet/archive/2011/05/03/2035105.html</a><br><a href="http://baike.baidu.com/link?url=HknfN5Mei0ekD1hoPPs-U1osSOA1tDDFYkfPfNa05SNX36LbaAh4ctHt_2XhefTVW03ZCRLaBw1dYpY6iG3-ea" target="_blank" rel="external">http://baike.baidu.com/link?url=HknfN5Mei0ekD1hoPPs-U1osSOA1tDDFYkfPfNa05SNX36LbaAh4ctHt_2XhefTVW03ZCRLaBw1dYpY6iG3-ea</a><br><a href="https://www.zhihu.com/question/23374078" target="_blank" rel="external">https://www.zhihu.com/question/23374078</a><br><a href="http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html</a><br><a href="http://www.cnblogs.com/lfire/archive/2012/11/20/2778939.html" target="_blank" rel="external">http://www.cnblogs.com/lfire/archive/2012/11/20/2778939.html</a></p>
 </blockquote>
 ]]></content>
       
@@ -3980,28 +4064,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[linux下的bash]]></title>
-      <url>http://noparkinghere.win/2016/09/06/2016/2016-09-06-linux%E4%B8%8B%E7%9A%84bash/</url>
-      <content type="html"><![CDATA[<p><em>本文主要学习总结，linux下的CLI的使用技巧，不以任何发行版为例，仅仅介绍最通用的bash下的快捷操作和相关技巧，当然bash本身也可以跨平台，在诸如OS X上面默认也使用bash，同样可以参考本文。</em></p>
-<a id="more"></a>
-]]></content>
-      
-        <categories>
-            
-            <category> linux </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 问题总结 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[git问题总结FAQ]]></title>
       <url>http://noparkinghere.win/2016/08/28/2016/2016-08-28-git%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93FAQ/</url>
       <content type="html"><![CDATA[<p>git的使用过程真心不容易，尤其对于我这样的初学者且没有其他版本控制器的使用经验，另外也比较容易丢三落四的人来说。按照网上所给的步骤操作，但万一漏做了一些步骤，或者做错了一些步骤，所引起的问题也是致命的，虽然肯定有解决问题的办法，但往往会引起分支结构混乱，经常做了一次提交然后就回不去了，或者经常不知名的无法进行提交，无法进行回退，pull失败等等。</p>
@@ -4085,6 +4147,7 @@
       <title><![CDATA[linux下的shell和终端使用]]></title>
       <url>http://noparkinghere.win/2016/08/26/2016/2016-08-26-linux%E4%B8%8B%E7%9A%84shell%E5%92%8C%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8/</url>
       <content type="html"><![CDATA[<h3 id="ZSH使用"><a href="#ZSH使用" class="headerlink" title="ZSH使用"></a>ZSH使用</h3><p><em>bash为linux和OS X传统的默认shell，但使用起来比较麻烦，缺少一些人性化的特性，而现在流行的ZSH补足了bash的这些问题，且通过<a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="external">oh-my-zsh</a>可以很方便的配置，因此已经广泛的被很多人使用。下面将会对网上的资料和自我使用经验做一个详细的总结。</em></p>
+<p><em>本文主要学习总结，linux下的CLI的使用技巧，不以任何发行版为例，仅仅介绍最通用的bash下的快捷操作和相关技巧，当然bash本身也可以跨平台，在诸如OS X上面默认也使用bash，同样可以参考本文。</em></p>
 <h3 id="Tmux使用"><a href="#Tmux使用" class="headerlink" title="Tmux使用"></a>Tmux使用</h3><a id="more"></a>
 <blockquote>
 <p>参考网址：<br><a href="http://blog.jobbole.com/87584/" target="_blank" rel="external">http://blog.jobbole.com/87584/</a><br><a href="http://xiaozhou.net/build-your-go-ide-2015-07-18.html" target="_blank" rel="external">http://xiaozhou.net/build-your-go-ide-2015-07-18.html</a></p>
@@ -4202,26 +4265,32 @@
       <title><![CDATA[ubuntu的基本使用]]></title>
       <url>http://noparkinghere.win/2016/08/15/2016/2016-08-15-ubuntu%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
       <content type="html"><![CDATA[<p><em>本文专门针对ubuntu这个linux发行版而写的，对ubuntu特有一些操作进行介绍和总结。</em></p>
-<h3 id="apt-get"><a href="#apt-get" class="headerlink" title="apt-get"></a>apt-get</h3><p><em>用过ubuntu的人都知道apt-get的方便</em></p>
-<h4 id="远程安装软件："><a href="#远程安装软件：" class="headerlink" title="远程安装软件："></a>远程安装软件：</h4><ul>
-<li>sudo apt-get install xxx 远程库一般会提供不少常见的软件，当然也可以手动添加源。</li>
-<li>sudo apt-get install -f 常用于手动安装软件后，出现错误，一般该指令可以解决大多数的依赖关系。</li>
+<h3 id="dpkg"><a href="#dpkg" class="headerlink" title="dpkg"></a>dpkg</h3><p>dpkg  是 Debian Packager 的简写，为 Debian 专门开发的套件管理系统，方便软件的安装、更新及移除。所有源自 Debian 的 Linux 发行版都使用 dpkg，例如 Ubuntu Knoppix 深度linux 等。</p>
+<p>dpkg是用来安装.deb文件,但不会解决模块的依赖关系,且不会关心ubuntu的软件仓库内的软件,可以用于安装本地的deb文件。</p>
+<ul>
+<li>安装本地软件：dpkg -i &lt;.deb file name&gt;</li>
+<li>删除软件包（保留其配置信息）：dpkg -r <software></software></li>
 </ul>
-<h4 id="删除软件："><a href="#删除软件：" class="headerlink" title="删除软件："></a>删除软件：</h4><ul>
-<li>sudo apt-get remove xxx 删除一个软件包</li>
+<p>其他一些详细操作这边就不罗列了，具体可查看 man 文件。</p>
+<h3 id="apt"><a href="#apt" class="headerlink" title="apt"></a>apt</h3><p>apt会解决和安装模块的依赖问题,并会咨询软件仓库, 但不会安装本地的deb文件, apt是建立在dpkg之上的软件管理工具。</p>
+<p><em>用过ubuntu的人都知道apt-get的方便</em></p>
+<ul>
+<li>远程安装软件：sudo apt-get install xxx ，远程库一般会提供不少常见的软件，当然也可以手动添加源。</li>
+<li>修复安装错误：sudo apt-get install -f 常用于手动安装软件后，出现错误，一般该指令可以解决大多数的依赖关系，一般这种错误来自于使用本地安装命令 dpkg 时出现的依赖错误。</li>
+<li>删除已经安装的软件：sudo apt-get remove xxx 删除一个软件包。</li>
 </ul>
 <a id="more"></a>
-<h4 id="清理命令："><a href="#清理命令：" class="headerlink" title="清理命令："></a>清理命令：</h4><ul>
-<li>sudo apt-get autoclean                清理旧版本的软件缓存</li>
-<li>sudo apt-get clean                    清理所有软件缓存</li>
-<li>sudo apt-get autoremove             删除系统不再使用的孤立软件</li>
+<p>除了以上的安装操作外，apt-get 还有一些清理清理升级缓存以及无用包的命令：</p>
+<ul>
+<li>sudo apt-get autoclean ：清理旧版本的软件缓存</li>
+<li>sudo apt-get clean：清理所有软件缓存</li>
+<li>sudo apt-get autoremove：删除系统不再使用的孤立软件</li>
 </ul>
-<p><em>这三个命令主要清理升级缓存以及无用包的。</em></p>
 <h3 id="启动项"><a href="#启动项" class="headerlink" title="启动项"></a>启动项</h3><p>在/etc/rc.local中可以加入ubuntu的开机自启内容。</p>
 <hr>
 <p>To be continued…</p>
 <blockquote>
-<p>参考网址：<br><a href="http://my.oschina.net/zhangqingcai/blog/23994" target="_blank" rel="external">http://my.oschina.net/zhangqingcai/blog/23994</a></p>
+<p>参考网址：<br><a href="http://my.oschina.net/zhangqingcai/blog/23994" target="_blank" rel="external">http://my.oschina.net/zhangqingcai/blog/23994</a><br><a href="http://blog.csdn.net/baixiaoshi/article/details/43529649" target="_blank" rel="external">http://blog.csdn.net/baixiaoshi/article/details/43529649</a></p>
 </blockquote>
 ]]></content>
       
@@ -4877,9 +4946,9 @@
 </ul>
 <h4 id="gnome-下调网络管理小控件"><a href="#gnome-下调网络管理小控件" class="headerlink" title="gnome 下调网络管理小控件"></a>gnome 下调网络管理小控件</h4><p>ubuntu 的 GUI 在状态栏提供了一个网络管理的小工具，这边如果使用 awesome 可使用 nm-applet 命令将该工具打开，可以每次开机时自动启动该命令。</p>
 <hr>
-<p><em>国外的不少软件基本上都有 linux 版本的，如 skype，teamview 等等，这边国内人毕竟不常用就不详细介绍了。linux下向来不缺少优秀的办公学习开发类软件，很多软件都是开源项目，需要大家共同去维护，只要你需要，想得到的功能，基本都可以在网上找到。</em></p>
+<p><em>国外的不少软件基本上都有 linux 版本的，如 skype，teamview 等等，这边国内人毕竟不常用就不详细介绍了。linux下向来不缺少优秀的办公学习开发类软件，很多软件都是开源项目，需要大家共同去维护，只要你需要，想得到的功能，基本都可以在网上找到。这边推荐可以阅读很多年前的一篇文章<a href="http://www.cnblogs.com/skyseraph/archive/2010/10/30/1865280.html" target="_blank" rel="external">完全用Linux工作-王垠</a>。</em></p>
 <blockquote>
-<p>参考链接：<br><a href="https://awesome.naquadah.org" target="_blank" rel="external">https://awesome.naquadah.org</a><br><a href="http://www.hahack.com/tools/awesome/" target="_blank" rel="external">http://www.hahack.com/tools/awesome/</a><br><a href="https://www.gitbook.com/book/voluong/awesome-linux-software/details" target="_blank" rel="external">https://www.gitbook.com/book/voluong/awesome-linux-software/details</a><br><a href="https://alim0x.gitbooks.io/awesome-linux-software-zh_cn/content/" target="_blank" rel="external">https://alim0x.gitbooks.io/awesome-linux-software-zh_cn/content/</a></p>
+<p>参考链接：<br><a href="http://www.cnblogs.com/skyseraph/archive/2010/10/30/1865280.html" target="_blank" rel="external">http://www.cnblogs.com/skyseraph/archive/2010/10/30/1865280.html</a><br><a href="https://awesome.naquadah.org" target="_blank" rel="external">https://awesome.naquadah.org</a><br><a href="http://www.hahack.com/tools/awesome/" target="_blank" rel="external">http://www.hahack.com/tools/awesome/</a><br><a href="https://www.gitbook.com/book/voluong/awesome-linux-software/details" target="_blank" rel="external">https://www.gitbook.com/book/voluong/awesome-linux-software/details</a><br><a href="https://alim0x.gitbooks.io/awesome-linux-software-zh_cn/content/" target="_blank" rel="external">https://alim0x.gitbooks.io/awesome-linux-software-zh_cn/content/</a></p>
 </blockquote>
 <hr>
 <p>To be continued…</p>
@@ -4946,88 +5015,46 @@
     </entry>
     
     <entry>
-      <title><![CDATA[（转）回车、换行、和文件末尾空行]]></title>
-      <url>http://noparkinghere.win/2016/07/11/2016/2016-07-11-%EF%BC%88%E8%BD%AC%EF%BC%89%E5%9B%9E%E8%BD%A6%E3%80%81%E6%8D%A2%E8%A1%8C%E3%80%81%E5%92%8C%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E7%A9%BA%E8%A1%8C/</url>
-      <content type="html"><![CDATA[<h2 id="回车和换行"><a href="#回车和换行" class="headerlink" title="回车和换行"></a>回车和换行</h2><p>回车 (Carriage Return) 和换行 (Line Feed) 的区别，<a href="http://stackoverflow.com/questions/1761051/difference-between-n-and-r" target="_blank" rel="external">这里</a>有一个历史原因可参考：</p>
+      <title><![CDATA[stm32F439案例汇总]]></title>
+      <url>http://noparkinghere.win/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
+      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
 <blockquote>
-<p>在计算机还没有出现之前，有一种叫做电传打字机（Teletype Model 33）的玩意，每秒钟可以打10个字符。但是它有一个问题，就是打完一行换行的时候，要用去0.2秒，正好可以打两个字符。要是在这0.2秒里面，又有新的字符传过来，那么这个字符将丢失。</p>
-<p>于是，研制人员想了个办法解决这个问题，就是在每行后面加两个表示结束的字符。一个叫做”回车”，告诉打字机把打印头定位在左边界；另一个叫做”换行”，告诉打字机把纸向下移一行。</p>
+<p>www.armjishu.com(无法访问)</p>
 </blockquote>
-<p>发明计算机时，这个概念被沿用下来，但因为条件的限制和设计者的喜好，有了一些分歧：</p>
-<ul>
-<li>Unix 系统里，每行结尾只有”&lt;换行&gt;”，即 “\n”</li>
-<li>Windows 系统里面，每行结尾是”&lt;回车&gt;&lt;换行&gt;”，即 “\r\n”</li>
-<li>在老的 Mac 系统里，每行结尾是”&lt;回车&gt;”，即 “\r”</li>
-</ul>
-<p>我们来验证一下，我在 Windows 下用记事本新建一个文本文件，它的二进制编码如下：</p>
-<pre><code>//源文件内容
-hello
-hello2
-
-//二进制内容
-0000000: 6865 6c6c 6f0d 0a68 656c 6c6f 32         hello..hello2
-</code></pre><p>同样在 Mac 下用 Vim 新建一个：</p>
-<pre><code>//源文件内容
-hello
-hello2
-
-//二进制内容
-0000000: 6865 6c6c 6f0a 6865 6c6c 6f32 0a         hello.hello2.
-</code></pre><p><code>0a</code>是 LF 的 ASCII 编码, <code>0d</code>是 CR 的 ASCII 编码。区别很明显了</p>
-<ul>
-<li>Mac 下的文本文件在 Windows 下打开会成为一行，因为 Windows 只认识 <code>\r\n</code>，也就是 <code>0d0a</code></li>
-<li>Windows 下的文本文件在 Mac 下打开，Vim 中会在每行末尾显示一个 <code>^M</code>，(不是两个字符组成的)</li>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
+<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
+<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
 </ul>
 <a id="more"></a>
-<h2 id="文件末尾空行"><a href="#文件末尾空行" class="headerlink" title="文件末尾空行"></a>文件末尾空行</h2><p><a href="https://zh.wikipedia.org/zh-sg/POSIX" target="_blank" rel="external">POSIX</a>对行的<a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_206" target="_blank" rel="external">定义</a>如下：</p>
-<blockquote>
-<p>3.206 Line</p>
-<p>A sequence of zero or more non- <newline\> characters plus a terminating <newline\> character.</newline\></newline\></p>
-<p>行是由0个或者多个非 “换行” 符的字符组成，并且以 “换行” 符结尾。</p>
+<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
+<li>实验0 Template工程模板</li>
+<li>实验1 跑马灯</li>
+<li>实验2 蜂鸣器</li>
+<li>实验3 按键和外部中断</li>
+<li>实验4 看门狗（独立和窗口）</li>
+<li>实验5 待机唤醒</li>
+<li>实验6 串口通讯（232和485）</li>
+<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
+<li>实验8 PWM输出和输入捕获</li>
+</ul>
+<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
+<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
 </blockquote>
-<p>这样做有什么好处呢，举个例子：</p>
-<pre><code>//hello.c
-#include head.h
-print(&apos;hello&apos;)
-
-//world.c
-#include tail.h
-print(&apos;hello&apos;)
-</code></pre><p>如果这两个文件都按 POSIX 规范来写， 在<code>cat *.c</code>之后，是没有问题的：</p>
-<pre><code>//cat.c
-
-#include head.h
-print(&apos;hello&apos;)
-#include tail.h
-print(&apos;hello&apos;)
-</code></pre><p>如果缺少最后一行的换行符（如 Windows 文件那样的定义），<code>cat</code>之后，就有问题了：</p>
-<pre><code>//error.c
-
-#include head.h
-print(&apos;hello&apos;)#include tail.h
-print(&apos;hello&apos;)
-</code></pre><p>所以，从这点去理解 POSIX 对行的定义，非常合理，对于任意文件的拼接，也各自保持了文件的完整性。</p>
-<p>不遵守标准带来的则是：在一些编辑器下面，比如 Sublime，他把<code>\n</code>的当做了行之间的分隔符，于是文件最后一行的<code>\n</code>就看上去成了一个新的空行，这就是错误解读标准造成的，拼接文件时也会产生不必要的麻烦，比如上例。</p>
-<h2 id="No-new-line-at-end-of-file"><a href="#No-new-line-at-end-of-file" class="headerlink" title="\ No new line at end of file"></a>\ No new line at end of file</h2><p>基于上面的原因，再去看 git diff 的<code>\ No new line at end of file</code>信息，就很好解释了。</p>
-<p>各编辑器对于换行符的理解偏差，导致的文件确实发生了变化，多了或少了最后的<code>0a</code>，那么对于 diff 程序来说，这当然是不可忽略的，但因为<code>0a</code>是不可见字符，并且是长久以来的历史原因，所以 diff 程序有个专门的标记来说明这个变化，就是：</p>
-<p><code>\ No new line at end of file</code></p>
-<p>各编辑器也有相应的办法去解决这个问题，比如 Sublime，在<code>Default/Preferences.sublime-settings</code>中设置：</p>
-<pre><code>// Set to true to ensure the last line of the file ends in a newline
-// character when saving
-&quot;ensure_newline_at_eof_on_save&quot;: true,
-</code></pre><p>所以，请遵守规范。</p>
+<hr>
+<p><em>未完待续</em></p>
 ]]></content>
       
         <categories>
             
-            <category> 问题总结 </category>
+            <category> 嵌入式 </category>
             
         </categories>
         
         
         <tags>
             
-            <tag> 问题总结 </tag>
+            <tag> MCU </tag>
             
         </tags>
         
@@ -5124,46 +5151,88 @@ print(&apos;hello&apos;)
     </entry>
     
     <entry>
-      <title><![CDATA[stm32F439案例汇总]]></title>
-      <url>http://noparkinghere.win/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
-      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
+      <title><![CDATA[（转）回车、换行、和文件末尾空行]]></title>
+      <url>http://noparkinghere.win/2016/07/11/2016/2016-07-11-%EF%BC%88%E8%BD%AC%EF%BC%89%E5%9B%9E%E8%BD%A6%E3%80%81%E6%8D%A2%E8%A1%8C%E3%80%81%E5%92%8C%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E7%A9%BA%E8%A1%8C/</url>
+      <content type="html"><![CDATA[<h2 id="回车和换行"><a href="#回车和换行" class="headerlink" title="回车和换行"></a>回车和换行</h2><p>回车 (Carriage Return) 和换行 (Line Feed) 的区别，<a href="http://stackoverflow.com/questions/1761051/difference-between-n-and-r" target="_blank" rel="external">这里</a>有一个历史原因可参考：</p>
 <blockquote>
-<p>www.armjishu.com(无法访问)</p>
+<p>在计算机还没有出现之前，有一种叫做电传打字机（Teletype Model 33）的玩意，每秒钟可以打10个字符。但是它有一个问题，就是打完一行换行的时候，要用去0.2秒，正好可以打两个字符。要是在这0.2秒里面，又有新的字符传过来，那么这个字符将丢失。</p>
+<p>于是，研制人员想了个办法解决这个问题，就是在每行后面加两个表示结束的字符。一个叫做”回车”，告诉打字机把打印头定位在左边界；另一个叫做”换行”，告诉打字机把纸向下移一行。</p>
 </blockquote>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
-<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
-<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
+<p>发明计算机时，这个概念被沿用下来，但因为条件的限制和设计者的喜好，有了一些分歧：</p>
+<ul>
+<li>Unix 系统里，每行结尾只有”&lt;换行&gt;”，即 “\n”</li>
+<li>Windows 系统里面，每行结尾是”&lt;回车&gt;&lt;换行&gt;”，即 “\r\n”</li>
+<li>在老的 Mac 系统里，每行结尾是”&lt;回车&gt;”，即 “\r”</li>
+</ul>
+<p>我们来验证一下，我在 Windows 下用记事本新建一个文本文件，它的二进制编码如下：</p>
+<pre><code>//源文件内容
+hello
+hello2
+
+//二进制内容
+0000000: 6865 6c6c 6f0d 0a68 656c 6c6f 32         hello..hello2
+</code></pre><p>同样在 Mac 下用 Vim 新建一个：</p>
+<pre><code>//源文件内容
+hello
+hello2
+
+//二进制内容
+0000000: 6865 6c6c 6f0a 6865 6c6c 6f32 0a         hello.hello2.
+</code></pre><p><code>0a</code>是 LF 的 ASCII 编码, <code>0d</code>是 CR 的 ASCII 编码。区别很明显了</p>
+<ul>
+<li>Mac 下的文本文件在 Windows 下打开会成为一行，因为 Windows 只认识 <code>\r\n</code>，也就是 <code>0d0a</code></li>
+<li>Windows 下的文本文件在 Mac 下打开，Vim 中会在每行末尾显示一个 <code>^M</code>，(不是两个字符组成的)</li>
 </ul>
 <a id="more"></a>
-<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
-<li>实验0 Template工程模板</li>
-<li>实验1 跑马灯</li>
-<li>实验2 蜂鸣器</li>
-<li>实验3 按键和外部中断</li>
-<li>实验4 看门狗（独立和窗口）</li>
-<li>实验5 待机唤醒</li>
-<li>实验6 串口通讯（232和485）</li>
-<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
-<li>实验8 PWM输出和输入捕获</li>
-</ul>
-<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
-<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
+<h2 id="文件末尾空行"><a href="#文件末尾空行" class="headerlink" title="文件末尾空行"></a>文件末尾空行</h2><p><a href="https://zh.wikipedia.org/zh-sg/POSIX" target="_blank" rel="external">POSIX</a>对行的<a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_206" target="_blank" rel="external">定义</a>如下：</p>
+<blockquote>
+<p>3.206 Line</p>
+<p>A sequence of zero or more non- <newline\> characters plus a terminating <newline\> character.</newline\></newline\></p>
+<p>行是由0个或者多个非 “换行” 符的字符组成，并且以 “换行” 符结尾。</p>
 </blockquote>
-<hr>
-<p><em>未完待续</em></p>
+<p>这样做有什么好处呢，举个例子：</p>
+<pre><code>//hello.c
+#include head.h
+print(&apos;hello&apos;)
+
+//world.c
+#include tail.h
+print(&apos;hello&apos;)
+</code></pre><p>如果这两个文件都按 POSIX 规范来写， 在<code>cat *.c</code>之后，是没有问题的：</p>
+<pre><code>//cat.c
+
+#include head.h
+print(&apos;hello&apos;)
+#include tail.h
+print(&apos;hello&apos;)
+</code></pre><p>如果缺少最后一行的换行符（如 Windows 文件那样的定义），<code>cat</code>之后，就有问题了：</p>
+<pre><code>//error.c
+
+#include head.h
+print(&apos;hello&apos;)#include tail.h
+print(&apos;hello&apos;)
+</code></pre><p>所以，从这点去理解 POSIX 对行的定义，非常合理，对于任意文件的拼接，也各自保持了文件的完整性。</p>
+<p>不遵守标准带来的则是：在一些编辑器下面，比如 Sublime，他把<code>\n</code>的当做了行之间的分隔符，于是文件最后一行的<code>\n</code>就看上去成了一个新的空行，这就是错误解读标准造成的，拼接文件时也会产生不必要的麻烦，比如上例。</p>
+<h2 id="No-new-line-at-end-of-file"><a href="#No-new-line-at-end-of-file" class="headerlink" title="\ No new line at end of file"></a>\ No new line at end of file</h2><p>基于上面的原因，再去看 git diff 的<code>\ No new line at end of file</code>信息，就很好解释了。</p>
+<p>各编辑器对于换行符的理解偏差，导致的文件确实发生了变化，多了或少了最后的<code>0a</code>，那么对于 diff 程序来说，这当然是不可忽略的，但因为<code>0a</code>是不可见字符，并且是长久以来的历史原因，所以 diff 程序有个专门的标记来说明这个变化，就是：</p>
+<p><code>\ No new line at end of file</code></p>
+<p>各编辑器也有相应的办法去解决这个问题，比如 Sublime，在<code>Default/Preferences.sublime-settings</code>中设置：</p>
+<pre><code>// Set to true to ensure the last line of the file ends in a newline
+// character when saving
+&quot;ensure_newline_at_eof_on_save&quot;: true,
+</code></pre><p>所以，请遵守规范。</p>
 ]]></content>
       
         <categories>
             
-            <category> 嵌入式 </category>
+            <category> 问题总结 </category>
             
         </categories>
         
         
         <tags>
             
-            <tag> MCU </tag>
+            <tag> 问题总结 </tag>
             
         </tags>
         

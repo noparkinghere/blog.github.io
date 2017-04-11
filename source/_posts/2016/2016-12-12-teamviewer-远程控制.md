@@ -28,6 +28,8 @@ TeamViewer 是一款最流行的远程桌面连接工具，特点：连接稳定
 
 #### 局域网连接
 
+局域网下的 teamviewer 的使用，可以类似于 windows 下的远程登录，虽然原理不尽相同，但通 teamviewer 我们可以图形化的实现跨平台操作，也就是说 windows 下可以远程操作 linux 的图形化界面，实现功能类似于我之前的一篇文章 “putty-xming-远程使用-linux-gui” 。“putty-xming-远程使用-linux-gui” 采用的是 ssh 加密，转发，登录的是一个新的账号，对网络的要求特别高，刷新速度慢；而 teamviewer 对比 ssh 转发的效果更好，速度更快，网络要求也更低，刷新快，操作流畅，即便浏览网页问题也不大，但和 windows 远程桌面登录相比在体验上还是有差距的。
+
 - 使用局域网链接，需要先配置下本机设置，找开软件后，先要设置允许接入lan（或者叫允许局域网连接），那样的话，ID的地方就显示内网的IP了。如果你的 ID 不能显示自己的 IP 地址，重新启动软件即可。如下图：
 
 ![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-12-12-teamviewer-%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6/2.jpg)

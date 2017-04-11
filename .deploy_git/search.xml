@@ -1548,7 +1548,7 @@
     <entry>
       <title><![CDATA[linux-shadowsocks全局代理]]></title>
       <url>http://noparkinghere.win/2017/01/25/2017/2017-01-25-ss-linux%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86/</url>
-      <content type="html"><![CDATA[<p>windows 直接下载 ss 终端，稍加设置即可完成全局代理，linux 用户如果需要让某个软件可以使用 ss 一般都需要连接端口才行。例如本地 ss 配置为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"server_port"</span>:1800,</div><div class="line"><span class="string">"local_port"</span>:1080,</div></pre></td></tr></table></figure></p>
+      <content type="html"><![CDATA[<p>windows 直接下载 ss 终端，稍加设置即可完成全局代理，linux 用户如果需要让某个软件可以使用 ss 一般都需要连接端口才行。例如本地 ss 配置为：<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"server_port"</span>:<span class="number">1800</span>,</div><div class="line"><span class="string">"local_port"</span>:<span class="number">1080</span>,</div></pre></td></tr></table></figure></p>
 <h3 id="原理简述"><a href="#原理简述" class="headerlink" title="原理简述"></a>原理简述</h3><p>这边就相当于将本地的 127.0.0.1:1080 和 server_ip:1800 建立了连接关系。因此软件如果需要使用 vps 上面搭建的 ss 服务的话，则需要让该软件使用的协议连接到 127.0.0.1:1080 上。之前在 vps-shadowsocks 中介绍的 chrome 插件 SwitchyOmega 就是使用 SOCKS5 协议连接到 127.0.0.1:1080 上，让所有数据通过 SOCKS5 协议，然后从 127.0.0.1:1080 进行收发。</p>
 <p>可以看出如果我们需要让其他软件也能够使用 ss 则需要让他们也能够使用 127.0.0.1:1080 代理服务器，然而不幸的是，大多数软件并不支持代理服务的功能， windows 平台下的软件很多可以通过设置 IE 代理让其他软件使用代理服务（原理是：大多数软件都会优先读取 IE 的代理设置，再访问网络）。</p>
 <a id="more"></a>
@@ -1844,9 +1844,54 @@
     <entry>
       <title><![CDATA[ssh 使用详解]]></title>
       <url>http://noparkinghere.win/2016/12/27/2016/2016-12-27-ssh-%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3/</url>
-      <content type="html"><![CDATA[<a id="more"></a>
+      <content type="html"><![CDATA[<p><em>ssh 算是 linux 下最常用的工具之一，虽然用了很多次但对它并不是很了解，本文将查找一些资料并总结自己使用的 ssh ，希望能够通过这篇文章，帮助理解和使用 ssh。</em></p>
+<p>最早的时候，互联网通信都是明文通信，一旦被截获，内容就暴露无疑。1995 年，芬兰学者Tatu Ylonen设计了 ssh 协议，将登录信息全部加密，成为互联网安全的一个基本解决方案，迅速在全世界获得推广，目前已经成为 linux 系统的标准配置。</p>
+<p>ssh 是一种网络协议，用于计算机之间的加密登录。如果一个用户从本地计算机，使用 ssh 协议登录另一台远程计算机，我们就可以认为，这种登录是安全的，即使被中途截获，密码也不会泄露。需要指出的是，ssh 只是一种协议，存在多种实现，既有商业实现，也有开源实现。</p>
+<a id="more"></a>
+<h3 id="本地SSH配置"><a href="#本地SSH配置" class="headerlink" title="本地SSH配置"></a>本地SSH配置</h3><ul>
+<li>首先我们需要检查你电脑上现有的 ssh key：</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> ~/.ssh 检查本机的ssh密钥</div></pre></td></tr></table></figure>
+<p>如果提示：No such file or directory 说明你是第一次使用 git。</p>
+<ul>
+<li>生成新的SSH Key：</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C <span class="string">"邮件地址@youremail.com"</span></div></pre></td></tr></table></figure>
+<p><em>此处的邮箱地址，你可以输入自己的邮箱地址；注意2: 此处的「-C」的是大写的「C」</em></p>
+<ul>
+<li>然后系统会要你输入密码：</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Enter passphrase (empty <span class="keyword">for</span> no passphrase):&lt;输入加密串&gt;</div><div class="line">Enter same passphrase again:&lt;再次输入加密串&gt;</div></pre></td></tr></table></figure>
+<p><em>在回车中会提示你输入一个密码，这个密码会在你提交项目时使用，相当于二次的加密，如果为空的话提交项目时则不用输入。这个设置是防止别人往你的项目里提交内容。个人嫌麻烦一般不会再设定密码，本身ssh的访问就属于本地自动加密认真，就比较安全，除非你秘钥丢失，否则一般不会出问题，</em></p>
+<ul>
+<li><p>看到这样的界面，就成功设置了本地的 ssh key了：</p>
+</li>
+<li><p>~/.ssh/id_rsa.pub 就是需要使用的公钥，将该公钥加入到其他系统上面或者支持ssh服务的软件上面即可实现访问。</p>
+</li>
+</ul>
+<h3 id="将本地公钥上传到远程linux服务器"><a href="#将本地公钥上传到远程linux服务器" class="headerlink" title="将本地公钥上传到远程linux服务器"></a>将本地公钥上传到远程linux服务器</h3><blockquote>
+<p>不同的 Linux 之间 copy 文件常用有3种方法：</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">第一种就是 ftp，也就是其中一台 Linux 安装 ftp Server，这样可以另外一台使用 ftp 的 client 程序来进行文件的 copy。</div><div class="line"></div><div class="line">第二种方法就是采用 samba 服务，类似 Windows 文件 copy 的方式来操作，比较简洁方便。</div><div class="line"></div><div class="line">第三种就是利用 scp 命令来进行文件复制。</div></pre></td></tr></table></figure>
+<p><strong>scp 是有Security的文件 copy，基于 ssh 登录。操作起来比较方便，比如要把当前一个文件 copy 到远程另外一台主机上，可以如下命令。</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp /home/daisy/full.tar.gz root@172.19.2.75:/home/root</div></pre></td></tr></table></figure>
+<p>然后会提示你输入另外那台 172.19.2.75 主机的 root 用户的登录密码，接着就开始 copy 了。如果想反过来操作，把文件从远程主机 copy 到当前系统，也很简单。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp root@/full.tar.gz 172.19.2.75:/home/root/full.tar.gz home/daisy/full.tar.gz</div></pre></td></tr></table></figure>
+<ul>
+<li>我们将原始机的公钥拷贝到目标服务器的 .ssh 目录下，且命名为 authorized_keys。</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp /home/git/.ssh/id_rsa.pub git@ubuntu_server:/home/git/.ssh/authorized_keys</div></pre></td></tr></table></figure>
+<p><em>注意，ubuntu_server 为 ip 对应的名称，这边可以改成 ip 地址，git 为用户名。修改实体机(本地机而不是服务器)的 ip 配置文件 <code>/ect/hosts</code>，加入如下行：<code>192.168.18.202 ubuntu_server</code>， ubuntu_server 是你的虚拟机的主机名称，而 ubuntu_server 以后将代替 192.168.18.202 出现。如果你的虚拟机名不是 ubuntu_server,可以修改 /etc/hostname 中的名称。</em></p>
+<p><strong>注意：ssh在使用时无法通过VPN，需要人为手动做一些修改，这边主要是通过将需要ssh访问的ip地址直接经过网卡而不经过vpn。详细内容参见<em>linux 下 ssh 通过VPN推送失败</em>文章。</strong></p>
+<h3 id="windows-下使用-ssh"><a href="#windows-下使用-ssh" class="headerlink" title="windows 下使用 ssh"></a>windows 下使用 ssh</h3><p>windows 使用 ssh 一般可以通过 putty 或者 secureCRT，这两款软件都是自带 ssh 服务的，一般你安装他们后，windows 上就可以使用 ssh 了。如果需要秘钥登录的话，需要手动加载秘钥位置，如：secureCRT 的秘钥在 tools 下的 manage agents keys -&gt; add，具体的一些位置需要自己去查找，这边不再详细讨论。</p>
+<p>windows 下除了 ssh 登录外，使用 git 时也会需要加载私钥，git 官方版回去默认位置找私钥，默认位置一般为当前用户目录下的 .ssh 文件夹下。对于 linux 就是 ~/.ssh/ 目录下，而 windows 则是 C:/users/当前登录用户/.ssh/ 目录下。</p>
+<p>使用 WinSCP 时，也可以使用 scp 复制文件，注意该软件只能读 ppk 格式的秘钥，如果其采用的不是 openSSH 的秘钥，则需要通过工具转换以下，步骤为：</p>
+<ul>
+<li>工具-&gt;运行 PuTTYgen-&gt;load你的秘钥-&gt;save private key 保存转成 ppk 格式 （如果直接通过 WinSCP 生成秘钥对的话，可以在 PuTTYgen 中直接 点解 generate 生成新的秘钥对）</li>
+<li>工具-&gt;运行pageant-&gt;add key 将刚刚生成的秘钥载入进来</li>
+</ul>
 <blockquote>
-<p>参考链接：<br><a href="http://www.ibm.com/developerworks/cn/linux/l-cn-sshforward/" target="_blank" rel="external">http://www.ibm.com/developerworks/cn/linux/l-cn-sshforward/</a><br><a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html</a><br><a href="http://www.ruanyifeng.com/blog/2011/12/ssh_port_forwarding.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2011/12/ssh_port_forwarding.html</a></p>
+<p><a href="http://cnfeat.com/blog/2014/05/10/how-to-build-a-blog/" target="_blank" rel="external">http://cnfeat.com/blog/2014/05/10/how-to-build-a-blog/</a><br><a href="http://www.cnblogs.com/hitwtx/archive/2011/11/16/2251254.html" target="_blank" rel="external">http://www.cnblogs.com/hitwtx/archive/2011/11/16/2251254.html</a><br><a href="http://blog.csdn.net/hunanchenxingyu/article/details/40544513" target="_blank" rel="external">http://blog.csdn.net/hunanchenxingyu/article/details/40544513</a><br><a href="http://www.ibm.com/developerworks/cn/linux/l-cn-sshforward/" target="_blank" rel="external">http://www.ibm.com/developerworks/cn/linux/l-cn-sshforward/</a><br><a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html</a><br><a href="http://www.ruanyifeng.com/blog/2011/12/ssh_port_forwarding.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2011/12/ssh_port_forwarding.html</a></p>
 </blockquote>
 ]]></content>
       
@@ -2947,6 +2992,45 @@
     </entry>
     
     <entry>
+      <title><![CDATA[串口RS485通信详解]]></title>
+      <url>http://noparkinghere.win/2016/10/19/2016/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<p><strong>注意：串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。串口的一些内容不再逐一介绍说明，可以参加之前的usb转串口及RS232通信等文章</strong></p>
+<h3 id="特性介绍"><a href="#特性介绍" class="headerlink" title="特性介绍"></a>特性介绍</h3><p>485（一般称作 RS485/EIA-485）是隶属于 OSI 模型物理层的电气特性规定为 2 线，半双工，多点通信的标准。它的电气特性和 RS-232 大不一样。用缆线两端的电压差值来表示传递信号。值得注意的是：RS485 仅仅规定了接受端和发送端的电气特性，它没有规定或推荐任何数据协议。</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/1.jpg" alt=""></p>
+<p>RS485接口可以只使用两根线进行通讯（其他串口通讯至少需要三根线，一根为地线作为参考电平），通过差分电平（利用两个信号的差值来判断信息，使用差分信号来传输的，也就是一根线传同相信号，一根线传反相，这样差值最大，抗干扰能力强。）来确定信号是0还是1，也正因为这个原因，所以RS485每次有且仅有一根线能够传输数据，另外一根线作为比对信号，因此RS485是半双工的通讯方式。主要特点如下：</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/2.jpg" alt=""></p>
+<ul>
+<li>接口电平低，不易损坏芯片。 RS485 的电气特性：逻辑“ 1”以两线间的电压差为+(2~6)V<br>表示；逻辑“ 0”以两线间的电压差为-(2~6)V 表示。接口信号电平比 RS232 降低了，<br>不易损坏接口电路的芯片，且该电平与 TTL 电平兼容，可方便与 TTL 电路连接。</li>
+<li>传输速率高。 10 米时， RS485 的数据最高传输速率可达 35Mbps，在 1200m 时，传输<br>速度可达 100Kbps。</li>
+<li>抗干扰能力强。 RS485 接口是采用平衡驱动器和差分接收器的组合，抗共模干扰能力<br>增强，即抗噪声干扰性好。 传输距离远，支持节点多。 RS485 总线最长可以传输 1200m<br>以上（速率≤100Kbps）</li>
+<li>一般最大支持 32 个节点，如果使用特制的 485 芯片，可以达到 128 个或者 256 个节点，<br>最大的可以支持到 400 个节点。</li>
+</ul>
+<a id="more"></a>
+<h3 id="类比RS232"><a href="#类比RS232" class="headerlink" title="类比RS232"></a>类比RS232</h3><p>实际上232串口在实际使用已经用处不大，但基于232发展出来的485等串口设备仍然被广泛使用，RS-485（EIA-485标准）是RS-422的改进，因为它增加了设备的个数，从10个增加到32个，同时定义了在最大设备个数情况下的电气特性，以保证足够的信号电压。有了多个设备的能力，你可以使用一个单个RS-485口建立设备网络。</p>
+<p>因为都是采用串口通信协议，所以软件端几乎可以直接使用，且RS485具备耗材少，抗干扰强等特点，在目前的工业领域仍然被广泛使用，这边主要列举出不同：</p>
+<ul>
+<li>从接线上，RS232是三线制，RS485是两线制</li>
+<li>从传输距离上，RS232只能传输15米，RS485最远可以传输1200米</li>
+<li>从速率上，RS232是全双工传输，RS485是半双工传输</li>
+<li>从协议层上，RS232只支持点对点通讯(1:1)，RS485支持总线形式通讯（1:N）</li>
+</ul>
+<p>RS232的接线：<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/3.jpg" alt="">)</p>
+<p>RS485的接线<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/4.jpg" alt=""></p>
+<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><blockquote>
+<p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a></p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> 嵌入式 </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[串口RS232通信详解]]></title>
       <url>http://noparkinghere.win/2016/10/19/2016/2016-10-19-%E4%B8%B2%E5%8F%A3RS232%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<p>串行接口是一种可以将接受来自CPU的并行数据字符转换为连续的串行数据流发送出去，同时可将接受的串行数据流转换为并行的数据字符供给CPU的器件。一般完成这种功能的电路，我们称为串行接口电路。曾经PC之间进行串口通信可以说是标配，很多老式电脑上面可以看到DB25的接头，但后来逐渐被DB9取代，早期鼠标打印机都通过串口进行数据传输的，但现在逐渐被USB和网络所取代，DB9的串口接头在PC和笔记本上面也较少能够看到了。做嵌入式开发可以看到有个DB9的串口标准接口，串口对于开发人员输入输出调试等有着至关重要的作用。串行接口按电气标准及协议来分包括RS-232-C、RS-422、RS485等，现在串口一般在工业嵌入式领域使用。</p>
@@ -3006,45 +3090,6 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
 <blockquote>
 <p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a><br><a href="http://www.baike.com/wiki/51+IO%E5%8F%A3%E6%A8%A1%E6%8B%9F%E4%B8%B2%E5%8F%A3%E9%80%9A%E8%AE%AFC%E6%BA%90%E7%A8%8B%E5%BA%8F" target="_blank" rel="external">http://www.baike.com/wiki/51+IO%E5%8F%A3%E6%A8%A1%E6%8B%9F%E4%B8%B2%E5%8F%A3%E9%80%9A%E8%AE%AFC%E6%BA%90%E7%A8%8B%E5%BA%8F</a><br><a href="http://ziye334.blog.163.com/blog/static/224306191201452833850647" target="_blank" rel="external">http://ziye334.blog.163.com/blog/static/224306191201452833850647</a></p>
-</blockquote>
-]]></content>
-      
-        <categories>
-            
-            <category> 嵌入式 </category>
-            
-        </categories>
-        
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[串口RS485通信详解]]></title>
-      <url>http://noparkinghere.win/2016/10/19/2016/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
-      <content type="html"><![CDATA[<p><strong>注意：串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。串口的一些内容不再逐一介绍说明，可以参加之前的usb转串口及RS232通信等文章</strong></p>
-<h3 id="特性介绍"><a href="#特性介绍" class="headerlink" title="特性介绍"></a>特性介绍</h3><p>485（一般称作 RS485/EIA-485）是隶属于 OSI 模型物理层的电气特性规定为 2 线，半双工，多点通信的标准。它的电气特性和 RS-232 大不一样。用缆线两端的电压差值来表示传递信号。值得注意的是：RS485 仅仅规定了接受端和发送端的电气特性，它没有规定或推荐任何数据协议。</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/1.jpg" alt=""></p>
-<p>RS485接口可以只使用两根线进行通讯（其他串口通讯至少需要三根线，一根为地线作为参考电平），通过差分电平（利用两个信号的差值来判断信息，使用差分信号来传输的，也就是一根线传同相信号，一根线传反相，这样差值最大，抗干扰能力强。）来确定信号是0还是1，也正因为这个原因，所以RS485每次有且仅有一根线能够传输数据，另外一根线作为比对信号，因此RS485是半双工的通讯方式。主要特点如下：</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/2.jpg" alt=""></p>
-<ul>
-<li>接口电平低，不易损坏芯片。 RS485 的电气特性：逻辑“ 1”以两线间的电压差为+(2~6)V<br>表示；逻辑“ 0”以两线间的电压差为-(2~6)V 表示。接口信号电平比 RS232 降低了，<br>不易损坏接口电路的芯片，且该电平与 TTL 电平兼容，可方便与 TTL 电路连接。</li>
-<li>传输速率高。 10 米时， RS485 的数据最高传输速率可达 35Mbps，在 1200m 时，传输<br>速度可达 100Kbps。</li>
-<li>抗干扰能力强。 RS485 接口是采用平衡驱动器和差分接收器的组合，抗共模干扰能力<br>增强，即抗噪声干扰性好。 传输距离远，支持节点多。 RS485 总线最长可以传输 1200m<br>以上（速率≤100Kbps）</li>
-<li>一般最大支持 32 个节点，如果使用特制的 485 芯片，可以达到 128 个或者 256 个节点，<br>最大的可以支持到 400 个节点。</li>
-</ul>
-<a id="more"></a>
-<h3 id="类比RS232"><a href="#类比RS232" class="headerlink" title="类比RS232"></a>类比RS232</h3><p>实际上232串口在实际使用已经用处不大，但基于232发展出来的485等串口设备仍然被广泛使用，RS-485（EIA-485标准）是RS-422的改进，因为它增加了设备的个数，从10个增加到32个，同时定义了在最大设备个数情况下的电气特性，以保证足够的信号电压。有了多个设备的能力，你可以使用一个单个RS-485口建立设备网络。</p>
-<p>因为都是采用串口通信协议，所以软件端几乎可以直接使用，且RS485具备耗材少，抗干扰强等特点，在目前的工业领域仍然被广泛使用，这边主要列举出不同：</p>
-<ul>
-<li>从接线上，RS232是三线制，RS485是两线制</li>
-<li>从传输距离上，RS232只能传输15米，RS485最远可以传输1200米</li>
-<li>从速率上，RS232是全双工传输，RS485是半双工传输</li>
-<li>从协议层上，RS232只支持点对点通讯(1:1)，RS485支持总线形式通讯（1:N）</li>
-</ul>
-<p>RS232的接线：<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/3.jpg" alt="">)</p>
-<p>RS485的接线<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/4.jpg" alt=""></p>
-<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><blockquote>
-<p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a></p>
 </blockquote>
 ]]></content>
       
@@ -3830,60 +3875,6 @@
 <p>通过以上步骤就可以以普通用户登陆打开Wireshark，也会有权限进行抓包了。</p>
 <h3 id="常规用法"><a href="#常规用法" class="headerlink" title="常规用法"></a>常规用法</h3><blockquote>
 <p>参考链接：<br><a href="http://fangxin.blog.51cto.com/1125131/735178" target="_blank" rel="external">http://fangxin.blog.51cto.com/1125131/735178</a><br><a href="http://blog.sina.com.cn/s/blog_5d527ff00100dwph.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_5d527ff00100dwph.html</a><br><a href="https://openmaniak.com/cn/wireshark_filters.php" target="_blank" rel="external">https://openmaniak.com/cn/wireshark_filters.php</a><br><a href="http://www.jianshu.com/p/400d4430a74a" target="_blank" rel="external">http://www.jianshu.com/p/400d4430a74a</a><br><a href="https://wiki.wireshark.org/CaptureSetup/CapturePrivileges" target="_blank" rel="external">https://wiki.wireshark.org/CaptureSetup/CapturePrivileges</a><br><a href="https://anonscm.debian.org/viewvc/collab-maint/ext-maint/wireshark/trunk/debian/README.Debian?view=markup" target="_blank" rel="external">https://anonscm.debian.org/viewvc/collab-maint/ext-maint/wireshark/trunk/debian/README.Debian?view=markup</a><br><a href="http://jingyan.baidu.com/article/c74d60009d992f0f6a595de6.html" target="_blank" rel="external">http://jingyan.baidu.com/article/c74d60009d992f0f6a595de6.html</a></p>
-</blockquote>
-]]></content>
-      
-        <categories>
-            
-            <category> 软件应用 </category>
-            
-        </categories>
-        
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[ssh相关使用]]></title>
-      <url>http://noparkinghere.win/2016/09/09/2016/2016-09-09-ssh%E7%9B%B8%E5%85%B3%E4%BD%BF%E7%94%A8/</url>
-      <content type="html"><![CDATA[<p><em>使用ssh已经很多次，但每次用到都得查看相关说明，一些操作也不是特别熟悉，本文将总结自己使用的ssh服务说明。</em></p>
-<h3 id="本地SSH配置"><a href="#本地SSH配置" class="headerlink" title="本地SSH配置"></a>本地SSH配置</h3><ul>
-<li>首先我们需要检查你电脑上现有的 ssh key：</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> ~/.ssh 检查本机的ssh密钥</div></pre></td></tr></table></figure>
-<p>如果提示：No such file or directory 说明你是第一次使用 git。</p>
-<ul>
-<li>生成新的SSH Key：</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C <span class="string">"邮件地址@youremail.com"</span></div></pre></td></tr></table></figure>
-<p><em>此处的邮箱地址，你可以输入自己的邮箱地址；注意2: 此处的「-C」的是大写的「C」</em></p>
-<ul>
-<li>然后系统会要你输入密码：</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Enter passphrase (empty <span class="keyword">for</span> no passphrase):&lt;输入加密串&gt;</div><div class="line">Enter same passphrase again:&lt;再次输入加密串&gt;</div></pre></td></tr></table></figure>
-<p><em>在回车中会提示你输入一个密码，这个密码会在你提交项目时使用，相当于二次的加密，如果为空的话提交项目时则不用输入。这个设置是防止别人往你的项目里提交内容。个人嫌麻烦一般不会再设定密码，本身ssh的访问就属于本地自动加密认真，就比较安全，除非你秘钥丢失，否则一般不会出问题，</em></p>
-<ul>
-<li><p>看到这样的界面，就成功设置了本地的 ssh key了：</p>
-</li>
-<li><p>~/.ssh/id_rsa.pub 就是需要使用的公钥，将该公钥加入到其他系统上面或者支持ssh服务的软件上面即可实现访问。</p>
-</li>
-</ul>
-<a id="more"></a>
-<h3 id="将本地公钥上传到远程linux服务器"><a href="#将本地公钥上传到远程linux服务器" class="headerlink" title="将本地公钥上传到远程linux服务器"></a>将本地公钥上传到远程linux服务器</h3><blockquote>
-<p>不同的 Linux 之间 copy 文件常用有3种方法：</p>
-</blockquote>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">第一种就是 ftp，也就是其中一台 Linux 安装 ftp Server，这样可以另外一台使用 ftp 的 client 程序来进行文件的 copy。</div><div class="line"></div><div class="line">第二种方法就是采用 samba 服务，类似 Windows 文件 copy 的方式来操作，比较简洁方便。</div><div class="line"></div><div class="line">第三种就是利用 scp 命令来进行文件复制。</div></pre></td></tr></table></figure>
-<p><strong>scp 是有Security的文件 copy，基于 ssh 登录。操作起来比较方便，比如要把当前一个文件 copy 到远程另外一台主机上，可以如下命令。</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp /home/daisy/full.tar.gz root@172.19.2.75:/home/root</div></pre></td></tr></table></figure>
-<p>然后会提示你输入另外那台 172.19.2.75 主机的 root 用户的登录密码，接着就开始 copy 了。如果想反过来操作，把文件从远程主机 copy 到当前系统，也很简单。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp root@/full.tar.gz 172.19.2.75:/home/root/full.tar.gz home/daisy/full.tar.gz</div></pre></td></tr></table></figure>
-<ul>
-<li>我们将原始机的公钥拷贝到目标服务器的 .ssh 目录下，且命名为 authorized_keys。</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp /home/git/.ssh/id_rsa.pub git@ubuntu_server:/home/git/.ssh/authorized_keys</div></pre></td></tr></table></figure>
-<p><em>注意，ubuntu_server 为 ip 对应的名称，这边可以改成 ip 地址，git 为用户名。修改实体机(本地机而不是服务器)的 ip 配置文件 <code>/ect/hosts</code>，加入如下行：<code>192.168.18.202 ubuntu_server</code>， ubuntu_server 是你的虚拟机的主机名称，而 ubuntu_server 以后将代替 192.168.18.202 出现。如果你的虚拟机名不是 ubuntu_server,可以修改 /etc/hostname 中的名称。</em></p>
-<p><strong>注意：ssh在使用时无法通过VPN，需要人为手动做一些修改，这边主要是通过将需要ssh访问的ip地址直接经过网卡而不经过vpn。详细内容参见<em>linux 下 ssh 通过VPN推送失败</em>文章。</strong></p>
-<blockquote>
-<p><a href="http://cnfeat.com/blog/2014/05/10/how-to-build-a-blog/" target="_blank" rel="external">http://cnfeat.com/blog/2014/05/10/how-to-build-a-blog/</a><br><a href="http://www.cnblogs.com/hitwtx/archive/2011/11/16/2251254.html" target="_blank" rel="external">http://www.cnblogs.com/hitwtx/archive/2011/11/16/2251254.html</a><br><a href="http://blog.csdn.net/hunanchenxingyu/article/details/40544513" target="_blank" rel="external">http://blog.csdn.net/hunanchenxingyu/article/details/40544513</a></p>
 </blockquote>
 ]]></content>
       
@@ -5018,6 +5009,52 @@
     </entry>
     
     <entry>
+      <title><![CDATA[stm32F439案例汇总]]></title>
+      <url>http://noparkinghere.win/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
+      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
+<blockquote>
+<p>www.armjishu.com(无法访问)</p>
+</blockquote>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
+<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
+<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
+</ul>
+<a id="more"></a>
+<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
+<li>实验0 Template工程模板</li>
+<li>实验1 跑马灯</li>
+<li>实验2 蜂鸣器</li>
+<li>实验3 按键和外部中断</li>
+<li>实验4 看门狗（独立和窗口）</li>
+<li>实验5 待机唤醒</li>
+<li>实验6 串口通讯（232和485）</li>
+<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
+<li>实验8 PWM输出和输入捕获</li>
+</ul>
+<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
+<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
+</blockquote>
+<hr>
+<p><em>未完待续</em></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 嵌入式 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> MCU </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[（转）回车、换行、和文件末尾空行]]></title>
       <url>http://noparkinghere.win/2016/07/11/2016/2016-07-11-%EF%BC%88%E8%BD%AC%EF%BC%89%E5%9B%9E%E8%BD%A6%E3%80%81%E6%8D%A2%E8%A1%8C%E3%80%81%E5%92%8C%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E7%A9%BA%E8%A1%8C/</url>
       <content type="html"><![CDATA[<h2 id="回车和换行"><a href="#回车和换行" class="headerlink" title="回车和换行"></a>回车和换行</h2><p>回车 (Carriage Return) 和换行 (Line Feed) 的区别，<a href="http://stackoverflow.com/questions/1761051/difference-between-n-and-r" target="_blank" rel="external">这里</a>有一个历史原因可参考：</p>
@@ -5100,52 +5137,6 @@ print(&apos;hello&apos;)
         <tags>
             
             <tag> 问题总结 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[stm32F439案例汇总]]></title>
-      <url>http://noparkinghere.win/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
-      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
-<blockquote>
-<p>www.armjishu.com(无法访问)</p>
-</blockquote>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
-<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
-<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
-</ul>
-<a id="more"></a>
-<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
-<li>实验0 Template工程模板</li>
-<li>实验1 跑马灯</li>
-<li>实验2 蜂鸣器</li>
-<li>实验3 按键和外部中断</li>
-<li>实验4 看门狗（独立和窗口）</li>
-<li>实验5 待机唤醒</li>
-<li>实验6 串口通讯（232和485）</li>
-<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
-<li>实验8 PWM输出和输入捕获</li>
-</ul>
-<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
-<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
-</blockquote>
-<hr>
-<p><em>未完待续</em></p>
-]]></content>
-      
-        <categories>
-            
-            <category> 嵌入式 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> MCU </tag>
             
         </tags>
         

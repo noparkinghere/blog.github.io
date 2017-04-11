@@ -2,6 +2,9 @@
 <p>最早的时候，互联网通信都是明文通信，一旦被截获，内容就暴露无疑。1995 年，芬兰学者Tatu Ylonen设计了 ssh 协议，将登录信息全部加密，成为互联网安全的一个基本解决方案，迅速在全世界获得推广，目前已经成为 linux 系统的标准配置。</p>
 <p>ssh 是一种网络协议，用于计算机之间的加密登录。如果一个用户从本地计算机，使用 ssh 协议登录另一台远程计算机，我们就可以认为，这种登录是安全的，即使被中途截获，密码也不会泄露。需要指出的是，ssh 只是一种协议，存在多种实现，既有商业实现，也有开源实现。</p>
 <a id="more"></a>
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p>假定你要以用户名 user，登录远程主机 host，如：<code>ssh user@host</code>；SSH的默认端口是 22，也就是说，你的登录请求会送进远程主机的 22 端口。使用 p 参数，可以修改这个端口，如：<code>ssh -p 2222 user@host</code></p>
+<p>ssh 登录同样可以使用密码登录，输入用户名后，输入密码即可完成登录，但一般我们不这么做，我们使用 ssh 的目的就是防止密码被截取，因此一般我们采用秘钥对的形式来验证本地主机和目标机是否可以配对。我们将公钥放在目标机器上，然后登录目标机器时，本地机器的私钥能够和目标机器的秘钥配对，则验证通过，否则验证失败。</p>
+<p>值得注意的是，公钥并不需要特别在意，它往往是公开的，即便被别人获取也无法产生威胁，真正重要的是私钥。我们可以将公钥比作你的用户名，私钥则是你的密码。密码的重要性不言而喻，因此私钥一旦丢失往往会造成很严重的后果，我们往往需要更改私钥的存放位置，或者给私钥再设置一个使用密码。</p>
 <h3 id="本地SSH配置"><a href="#本地SSH配置" class="headerlink" title="本地SSH配置"></a>本地SSH配置</h3><ul>
 <li>首先我们需要检查你电脑上现有的 ssh key：</li>
 </ul>
@@ -23,18 +26,20 @@
 <li><p>~/.ssh/id_rsa.pub 就是需要使用的公钥，将该公钥加入到其他系统上面或者支持ssh服务的软件上面即可实现访问。</p>
 </li>
 </ul>
-<h3 id="将本地公钥上传到远程linux服务器"><a href="#将本地公钥上传到远程linux服务器" class="headerlink" title="将本地公钥上传到远程linux服务器"></a>将本地公钥上传到远程linux服务器</h3><blockquote>
-<p>不同的 Linux 之间 copy 文件常用有3种方法：</p>
-</blockquote>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">第一种就是 ftp，也就是其中一台 Linux 安装 ftp Server，这样可以另外一台使用 ftp 的 client 程序来进行文件的 copy。</div><div class="line"></div><div class="line">第二种方法就是采用 samba 服务，类似 Windows 文件 copy 的方式来操作，比较简洁方便。</div><div class="line"></div><div class="line">第三种就是利用 scp 命令来进行文件复制。</div></pre></td></tr></table></figure>
+<h3 id="将本地公钥上传到远程linux服务器"><a href="#将本地公钥上传到远程linux服务器" class="headerlink" title="将本地公钥上传到远程linux服务器"></a>将本地公钥上传到远程linux服务器</h3><p>不同的 Linux 之间 copy 文件常用有3种方法：</p>
+<ul>
+<li>第一种就是 ftp，也就是其中一台 Linux 安装 ftp Server，这样可以另外一台使用 ftp 的 client 程序来进行文件的 copy。</li>
+<li>第二种方法就是采用 samba 服务，类似 Windows 文件 copy 的方式来操作，比较简洁方便。</li>
+<li>第三种就是利用 scp 命令来进行文件复制。</li>
+</ul>
 <p><strong>scp 是有Security的文件 copy，基于 ssh 登录。操作起来比较方便，比如要把当前一个文件 copy 到远程另外一台主机上，可以如下命令。</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp /home/daisy/full.tar.gz root@172.19.2.75:/home/root</div></pre></td></tr></table></figure>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp /home/daisy/full.tar.gz root<span class="variable">@172</span>.<span class="number">19.2</span>.<span class="number">75</span><span class="symbol">:/home/root</span></div></pre></td></tr></table></figure>
 <p>然后会提示你输入另外那台 172.19.2.75 主机的 root 用户的登录密码，接着就开始 copy 了。如果想反过来操作，把文件从远程主机 copy 到当前系统，也很简单。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp root@/full.tar.gz 172.19.2.75:/home/root/full.tar.gz home/daisy/full.tar.gz</div></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp root@/full<span class="selector-class">.tar</span><span class="selector-class">.gz</span> <span class="number">172.19</span>.<span class="number">2.75</span>:/home/root/full<span class="selector-class">.tar</span><span class="selector-class">.gz</span> home/daisy/full<span class="selector-class">.tar</span><span class="selector-class">.gz</span></div></pre></td></tr></table></figure>
 <ul>
 <li>我们将原始机的公钥拷贝到目标服务器的 .ssh 目录下，且命名为 authorized_keys。</li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp /home/git/.ssh/id_rsa.pub git@ubuntu_server:/home/git/.ssh/authorized_keys</div></pre></td></tr></table></figure>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp /home/git/.ssh/id_rsa.pub git<span class="variable">@ubuntu_server</span><span class="symbol">:/home/git/</span>.ssh/authorized_keys</div></pre></td></tr></table></figure>
 <p><em>注意，ubuntu_server 为 ip 对应的名称，这边可以改成 ip 地址，git 为用户名。修改实体机(本地机而不是服务器)的 ip 配置文件 <code>/ect/hosts</code>，加入如下行：<code>192.168.18.202 ubuntu_server</code>， ubuntu_server 是你的虚拟机的主机名称，而 ubuntu_server 以后将代替 192.168.18.202 出现。如果你的虚拟机名不是 ubuntu_server,可以修改 /etc/hostname 中的名称。</em></p>
 <p><strong>注意：ssh在使用时无法通过VPN，需要人为手动做一些修改，这边主要是通过将需要ssh访问的ip地址直接经过网卡而不经过vpn。详细内容参见<em>linux 下 ssh 通过VPN推送失败</em>文章。</strong></p>
 <h3 id="windows-下使用-ssh"><a href="#windows-下使用-ssh" class="headerlink" title="windows 下使用 ssh"></a>windows 下使用 ssh</h3><p>windows 使用 ssh 一般可以通过 putty 或者 secureCRT，这两款软件都是自带 ssh 服务的，一般你安装他们后，windows 上就可以使用 ssh 了。如果需要秘钥登录的话，需要手动加载秘钥位置，如：secureCRT 的秘钥在 tools 下的 manage agents keys -&gt; add，具体的一些位置需要自己去查找，这边不再详细讨论。</p>
@@ -47,7 +52,7 @@
 <blockquote>
 <p><a href="http://cnfeat.com/blog/2014/05/10/how-to-build-a-blog/" target="_blank" rel="external">http://cnfeat.com/blog/2014/05/10/how-to-build-a-blog/</a><br><a href="http://www.cnblogs.com/hitwtx/archive/2011/11/16/2251254.html" target="_blank" rel="external">http://www.cnblogs.com/hitwtx/archive/2011/11/16/2251254.html</a><br><a href="http://blog.csdn.net/hunanchenxingyu/article/details/40544513" target="_blank" rel="external">http://blog.csdn.net/hunanchenxingyu/article/details/40544513</a><br><a href="http://www.ibm.com/developerworks/cn/linux/l-cn-sshforward/" target="_blank" rel="external">http://www.ibm.com/developerworks/cn/linux/l-cn-sshforward/</a><br><a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html</a><br><a href="http://www.ruanyifeng.com/blog/2011/12/ssh_port_forwarding.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2011/12/ssh_port_forwarding.html</a></p>
 </blockquote>
-</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://noparkinghere.win/2016/12/27/2016/2016-12-27-ssh常规用法详解/" data-id="cj1dixkg70070kpmuh9rpxsiy" class="article-share-link">Share</a><div class="tags"></div><div class="post-nav"><a href="/2016/12/28/2016/2016-12-28-mcu中的hardfault-handler问题/" class="pre">MCU中的HardFault_Handler问题</a><a href="/2016/12/26/2016/2016-12-26-针对百度网盘限速的解决方案/" class="next">针对百度网盘限速的解决方案</a></div><div data-thread-key="2016/12/27/2016/2016-12-27-ssh常规用法详解/" data-title="ssh常规用法详解" data-url="http://noparkinghere.win/2016/12/27/2016/2016-12-27-ssh常规用法详解/" class="ds-share flat"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><a href="javascript:void(0);" class="ds-more">分享到：</a></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qzone" class="ds-qzone">QQ空间</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div><div data-thread-key="2016/12/27/2016/2016-12-27-ssh常规用法详解/" data-title="ssh常规用法详解" data-url="http://noparkinghere.win/2016/12/27/2016/2016-12-27-ssh常规用法详解/" data-author-key="1" class="ds-thread"></div><div id="disqus_thread"><script>var disqus_shortname = 'noparkinghere';
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://noparkinghere.win/2016/12/27/2016/2016-12-27-ssh常规用法详解/" data-id="cj1dk1y4d0073e2mu38b717j0" class="article-share-link">Share</a><div class="tags"></div><div class="post-nav"><a href="/2016/12/28/2016/2016-12-28-mcu中的hardfault-handler问题/" class="pre">MCU中的HardFault_Handler问题</a><a href="/2016/12/26/2016/2016-12-26-针对百度网盘限速的解决方案/" class="next">针对百度网盘限速的解决方案</a></div><div data-thread-key="2016/12/27/2016/2016-12-27-ssh常规用法详解/" data-title="ssh常规用法详解" data-url="http://noparkinghere.win/2016/12/27/2016/2016-12-27-ssh常规用法详解/" class="ds-share flat"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><a href="javascript:void(0);" class="ds-more">分享到：</a></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qzone" class="ds-qzone">QQ空间</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div><div data-thread-key="2016/12/27/2016/2016-12-27-ssh常规用法详解/" data-title="ssh常规用法详解" data-url="http://noparkinghere.win/2016/12/27/2016/2016-12-27-ssh常规用法详解/" data-author-key="1" class="ds-thread"></div><div id="disqus_thread"><script>var disqus_shortname = 'noparkinghere';
 var disqus_identifier = '2016/12/27/2016/2016-12-27-ssh常规用法详解/';
 var disqus_title = 'ssh常规用法详解';
 var disqus_url = 'http://noparkinghere.win/2016/12/27/2016/2016-12-27-ssh常规用法详解/';

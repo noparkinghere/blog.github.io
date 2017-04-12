@@ -20,7 +20,7 @@ tags: [链接,友情,交换]
 - [Hacker News](https://news.ycombinator.com/)
 
 
-### 博客链接
+### 推荐博客
 
 - [Jobbole](http://blog.jobbole.com/)
 - [阮一峰的网络日志](http://www.ruanyifeng.com/blog/)

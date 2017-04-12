@@ -4,6 +4,15 @@
   
     
     <entry>
+      <title><![CDATA[版本控制管理]]></title>
+      <url>http://noparkinghere.win/2017/04/12/2017/2017-04-12-%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%AE%A1%E7%90%86/</url>
+      <content type="html"><![CDATA[<p>在做项目的过程中不断有新的实验和需求，软件的版本也不断的更改，很多时候建了一个又一个复制件目录，v0.1,v0.2,vxxx.xxx，往往把自己都绕进去了。因为这些原因，开始使用 GIT 版本控制器，到现在来说已经用了快一年了，但仍然会有很多这方面的问题，本文对目前自己的项目进行总结，希望可以找到一个可行性高的项目管理方法。</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[共享单车体验]]></title>
       <url>http://noparkinghere.win/2017/04/10/2017/2017-04-10-%E5%85%B1%E4%BA%AB%E5%8D%95%E8%BD%A6%E4%BD%93%E9%AA%8C/</url>
       <content type="html"><![CDATA[<p>大学时在南京上的学，时隔多年没有去这座城市了，今天去南京某学校转了一圈，让人最大的感触应该算是共享单车。仔细想一下，似乎大学生永远都是新鲜事物的主力军，而每几年大学生活就会有翻天覆地的变化，从开始有电脑，到网络的普及，从开始有手机到智能机的普及，从校园一卡通到移动支付的普及等等，今年也许最流行的要数共享单车了。</p>
@@ -261,7 +270,7 @@
       <url>http://noparkinghere.win/2017/03/30/2017/2017-03-30-%E5%BD%B1%E8%AF%84-%E6%9C%80%E7%BB%88%E5%B9%BB%E6%83%B315/</url>
       <content type="html"><![CDATA[<p>有段时间没看电影了，前几天偶然在豆瓣上面看到《最终幻想15》正在上映，于是从网上下载下来，今晚看了下。</p>
 <p>就特效而言，该片还是可圈可点的，这部电影的特效应该算是顶级的水准了，一些景物建筑场景往往让你很难分辨出真伪。然而，该片的特效并非无人能及，虽然说是目前这种系列里面最顶级的，但也存在很多的不足。</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-03-30-最终幻想15-影评/1.jpg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-03-30-影评-最终幻想15/1.jpg" alt=""></p>
 <a id="more"></a>
 <p>首先，和前作比，这部电影制作特效上面肯定是有很大进步的，但进步并不多，前两部作品可以说是在 CG 电影领域颠覆性的，甩开竞争对手几条街，具备很多超前的黑科技，这部作品并没能在 3D 领域和同行拉开差距。</p>
 <p>虽然算是力作，比国内的《爵迹》之流特效好不少，但随着现在 3D 动画越来越成熟，国内的一些作品和欧美的其他作品在部分表现上面甚至要好过《最终幻想15》。《最终幻想15》的动作场景过多，且一些地方人物动作不连冠，这点表现的甚至不如国内《画江湖》系列，虽然这种不连冠的场景很少，但总感觉怪怪的。另外作品对光阴的处理老实说进步不大，虽然人物细节已经很多了，但光阴反射处理的一般，因此人物总会缺少真实感，这方面和迪士尼的一些动画还是有差距的。</p>
@@ -4065,7 +4074,7 @@
     <entry>
       <title><![CDATA[git问题总结FAQ]]></title>
       <url>http://noparkinghere.win/2016/08/28/2016/2016-08-28-git%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93FAQ/</url>
-      <content type="html"><![CDATA[<p>git的使用过程真心不容易，尤其对于我这样的初学者且没有其他版本控制器的使用经验，另外也比较容易丢三落四的人来说。按照网上所给的步骤操作，但万一漏做了一些步骤，或者做错了一些步骤，所引起的问题也是致命的，虽然肯定有解决问题的办法，但往往会引起分支结构混乱，经常做了一次提交然后就回不去了，或者经常不知名的无法进行提交，无法进行回退，pull失败等等。</p>
+      <content type="html"><![CDATA[<p>git 的使用过程真心不容易，尤其对于我这样没有其他版本控制器使用经验，且比较容易丢三落四的的初学者。按照网上所给的步骤操作，一旦漏做了一些步骤，或者做错了一些步骤，所引起的问题也是致命的，虽然肯定有解决问题的办法，但往往会引起分支结构混乱，经常做了一次提交然后就回不去了，或者经常不知名的无法进行提交，无法进行回退，pull失败等等。</p>
 <p><strong>可见要想真正让git成为你版本控制的工具，git的工作原理必定要相当清楚，版本控制的结构要特别清晰，一单出现问题立马就知道是哪一步做错了才行。</strong></p>
 <h3 id="问题总结："><a href="#问题总结：" class="headerlink" title="问题总结："></a>问题总结：</h3><h4 id="git-checkout-–-filename"><a href="#git-checkout-–-filename" class="headerlink" title="git checkout – filename:"></a>git checkout – filename:</h4><p>在文件没有stage时可以通过这个命令将该文件撤销回来。一旦文件add后用该命令不再有效。这时需要使用 git reset HEAD – filename 意味着将文件unstage出库，还原到add之前，再使用git checkout – filename撤销文件。而如果你使用git checkout HEAD – filename 则直接会丢弃掉stage中的暂存内容，将文件还原。</p>
 <a id="more"></a>
@@ -5014,6 +5023,94 @@
     </entry>
     
     <entry>
+      <title><![CDATA[（转）回车、换行、和文件末尾空行]]></title>
+      <url>http://noparkinghere.win/2016/07/11/2016/2016-07-11-%EF%BC%88%E8%BD%AC%EF%BC%89%E5%9B%9E%E8%BD%A6%E3%80%81%E6%8D%A2%E8%A1%8C%E3%80%81%E5%92%8C%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E7%A9%BA%E8%A1%8C/</url>
+      <content type="html"><![CDATA[<h2 id="回车和换行"><a href="#回车和换行" class="headerlink" title="回车和换行"></a>回车和换行</h2><p>回车 (Carriage Return) 和换行 (Line Feed) 的区别，<a href="http://stackoverflow.com/questions/1761051/difference-between-n-and-r" target="_blank" rel="external">这里</a>有一个历史原因可参考：</p>
+<blockquote>
+<p>在计算机还没有出现之前，有一种叫做电传打字机（Teletype Model 33）的玩意，每秒钟可以打10个字符。但是它有一个问题，就是打完一行换行的时候，要用去0.2秒，正好可以打两个字符。要是在这0.2秒里面，又有新的字符传过来，那么这个字符将丢失。</p>
+<p>于是，研制人员想了个办法解决这个问题，就是在每行后面加两个表示结束的字符。一个叫做”回车”，告诉打字机把打印头定位在左边界；另一个叫做”换行”，告诉打字机把纸向下移一行。</p>
+</blockquote>
+<p>发明计算机时，这个概念被沿用下来，但因为条件的限制和设计者的喜好，有了一些分歧：</p>
+<ul>
+<li>Unix 系统里，每行结尾只有”&lt;换行&gt;”，即 “\n”</li>
+<li>Windows 系统里面，每行结尾是”&lt;回车&gt;&lt;换行&gt;”，即 “\r\n”</li>
+<li>在老的 Mac 系统里，每行结尾是”&lt;回车&gt;”，即 “\r”</li>
+</ul>
+<p>我们来验证一下，我在 Windows 下用记事本新建一个文本文件，它的二进制编码如下：</p>
+<pre><code>//源文件内容
+hello
+hello2
+
+//二进制内容
+0000000: 6865 6c6c 6f0d 0a68 656c 6c6f 32         hello..hello2
+</code></pre><p>同样在 Mac 下用 Vim 新建一个：</p>
+<pre><code>//源文件内容
+hello
+hello2
+
+//二进制内容
+0000000: 6865 6c6c 6f0a 6865 6c6c 6f32 0a         hello.hello2.
+</code></pre><p><code>0a</code>是 LF 的 ASCII 编码, <code>0d</code>是 CR 的 ASCII 编码。区别很明显了</p>
+<ul>
+<li>Mac 下的文本文件在 Windows 下打开会成为一行，因为 Windows 只认识 <code>\r\n</code>，也就是 <code>0d0a</code></li>
+<li>Windows 下的文本文件在 Mac 下打开，Vim 中会在每行末尾显示一个 <code>^M</code>，(不是两个字符组成的)</li>
+</ul>
+<a id="more"></a>
+<h2 id="文件末尾空行"><a href="#文件末尾空行" class="headerlink" title="文件末尾空行"></a>文件末尾空行</h2><p><a href="https://zh.wikipedia.org/zh-sg/POSIX" target="_blank" rel="external">POSIX</a>对行的<a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_206" target="_blank" rel="external">定义</a>如下：</p>
+<blockquote>
+<p>3.206 Line</p>
+<p>A sequence of zero or more non- <newline\> characters plus a terminating <newline\> character.</newline\></newline\></p>
+<p>行是由0个或者多个非 “换行” 符的字符组成，并且以 “换行” 符结尾。</p>
+</blockquote>
+<p>这样做有什么好处呢，举个例子：</p>
+<pre><code>//hello.c
+#include head.h
+print(&apos;hello&apos;)
+
+//world.c
+#include tail.h
+print(&apos;hello&apos;)
+</code></pre><p>如果这两个文件都按 POSIX 规范来写， 在<code>cat *.c</code>之后，是没有问题的：</p>
+<pre><code>//cat.c
+
+#include head.h
+print(&apos;hello&apos;)
+#include tail.h
+print(&apos;hello&apos;)
+</code></pre><p>如果缺少最后一行的换行符（如 Windows 文件那样的定义），<code>cat</code>之后，就有问题了：</p>
+<pre><code>//error.c
+
+#include head.h
+print(&apos;hello&apos;)#include tail.h
+print(&apos;hello&apos;)
+</code></pre><p>所以，从这点去理解 POSIX 对行的定义，非常合理，对于任意文件的拼接，也各自保持了文件的完整性。</p>
+<p>不遵守标准带来的则是：在一些编辑器下面，比如 Sublime，他把<code>\n</code>的当做了行之间的分隔符，于是文件最后一行的<code>\n</code>就看上去成了一个新的空行，这就是错误解读标准造成的，拼接文件时也会产生不必要的麻烦，比如上例。</p>
+<h2 id="No-new-line-at-end-of-file"><a href="#No-new-line-at-end-of-file" class="headerlink" title="\ No new line at end of file"></a>\ No new line at end of file</h2><p>基于上面的原因，再去看 git diff 的<code>\ No new line at end of file</code>信息，就很好解释了。</p>
+<p>各编辑器对于换行符的理解偏差，导致的文件确实发生了变化，多了或少了最后的<code>0a</code>，那么对于 diff 程序来说，这当然是不可忽略的，但因为<code>0a</code>是不可见字符，并且是长久以来的历史原因，所以 diff 程序有个专门的标记来说明这个变化，就是：</p>
+<p><code>\ No new line at end of file</code></p>
+<p>各编辑器也有相应的办法去解决这个问题，比如 Sublime，在<code>Default/Preferences.sublime-settings</code>中设置：</p>
+<pre><code>// Set to true to ensure the last line of the file ends in a newline
+// character when saving
+&quot;ensure_newline_at_eof_on_save&quot;: true,
+</code></pre><p>所以，请遵守规范。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 问题总结 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 问题总结 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[stm32F439案例汇总]]></title>
       <url>http://noparkinghere.win/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
       <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
@@ -5144,94 +5241,6 @@
         <tags>
             
             <tag> 软件安装 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[（转）回车、换行、和文件末尾空行]]></title>
-      <url>http://noparkinghere.win/2016/07/11/2016/2016-07-11-%EF%BC%88%E8%BD%AC%EF%BC%89%E5%9B%9E%E8%BD%A6%E3%80%81%E6%8D%A2%E8%A1%8C%E3%80%81%E5%92%8C%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E7%A9%BA%E8%A1%8C/</url>
-      <content type="html"><![CDATA[<h2 id="回车和换行"><a href="#回车和换行" class="headerlink" title="回车和换行"></a>回车和换行</h2><p>回车 (Carriage Return) 和换行 (Line Feed) 的区别，<a href="http://stackoverflow.com/questions/1761051/difference-between-n-and-r" target="_blank" rel="external">这里</a>有一个历史原因可参考：</p>
-<blockquote>
-<p>在计算机还没有出现之前，有一种叫做电传打字机（Teletype Model 33）的玩意，每秒钟可以打10个字符。但是它有一个问题，就是打完一行换行的时候，要用去0.2秒，正好可以打两个字符。要是在这0.2秒里面，又有新的字符传过来，那么这个字符将丢失。</p>
-<p>于是，研制人员想了个办法解决这个问题，就是在每行后面加两个表示结束的字符。一个叫做”回车”，告诉打字机把打印头定位在左边界；另一个叫做”换行”，告诉打字机把纸向下移一行。</p>
-</blockquote>
-<p>发明计算机时，这个概念被沿用下来，但因为条件的限制和设计者的喜好，有了一些分歧：</p>
-<ul>
-<li>Unix 系统里，每行结尾只有”&lt;换行&gt;”，即 “\n”</li>
-<li>Windows 系统里面，每行结尾是”&lt;回车&gt;&lt;换行&gt;”，即 “\r\n”</li>
-<li>在老的 Mac 系统里，每行结尾是”&lt;回车&gt;”，即 “\r”</li>
-</ul>
-<p>我们来验证一下，我在 Windows 下用记事本新建一个文本文件，它的二进制编码如下：</p>
-<pre><code>//源文件内容
-hello
-hello2
-
-//二进制内容
-0000000: 6865 6c6c 6f0d 0a68 656c 6c6f 32         hello..hello2
-</code></pre><p>同样在 Mac 下用 Vim 新建一个：</p>
-<pre><code>//源文件内容
-hello
-hello2
-
-//二进制内容
-0000000: 6865 6c6c 6f0a 6865 6c6c 6f32 0a         hello.hello2.
-</code></pre><p><code>0a</code>是 LF 的 ASCII 编码, <code>0d</code>是 CR 的 ASCII 编码。区别很明显了</p>
-<ul>
-<li>Mac 下的文本文件在 Windows 下打开会成为一行，因为 Windows 只认识 <code>\r\n</code>，也就是 <code>0d0a</code></li>
-<li>Windows 下的文本文件在 Mac 下打开，Vim 中会在每行末尾显示一个 <code>^M</code>，(不是两个字符组成的)</li>
-</ul>
-<a id="more"></a>
-<h2 id="文件末尾空行"><a href="#文件末尾空行" class="headerlink" title="文件末尾空行"></a>文件末尾空行</h2><p><a href="https://zh.wikipedia.org/zh-sg/POSIX" target="_blank" rel="external">POSIX</a>对行的<a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_206" target="_blank" rel="external">定义</a>如下：</p>
-<blockquote>
-<p>3.206 Line</p>
-<p>A sequence of zero or more non- <newline\> characters plus a terminating <newline\> character.</newline\></newline\></p>
-<p>行是由0个或者多个非 “换行” 符的字符组成，并且以 “换行” 符结尾。</p>
-</blockquote>
-<p>这样做有什么好处呢，举个例子：</p>
-<pre><code>//hello.c
-#include head.h
-print(&apos;hello&apos;)
-
-//world.c
-#include tail.h
-print(&apos;hello&apos;)
-</code></pre><p>如果这两个文件都按 POSIX 规范来写， 在<code>cat *.c</code>之后，是没有问题的：</p>
-<pre><code>//cat.c
-
-#include head.h
-print(&apos;hello&apos;)
-#include tail.h
-print(&apos;hello&apos;)
-</code></pre><p>如果缺少最后一行的换行符（如 Windows 文件那样的定义），<code>cat</code>之后，就有问题了：</p>
-<pre><code>//error.c
-
-#include head.h
-print(&apos;hello&apos;)#include tail.h
-print(&apos;hello&apos;)
-</code></pre><p>所以，从这点去理解 POSIX 对行的定义，非常合理，对于任意文件的拼接，也各自保持了文件的完整性。</p>
-<p>不遵守标准带来的则是：在一些编辑器下面，比如 Sublime，他把<code>\n</code>的当做了行之间的分隔符，于是文件最后一行的<code>\n</code>就看上去成了一个新的空行，这就是错误解读标准造成的，拼接文件时也会产生不必要的麻烦，比如上例。</p>
-<h2 id="No-new-line-at-end-of-file"><a href="#No-new-line-at-end-of-file" class="headerlink" title="\ No new line at end of file"></a>\ No new line at end of file</h2><p>基于上面的原因，再去看 git diff 的<code>\ No new line at end of file</code>信息，就很好解释了。</p>
-<p>各编辑器对于换行符的理解偏差，导致的文件确实发生了变化，多了或少了最后的<code>0a</code>，那么对于 diff 程序来说，这当然是不可忽略的，但因为<code>0a</code>是不可见字符，并且是长久以来的历史原因，所以 diff 程序有个专门的标记来说明这个变化，就是：</p>
-<p><code>\ No new line at end of file</code></p>
-<p>各编辑器也有相应的办法去解决这个问题，比如 Sublime，在<code>Default/Preferences.sublime-settings</code>中设置：</p>
-<pre><code>// Set to true to ensure the last line of the file ends in a newline
-// character when saving
-&quot;ensure_newline_at_eof_on_save&quot;: true,
-</code></pre><p>所以，请遵守规范。</p>
-]]></content>
-      
-        <categories>
-            
-            <category> 问题总结 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 问题总结 </tag>
             
         </tags>
         

@@ -1,6 +1,6 @@
 ---
 layout: "post"
-title: "githubpage+https"
+title: "GithubPages+https"
 date: "2017-04-13 18:51"
 ---
 
@@ -41,8 +41,17 @@ GitHub Pages 不支持上传SSL证书，我们采用 CloudFlare 提供的免费 
 详细步骤可以分为以下几部：
 - 注册并登录 CloudFlare，并将自己域名下的 name server 修改为 CloudFlare 的 name server，那万网为例，就是在域名管理下，将DNS服务器从万网的地址改为 CloudFlare 提供的地址，例如：`boyd.ns.cloudflare.com` 和 `donna.ns.cloudflare.com`。
 - 在 CloudFlare 的 DNS 中设置，因为你不存在 IP 地址，所以这边选用 CNAME，name 中填入你需要显示的域名名称，IPv4 中填入跳转的地址即 github pages 的地址。以上内容基本上任何域名服务网站都一样，不仅限于 CloudFlare。
+
+![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-04-13-githubpage-https/2.png)
+
 - 下面正式加入 HTTPS 服务，在 CloudFlare 的 Crypto 设置 SSL 为 Flexible 或者 FULL 均可，注意这边并不是立即生效的，需要等待一段时间。
-- 在 CloudFlare 的 Page Rules 中设置路由规则，这边功能就比较多了，我们可以将它理解为一个具备小型功能的服务器，里面一些功能之前是需要通过自己服务器上面设置的。这边只说两种常用功能。其一，设置 `http://yoursite.com/*` 强制使用 HTTPS ，这样的话，所有访问 `http://yoursite.com/*` 的操作都会变为` https://yoursite.com/*` 。其二，可以将目标地址重定向，输入 `http://www.yoursite.com/*` 然后选择 forwarding URL ，选择 301 重定向，下面输入 `https://yoursite.com/*` 。这时，你访问 `http://www.yoursite.com/*` 时将会自动跳转到 `https://yoursite.com/*` 页面。
+- 在 CloudFlare 的 Page Rules 中设置路由规则，这边功能就比较多了，我们可以将它理解为一个具备小型功能的服务器，里面一些功能之前是需要通过自己服务器上面设置的。这边只说两种常用功能。其一，设置 `http://yoursite.com/*` 强制使用 HTTPS ，这样的话，所有访问 `http://yoursite.com/*` 的操作都会变为` https://yoursite.com/*` 。其二，可以将目标地址重定向，输入 `http://www.yoursite.com/*` 然后选择 forwarding URL ，选择 301 重定向，下面输入 `https://yoursite.com/*` 。这时，你访问 `http://www.yoursite.com/*` 时将会自动跳转到 `https://yoursite.com/*` 页面。**注意：如果有多个规则的话，强制 HTTPS 的规则要放在第一位。**
+
+
+![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-04-13-githubpage-https/4.png)
+
+
+![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-04-13-githubpage-https/5.png)
 
 注意：以上步骤设置后并非立即生效，需要等待一段时间。
 
@@ -51,7 +60,8 @@ GitHub Pages 不支持上传SSL证书，我们采用 CloudFlare 提供的免费 
 CNAME 中设置跳转的目标页面，一般 CNAME 设置后，会将你的域名作为主要显示域名，一般网站是不允许这么做的，Github Pages 加入了 CNAME 认证，只有两者一致的话，才会返回结果，否则返回错误页面，大多数网页也都是如此。注意这些设置不是立刻生效，我们可以这么验证，如果 CNAME 设置成功了，则会返回 `Invalid URL`，因为你的域名不被对方认可拒绝访问；而如果 CNAME 没有成功，则会跳出：`This page isn’t working`，代表服务器不响应。
 
 采用 CNAME + CloudFlare 的 Page Rules 可以不需要本地服务器，即可完成域名的跳转，具体方法如下：
-我们只需要设置 Page Rules ，将里面的规则进行更改，如：可以将目标地址重定向，输入 `http://www.yoursite.com/*` 然后选择 forwarding URL ，选择 301 重定向，下面输入 `https://www.qq.com/*`，一般这个不是立刻生效，需要耐心等待，页面如果跳出 CloudFlare 相关信息，很可能是已经设置成功，但还没有生效。
+- 需要建立一个 CNAME 跳转，名称可以是你需要跳转的地址，因为如果不设置的话，下面步骤可能不会生效。
+- 我们只需要设置 Page Rules ，将里面的规则进行更改，如：可以将目标地址重定向，输入 `http://www.yoursite.com/*` 然后选择 forwarding URL ，选择 301 重定向，下面输入 `https://www.qq.com/*`，一般这个不是立刻生效，需要耐心等待，页面如果跳出 CloudFlare 相关信息，很可能是已经设置成功，但还没有生效。
 
 
 > 参考链接：

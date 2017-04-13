@@ -17,6 +17,7 @@
 </ul>
 <p><strong>团队合作示意图：</strong></p>
 <p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-git%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E8%AF%A6%E8%A7%A3/0.png" alt=""></p>
+<a id="more"></a>
 <p>在原来的基础上进一步修改，我给出的方案是： </p>
 <ul>
 <li>master 分支只用来初始化版本库后，承担第一个文件（.gitignore）的提交，后续不将其他内容合并到master 上。</li>
@@ -44,6 +45,8 @@
 <li>学生自己购车价格不便宜，并且存在被偷的风险。</li>
 </ul>
 <p>以前我一直都是用摩拜单车，骑行的距离比较短。今天在学校中，主要还是看到了 ofo 和摩拜单车。下面就两者，说下体验和差别：</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-04-10-共享单车体验/1.jpg" alt=""></p>
+<a id="more"></a>
 <h3 id="ofo"><a href="#ofo" class="headerlink" title="ofo"></a>ofo</h3><p>ofo 的创业团队是一群大学生，他们也是瞄准了大学生在自行车上面的需求，也是国内最早做共享单车的，但随着节能减排的推广，以及很多人发现短途旅行骑车比公交更合适，现在共享单车也已经在普通大众中火了起来。</p>
 <p>ofo 的车是传统自行车，采用的是密码锁，用户上传车牌号，服务器下发密码，用户通过密码解锁就可以骑车了。ofo 车的优点是骑起来轻松，坐起来也舒服些，缺点是采用传统轮胎，维护成本高，校园中大量的 ofo 车轮胎没有气，车子无法解锁，晚上回来的时候，大量的人在找 ofo 的车，但很少有人能够找到可用的。另外 ofo 车不带定位系统，你只能随缘找车，骑车。</p>
 <h3 id="摩拜单车"><a href="#摩拜单车" class="headerlink" title="摩拜单车"></a>摩拜单车</h3><p>相比 ofo ，摩拜的创业过程则完全不同，摩拜是有着明确的市场定位以及丰富市场经验的一群人做的一个项目。从一开始摩拜就是定位城市共享单车，目的是解决最后市民出行“最后一公里问题”。让大家可以骑车锻炼身体，短途旅行不坐公交，不开私家车。摩拜单车全部是都是只能车，自带 GPS 定位，能够通过远程验证解锁，轮胎不需要打气维护，自带充电装置等等。优点是，我们很容易找到摩拜的车，解锁成功率也很高，车的利用率高损坏较少，外观时尚漂亮（听到周围有女生评价比较喜欢摩拜的外观）。缺点，车身太过笨重，非打气轮胎让骑行十分艰难，上坡基本上骑不上去，路不太平整的地段骑车相当痛苦。</p>
@@ -59,6 +62,7 @@
       <url>http://noparkinghere.win/2017/04/07/2017/2017-04-07-pc%E4%B8%8B%E7%9A%84c%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/</url>
       <content type="html"><![CDATA[<p>这篇文章主要讲述基于 x86 下的 C 项目开发工具，对于 ARM 等其他平台的开发不再本文的谈论范围内。</p>
 <p>C 语言问世已经有 40 年的时间了，40 年足够一个婴儿步入壮年，现在的程序语言可谓百花齐放，对于老式的 C 由于主要在做嵌入式开发，往往缺少一个 x86 平台下的调试器，VS 支持 VC，而 VC 则是兼容 C 语言的，可能能够调试 C 的程序，但是 VS 由于主要支持的是 VC，对 C 的语法也都是基于 C++ 的，一些问题无法显现出来，而即便可以支持 C 语言，可能是 C89 的标准，不支持新的语法格式。老牌的 GDB 虽说功能极度强大，但是只能说是神器，命令行的操作方式，让新手或者即便不是新手也很难将这个工具用的好，反正我是用一次忘一次，且用起来很麻烦。</p>
+<a id="more"></a>
 <p>我要找的工具是需要具备 GDB 的功能，同时又具备友好的 GUI 交互的，中间我试用过 ddd，可惜该工具也太过古老了，图形界面和现在的风格完全不符合，并且一些功能用起来有点莫名其妙，然后就没再作进一步的研究了。除了 ddd 我还尝试过 Kdevelop，然而该软件过于小众，虽然有文档，但问题会频繁出现，且缺少相关的 FAQ，windows 下的 Kdevelop 更是几乎没有查有意义的参考解答。</p>
 <p>偶然在 stackoverflow 看到 Eclipse CDT 是可以调试 C/C++ 项目的，其调用的工具就是 GDB，能够将 GDB 命令的输出结果转成 GUI 的界面清晰陈列给用户，注意本文只是提供一种我个人认为比较好的方式，其他内容可以参考下面的链接。</p>
 <p>Eclipse 算是一个老牌的 IDE 了，可以嵌入一些开发组件，让它能够完成你的工作，其大名在 JAVA 界可能比较火些。Eclipse 支持多个平台的开发，同时载入调试工具也可以选用多种多个平台的工具。</p>
@@ -79,6 +83,8 @@
       <content type="html"><![CDATA[<p>kindle 是亚马逊出品的一个阅读产品，这几年在阅读界可以说是异常的火爆，改变了很多人的阅读习惯。kindle 本身可以代表一个跨平台的软件，其支持 windows，Android，IOS等；同时，kindle 也可以算是亚马逊推出的一款电子产品。</p>
 <p>kindle 的优点是可以支持多个平台，同步你的阅读记录，打开平板或者 kindle 硬件可以直接阅读你的书籍，挡在公交车上或者外出时，也可以随时用手机阅读。</p>
 <p>kindle 的成功主要源于电纸书这个产品，电纸书采用的是不发光的仿真纸质屏幕，可以让你阅读时减少眼睛的疲惫感。最关键的一点是，你可以在 kindle 上轻松地找到大量阅读资源。</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-04-06-kindle-使用技巧总结/1.jpg" alt=""></p>
+<a id="more"></a>
 <h3 id="获取资源方式"><a href="#获取资源方式" class="headerlink" title="获取资源方式"></a>获取资源方式</h3><p>kindle 的阅读资源获取可以分为以下是那种方式：</p>
 <h4 id="官方商城"><a href="#官方商城" class="headerlink" title="官方商城"></a>官方商城</h4><p>通过官方的 kindle 阅读商城，我们可以购买电子书籍，一般的电子书籍往往都不是免费的，当然这些书籍要比实体书籍便宜不少。</p>
 <h4 id="数据线传输"><a href="#数据线传输" class="headerlink" title="数据线传输"></a>数据线传输</h4><p>可以将你自己的电子书通过 USB 数据线传入 kindle 中，这也是一种比较好的方法，你可以自己从网上找到你需要的电子书，然后将他们在 kindle 中查看， kindle 原生支持 TXT,PDF,MOBI,AZW，一般 MOBI 格式表现最佳，我们也优先选择这个格式。</p>
@@ -157,83 +163,6 @@
 <p>总结下来，这部电影还是值得茶前饭后一看的。</p>
 ]]></content>
       
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[GithubPage+Hexo搭建博客]]></title>
-      <url>http://noparkinghere.win/2017/04/02/2017/2017-04-02-GithubPage+Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
-      <content type="html"><![CDATA[<p>个人博客是使用 githubpage+jekyll 搭建的，且博客已经工作有半年了，但由于期初的模板没有找好，加上一些其他的问题，导致博客看起来比较凌乱，这边给出另外一个 GithubPage+Hexo 的博客搭建方法供大家参考，本文操作系统主要使用的是 ubuntu 16.04，使用其他 linux 发行版的用户，可以参考本文。附上最终效果图如下：</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-12-14-githubpage-hexo搭建博客/1.png" alt=""></p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-12-14-githubpage-hexo搭建博客/2.png" alt=""></p>
-<a id="more"></a>
-<h3 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h3><h4 id="安装-node-js"><a href="#安装-node-js" class="headerlink" title="安装 node.js"></a>安装 node.js</h4><p>Node.js 是一个开放源代码、跨平台的、可用于服务器端和网络应用的运行环境，该应用由 C++ 语言写成，在 Node.js 运行时运行。Node.js 提供事件驱动和非阻塞 I/O API，可优化应用程序的吞吐量和规模。这些技术通常被用于实时应用程序。并且它是采用 Google 的 V8 引擎来执行代码，它的大部分基本模块都是用 JavaScript 写成的，包含有一系列内置模块，使得程序可以作为独立服务器运行，从而脱离 Apache HTTP Server 或 IIS 运行。npm 也即 Node包管理器（Node Package Manager），它是一个以 Javascript 编写的软件包管理系统，默认环境为 Node.js 。</p>
-<ul>
-<li>安装 nodejs ： sudo apt-get install nodejs , 注意 ubuntu 16.04 使用：sudo apt install nodejs</li>
-<li>安装 npm ： sudo apt-get install npm ， 注意 ubuntu 16.04 使用：sudo apt install npm</li>
-</ul>
-<p>需要安装 nrm ， nrm 是 npm 的资源管理器，借助各个工具可以方便快捷地对 npm 的源进行管理。另外，由于国内网络环境原因在使用 npm 默认下载源的时候不仅速度非常慢而且常常会超时，因此这里还手动指定了从淘宝源下载。<code>sudo npm install nrm -g --registry https://registry.npm.taobao.org</code>，<code>nrm use taobao</code>（如果出现无法找到 node 则执行： <code>sudo  ln -s /usr/bin/nodejs /usr/bin/node</code> ）</p>
-<h4 id="安装-git"><a href="#安装-git" class="headerlink" title="安装 git"></a>安装 git</h4><p>这边步骤在多篇博文中都有详细描述，这边就不再累述了，可以直接搜索引擎搜索，或者在本博客的其他文章中找到。</p>
-<h4 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h4><p><a href="https://hexo.io/zh-cn/" target="_blank" rel="external">Hexo</a> 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。接下来我们开始使用 Hexo 搭建博客。</p>
-<ul>
-<li>sudo npm install hexo-cli -g 或者 sudo npm install -g hexo</li>
-<li>如果以上命令遇到错误或者警告，则更新 npm 版本，<code>sudo npm i npm -g</code></li>
-<li>创建并进入目录 Hexo ：<code>mkdir Hexo &amp;&amp; cd Hexo</code></li>
-<li>使用 hexo 生成博客框架。依次执行如下命令(hexo init blog 过程可能会比较慢，需要耐心等待。)：<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ hexo init blog</div><div class="line">$ <span class="built_in">cd</span> blog</div><div class="line">$ npm install</div><div class="line">$ hexo generate (hexo generate 为我们生成了静态文件存储于 public 文件夹之下，并且在一开始默认情况下执行这句将会为我们生成一个 Hello World 的页面。)</div><div class="line">$ hexo server (通过 hexo server 运行起 hexo 内置的服务器。这时候就可以开始在本地访问了，默认地址为 localhost:4000 。)</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>注意：hexo 中的 generate, server, dpoly 等操作都可以简写为首字母，所以 hexo generate 等同于 hexo g ，hexo server 等同于 hexo s，。</p>
-<h3 id="模块简介"><a href="#模块简介" class="headerlink" title="模块简介"></a>模块简介</h3><p>通过 tree | less 可以查看以下 blog 的目录结构，主要的几个文件和目录的作用分别如下：</p>
-<ul>
-<li><code>_config.yml</code> ：配置文件，可以修改网站的主题、标题、作者等信息。</li>
-<li><code>public</code> ：由 hexo 根据 source 文件夹中的资源进行渲染生成的文件夹，里边存储着最终的静态网页文件。</li>
-<li><code>scaffolds/</code> ：模板文件，当要给博客添加新文章的时候，将根据对应的模板进行创建。</li>
-<li><code>source/</code> ：用于存储用户资源，比如文章与新页面等。其中以 _ 开头的文件夹中除了 <code>_posts</code> 文件夹中的 markdown 或 HTML 文件会在执行 generate 操作的时候被渲染添加到 public 文件夹中之外，其他均被忽略。而且在初始化博客的过程中 <code>_posts</code> 目录底会自带一个 hello-world.md 的文件。</li>
-<li><code>themes/</code> ：主题文件，自带默认主题 landscape 。</li>
-</ul>
-<h3 id="操作指导"><a href="#操作指导" class="headerlink" title="操作指导"></a>操作指导</h3><h4 id="文章创建"><a href="#文章创建" class="headerlink" title="文章创建"></a>文章创建</h4><p><code>hexo new [layout] &lt;filename&gt;</code> 其中 layout 为可选参数，指定了新创建的文件布局，默认为 post 文件。 filename 为必填参数，指定了文件名，如果文件名中有空格则需要把文件名用引号”” 包裹起来。例如： 终端输入：  <code>hexo new &quot;我的第一篇文章&quot;</code> ，这时候我们发现 hexo 在 <code>source/_post</code> 目录之下创建了一个 我的第一篇文章.md 的文件。打开该文件进行编辑。我们也可以通过 atom 等常用的 markdown 编辑工具直接在 <code>source/_post</code> 目录下创建文章进行编辑即可。刷新浏览器就可以看到我们博客更新的内容了。</p>
-<p>至此我们基本配置好了本地 hexo 服务，能够自己写点内容了。</p>
-<h4 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h4><ul>
-<li>在 hexo/source 目录下新建一个img文件夹，将图片放入该文件夹下，插入图片时链接即为<code>https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/</code> 图片名称。 注意目录必须为 <code>hexo/source</code>，且图片文件夹为 img ，否则通过 hexo generate 可能无法生成目标图片。</li>
-<li>也可以使用<a href="http://tc.ffsky.net/" target="_blank" rel="external">图床</a>外链来存储图片。</li>
-</ul>
-<h3 id="部署到-github-page"><a href="#部署到-github-page" class="headerlink" title="部署到 github page"></a>部署到 github page</h3><p>访问 github，创建库 <code>git账户名.github.io</code> ， 这一这个名字是固定的，一般的库没法修改跳转地址，只能显示为 github page 。</p>
-<p>将远程库同步到本地，<code>git clone [你的仓库的 url]</code>，本地会多出一个 <code>git账户名.github.io</code> 的文件夹，然后把 public 文件目录下的博客文件都复制到你的本地仓库中，并将本地仓库 push 到 github 仓库上。这样当其他人访问你的博客链接的时候 github 将会自动将该仓库中的相应文件展示出来。</p>
-<h4 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h4><p>由于访问网页最终都是访问的 html 文件，因此这边需要通过本地 hexo generate 工具生成所需的 html 页面代码，然后每次将你的 html 页面覆盖到 github 的项目中去。</p>
-<p>执行如下命令：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">hexo g</div><div class="line">cp -R public/* [你的仓库名]</div><div class="line"><span class="built_in">cd</span> [你的仓库名]</div><div class="line">git add .</div><div class="line">git commit -m <span class="string">'update blog'</span></div><div class="line">git push</div></pre></td></tr></table></figure></p>
-<h4 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h4><p>注意，实际上 github page 是可以自己按照 jekyll 的方式将源码生成 html 文件的，但是 对于 hexo 等其他源码，如果需要展示出来，则必须本地生成 html 代码，然后把生成的代码部署到服务器上面才行，这边我们可以使用如上面的方式（将 public 目录下面生成的 html 文件直接复制到服务器的根目录下）， hexo 提供了更加人性化的方式，通过 hexo deploy 可以一键完成部署（无需在通过 push 手动推送了），每次部署的步骤，可按以下两步：</p>
-<ul>
-<li>修改 该配置文件：vim <code>_config.yml</code>，执行如下命令才能使用 git 部署 <code>npm install hexo-deployer-git --save</code>:</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  <span class="built_in">type</span>: git</div><div class="line">  repository: https://github.com/username/username.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
-<p><em>注：type: git 老版本可能是 github，repository 后也可以采用 ssh 的地址，https 每次需要输入密码，而 ssh 需要配置好公钥私钥免密码。</em></p>
-<ul>
-<li>执行以下命令无需手动将代码 push 上去<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line">hexo generate</div><div class="line">hexo deploy</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>以上步骤虽然看起来貌似繁琐，但实际可以写成 bash 脚本，这样每次就会自动生成 public 自动复制以及上传了。</p>
-<h4 id="CNAME-配置"><a href="#CNAME-配置" class="headerlink" title="CNAME 配置"></a>CNAME 配置</h4><p>github page 可以使用上面提供的网址也可以让每次访问时跳转自己的域名地址，一般 github page 需要在根目录下新建一个 CNAME 文件，其中写下你的域名地址如：<code>www.google.com</code>。</p>
-<p>因为 hexo 每次需要生成好文件再上传，这边将 CNAME 文件放入 source 目录下，每次 hexo g &amp;&amp; hexo generate 后则会上传 CNAME 到 github page了。</p>
-<h3 id="扩展补充"><a href="#扩展补充" class="headerlink" title="扩展补充"></a>扩展补充</h3><p>上述虽然配置完成了 hexo 博客，但博客功能过于简单，使用起来不方便，可以添加图片，摘要，标签页与分类页等内容。</p>
-<h4 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h4><p>下载并解压缩 <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">NexT 主题</a></p>
-<p><code>wget http://labfile.oss.aliyuncs.com/courses/700/next.zip &amp;&amp; unzip next.zip</code></p>
-<p>需要将主题文件放入 Hexo/blog/themes 下，打开 <code>../blog/_config.yml</code> 修改 theme 后的内容就可以更改主题了。这会博客就套上了我们的新模板了。但是我们发现博客菜单上的文字是英文的于是我们还要重新配置以下，让主题以中文的方式显示。再次编辑 <code>_config.yml</code> 文件，将 language 项设置为 zh-Hans 。</p>
-<p>注意更改主题后每次需要重启 <code>hexo server</code> 服务才可以刷新网页。</p>
-<p><em>到 github 上面搜索，可以找到更多出色的主题，这儿给出一个<a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">主题汇总</a>。</em></p>
-<h3 id="hexo-小结"><a href="#hexo-小结" class="headerlink" title="hexo 小结"></a>hexo 小结</h3><p>hexo 比 jekyll 布局更简单，更加容易操作，但每次需要本地生成 html 然后上传同步，虽然这不是问题，可以用脚本实现，但对于图片等内容，需要依赖第三方图床就显得很是无奈了。</p>
-<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>使用 Hexo 部署了数月，今天出现了新问题，今天又出现了新问题，hexo 部署无法推送到 github 上，疑似该问题出现了有一段时间了，<code>npm install hexo-deployer-git --save</code> 的插件读取了 <code>_config.yml</code> 文件的内容，但是上传到 github 时，出现错误，本来应该上传 public 内容，但是这边会上传文件夹中的全部内容。</p>
-<hr>
-<blockquote>
-<p>参考链接：<br><a href="http://behappyli.cn/2015/12/05/hexo%E6%95%99%E7%A8%8B/" target="_blank" rel="external">http://behappyli.cn/2015/12/05/hexo%E6%95%99%E7%A8%8B/</a><br><a href="http://www.runoob.com/w3cnote/git-guide.html" target="_blank" rel="external">http://www.runoob.com/w3cnote/git-guide.html</a><br><a href="http://baixin.io/2015/08/HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_blank" rel="external">http://baixin.io/2015/08/HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</a><br><a href="http://blog.csdn.net/u012307002/article/details/51298705" target="_blank" rel="external">http://blog.csdn.net/u012307002/article/details/51298705</a><br><a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">https://www.zhihu.com/question/24422335</a><br><a href="http://www.jianshu.com/p/1d427e888dda" target="_blank" rel="external">http://www.jianshu.com/p/1d427e888dda</a><br><a href="http://www.jianshu.com/p/f4dce0e76886" target="_blank" rel="external">http://www.jianshu.com/p/f4dce0e76886</a><br><a href="http://baixin.io/2015/08/HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_blank" rel="external">http://baixin.io/2015/08/HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</a><br><a href="http://www.jianshu.com/p/2b9f202c13fd" target="_blank" rel="external">http://www.jianshu.com/p/2b9f202c13fd</a><br><a href="http://c4fun.cn/blog/2014/03/03/use-hexo-blog/" target="_blank" rel="external">http://c4fun.cn/blog/2014/03/03/use-hexo-blog/</a><br><a href="http://www.cnfeat.com/blog/2014/05/10/how-to-build-a-blog/" target="_blank" rel="external">http://www.cnfeat.com/blog/2014/05/10/how-to-build-a-blog/</a></p>
-</blockquote>
-]]></content>
-      
-        <categories>
-            
-            <category> 软件应用 </category>
-            
-        </categories>
-        
         
     </entry>
     
@@ -1578,7 +1507,7 @@
     <entry>
       <title><![CDATA[linux-shadowsocks全局代理]]></title>
       <url>http://noparkinghere.win/2017/01/25/2017/2017-01-25-ss-linux%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86/</url>
-      <content type="html"><![CDATA[<p>windows 直接下载 ss 终端，稍加设置即可完成全局代理，linux 用户如果需要让某个软件可以使用 ss 一般都需要连接端口才行。例如本地 ss 配置为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"server_port"</span>:1800,</div><div class="line"><span class="string">"local_port"</span>:1080,</div></pre></td></tr></table></figure></p>
+      <content type="html"><![CDATA[<p>windows 直接下载 ss 终端，稍加设置即可完成全局代理，linux 用户如果需要让某个软件可以使用 ss 一般都需要连接端口才行。例如本地 ss 配置为：<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"server_port"</span>:<span class="number">1800</span>,</div><div class="line"><span class="string">"local_port"</span>:<span class="number">1080</span>,</div></pre></td></tr></table></figure></p>
 <h3 id="原理简述"><a href="#原理简述" class="headerlink" title="原理简述"></a>原理简述</h3><p>这边就相当于将本地的 127.0.0.1:1080 和 server_ip:1800 建立了连接关系。因此软件如果需要使用 vps 上面搭建的 ss 服务的话，则需要让该软件使用的协议连接到 127.0.0.1:1080 上。之前在 vps-shadowsocks 中介绍的 chrome 插件 SwitchyOmega 就是使用 SOCKS5 协议连接到 127.0.0.1:1080 上，让所有数据通过 SOCKS5 协议，然后从 127.0.0.1:1080 进行收发。</p>
 <p>可以看出如果我们需要让其他软件也能够使用 ss 则需要让他们也能够使用 127.0.0.1:1080 代理服务器，然而不幸的是，大多数软件并不支持代理服务的功能， windows 平台下的软件很多可以通过设置 IE 代理让其他软件使用代理服务（原理是：大多数软件都会优先读取 IE 的代理设置，再访问网络）。</p>
 <a id="more"></a>
@@ -2047,6 +1976,83 @@
         <categories>
             
             <category> 问题总结 </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[GithubPage+Hexo搭建博客]]></title>
+      <url>http://noparkinghere.win/2016/12/14/2016/2016-12-14-GithubPage+Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
+      <content type="html"><![CDATA[<p>个人博客是使用 githubpage+jekyll 搭建的，且博客已经工作有半年了，但由于期初的模板没有找好，加上一些其他的问题，导致博客看起来比较凌乱，这边给出另外一个 GithubPage+Hexo 的博客搭建方法供大家参考，本文操作系统主要使用的是 ubuntu 16.04，使用其他 linux 发行版的用户，可以参考本文。附上最终效果图如下：</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-12-14-githubpage-hexo搭建博客/1.png" alt=""></p>
+<a id="more"></a>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-12-14-githubpage-hexo搭建博客/2.png" alt=""></p>
+<h3 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h3><h4 id="安装-node-js"><a href="#安装-node-js" class="headerlink" title="安装 node.js"></a>安装 node.js</h4><p>Node.js 是一个开放源代码、跨平台的、可用于服务器端和网络应用的运行环境，该应用由 C++ 语言写成，在 Node.js 运行时运行。Node.js 提供事件驱动和非阻塞 I/O API，可优化应用程序的吞吐量和规模。这些技术通常被用于实时应用程序。并且它是采用 Google 的 V8 引擎来执行代码，它的大部分基本模块都是用 JavaScript 写成的，包含有一系列内置模块，使得程序可以作为独立服务器运行，从而脱离 Apache HTTP Server 或 IIS 运行。npm 也即 Node包管理器（Node Package Manager），它是一个以 Javascript 编写的软件包管理系统，默认环境为 Node.js 。</p>
+<ul>
+<li>安装 nodejs ： sudo apt-get install nodejs , 注意 ubuntu 16.04 使用：sudo apt install nodejs</li>
+<li>安装 npm ： sudo apt-get install npm ， 注意 ubuntu 16.04 使用：sudo apt install npm</li>
+</ul>
+<p>需要安装 nrm ， nrm 是 npm 的资源管理器，借助各个工具可以方便快捷地对 npm 的源进行管理。另外，由于国内网络环境原因在使用 npm 默认下载源的时候不仅速度非常慢而且常常会超时，因此这里还手动指定了从淘宝源下载。<code>sudo npm install nrm -g --registry https://registry.npm.taobao.org</code>，<code>nrm use taobao</code>（如果出现无法找到 node 则执行： <code>sudo  ln -s /usr/bin/nodejs /usr/bin/node</code> ）</p>
+<h4 id="安装-git"><a href="#安装-git" class="headerlink" title="安装 git"></a>安装 git</h4><p>这边步骤在多篇博文中都有详细描述，这边就不再累述了，可以直接搜索引擎搜索，或者在本博客的其他文章中找到。</p>
+<h4 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h4><p><a href="https://hexo.io/zh-cn/" target="_blank" rel="external">Hexo</a> 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。接下来我们开始使用 Hexo 搭建博客。</p>
+<ul>
+<li>sudo npm install hexo-cli -g 或者 sudo npm install -g hexo</li>
+<li>如果以上命令遇到错误或者警告，则更新 npm 版本，<code>sudo npm i npm -g</code></li>
+<li>创建并进入目录 Hexo ：<code>mkdir Hexo &amp;&amp; cd Hexo</code></li>
+<li>使用 hexo 生成博客框架。依次执行如下命令(hexo init blog 过程可能会比较慢，需要耐心等待。)：<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ hexo init blog</div><div class="line">$ <span class="built_in">cd</span> blog</div><div class="line">$ npm install</div><div class="line">$ hexo generate (hexo generate 为我们生成了静态文件存储于 public 文件夹之下，并且在一开始默认情况下执行这句将会为我们生成一个 Hello World 的页面。)</div><div class="line">$ hexo server (通过 hexo server 运行起 hexo 内置的服务器。这时候就可以开始在本地访问了，默认地址为 localhost:4000 。)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>注意：hexo 中的 generate, server, dpoly 等操作都可以简写为首字母，所以 hexo generate 等同于 hexo g ，hexo server 等同于 hexo s，。</p>
+<h3 id="模块简介"><a href="#模块简介" class="headerlink" title="模块简介"></a>模块简介</h3><p>通过 tree | less 可以查看以下 blog 的目录结构，主要的几个文件和目录的作用分别如下：</p>
+<ul>
+<li><code>_config.yml</code> ：配置文件，可以修改网站的主题、标题、作者等信息。</li>
+<li><code>public</code> ：由 hexo 根据 source 文件夹中的资源进行渲染生成的文件夹，里边存储着最终的静态网页文件。</li>
+<li><code>scaffolds/</code> ：模板文件，当要给博客添加新文章的时候，将根据对应的模板进行创建。</li>
+<li><code>source/</code> ：用于存储用户资源，比如文章与新页面等。其中以 _ 开头的文件夹中除了 <code>_posts</code> 文件夹中的 markdown 或 HTML 文件会在执行 generate 操作的时候被渲染添加到 public 文件夹中之外，其他均被忽略。而且在初始化博客的过程中 <code>_posts</code> 目录底会自带一个 hello-world.md 的文件。</li>
+<li><code>themes/</code> ：主题文件，自带默认主题 landscape 。</li>
+</ul>
+<h3 id="操作指导"><a href="#操作指导" class="headerlink" title="操作指导"></a>操作指导</h3><h4 id="文章创建"><a href="#文章创建" class="headerlink" title="文章创建"></a>文章创建</h4><p><code>hexo new [layout] &lt;filename&gt;</code> 其中 layout 为可选参数，指定了新创建的文件布局，默认为 post 文件。 filename 为必填参数，指定了文件名，如果文件名中有空格则需要把文件名用引号”” 包裹起来。例如： 终端输入：  <code>hexo new &quot;我的第一篇文章&quot;</code> ，这时候我们发现 hexo 在 <code>source/_post</code> 目录之下创建了一个 我的第一篇文章.md 的文件。打开该文件进行编辑。我们也可以通过 atom 等常用的 markdown 编辑工具直接在 <code>source/_post</code> 目录下创建文章进行编辑即可。刷新浏览器就可以看到我们博客更新的内容了。</p>
+<p>至此我们基本配置好了本地 hexo 服务，能够自己写点内容了。</p>
+<h4 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h4><ul>
+<li>在 hexo/source 目录下新建一个img文件夹，将图片放入该文件夹下，插入图片时链接即为<code>https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/</code> 图片名称。 注意目录必须为 <code>hexo/source</code>，且图片文件夹为 img ，否则通过 hexo generate 可能无法生成目标图片。</li>
+<li>也可以使用<a href="http://tc.ffsky.net/" target="_blank" rel="external">图床</a>外链来存储图片。</li>
+</ul>
+<h3 id="部署到-github-page"><a href="#部署到-github-page" class="headerlink" title="部署到 github page"></a>部署到 github page</h3><p>访问 github，创建库 <code>git账户名.github.io</code> ， 这一这个名字是固定的，一般的库没法修改跳转地址，只能显示为 github page 。</p>
+<p>将远程库同步到本地，<code>git clone [你的仓库的 url]</code>，本地会多出一个 <code>git账户名.github.io</code> 的文件夹，然后把 public 文件目录下的博客文件都复制到你的本地仓库中，并将本地仓库 push 到 github 仓库上。这样当其他人访问你的博客链接的时候 github 将会自动将该仓库中的相应文件展示出来。</p>
+<h4 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h4><p>由于访问网页最终都是访问的 html 文件，因此这边需要通过本地 hexo generate 工具生成所需的 html 页面代码，然后每次将你的 html 页面覆盖到 github 的项目中去。</p>
+<p>执行如下命令：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">hexo g</div><div class="line">cp -R public/* [你的仓库名]</div><div class="line"><span class="built_in">cd</span> [你的仓库名]</div><div class="line">git add .</div><div class="line">git commit -m <span class="string">'update blog'</span></div><div class="line">git push</div></pre></td></tr></table></figure></p>
+<h4 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h4><p>注意，实际上 github page 是可以自己按照 jekyll 的方式将源码生成 html 文件的，但是 对于 hexo 等其他源码，如果需要展示出来，则必须本地生成 html 代码，然后把生成的代码部署到服务器上面才行，这边我们可以使用如上面的方式（将 public 目录下面生成的 html 文件直接复制到服务器的根目录下）， hexo 提供了更加人性化的方式，通过 hexo deploy 可以一键完成部署（无需在通过 push 手动推送了），每次部署的步骤，可按以下两步：</p>
+<ul>
+<li>修改 该配置文件：vim <code>_config.yml</code>，执行如下命令才能使用 git 部署 <code>npm install hexo-deployer-git --save</code>:</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  <span class="built_in">type</span>: git</div><div class="line">  repository: https://github.com/username/username.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
+<p><em>注：type: git 老版本可能是 github，repository 后也可以采用 ssh 的地址，https 每次需要输入密码，而 ssh 需要配置好公钥私钥免密码。</em></p>
+<ul>
+<li>执行以下命令无需手动将代码 push 上去<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line">hexo generate</div><div class="line">hexo deploy</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>以上步骤虽然看起来貌似繁琐，但实际可以写成 bash 脚本，这样每次就会自动生成 public 自动复制以及上传了。</p>
+<h4 id="CNAME-配置"><a href="#CNAME-配置" class="headerlink" title="CNAME 配置"></a>CNAME 配置</h4><p>github page 可以使用上面提供的网址也可以让每次访问时跳转自己的域名地址，一般 github page 需要在根目录下新建一个 CNAME 文件，其中写下你的域名地址如：<code>www.google.com</code>。</p>
+<p>因为 hexo 每次需要生成好文件再上传，这边将 CNAME 文件放入 source 目录下，每次 hexo g &amp;&amp; hexo generate 后则会上传 CNAME 到 github page了。</p>
+<h3 id="扩展补充"><a href="#扩展补充" class="headerlink" title="扩展补充"></a>扩展补充</h3><p>上述虽然配置完成了 hexo 博客，但博客功能过于简单，使用起来不方便，可以添加图片，摘要，标签页与分类页等内容。</p>
+<h4 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h4><p>下载并解压缩 <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">NexT 主题</a></p>
+<p><code>wget http://labfile.oss.aliyuncs.com/courses/700/next.zip &amp;&amp; unzip next.zip</code></p>
+<p>需要将主题文件放入 Hexo/blog/themes 下，打开 <code>../blog/_config.yml</code> 修改 theme 后的内容就可以更改主题了。这会博客就套上了我们的新模板了。但是我们发现博客菜单上的文字是英文的于是我们还要重新配置以下，让主题以中文的方式显示。再次编辑 <code>_config.yml</code> 文件，将 language 项设置为 zh-Hans 。</p>
+<p>注意更改主题后每次需要重启 <code>hexo server</code> 服务才可以刷新网页。</p>
+<p><em>到 github 上面搜索，可以找到更多出色的主题，这儿给出一个<a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">主题汇总</a>。</em></p>
+<h3 id="hexo-小结"><a href="#hexo-小结" class="headerlink" title="hexo 小结"></a>hexo 小结</h3><p>hexo 比 jekyll 布局更简单，更加容易操作，但每次需要本地生成 html 然后上传同步，虽然这不是问题，可以用脚本实现，但对于图片等内容，需要依赖第三方图床就显得很是无奈了。</p>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>使用 Hexo 部署了数月，今天出现了新问题，今天又出现了新问题，hexo 部署无法推送到 github 上，疑似该问题出现了有一段时间了，<code>npm install hexo-deployer-git --save</code> 的插件读取了 <code>_config.yml</code> 文件的内容，但是上传到 github 时，出现错误，本来应该上传 public 内容，但是这边会上传文件夹中的全部内容。</p>
+<hr>
+<blockquote>
+<p>参考链接：<br><a href="http://behappyli.cn/2015/12/05/hexo%E6%95%99%E7%A8%8B/" target="_blank" rel="external">http://behappyli.cn/2015/12/05/hexo%E6%95%99%E7%A8%8B/</a><br><a href="http://www.runoob.com/w3cnote/git-guide.html" target="_blank" rel="external">http://www.runoob.com/w3cnote/git-guide.html</a><br><a href="http://baixin.io/2015/08/HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_blank" rel="external">http://baixin.io/2015/08/HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</a><br><a href="http://blog.csdn.net/u012307002/article/details/51298705" target="_blank" rel="external">http://blog.csdn.net/u012307002/article/details/51298705</a><br><a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">https://www.zhihu.com/question/24422335</a><br><a href="http://www.jianshu.com/p/1d427e888dda" target="_blank" rel="external">http://www.jianshu.com/p/1d427e888dda</a><br><a href="http://www.jianshu.com/p/f4dce0e76886" target="_blank" rel="external">http://www.jianshu.com/p/f4dce0e76886</a><br><a href="http://baixin.io/2015/08/HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_blank" rel="external">http://baixin.io/2015/08/HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</a><br><a href="http://www.jianshu.com/p/2b9f202c13fd" target="_blank" rel="external">http://www.jianshu.com/p/2b9f202c13fd</a><br><a href="http://c4fun.cn/blog/2014/03/03/use-hexo-blog/" target="_blank" rel="external">http://c4fun.cn/blog/2014/03/03/use-hexo-blog/</a><br><a href="http://www.cnfeat.com/blog/2014/05/10/how-to-build-a-blog/" target="_blank" rel="external">http://www.cnfeat.com/blog/2014/05/10/how-to-build-a-blog/</a></p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> 软件应用 </category>
             
         </categories>
         
@@ -3027,45 +3033,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[串口RS485通信详解]]></title>
-      <url>http://noparkinghere.win/2016/10/19/2016/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
-      <content type="html"><![CDATA[<p><strong>注意：串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。串口的一些内容不再逐一介绍说明，可以参加之前的usb转串口及RS232通信等文章</strong></p>
-<h3 id="特性介绍"><a href="#特性介绍" class="headerlink" title="特性介绍"></a>特性介绍</h3><p>485（一般称作 RS485/EIA-485）是隶属于 OSI 模型物理层的电气特性规定为 2 线，半双工，多点通信的标准。它的电气特性和 RS-232 大不一样。用缆线两端的电压差值来表示传递信号。值得注意的是：RS485 仅仅规定了接受端和发送端的电气特性，它没有规定或推荐任何数据协议。</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/1.jpg" alt=""></p>
-<p>RS485接口可以只使用两根线进行通讯（其他串口通讯至少需要三根线，一根为地线作为参考电平），通过差分电平（利用两个信号的差值来判断信息，使用差分信号来传输的，也就是一根线传同相信号，一根线传反相，这样差值最大，抗干扰能力强。）来确定信号是0还是1，也正因为这个原因，所以RS485每次有且仅有一根线能够传输数据，另外一根线作为比对信号，因此RS485是半双工的通讯方式。主要特点如下：</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/2.jpg" alt=""></p>
-<ul>
-<li>接口电平低，不易损坏芯片。 RS485 的电气特性：逻辑“ 1”以两线间的电压差为+(2~6)V<br>表示；逻辑“ 0”以两线间的电压差为-(2~6)V 表示。接口信号电平比 RS232 降低了，<br>不易损坏接口电路的芯片，且该电平与 TTL 电平兼容，可方便与 TTL 电路连接。</li>
-<li>传输速率高。 10 米时， RS485 的数据最高传输速率可达 35Mbps，在 1200m 时，传输<br>速度可达 100Kbps。</li>
-<li>抗干扰能力强。 RS485 接口是采用平衡驱动器和差分接收器的组合，抗共模干扰能力<br>增强，即抗噪声干扰性好。 传输距离远，支持节点多。 RS485 总线最长可以传输 1200m<br>以上（速率≤100Kbps）</li>
-<li>一般最大支持 32 个节点，如果使用特制的 485 芯片，可以达到 128 个或者 256 个节点，<br>最大的可以支持到 400 个节点。</li>
-</ul>
-<a id="more"></a>
-<h3 id="类比RS232"><a href="#类比RS232" class="headerlink" title="类比RS232"></a>类比RS232</h3><p>实际上232串口在实际使用已经用处不大，但基于232发展出来的485等串口设备仍然被广泛使用，RS-485（EIA-485标准）是RS-422的改进，因为它增加了设备的个数，从10个增加到32个，同时定义了在最大设备个数情况下的电气特性，以保证足够的信号电压。有了多个设备的能力，你可以使用一个单个RS-485口建立设备网络。</p>
-<p>因为都是采用串口通信协议，所以软件端几乎可以直接使用，且RS485具备耗材少，抗干扰强等特点，在目前的工业领域仍然被广泛使用，这边主要列举出不同：</p>
-<ul>
-<li>从接线上，RS232是三线制，RS485是两线制</li>
-<li>从传输距离上，RS232只能传输15米，RS485最远可以传输1200米</li>
-<li>从速率上，RS232是全双工传输，RS485是半双工传输</li>
-<li>从协议层上，RS232只支持点对点通讯(1:1)，RS485支持总线形式通讯（1:N）</li>
-</ul>
-<p>RS232的接线：<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/3.jpg" alt="">)</p>
-<p>RS485的接线<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/4.jpg" alt=""></p>
-<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><blockquote>
-<p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a></p>
-</blockquote>
-]]></content>
-      
-        <categories>
-            
-            <category> 嵌入式 </category>
-            
-        </categories>
-        
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[串口RS232通信详解]]></title>
       <url>http://noparkinghere.win/2016/10/19/2016/2016-10-19-%E4%B8%B2%E5%8F%A3RS232%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<p>串行接口是一种可以将接受来自CPU的并行数据字符转换为连续的串行数据流发送出去，同时可将接受的串行数据流转换为并行的数据字符供给CPU的器件。一般完成这种功能的电路，我们称为串行接口电路。曾经PC之间进行串口通信可以说是标配，很多老式电脑上面可以看到DB25的接头，但后来逐渐被DB9取代，早期鼠标打印机都通过串口进行数据传输的，但现在逐渐被USB和网络所取代，DB9的串口接头在PC和笔记本上面也较少能够看到了。做嵌入式开发可以看到有个DB9的串口标准接口，串口对于开发人员输入输出调试等有着至关重要的作用。串行接口按电气标准及协议来分包括RS-232-C、RS-422、RS485等，现在串口一般在工业嵌入式领域使用。</p>
@@ -3125,6 +3092,45 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
 <blockquote>
 <p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a><br><a href="http://www.baike.com/wiki/51+IO%E5%8F%A3%E6%A8%A1%E6%8B%9F%E4%B8%B2%E5%8F%A3%E9%80%9A%E8%AE%AFC%E6%BA%90%E7%A8%8B%E5%BA%8F" target="_blank" rel="external">http://www.baike.com/wiki/51+IO%E5%8F%A3%E6%A8%A1%E6%8B%9F%E4%B8%B2%E5%8F%A3%E9%80%9A%E8%AE%AFC%E6%BA%90%E7%A8%8B%E5%BA%8F</a><br><a href="http://ziye334.blog.163.com/blog/static/224306191201452833850647" target="_blank" rel="external">http://ziye334.blog.163.com/blog/static/224306191201452833850647</a></p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> 嵌入式 </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[串口RS485通信详解]]></title>
+      <url>http://noparkinghere.win/2016/10/19/2016/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<p><strong>注意：串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。串口的一些内容不再逐一介绍说明，可以参加之前的usb转串口及RS232通信等文章</strong></p>
+<h3 id="特性介绍"><a href="#特性介绍" class="headerlink" title="特性介绍"></a>特性介绍</h3><p>485（一般称作 RS485/EIA-485）是隶属于 OSI 模型物理层的电气特性规定为 2 线，半双工，多点通信的标准。它的电气特性和 RS-232 大不一样。用缆线两端的电压差值来表示传递信号。值得注意的是：RS485 仅仅规定了接受端和发送端的电气特性，它没有规定或推荐任何数据协议。</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/1.jpg" alt=""></p>
+<p>RS485接口可以只使用两根线进行通讯（其他串口通讯至少需要三根线，一根为地线作为参考电平），通过差分电平（利用两个信号的差值来判断信息，使用差分信号来传输的，也就是一根线传同相信号，一根线传反相，这样差值最大，抗干扰能力强。）来确定信号是0还是1，也正因为这个原因，所以RS485每次有且仅有一根线能够传输数据，另外一根线作为比对信号，因此RS485是半双工的通讯方式。主要特点如下：</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/2.jpg" alt=""></p>
+<ul>
+<li>接口电平低，不易损坏芯片。 RS485 的电气特性：逻辑“ 1”以两线间的电压差为+(2~6)V<br>表示；逻辑“ 0”以两线间的电压差为-(2~6)V 表示。接口信号电平比 RS232 降低了，<br>不易损坏接口电路的芯片，且该电平与 TTL 电平兼容，可方便与 TTL 电路连接。</li>
+<li>传输速率高。 10 米时， RS485 的数据最高传输速率可达 35Mbps，在 1200m 时，传输<br>速度可达 100Kbps。</li>
+<li>抗干扰能力强。 RS485 接口是采用平衡驱动器和差分接收器的组合，抗共模干扰能力<br>增强，即抗噪声干扰性好。 传输距离远，支持节点多。 RS485 总线最长可以传输 1200m<br>以上（速率≤100Kbps）</li>
+<li>一般最大支持 32 个节点，如果使用特制的 485 芯片，可以达到 128 个或者 256 个节点，<br>最大的可以支持到 400 个节点。</li>
+</ul>
+<a id="more"></a>
+<h3 id="类比RS232"><a href="#类比RS232" class="headerlink" title="类比RS232"></a>类比RS232</h3><p>实际上232串口在实际使用已经用处不大，但基于232发展出来的485等串口设备仍然被广泛使用，RS-485（EIA-485标准）是RS-422的改进，因为它增加了设备的个数，从10个增加到32个，同时定义了在最大设备个数情况下的电气特性，以保证足够的信号电压。有了多个设备的能力，你可以使用一个单个RS-485口建立设备网络。</p>
+<p>因为都是采用串口通信协议，所以软件端几乎可以直接使用，且RS485具备耗材少，抗干扰强等特点，在目前的工业领域仍然被广泛使用，这边主要列举出不同：</p>
+<ul>
+<li>从接线上，RS232是三线制，RS485是两线制</li>
+<li>从传输距离上，RS232只能传输15米，RS485最远可以传输1200米</li>
+<li>从速率上，RS232是全双工传输，RS485是半双工传输</li>
+<li>从协议层上，RS232只支持点对点通讯(1:1)，RS485支持总线形式通讯（1:N）</li>
+</ul>
+<p>RS232的接线：<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/3.jpg" alt="">)</p>
+<p>RS485的接线<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/4.jpg" alt=""></p>
+<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><blockquote>
+<p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a></p>
 </blockquote>
 ]]></content>
       
@@ -3574,6 +3580,27 @@
     </entry>
     
     <entry>
+      <title><![CDATA[git的配置及相关插件]]></title>
+      <url>http://noparkinghere.win/2016/09/28/2016/2016-09-28-git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6/</url>
+      <content type="html"><![CDATA[<p>一个好的工具，需要不断的打磨和熟悉使用技巧才可以把它用的炉火纯青，git同样如此，本文主要是推荐一些git常用的配置以及配套的一些工具。</p>
+<h3 id="git的相关配置："><a href="#git的相关配置：" class="headerlink" title="git的相关配置："></a>git的相关配置：</h3><h4 id="gitignore配置"><a href="#gitignore配置" class="headerlink" title=".gitignore配置"></a>.gitignore配置</h4><a id="more"></a>
+<h3 id="推荐的git插件："><a href="#推荐的git插件：" class="headerlink" title="推荐的git插件："></a>推荐的git插件：</h3><h4 id="tig"><a href="#tig" class="headerlink" title="tig"></a>tig</h4><p>首先推荐<a href="http://jonas.nitro.dk/tig/" target="_blank" rel="external">tig</a>（名字刚好和git相反），是一个专门针对git的小软件，官方这么介绍<em>text-mode interface for Git</em>。</p>
+<p>推荐可以访问<a href="https://github.com/jonas/tig" target="_blank" rel="external">tig的github页面</a>,里面有相关的下载安装说明。</p>
+<ul>
+<li>软件能够恨清晰的看到你的版本目录结构</li>
+</ul>
+<h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><h4 id="小乌龟插件"><a href="#小乌龟插件" class="headerlink" title="小乌龟插件"></a>小乌龟插件</h4><h4 id="atom"><a href="#atom" class="headerlink" title="atom"></a>atom</h4>]]></content>
+      
+        <categories>
+            
+            <category> 软件应用 </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[通过git管理一个工程]]></title>
       <url>http://noparkinghere.win/2016/09/28/2016/2016-09-28-%E9%80%9A%E8%BF%87git%E7%AE%A1%E7%90%86%E4%B8%80%E4%B8%AA%E5%B7%A5%E7%A8%8B/</url>
       <content type="html"><![CDATA[<p>GIT虽然能够实现各种版本控制，且功能强大，可以做到随时切换版本，回退等各种功能，但过多的分支，无效的分支，杂乱的提交，无意义的命名等等问题，往往会让像我这样的初学者，异常头痛，网络上关于git的往往都是指导你各个命令如何去用，部分命令的使用场景等，但却缺少一个完整工程项目的管理步骤。部分大神的确总结出了自己的使用习惯，但却不是作为教程来陈述的，下面我会将自己的一些习惯进行总结，后续可能遇到更好的也还会不断的更改。</p>
@@ -3602,27 +3629,6 @@
 <p>参考链接：<br><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000</a><br><a href="http://baike.baidu.com/link?url=weNC33XuaXOCTBp5s3WeZVu-Z9LP41KY_M6_WdGxAJZpJs_sq7jcgZ-3B01u2EiqfK6gb0L6s3-IDiWp1cVgF_" target="_blank" rel="external">http://baike.baidu.com/link?url=weNC33XuaXOCTBp5s3WeZVu-Z9LP41KY_M6_WdGxAJZpJs_sq7jcgZ-3B01u2EiqfK6gb0L6s3-IDiWp1cVgF_</a></p>
 </blockquote>
 ]]></content>
-      
-        <categories>
-            
-            <category> 软件应用 </category>
-            
-        </categories>
-        
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[git的配置及相关插件]]></title>
-      <url>http://noparkinghere.win/2016/09/28/2016/2016-09-28-git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6/</url>
-      <content type="html"><![CDATA[<p>一个好的工具，需要不断的打磨和熟悉使用技巧才可以把它用的炉火纯青，git同样如此，本文主要是推荐一些git常用的配置以及配套的一些工具。</p>
-<h3 id="git的相关配置："><a href="#git的相关配置：" class="headerlink" title="git的相关配置："></a>git的相关配置：</h3><h4 id="gitignore配置"><a href="#gitignore配置" class="headerlink" title=".gitignore配置"></a>.gitignore配置</h4><a id="more"></a>
-<h3 id="推荐的git插件："><a href="#推荐的git插件：" class="headerlink" title="推荐的git插件："></a>推荐的git插件：</h3><h4 id="tig"><a href="#tig" class="headerlink" title="tig"></a>tig</h4><p>首先推荐<a href="http://jonas.nitro.dk/tig/" target="_blank" rel="external">tig</a>（名字刚好和git相反），是一个专门针对git的小软件，官方这么介绍<em>text-mode interface for Git</em>。</p>
-<p>推荐可以访问<a href="https://github.com/jonas/tig" target="_blank" rel="external">tig的github页面</a>,里面有相关的下载安装说明。</p>
-<ul>
-<li>软件能够恨清晰的看到你的版本目录结构</li>
-</ul>
-<h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><h4 id="小乌龟插件"><a href="#小乌龟插件" class="headerlink" title="小乌龟插件"></a>小乌龟插件</h4><h4 id="atom"><a href="#atom" class="headerlink" title="atom"></a>atom</h4>]]></content>
       
         <categories>
             
@@ -5132,6 +5138,52 @@ print(&apos;hello&apos;)
     </entry>
     
     <entry>
+      <title><![CDATA[stm32F439案例汇总]]></title>
+      <url>http://noparkinghere.win/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
+      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
+<blockquote>
+<p>www.armjishu.com(无法访问)</p>
+</blockquote>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
+<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
+<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
+</ul>
+<a id="more"></a>
+<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
+<li>实验0 Template工程模板</li>
+<li>实验1 跑马灯</li>
+<li>实验2 蜂鸣器</li>
+<li>实验3 按键和外部中断</li>
+<li>实验4 看门狗（独立和窗口）</li>
+<li>实验5 待机唤醒</li>
+<li>实验6 串口通讯（232和485）</li>
+<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
+<li>实验8 PWM输出和输入捕获</li>
+</ul>
+<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
+<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
+</blockquote>
+<hr>
+<p><em>未完待续</em></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 嵌入式 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> MCU </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[MDK5安装及配置]]></title>
       <url>http://noparkinghere.win/2016/07/11/2016/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
       <content type="html"><![CDATA[<h3 id="MDK简介"><a href="#MDK简介" class="headerlink" title="MDK简介"></a>MDK简介</h3><blockquote>
@@ -5216,52 +5268,6 @@ print(&apos;hello&apos;)
         <tags>
             
             <tag> 软件安装 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[stm32F439案例汇总]]></title>
-      <url>http://noparkinghere.win/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
-      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
-<blockquote>
-<p>www.armjishu.com(无法访问)</p>
-</blockquote>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
-<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
-<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
-</ul>
-<a id="more"></a>
-<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
-<li>实验0 Template工程模板</li>
-<li>实验1 跑马灯</li>
-<li>实验2 蜂鸣器</li>
-<li>实验3 按键和外部中断</li>
-<li>实验4 看门狗（独立和窗口）</li>
-<li>实验5 待机唤醒</li>
-<li>实验6 串口通讯（232和485）</li>
-<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
-<li>实验8 PWM输出和输入捕获</li>
-</ul>
-<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
-<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
-</blockquote>
-<hr>
-<p><em>未完待续</em></p>
-]]></content>
-      
-        <categories>
-            
-            <category> 嵌入式 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> MCU </tag>
             
         </tags>
         

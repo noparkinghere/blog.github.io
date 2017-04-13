@@ -3,7 +3,7 @@ layout: "post"
 title: "GithubPage+Hexo搭建博客"
 category: "软件应用"
 tags:
-date: "2017-04-02 19:01"
+date: "2016-12-14 19:01"
 ---
 
 
@@ -11,9 +11,9 @@ date: "2017-04-02 19:01"
 
 ![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-12-14-githubpage-hexo搭建博客/1.png)
 
-![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-12-14-githubpage-hexo搭建博客/2.png)
-
 <!-- more -->
+
+![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-12-14-githubpage-hexo搭建博客/2.png)
 
 ### 安装步骤
 

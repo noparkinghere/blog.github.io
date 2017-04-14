@@ -73,3 +73,4 @@ CNAME 中设置跳转的目标页面，一般 CNAME 设置后，会将你的域�
 > https://pages.github.com/
 > http://jekyllcn.com/docs/github-pages/
 > http://www.freebuf.com/articles/neopoints/45822.html
+> http://blog.csdn.net/u011244202/article/details/57106544

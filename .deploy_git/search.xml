@@ -4,6 +4,20 @@
   
     
     <entry>
+      <title><![CDATA[最近学习生活状态总结]]></title>
+      <url>http://noparkinghere.top/2017/04/14/2017/2017-04-14-%E6%9C%80%E8%BF%91%E5%AD%A6%E4%B9%A0%E7%94%9F%E6%B4%BB%E7%8A%B6%E6%80%81%E6%80%BB%E7%BB%93/</url>
+      <content type="html"><![CDATA[<p>最近生活学习状态相当差，应该来说是步入了最低点了。归根结底是心太大，执行力太差，所有忙活的东西都乱了套，周而复始恶性循环了。</p>
+<p>分析一下到底是什么原因，让我生活上完全紊乱了：</p>
+<p>首先，没有形成习惯的坚持，总会让我需要过度消耗自己的注意力还自控力。一件事情，即便不是太难做，但如果你每天都逼着自己去做，即便再美好的事情也会适得其反让你心生厌恶。就拿我自己来说吧，seven 这组运动每天只是需要花费 7 分钟，并且应该来说可以类似于一个游戏，让你做完后心生愉悦的。但是，这段时间，我每天都拖到快凌晨的时候，才开始做这个，每天像任务一样盼着赶紧完成，这很显然是违背初衷的，且不会认真的对待，更不可能达到理想的效果。将这个放在第一位，也是因为我觉得对现阶段的我来说异常重要，否则都是白忙活。今后在对待我每天日程任务时，一定要严格按照时间去做这些相应的事情，否则又会步入恶性循环。</p>
+<p>其次，是特殊突发情况无法妥善解决，谨小慎微，时刻保持清醒审视自己。周末回家，或者有什么事情去哪儿玩，往往会让我无法按照上面的执行，虽说一次两次影响其实真不大，但对我来说影响深远。每次刚刚养成了上述的习惯，但是往往中间一两天的出行扰乱了计划，后面往往就触发了我的偷懒拖沓的心理，一朝回到解放前了。这边我应该注意两点，第一点是，及时更新计划，特殊问题特殊对待，只有有计划的人生才不会失控，突发情况一旦发生，就该计划好如何完成相关任务和工作，让变化成为计划的一部分才能够走的长远。第二点，谨小慎微，时刻保持清醒，审视自己，能够意识到自己偏离计划了，也才可能去纠正错误。</p>
+<p>最后，一步错，步步错。计划和任务的完成不求完美，但一定要完成，往往因为上一个任务做的不够好，或者想做的更好，会用更多的时间去完善。这种做法对我来说很不可取。首先做的好，会消耗更多的脑力精力，消耗过多，往往让我疲惫；另外消耗了时间则下一步工作也不能完成的好，耽误了工作。如此看来这也是一种恶性循环的，方法是：调节好心态，不做过多的强求，做完一个任务后，可以做一些运动或者冥想，在有能力且状态良好的情况增加难度。</p>
+<p>有时候，可以适当的休息，小息一下并不会耽误多长时间，并且能够帮助恢复精神，也能够更好的完成一些事情。对现阶段的我来说，养成习惯，调整好心态才是最重要的，其他都不该过分强求，适当的工作任务完成后，再做一些提高自身的事情。</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[GithubPages+https]]></title>
       <url>http://noparkinghere.top/2017/04/13/2017/2017-04-13-githubpage-https/</url>
       <content type="html"><![CDATA[<h3 id="https-简介"><a href="#https-简介" class="headerlink" title="https 简介"></a>https 简介</h3><p>HTTPS（全称：Hyper Text Transfer Protocol over Secure Socket Layer），是以安全为目标的HTTP通道，简单讲是HTTP的安全版。即HTTP下加入SSL层，HTTPS的安全基础是SSL，因此加密的详细内容就需要SSL。https:URL表明它使用了HTTP，但HTTPS存在不同于HTTP的默认端口及一个加密/身份验证层（在HTTP与TCP之间）。</p>
@@ -47,7 +61,7 @@
 <li>我们只需要设置 Page Rules ，将里面的规则进行更改，如：可以将目标地址重定向，输入 <code>http://www.yoursite.com/*</code> 然后选择 forwarding URL ，选择 301 重定向，下面输入 <code>https://www.qq.com/*</code>，一般这个不是立刻生效，需要耐心等待，页面如果跳出 CloudFlare 相关信息，很可能是已经设置成功，但还没有生效。</li>
 </ul>
 <blockquote>
-<p>参考链接：<br><a href="http://baike.baidu.com/link?url=2m1AdjLvBGnRv4lsaPqsNch_ZFdA_jp-YVdn4FBcZhszyRB7naHX2d9mLytRTtgCcv8qLczVjLKxVZJWFnOrmq" target="_blank" rel="external">http://baike.baidu.com/link?url=2m1AdjLvBGnRv4lsaPqsNch_ZFdA_jp-YVdn4FBcZhszyRB7naHX2d9mLytRTtgCcv8qLczVjLKxVZJWFnOrmq</a><br><a href="http://blog.csdn.net/u010887744/article/details/50762202" target="_blank" rel="external">http://blog.csdn.net/u010887744/article/details/50762202</a><br><a href="https://blog.cloudflare.com/secure-and-fast-github-pages-with-cloudflare/" target="_blank" rel="external">https://blog.cloudflare.com/secure-and-fast-github-pages-with-cloudflare/</a><br><a href="https://www.seozac.com/seo/301-redirect/" target="_blank" rel="external">https://www.seozac.com/seo/301-redirect/</a><br><a href="https://www.zhihu.com/question/20376047?sort=created" target="_blank" rel="external">https://www.zhihu.com/question/20376047?sort=created</a><br><a href="https://pages.github.com/" target="_blank" rel="external">https://pages.github.com/</a><br><a href="http://jekyllcn.com/docs/github-pages/" target="_blank" rel="external">http://jekyllcn.com/docs/github-pages/</a><br><a href="http://www.freebuf.com/articles/neopoints/45822.html" target="_blank" rel="external">http://www.freebuf.com/articles/neopoints/45822.html</a></p>
+<p>参考链接：<br><a href="http://baike.baidu.com/link?url=2m1AdjLvBGnRv4lsaPqsNch_ZFdA_jp-YVdn4FBcZhszyRB7naHX2d9mLytRTtgCcv8qLczVjLKxVZJWFnOrmq" target="_blank" rel="external">http://baike.baidu.com/link?url=2m1AdjLvBGnRv4lsaPqsNch_ZFdA_jp-YVdn4FBcZhszyRB7naHX2d9mLytRTtgCcv8qLczVjLKxVZJWFnOrmq</a><br><a href="http://blog.csdn.net/u010887744/article/details/50762202" target="_blank" rel="external">http://blog.csdn.net/u010887744/article/details/50762202</a><br><a href="https://blog.cloudflare.com/secure-and-fast-github-pages-with-cloudflare/" target="_blank" rel="external">https://blog.cloudflare.com/secure-and-fast-github-pages-with-cloudflare/</a><br><a href="https://www.seozac.com/seo/301-redirect/" target="_blank" rel="external">https://www.seozac.com/seo/301-redirect/</a><br><a href="https://www.zhihu.com/question/20376047?sort=created" target="_blank" rel="external">https://www.zhihu.com/question/20376047?sort=created</a><br><a href="https://pages.github.com/" target="_blank" rel="external">https://pages.github.com/</a><br><a href="http://jekyllcn.com/docs/github-pages/" target="_blank" rel="external">http://jekyllcn.com/docs/github-pages/</a><br><a href="http://www.freebuf.com/articles/neopoints/45822.html" target="_blank" rel="external">http://www.freebuf.com/articles/neopoints/45822.html</a><br><a href="http://blog.csdn.net/u011244202/article/details/57106544" target="_blank" rel="external">http://blog.csdn.net/u011244202/article/details/57106544</a></p>
 </blockquote>
 ]]></content>
       
@@ -5101,46 +5115,88 @@
     </entry>
     
     <entry>
-      <title><![CDATA[stm32F439案例汇总]]></title>
-      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
-      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
+      <title><![CDATA[（转）回车、换行、和文件末尾空行]]></title>
+      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%EF%BC%88%E8%BD%AC%EF%BC%89%E5%9B%9E%E8%BD%A6%E3%80%81%E6%8D%A2%E8%A1%8C%E3%80%81%E5%92%8C%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E7%A9%BA%E8%A1%8C/</url>
+      <content type="html"><![CDATA[<h2 id="回车和换行"><a href="#回车和换行" class="headerlink" title="回车和换行"></a>回车和换行</h2><p>回车 (Carriage Return) 和换行 (Line Feed) 的区别，<a href="http://stackoverflow.com/questions/1761051/difference-between-n-and-r" target="_blank" rel="external">这里</a>有一个历史原因可参考：</p>
 <blockquote>
-<p>www.armjishu.com(无法访问)</p>
+<p>在计算机还没有出现之前，有一种叫做电传打字机（Teletype Model 33）的玩意，每秒钟可以打10个字符。但是它有一个问题，就是打完一行换行的时候，要用去0.2秒，正好可以打两个字符。要是在这0.2秒里面，又有新的字符传过来，那么这个字符将丢失。</p>
+<p>于是，研制人员想了个办法解决这个问题，就是在每行后面加两个表示结束的字符。一个叫做”回车”，告诉打字机把打印头定位在左边界；另一个叫做”换行”，告诉打字机把纸向下移一行。</p>
 </blockquote>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
-<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
-<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
+<p>发明计算机时，这个概念被沿用下来，但因为条件的限制和设计者的喜好，有了一些分歧：</p>
+<ul>
+<li>Unix 系统里，每行结尾只有”&lt;换行&gt;”，即 “\n”</li>
+<li>Windows 系统里面，每行结尾是”&lt;回车&gt;&lt;换行&gt;”，即 “\r\n”</li>
+<li>在老的 Mac 系统里，每行结尾是”&lt;回车&gt;”，即 “\r”</li>
+</ul>
+<p>我们来验证一下，我在 Windows 下用记事本新建一个文本文件，它的二进制编码如下：</p>
+<pre><code>//源文件内容
+hello
+hello2
+
+//二进制内容
+0000000: 6865 6c6c 6f0d 0a68 656c 6c6f 32         hello..hello2
+</code></pre><p>同样在 Mac 下用 Vim 新建一个：</p>
+<pre><code>//源文件内容
+hello
+hello2
+
+//二进制内容
+0000000: 6865 6c6c 6f0a 6865 6c6c 6f32 0a         hello.hello2.
+</code></pre><p><code>0a</code>是 LF 的 ASCII 编码, <code>0d</code>是 CR 的 ASCII 编码。区别很明显了</p>
+<ul>
+<li>Mac 下的文本文件在 Windows 下打开会成为一行，因为 Windows 只认识 <code>\r\n</code>，也就是 <code>0d0a</code></li>
+<li>Windows 下的文本文件在 Mac 下打开，Vim 中会在每行末尾显示一个 <code>^M</code>，(不是两个字符组成的)</li>
 </ul>
 <a id="more"></a>
-<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
-<li>实验0 Template工程模板</li>
-<li>实验1 跑马灯</li>
-<li>实验2 蜂鸣器</li>
-<li>实验3 按键和外部中断</li>
-<li>实验4 看门狗（独立和窗口）</li>
-<li>实验5 待机唤醒</li>
-<li>实验6 串口通讯（232和485）</li>
-<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
-<li>实验8 PWM输出和输入捕获</li>
-</ul>
-<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
-<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
+<h2 id="文件末尾空行"><a href="#文件末尾空行" class="headerlink" title="文件末尾空行"></a>文件末尾空行</h2><p><a href="https://zh.wikipedia.org/zh-sg/POSIX" target="_blank" rel="external">POSIX</a>对行的<a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_206" target="_blank" rel="external">定义</a>如下：</p>
+<blockquote>
+<p>3.206 Line</p>
+<p>A sequence of zero or more non- <newline\> characters plus a terminating <newline\> character.</newline\></newline\></p>
+<p>行是由0个或者多个非 “换行” 符的字符组成，并且以 “换行” 符结尾。</p>
 </blockquote>
-<hr>
-<p><em>未完待续</em></p>
+<p>这样做有什么好处呢，举个例子：</p>
+<pre><code>//hello.c
+#include head.h
+print(&apos;hello&apos;)
+
+//world.c
+#include tail.h
+print(&apos;hello&apos;)
+</code></pre><p>如果这两个文件都按 POSIX 规范来写， 在<code>cat *.c</code>之后，是没有问题的：</p>
+<pre><code>//cat.c
+
+#include head.h
+print(&apos;hello&apos;)
+#include tail.h
+print(&apos;hello&apos;)
+</code></pre><p>如果缺少最后一行的换行符（如 Windows 文件那样的定义），<code>cat</code>之后，就有问题了：</p>
+<pre><code>//error.c
+
+#include head.h
+print(&apos;hello&apos;)#include tail.h
+print(&apos;hello&apos;)
+</code></pre><p>所以，从这点去理解 POSIX 对行的定义，非常合理，对于任意文件的拼接，也各自保持了文件的完整性。</p>
+<p>不遵守标准带来的则是：在一些编辑器下面，比如 Sublime，他把<code>\n</code>的当做了行之间的分隔符，于是文件最后一行的<code>\n</code>就看上去成了一个新的空行，这就是错误解读标准造成的，拼接文件时也会产生不必要的麻烦，比如上例。</p>
+<h2 id="No-new-line-at-end-of-file"><a href="#No-new-line-at-end-of-file" class="headerlink" title="\ No new line at end of file"></a>\ No new line at end of file</h2><p>基于上面的原因，再去看 git diff 的<code>\ No new line at end of file</code>信息，就很好解释了。</p>
+<p>各编辑器对于换行符的理解偏差，导致的文件确实发生了变化，多了或少了最后的<code>0a</code>，那么对于 diff 程序来说，这当然是不可忽略的，但因为<code>0a</code>是不可见字符，并且是长久以来的历史原因，所以 diff 程序有个专门的标记来说明这个变化，就是：</p>
+<p><code>\ No new line at end of file</code></p>
+<p>各编辑器也有相应的办法去解决这个问题，比如 Sublime，在<code>Default/Preferences.sublime-settings</code>中设置：</p>
+<pre><code>// Set to true to ensure the last line of the file ends in a newline
+// character when saving
+&quot;ensure_newline_at_eof_on_save&quot;: true,
+</code></pre><p>所以，请遵守规范。</p>
 ]]></content>
       
         <categories>
             
-            <category> 嵌入式 </category>
+            <category> 问题总结 </category>
             
         </categories>
         
         
         <tags>
             
-            <tag> MCU </tag>
+            <tag> 问题总结 </tag>
             
         </tags>
         
@@ -5237,88 +5293,46 @@
     </entry>
     
     <entry>
-      <title><![CDATA[（转）回车、换行、和文件末尾空行]]></title>
-      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%EF%BC%88%E8%BD%AC%EF%BC%89%E5%9B%9E%E8%BD%A6%E3%80%81%E6%8D%A2%E8%A1%8C%E3%80%81%E5%92%8C%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E7%A9%BA%E8%A1%8C/</url>
-      <content type="html"><![CDATA[<h2 id="回车和换行"><a href="#回车和换行" class="headerlink" title="回车和换行"></a>回车和换行</h2><p>回车 (Carriage Return) 和换行 (Line Feed) 的区别，<a href="http://stackoverflow.com/questions/1761051/difference-between-n-and-r" target="_blank" rel="external">这里</a>有一个历史原因可参考：</p>
+      <title><![CDATA[stm32F439案例汇总]]></title>
+      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
+      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
 <blockquote>
-<p>在计算机还没有出现之前，有一种叫做电传打字机（Teletype Model 33）的玩意，每秒钟可以打10个字符。但是它有一个问题，就是打完一行换行的时候，要用去0.2秒，正好可以打两个字符。要是在这0.2秒里面，又有新的字符传过来，那么这个字符将丢失。</p>
-<p>于是，研制人员想了个办法解决这个问题，就是在每行后面加两个表示结束的字符。一个叫做”回车”，告诉打字机把打印头定位在左边界；另一个叫做”换行”，告诉打字机把纸向下移一行。</p>
+<p>www.armjishu.com(无法访问)</p>
 </blockquote>
-<p>发明计算机时，这个概念被沿用下来，但因为条件的限制和设计者的喜好，有了一些分歧：</p>
-<ul>
-<li>Unix 系统里，每行结尾只有”&lt;换行&gt;”，即 “\n”</li>
-<li>Windows 系统里面，每行结尾是”&lt;回车&gt;&lt;换行&gt;”，即 “\r\n”</li>
-<li>在老的 Mac 系统里，每行结尾是”&lt;回车&gt;”，即 “\r”</li>
-</ul>
-<p>我们来验证一下，我在 Windows 下用记事本新建一个文本文件，它的二进制编码如下：</p>
-<pre><code>//源文件内容
-hello
-hello2
-
-//二进制内容
-0000000: 6865 6c6c 6f0d 0a68 656c 6c6f 32         hello..hello2
-</code></pre><p>同样在 Mac 下用 Vim 新建一个：</p>
-<pre><code>//源文件内容
-hello
-hello2
-
-//二进制内容
-0000000: 6865 6c6c 6f0a 6865 6c6c 6f32 0a         hello.hello2.
-</code></pre><p><code>0a</code>是 LF 的 ASCII 编码, <code>0d</code>是 CR 的 ASCII 编码。区别很明显了</p>
-<ul>
-<li>Mac 下的文本文件在 Windows 下打开会成为一行，因为 Windows 只认识 <code>\r\n</code>，也就是 <code>0d0a</code></li>
-<li>Windows 下的文本文件在 Mac 下打开，Vim 中会在每行末尾显示一个 <code>^M</code>，(不是两个字符组成的)</li>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
+<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
+<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
 </ul>
 <a id="more"></a>
-<h2 id="文件末尾空行"><a href="#文件末尾空行" class="headerlink" title="文件末尾空行"></a>文件末尾空行</h2><p><a href="https://zh.wikipedia.org/zh-sg/POSIX" target="_blank" rel="external">POSIX</a>对行的<a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_206" target="_blank" rel="external">定义</a>如下：</p>
-<blockquote>
-<p>3.206 Line</p>
-<p>A sequence of zero or more non- <newline\> characters plus a terminating <newline\> character.</newline\></newline\></p>
-<p>行是由0个或者多个非 “换行” 符的字符组成，并且以 “换行” 符结尾。</p>
+<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
+<li>实验0 Template工程模板</li>
+<li>实验1 跑马灯</li>
+<li>实验2 蜂鸣器</li>
+<li>实验3 按键和外部中断</li>
+<li>实验4 看门狗（独立和窗口）</li>
+<li>实验5 待机唤醒</li>
+<li>实验6 串口通讯（232和485）</li>
+<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
+<li>实验8 PWM输出和输入捕获</li>
+</ul>
+<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
+<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
 </blockquote>
-<p>这样做有什么好处呢，举个例子：</p>
-<pre><code>//hello.c
-#include head.h
-print(&apos;hello&apos;)
-
-//world.c
-#include tail.h
-print(&apos;hello&apos;)
-</code></pre><p>如果这两个文件都按 POSIX 规范来写， 在<code>cat *.c</code>之后，是没有问题的：</p>
-<pre><code>//cat.c
-
-#include head.h
-print(&apos;hello&apos;)
-#include tail.h
-print(&apos;hello&apos;)
-</code></pre><p>如果缺少最后一行的换行符（如 Windows 文件那样的定义），<code>cat</code>之后，就有问题了：</p>
-<pre><code>//error.c
-
-#include head.h
-print(&apos;hello&apos;)#include tail.h
-print(&apos;hello&apos;)
-</code></pre><p>所以，从这点去理解 POSIX 对行的定义，非常合理，对于任意文件的拼接，也各自保持了文件的完整性。</p>
-<p>不遵守标准带来的则是：在一些编辑器下面，比如 Sublime，他把<code>\n</code>的当做了行之间的分隔符，于是文件最后一行的<code>\n</code>就看上去成了一个新的空行，这就是错误解读标准造成的，拼接文件时也会产生不必要的麻烦，比如上例。</p>
-<h2 id="No-new-line-at-end-of-file"><a href="#No-new-line-at-end-of-file" class="headerlink" title="\ No new line at end of file"></a>\ No new line at end of file</h2><p>基于上面的原因，再去看 git diff 的<code>\ No new line at end of file</code>信息，就很好解释了。</p>
-<p>各编辑器对于换行符的理解偏差，导致的文件确实发生了变化，多了或少了最后的<code>0a</code>，那么对于 diff 程序来说，这当然是不可忽略的，但因为<code>0a</code>是不可见字符，并且是长久以来的历史原因，所以 diff 程序有个专门的标记来说明这个变化，就是：</p>
-<p><code>\ No new line at end of file</code></p>
-<p>各编辑器也有相应的办法去解决这个问题，比如 Sublime，在<code>Default/Preferences.sublime-settings</code>中设置：</p>
-<pre><code>// Set to true to ensure the last line of the file ends in a newline
-// character when saving
-&quot;ensure_newline_at_eof_on_save&quot;: true,
-</code></pre><p>所以，请遵守规范。</p>
+<hr>
+<p><em>未完待续</em></p>
 ]]></content>
       
         <categories>
             
-            <category> 问题总结 </category>
+            <category> 嵌入式 </category>
             
         </categories>
         
         
         <tags>
             
-            <tag> 问题总结 </tag>
+            <tag> MCU </tag>
             
         </tags>
         

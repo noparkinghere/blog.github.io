@@ -4,47 +4,67 @@
   
     
     <entry>
-      <title><![CDATA[常用家电视频接口]]></title>
-      <url>http://noparkinghere.top/2017/04/18/2017/2017-04-18-%E5%B8%B8%E7%94%A8%E5%AE%B6%E7%94%B5%E5%92%8C%E7%94%B5%E5%AD%90%E4%BA%A7%E5%93%81%E6%8E%A5%E5%8F%A3/</url>
-      <content type="html"><![CDATA[<p>本文罗列了一些家用黑电和数码电子产品的数据线以及接口，方便在购买时可以查阅，免得买错，或者混淆，注意这边只说明一些主流还算常用的接口，对于一些不常用的可能不会提及。本文以一个个常见电子设备为基础，进行展开，中间可能有部分会有重叠。</p>
+      <title><![CDATA[bash使用技巧]]></title>
+      <url>http://noparkinghere.top/2017/04/19/2017/2017-04-19-bash%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</url>
+      <content type="html"><![CDATA[<p>本文归纳总结了一些使用 bash 时的一些快捷键，命令技巧等，由于 bash 在类 unix 操作系统中最为常见，很多时候我们无法绕开它，因此了解并掌握这些技巧能够让你事半功倍。当然如果是个人使用的话我还是建议可以选择 zsh ，github 上面有 zsh 的配置方案，它能够给你带来更好的使用体验。</p>
+<h3 id="history"><a href="#history" class="headerlink" title="history"></a>history</h3><p>history 主要用来记录你已经输入过的命令，使用 history | less 可以查目前你输入过的命令。</p>
+<ul>
+<li></li>
+<li>!! 执行上一条命令</li>
+</ul>
+<hr>
+<p>To be continued…</p>
+<blockquote>
+<p>参考链接：<br><a href="http://blog.tpircsboy.com/tech/bash-skills-part1/" target="_blank" rel="external">http://blog.tpircsboy.com/tech/bash-skills-part1/</a><br><a href="http://9530025.blog.51cto.com/9520025/1568806" target="_blank" rel="external">http://9530025.blog.51cto.com/9520025/1568806</a><br><a href="http://ahei.info/bash.htm" target="_blank" rel="external">http://ahei.info/bash.htm</a><br><a href="http://coolshell.cn/articles/8883.html" target="_blank" rel="external">http://coolshell.cn/articles/8883.html</a><br><a href="http://www.cnblogs.com/napoleon_liu/articles/1952228.html" target="_blank" rel="external">http://www.cnblogs.com/napoleon_liu/articles/1952228.html</a><br><a href="http://www.linuxidc.com/Linux/2015-03/114349.htm" target="_blank" rel="external">http://www.linuxidc.com/Linux/2015-03/114349.htm</a></p>
+</blockquote>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[电器电子产品接口--视频接口]]></title>
+      <url>http://noparkinghere.top/2017/04/18/2017/2017-04-18-%E7%94%B5%E5%99%A8%E7%94%B5%E5%AD%90%E4%BA%A7%E5%93%81%E6%8E%A5%E5%8F%A3--%E8%A7%86%E9%A2%91%E6%8E%A5%E5%8F%A3/</url>
+      <content type="html"><![CDATA[<p>本文介绍有关家用黑电和数码电子产品的数据线以及接口，方便在购买时可以查阅，免得买错，或者混淆，注意这边只说明一些主流还算常用的接口，对于一些不常用的可能不会提及，注意一些常见的设备间可能会有重叠部分。</p>
+<p>由于技术更新迭代的快，这边一篇文章实在无法将所有内容都阐述清除，这边绝对作为一个系列的文章进行发布，本文主要介绍常用家电和数码产品的视频接口。</p>
 <blockquote>
 <h3 id="电视机"><a href="#电视机" class="headerlink" title="电视机"></a>电视机</h3></blockquote>
 <p>电视发展至今已经很多年了，各种接口也经历了多种更新，下面我只举例出几个比较常见的端口。</p>
 <h4 id="S端子"><a href="#S端子" class="headerlink" title="S端子"></a>S端子</h4><p>S端子（S-Video）是早期电视中应用最普遍的视频接口之一，连接规格是由日本人开发的一种规格，S 指的是“SEPARATE（分离）”，它将视频数据分成两个单独的讯号（光亮度和色度）进行传送的模拟视频讯号，避免了混合视讯讯号输出时亮度和色度的相互干扰。S接口实际上是一种五芯接口，由两路视亮度信号、两路视频色度信号和一路公共屏蔽地线共五条芯线组成。</p>
 <p>早期我们的有线电视 DVD 等设备，很多都是通过这个口来进行传输信号的，但由于它是模拟接口（对于今天数字设备则无法兼容）加上传输信号差等缺点，因此后来逐渐被其他接口所取代了，今天我们购买的一些电视机可能已经没有这个端口了。</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-04-18-常用家电视频接口/1.jpg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-04-18-电器电子产品接口--视频接口/1.jpg" alt=""></p>
 <h4 id="分量接口"><a href="#分量接口" class="headerlink" title="分量接口"></a>分量接口</h4><p>电视信号传输中传输视频信号的一种接口类型，把视频信号的亮度信息和色彩信息分开来，这样视频信号包括了分开传输的一路亮度信号和两路色差信号，因而避免了信号之间的串扰，与复合电视信号（亮度信号与色彩信号复合传输）和S端子相比有更高的图像质量。</p>
 <p>分量视频接口/色差端子是在S端子的基础上，把色度（C）信号里的蓝色差（b）、红色差（r）分开发送，可以输入多种等级讯号，从最基本的480i到倍频扫描的480P，甚至720P、1080i等等。</p>
 <p>有些家用电视上面可能会有这个接口，但该接口在民用领域，并没有普及开来，只有一些特殊设备仪器会采用该接口。</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-04-18-常用家电视频接口/2.jpg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-04-18-电器电子产品接口--视频接口/2.jpg" alt=""></p>
 <h4 id="AV接口"><a href="#AV接口" class="headerlink" title="AV接口"></a>AV接口</h4><p>复合视频接口（AV接口或Video接口），是当前电视机中最普遍的一种视频接口，几乎所有电视机、影碟机都具备这个接口。</p>
 <p>它是音频、视频分离的视频接口，一般由三个独立RCA插头（又叫梅花接口、RCA接口）组成，其中V接口连接混合视频信号，为黄色插口；L接口连接左声道声音信号，为白色插口；R接口连接右声道声音信号，为红色插口。</p>
 <p>这个接口可以说是完全起到了替代 S 端子作用的，几乎所有的老款电视机和液晶电视都具备这个口，而该端口也是数字机顶盒的标配。即便是高清数字电视普及的当代，为了兼容老旧设备，AV 接口仍然是出厂时的标配。</p>
 <p>AV 视频接口本身也有着较大的缺陷，由于它也是模拟接口，用于数字显示设备时，需要一个模拟信号转数字信号的过程（家用数字机顶盒就起到了这个作用）。同时 AV 视频接口一般也只能稳定输出 480P 的视频，对于 720P 的视频都难以为继，更不用说现在 1080P，2K，4K等视频了。因此 AV 视频接口被淘汰也是个趋势，随着最近几年网络机顶盒的不断普及，新出来的网络机顶盒为了节省成本以及输出高质量的视频都不再配备 AV 视频接口了。</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-04-18-常用家电视频接口/3.jpg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-04-18-电器电子产品接口--视频接口/3.jpg" alt=""></p>
 <h4 id="HDMI接口"><a href="#HDMI接口" class="headerlink" title="HDMI接口"></a>HDMI接口</h4><p>目前最为流行的电视接口其实就是 HDMI 接口，HDMI 的英文全称是“High Definition Multimedia”，中文的意思是高清晰度多媒体接口。HDMI 接口可以提供高达 5Gbps 的数据传输带宽，是一种全数字化视频和声音发送接口，可以发送未压缩的音频及视频信号。同时无需在信号传送前进行数/模或者模/数转换，可以保证最高质量的影音信号传送。应用HDMI的好处是：只需要一条HDMI线，便可以同时传送影音信号。</p>
 <p>HDMI 的接口分成A、B、C、D4种类型。 其中A类（Type A）是最常见的，一般平板电视或视频设备，都提供了这种尺寸的接口，Type A有19针，宽度为13.9毫米、厚度为4.45毫米，现在能看到的设备 99% 都是这样尺寸的 HDMI 接口。B类（Type B）非常罕见，C类（Type C）俗称mini-HDMI，D类（Type D）都极为罕见。</p>
 <p>理论上来说 HDMI 应该是支持热插拔的，通常质量合格的 HDMI 接口，插拔寿命不会少于 5000 次，每天插拔能用 10 年，应该说是很耐用的。</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-04-18-常用家电视频接口/4.jpg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-04-18-电器电子产品接口--视频接口/4.jpg" alt=""></p>
 <p>另外 HDMI 可向下兼容于现今多数显示器，因此网上也有 HDMI-VGA 转接器。</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-04-18-常用家电视频接口/5.jpg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-04-18-电器电子产品接口--视频接口/5.jpg" alt=""></p>
 <p>HDMI 越来越普及，很多几年前的电视机可能只配备了一个 HDMI 口，但如今却需要接多个机顶盒的话，网上也同样可以购买到 HDMI 分配器。</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-04-18-常用家电视频接口/6.jpg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-04-18-电器电子产品接口--视频接口/6.jpg" alt=""></p>
 <h4 id="type-C"><a href="#type-C" class="headerlink" title="type-C"></a>type-C</h4><p>同 HDMI 相比，typc-C 是更加先进的一种接口，目前用 typc-C 作为视频输出的设备还不算多，如新款的 MacBook 以及极个别电视机产品。目前 MacBook 想要链接电视机还得通过如下图的转接线。</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-04-18-常用家电视频接口/7.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-04-18-电器电子产品接口--视频接口/7.png" alt=""></p>
 <p>去年底，某电视机厂家好像出了一款 type-C 接口的电视机，但价格惊人。但目前来看 typc-C 确实能够从各方面提供更好的体验，未来也会成为主流。</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-04-18-常用家电视频接口/8.jpg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-04-18-电器电子产品接口--视频接口/8.jpg" alt=""></p>
 <blockquote>
 <h3 id="电脑显示屏"><a href="#电脑显示屏" class="headerlink" title="电脑显示屏"></a>电脑显示屏</h3></blockquote>
 <h3 id="VGA"><a href="#VGA" class="headerlink" title="VGA"></a>VGA</h3><p>视频图形阵列（英语：Video Graphics Array，简称VGA）是IBM于1987年提出的一个使用模拟信号的电脑显示标准。这个标准已对于现今的个人电脑市场已经十分过时。即使如此，VGA仍然是最多制造商所共同支持的一个标准，个人电脑在加载自己的独特驱动程序之前，都必须支持VGA的标准。例如，微软Windows系列产品的开机画面仍然使用VGA显示模式，这也说明其分辨率和载色数的不足。</p>
 <p>计算机内部以数字方式生成的显示图像信息，被显卡中的数字/模拟转换器转变为 R、G、Ｂ 三原色信号和行、场同步信号，信号通过电缆传输到显示设备中。VGA接口应用于CRT显示器无可厚非，但用于连接液晶之类的显示设备，则转换过程的图像损失会使显示效果略微下降。</p>
 <p>VGA 一般只用在比较老的电脑显示器上，电视上目前还没见过有这个接口的，虽然说电视机也是个更大的显示器，但早期时，电视和电脑还是作为不同的个体的，只不过随着屏幕的发展，现在电视和电脑已经愈加的同质化了。</p>
 <p>虽然说 VGA 接口比较老，但现在 PC 机寿命都比较长，且淘汰的慢，很多年前买的普清显示器一般都支持这个接口，而过去几年购买的 1080P 的显示器绝大部分也仍然有这个接口，购买时最好查看一下。</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-04-18-常用家电视频接口/9.jpg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-04-18-电器电子产品接口--视频接口/9.jpg" alt=""></p>
 <h3 id="DVI"><a href="#DVI" class="headerlink" title="DVI"></a>DVI</h3><p>DVI 的英文全名为“Digital Visual Interface”，中文称为“数字视频接口”。是一种视频接口标准，设计的目的是用来传输未经压缩的数字化视频。DVI 和 HDMI 都是纯数字输出，但相比于 HDMI 而言， DVI 会根据信号源做出 1:1 的输出比例，而 HDMI 只会全屏输出。</p>
 <p>相比于 VGA 的模拟信号输出而言，DVI 传输的是数字信号，数字图像信息不需经过任何转换，就会直接被传送到显示设备上，因此减少了“数字→模拟→数字”繁琐的转换过程，大大节省了时间，因此它的速度更快，有效消除拖影现象。</p>
 <p>DVI一共分为5种标准。</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-04-18-常用家电视频接口/10.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-04-18-电器电子产品接口--视频接口/10.png" alt=""></p>
 <h3 id="HDMI"><a href="#HDMI" class="headerlink" title="HDMI"></a>HDMI</h3><p>电脑的 HDMI 和电视机的是一个一样的，可以参考上文，不同的地方在于，电脑相当于机顶盒提供内容的输出，而电视机相当于显示器接收信号的输入。现在的笔记本设备一般都具备 HDMI 口，甚至一些新型产品会支持 HDMI（C/D型）输出，或者 type-C 视频输出。</p>
 <p>另外很多新款的台式机也不再支持 VGA 口了，而显示器在市面上尤为的混乱，VGA ，DVI，HDMI 三种接口可以随机进行两两组合或者三个兼备进行售卖，虽然一般显示器都配备了接口线，但如果你的主机刚好和显示器接口错开了的话就比较麻烦了，因此购买时最好留意下这点。</p>
 <hr>
@@ -66,18 +86,6 @@
 <p>而透过这种表象，我们再来看看如今的国产电视剧，由于互联网的告诉发展和大量用户数据的泄漏。国产电视剧在拍摄前都会直接与利益挂钩，做了大数据分析，严格的寻找观众群体。因此今天我们不难看到很多的电视剧模版，大团圆结局，出售男色，千篇一律的剧情，故意拖沓的节奏等等。</p>
 <p>国漫的发展目前整体看来还算是比较健康的，《画江湖》系列制作的很是精良，其他如《灵剑山》也能够反常理出牌，拍摄一些突破性的内容。当然也看到不少滥竽充数的作品，如：《灵域》越做越差的作品，《莽荒纪》乱用模版将主角整成了脑残。</p>
 <p>希望国产也能够提供一些更加优秀的影视动漫作品，而不仅仅是为了盈利，为了多捞钱。</p>
-]]></content>
-      
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[bash使用技巧]]></title>
-      <url>http://noparkinghere.top/2017/04/17/2017/2017-04-17-bash%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</url>
-      <content type="html"><![CDATA[<p>本文归纳总结了一些使用 bash 时的一些快捷键，命令技巧等，由于 bash 在类 unix 操作系统中最为常见，很多时候我们无法绕开它，因此了解并掌握这些技巧能够让你事半功倍。当然如果是个人使用的话我还是建议可以选择 zsh ，github 上面有 zsh 的配置方案，它能够给你带来更好的使用体验。</p>
-<blockquote>
-<p>参考链接：<br><a href="http://blog.tpircsboy.com/tech/bash-skills-part1/" target="_blank" rel="external">http://blog.tpircsboy.com/tech/bash-skills-part1/</a><br><a href="http://9530025.blog.51cto.com/9520025/1568806" target="_blank" rel="external">http://9530025.blog.51cto.com/9520025/1568806</a><br><a href="http://ahei.info/bash.htm" target="_blank" rel="external">http://ahei.info/bash.htm</a><br><a href="http://coolshell.cn/articles/8883.html" target="_blank" rel="external">http://coolshell.cn/articles/8883.html</a><br><a href="http://www.cnblogs.com/napoleon_liu/articles/1952228.html" target="_blank" rel="external">http://www.cnblogs.com/napoleon_liu/articles/1952228.html</a><br><a href="http://www.linuxidc.com/Linux/2015-03/114349.htm" target="_blank" rel="external">http://www.linuxidc.com/Linux/2015-03/114349.htm</a></p>
-</blockquote>
 ]]></content>
       
         
@@ -2432,7 +2440,7 @@
     <entry>
       <title><![CDATA[VPS : shadowsocks]]></title>
       <url>http://noparkinghere.top/2016/11/25/2016/2016-11-25-vps-shadowsocks/</url>
-      <content type="html"><![CDATA[<p>日常生活中，由于GFW的强大，很多学习资料等内容我们无法获取或者检索，因此科学上网往往相当重要，本文章使用 VPS 搭建 shadowsocks 服务让安全的科学上网成为可能，需要注意的是 VPS 必须是境外服务器，推荐 vultr 搬瓦工等廉价vpn。</p>
+      <content type="html"><![CDATA[<p>日常生活中，由于GFW的强大，很多学习资料等内容我们无法获取或者检索，因此科学上网往往相当重要，本文章使用 VPS 搭建 shadowsocks 服务让安全的科学上网成为可能，需要注意的是 VPS 必须是境外服务器，推荐 vultr 搬瓦工等廉价vpn。另外你也可以访问<a href="https://shadowsocks.org/en/index.html" target="_blank" rel="external">shadowsocks 官网</a>查看详细的教程和下载软件。</p>
 <h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><p><strong>这边可以参考<a href="http://vc2tea.com/whats-shadowsocks/" target="_blank" rel="external">原文博客</a>，以下只是简单罗列一些原理：</strong></p>
 <ul>
 <li>早期互联网用户访问网站时，用户的请求通过互联网发送到服务提供方，服务提供方直接将信息反馈给用户： </li>
@@ -2500,7 +2508,7 @@
 <ul>
 <li>配置 Shadowsocks ：同服务器类似， 也是配置 shadowsocks.json 这个文件，可以在你想要指定的目录下新建这个文件如：~/.config/shadowsocks.json ， 编辑该文件：</li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="string">"server"</span>:<span class="string">"www.baidu.com"</span>,</div><div class="line">    <span class="string">"server_port"</span>:50003,</div><div class="line">    <span class="string">"local_port"</span>:1080,</div><div class="line">    <span class="string">"password"</span>:<span class="string">"123456"</span>,</div><div class="line">    <span class="string">"timeout"</span>:600,</div><div class="line">    <span class="string">"method"</span>:<span class="string">"aes-256-cfb"</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">说明：</div><div class="line">server 后面填写你需要链接的服务器地址</div><div class="line">server_port 后面填写你 Shadowsocks 服务器配置的 server_port 端口</div><div class="line">local_port 无需修改</div><div class="line">password 需要和 Shadowsocks 服务器保持一致</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="string">"server"</span>:<span class="string">"www.baidu.com"</span>,</div><div class="line">    <span class="string">"server_port"</span>:50003,</div><div class="line">    <span class="string">"local_port"</span>:1080,</div><div class="line">    <span class="string">"password"</span>:<span class="string">"123456"</span>,</div><div class="line">    <span class="string">"timeout"</span>:600,</div><div class="line">    <span class="string">"method"</span>:<span class="string">"aes-256-cfb"</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">说明：</div><div class="line">server 后面填写你需要链接的服务器地址</div><div class="line">server_port 后面填写你 Shadowsocks 服务器配置的 server_port 端口</div><div class="line">local_port 无需修改</div><div class="line">password 需要和 Shadowsocks 服务器保持一致</div></pre></td></tr></table></figure>
 <ul>
 <li>完成以下步骤后，你的浏览器仍然不能浏览网页，Shadowsocks 仅提供了转发服务，而你本地的端口发送的数据还无法和server_port进行链接，这时候，你可以采用全局代理的软件让所有数据帮转发，这边推荐chrome的 SwitchyOmega 插件。可以从Github上直接下载最新版 <a href="https://github.com/FelisCatus/SwitchyOmega/releases/" target="_blank" rel="external">SwitchyOmega</a> （这个是chrome的）然后浏览器地址打开chrome://extensions/，将下载的插件托进去安装。安装好之后下面开始设置代理，如下图：</li>
 </ul>
@@ -2525,6 +2533,7 @@
 <p>这边的服务器 IP 同上面 linux 的类似，填写你的域名或者 IP 即可，密码也要和服务器的 shadowsocks 服务保持一致。值得一提的是 windows 下面的客户端直接可以设置全局代理，右击任务栏的小图标可以设置相关选项。</p>
 <h3 id="本地-安卓手机端-安装配置"><a href="#本地-安卓手机端-安装配置" class="headerlink" title="本地 安卓手机端 安装配置"></a>本地 安卓手机端 安装配置</h3><p>安卓用户这边推荐使用腾讯自家的应用宝，直接搜索 shadowsocks 会看到中文名“影梭”的这个软件(<em>注意应用宝中的软件版本较老，为 2.8.3 目前最新版本为 3.2.7。</em>)，设置基本和 windows 的类似，设置完毕后，点击右上角的开启按钮。</p>
 <p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-11-25-vps-shadowsocks/6.png" alt=""></p>
+<p>其中安卓和苹果的<a href="https://shadowsocks.org/en/index.html" target="_blank" rel="external">shadowsocks 官网</a>给出地址都是应用商城地址，用户可以直接去 github 去查找 shadowsocks 库，在 releases 中下载最新的版本。</p>
 <blockquote>
 <p>参考链接：<br><a href="http://vc2tea.com/whats-shadowsocks/" target="_blank" rel="external">http://vc2tea.com/whats-shadowsocks/</a><br><a href="https://aitanlu.com/ubuntu-shadowsocks-ke-hu-duan-pei-zhi.html" target="_blank" rel="external">https://aitanlu.com/ubuntu-shadowsocks-ke-hu-duan-pei-zhi.html</a><br><a href="https://aitanlu.com/linux-ubuntu-install-shadowsocks.html" target="_blank" rel="external">https://aitanlu.com/linux-ubuntu-install-shadowsocks.html</a><br><a href="https://php-rmcr7.rhcloud.com/shadowsocks-server/" target="_blank" rel="external">https://php-rmcr7.rhcloud.com/shadowsocks-server/</a><br><a href="http://blog.chinaunix.net/uid-25530360-id-5595974.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-25530360-id-5595974.html</a><br><a href="http://www.liaoxuefeng.com/article/0013738926914703df5e93589a14c19807f0e285194fe84000" target="_blank" rel="external">http://www.liaoxuefeng.com/article/0013738926914703df5e93589a14c19807f0e285194fe84000</a><br><a href="https://zh.wikipedia.org/zh-hans/Shadowsocks" target="_blank" rel="external">https://zh.wikipedia.org/zh-hans/Shadowsocks</a><br><a href="https://github.com/shadowsocks/shadowsocks/tree/master" target="_blank" rel="external">https://github.com/shadowsocks/shadowsocks/tree/master</a><br><a href="http://webcache.googleusercontent.com/search?q=cache:http://everet.org/shadowsocks.html" target="_blank" rel="external">http://webcache.googleusercontent.com/search?q=cache:http://everet.org/shadowsocks.html</a></p>
 </blockquote>
@@ -3207,45 +3216,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[串口RS485通信详解]]></title>
-      <url>http://noparkinghere.top/2016/10/19/2016/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
-      <content type="html"><![CDATA[<p><strong>注意：串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。串口的一些内容不再逐一介绍说明，可以参加之前的usb转串口及RS232通信等文章</strong></p>
-<h3 id="特性介绍"><a href="#特性介绍" class="headerlink" title="特性介绍"></a>特性介绍</h3><p>485（一般称作 RS485/EIA-485）是隶属于 OSI 模型物理层的电气特性规定为 2 线，半双工，多点通信的标准。它的电气特性和 RS-232 大不一样。用缆线两端的电压差值来表示传递信号。值得注意的是：RS485 仅仅规定了接受端和发送端的电气特性，它没有规定或推荐任何数据协议。</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/1.jpg" alt=""></p>
-<p>RS485接口可以只使用两根线进行通讯（其他串口通讯至少需要三根线，一根为地线作为参考电平），通过差分电平（利用两个信号的差值来判断信息，使用差分信号来传输的，也就是一根线传同相信号，一根线传反相，这样差值最大，抗干扰能力强。）来确定信号是0还是1，也正因为这个原因，所以RS485每次有且仅有一根线能够传输数据，另外一根线作为比对信号，因此RS485是半双工的通讯方式。主要特点如下：</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/2.jpg" alt=""></p>
-<ul>
-<li>接口电平低，不易损坏芯片。 RS485 的电气特性：逻辑“ 1”以两线间的电压差为+(2~6)V<br>表示；逻辑“ 0”以两线间的电压差为-(2~6)V 表示。接口信号电平比 RS232 降低了，<br>不易损坏接口电路的芯片，且该电平与 TTL 电平兼容，可方便与 TTL 电路连接。</li>
-<li>传输速率高。 10 米时， RS485 的数据最高传输速率可达 35Mbps，在 1200m 时，传输<br>速度可达 100Kbps。</li>
-<li>抗干扰能力强。 RS485 接口是采用平衡驱动器和差分接收器的组合，抗共模干扰能力<br>增强，即抗噪声干扰性好。 传输距离远，支持节点多。 RS485 总线最长可以传输 1200m<br>以上（速率≤100Kbps）</li>
-<li>一般最大支持 32 个节点，如果使用特制的 485 芯片，可以达到 128 个或者 256 个节点，<br>最大的可以支持到 400 个节点。</li>
-</ul>
-<a id="more"></a>
-<h3 id="类比RS232"><a href="#类比RS232" class="headerlink" title="类比RS232"></a>类比RS232</h3><p>实际上232串口在实际使用已经用处不大，但基于232发展出来的485等串口设备仍然被广泛使用，RS-485（EIA-485标准）是RS-422的改进，因为它增加了设备的个数，从10个增加到32个，同时定义了在最大设备个数情况下的电气特性，以保证足够的信号电压。有了多个设备的能力，你可以使用一个单个RS-485口建立设备网络。</p>
-<p>因为都是采用串口通信协议，所以软件端几乎可以直接使用，且RS485具备耗材少，抗干扰强等特点，在目前的工业领域仍然被广泛使用，这边主要列举出不同：</p>
-<ul>
-<li>从接线上，RS232是三线制，RS485是两线制</li>
-<li>从传输距离上，RS232只能传输15米，RS485最远可以传输1200米</li>
-<li>从速率上，RS232是全双工传输，RS485是半双工传输</li>
-<li>从协议层上，RS232只支持点对点通讯(1:1)，RS485支持总线形式通讯（1:N）</li>
-</ul>
-<p>RS232的接线：<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/3.jpg" alt="">)</p>
-<p>RS485的接线<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/4.jpg" alt=""></p>
-<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><blockquote>
-<p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a></p>
-</blockquote>
-]]></content>
-      
-        <categories>
-            
-            <category> 嵌入式 </category>
-            
-        </categories>
-        
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[串口RS232通信详解]]></title>
       <url>http://noparkinghere.top/2016/10/19/2016/2016-10-19-%E4%B8%B2%E5%8F%A3RS232%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<p>串行接口是一种可以将接受来自CPU的并行数据字符转换为连续的串行数据流发送出去，同时可将接受的串行数据流转换为并行的数据字符供给CPU的器件。一般完成这种功能的电路，我们称为串行接口电路。曾经PC之间进行串口通信可以说是标配，很多老式电脑上面可以看到DB25的接头，但后来逐渐被DB9取代，早期鼠标打印机都通过串口进行数据传输的，但现在逐渐被USB和网络所取代，DB9的串口接头在PC和笔记本上面也较少能够看到了。做嵌入式开发可以看到有个DB9的串口标准接口，串口对于开发人员输入输出调试等有着至关重要的作用。串行接口按电气标准及协议来分包括RS-232-C、RS-422、RS485等，现在串口一般在工业嵌入式领域使用。</p>
@@ -3305,6 +3275,45 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
 <blockquote>
 <p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a><br><a href="http://www.baike.com/wiki/51+IO%E5%8F%A3%E6%A8%A1%E6%8B%9F%E4%B8%B2%E5%8F%A3%E9%80%9A%E8%AE%AFC%E6%BA%90%E7%A8%8B%E5%BA%8F" target="_blank" rel="external">http://www.baike.com/wiki/51+IO%E5%8F%A3%E6%A8%A1%E6%8B%9F%E4%B8%B2%E5%8F%A3%E9%80%9A%E8%AE%AFC%E6%BA%90%E7%A8%8B%E5%BA%8F</a><br><a href="http://ziye334.blog.163.com/blog/static/224306191201452833850647" target="_blank" rel="external">http://ziye334.blog.163.com/blog/static/224306191201452833850647</a></p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> 嵌入式 </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[串口RS485通信详解]]></title>
+      <url>http://noparkinghere.top/2016/10/19/2016/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<p><strong>注意：串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。串口的一些内容不再逐一介绍说明，可以参加之前的usb转串口及RS232通信等文章</strong></p>
+<h3 id="特性介绍"><a href="#特性介绍" class="headerlink" title="特性介绍"></a>特性介绍</h3><p>485（一般称作 RS485/EIA-485）是隶属于 OSI 模型物理层的电气特性规定为 2 线，半双工，多点通信的标准。它的电气特性和 RS-232 大不一样。用缆线两端的电压差值来表示传递信号。值得注意的是：RS485 仅仅规定了接受端和发送端的电气特性，它没有规定或推荐任何数据协议。</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/1.jpg" alt=""></p>
+<p>RS485接口可以只使用两根线进行通讯（其他串口通讯至少需要三根线，一根为地线作为参考电平），通过差分电平（利用两个信号的差值来判断信息，使用差分信号来传输的，也就是一根线传同相信号，一根线传反相，这样差值最大，抗干扰能力强。）来确定信号是0还是1，也正因为这个原因，所以RS485每次有且仅有一根线能够传输数据，另外一根线作为比对信号，因此RS485是半双工的通讯方式。主要特点如下：</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/2.jpg" alt=""></p>
+<ul>
+<li>接口电平低，不易损坏芯片。 RS485 的电气特性：逻辑“ 1”以两线间的电压差为+(2~6)V<br>表示；逻辑“ 0”以两线间的电压差为-(2~6)V 表示。接口信号电平比 RS232 降低了，<br>不易损坏接口电路的芯片，且该电平与 TTL 电平兼容，可方便与 TTL 电路连接。</li>
+<li>传输速率高。 10 米时， RS485 的数据最高传输速率可达 35Mbps，在 1200m 时，传输<br>速度可达 100Kbps。</li>
+<li>抗干扰能力强。 RS485 接口是采用平衡驱动器和差分接收器的组合，抗共模干扰能力<br>增强，即抗噪声干扰性好。 传输距离远，支持节点多。 RS485 总线最长可以传输 1200m<br>以上（速率≤100Kbps）</li>
+<li>一般最大支持 32 个节点，如果使用特制的 485 芯片，可以达到 128 个或者 256 个节点，<br>最大的可以支持到 400 个节点。</li>
+</ul>
+<a id="more"></a>
+<h3 id="类比RS232"><a href="#类比RS232" class="headerlink" title="类比RS232"></a>类比RS232</h3><p>实际上232串口在实际使用已经用处不大，但基于232发展出来的485等串口设备仍然被广泛使用，RS-485（EIA-485标准）是RS-422的改进，因为它增加了设备的个数，从10个增加到32个，同时定义了在最大设备个数情况下的电气特性，以保证足够的信号电压。有了多个设备的能力，你可以使用一个单个RS-485口建立设备网络。</p>
+<p>因为都是采用串口通信协议，所以软件端几乎可以直接使用，且RS485具备耗材少，抗干扰强等特点，在目前的工业领域仍然被广泛使用，这边主要列举出不同：</p>
+<ul>
+<li>从接线上，RS232是三线制，RS485是两线制</li>
+<li>从传输距离上，RS232只能传输15米，RS485最远可以传输1200米</li>
+<li>从速率上，RS232是全双工传输，RS485是半双工传输</li>
+<li>从协议层上，RS232只支持点对点通讯(1:1)，RS485支持总线形式通讯（1:N）</li>
+</ul>
+<p>RS232的接线：<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/3.jpg" alt="">)</p>
+<p>RS485的接线<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/4.jpg" alt=""></p>
+<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><blockquote>
+<p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a></p>
 </blockquote>
 ]]></content>
       
@@ -5312,52 +5321,6 @@ print(&apos;hello&apos;)
     </entry>
     
     <entry>
-      <title><![CDATA[stm32F439案例汇总]]></title>
-      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
-      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
-<blockquote>
-<p>www.armjishu.com(无法访问)</p>
-</blockquote>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
-<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
-<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
-</ul>
-<a id="more"></a>
-<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
-<li>实验0 Template工程模板</li>
-<li>实验1 跑马灯</li>
-<li>实验2 蜂鸣器</li>
-<li>实验3 按键和外部中断</li>
-<li>实验4 看门狗（独立和窗口）</li>
-<li>实验5 待机唤醒</li>
-<li>实验6 串口通讯（232和485）</li>
-<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
-<li>实验8 PWM输出和输入捕获</li>
-</ul>
-<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
-<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
-</blockquote>
-<hr>
-<p><em>未完待续</em></p>
-]]></content>
-      
-        <categories>
-            
-            <category> 嵌入式 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> MCU </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[MDK5安装及配置]]></title>
       <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
       <content type="html"><![CDATA[<h3 id="MDK简介"><a href="#MDK简介" class="headerlink" title="MDK简介"></a>MDK简介</h3><blockquote>
@@ -5442,6 +5405,52 @@ print(&apos;hello&apos;)
         <tags>
             
             <tag> 软件安装 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[stm32F439案例汇总]]></title>
+      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
+      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
+<blockquote>
+<p>www.armjishu.com(无法访问)</p>
+</blockquote>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
+<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
+<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
+</ul>
+<a id="more"></a>
+<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
+<li>实验0 Template工程模板</li>
+<li>实验1 跑马灯</li>
+<li>实验2 蜂鸣器</li>
+<li>实验3 按键和外部中断</li>
+<li>实验4 看门狗（独立和窗口）</li>
+<li>实验5 待机唤醒</li>
+<li>实验6 串口通讯（232和485）</li>
+<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
+<li>实验8 PWM输出和输入捕获</li>
+</ul>
+<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
+<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
+</blockquote>
+<hr>
+<p><em>未完待续</em></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 嵌入式 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> MCU </tag>
             
         </tags>
         

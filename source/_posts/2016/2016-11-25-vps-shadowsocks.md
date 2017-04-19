@@ -6,7 +6,7 @@ tags:
 date: "2016-11-25 09:30"
 ---
 
-日常生活中，由于GFW的强大，很多学习资料等内容我们无法获取或者检索，因此科学上网往往相当重要，本文章使用 VPS 搭建 shadowsocks 服务让安全的科学上网成为可能，需要注意的是 VPS 必须是境外服务器，推荐 vultr 搬瓦工等廉价vpn。
+日常生活中，由于GFW的强大，很多学习资料等内容我们无法获取或者检索，因此科学上网往往相当重要，本文章使用 VPS 搭建 shadowsocks 服务让安全的科学上网成为可能，需要注意的是 VPS 必须是境外服务器，推荐 vultr 搬瓦工等廉价vpn。另外你也可以访问[shadowsocks 官网](https://shadowsocks.org/en/index.html)查看详细的教程和下载软件。
 
 ### 工作原理
 
@@ -173,12 +173,12 @@ pip install shadowsocks
     "method":"aes-256-cfb"
 }
 
-
 说明：
 server 后面填写你需要链接的服务器地址
 server_port 后面填写你 Shadowsocks 服务器配置的 server_port 端口
 local_port 无需修改
 password 需要和 Shadowsocks 服务器保持一致
+
 ```
 
 - 完成以下步骤后，你的浏览器仍然不能浏览网页，Shadowsocks 仅提供了转发服务，而你本地的端口发送的数据还无法和server_port进行链接，这时候，你可以采用全局代理的软件让所有数据帮转发，这边推荐chrome的 SwitchyOmega 插件。可以从Github上直接下载最新版 [SwitchyOmega](https://github.com/FelisCatus/SwitchyOmega/releases/) （这个是chrome的）然后浏览器地址打开chrome://extensions/，将下载的插件托进去安装。安装好之后下面开始设置代理，如下图：
@@ -229,6 +229,7 @@ logfile=/var/log/shadowsocks.log
 
 ![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-11-25-vps-shadowsocks/6.png)
 
+其中安卓和苹果的[shadowsocks 官网](https://shadowsocks.org/en/index.html)给出地址都是应用商城地址，用户可以直接去 github 去查找 shadowsocks 库，在 releases 中下载最新的版本。
 
 
 > 参考链接：

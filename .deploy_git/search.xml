@@ -7,16 +7,129 @@
       <title><![CDATA[bash使用技巧]]></title>
       <url>http://noparkinghere.top/2017/04/19/2017/2017-04-19-bash%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</url>
       <content type="html"><![CDATA[<p>本文归纳总结了一些使用 bash 时的一些快捷键，命令技巧等，由于 bash 在类 unix 操作系统中最为常见，很多时候我们无法绕开它，因此了解并掌握这些技巧能够让你事半功倍。当然如果是个人使用的话我还是建议可以选择 zsh ，github 上面有 zsh 的配置方案，它能够给你带来更好的使用体验。</p>
-<h3 id="history"><a href="#history" class="headerlink" title="history"></a>history</h3><p>history 主要用来记录你已经输入过的命令，使用 history | less 可以查目前你输入过的命令。</p>
+<p>这边这更新我会用到的一些快捷操作和技巧，对于一些难用不常用的一概不提。</p>
+<h3 id="history"><a href="#history" class="headerlink" title="history"></a>history</h3><p>history 主要用来记录你已经输入过的命令，使用 history | less 可以查目前你输入过的命令。man bash 后查找 Readline Key Bindings 可以看到 bash 的默认热键。以下推荐一些最常用的快捷键和指令：</p>
 <ul>
-<li></li>
-<li>!! 执行上一条命令</li>
+<li>!! 回车则执行上一条命令</li>
+<li>使用 Ctrl-R 而不是上下光标键来查找历史命令。</li>
+<li>Alt-. 把上一次命令的最后一个参数打出来，!$ 功能一样但不是太好用</li>
+<li>Ctrl-L 清屏</li>
+<li>Ctrl-H 用来代替 backspace 按键</li>
+<li>Ctrl-D 向后删除一个字符和 Ctrl-H 方向相反</li>
+<li>Ctrl-W 来删除最后一个单词，分隔符为空格。</li>
+<li>Ctrl-U 来删除当前所在位置到行首</li>
+<li>Ctrl-K 来删除当前所在位置到行尾</li>
+<li>Ctrl-A 光标移动到行首</li>
+<li>Ctrl-E 光标移动到行尾</li>
+<li>Alt-F 光标向前移动一个单词</li>
+<li>Alt-B 管标向后移动一个单词</li>
 </ul>
+<h3 id="cd"><a href="#cd" class="headerlink" title="cd"></a>cd</h3><ul>
+<li>cd ~ 打开当前用户的根目录</li>
+<li>cd - 回到原来的目录</li>
+</ul>
+<h3 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h3><p><code>cat &gt;&gt; /tmp/test.txt &lt;&lt; &quot;EOF&quot;</code> 它能让你通过块文本符号来将段落插入文件中，通常用的符合是EOF(意思是 “End Of File”)，这是比较常见的一种文件内容追加技巧。</p>
 <hr>
 <p>To be continued…</p>
 <blockquote>
 <p>参考链接：<br><a href="http://blog.tpircsboy.com/tech/bash-skills-part1/" target="_blank" rel="external">http://blog.tpircsboy.com/tech/bash-skills-part1/</a><br><a href="http://9530025.blog.51cto.com/9520025/1568806" target="_blank" rel="external">http://9530025.blog.51cto.com/9520025/1568806</a><br><a href="http://ahei.info/bash.htm" target="_blank" rel="external">http://ahei.info/bash.htm</a><br><a href="http://coolshell.cn/articles/8883.html" target="_blank" rel="external">http://coolshell.cn/articles/8883.html</a><br><a href="http://www.cnblogs.com/napoleon_liu/articles/1952228.html" target="_blank" rel="external">http://www.cnblogs.com/napoleon_liu/articles/1952228.html</a><br><a href="http://www.linuxidc.com/Linux/2015-03/114349.htm" target="_blank" rel="external">http://www.linuxidc.com/Linux/2015-03/114349.htm</a></p>
 </blockquote>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[（转）应该知道的LINUX技巧]]></title>
+      <url>http://noparkinghere.top/2017/04/19/2017/2017-04-19-%EF%BC%88%E8%BD%AC%EF%BC%89%E5%BA%94%E8%AF%A5%E7%9F%A5%E9%81%93%E7%9A%84linux%E6%8A%80%E5%B7%A7/</url>
+      <content type="html"><![CDATA[<p><em>本文为一篇转载文章，可以参见<a href="http://coolshell.cn/articles/8883.html" target="_blank" rel="external">原文链接</a>。</em></p>
+<p>这篇文章来源于Quroa的一个问答《What are some time-saving tips that every Linux user should know?》—— Linux用户有哪些应该知道的提高效率的技巧。我觉得挺好的，总结得比较好，把其转过来，并加了一些自己的理解。 首先，我想告诉大家，在Unix/Linux下，最有效率技巧的不是操作图形界面，而是命令行操作，因为命令行意味着自动化。如果你看过《你可能不知道的Shell》以及《28个Unix/Linux的命令行神器》你就会知道Linux有多强大，这个强大完全来自于命令行，于是，就算你不知道怎么去做一个环保主义的程序员，至少他们可以让你少熬点夜，从而有利于你的身体健康和性生活。下面是一个有点长的列表，正如作者所说，你并不需要知道所有的这些东西，但是如果你还在很沉重地在使用Linux的话，这些东西都值得你看一看。 （注：如果你想知道下面涉及到的命令的更多的用法，你一定要man一点。对于一些命令，你可以需要先yum或apt-get来安装一下，如果有什么问题，别忘了Google。如果你要Baidu的话，我仅代表这个地球上所有的生物包括微生物甚至细菌病毒和小强BS你到宇宙毁灭）</p>
+<blockquote>
+<h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3></blockquote>
+<ul>
+<li>学习 Bash 。你可以man bash来看看bash的东西，并不复杂也并不长。你用别的shell也行，但是bash是很强大的并且也是系统默认的。（学习zsh或tsch只会让你在很多情况下受到限制）</li>
+<li>学习 vim 。在Linux下，基本没有什么可与之竞争的编译辑器（就算你是一个Emacs或Eclipse的重度用户）。你可以看看《简明vim攻略》和 《Vim的冒险游戏》以及《给程序员的Vim速查卡》还有《把Vim变成一个编程的IDE》等等。</li>
+<li>了解 ssh。明白不需要口令的用户认证（通过ssh-agent, ssh-add），学会用ssh翻墙，用scp而不是ftp传文件，等等。你知道吗？scp 远端的时候，你可以按tab键来查看远端的目录和文件（当然，需要无口令的用户认证），这都是bash的功劳。</li>
+<li>熟悉bash的作业管理，如： &amp;, Ctrl-Z, Ctrl-C, jobs, fg, bg, kill, 等等。当然，你也要知道Ctrl+\（SIGQUIT）和Ctrl+C （SIGINT）的区别。</li>
+<li>简单的文件管理和权限管理 ： ls 和 ls -l (你最好知道 “ls -l” 的每一列的意思), less, head, tail 和 tail -f, ln 和 ln -s (你知道明白hard link和soft link的不同和优缺点), chown, chmod, du (如果你想看看磁盘的大小 du -sk *), df, mount。当然，原作者忘了find命令。</li>
+<li>基础的网络管理： ip 或 ifconfig, dig。当然，原作者还忘了如netstat, ping, traceroute, 等</li>
+<li>理解正则表达式，还有grep/egrep的各种选项。比如： -o, -A, 和 -B 这些选项是很值得了解的。</li>
+<li>学习使用 apt-get 和 yum 来查找和安装软件（前者的经典分发包是Ubuntu，后者的经典分发包是Redhat），我还建议你试着从源码编译安装软件。</li>
+</ul>
+<blockquote>
+<h3 id="日常"><a href="#日常" class="headerlink" title="日常"></a>日常</h3></blockquote>
+<ul>
+<li>在 bash 里，使用 Ctrl-R 而不是上下光标键来查找历史命令。</li>
+<li>在 bash里，使用 Ctrl-W 来删除最后一个单词，使用 Ctrl-U 来删除一行。请man bash后查找Readline Key Bindings一节来看看bash的默认热键，比如：Alt-. 把上一次命令的最后一个参数打出来，而Alt-* 则列出你可以输入的命令。</li>
+<li>回到上一次的工作目录： cd –  （回到home是 cd ~）</li>
+<li><p>使用 xargs。这是一个很强大的命令。你可以使用-L来限定有多少个命令，也可以用-P来指定并行的进程数。如果你不知道你的命令会变成什么样，你可以使用xargs echo来看看会是什么样。当然， -I{} 也很好用。示例：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">find . -name \*.py | xargs grep some_function</div><div class="line">cat hosts | xargs -I&#123;&#125; ssh root@&#123;&#125; hostname</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>pstree -p</code> 可以帮你显示进程树。（读过我的那篇《一个fork的面试题》的人应该都不陌生）</p>
+</li>
+<li>使用 pgrep 和 pkill 来找到或是kill 某个名字的进程。 (-f 选项很有用).</li>
+<li>了解可以发给进程的信号。例如：要挂起一个进程，使用 kill -STOP [pid]. 使用 man 7 signal 来查看各种信号，使用kill -l 来查看数字和信号的对应表</li>
+<li>使用 nohup 或  disown 如果你要让某个进程运行在后台。</li>
+<li>使用netstat -lntp来看看有侦听在网络某端口的进程。当然，也可以使用 lsof。</li>
+<li>在 bash 的脚本中，你可以使用 set -x 来debug输出。使用 set -e 来当有错误发生的时候abort执行。考虑使用 <code>set -o pipefail</code> 来限制错误。还可以使用 trap 来截获信号（如截获ctrl+c）。</li>
+<li><p>在 bash 脚本中，subshells (写在圆括号里的) 是一个很方便的方式来组合一些命令。一个常用的例子是临时地到另一个目录中，例如：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># do something in current dir</span></div><div class="line">(<span class="built_in">cd</span> /some/other/dir; other-command)</div><div class="line"><span class="comment"># continue in original dir</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>在 bash 中，注意那里有很多的变量展开。如：检查一个变量是否存在: ${name:?error message}。如果一个bash的脚本需要一个参数，也许就是这样一个表达式 input_file=${1:?usage: $0 input_file}。一个计算表达式： i=$(( (i + 1) % 5 ))。一个序列： {1..10}。 截断一个字符串： ${var%suffix} 和 ${var#prefix}。 示例： if var=foo.pdf, then echo ${var%.pdf}.txt prints “foo.txt”.</p>
+</li>
+<li>通过 &lt;(some command) 可以把某命令当成一个文件。示例：比较一个本地文件和远程文件 /etc/hosts： diff /etc/hosts &lt;(ssh somehost cat /etc/hosts)</li>
+<li>了解什么叫 “here documents” ，就是诸如 cat &lt;&lt;EOF 这样的东西。</li>
+<li>在 bash中，使用重定向到标准输出和标准错误。如： some-command &gt;logfile 2&gt;&amp;1。另外，要确认某命令没有把某个打开了的文件句柄重定向给标准输入，最佳实践是加上 “&lt;/dev/null”，把/dev/null重定向到标准输入。</li>
+<li>使用 man ascii 来查看 ASCII 表。</li>
+<li>在远端的 ssh 会话里，使用 screen 或 dtach 来保存你的会话。（参看《28个Unix/Linux的命令行神器》）</li>
+<li>要来debug Web，试试curl 和 curl -I 或是 wget 。我觉得debug Web的利器是firebug，curl和wget是用来抓网页的，呵呵。</li>
+<li>把 HTML 转成文本： lynx -dump -stdin</li>
+<li>如果你要处理XML，使用 xmlstarlet</li>
+<li>对于 Amazon S3， s3cmd 是一个很方便的命令（还有点不成熟）</li>
+<li><p>在 ssh中，知道怎么来使用ssh隧道。通过 -L or -D (还有-R) ，翻墙神器。<br>你还可以对你的ssh 做点优化。比如，.ssh/config 包含着一些配置：避免链接被丢弃，链接新的host时不需要确认，转发认证，以前使用压缩（如果你要使用scp传文件）：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">TCPKeepAlive=yes</div><div class="line">ServerAliveInterval=15</div><div class="line">ServerAliveCountMax=6</div><div class="line">StrictHostKeyChecking=no</div><div class="line">Compression=yes</div><div class="line">ForwardAgent=yes</div></pre></td></tr></table></figure>
+</li>
+<li><p>如果你有输了个命令行，但是你改变注意了，但你又不想删除它，因为你要在历史命令中找到它，但你也不想执行它。那么，你可以按下 Alt-# ，于是这个命令关就被加了一个#字符，于是就被注释掉了。</p>
+</li>
+</ul>
+<blockquote>
+<h3 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h3></blockquote>
+<ul>
+<li>了解 sort 和 uniq 命令 (包括 uniq 的 -u 和 -d 选项).</li>
+<li>了解用 cut, paste, 和 join 命令来操作文本文件。很多人忘了在cut前使用join。</li>
+<li><p>如果你知道怎么用sort/uniq来做集合交集、并集、差集能很大地促进你的工作效率。假设有两个文本文件a和b已解被 uniq了，那么，用sort/uniq会是最快的方式，无论这两个文件有多大（sort不会被内存所限，你甚至可以使用-T选项，如果你的/tmp目录很小）</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cat a b | <span class="built_in">sort</span> | uniq &gt; <span class="built_in">c</span>   # <span class="built_in">c</span> <span class="keyword">is</span> a union b 并集</div><div class="line">cat a b | <span class="built_in">sort</span> | uniq -d &gt; <span class="built_in">c</span>   # <span class="built_in">c</span> <span class="keyword">is</span> a intersect b 交集</div><div class="line">cat a b b | <span class="built_in">sort</span> | uniq -u &gt; <span class="built_in">c</span>   # <span class="built_in">c</span> <span class="keyword">is</span> <span class="keyword">set</span> difference a - b 差集</div></pre></td></tr></table></figure>
+</li>
+<li><p>了解和字符集相关的命令行工具，包括排序和性能。很多的Linux安装程序都会设置LANG 或是其它和字符集相关的环境变量。这些东西可能会让一些命令（如：sort）的执行性能慢N多倍（注：就算是你用UTF-8编码文本文件，你也可以很安全地使用ASCII来对其排序）。如果你想Disable那个i18n 并使用传统的基于byte的排序方法，那就设置export LC_ALL=C （实际上，你可以把其放在 .bashrc）。如果这设置这个变量，你的sort命令很有可能会是错的。</p>
+</li>
+<li>了解 awk 和 sed，并用他们来做一些简单的数据修改操作。例如：求第三列的数字之和： awk ‘{ x += $3 } END { print x }’。这可能会比Python快3倍，并比Python的代码少三倍。</li>
+<li>使用 shuf 来打乱一个文件中的行或是选择文件中一个随机的行。</li>
+<li>了解sort命令的选项。了解key是什么（-t和-k）。具体说来，你可以使用-k1,1来对第一列排序，-k1来对全行排序。</li>
+<li>Stable sort (sort -s) 会很有用。例如：如果你要想对两例排序，先是以第二列，然后再以第一列，那么你可以这样： sort -k1,1 | sort -s -k2,2</li>
+<li>我们知道，在bash命令行下，Tab键是用来做目录文件自动完成的事的。但是如果你想输入一个Tab字符（比如：你想在sort -t选项后输入<tab>字符），你可以先按Ctrl-V，然后再按Tab键，就可以输入<tab>字符了。当然，你也可以使用$’\t’。</tab></tab></li>
+<li>如果你想查看二进制文件，你可以使用hd命令（在CentOS下是hexdump命令），如果你想编译二进制文件，你可以使用bvi命令（<a href="http://bvi.sourceforge.net/" target="_blank" rel="external">http://bvi.sourceforge.net/</a> 墙）</li>
+<li>另外，对于二进制文件，你可以使用strings（配合grep等）来查看二进制中的文本。</li>
+<li>对于文本文件转码，你可以试一下 iconv。或是试试更强的 uconv 命令（这个命令支持更高级的Unicode编码）</li>
+<li>如果你要分隔一个大文件，你可以使用split命令（split by size）和csplit命令（split by a pattern）。</li>
+</ul>
+<blockquote>
+<h3 id="系统调试"><a href="#系统调试" class="headerlink" title="系统调试"></a>系统调试</h3></blockquote>
+<ul>
+<li>如果你想知道磁盘、CPU、或网络状态，你可以使用 iostat, netstat, top (或更好的 htop), 还有 dstat 命令。你可以很快地知道你的系统发生了什么事。关于这方面的命令，还有iftop, iotop等（参看《28个Unix/Linux的命令行神器》）</li>
+<li>要了解内存的状态，你可以使用free和vmstat命令。具体来说，你需要注意 “cached” 的值，这个值是Linux内核占用的内存。还有free的值。</li>
+<li>Java 系统监控有一个小的技巧是，你可以使用kill -3 <pid> 发一个SIGQUIT的信号给JVM，可以把堆栈信息（包括垃圾回收的信息）dump到stderr/logs。</pid></li>
+<li>使用 mtr 会比使用 traceroute 要更容易定位一个网络问题。</li>
+<li>如果你要找到哪个socket或进程在使用网络带宽，你可以使用 iftop 或 nethogs。</li>
+<li>Apache的一个叫 ab 的工具是一个很有用的，用quick-and-dirty的方式来测试网站服务器的性能负载的工作。如果你需要更为复杂的测试，你可以试试 siege。</li>
+<li>如果你要抓网络包的话，试试 wireshark 或 tshark。</li>
+<li>了解 strace 和 ltrace。这两个命令可以让你查看进程的系统调用，这有助于你分析进程的hang在哪了，怎么crash和failed的。你还可以用其来做性能profile，使用 -c 选项，你可以使用-p选项来attach上任意一个进程。</li>
+<li>了解用ldd命令来检查相关的动态链接库。注意：ldd的安全问题</li>
+<li>使用gdb来调试一个正在运行的进程或分析core dump文件。参看我写的《GDB中应该知道的几个调试方法》</li>
+<li>学会到 /proc 目录中查看信息。这是一个Linux内核运行时记录的整个操作系统的运行统计和信息，比如： /proc/cpuinfo, /proc/xxx/cwd, /proc/xxx/exe, /proc/xxx/fd/, /proc/xxx/smaps.</li>
+<li>如果你调试某个东西为什么出错时，sar命令会有用。它可以让你看看 CPU, 内存, 网络, 等的统计信息。</li>
+<li>使用 dmesg 来查看一些硬件或驱动程序的信息或问题。</li>
+</ul>
+<p>作者最后加了一个免责声明：Disclaimer: Just because you can do something in bash, doesn’t necessarily mean you should. ;) （全文完）</p>
 ]]></content>
       
         
@@ -1687,7 +1800,7 @@
     <entry>
       <title><![CDATA[linux-shadowsocks全局代理]]></title>
       <url>http://noparkinghere.top/2017/01/25/2017/2017-01-25-ss-linux%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86/</url>
-      <content type="html"><![CDATA[<p>windows 直接下载 ss 终端，稍加设置即可完成全局代理，linux 用户如果需要让某个软件可以使用 ss 一般都需要连接端口才行。例如本地 ss 配置为：<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"server_port"</span>:<span class="number">1800</span>,</div><div class="line"><span class="string">"local_port"</span>:<span class="number">1080</span>,</div></pre></td></tr></table></figure></p>
+      <content type="html"><![CDATA[<p>windows 直接下载 ss 终端，稍加设置即可完成全局代理，linux 用户如果需要让某个软件可以使用 ss 一般都需要连接端口才行。例如本地 ss 配置为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"server_port"</span>:1800,</div><div class="line"><span class="string">"local_port"</span>:1080,</div></pre></td></tr></table></figure></p>
 <h3 id="原理简述"><a href="#原理简述" class="headerlink" title="原理简述"></a>原理简述</h3><p>这边就相当于将本地的 127.0.0.1:1080 和 server_ip:1800 建立了连接关系。因此软件如果需要使用 vps 上面搭建的 ss 服务的话，则需要让该软件使用的协议连接到 127.0.0.1:1080 上。之前在 vps-shadowsocks 中介绍的 chrome 插件 SwitchyOmega 就是使用 SOCKS5 协议连接到 127.0.0.1:1080 上，让所有数据通过 SOCKS5 协议，然后从 127.0.0.1:1080 进行收发。</p>
 <p>可以看出如果我们需要让其他软件也能够使用 ss 则需要让他们也能够使用 127.0.0.1:1080 代理服务器，然而不幸的是，大多数软件并不支持代理服务的功能， windows 平台下的软件很多可以通过设置 IE 代理让其他软件使用代理服务（原理是：大多数软件都会优先读取 IE 的代理设置，再访问网络）。</p>
 <a id="more"></a>
@@ -3216,6 +3329,45 @@
     </entry>
     
     <entry>
+      <title><![CDATA[串口RS485通信详解]]></title>
+      <url>http://noparkinghere.top/2016/10/19/2016/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<p><strong>注意：串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。串口的一些内容不再逐一介绍说明，可以参加之前的usb转串口及RS232通信等文章</strong></p>
+<h3 id="特性介绍"><a href="#特性介绍" class="headerlink" title="特性介绍"></a>特性介绍</h3><p>485（一般称作 RS485/EIA-485）是隶属于 OSI 模型物理层的电气特性规定为 2 线，半双工，多点通信的标准。它的电气特性和 RS-232 大不一样。用缆线两端的电压差值来表示传递信号。值得注意的是：RS485 仅仅规定了接受端和发送端的电气特性，它没有规定或推荐任何数据协议。</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/1.jpg" alt=""></p>
+<p>RS485接口可以只使用两根线进行通讯（其他串口通讯至少需要三根线，一根为地线作为参考电平），通过差分电平（利用两个信号的差值来判断信息，使用差分信号来传输的，也就是一根线传同相信号，一根线传反相，这样差值最大，抗干扰能力强。）来确定信号是0还是1，也正因为这个原因，所以RS485每次有且仅有一根线能够传输数据，另外一根线作为比对信号，因此RS485是半双工的通讯方式。主要特点如下：</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/2.jpg" alt=""></p>
+<ul>
+<li>接口电平低，不易损坏芯片。 RS485 的电气特性：逻辑“ 1”以两线间的电压差为+(2~6)V<br>表示；逻辑“ 0”以两线间的电压差为-(2~6)V 表示。接口信号电平比 RS232 降低了，<br>不易损坏接口电路的芯片，且该电平与 TTL 电平兼容，可方便与 TTL 电路连接。</li>
+<li>传输速率高。 10 米时， RS485 的数据最高传输速率可达 35Mbps，在 1200m 时，传输<br>速度可达 100Kbps。</li>
+<li>抗干扰能力强。 RS485 接口是采用平衡驱动器和差分接收器的组合，抗共模干扰能力<br>增强，即抗噪声干扰性好。 传输距离远，支持节点多。 RS485 总线最长可以传输 1200m<br>以上（速率≤100Kbps）</li>
+<li>一般最大支持 32 个节点，如果使用特制的 485 芯片，可以达到 128 个或者 256 个节点，<br>最大的可以支持到 400 个节点。</li>
+</ul>
+<a id="more"></a>
+<h3 id="类比RS232"><a href="#类比RS232" class="headerlink" title="类比RS232"></a>类比RS232</h3><p>实际上232串口在实际使用已经用处不大，但基于232发展出来的485等串口设备仍然被广泛使用，RS-485（EIA-485标准）是RS-422的改进，因为它增加了设备的个数，从10个增加到32个，同时定义了在最大设备个数情况下的电气特性，以保证足够的信号电压。有了多个设备的能力，你可以使用一个单个RS-485口建立设备网络。</p>
+<p>因为都是采用串口通信协议，所以软件端几乎可以直接使用，且RS485具备耗材少，抗干扰强等特点，在目前的工业领域仍然被广泛使用，这边主要列举出不同：</p>
+<ul>
+<li>从接线上，RS232是三线制，RS485是两线制</li>
+<li>从传输距离上，RS232只能传输15米，RS485最远可以传输1200米</li>
+<li>从速率上，RS232是全双工传输，RS485是半双工传输</li>
+<li>从协议层上，RS232只支持点对点通讯(1:1)，RS485支持总线形式通讯（1:N）</li>
+</ul>
+<p>RS232的接线：<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/3.jpg" alt="">)</p>
+<p>RS485的接线<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/4.jpg" alt=""></p>
+<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><blockquote>
+<p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a></p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> 嵌入式 </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[串口RS232通信详解]]></title>
       <url>http://noparkinghere.top/2016/10/19/2016/2016-10-19-%E4%B8%B2%E5%8F%A3RS232%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<p>串行接口是一种可以将接受来自CPU的并行数据字符转换为连续的串行数据流发送出去，同时可将接受的串行数据流转换为并行的数据字符供给CPU的器件。一般完成这种功能的电路，我们称为串行接口电路。曾经PC之间进行串口通信可以说是标配，很多老式电脑上面可以看到DB25的接头，但后来逐渐被DB9取代，早期鼠标打印机都通过串口进行数据传输的，但现在逐渐被USB和网络所取代，DB9的串口接头在PC和笔记本上面也较少能够看到了。做嵌入式开发可以看到有个DB9的串口标准接口，串口对于开发人员输入输出调试等有着至关重要的作用。串行接口按电气标准及协议来分包括RS-232-C、RS-422、RS485等，现在串口一般在工业嵌入式领域使用。</p>
@@ -3275,45 +3427,6 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
 <blockquote>
 <p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a><br><a href="http://www.baike.com/wiki/51+IO%E5%8F%A3%E6%A8%A1%E6%8B%9F%E4%B8%B2%E5%8F%A3%E9%80%9A%E8%AE%AFC%E6%BA%90%E7%A8%8B%E5%BA%8F" target="_blank" rel="external">http://www.baike.com/wiki/51+IO%E5%8F%A3%E6%A8%A1%E6%8B%9F%E4%B8%B2%E5%8F%A3%E9%80%9A%E8%AE%AFC%E6%BA%90%E7%A8%8B%E5%BA%8F</a><br><a href="http://ziye334.blog.163.com/blog/static/224306191201452833850647" target="_blank" rel="external">http://ziye334.blog.163.com/blog/static/224306191201452833850647</a></p>
-</blockquote>
-]]></content>
-      
-        <categories>
-            
-            <category> 嵌入式 </category>
-            
-        </categories>
-        
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[串口RS485通信详解]]></title>
-      <url>http://noparkinghere.top/2016/10/19/2016/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
-      <content type="html"><![CDATA[<p><strong>注意：串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。串口的一些内容不再逐一介绍说明，可以参加之前的usb转串口及RS232通信等文章</strong></p>
-<h3 id="特性介绍"><a href="#特性介绍" class="headerlink" title="特性介绍"></a>特性介绍</h3><p>485（一般称作 RS485/EIA-485）是隶属于 OSI 模型物理层的电气特性规定为 2 线，半双工，多点通信的标准。它的电气特性和 RS-232 大不一样。用缆线两端的电压差值来表示传递信号。值得注意的是：RS485 仅仅规定了接受端和发送端的电气特性，它没有规定或推荐任何数据协议。</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/1.jpg" alt=""></p>
-<p>RS485接口可以只使用两根线进行通讯（其他串口通讯至少需要三根线，一根为地线作为参考电平），通过差分电平（利用两个信号的差值来判断信息，使用差分信号来传输的，也就是一根线传同相信号，一根线传反相，这样差值最大，抗干扰能力强。）来确定信号是0还是1，也正因为这个原因，所以RS485每次有且仅有一根线能够传输数据，另外一根线作为比对信号，因此RS485是半双工的通讯方式。主要特点如下：</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/2.jpg" alt=""></p>
-<ul>
-<li>接口电平低，不易损坏芯片。 RS485 的电气特性：逻辑“ 1”以两线间的电压差为+(2~6)V<br>表示；逻辑“ 0”以两线间的电压差为-(2~6)V 表示。接口信号电平比 RS232 降低了，<br>不易损坏接口电路的芯片，且该电平与 TTL 电平兼容，可方便与 TTL 电路连接。</li>
-<li>传输速率高。 10 米时， RS485 的数据最高传输速率可达 35Mbps，在 1200m 时，传输<br>速度可达 100Kbps。</li>
-<li>抗干扰能力强。 RS485 接口是采用平衡驱动器和差分接收器的组合，抗共模干扰能力<br>增强，即抗噪声干扰性好。 传输距离远，支持节点多。 RS485 总线最长可以传输 1200m<br>以上（速率≤100Kbps）</li>
-<li>一般最大支持 32 个节点，如果使用特制的 485 芯片，可以达到 128 个或者 256 个节点，<br>最大的可以支持到 400 个节点。</li>
-</ul>
-<a id="more"></a>
-<h3 id="类比RS232"><a href="#类比RS232" class="headerlink" title="类比RS232"></a>类比RS232</h3><p>实际上232串口在实际使用已经用处不大，但基于232发展出来的485等串口设备仍然被广泛使用，RS-485（EIA-485标准）是RS-422的改进，因为它增加了设备的个数，从10个增加到32个，同时定义了在最大设备个数情况下的电气特性，以保证足够的信号电压。有了多个设备的能力，你可以使用一个单个RS-485口建立设备网络。</p>
-<p>因为都是采用串口通信协议，所以软件端几乎可以直接使用，且RS485具备耗材少，抗干扰强等特点，在目前的工业领域仍然被广泛使用，这边主要列举出不同：</p>
-<ul>
-<li>从接线上，RS232是三线制，RS485是两线制</li>
-<li>从传输距离上，RS232只能传输15米，RS485最远可以传输1200米</li>
-<li>从速率上，RS232是全双工传输，RS485是半双工传输</li>
-<li>从协议层上，RS232只支持点对点通讯(1:1)，RS485支持总线形式通讯（1:N）</li>
-</ul>
-<p>RS232的接线：<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/3.jpg" alt="">)</p>
-<p>RS485的接线<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/4.jpg" alt=""></p>
-<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><blockquote>
-<p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a></p>
 </blockquote>
 ]]></content>
       
@@ -3763,6 +3876,27 @@
     </entry>
     
     <entry>
+      <title><![CDATA[git的配置及相关插件]]></title>
+      <url>http://noparkinghere.top/2016/09/28/2016/2016-09-28-git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6/</url>
+      <content type="html"><![CDATA[<p>一个好的工具，需要不断的打磨和熟悉使用技巧才可以把它用的炉火纯青，git同样如此，本文主要是推荐一些git常用的配置以及配套的一些工具。</p>
+<h3 id="git的相关配置："><a href="#git的相关配置：" class="headerlink" title="git的相关配置："></a>git的相关配置：</h3><h4 id="gitignore配置"><a href="#gitignore配置" class="headerlink" title=".gitignore配置"></a>.gitignore配置</h4><a id="more"></a>
+<h3 id="推荐的git插件："><a href="#推荐的git插件：" class="headerlink" title="推荐的git插件："></a>推荐的git插件：</h3><h4 id="tig"><a href="#tig" class="headerlink" title="tig"></a>tig</h4><p>首先推荐<a href="http://jonas.nitro.dk/tig/" target="_blank" rel="external">tig</a>（名字刚好和git相反），是一个专门针对git的小软件，官方这么介绍<em>text-mode interface for Git</em>。</p>
+<p>推荐可以访问<a href="https://github.com/jonas/tig" target="_blank" rel="external">tig的github页面</a>,里面有相关的下载安装说明。</p>
+<ul>
+<li>软件能够恨清晰的看到你的版本目录结构</li>
+</ul>
+<h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><h4 id="小乌龟插件"><a href="#小乌龟插件" class="headerlink" title="小乌龟插件"></a>小乌龟插件</h4><h4 id="atom"><a href="#atom" class="headerlink" title="atom"></a>atom</h4>]]></content>
+      
+        <categories>
+            
+            <category> 软件应用 </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[通过git管理一个工程]]></title>
       <url>http://noparkinghere.top/2016/09/28/2016/2016-09-28-%E9%80%9A%E8%BF%87git%E7%AE%A1%E7%90%86%E4%B8%80%E4%B8%AA%E5%B7%A5%E7%A8%8B/</url>
       <content type="html"><![CDATA[<p>GIT虽然能够实现各种版本控制，且功能强大，可以做到随时切换版本，回退等各种功能，但过多的分支，无效的分支，杂乱的提交，无意义的命名等等问题，往往会让像我这样的初学者，异常头痛，网络上关于git的往往都是指导你各个命令如何去用，部分命令的使用场景等，但却缺少一个完整工程项目的管理步骤。部分大神的确总结出了自己的使用习惯，但却不是作为教程来陈述的，下面我会将自己的一些习惯进行总结，后续可能遇到更好的也还会不断的更改。</p>
@@ -3791,27 +3925,6 @@
 <p>参考链接：<br><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000</a><br><a href="http://baike.baidu.com/link?url=weNC33XuaXOCTBp5s3WeZVu-Z9LP41KY_M6_WdGxAJZpJs_sq7jcgZ-3B01u2EiqfK6gb0L6s3-IDiWp1cVgF_" target="_blank" rel="external">http://baike.baidu.com/link?url=weNC33XuaXOCTBp5s3WeZVu-Z9LP41KY_M6_WdGxAJZpJs_sq7jcgZ-3B01u2EiqfK6gb0L6s3-IDiWp1cVgF_</a></p>
 </blockquote>
 ]]></content>
-      
-        <categories>
-            
-            <category> 软件应用 </category>
-            
-        </categories>
-        
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[git的配置及相关插件]]></title>
-      <url>http://noparkinghere.top/2016/09/28/2016/2016-09-28-git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6/</url>
-      <content type="html"><![CDATA[<p>一个好的工具，需要不断的打磨和熟悉使用技巧才可以把它用的炉火纯青，git同样如此，本文主要是推荐一些git常用的配置以及配套的一些工具。</p>
-<h3 id="git的相关配置："><a href="#git的相关配置：" class="headerlink" title="git的相关配置："></a>git的相关配置：</h3><h4 id="gitignore配置"><a href="#gitignore配置" class="headerlink" title=".gitignore配置"></a>.gitignore配置</h4><a id="more"></a>
-<h3 id="推荐的git插件："><a href="#推荐的git插件：" class="headerlink" title="推荐的git插件："></a>推荐的git插件：</h3><h4 id="tig"><a href="#tig" class="headerlink" title="tig"></a>tig</h4><p>首先推荐<a href="http://jonas.nitro.dk/tig/" target="_blank" rel="external">tig</a>（名字刚好和git相反），是一个专门针对git的小软件，官方这么介绍<em>text-mode interface for Git</em>。</p>
-<p>推荐可以访问<a href="https://github.com/jonas/tig" target="_blank" rel="external">tig的github页面</a>,里面有相关的下载安装说明。</p>
-<ul>
-<li>软件能够恨清晰的看到你的版本目录结构</li>
-</ul>
-<h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><h4 id="小乌龟插件"><a href="#小乌龟插件" class="headerlink" title="小乌龟插件"></a>小乌龟插件</h4><h4 id="atom"><a href="#atom" class="headerlink" title="atom"></a>atom</h4>]]></content>
       
         <categories>
             
@@ -5233,94 +5346,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[（转）回车、换行、和文件末尾空行]]></title>
-      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%EF%BC%88%E8%BD%AC%EF%BC%89%E5%9B%9E%E8%BD%A6%E3%80%81%E6%8D%A2%E8%A1%8C%E3%80%81%E5%92%8C%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E7%A9%BA%E8%A1%8C/</url>
-      <content type="html"><![CDATA[<h2 id="回车和换行"><a href="#回车和换行" class="headerlink" title="回车和换行"></a>回车和换行</h2><p>回车 (Carriage Return) 和换行 (Line Feed) 的区别，<a href="http://stackoverflow.com/questions/1761051/difference-between-n-and-r" target="_blank" rel="external">这里</a>有一个历史原因可参考：</p>
-<blockquote>
-<p>在计算机还没有出现之前，有一种叫做电传打字机（Teletype Model 33）的玩意，每秒钟可以打10个字符。但是它有一个问题，就是打完一行换行的时候，要用去0.2秒，正好可以打两个字符。要是在这0.2秒里面，又有新的字符传过来，那么这个字符将丢失。</p>
-<p>于是，研制人员想了个办法解决这个问题，就是在每行后面加两个表示结束的字符。一个叫做”回车”，告诉打字机把打印头定位在左边界；另一个叫做”换行”，告诉打字机把纸向下移一行。</p>
-</blockquote>
-<p>发明计算机时，这个概念被沿用下来，但因为条件的限制和设计者的喜好，有了一些分歧：</p>
-<ul>
-<li>Unix 系统里，每行结尾只有”&lt;换行&gt;”，即 “\n”</li>
-<li>Windows 系统里面，每行结尾是”&lt;回车&gt;&lt;换行&gt;”，即 “\r\n”</li>
-<li>在老的 Mac 系统里，每行结尾是”&lt;回车&gt;”，即 “\r”</li>
-</ul>
-<p>我们来验证一下，我在 Windows 下用记事本新建一个文本文件，它的二进制编码如下：</p>
-<pre><code>//源文件内容
-hello
-hello2
-
-//二进制内容
-0000000: 6865 6c6c 6f0d 0a68 656c 6c6f 32         hello..hello2
-</code></pre><p>同样在 Mac 下用 Vim 新建一个：</p>
-<pre><code>//源文件内容
-hello
-hello2
-
-//二进制内容
-0000000: 6865 6c6c 6f0a 6865 6c6c 6f32 0a         hello.hello2.
-</code></pre><p><code>0a</code>是 LF 的 ASCII 编码, <code>0d</code>是 CR 的 ASCII 编码。区别很明显了</p>
-<ul>
-<li>Mac 下的文本文件在 Windows 下打开会成为一行，因为 Windows 只认识 <code>\r\n</code>，也就是 <code>0d0a</code></li>
-<li>Windows 下的文本文件在 Mac 下打开，Vim 中会在每行末尾显示一个 <code>^M</code>，(不是两个字符组成的)</li>
-</ul>
-<a id="more"></a>
-<h2 id="文件末尾空行"><a href="#文件末尾空行" class="headerlink" title="文件末尾空行"></a>文件末尾空行</h2><p><a href="https://zh.wikipedia.org/zh-sg/POSIX" target="_blank" rel="external">POSIX</a>对行的<a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_206" target="_blank" rel="external">定义</a>如下：</p>
-<blockquote>
-<p>3.206 Line</p>
-<p>A sequence of zero or more non- <newline\> characters plus a terminating <newline\> character.</newline\></newline\></p>
-<p>行是由0个或者多个非 “换行” 符的字符组成，并且以 “换行” 符结尾。</p>
-</blockquote>
-<p>这样做有什么好处呢，举个例子：</p>
-<pre><code>//hello.c
-#include head.h
-print(&apos;hello&apos;)
-
-//world.c
-#include tail.h
-print(&apos;hello&apos;)
-</code></pre><p>如果这两个文件都按 POSIX 规范来写， 在<code>cat *.c</code>之后，是没有问题的：</p>
-<pre><code>//cat.c
-
-#include head.h
-print(&apos;hello&apos;)
-#include tail.h
-print(&apos;hello&apos;)
-</code></pre><p>如果缺少最后一行的换行符（如 Windows 文件那样的定义），<code>cat</code>之后，就有问题了：</p>
-<pre><code>//error.c
-
-#include head.h
-print(&apos;hello&apos;)#include tail.h
-print(&apos;hello&apos;)
-</code></pre><p>所以，从这点去理解 POSIX 对行的定义，非常合理，对于任意文件的拼接，也各自保持了文件的完整性。</p>
-<p>不遵守标准带来的则是：在一些编辑器下面，比如 Sublime，他把<code>\n</code>的当做了行之间的分隔符，于是文件最后一行的<code>\n</code>就看上去成了一个新的空行，这就是错误解读标准造成的，拼接文件时也会产生不必要的麻烦，比如上例。</p>
-<h2 id="No-new-line-at-end-of-file"><a href="#No-new-line-at-end-of-file" class="headerlink" title="\ No new line at end of file"></a>\ No new line at end of file</h2><p>基于上面的原因，再去看 git diff 的<code>\ No new line at end of file</code>信息，就很好解释了。</p>
-<p>各编辑器对于换行符的理解偏差，导致的文件确实发生了变化，多了或少了最后的<code>0a</code>，那么对于 diff 程序来说，这当然是不可忽略的，但因为<code>0a</code>是不可见字符，并且是长久以来的历史原因，所以 diff 程序有个专门的标记来说明这个变化，就是：</p>
-<p><code>\ No new line at end of file</code></p>
-<p>各编辑器也有相应的办法去解决这个问题，比如 Sublime，在<code>Default/Preferences.sublime-settings</code>中设置：</p>
-<pre><code>// Set to true to ensure the last line of the file ends in a newline
-// character when saving
-&quot;ensure_newline_at_eof_on_save&quot;: true,
-</code></pre><p>所以，请遵守规范。</p>
-]]></content>
-      
-        <categories>
-            
-            <category> 问题总结 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 问题总结 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[MDK5安装及配置]]></title>
       <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
       <content type="html"><![CDATA[<h3 id="MDK简介"><a href="#MDK简介" class="headerlink" title="MDK简介"></a>MDK简介</h3><blockquote>
@@ -5405,6 +5430,94 @@ print(&apos;hello&apos;)
         <tags>
             
             <tag> 软件安装 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[（转）回车、换行、和文件末尾空行]]></title>
+      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%EF%BC%88%E8%BD%AC%EF%BC%89%E5%9B%9E%E8%BD%A6%E3%80%81%E6%8D%A2%E8%A1%8C%E3%80%81%E5%92%8C%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E7%A9%BA%E8%A1%8C/</url>
+      <content type="html"><![CDATA[<h2 id="回车和换行"><a href="#回车和换行" class="headerlink" title="回车和换行"></a>回车和换行</h2><p>回车 (Carriage Return) 和换行 (Line Feed) 的区别，<a href="http://stackoverflow.com/questions/1761051/difference-between-n-and-r" target="_blank" rel="external">这里</a>有一个历史原因可参考：</p>
+<blockquote>
+<p>在计算机还没有出现之前，有一种叫做电传打字机（Teletype Model 33）的玩意，每秒钟可以打10个字符。但是它有一个问题，就是打完一行换行的时候，要用去0.2秒，正好可以打两个字符。要是在这0.2秒里面，又有新的字符传过来，那么这个字符将丢失。</p>
+<p>于是，研制人员想了个办法解决这个问题，就是在每行后面加两个表示结束的字符。一个叫做”回车”，告诉打字机把打印头定位在左边界；另一个叫做”换行”，告诉打字机把纸向下移一行。</p>
+</blockquote>
+<p>发明计算机时，这个概念被沿用下来，但因为条件的限制和设计者的喜好，有了一些分歧：</p>
+<ul>
+<li>Unix 系统里，每行结尾只有”&lt;换行&gt;”，即 “\n”</li>
+<li>Windows 系统里面，每行结尾是”&lt;回车&gt;&lt;换行&gt;”，即 “\r\n”</li>
+<li>在老的 Mac 系统里，每行结尾是”&lt;回车&gt;”，即 “\r”</li>
+</ul>
+<p>我们来验证一下，我在 Windows 下用记事本新建一个文本文件，它的二进制编码如下：</p>
+<pre><code>//源文件内容
+hello
+hello2
+
+//二进制内容
+0000000: 6865 6c6c 6f0d 0a68 656c 6c6f 32         hello..hello2
+</code></pre><p>同样在 Mac 下用 Vim 新建一个：</p>
+<pre><code>//源文件内容
+hello
+hello2
+
+//二进制内容
+0000000: 6865 6c6c 6f0a 6865 6c6c 6f32 0a         hello.hello2.
+</code></pre><p><code>0a</code>是 LF 的 ASCII 编码, <code>0d</code>是 CR 的 ASCII 编码。区别很明显了</p>
+<ul>
+<li>Mac 下的文本文件在 Windows 下打开会成为一行，因为 Windows 只认识 <code>\r\n</code>，也就是 <code>0d0a</code></li>
+<li>Windows 下的文本文件在 Mac 下打开，Vim 中会在每行末尾显示一个 <code>^M</code>，(不是两个字符组成的)</li>
+</ul>
+<a id="more"></a>
+<h2 id="文件末尾空行"><a href="#文件末尾空行" class="headerlink" title="文件末尾空行"></a>文件末尾空行</h2><p><a href="https://zh.wikipedia.org/zh-sg/POSIX" target="_blank" rel="external">POSIX</a>对行的<a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_206" target="_blank" rel="external">定义</a>如下：</p>
+<blockquote>
+<p>3.206 Line</p>
+<p>A sequence of zero or more non- <newline\> characters plus a terminating <newline\> character.</newline\></newline\></p>
+<p>行是由0个或者多个非 “换行” 符的字符组成，并且以 “换行” 符结尾。</p>
+</blockquote>
+<p>这样做有什么好处呢，举个例子：</p>
+<pre><code>//hello.c
+#include head.h
+print(&apos;hello&apos;)
+
+//world.c
+#include tail.h
+print(&apos;hello&apos;)
+</code></pre><p>如果这两个文件都按 POSIX 规范来写， 在<code>cat *.c</code>之后，是没有问题的：</p>
+<pre><code>//cat.c
+
+#include head.h
+print(&apos;hello&apos;)
+#include tail.h
+print(&apos;hello&apos;)
+</code></pre><p>如果缺少最后一行的换行符（如 Windows 文件那样的定义），<code>cat</code>之后，就有问题了：</p>
+<pre><code>//error.c
+
+#include head.h
+print(&apos;hello&apos;)#include tail.h
+print(&apos;hello&apos;)
+</code></pre><p>所以，从这点去理解 POSIX 对行的定义，非常合理，对于任意文件的拼接，也各自保持了文件的完整性。</p>
+<p>不遵守标准带来的则是：在一些编辑器下面，比如 Sublime，他把<code>\n</code>的当做了行之间的分隔符，于是文件最后一行的<code>\n</code>就看上去成了一个新的空行，这就是错误解读标准造成的，拼接文件时也会产生不必要的麻烦，比如上例。</p>
+<h2 id="No-new-line-at-end-of-file"><a href="#No-new-line-at-end-of-file" class="headerlink" title="\ No new line at end of file"></a>\ No new line at end of file</h2><p>基于上面的原因，再去看 git diff 的<code>\ No new line at end of file</code>信息，就很好解释了。</p>
+<p>各编辑器对于换行符的理解偏差，导致的文件确实发生了变化，多了或少了最后的<code>0a</code>，那么对于 diff 程序来说，这当然是不可忽略的，但因为<code>0a</code>是不可见字符，并且是长久以来的历史原因，所以 diff 程序有个专门的标记来说明这个变化，就是：</p>
+<p><code>\ No new line at end of file</code></p>
+<p>各编辑器也有相应的办法去解决这个问题，比如 Sublime，在<code>Default/Preferences.sublime-settings</code>中设置：</p>
+<pre><code>// Set to true to ensure the last line of the file ends in a newline
+// character when saving
+&quot;ensure_newline_at_eof_on_save&quot;: true,
+</code></pre><p>所以，请遵守规范。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 问题总结 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 问题总结 </tag>
             
         </tags>
         

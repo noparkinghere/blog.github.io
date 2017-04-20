@@ -4,6 +4,32 @@
   
     
     <entry>
+      <title><![CDATA[MDK编译生成.bin文件]]></title>
+      <url>http://noparkinghere.top/2017/04/20/2017/2017-04-20-mdk%E7%BC%96%E8%AF%91%E7%94%9F%E6%88%90-bin%E6%96%87%E4%BB%B6/</url>
+      <content type="html"><![CDATA[<p>使用 MDK 时，我们实际烧录的文件其实是 .axf 文件，所以一般情况下我们不需要编译出 .bin 或 .hex 文件。</p>
+<p>生成 .hex 文件时，需要在工程打开状态 MDK 的 Options for Target 选项中，点击 Output 选项，在中间的  Create HEX File 的空白矩形框上打上勾即可。 .hex 文件可以使用第三方烧写工具烧录到 MCU 中，但是一些烧录工具或者芯片只支持 .bin 文件的烧录，这时候我们需要 MDK 能够输出 .bin 文件，并且 .bin 文件远要比 .hex 来的通用些。</p>
+<p>下面说下如何生成 .bin 文件：</p>
+<ul>
+<li>打开 Options for Target ‘xxx’ 对话框，选择 User 标签页。</li>
+<li>构选 Run User Programs After Build/Rebuild 框中的 Run#1 多选框，在后边的文本框中输入 <code>C:/Keil_v5/ARM/ARMCC/bin/fromelf.exe --bin -o ../OBJ/consumer.bin  ../OBJ/consumer.axf</code> ，这条命令类似于 gcc ，对于不同的版本 fromelf.exe 软件位置不同，如果找不到可以尝试手动搜索，如果设置完编译不成功则代表你的路径有问题需要仔细检查路径位置，目录的当前路径为 uvproj 工程文件所在位置，我的输出路径为工程目录上一级的下的 OBJ 文件夹。</li>
+<li>重新编译文件，在 ./OBJ/ 文件夹下生成了 consumer.bin 文件。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-04-20-mdk编译生成-bin文件/1.png" alt=""></p>
+<p>直接在 CMD.exe 下运行 fromelf 工具则可以看到所有的选项和基本命令，这边仅列出最常用的一些内容:</p>
+<ul>
+<li>–bin:输出二进制文件</li>
+<li>–i32:Intel 32位Hex</li>
+<li>–m32：Motorola 32位Hex</li>
+<li>–output <file>:file为输出文件名</file></li>
+<li>-o<file>:这个是armcc编译器命令,也可用于这里,指定输出文件的名字</file></li>
+</ul>
+<p>转换过程实际是：通过fromelf.exe工具进行转换，将 .axf 格式的文件转换成 .bin 格式的文件。你也可以不通过 MDK ，而是直接在 CMD.exe 窗口下运行 <code>C:/Keil_v5/ARM/ARMCC/bin/fromelf.exe --bin -o ../OBJ/consumer.bin  ../OBJ/consumer.axf</code> 手动将 .axf 文件 转换成 .bin 文件。</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[bash使用技巧]]></title>
       <url>http://noparkinghere.top/2017/04/19/2017/2017-04-19-bash%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</url>
       <content type="html"><![CDATA[<p>本文归纳总结了一些使用 bash 时的一些快捷键，命令技巧等，由于 bash 在类 unix 操作系统中最为常见，很多时候我们无法绕开它，因此了解并掌握这些技巧能够让你事半功倍。当然如果是个人使用的话我还是建议可以选择 zsh ，github 上面有 zsh 的配置方案，它能够给你带来更好的使用体验。</p>
@@ -2436,8 +2462,9 @@
 <li>将评估板的 bootloader 接地（bootloader 位置各个开发板不尽相同，可以参照原理图，或者查看下面给出的参考连接），接下来连接电脑，打开 simplicity commander ，如果 bootloader 接地成功则会显示 j-link device 信息，否则读取不到信息。</li>
 <li>设置 debug mode:in 烧录 jlink 芯片，找到固件包，安装包（包为 .emz 格式，在 simplicity 安装目录中，可以电脑自行检索包路径）。</li>
 </ul>
-<h3 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h3><p>这边附上一个中文版的问题总结，比较难得的一版中文资料， <a href="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-12-08-efm32开发板+FAQ/1.pdf" target="_blank" rel="external">EFM32 系列微控制器 FAQ</a></p>
+<h3 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h3><p>这边附上一个中文版的问题总结，比较难得的一版中文资料， <a href="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-12-08-efm32开发板+FAQ/EFM32 系列微控制器 FAQ.pdf" target="_blank" rel="external">EFM32 系列微控制器 FAQ</a></p>
 <h4 id="根据-CMU-的时钟树，在使用其他低频时钟源操作-LEA-LEB-时无需配置-CMU-HFCORECLKEN0，但实际操作必须配置-CMU-HFCORECLKEN0-才可以正常工作。"><a href="#根据-CMU-的时钟树，在使用其他低频时钟源操作-LEA-LEB-时无需配置-CMU-HFCORECLKEN0，但实际操作必须配置-CMU-HFCORECLKEN0-才可以正常工作。" class="headerlink" title="根据 CMU 的时钟树，在使用其他低频时钟源操作 LEA/LEB 时无需配置 CMU_HFCORECLKEN0，但实际操作必须配置 CMU_HFCORECLKEN0 才可以正常工作。"></a>根据 CMU 的时钟树，在使用其他低频时钟源操作 LEA/LEB 时无需配置 CMU_HFCORECLKEN0，但实际操作必须配置 CMU_HFCORECLKEN0 才可以正常工作。</h4><p>查看 RTC/LEUART 可以看到 To use this module, the LE interface clock must be enabled in CMU_HFCORECLKEN0, in addition to the module clock. 时钟树没能将具体的成都呈现出来，实际工作时，查看相关外设的使用说明，会有使用方法。</p>
+<h4 id="EFM32-如何给芯片加密解密？"><a href="#EFM32-如何给芯片加密解密？" class="headerlink" title="EFM32 如何给芯片加密解密？"></a>EFM32 如何给芯片加密解密？</h4><p>这边提供一个比较老的中文文档<a href="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-12-08-efm32开发板+FAQ/EFM32 加密-解锁流程.pdf" target="_blank" rel="external">EFM32 加密-解锁流程](FAQ</a>，仅供参考。需要注意的是，似乎只有 EFM32Gxxx 系列可以加密锁定，其他芯片是不可以的。</p>
 <blockquote>
 <p>参考链接：<br><a href="http://m.blog.csdn.net/article/details?id=41648431" target="_blank" rel="external">http://m.blog.csdn.net/article/details?id=41648431</a><br><a href="http://community.silabs.com/t5/32-bit-MCU-Knowledge-Base/Recover-EFM32-or-EFM8-kit-that-was-bricked-during-firmware/ta-p/122142" target="_blank" rel="external">http://community.silabs.com/t5/32-bit-MCU-Knowledge-Base/Recover-EFM32-or-EFM8-kit-that-was-bricked-during-firmware/ta-p/122142</a><br><a href="http://community.silabs.com/t5/32-bit-MCU-Knowledge-Base/Unlock-a-Bricked-EFM32/ta-p/122776" target="_blank" rel="external">http://community.silabs.com/t5/32-bit-MCU-Knowledge-Base/Unlock-a-Bricked-EFM32/ta-p/122776</a><br><a href="http://wenku.baidu.com/view/ee891f3a5a8102d276a22ffc.html?re=view" target="_blank" rel="external">http://wenku.baidu.com/view/ee891f3a5a8102d276a22ffc.html?re=view</a><br><a href="http://community.silabs.com/t5/ChineseForum/%E7%96%91%E4%BC%BC%E8%8A%AF%E7%89%87%E6%98%AF%E5%90%A6%E7%83%A7%E5%9D%8F%E4%BA%86/m-p/184134/highlight/false#M1227" target="_blank" rel="external">http://community.silabs.com/t5/ChineseForum/%E7%96%91%E4%BC%BC%E8%8A%AF%E7%89%87%E6%98%AF%E5%90%A6%E7%83%A7%E5%9D%8F%E4%BA%86/m-p/184134/highlight/false#M1227</a><br><a href="http://www.silabs.com/products/mcu/32-bit/efm32-gecko/pages/efm32-gecko.aspx" target="_blank" rel="external">http://www.silabs.com/products/mcu/32-bit/efm32-gecko/pages/efm32-gecko.aspx</a></p>
 </blockquote>
@@ -3876,27 +3903,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[git的配置及相关插件]]></title>
-      <url>http://noparkinghere.top/2016/09/28/2016/2016-09-28-git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6/</url>
-      <content type="html"><![CDATA[<p>一个好的工具，需要不断的打磨和熟悉使用技巧才可以把它用的炉火纯青，git同样如此，本文主要是推荐一些git常用的配置以及配套的一些工具。</p>
-<h3 id="git的相关配置："><a href="#git的相关配置：" class="headerlink" title="git的相关配置："></a>git的相关配置：</h3><h4 id="gitignore配置"><a href="#gitignore配置" class="headerlink" title=".gitignore配置"></a>.gitignore配置</h4><a id="more"></a>
-<h3 id="推荐的git插件："><a href="#推荐的git插件：" class="headerlink" title="推荐的git插件："></a>推荐的git插件：</h3><h4 id="tig"><a href="#tig" class="headerlink" title="tig"></a>tig</h4><p>首先推荐<a href="http://jonas.nitro.dk/tig/" target="_blank" rel="external">tig</a>（名字刚好和git相反），是一个专门针对git的小软件，官方这么介绍<em>text-mode interface for Git</em>。</p>
-<p>推荐可以访问<a href="https://github.com/jonas/tig" target="_blank" rel="external">tig的github页面</a>,里面有相关的下载安装说明。</p>
-<ul>
-<li>软件能够恨清晰的看到你的版本目录结构</li>
-</ul>
-<h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><h4 id="小乌龟插件"><a href="#小乌龟插件" class="headerlink" title="小乌龟插件"></a>小乌龟插件</h4><h4 id="atom"><a href="#atom" class="headerlink" title="atom"></a>atom</h4>]]></content>
-      
-        <categories>
-            
-            <category> 软件应用 </category>
-            
-        </categories>
-        
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[通过git管理一个工程]]></title>
       <url>http://noparkinghere.top/2016/09/28/2016/2016-09-28-%E9%80%9A%E8%BF%87git%E7%AE%A1%E7%90%86%E4%B8%80%E4%B8%AA%E5%B7%A5%E7%A8%8B/</url>
       <content type="html"><![CDATA[<p>GIT虽然能够实现各种版本控制，且功能强大，可以做到随时切换版本，回退等各种功能，但过多的分支，无效的分支，杂乱的提交，无意义的命名等等问题，往往会让像我这样的初学者，异常头痛，网络上关于git的往往都是指导你各个命令如何去用，部分命令的使用场景等，但却缺少一个完整工程项目的管理步骤。部分大神的确总结出了自己的使用习惯，但却不是作为教程来陈述的，下面我会将自己的一些习惯进行总结，后续可能遇到更好的也还会不断的更改。</p>
@@ -3925,6 +3931,27 @@
 <p>参考链接：<br><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000</a><br><a href="http://baike.baidu.com/link?url=weNC33XuaXOCTBp5s3WeZVu-Z9LP41KY_M6_WdGxAJZpJs_sq7jcgZ-3B01u2EiqfK6gb0L6s3-IDiWp1cVgF_" target="_blank" rel="external">http://baike.baidu.com/link?url=weNC33XuaXOCTBp5s3WeZVu-Z9LP41KY_M6_WdGxAJZpJs_sq7jcgZ-3B01u2EiqfK6gb0L6s3-IDiWp1cVgF_</a></p>
 </blockquote>
 ]]></content>
+      
+        <categories>
+            
+            <category> 软件应用 </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[git的配置及相关插件]]></title>
+      <url>http://noparkinghere.top/2016/09/28/2016/2016-09-28-git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6/</url>
+      <content type="html"><![CDATA[<p>一个好的工具，需要不断的打磨和熟悉使用技巧才可以把它用的炉火纯青，git同样如此，本文主要是推荐一些git常用的配置以及配套的一些工具。</p>
+<h3 id="git的相关配置："><a href="#git的相关配置：" class="headerlink" title="git的相关配置："></a>git的相关配置：</h3><h4 id="gitignore配置"><a href="#gitignore配置" class="headerlink" title=".gitignore配置"></a>.gitignore配置</h4><a id="more"></a>
+<h3 id="推荐的git插件："><a href="#推荐的git插件：" class="headerlink" title="推荐的git插件："></a>推荐的git插件：</h3><h4 id="tig"><a href="#tig" class="headerlink" title="tig"></a>tig</h4><p>首先推荐<a href="http://jonas.nitro.dk/tig/" target="_blank" rel="external">tig</a>（名字刚好和git相反），是一个专门针对git的小软件，官方这么介绍<em>text-mode interface for Git</em>。</p>
+<p>推荐可以访问<a href="https://github.com/jonas/tig" target="_blank" rel="external">tig的github页面</a>,里面有相关的下载安装说明。</p>
+<ul>
+<li>软件能够恨清晰的看到你的版本目录结构</li>
+</ul>
+<h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><h4 id="小乌龟插件"><a href="#小乌龟插件" class="headerlink" title="小乌龟插件"></a>小乌龟插件</h4><h4 id="atom"><a href="#atom" class="headerlink" title="atom"></a>atom</h4>]]></content>
       
         <categories>
             
@@ -5346,6 +5373,94 @@
     </entry>
     
     <entry>
+      <title><![CDATA[（转）回车、换行、和文件末尾空行]]></title>
+      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%EF%BC%88%E8%BD%AC%EF%BC%89%E5%9B%9E%E8%BD%A6%E3%80%81%E6%8D%A2%E8%A1%8C%E3%80%81%E5%92%8C%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E7%A9%BA%E8%A1%8C/</url>
+      <content type="html"><![CDATA[<h2 id="回车和换行"><a href="#回车和换行" class="headerlink" title="回车和换行"></a>回车和换行</h2><p>回车 (Carriage Return) 和换行 (Line Feed) 的区别，<a href="http://stackoverflow.com/questions/1761051/difference-between-n-and-r" target="_blank" rel="external">这里</a>有一个历史原因可参考：</p>
+<blockquote>
+<p>在计算机还没有出现之前，有一种叫做电传打字机（Teletype Model 33）的玩意，每秒钟可以打10个字符。但是它有一个问题，就是打完一行换行的时候，要用去0.2秒，正好可以打两个字符。要是在这0.2秒里面，又有新的字符传过来，那么这个字符将丢失。</p>
+<p>于是，研制人员想了个办法解决这个问题，就是在每行后面加两个表示结束的字符。一个叫做”回车”，告诉打字机把打印头定位在左边界；另一个叫做”换行”，告诉打字机把纸向下移一行。</p>
+</blockquote>
+<p>发明计算机时，这个概念被沿用下来，但因为条件的限制和设计者的喜好，有了一些分歧：</p>
+<ul>
+<li>Unix 系统里，每行结尾只有”&lt;换行&gt;”，即 “\n”</li>
+<li>Windows 系统里面，每行结尾是”&lt;回车&gt;&lt;换行&gt;”，即 “\r\n”</li>
+<li>在老的 Mac 系统里，每行结尾是”&lt;回车&gt;”，即 “\r”</li>
+</ul>
+<p>我们来验证一下，我在 Windows 下用记事本新建一个文本文件，它的二进制编码如下：</p>
+<pre><code>//源文件内容
+hello
+hello2
+
+//二进制内容
+0000000: 6865 6c6c 6f0d 0a68 656c 6c6f 32         hello..hello2
+</code></pre><p>同样在 Mac 下用 Vim 新建一个：</p>
+<pre><code>//源文件内容
+hello
+hello2
+
+//二进制内容
+0000000: 6865 6c6c 6f0a 6865 6c6c 6f32 0a         hello.hello2.
+</code></pre><p><code>0a</code>是 LF 的 ASCII 编码, <code>0d</code>是 CR 的 ASCII 编码。区别很明显了</p>
+<ul>
+<li>Mac 下的文本文件在 Windows 下打开会成为一行，因为 Windows 只认识 <code>\r\n</code>，也就是 <code>0d0a</code></li>
+<li>Windows 下的文本文件在 Mac 下打开，Vim 中会在每行末尾显示一个 <code>^M</code>，(不是两个字符组成的)</li>
+</ul>
+<a id="more"></a>
+<h2 id="文件末尾空行"><a href="#文件末尾空行" class="headerlink" title="文件末尾空行"></a>文件末尾空行</h2><p><a href="https://zh.wikipedia.org/zh-sg/POSIX" target="_blank" rel="external">POSIX</a>对行的<a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_206" target="_blank" rel="external">定义</a>如下：</p>
+<blockquote>
+<p>3.206 Line</p>
+<p>A sequence of zero or more non- <newline\> characters plus a terminating <newline\> character.</newline\></newline\></p>
+<p>行是由0个或者多个非 “换行” 符的字符组成，并且以 “换行” 符结尾。</p>
+</blockquote>
+<p>这样做有什么好处呢，举个例子：</p>
+<pre><code>//hello.c
+#include head.h
+print(&apos;hello&apos;)
+
+//world.c
+#include tail.h
+print(&apos;hello&apos;)
+</code></pre><p>如果这两个文件都按 POSIX 规范来写， 在<code>cat *.c</code>之后，是没有问题的：</p>
+<pre><code>//cat.c
+
+#include head.h
+print(&apos;hello&apos;)
+#include tail.h
+print(&apos;hello&apos;)
+</code></pre><p>如果缺少最后一行的换行符（如 Windows 文件那样的定义），<code>cat</code>之后，就有问题了：</p>
+<pre><code>//error.c
+
+#include head.h
+print(&apos;hello&apos;)#include tail.h
+print(&apos;hello&apos;)
+</code></pre><p>所以，从这点去理解 POSIX 对行的定义，非常合理，对于任意文件的拼接，也各自保持了文件的完整性。</p>
+<p>不遵守标准带来的则是：在一些编辑器下面，比如 Sublime，他把<code>\n</code>的当做了行之间的分隔符，于是文件最后一行的<code>\n</code>就看上去成了一个新的空行，这就是错误解读标准造成的，拼接文件时也会产生不必要的麻烦，比如上例。</p>
+<h2 id="No-new-line-at-end-of-file"><a href="#No-new-line-at-end-of-file" class="headerlink" title="\ No new line at end of file"></a>\ No new line at end of file</h2><p>基于上面的原因，再去看 git diff 的<code>\ No new line at end of file</code>信息，就很好解释了。</p>
+<p>各编辑器对于换行符的理解偏差，导致的文件确实发生了变化，多了或少了最后的<code>0a</code>，那么对于 diff 程序来说，这当然是不可忽略的，但因为<code>0a</code>是不可见字符，并且是长久以来的历史原因，所以 diff 程序有个专门的标记来说明这个变化，就是：</p>
+<p><code>\ No new line at end of file</code></p>
+<p>各编辑器也有相应的办法去解决这个问题，比如 Sublime，在<code>Default/Preferences.sublime-settings</code>中设置：</p>
+<pre><code>// Set to true to ensure the last line of the file ends in a newline
+// character when saving
+&quot;ensure_newline_at_eof_on_save&quot;: true,
+</code></pre><p>所以，请遵守规范。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 问题总结 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 问题总结 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[MDK5安装及配置]]></title>
       <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
       <content type="html"><![CDATA[<h3 id="MDK简介"><a href="#MDK简介" class="headerlink" title="MDK简介"></a>MDK简介</h3><blockquote>
@@ -5430,94 +5545,6 @@
         <tags>
             
             <tag> 软件安装 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[（转）回车、换行、和文件末尾空行]]></title>
-      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%EF%BC%88%E8%BD%AC%EF%BC%89%E5%9B%9E%E8%BD%A6%E3%80%81%E6%8D%A2%E8%A1%8C%E3%80%81%E5%92%8C%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E7%A9%BA%E8%A1%8C/</url>
-      <content type="html"><![CDATA[<h2 id="回车和换行"><a href="#回车和换行" class="headerlink" title="回车和换行"></a>回车和换行</h2><p>回车 (Carriage Return) 和换行 (Line Feed) 的区别，<a href="http://stackoverflow.com/questions/1761051/difference-between-n-and-r" target="_blank" rel="external">这里</a>有一个历史原因可参考：</p>
-<blockquote>
-<p>在计算机还没有出现之前，有一种叫做电传打字机（Teletype Model 33）的玩意，每秒钟可以打10个字符。但是它有一个问题，就是打完一行换行的时候，要用去0.2秒，正好可以打两个字符。要是在这0.2秒里面，又有新的字符传过来，那么这个字符将丢失。</p>
-<p>于是，研制人员想了个办法解决这个问题，就是在每行后面加两个表示结束的字符。一个叫做”回车”，告诉打字机把打印头定位在左边界；另一个叫做”换行”，告诉打字机把纸向下移一行。</p>
-</blockquote>
-<p>发明计算机时，这个概念被沿用下来，但因为条件的限制和设计者的喜好，有了一些分歧：</p>
-<ul>
-<li>Unix 系统里，每行结尾只有”&lt;换行&gt;”，即 “\n”</li>
-<li>Windows 系统里面，每行结尾是”&lt;回车&gt;&lt;换行&gt;”，即 “\r\n”</li>
-<li>在老的 Mac 系统里，每行结尾是”&lt;回车&gt;”，即 “\r”</li>
-</ul>
-<p>我们来验证一下，我在 Windows 下用记事本新建一个文本文件，它的二进制编码如下：</p>
-<pre><code>//源文件内容
-hello
-hello2
-
-//二进制内容
-0000000: 6865 6c6c 6f0d 0a68 656c 6c6f 32         hello..hello2
-</code></pre><p>同样在 Mac 下用 Vim 新建一个：</p>
-<pre><code>//源文件内容
-hello
-hello2
-
-//二进制内容
-0000000: 6865 6c6c 6f0a 6865 6c6c 6f32 0a         hello.hello2.
-</code></pre><p><code>0a</code>是 LF 的 ASCII 编码, <code>0d</code>是 CR 的 ASCII 编码。区别很明显了</p>
-<ul>
-<li>Mac 下的文本文件在 Windows 下打开会成为一行，因为 Windows 只认识 <code>\r\n</code>，也就是 <code>0d0a</code></li>
-<li>Windows 下的文本文件在 Mac 下打开，Vim 中会在每行末尾显示一个 <code>^M</code>，(不是两个字符组成的)</li>
-</ul>
-<a id="more"></a>
-<h2 id="文件末尾空行"><a href="#文件末尾空行" class="headerlink" title="文件末尾空行"></a>文件末尾空行</h2><p><a href="https://zh.wikipedia.org/zh-sg/POSIX" target="_blank" rel="external">POSIX</a>对行的<a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_206" target="_blank" rel="external">定义</a>如下：</p>
-<blockquote>
-<p>3.206 Line</p>
-<p>A sequence of zero or more non- <newline\> characters plus a terminating <newline\> character.</newline\></newline\></p>
-<p>行是由0个或者多个非 “换行” 符的字符组成，并且以 “换行” 符结尾。</p>
-</blockquote>
-<p>这样做有什么好处呢，举个例子：</p>
-<pre><code>//hello.c
-#include head.h
-print(&apos;hello&apos;)
-
-//world.c
-#include tail.h
-print(&apos;hello&apos;)
-</code></pre><p>如果这两个文件都按 POSIX 规范来写， 在<code>cat *.c</code>之后，是没有问题的：</p>
-<pre><code>//cat.c
-
-#include head.h
-print(&apos;hello&apos;)
-#include tail.h
-print(&apos;hello&apos;)
-</code></pre><p>如果缺少最后一行的换行符（如 Windows 文件那样的定义），<code>cat</code>之后，就有问题了：</p>
-<pre><code>//error.c
-
-#include head.h
-print(&apos;hello&apos;)#include tail.h
-print(&apos;hello&apos;)
-</code></pre><p>所以，从这点去理解 POSIX 对行的定义，非常合理，对于任意文件的拼接，也各自保持了文件的完整性。</p>
-<p>不遵守标准带来的则是：在一些编辑器下面，比如 Sublime，他把<code>\n</code>的当做了行之间的分隔符，于是文件最后一行的<code>\n</code>就看上去成了一个新的空行，这就是错误解读标准造成的，拼接文件时也会产生不必要的麻烦，比如上例。</p>
-<h2 id="No-new-line-at-end-of-file"><a href="#No-new-line-at-end-of-file" class="headerlink" title="\ No new line at end of file"></a>\ No new line at end of file</h2><p>基于上面的原因，再去看 git diff 的<code>\ No new line at end of file</code>信息，就很好解释了。</p>
-<p>各编辑器对于换行符的理解偏差，导致的文件确实发生了变化，多了或少了最后的<code>0a</code>，那么对于 diff 程序来说，这当然是不可忽略的，但因为<code>0a</code>是不可见字符，并且是长久以来的历史原因，所以 diff 程序有个专门的标记来说明这个变化，就是：</p>
-<p><code>\ No new line at end of file</code></p>
-<p>各编辑器也有相应的办法去解决这个问题，比如 Sublime，在<code>Default/Preferences.sublime-settings</code>中设置：</p>
-<pre><code>// Set to true to ensure the last line of the file ends in a newline
-// character when saving
-&quot;ensure_newline_at_eof_on_save&quot;: true,
-</code></pre><p>所以，请遵守规范。</p>
-]]></content>
-      
-        <categories>
-            
-            <category> 问题总结 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 问题总结 </tag>
             
         </tags>
         

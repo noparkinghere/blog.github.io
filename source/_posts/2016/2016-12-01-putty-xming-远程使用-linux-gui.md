@@ -2,7 +2,7 @@
 layout: "post"
 title: "PuTTY + Xming 远程使用 Linux GUI"
 category: "软件应用"
-tags: 
+tags: ""
 date: "2016-12-01 12:11"
 ---
 

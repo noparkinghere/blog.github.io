@@ -1,13 +1,11 @@
 ---
 layout: post
 title:  "u盘安装XP系统"
-category: "软件安装"
+category: "软件应用"
 date: "2016-06-30 18:12"
 ---
 
 > **如果仅需要优盘安装XP可以直接查看Windows XP安装部分**
-
-
 
 ### 1.Why XP?
 

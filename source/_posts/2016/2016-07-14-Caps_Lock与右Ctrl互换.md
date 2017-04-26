@@ -1,8 +1,8 @@
 ---
 layout: "post"
 title: "Caps_Lock与右Ctrl互换"
-category: "配置推荐"
-tags:  
+category: "软件应用"
+tags:   "配置"
 date: "2016-07-14 08:59"
 ---
 
@@ -31,7 +31,6 @@ keycode 147 = XF86MenuKB NoSymbol XF86MenuKB
 
 <!-- more -->
 
-
 #### 将Caps_Lock和键盘右边的Ctrl调换
 在当前的用户根目录下～创建 .Xmodmap 文件(尤其注意:这边名称是Xmodmap首字母大写,很多教程都忽略了这个问题,往往导致配置出来有问题)，书写内容如下：
 
@@ -52,7 +51,6 @@ add Control = Control_R
 同大多数开机自启并没有太大区别，将`xmodmap ~/.xmodmap  2>/dev/null`写入到 /etc/rc.local 中即可。该方法经常失效，不是太灵验，因此我设置了快捷键 ctrl+space ，每次按下这个快捷键时，会自动执行`xmodmap ~/.xmodmap  2>/dev/null`。
 
 解决:由于上面命名错误, .Xmodmap 文件的首字母是大写，因此加载总是出错，另外使用 `xmodmap ~/.Xmodmap  2>/dev/null` 命令后，每次无需再加入启动项了，一次配置成功即可。
-
 
 ### windows下的更换按键
 
@@ -98,8 +96,6 @@ add Control = Control_R
 ```
 
 以上 windows 的按键更改仅在 windows 7 下实验过，其他系统有待验证。
-
-
 
 > 参考链接：
 > http://www.cnblogs.com/xiaobaibuhei/p/3629133.html

@@ -1,6 +1,8 @@
 ---
 layout: "post"
 title: "GithubPages+https"
+category: "软件应用"
+tags:   "git"
 date: "2017-04-13 18:51"
 ---
 

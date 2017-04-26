@@ -4,6 +4,53 @@
   
     
     <entry>
+      <title><![CDATA[vps-docker]]></title>
+      <url>http://noparkinghere.top/2017/11/28/2017-11-28-vps-docker/</url>
+      <content type="html"><![CDATA[<a id="more"></a>
+]]></content>
+      
+        <categories>
+            
+            <category> 软件应用 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> VPS </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[linux下的shell和终端使用]]></title>
+      <url>http://noparkinghere.top/2017/04/26/2017-04-26-linux%E4%B8%8B%E7%9A%84shell%E5%92%8C%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8/</url>
+      <content type="html"><![CDATA[<h3 id="ZSH使用"><a href="#ZSH使用" class="headerlink" title="ZSH使用"></a>ZSH使用</h3><p><em>bash为linux和OS X传统的默认shell，但使用起来比较麻烦，缺少一些人性化的特性，而现在流行的ZSH补足了bash的这些问题，且通过<a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="external">oh-my-zsh</a>可以很方便的配置，因此已经广泛的被很多人使用。下面将会对网上的资料和自我使用经验做一个详细的总结。</em></p>
+<p><em>本文主要学习总结，linux下的CLI的使用技巧，不以任何发行版为例，仅仅介绍最通用的bash下的快捷操作和相关技巧，当然bash本身也可以跨平台，在诸如OS X上面默认也使用bash，同样可以参考本文。</em></p>
+<h3 id="Tmux使用"><a href="#Tmux使用" class="headerlink" title="Tmux使用"></a>Tmux使用</h3><a id="more"></a>
+<blockquote>
+<p>参考网址：<br><a href="http://blog.jobbole.com/87584/" target="_blank" rel="external">http://blog.jobbole.com/87584/</a><br><a href="http://xiaozhou.net/build-your-go-ide-2015-07-18.html" target="_blank" rel="external">http://xiaozhou.net/build-your-go-ide-2015-07-18.html</a></p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> 软件应用 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[如何看待P10的“闪存门”]]></title>
       <url>http://noparkinghere.top/2017/04/25/2017/2017-04-25-%E5%A6%82%E4%BD%95%E7%9C%8B%E5%BE%85p10%E7%9A%84%E2%80%9C%E9%97%AA%E5%AD%98%E9%97%A8%E2%80%9D/</url>
       <content type="html"><![CDATA[<p>华为作为国产手机的领军厂商，最近两年在市场上的表现大家有目共睹。然而天有不测风云，最近华为手机伴随着一系列的负面消息：取消防指纹涂层，混用闪存，混用内存。</p>
@@ -18,6 +65,12 @@
 <p>华为别再自我膨胀，别再掩耳盗铃了，任何欺瞒消费者，损害消费者权益的事情都是不可取的，自圆其说虚假公关只会让大家更远离你，今天，你把用户当作傻逼，明天，用户就让你成为傻逼。</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 个人观点 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -31,6 +84,12 @@
 <p>这部 12 集另类青春题材的动漫还是很值得一看的，总的来说，可以用“唯美，内涵”来形容她。</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 杂谈 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -73,6 +132,18 @@
 <p>最最后：<br>这个答案我编辑了三个小时了，没有使用番茄工作法，没有出现不可忽略的走神。当然，也没有坚持到四小时以上，因为三小时我已经做完了。（什么？三小时没做完，又没法继续高度专注了怎么办？人啊，不要执念于超出自己能力范围太多的事情，休息休息，到你想继续做了为止。）</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 转载文章 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 学习方法 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -115,6 +186,12 @@
 <p>写作时间：14:50-18:15</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 个人观点 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -134,6 +211,12 @@
 <p>自律很重要，一个具备能力也充满野心的人如果缺乏自制的话，无疑这将会是很危险的事情，他们的失控损害的不仅仅是自己，更可能会是千千万万的人。</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 个人观点 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -160,6 +243,18 @@
 <p>转换过程实际是：通过fromelf.exe工具进行转换，将 .axf 格式的文件转换成 .bin 格式的文件。你也可以不通过 MDK ，而是直接在 CMD.exe 窗口下运行 <code>C:/Keil_v5/ARM/ARMCC/bin/fromelf.exe --bin -o ../OBJ/consumer.bin  ../OBJ/consumer.axf</code> 手动将 .axf 文件 转换成 .bin 文件。</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 程序开发 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -197,6 +292,18 @@
 </blockquote>
 ]]></content>
       
+        <categories>
+            
+            <category> 软件应用 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
         
     </entry>
     
@@ -294,6 +401,18 @@
 <p>作者最后加了一个免责声明：Disclaimer: Just because you can do something in bash, doesn’t necessarily mean you should. ;) （全文完）</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 转载文章 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
         
     </entry>
     
@@ -350,6 +469,12 @@
 </blockquote>
 ]]></content>
       
+        <categories>
+            
+            <category> 软件应用 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -364,6 +489,12 @@
 <p>希望国产也能够提供一些更加优秀的影视动漫作品，而不仅仅是为了盈利，为了多捞钱。</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 个人观点 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -388,6 +519,12 @@
 <p>以上内容只是我个人整理，由于人多，很多加上是中途听讲的，很多内容可能描述的细节有错误或遗漏，一些内容也不大记得了。</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 个人观点 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -421,6 +558,12 @@
 <p>有时候，可以适当的休息，小息一下并不会耽误多长时间，并且能够帮助恢复精神，也能够更好的完成一些事情。对现阶段的我来说，养成习惯，调整好心态才是最重要的，其他都不该过分强求，适当的工作任务完成后，再做一些提高自身的事情。</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 生活杂谈 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -472,6 +615,18 @@
 </blockquote>
 ]]></content>
       
+        <categories>
+            
+            <category> 软件应用 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
         
     </entry>
     
@@ -503,6 +658,18 @@
 <p>后续有新的发现，仍然会更新本文。</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 软件应用 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
         
     </entry>
     
@@ -526,6 +693,67 @@
 <p>提供另外一点设想，共享单车的主要目的是共享和出行，对于一些每天需要使用单车的人来说，目前一次 1 元左右价格仍然显得昂贵，希望未来可以提供包月或者包年服务，基本可以以等同于自己购买自行车的价格来使用共享单车。对于特定的人群如：学生等，可以提供 10/月的服务，这样既减少的学生买车被偷的风险，又可以让车的使用率活起来，现金直接到位。</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 个人观点 </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[VPS个人云服务器选择]]></title>
+      <url>http://noparkinghere.top/2017/04/09/2017/2017-04-09-VPS%E4%B8%AA%E4%BA%BA%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%89%E6%8B%A9/</url>
+      <content type="html"><![CDATA[<p><em>首先声明，本人并非从事运维工作，玩服务器等也纯属业余爱好，个人作为一个web菜鸟，仅仅是能够安装系统，基本使用 linux 的一些操作，具体原理了解并不多。本文主要是针对那些和我一样的业余爱好者，想体验下云服务，且又不知道该如何选择的用户。</em></p>
+<p>虽然个人博客搭建了也有一段时间了，但一直都是投机取巧占用了其他网站的服务器，没使用自己的服务器，经过半年的摸索，也体验过多家的云服务（这边仅是体验，并没有长期使用），下面写写个人的小结。</p>
+<p>要使你的网站能够被访问，首先得申请个域名，当然不申请域名，你搭建的服务也可以通过 IP 地址直接访问的，但是一般都不这么做，固定 IP 地址的价格还是很昂贵的，不再本文讨论范畴之内，这边讨论下域名申请，一个可以 .site,.top,.xyz 结尾的一级域名一年也只要几块钱，但请注意，申请域名的时候目前支持备案的并不多（不备案的域名，使用国内服务器的话，就会强制你下线，不让访问），常用可以备案的域名为 .cn .com .org .edu 等。推荐购买域名国内的话可以去万网看看，定期会有打折，而国外也有一些网站，这边就不一一例举，免费的域名建议不要使用，因为每隔一两个月或者几天就可能被收回去。一个 .site 结尾的域名，可能价格才几元钱，所以如果只是想要买个玩玩的话，这些是不错的选择，但是如果你是商业用途，建议还是购买 .com .cn 结尾的域名，因为你需要国内的服务器让你的客户稳定访问，而要能够稳定访问，你的域名必须得备案。</p>
+<h3 id="阿里云"><a href="#阿里云" class="headerlink" title="阿里云"></a>阿里云</h3><p>首先谈及下国内第一大，云服务提供商阿里云，阿里云收购了原来万网的一系列服务，目前在 VPS 领域可以说是提供服务最完善，用户群体最多，功能最强的网站了，当然，价格也最贵，不是一般的非商业用户所能够承受的，对于我这样的非专业人士来说，上云暂时也仅仅是体验服务，学习研究之类的，所有阿里云会选择按量购买，毕竟个人觉得按月购买每个月价格还是蛮高的，如果不是有特别需求，或者盈利性质的网站，你可以选择按量购买，也就是说按你用来购买，不用的时候就关闭服务。这类似于手机流量一样，用多少流量卖多少，不用的时候就将服务关闭掉。</p>
+<p>阿里云的特点：</p>
+<ul>
+<li>稳定，毕竟国内最大的提供商</li>
+<li>价格昂贵，选择高带宽需要额外收费</li>
+<li>功能多，操作界面美观，商务范十足</li>
+</ul>
+<h3 id="腾讯云试用"><a href="#腾讯云试用" class="headerlink" title="腾讯云试用"></a>腾讯云试用</h3><p>腾讯云注册后有5-7天的免费使用时间，个人感觉这个对从来没接触过云服务，第一次试用的同学来说，还是很不错的，最起码可以自己尝试搭建一些小型的网站如：博客之类的还是很不错的，当然时间很宝贵，要试用的话，还是得抓紧时间。腾讯云的体验各种活动要比阿里云多不少，但操作略显简陋，只能说具备基本的功能。</p>
+<p>腾讯云特点：</p>
+<ul>
+<li>还算稳定，也算是国内的大公司</li>
+<li>同样，价格不便宜，比阿里云略低，选择不同的带宽需要额外付费</li>
+<li>功能基本具备，界面体验等一般</li>
+</ul>
+<a id="more"></a>
+<h3 id="搬瓦工（BandwagonHost-VPS）"><a href="#搬瓦工（BandwagonHost-VPS）" class="headerlink" title="搬瓦工（BandwagonHost VPS）"></a><a href="https://bwh1.net/" target="_blank" rel="external">搬瓦工</a>（BandwagonHost VPS）</h3><p>目前来说国外性价比较高的一个 VPS 服务商，过去有过一些精巧型的服务提供，一个 500M 的硬盘，可能年付费才几美金。最大的特点就是价格便宜：</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="number">10</span> GB SSD RAID<span class="number">-10</span> Disk Space</div><div class="line"><span class="number">256</span> MB RAM</div><div class="line"><span class="number">500</span> GB Transfer</div><div class="line">Gigabit port</div><div class="line">Multiple locations</div><div class="line"></div><div class="line">$<span class="number">2.99</span>/month</div></pre></td></tr></table></figure>
+<p>如上所示，一个 VPS 价格才 $3/month 这意味着一年才 ￥200 多，国内的公司提供的同等服务，基本上都要 500-1000 元，且是限制带宽的，默认为 1M 带宽，而国外都是 100M/1000M 带宽。</p>
+<h3 id="vultr"><a href="#vultr" class="headerlink" title="vultr"></a><a href="https://www.vultr.com/pricing/" target="_blank" rel="external">vultr</a></h3><p>这网站也是国外比较出名的一个高性价 VPS 服务商，价格与搬瓦工差不多，竞争关系，时高时低。最低套餐如下：</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="number">20</span> GB SSD</div><div class="line"><span class="number">512</span> MB RAM</div><div class="line"><span class="number">500</span> GB Bandwidth</div><div class="line">$<span class="number">2.5</span>/month</div></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-04-09-VPS个人云服务器选择/1.png" alt=""></p>
+<p>可见以上这个套餐还是很划算的，每个月不到 20 块，就可以享受这种套餐，20 GB SSD 首先速度有保证，其次也基本上能够完成你的所有实验用途了。</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>以上内容只列举了目前为止，我所体验过得 VPS 服务，当然国内也有很多小型服务商，可能价格会略微便宜，但之前打听过，价格也不低，目前情况不得而知。优先建议的话是选择国外的 VPS 来体验（因为能看本文的绝不会是从事商业用途的），国外的 VPS 购买后可以用来做什么？这边不具体展开详细说明，只做一个简要的说明参考：</p>
+<ul>
+<li>购买国外的 VPS 可以用来搭建科学上网服务（也就是绕过 GFW）</li>
+<li>搭建个人的博客，毕竟外国提供带宽很大，博客访问都是不错的，不用于商业用途应该没有影响</li>
+<li>学习服务搭建，用虚拟机虽然也能学习服务搭建，但毕竟没有实际操作来的更爽，更加直观（虽然 VPS 也是个虚拟机），搭建服务后，你可以在互联网中实际访问，这是虚拟机无法带给你的成就感。</li>
+</ul>
+<hr>
+<p>后续有新的体验和经验，仍然会更新…</p>
+<p>To be continued…</p>
+<p>写作时间：20:30-21:30</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 软件应用 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> VPS </tag>
+            
+        </tags>
         
     </entry>
     
@@ -546,6 +774,18 @@
 </blockquote>
 ]]></content>
       
+        <categories>
+            
+            <category> 软件应用 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 基础 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -577,6 +817,12 @@
 </blockquote>
 ]]></content>
       
+        <categories>
+            
+            <category> 软件应用 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -605,6 +851,12 @@
 <p>写作时间：20:00-21:30</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 个人观点 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -619,6 +871,12 @@
 <p>整体来看，《我是英雄》对于观影要求不高的人来说可以看看，和《釜山行》以及《寄生兽》这种另类题材片还有着不少的差距。</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 个人观点 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -638,6 +896,12 @@
 <p>总结下来，这部电影还是值得茶前饭后一看的。</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 个人观点 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -661,6 +925,12 @@
 <h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>跑步我只是个初学者，还有很多地方需要不断的更新改进，希望自己能够越跑越远，达成自己想要的目标。</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 个人观点 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -687,6 +957,18 @@
 <p>写作时间：21:38-22:17</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 程序开发 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 基础 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -705,6 +987,12 @@
 <p>写作时间：19:30-22:00</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 个人观点 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -767,6 +1055,18 @@
 <p>写作时间：21:39-22:56</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 程序开发 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 基础 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -780,6 +1080,18 @@
 </blockquote>
 ]]></content>
       
+        <categories>
+            
+            <category> 程序开发 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 基础 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -823,6 +1135,18 @@
 <p>写作时间：21:50-22:28</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 程序开发 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 调试 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -840,6 +1164,12 @@
 <p>C 的开发工具已经使用了 eclipse-CDT ，该软件可以直接调用 GDB 并提供一个友好的 GUI 调试界面，相关内容可以查看我的文章。</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 软件应用 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -849,6 +1179,12 @@
       <content type="html"><![CDATA[<a id="more"></a>
 ]]></content>
       
+        <categories>
+            
+            <category> 个人观点 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -918,6 +1254,12 @@
 <p>写作时间：21:15-22:10</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 生活杂谈 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -961,6 +1303,12 @@
 <p>写作时间：21:15-22:56</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 个人观点 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -983,6 +1331,12 @@
 <p>写作时间：22:15-22:55</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 个人观点 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -1008,6 +1362,12 @@
 <p>写作时间：21:52-22:15</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 个人观点 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -1035,6 +1395,12 @@
 </blockquote>
 ]]></content>
       
+        <categories>
+            
+            <category> 个人观点 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -1062,6 +1428,18 @@
 </blockquote>
 ]]></content>
       
+        <categories>
+            
+            <category> 程序开发 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -1116,6 +1494,12 @@
 <p>以上几种方式，需要逐一尝试，不同的电脑出现的情况不同，但基本是上面中的某一种/几种情况不会发生系统崩溃，具体原因据称可能是根据你使用的 usb 转串口的驱动（不同的 usb 转换芯片有不同的驱动）有关系。</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 软件应用 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -1143,6 +1527,12 @@
 <p>写作时间：19:50-20:30</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 生活杂谈 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -1198,6 +1588,12 @@
 <p>写作时间：20:36-21:47</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 个人观点 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -1210,6 +1606,18 @@
 <h3 id="你知道“紫色”为何高贵吗？"><a href="#你知道“紫色”为何高贵吗？" class="headerlink" title="你知道“紫色”为何高贵吗？"></a>你知道“紫色”为何高贵吗？</h3><p>在古代，紫色染料提取自一种珍贵的海螺，这种海螺数量稀少，加上整个制作工艺非常繁琐，所以，紫色布料十分昂贵，成为权力和财富的代名词以及皇家王室的特供。“born to the purple”就表示“出身皇室”。很好，高贵端庄优雅矜持，我想我要开始喜欢紫色了～</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 学习提高 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 英语 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -1254,6 +1662,12 @@
 <p>To be continued…</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 个人观点 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -1276,6 +1690,12 @@
 <p>写作时间：21:10-22:33</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 个人观点 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -1306,6 +1726,12 @@
 <p>写作时间：19:50-20:32，9:30-10:00，总时长超过一个半小时。</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 生活杂谈 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -1329,6 +1755,12 @@
 <p>写作时间：20:30-21:05</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 个人观点 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -1356,6 +1788,12 @@
 <p>写作时间：21:05-22:15</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 个人观点 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -1380,6 +1818,12 @@
 <p>写作时间：21:00-22:08</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 软件应用 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -1401,6 +1845,18 @@
 <p>以上几种方法各有利弊，具体看你系统的需要而定。</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 程序开发 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -1519,6 +1975,12 @@
 <p>正如您所见，人脑是一个复杂精密、高度分化的器官，它控制机体的一切行为。在您了解了人脑的解剖结构之后，可以参阅其他文章，以了解其特定功能。</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 转载文章 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -1542,6 +2004,12 @@
 <p>写作时间：21:30-22:33</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 个人观点 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -1575,6 +2043,12 @@
 <p>写作时间：21:10-22:27</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 个人观点 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -1602,6 +2076,12 @@
 <p>_加油！加油！加油！</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 生活杂谈 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -1637,6 +2117,12 @@
 <p>写作时间：21:15-22:00</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 生活杂谈 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -1666,6 +2152,12 @@
 <p>写作时间：21:30-22:52</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 软件应用 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -1703,6 +2195,12 @@
 <p>写作时间：19:39-20:25</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 生活杂谈 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -1783,6 +2281,18 @@
 </blockquote>
 ]]></content>
       
+        <categories>
+            
+            <category> 转载文章 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 基础 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -1807,6 +2317,12 @@
 </blockquote>
 ]]></content>
       
+        <categories>
+            
+            <category> 软件应用 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -1876,6 +2392,12 @@
 <p>未完待续…</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 生活杂谈 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -1964,6 +2486,12 @@
 </blockquote>
 ]]></content>
       
+        <categories>
+            
+            <category> 软件应用 </category>
+            
+        </categories>
+        
         
     </entry>
     
@@ -1977,13 +2505,25 @@
 </blockquote>
 ]]></content>
       
+        <categories>
+            
+            <category> 程序开发 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+        </tags>
         
     </entry>
     
     <entry>
       <title><![CDATA[linux-shadowsocks全局代理]]></title>
       <url>http://noparkinghere.top/2017/01/25/2017/2017-01-25-ss-linux%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86/</url>
-      <content type="html"><![CDATA[<p>windows 直接下载 ss 终端，稍加设置即可完成全局代理，linux 用户如果需要让某个软件可以使用 ss 一般都需要连接端口才行。例如本地 ss 配置为：<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"server_port"</span>:<span class="number">1800</span>,</div><div class="line"><span class="string">"local_port"</span>:<span class="number">1080</span>,</div></pre></td></tr></table></figure></p>
+      <content type="html"><![CDATA[<p>windows 直接下载 ss 终端，稍加设置即可完成全局代理，linux 用户如果需要让某个软件可以使用 ss 一般都需要连接端口才行。例如本地 ss 配置为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"server_port"</span>:1800,</div><div class="line"><span class="string">"local_port"</span>:1080,</div></pre></td></tr></table></figure></p>
 <h3 id="原理简述"><a href="#原理简述" class="headerlink" title="原理简述"></a>原理简述</h3><p>这边就相当于将本地的 127.0.0.1:1080 和 server_ip:1800 建立了连接关系。因此软件如果需要使用 vps 上面搭建的 ss 服务的话，则需要让该软件使用的协议连接到 127.0.0.1:1080 上。之前在 vps-shadowsocks 中介绍的 chrome 插件 SwitchyOmega 就是使用 SOCKS5 协议连接到 127.0.0.1:1080 上，让所有数据通过 SOCKS5 协议，然后从 127.0.0.1:1080 进行收发。</p>
 <p>可以看出如果我们需要让其他软件也能够使用 ss 则需要让他们也能够使用 127.0.0.1:1080 代理服务器，然而不幸的是，大多数软件并不支持代理服务的功能， windows 平台下的软件很多可以通过设置 IE 代理让其他软件使用代理服务（原理是：大多数软件都会优先读取 IE 的代理设置，再访问网络）。</p>
 <a id="more"></a>
@@ -2013,6 +2553,12 @@
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> vps </tag>
+            
+        </tags>
         
     </entry>
     
@@ -2187,10 +2733,16 @@
       
         <categories>
             
-            <category> 问题总结 </category>
+            <category> 转载文章 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> 文档 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -2226,7 +2778,7 @@
       
         <categories>
             
-            <category> 杂谈 </category>
+            <category> 生活杂谈 </category>
             
         </categories>
         
@@ -2269,10 +2821,16 @@
       
         <categories>
             
-            <category> 嵌入式 </category>
+            <category> 程序开发 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -2342,6 +2900,12 @@
         </categories>
         
         
+        <tags>
+            
+            <tag> ssh </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -2367,7 +2931,7 @@
       
         <categories>
             
-            <category> 问题总结 </category>
+            <category> 软件应用 </category>
             
         </categories>
         
@@ -2390,6 +2954,9 @@
 <p>对于不开发 c/c++ 用的服务器来说，如果只是用安装包安装，不用源码编译的话，则可以卸载这个软件包。</p>
 <h3 id="清除部分文档帮助文件"><a href="#清除部分文档帮助文件" class="headerlink" title="清除部分文档帮助文件"></a>清除部分文档帮助文件</h3><p>清除其中的一些帮助说明文档： <code>rm -rf /usr/share/{doc,man}</code> 。</p>
 <h3 id="编辑器安装和卸载"><a href="#编辑器安装和卸载" class="headerlink" title="编辑器安装和卸载"></a>编辑器安装和卸载</h3><p>安装 vim，个人习惯只用 vim ，但 vim 的套件也会占用 20M 以上的空间，这边如果对编辑器没有特殊要求的可以安装使用 nano （约 2M 大小）。</p>
+<hr>
+<p>To be continued…</p>
+<p>有关服务器的 linux 系统仍然在研究中，后续还会更新。</p>
 <blockquote>
 <p>参考链接：<br><a href="https://zhidao.baidu.com/question/2051702708087103867.html" target="_blank" rel="external">https://zhidao.baidu.com/question/2051702708087103867.html</a><br><a href="http://www.cnblogs.com/dolphi/p/3622570.html" target="_blank" rel="external">http://www.cnblogs.com/dolphi/p/3622570.html</a></p>
 </blockquote>
@@ -2397,64 +2964,16 @@
       
         <categories>
             
-            <category> linux </category>
+            <category> 软件应用 </category>
             
         </categories>
         
         
-    </entry>
-    
-    <entry>
-      <title><![CDATA[VPS 简介]]></title>
-      <url>http://noparkinghere.top/2016/12/19/2016/2016-12-19-vps-%E7%AE%80%E4%BB%8B/</url>
-      <content type="html"><![CDATA[<p>起初对云服务很好奇，完全不知所云，无从下手的感觉，但经过一段时间的摸索研究，也基本能够搭建一些自己想要的服务了，这边根据一些网络资料和自己的学习研究，对这阶段进行一个总结，希望对那些刚刚开始尝试搭建云服务的网友有所帮助。</p>
-<h3 id="虚拟技术"><a href="#虚拟技术" class="headerlink" title="虚拟技术"></a>虚拟技术</h3><p>利用虚拟话技术在一台物理服务器上面创建多个相互隔离的虚拟化私有主机(“Virtual Private Server – VPS”)，可以看出原理和 PC 上面用虚拟机自己虚拟出来的系统并没有什么本质区别，只不过 VPS 是虚拟化之后放到网络上面使用的而已。对用户和应用程序来说，每个 VPS 平台的运行和管理都与一台独立主机完全相同，每个 VPS 均可以独立进行重启并且拥有 root 访问权限，用户，IP地址，内存，进程，文件，应用程序，系统函数库以及配置文件等。</p>
-<p>目前一般 VPS 结构是这样的：最底层为 Host Hardware 硬件， 然后是 Host Operating System 宿主机/真实系统，再然后是真实系统上面运行的虚拟化软件，最后是虚拟机软件内部运行的操作系统 Guest OS 访客系统（这边看上去和我们个人电脑 PC 上面跑的虚拟机中的虚拟操作系统并没啥区别）。</p>
-<p>随着云技术的不断成熟，现在的 VPS 也有了很大的改进，例如国内的腾讯，阿里等都给自己的 VPS 起了新名字，什么弹性云服务，无虚拟机，云服务器等等，从用户角度来看和 VPS 没有区别，但技术层面一般现在都会将 Host Hardware 硬件通过集群技术搭建，几百上千台主机共建一个硬件平台，然后分配资源建立 VPS，这边一般可以看作是 cloud VPS，可以做到弹性扩展，无缝对接，无需在需要时再去更新硬件资源。</p>
-<p>能够使用 linux VPS 完成的优先使用 linux。</p>
-<p>这边如果对 VPS 服务器等还有疑惑可以参考本博客的另外一篇文章<strong>虚拟主机、VPS和云主机</strong>。</p>
-<a id="more"></a>
-<h4 id="桌面用户："><a href="#桌面用户：" class="headerlink" title="桌面用户："></a>桌面用户：</h4><p>vmware，virtualbox，virutalPC等，vmware，virtualbox都是支持多个操作系统的跨平台软件功能强大，用的也比较多。</p>
-<h4 id="服务器用户："><a href="#服务器用户：" class="headerlink" title="服务器用户："></a>服务器用户：</h4><ul>
-<li>Hyper-V：微软自带的虚拟化技术，只能在 windows 上运行，买 windows vps 很可能是 Hype-V 虚拟的</li>
-<li>vmware：专业做虚拟话技术的公司，产品覆盖很广，个人企业都有，功能强大，可运行在各个平台，虚拟出各种操作系统。</li>
-<li>OpenVZ：很老的一款软件，只能运行在 linux 上，也只能虚拟出 linux 操作系统，国内很多在拆分的时候没有很好的维护以及滥用超售，不能运行需要编译内核的应用。</li>
-<li>Xen：版虚拟化技术，性能有一定损失，可以升级内核等</li>
-<li>KVM：最近两年刚流行的，是一个开源系统虚拟化模块，KVM 目前已经成为学术界主流的虚拟机监控器之一，目前因为硬件虚拟化技术等都比较成熟，KVM 性能优势等相当明显。</li>
-</ul>
-<p>对于 VPS 的免费软件选择： KVM &gt; XEN &gt; OpenVZ。</p>
-<h4 id="用途分析："><a href="#用途分析：" class="headerlink" title="用途分析："></a>用途分析：</h4><ul>
-<li>搭建网站平台</li>
-<li>不熟企业信息化系统，中小型企业不存在机房，使用 VPS 会节约成本。</li>
-<li>挂 PT 数据传输分享</li>
-<li>加密数据访问，科学上网</li>
-<li>多人协作开发，代码托管</li>
-<li>私有云存储空间</li>
-<li>等等</li>
-</ul>
-<h4 id="VPS-选择"><a href="#VPS-选择" class="headerlink" title="VPS 选择"></a>VPS 选择</h4><ul>
-<li>优先选择 linux VPS ，软件多，性能稳定，占用资源少，价格便宜等等。</li>
-<li>选择国内 VPS （阿里云/腾讯云）：面向群体为国内用户，需要 ICP 备案，时间较长；另外支持备案的域名较少，使用国内 VPS 时，购买域名需要慎重。</li>
-<li>选择国外 VPS （vultr，digitalocean, 搬瓦工）：客户是国外用户或者不用于商业用途，价格为国内一半以下，带宽充足。</li>
-</ul>
-<h4 id="选择虚拟技术"><a href="#选择虚拟技术" class="headerlink" title="选择虚拟技术"></a>选择虚拟技术</h4><p>优先选择 KVM， 其次 XEN 或 vmware，最后 OpenVZ。</p>
-<h4 id="硬件资源选择"><a href="#硬件资源选择" class="headerlink" title="硬件资源选择"></a>硬件资源选择</h4><p>一般 VPS 会提供多种方案或者自由搭配组合，主要根据自己的实际需求选择硬件资源。</p>
-<ul>
-<li>应用要求高，则选择内存大的，CPU 强劲的方案，例如游戏服务器等</li>
-<li>网络应用，主要分享文件视频等，选择流量大的</li>
-<li>主要用于存储数据的，选择较大的硬盘空间。</li>
-</ul>
-<blockquote>
-<p><a href="https://www.youtube.com/watch?v=Hs-er4JwHc8" target="_blank" rel="external">https://www.youtube.com/watch?v=Hs-er4JwHc8</a><br><a href="http://www.chinaz.com/prime/2012/1021/279069.shtml" target="_blank" rel="external">http://www.chinaz.com/prime/2012/1021/279069.shtml</a></p>
-</blockquote>
-]]></content>
-      
-        <categories>
+        <tags>
             
-            <category> 问题总结 </category>
+            <tag> linux </tag>
             
-        </categories>
-        
+        </tags>
         
     </entry>
     
@@ -2570,7 +3089,7 @@
     
     <entry>
       <title><![CDATA[LAMP 环境搭建]]></title>
-      <url>http://noparkinghere.top/2016/12/09/2016/2016-12-09-lamp-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
+      <url>http://noparkinghere.top/2016/12/09/2016-12-09-lamp-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
       <content type="html"><![CDATA[<p>之前写过一些服务器的配置文章，但当时都只是按部就班，对于相关服务的理解很欠缺。由于很多的博客系统，网站都依赖于：操作系统，服务器软件，数据库，后台编程语言等，本质上他们都存在很大的共性，细心品尝里面的门道其实不可谓不多，这边重新梳理 LAMP 环境的搭建，帮助学习和理解。</p>
 <a id="more"></a>
 ]]></content>
@@ -2581,6 +3100,12 @@
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> 服务器 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -2629,10 +3154,16 @@
       
         <categories>
             
-            <category> 嵌入式 </category>
+            <category> 程序开发 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -2690,21 +3221,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[vps-docker]]></title>
-      <url>http://noparkinghere.top/2016/11/28/2016/2016-11-28-vps-docker/</url>
-      <content type="html"><![CDATA[<a id="more"></a>
-]]></content>
-      
-        <categories>
-            
-            <category> 软件应用 </category>
-            
-        </categories>
-        
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[检测VPS虚拟化技术]]></title>
       <url>http://noparkinghere.top/2016/11/26/2016/2016-11-26-%E6%A3%80%E6%B5%8BVPS%E8%99%9A%E6%8B%9F%E5%8C%96%E6%8A%80%E6%9C%AF/</url>
       <content type="html"><![CDATA[<p>很多时候，我们需要知道自己的 VPS 是通过什么软件进行分配的，这是可以使用如下的几种方式：</p>
@@ -2727,10 +3243,16 @@
       
         <categories>
             
-            <category> 问题总结 </category>
+            <category> 软件应用 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> VPS </tag>
+            
+        </tags>
         
     </entry>
     
@@ -2843,6 +3365,12 @@
         </categories>
         
         
+        <tags>
+            
+            <tag> VPS </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -2903,11 +3431,17 @@
         </categories>
         
         
+        <tags>
+            
+            <tag> VPS </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
       <title><![CDATA[git submodule 详解]]></title>
-      <url>http://noparkinghere.top/2016/11/23/2016/2016-11-23-git-submodule-%E8%AF%A6%E8%A7%A3/</url>
+      <url>http://noparkinghere.top/2016/11/23/2016-11-23-git-submodule-%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<p>使用 git 也有一段时间，但不得不说 git 的功能相当强大和复杂，需要你不断的去摸索学习。这边介绍一个 git 很强大的功能：git submodule 。起初发现这个文件是在我本人 fork 了一个 awesome 的配置文件，用了也蛮久，但最近由于总是出现连接错误，然后手动去更改了一些文件，但意外发现更改的文件无法提交， status 中竟然没有这些文件的信息，另外通过其他官方文档 gitignore 中的几个 ignore 中仔细查看，很确定项目中并没有忽略这些文件，通过排查最后才发现是 .gitmodules 这个文件捣的鬼。仔细研究发现git-submodule是一个十分强大的功能，值得去学习研究。</p>
 <a id="more"></a>
 <blockquote>
@@ -2922,11 +3456,17 @@
         </categories>
         
         
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
       <title><![CDATA[CRC校验]]></title>
-      <url>http://noparkinghere.top/2016/11/22/2016/2016-11-22-crc%E6%A0%A1%E9%AA%8C/</url>
+      <url>http://noparkinghere.top/2016/11/22/2016-11-22-crc%E6%A0%A1%E9%AA%8C/</url>
       <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><h3 id="原理规则"><a href="#原理规则" class="headerlink" title="原理规则"></a>原理规则</h3><a id="more"></a>
 <h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><blockquote>
 <p>参考链接：<br><a href="http://wenku.baidu.com/link?url=FLbB1d-cPj5uuxsaORgTaLYDUcEwziU4VFE3dHzIxv_2UNwvBiBAo4_n5D2n9zbmgM3kJMJHKOptYbd6bJd21sHtDIOLysViDIHcHN5UpgK" target="_blank" rel="external">http://wenku.baidu.com/link?url=FLbB1d-cPj5uuxsaORgTaLYDUcEwziU4VFE3dHzIxv_2UNwvBiBAo4_n5D2n9zbmgM3kJMJHKOptYbd6bJd21sHtDIOLysViDIHcHN5UpgK</a><br><a href="http://wenku.baidu.com/link?url=_jgyTFPUC5EdnDykoVR-hbtutdNnZjgOhlbHaJ0Ipcy04SZiLHCaUY2zTyiZjn4WpNPxQZUDtBXJD5Z1K56EUffQ7nk3qM5lxH0ux9Qz7OS" target="_blank" rel="external">http://wenku.baidu.com/link?url=_jgyTFPUC5EdnDykoVR-hbtutdNnZjgOhlbHaJ0Ipcy04SZiLHCaUY2zTyiZjn4WpNPxQZUDtBXJD5Z1K56EUffQ7nk3qM5lxH0ux9Qz7OS</a><br><a href="http://blog.csdn.net/husion01/article/details/17440333" target="_blank" rel="external">http://blog.csdn.net/husion01/article/details/17440333</a></p>
@@ -2935,16 +3475,22 @@
       
         <categories>
             
-            <category> 问题总结 </category>
+            <category> 程序开发 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+        </tags>
         
     </entry>
     
     <entry>
       <title><![CDATA[vim学习]]></title>
-      <url>http://noparkinghere.top/2016/11/21/2016/2016-11-21-vim%E5%AD%A6%E4%B9%A0/</url>
+      <url>http://noparkinghere.top/2016/11/21/2016-11-21-vim%E5%AD%A6%E4%B9%A0/</url>
       <content type="html"><![CDATA[<p>vim 和 emacs 一个号称编辑器之神，一个被称为神的编辑器。打开 vim 执行命令：vimtutor 则可以查看官方说明教程，vimtutor是vim使用入门教程。老实说，自从接触vim到现在也有好多年了，但一直没有强迫自己使用，以及它的难定制性，让我至今都还无法像那些大神一样，完全脱离鼠标和IDE，本文对现阶段我学习 vim 进行一个总结，后续还会不断记录更新。</p>
 <h3 id="最基本操作"><a href="#最基本操作" class="headerlink" title="最基本操作"></a>最基本操作</h3><ul>
 <li>请按<esc>键(这是为了确保您处在正常模式)。</esc></li>
@@ -2979,6 +3525,72 @@
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[VPS 简介]]></title>
+      <url>http://noparkinghere.top/2016/11/19/2016/2016-11-19-vps-%E7%AE%80%E4%BB%8B/</url>
+      <content type="html"><![CDATA[<p>起初对云服务很好奇，完全不知所云，无从下手的感觉，但经过一段时间的摸索研究，也基本能够搭建一些自己想要的服务了，这边根据一些网络资料和自己的学习研究，对这阶段进行一个总结，希望对那些刚刚开始尝试搭建云服务的网友有所帮助。</p>
+<h3 id="虚拟技术"><a href="#虚拟技术" class="headerlink" title="虚拟技术"></a>虚拟技术</h3><p>利用虚拟话技术在一台物理服务器上面创建多个相互隔离的虚拟化私有主机(“Virtual Private Server – VPS”)，可以看出原理和 PC 上面用虚拟机自己虚拟出来的系统并没有什么本质区别，只不过 VPS 是虚拟化之后放到网络上面使用的而已。对用户和应用程序来说，每个 VPS 平台的运行和管理都与一台独立主机完全相同，每个 VPS 均可以独立进行重启并且拥有 root 访问权限，用户，IP地址，内存，进程，文件，应用程序，系统函数库以及配置文件等。</p>
+<p>目前一般 VPS 结构是这样的：最底层为 Host Hardware 硬件， 然后是 Host Operating System 宿主机/真实系统，再然后是真实系统上面运行的虚拟化软件，最后是虚拟机软件内部运行的操作系统 Guest OS 访客系统（这边看上去和我们个人电脑 PC 上面跑的虚拟机中的虚拟操作系统并没啥区别）。</p>
+<p>随着云技术的不断成熟，现在的 VPS 也有了很大的改进，例如国内的腾讯，阿里等都给自己的 VPS 起了新名字，什么弹性云服务，无虚拟机，云服务器等等，从用户角度来看和 VPS 没有区别，但技术层面一般现在都会将 Host Hardware 硬件通过集群技术搭建，几百上千台主机共建一个硬件平台，然后分配资源建立 VPS，这边一般可以看作是 cloud VPS，可以做到弹性扩展，无缝对接，无需在需要时再去更新硬件资源。</p>
+<p>能够使用 linux VPS 完成的优先使用 linux。</p>
+<p>这边如果对 VPS 服务器等还有疑惑可以参考本博客的另外一篇文章<strong>虚拟主机、VPS和云主机</strong>。</p>
+<a id="more"></a>
+<h4 id="桌面用户："><a href="#桌面用户：" class="headerlink" title="桌面用户："></a>桌面用户：</h4><p>vmware，virtualbox，virutalPC等，vmware，virtualbox都是支持多个操作系统的跨平台软件功能强大，用的也比较多。</p>
+<h4 id="服务器用户："><a href="#服务器用户：" class="headerlink" title="服务器用户："></a>服务器用户：</h4><ul>
+<li>Hyper-V：微软自带的虚拟化技术，只能在 windows 上运行，买 windows vps 很可能是 Hype-V 虚拟的</li>
+<li>vmware：专业做虚拟话技术的公司，产品覆盖很广，个人企业都有，功能强大，可运行在各个平台，虚拟出各种操作系统。</li>
+<li>OpenVZ：很老的一款软件，只能运行在 linux 上，也只能虚拟出 linux 操作系统，国内很多在拆分的时候没有很好的维护以及滥用超售，不能运行需要编译内核的应用。</li>
+<li>Xen：版虚拟化技术，性能有一定损失，可以升级内核等</li>
+<li>KVM：最近两年刚流行的，是一个开源系统虚拟化模块，KVM 目前已经成为学术界主流的虚拟机监控器之一，目前因为硬件虚拟化技术等都比较成熟，KVM 性能优势等相当明显。</li>
+</ul>
+<p>对于 VPS 的免费软件选择： KVM &gt; XEN &gt; OpenVZ。</p>
+<h4 id="用途分析："><a href="#用途分析：" class="headerlink" title="用途分析："></a>用途分析：</h4><ul>
+<li>搭建网站平台</li>
+<li>不熟企业信息化系统，中小型企业不存在机房，使用 VPS 会节约成本。</li>
+<li>挂 PT 数据传输分享</li>
+<li>加密数据访问，科学上网</li>
+<li>多人协作开发，代码托管</li>
+<li>私有云存储空间</li>
+<li>等等</li>
+</ul>
+<h4 id="VPS-选择"><a href="#VPS-选择" class="headerlink" title="VPS 选择"></a>VPS 选择</h4><ul>
+<li>优先选择 linux VPS ，软件多，性能稳定，占用资源少，价格便宜等等。</li>
+<li>选择国内 VPS （阿里云/腾讯云）：面向群体为国内用户，需要 ICP 备案，时间较长；另外支持备案的域名较少，使用国内 VPS 时，购买域名需要慎重。</li>
+<li>选择国外 VPS （vultr，digitalocean, 搬瓦工）：客户是国外用户或者不用于商业用途，价格为国内一半以下，带宽充足。</li>
+</ul>
+<h4 id="选择虚拟技术"><a href="#选择虚拟技术" class="headerlink" title="选择虚拟技术"></a>选择虚拟技术</h4><p>优先选择 KVM， 其次 XEN 或 vmware，最后 OpenVZ。</p>
+<h4 id="硬件资源选择"><a href="#硬件资源选择" class="headerlink" title="硬件资源选择"></a>硬件资源选择</h4><p>一般 VPS 会提供多种方案或者自由搭配组合，主要根据自己的实际需求选择硬件资源。</p>
+<ul>
+<li>应用要求高，则选择内存大的，CPU 强劲的方案，例如游戏服务器等</li>
+<li>网络应用，主要分享文件视频等，选择流量大的</li>
+<li>主要用于存储数据的，选择较大的硬盘空间。</li>
+</ul>
+<blockquote>
+<p><a href="https://www.youtube.com/watch?v=Hs-er4JwHc8" target="_blank" rel="external">https://www.youtube.com/watch?v=Hs-er4JwHc8</a><br><a href="http://www.chinaz.com/prime/2012/1021/279069.shtml" target="_blank" rel="external">http://www.chinaz.com/prime/2012/1021/279069.shtml</a></p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> 软件应用 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> VPS </tag>
+            
+        </tags>
         
     </entry>
     
@@ -3015,10 +3627,16 @@
       
         <categories>
             
-            <category> 嵌入式 </category>
+            <category> 程序开发 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -3058,6 +3676,12 @@
         </categories>
         
         
+        <tags>
+            
+            <tag> IDE </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -3073,7 +3697,7 @@
       
         <categories>
             
-            <category> 杂谈 </category>
+            <category> 个人观点 </category>
             
         </categories>
         
@@ -3082,17 +3706,23 @@
     
     <entry>
       <title><![CDATA[C语言工程组建]]></title>
-      <url>http://noparkinghere.top/2016/11/10/2016/2016-11-10-c%E8%AF%AD%E8%A8%80%E5%B7%A5%E7%A8%8B%E7%BB%84%E5%BB%BA/</url>
+      <url>http://noparkinghere.top/2016/11/10/2016-11-10-c%E8%AF%AD%E8%A8%80%E5%B7%A5%E7%A8%8B%E7%BB%84%E5%BB%BA/</url>
       <content type="html"><![CDATA[<p>每个编程语言都有自己的一些特性，如果了解的很清楚能够减少你编译的时间，减少编译所生成的文件大小，提高你程序的执行效率。虽然现在计算机发展很快，在众多高级语言中已经很少考虑这种问题，但如果是使用c语言编写一些运行在资源较紧张的芯片或编写能耗敏感的一些项目时，仔细研究每个细节，合理的组建自己的工程等还是相当必要的。</p>
 <a id="more"></a>
 ]]></content>
       
         <categories>
             
-            <category> 编程技巧 </category>
+            <category> 程序开发 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -3133,16 +3763,22 @@
       
         <categories>
             
-            <category> 杂谈 </category>
+            <category> 个人观点 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> 手机 </tag>
+            
+        </tags>
         
     </entry>
     
     <entry>
       <title><![CDATA[uart/spi/iic的比较]]></title>
-      <url>http://noparkinghere.top/2016/10/30/2016/2016-10-30-uart-spi-iic%E7%9A%84%E6%AF%94%E8%BE%83/</url>
+      <url>http://noparkinghere.top/2016/10/30/2016-10-30-uart-spi-iic%E7%9A%84%E6%AF%94%E8%BE%83/</url>
       <content type="html"><![CDATA[<a id="more"></a>
 <blockquote>
 <p>参考链接：<br><a href="http://wenku.baidu.com/view/2a0a7f9869dc5022abea001d.html" target="_blank" rel="external">http://wenku.baidu.com/view/2a0a7f9869dc5022abea001d.html</a><br><a href="http://blog.sina.com.cn/s/blog_50cfd0fc0101flsn.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_50cfd0fc0101flsn.html</a></p>
@@ -3151,10 +3787,16 @@
       
         <categories>
             
-            <category> 嵌入式 </category>
+            <category> 程序开发 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -3201,10 +3843,16 @@
       
         <categories>
             
-            <category> 问题总结 </category>
+            <category> 程序开发 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> 基础 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -3258,10 +3906,16 @@
       
         <categories>
             
-            <category> 问题总结 </category>
+            <category> 程序开发 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> 基础 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -3293,7 +3947,8 @@
 <h4 id="时钟生效"><a href="#时钟生效" class="headerlink" title="时钟生效"></a>时钟生效</h4><p>在看芯片手册时，往往不同的 SPI 通讯设备，会存在不同的时钟周期，有效，如上面 FM25W256-G 就是在上升沿时有效，而少数芯片却可能会是下降沿有效，在使用 SPI 控制芯片时首先第一步就是该仔细看时钟周期，如果你在配置寄存器时，忽略了这点往往会读写失败。</p>
 <h4 id="大小端"><a href="#大小端" class="headerlink" title="大小端"></a>大小端</h4><p>同样芯片手册会详细指定是 MSB 还是 LSB 这点也要仔细阅读，不然容易造成数据错误。</p>
 <h4 id="指令操作顺序"><a href="#指令操作顺序" class="headerlink" title="指令操作顺序"></a>指令操作顺序</h4><p>操作指令的顺序很重要，FM25W256-G 这款芯片就仅指定了每次写时需要先使能，我们需要仔细阅读手册的时序图，查看使能时是否作为一个完整的执行周期。</p>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><hr>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>SPI 是计算机通讯中，最常见的几种协议之一，其具备：协议简单，所需资源不算太多，成本不高，通讯速度较快等特点，因此虽然经历了很多的发展，但仍然没有被淘汰，至今仍然活跃在工业领域的各种数字传感器中，因此能够根据芯片手册开发相关的 SPI 驱动对嵌入式程序员来说是相当重要的。</p>
+<hr>
 <p>写作时间：20:30-22:30</p>
 <p>To be continued…</p>
 <blockquote>
@@ -3303,10 +3958,16 @@
       
         <categories>
             
-            <category> 嵌入式 </category>
+            <category> 程序开发 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -3329,10 +3990,16 @@
       
         <categories>
             
-            <category> 问题总结 </category>
+            <category> 程序开发 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> 基础 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -3368,10 +4035,16 @@
       
         <categories>
             
-            <category> linux </category>
+            <category> 程序开发 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
         
     </entry>
     
@@ -3446,16 +4119,22 @@
       
         <categories>
             
-            <category> linux </category>
+            <category> 软件应用 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
         
     </entry>
     
     <entry>
       <title><![CDATA[IIC通信详解]]></title>
-      <url>http://noparkinghere.top/2016/10/20/2016/2016-10-20-iic%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
+      <url>http://noparkinghere.top/2016/10/20/2016-10-20-iic%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<p>我们在使用单片机的过程中，IIC通信可以说是最被广泛使用和采纳的一个协议，这边</p>
 <a id="more"></a>
 <blockquote>
@@ -3465,10 +4144,16 @@
       
         <categories>
             
-            <category> 嵌入式 </category>
+            <category> 程序开发 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -3505,49 +4190,16 @@
       
         <categories>
             
-            <category> 嵌入式 </category>
+            <category> 软件应用 </category>
             
         </categories>
         
         
-    </entry>
-    
-    <entry>
-      <title><![CDATA[串口RS485通信详解]]></title>
-      <url>http://noparkinghere.top/2016/10/19/2016/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
-      <content type="html"><![CDATA[<p><strong>注意：串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。串口的一些内容不再逐一介绍说明，可以参加之前的usb转串口及RS232通信等文章</strong></p>
-<h3 id="特性介绍"><a href="#特性介绍" class="headerlink" title="特性介绍"></a>特性介绍</h3><p>485（一般称作 RS485/EIA-485）是隶属于 OSI 模型物理层的电气特性规定为 2 线，半双工，多点通信的标准。它的电气特性和 RS-232 大不一样。用缆线两端的电压差值来表示传递信号。值得注意的是：RS485 仅仅规定了接受端和发送端的电气特性，它没有规定或推荐任何数据协议。</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/1.jpg" alt=""></p>
-<p>RS485接口可以只使用两根线进行通讯（其他串口通讯至少需要三根线，一根为地线作为参考电平），通过差分电平（利用两个信号的差值来判断信息，使用差分信号来传输的，也就是一根线传同相信号，一根线传反相，这样差值最大，抗干扰能力强。）来确定信号是0还是1，也正因为这个原因，所以RS485每次有且仅有一根线能够传输数据，另外一根线作为比对信号，因此RS485是半双工的通讯方式。主要特点如下：</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/2.jpg" alt=""></p>
-<ul>
-<li>接口电平低，不易损坏芯片。 RS485 的电气特性：逻辑“ 1”以两线间的电压差为+(2~6)V<br>表示；逻辑“ 0”以两线间的电压差为-(2~6)V 表示。接口信号电平比 RS232 降低了，<br>不易损坏接口电路的芯片，且该电平与 TTL 电平兼容，可方便与 TTL 电路连接。</li>
-<li>传输速率高。 10 米时， RS485 的数据最高传输速率可达 35Mbps，在 1200m 时，传输<br>速度可达 100Kbps。</li>
-<li>抗干扰能力强。 RS485 接口是采用平衡驱动器和差分接收器的组合，抗共模干扰能力<br>增强，即抗噪声干扰性好。 传输距离远，支持节点多。 RS485 总线最长可以传输 1200m<br>以上（速率≤100Kbps）</li>
-<li>一般最大支持 32 个节点，如果使用特制的 485 芯片，可以达到 128 个或者 256 个节点，<br>最大的可以支持到 400 个节点。</li>
-</ul>
-<a id="more"></a>
-<h3 id="类比RS232"><a href="#类比RS232" class="headerlink" title="类比RS232"></a>类比RS232</h3><p>实际上232串口在实际使用已经用处不大，但基于232发展出来的485等串口设备仍然被广泛使用，RS-485（EIA-485标准）是RS-422的改进，因为它增加了设备的个数，从10个增加到32个，同时定义了在最大设备个数情况下的电气特性，以保证足够的信号电压。有了多个设备的能力，你可以使用一个单个RS-485口建立设备网络。</p>
-<p>因为都是采用串口通信协议，所以软件端几乎可以直接使用，且RS485具备耗材少，抗干扰强等特点，在目前的工业领域仍然被广泛使用，这边主要列举出不同：</p>
-<ul>
-<li>从接线上，RS232是三线制，RS485是两线制</li>
-<li>从传输距离上，RS232只能传输15米，RS485最远可以传输1200米</li>
-<li>从速率上，RS232是全双工传输，RS485是半双工传输</li>
-<li>从协议层上，RS232只支持点对点通讯(1:1)，RS485支持总线形式通讯（1:N）</li>
-</ul>
-<p>RS232的接线：<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/3.jpg" alt="">)</p>
-<p>RS485的接线<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/4.jpg" alt=""></p>
-<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><blockquote>
-<p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a></p>
-</blockquote>
-]]></content>
-      
-        <categories>
+        <tags>
             
-            <category> 嵌入式 </category>
+            <tag> 嵌入式 </tag>
             
-        </categories>
-        
+        </tags>
         
     </entry>
     
@@ -3616,10 +4268,61 @@
       
         <categories>
             
-            <category> 嵌入式 </category>
+            <category> 程序开发 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[串口RS485通信详解]]></title>
+      <url>http://noparkinghere.top/2016/10/19/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<p><strong>注意：串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。串口的一些内容不再逐一介绍说明，可以参加之前的usb转串口及RS232通信等文章</strong></p>
+<h3 id="特性介绍"><a href="#特性介绍" class="headerlink" title="特性介绍"></a>特性介绍</h3><p>485（一般称作 RS485/EIA-485）是隶属于 OSI 模型物理层的电气特性规定为 2 线，半双工，多点通信的标准。它的电气特性和 RS-232 大不一样。用缆线两端的电压差值来表示传递信号。值得注意的是：RS485 仅仅规定了接受端和发送端的电气特性，它没有规定或推荐任何数据协议。</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/1.jpg" alt=""></p>
+<p>RS485接口可以只使用两根线进行通讯（其他串口通讯至少需要三根线，一根为地线作为参考电平），通过差分电平（利用两个信号的差值来判断信息，使用差分信号来传输的，也就是一根线传同相信号，一根线传反相，这样差值最大，抗干扰能力强。）来确定信号是0还是1，也正因为这个原因，所以RS485每次有且仅有一根线能够传输数据，另外一根线作为比对信号，因此RS485是半双工的通讯方式。主要特点如下：</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/2.jpg" alt=""></p>
+<ul>
+<li>接口电平低，不易损坏芯片。 RS485 的电气特性：逻辑“ 1”以两线间的电压差为+(2~6)V<br>表示；逻辑“ 0”以两线间的电压差为-(2~6)V 表示。接口信号电平比 RS232 降低了，<br>不易损坏接口电路的芯片，且该电平与 TTL 电平兼容，可方便与 TTL 电路连接。</li>
+<li>传输速率高。 10 米时， RS485 的数据最高传输速率可达 35Mbps，在 1200m 时，传输<br>速度可达 100Kbps。</li>
+<li>抗干扰能力强。 RS485 接口是采用平衡驱动器和差分接收器的组合，抗共模干扰能力<br>增强，即抗噪声干扰性好。 传输距离远，支持节点多。 RS485 总线最长可以传输 1200m<br>以上（速率≤100Kbps）</li>
+<li>一般最大支持 32 个节点，如果使用特制的 485 芯片，可以达到 128 个或者 256 个节点，<br>最大的可以支持到 400 个节点。</li>
+</ul>
+<a id="more"></a>
+<h3 id="类比RS232"><a href="#类比RS232" class="headerlink" title="类比RS232"></a>类比RS232</h3><p>实际上232串口在实际使用已经用处不大，但基于232发展出来的485等串口设备仍然被广泛使用，RS-485（EIA-485标准）是RS-422的改进，因为它增加了设备的个数，从10个增加到32个，同时定义了在最大设备个数情况下的电气特性，以保证足够的信号电压。有了多个设备的能力，你可以使用一个单个RS-485口建立设备网络。</p>
+<p>因为都是采用串口通信协议，所以软件端几乎可以直接使用，且RS485具备耗材少，抗干扰强等特点，在目前的工业领域仍然被广泛使用，这边主要列举出不同：</p>
+<ul>
+<li>从接线上，RS232是三线制，RS485是两线制</li>
+<li>从传输距离上，RS232只能传输15米，RS485最远可以传输1200米</li>
+<li>从速率上，RS232是全双工传输，RS485是半双工传输</li>
+<li>从协议层上，RS232只支持点对点通讯(1:1)，RS485支持总线形式通讯（1:N）</li>
+</ul>
+<p>RS232的接线：<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/3.jpg" alt="">)</p>
+<p>RS485的接线<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/4.jpg" alt=""></p>
+<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><blockquote>
+<p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a></p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> 程序开发 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -3644,10 +4347,16 @@
       
         <categories>
             
-            <category> linux </category>
+            <category> 软件应用 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
         
     </entry>
     
@@ -3691,10 +4400,9 @@
 <li>从速率上，RS232是全双工传输，RS485是半双工传输</li>
 <li>从协议层上，RS232只支持点对点通讯(1:1)，RS485支持总线形式通讯（1:N）</li>
 </ul>
-<h3 id="SPI"><a href="#SPI" class="headerlink" title="SPI"></a>SPI</h3><p>SPI是串行外设接口（Serial Peripheral Interface）的缩写。SPI，是一种高速的，<strong>全双工</strong>，<strong>同步</strong>的通信总线，并且在芯片的管脚上只占用<strong>四根线</strong>，节约了芯片的管脚，同时为PCB的布局上节省空间，提供方便，正是出于这种简单易用的特性，如今越来越多的芯片集成了这种通信协议，比如AT91RM9200，stm32f103等。<br>:</p>
+<h3 id="SPI"><a href="#SPI" class="headerlink" title="SPI"></a>SPI</h3><p>SPI是串行外设接口（Serial Peripheral Interface）的缩写。SPI，是一种高速的，<strong>全双工</strong>，<strong>同步</strong>的通信总线，并且在芯片的管脚上只占用<strong>四根线</strong>，节约了芯片的管脚，同时为PCB的布局上节省空间，提供方便，正是出于这种简单易用的特性，如今越来越多的芯片集成了这种通信协议，比如AT91RM9200，stm32f103等。</p>
 <h3 id="IIC"><a href="#IIC" class="headerlink" title="IIC"></a>IIC</h3><p>IIC 即Inter-Integrated Circuit(集成电路总线），这种总线类型是由飞利浦半导体公司在八十年代初设计出来的一种简单、双向、二线制、同步串行总线，主要是用来连接整体电路(ICS) ，IIC是一种多向控制总线，也就是说多个芯片可以连接到同一总线结构下，同时每个芯片都可以作为实时数据传输的控制源。这种方式简化了信号传输总线接口，如今越来越多的芯片集成了这种通信协议，比如stm32f103，EFM32等。</p>
-<p>### </p>
-<hr>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><hr>
 <p>To be continued…</p>
 <blockquote>
 <p>参考链接：<br><a href="http://blog.csdn.net/wind19/article/details/7433249" target="_blank" rel="external">http://blog.csdn.net/wind19/article/details/7433249</a><br><a href="http://baike.baidu.com/view/185322.htm" target="_blank" rel="external">http://baike.baidu.com/view/185322.htm</a><br><a href="http://www.cnblogs.com/mylinux/p/4078576.html" target="_blank" rel="external">http://www.cnblogs.com/mylinux/p/4078576.html</a><br><a href="http://baike.baidu.com/view/716175.htm" target="_blank" rel="external">http://baike.baidu.com/view/716175.htm</a><br><a href="https://www.zhihu.com/question/29033993" target="_blank" rel="external">https://www.zhihu.com/question/29033993</a><br><a href="http://www.cnblogs.com/general001/articles/2344079.html" target="_blank" rel="external">http://www.cnblogs.com/general001/articles/2344079.html</a><br><a href="http://blog.csdn.net/weiqifa0/article/details/8845281" target="_blank" rel="external">http://blog.csdn.net/weiqifa0/article/details/8845281</a><br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a></p>
@@ -3703,10 +4411,16 @@
       
         <categories>
             
-            <category> 问题总结 </category>
+            <category> 程序开发 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> 基础 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -3724,7 +4438,7 @@
       
         <categories>
             
-            <category> 杂谈 </category>
+            <category> 生活杂谈 </category>
             
         </categories>
         
@@ -3746,16 +4460,22 @@
       
         <categories>
             
-            <category> 杂谈 </category>
+            <category> 个人观点 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> 手机 </tag>
+            
+        </tags>
         
     </entry>
     
     <entry>
       <title><![CDATA[多种电平的区分]]></title>
-      <url>http://noparkinghere.top/2016/10/09/2016/2016-10-09-%E5%A4%9A%E7%A7%8D%E7%94%B5%E5%B9%B3%E7%9A%84%E5%8C%BA%E5%88%86/</url>
+      <url>http://noparkinghere.top/2016/10/09/2016-10-09-%E5%A4%9A%E7%A7%8D%E7%94%B5%E5%B9%B3%E7%9A%84%E5%8C%BA%E5%88%86/</url>
       <content type="html"><![CDATA[<p><strong>电平</strong>就是指电路中两点或几点在相同阻抗下电量的相对比值，即电量水平。常用逻辑电平：有TTL、CMOS、LVTTL、ECL、PECL、GTL；RS232、RS422、LVDS等。</p>
 <h3 id="TTL电平"><a href="#TTL电平" class="headerlink" title="TTL电平"></a>TTL电平</h3><p>TTL和CMOS的逻辑电平按典型电压可分为四类：5V系列（5V TTL和5V CMOS）、3.3V系列，2.5V系列和1.8V系列。</p>
 <ul>
@@ -3772,10 +4492,16 @@
       
         <categories>
             
-            <category> 嵌入式 </category>
+            <category> 软件应用 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -3803,10 +4529,16 @@
       
         <categories>
             
-            <category> 问题总结 </category>
+            <category> 程序开发 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> 基础知识 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -3848,7 +4580,7 @@
       
         <categories>
             
-            <category> 软件安装 </category>
+            <category> 软件应用 </category>
             
         </categories>
         
@@ -3857,7 +4589,7 @@
     
     <entry>
       <title><![CDATA[GP22芯片详解]]></title>
-      <url>http://noparkinghere.top/2016/09/30/2016/2016-09-30-GP22%E8%8A%AF%E7%89%87%E8%AF%A6%E8%A7%A3/</url>
+      <url>http://noparkinghere.top/2016/09/30/2016-09-30-GP22%E8%8A%AF%E7%89%87%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<p>GP22是一款工业计算时间的芯片，由于其精度高在几十ps级别，所以被广泛的应用在气表水表上面。本人由于工作上面的原因，有机会接触到这款芯片，但该芯片的研究学习并不简单，由于有多个寄存器，再加上寄存器的配置复用位数很多，所以注定这款芯片不简单，另外一些模拟数字电路，晶振校准能耗，采样精度等等各种功能很是繁杂，所以可以说这款芯片已经是类似于51单片机这种需要学习研究一下的芯片了。这篇文章将不断地总结记录，在使用这种芯片的重点，已经一些问题的总结。</p>
 <a id="more"></a>
 <hr>
@@ -3868,10 +4600,16 @@
       
         <categories>
             
-            <category> 嵌入式 </category>
+            <category> 程序开发 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -4049,16 +4787,22 @@
       
         <categories>
             
-            <category> 问题总结 </category>
+            <category> 转载文章 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> 学习方法 </tag>
+            
+        </tags>
         
     </entry>
     
     <entry>
       <title><![CDATA[关于手机的一些个人看法]]></title>
-      <url>http://noparkinghere.top/2016/09/28/2016/2016-09-28-%E5%85%B3%E4%BA%8E%E6%89%8B%E6%9C%BA%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%AA%E4%BA%BA%E7%9C%8B%E6%B3%95/</url>
+      <url>http://noparkinghere.top/2016/09/28/2016-09-28-%E5%85%B3%E4%BA%8E%E6%89%8B%E6%9C%BA%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%AA%E4%BA%BA%E7%9C%8B%E6%B3%95/</url>
       <content type="html"><![CDATA[<p>个人一直很喜欢电子产品，且关于电子科技类新闻较多，近几年来可以说每日必看，曾经也经常混迹于各大论坛贴吧微博等。本文当然仅仅代表本人（一个非专业人事）对各个手机厂家品牌的一些看法，文章可能不会一次性写完，会随着我对手机了解成都的不断加深而更新本文。</p>
 <a id="more"></a>
 <p>To be continued…</p>
@@ -4067,22 +4811,16 @@
       
         <categories>
             
-            <category> 杂谈 </category>
+            <category> 软件应用 </category>
             
         </categories>
         
-        
-        <tags>
-            
-            <tag> 杂谈 </tag>
-            
-        </tags>
         
     </entry>
     
     <entry>
       <title><![CDATA[git的配置及相关插件]]></title>
-      <url>http://noparkinghere.top/2016/09/28/2016/2016-09-28-git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6/</url>
+      <url>http://noparkinghere.top/2016/09/28/2016-09-28-git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6/</url>
       <content type="html"><![CDATA[<p>一个好的工具，需要不断的打磨和熟悉使用技巧才可以把它用的炉火纯青，git同样如此，本文主要是推荐一些git常用的配置以及配套的一些工具。</p>
 <h3 id="git的相关配置："><a href="#git的相关配置：" class="headerlink" title="git的相关配置："></a>git的相关配置：</h3><h4 id="gitignore配置"><a href="#gitignore配置" class="headerlink" title=".gitignore配置"></a>.gitignore配置</h4><a id="more"></a>
 <h3 id="推荐的git插件："><a href="#推荐的git插件：" class="headerlink" title="推荐的git插件："></a>推荐的git插件：</h3><h4 id="tig"><a href="#tig" class="headerlink" title="tig"></a>tig</h4><p>首先推荐<a href="http://jonas.nitro.dk/tig/" target="_blank" rel="external">tig</a>（名字刚好和git相反），是一个专门针对git的小软件，官方这么介绍<em>text-mode interface for Git</em>。</p>
@@ -4094,10 +4832,16 @@
       
         <categories>
             
-            <category> 软件应用 </category>
+            <category> 转载文章 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> 英语 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -4137,6 +4881,12 @@
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
         
     </entry>
     
@@ -4279,10 +5029,16 @@
       
         <categories>
             
-            <category> 问题总结 </category>
+            <category> 程序开发 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> 基础 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -4351,10 +5107,16 @@
       
         <categories>
             
-            <category> 配置推荐 </category>
+            <category> 软件应用 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> 系统安装 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -4380,31 +5142,22 @@
       
         <categories>
             
-            <category> 软件安装 </category>
+            <category> 软件应用 </category>
             
         </categories>
         
         
-    </entry>
-    
-    <entry>
-      <title><![CDATA[解决重启网卡后ip route add丢失]]></title>
-      <url>http://noparkinghere.top/2016/09/12/2016/2016-09-12-%E8%A7%A3%E5%86%B3%E9%87%8D%E5%90%AF%E7%BD%91%E5%8D%A1%E5%90%8Eip-route-add%E4%B8%A2%E5%A4%B1/</url>
-      <content type="html"><![CDATA[<a id="more"></a>
-]]></content>
-      
-        <categories>
+        <tags>
             
-            <category> 问题总结 </category>
+            <tag> linux </tag>
             
-        </categories>
-        
+        </tags>
         
     </entry>
     
     <entry>
       <title><![CDATA[网络监控工具wireshark]]></title>
-      <url>http://noparkinghere.top/2016/09/12/2016/2016-09-12-%E7%BD%91%E7%BB%9C%E7%9B%91%E6%8E%A7%E5%B7%A5%E5%85%B7wireshark/</url>
+      <url>http://noparkinghere.top/2016/09/12/2016-09-12-%E7%BD%91%E7%BB%9C%E7%9B%91%E6%8E%A7%E5%B7%A5%E5%85%B7wireshark/</url>
       <content type="html"><![CDATA[<h3 id="wireshark简介"><a href="#wireshark简介" class="headerlink" title="wireshark简介"></a>wireshark简介</h3><p>Wireshark（前称Ethereal）是一个网络封包分析软件。网络封包分析软件的功能是撷取网络封包，并尽可能显示出最为详细的网络封包资料。Wireshark使用WinPCAP作为接口，直接与网卡进行数据报文交换。网络封包分析软件的功能可想像成 “电工技师使用电表来量测电流、电压、电阻” 的工作 - 只是将场景移植到网络上，并将电线替换成网络线。在过去，网络封包分析软件是非常昂贵的，或是专门属于营利用的软件。Ethereal的出现改变了这一切。在GNUGPL通用许可证的保障范围底下，使用者可以以免费的代价取得软件与其源代码，并拥有针对其源代码修改及客制化的权利。Ethereal是目前全世界最广泛的网络封包分析软件之一。</p>
 <a id="more"></a>
 <h3 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h3><h4 id="linux下的安装"><a href="#linux下的安装" class="headerlink" title="linux下的安装"></a>linux下的安装</h4><p>首先，安装只要一个命令行(由于之前装过了，所以没有在安装什么了)：sudo apt-get install wireshark 。已经将wireshark安装完毕，接下来我没就可以通过：终端输入wireshark 用来启动它的图形界面。<br>然而，dumpcap需要root权限才能使用的,以普通用户打开Wireshark，Wireshark当然没有权限使用dumpcap进行截取封包。虽然可以用:sudo wireshark来完成。但是，以sudo的方式用root打开Wireshark显然是不安全的，也不是很方便，因为得到的封包数据也属于root用户。于是，我们提供下面的方法来完成普通用户下的操作。</p>
@@ -4427,66 +5180,17 @@
         </categories>
         
         
-    </entry>
-    
-    <entry>
-      <title><![CDATA[个人云服务器选择]]></title>
-      <url>http://noparkinghere.top/2016/09/09/2016/2016-09-09-%E4%B8%AA%E4%BA%BA%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%89%E6%8B%A9/</url>
-      <content type="html"><![CDATA[<p><em>首先声明，本人并非从事运维工作，玩服务器等也纯属业余爱好，个人作为一个web菜鸟，仅仅是能够安装系统，基本使用 linux 的一些操作，具体原理了解并不多。本文主要是针对那些和我一样的业余爱好者，想体验下云服务，且又不知道该如何选择的用户。</em></p>
-<p>虽然个人博客搭建了也有一段时间了，但一直都是投机取巧占用了其他网站的服务器，没使用自己的服务器，经过半年的摸索，也体验过多家的云服务（这边仅是体验，并没有长期使用），下面写写个人的小结。</p>
-<p>要使你的网站能够被访问，首先得申请个域名，当然不申请域名，你搭建的服务也可以通过 IP 地址直接访问的，但是一般都不这么做，固定 IP 地址的价格还是很昂贵的，不再本文讨论范畴之内，这边讨论下域名申请，一个可以 .site,.top,.xyz 结尾的一级域名一年也只要几块钱，但请注意，申请域名的时候目前支持备案的并不多（不备案的域名，使用国内服务器的话，就会强制你下线，不让访问），常用可以备案的域名为 .cn .com .org .edu 等。推荐购买域名国内的话可以去万网看看，定期会有打折，而国外也有一些网站，这边就不一一例举，免费的域名建议不要使用，因为每隔一两个月或者几天就可能被收回去。一个 .site 结尾的域名，可能价格才几元钱，所以如果只是想要买个玩玩的话，这些是不错的选择，但是如果你是商业用途，建议还是购买 .com .cn 结尾的域名，因为你需要国内的服务器让你的客户稳定访问，而要能够稳定访问，你的域名必须得备案。</p>
-<h3 id="阿里云"><a href="#阿里云" class="headerlink" title="阿里云"></a>阿里云</h3><p>首先谈及下国内第一大，云服务提供商阿里云，阿里云收购了原来万网的一系列服务，目前在 VPS 领域可以说是提供服务最完善，用户群体最多，功能最强的网站了，当然，价格也最贵，不是一般的非商业用户所能够承受的，对于我这样的非专业人士来说，上云暂时也仅仅是体验服务，学习研究之类的，所有阿里云会选择按量购买，毕竟个人觉得按月购买每个月价格还是蛮高的，如果不是有特别需求，或者盈利性质的网站，你可以选择按量购买，也就是说按你用来购买，不用的时候就关闭服务。这类似于手机流量一样，用多少流量卖多少，不用的时候就将服务关闭掉。</p>
-<p>阿里云的特点：</p>
-<ul>
-<li>稳定，毕竟国内最大的提供商</li>
-<li>价格昂贵，选择高带宽需要额外收费</li>
-<li>功能多，操作界面美观，商务范十足</li>
-</ul>
-<h3 id="腾讯云试用"><a href="#腾讯云试用" class="headerlink" title="腾讯云试用"></a>腾讯云试用</h3><p>腾讯云注册后有5-7天的免费使用时间，个人感觉这个对从来没接触过云服务，第一次试用的同学来说，还是很不错的，最起码可以自己尝试搭建一些小型的网站如：博客之类的还是很不错的，当然时间很宝贵，要试用的话，还是得抓紧时间。腾讯云的体验各种活动要比阿里云多不少，但操作略显简陋，只能说具备基本的功能。</p>
-<p>腾讯云特点：</p>
-<ul>
-<li>还算稳定，也算是国内的大公司</li>
-<li>同样，价格不便宜，比阿里云略低，选择不同的带宽需要额外付费</li>
-<li>功能基本具备，界面体验等一般</li>
-</ul>
-<a id="more"></a>
-<h3 id="搬瓦工（BandwagonHost-VPS）"><a href="#搬瓦工（BandwagonHost-VPS）" class="headerlink" title="搬瓦工（BandwagonHost VPS）"></a><a href="https://bwh1.net/" target="_blank" rel="external">搬瓦工</a>（BandwagonHost VPS）</h3><p>目前来说国外性价比较高的一个 VPS 服务商，过去有过一些精巧型的服务提供，一个 500M 的硬盘，可能年付费才几美金。最大的特点就是价格便宜：</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="number">10</span> GB SSD RAID<span class="number">-10</span> Disk Space</div><div class="line"><span class="number">256</span> MB RAM</div><div class="line"><span class="number">500</span> GB Transfer</div><div class="line">Gigabit port</div><div class="line">Multiple locations</div><div class="line"></div><div class="line">$<span class="number">2.99</span>/month</div></pre></td></tr></table></figure>
-<p>如上所示，一个 VPS 价格才 $3/month 这意味着一年才 ￥200 多，国内的公司提供的同等服务，基本上都要 500-1000 元，且是限制带宽的，默认为 1M 带宽，而国外都是 100M/1000M 带宽。</p>
-<h3 id="vultr"><a href="#vultr" class="headerlink" title="vultr"></a><a href="https://www.vultr.com/pricing/" target="_blank" rel="external">vultr</a></h3><p>这网站也是国外比较出名的一个高性价 VPS 服务商，价格与搬瓦工差不多，竞争关系，时高时低。最低套餐如下：</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="number">20</span> GB SSD</div><div class="line"><span class="number">512</span> MB RAM</div><div class="line"><span class="number">500</span> GB Bandwidth</div><div class="line">$<span class="number">2.5</span>/month</div></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-09-09-个人云服务器选择/1.png" alt=""></p>
-<p>可见以上这个套餐还是很划算的，每个月不到 20 块，就可以享受这种套餐，20 GB SSD 首先速度有保证，其次也基本上能够完成你的所有实验用途了。</p>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>以上内容只列举了目前为止，我所体验过得 VPS 服务，当然国内也有很多小型服务商，可能价格会略微便宜，但之前打听过，价格也不低，目前情况不得而知。优先建议的话是选择国外的 VPS 来体验（因为能看本文的绝不会是从事商业用途的），国外的 VPS 购买后可以用来做什么？这边不具体展开详细说明，只做一个简要的说明参考：</p>
-<ul>
-<li>购买国外的 VPS 可以用来搭建科学上网服务（也就是绕过 GFW）</li>
-<li>搭建个人的博客，毕竟外国提供带宽很大，博客访问都是不错的，不用于商业用途应该没有影响</li>
-<li>学习服务搭建，用虚拟机虽然也能学习服务搭建，但毕竟没有实际操作来的更爽，更加直观（虽然 VPS 也是个虚拟机），搭建服务后，你可以在互联网中实际访问，这是虚拟机无法带给你的成就感。</li>
-</ul>
-<hr>
-<p>后续有新的体验和经验，仍然会更新…</p>
-<p>To be continued…</p>
-<p>写作时间：20:30-21:30</p>
-]]></content>
-      
-        <categories>
-            
-            <category> 问题总结 </category>
-            
-        </categories>
-        
-        
         <tags>
             
-            <tag> 问题总结 </tag>
+            <tag> 网络 </tag>
             
         </tags>
         
     </entry>
     
     <entry>
-      <title><![CDATA[linux基本命令]]></title>
-      <url>http://noparkinghere.top/2016/09/06/2016/2016-09-06-linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/</url>
+      <title><![CDATA[linux基本命令汇总]]></title>
+      <url>http://noparkinghere.top/2016/09/06/2016/2016-09-06-linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB/</url>
       <content type="html"><![CDATA[<p><em>本文主要学习总结，使用 linux CLI 的基本命令，这边不以任何发行版为例，介绍的是绝大多数 linux 发行版上面都会含有的 CLI 软件，需要注意的是，这边是以完整安装为基础的，部分命令可能在最小安装上面无法使用。目前 安装 linux CLI 后可以使用的命令超过上千个，但最常用的命令一般只有 80 个左右，由于篇幅有限，本文会选取 80 个中的几十个最基本必须掌握的命令进行罗列和简介，不会展开详解，详细内容还是需要查看 manual 或者借助搜索引擎。</em></p>
 <p>shell 命令的一般格式为：command [option] [arguments]。具体如下：</p>
 <ul>
@@ -4597,6 +5301,12 @@
         </categories>
         
         
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -4666,7 +5376,7 @@
       
         <categories>
             
-            <category> 问题总结 </category>
+            <category> 软件应用 </category>
             
         </categories>
         
@@ -4676,26 +5386,6 @@
             <tag> 问题总结 </tag>
             
         </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[linux下的shell和终端使用]]></title>
-      <url>http://noparkinghere.top/2016/08/26/2016/2016-08-26-linux%E4%B8%8B%E7%9A%84shell%E5%92%8C%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8/</url>
-      <content type="html"><![CDATA[<h3 id="ZSH使用"><a href="#ZSH使用" class="headerlink" title="ZSH使用"></a>ZSH使用</h3><p><em>bash为linux和OS X传统的默认shell，但使用起来比较麻烦，缺少一些人性化的特性，而现在流行的ZSH补足了bash的这些问题，且通过<a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="external">oh-my-zsh</a>可以很方便的配置，因此已经广泛的被很多人使用。下面将会对网上的资料和自我使用经验做一个详细的总结。</em></p>
-<p><em>本文主要学习总结，linux下的CLI的使用技巧，不以任何发行版为例，仅仅介绍最通用的bash下的快捷操作和相关技巧，当然bash本身也可以跨平台，在诸如OS X上面默认也使用bash，同样可以参考本文。</em></p>
-<h3 id="Tmux使用"><a href="#Tmux使用" class="headerlink" title="Tmux使用"></a>Tmux使用</h3><a id="more"></a>
-<blockquote>
-<p>参考网址：<br><a href="http://blog.jobbole.com/87584/" target="_blank" rel="external">http://blog.jobbole.com/87584/</a><br><a href="http://xiaozhou.net/build-your-go-ide-2015-07-18.html" target="_blank" rel="external">http://xiaozhou.net/build-your-go-ide-2015-07-18.html</a></p>
-</blockquote>
-]]></content>
-      
-        <categories>
-            
-            <category> 软件应用 </category>
-            
-        </categories>
-        
         
     </entry>
     
@@ -4727,14 +5417,14 @@
       
         <categories>
             
-            <category> 问题总结 </category>
+            <category> 转载文章 </category>
             
         </categories>
         
         
         <tags>
             
-            <tag> 问题总结 </tag>
+            <tag> 英语 </tag>
             
         </tags>
         
@@ -4763,14 +5453,14 @@
       
         <categories>
             
-            <category> 编程技巧 </category>
+            <category> 软件应用 </category>
             
         </categories>
         
         
         <tags>
             
-            <tag> 问题总结 </tag>
+            <tag> C语言 </tag>
             
         </tags>
         
@@ -4790,10 +5480,16 @@
       
         <categories>
             
-            <category> 编程技巧 </category>
+            <category> 软件应用 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> githubpage </tag>
+            
+        </tags>
         
     </entry>
     
@@ -4836,6 +5532,12 @@
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
         
     </entry>
     
@@ -4885,7 +5587,7 @@
       
         <categories>
             
-            <category> 编程技巧 </category>
+            <category> 软件应用 </category>
             
         </categories>
         
@@ -4894,7 +5596,7 @@
     
     <entry>
       <title><![CDATA[模拟IIC通信时IO选用模式]]></title>
-      <url>http://noparkinghere.top/2016/08/10/2016/2016-08-10-%E6%A8%A1%E6%8B%9FIIC%E9%80%9A%E4%BF%A1%E6%97%B6IO%E9%80%89%E7%94%A8%E6%A8%A1%E5%BC%8F/</url>
+      <url>http://noparkinghere.top/2016/08/10/2016-08-10-%E6%A8%A1%E6%8B%9FIIC%E9%80%9A%E4%BF%A1%E6%97%B6IO%E9%80%89%E7%94%A8%E6%A8%A1%E5%BC%8F/</url>
       <content type="html"><![CDATA[<p><em>现如今很多芯片都已经包含有 IIC 通信功能，为何仍然选择模拟 IIC 呢？</em> <strong>首先 IIC 通讯的版权掌握在飞利浦手中，部分厂家如：st 等，实现 IIC 通信较为繁琐，据说不是特别合理稳定；此外，芯片级的 IIC 不同的芯片就需要重新研究书写一次，而模拟 IIC 天生具有较好的移植性，可以做到一次书写，终身可移植。</strong></p>
 <h3 id="IIC-通信原理"><a href="#IIC-通信原理" class="headerlink" title="IIC 通信原理"></a>IIC 通信原理</h3><h3 id="IIC-选用-IO-模式"><a href="#IIC-选用-IO-模式" class="headerlink" title="IIC 选用 IO 模式"></a>IIC 选用 IO 模式</h3><p>通过上面可以知道，IIC 在通信过程中，主设备SCL始终是保持发送状态，因此这边我们可以将 SCL 设置为推挽或者开漏输出。推挽的输出能力较强，开漏输出则需要加上拉电阻，而一般 IIC 的推荐电路就是需要人为增加了上拉电阻的，因此在考虑功耗等一些情况下，可能开漏输出更好。</p>
 <p><strong>而问题的关键是 SDA 到底设置为什么模式？</strong></p>
@@ -4907,16 +5609,22 @@
       
         <categories>
             
-            <category> 嵌入式 </category>
+            <category> 软件应用 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+        </tags>
         
     </entry>
     
     <entry>
       <title><![CDATA[常规的通讯校验]]></title>
-      <url>http://noparkinghere.top/2016/08/06/2016/2016-08-06-%E5%B8%B8%E8%A7%84%E7%9A%84%E9%80%9A%E8%AE%AF%E6%A0%A1%E9%AA%8C/</url>
+      <url>http://noparkinghere.top/2016/08/06/2016-08-06-%E5%B8%B8%E8%A7%84%E7%9A%84%E9%80%9A%E8%AE%AF%E6%A0%A1%E9%AA%8C/</url>
       <content type="html"><![CDATA[<a id="more"></a>
 <blockquote>
 <p>参考链接：<br><a href="http://blog.csdn.net/liyuanbhu/article/details/7882789" target="_blank" rel="external">http://blog.csdn.net/liyuanbhu/article/details/7882789</a></p>
@@ -4925,14 +5633,14 @@
       
         <categories>
             
-            <category> 问题总结 </category>
+            <category> 软件应用 </category>
             
         </categories>
         
         
         <tags>
             
-            <tag> 问题总结 </tag>
+            <tag> 嵌入式 </tag>
             
         </tags>
         
@@ -4940,7 +5648,7 @@
     
     <entry>
       <title><![CDATA[GPIO口详解]]></title>
-      <url>http://noparkinghere.top/2016/08/03/2016/2016-08-03-gpio%E5%8F%A3%E8%AF%A6%E8%A7%A3/</url>
+      <url>http://noparkinghere.top/2016/08/03/2016-08-03-gpio%E5%8F%A3%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<p><em>在做 MCU 编程开发的时候，GPIO 可以说是最基础也是最重要的部分，MCU 的学习研究无非就是三点：高低电频，输入输出，通讯协议。而GPIO可以说贯穿始终，在模拟一些通讯协议时，GPIO 所采用的模式，往往会引起各种意想不到的问题。</em></p>
 <h3 id="GPIO-模式："><a href="#GPIO-模式：" class="headerlink" title="GPIO 模式："></a>GPIO 模式：</h3><h4 id="通用推挽输出（push-pull）："><a href="#通用推挽输出（push-pull）：" class="headerlink" title="通用推挽输出（push-pull）："></a>通用推挽输出（push-pull）：</h4><p>在功率放大器电路中大量采用推挽放大器电路，这种电路中用两只三极管构成一级放大器电路，两只三极管分别放大输入信号的正半周和负半周，即用一只三极管放大信号的正半周，用另一只三极管放大信号的负半周，两只三极管输出的半周信号在放大器负载上合并后得到一个完整周期的输出信号。原理图如下：</p>
 <p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-08-03-gpio%E5%8F%A3%E8%AF%A6%E8%A7%A3/8b82b9014a90f6037a3d50aa3a12b31bb151ed4a.jpg" alt=""></p>
@@ -4962,10 +5670,16 @@
       
         <categories>
             
-            <category> 嵌入式 </category>
+            <category> 软件应用 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -5036,16 +5750,22 @@
       
         <categories>
             
-            <category> 软件安装 </category>
+            <category> 软件应用 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
         
     </entry>
     
     <entry>
       <title><![CDATA[多个发行版linux使用体验]]></title>
-      <url>http://noparkinghere.top/2016/07/27/2016/2016-07-27-%E5%A4%9A%E4%B8%AA%E5%8F%91%E8%A1%8C%E7%89%88linux%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/</url>
+      <url>http://noparkinghere.top/2016/07/27/2016-07-27-%E5%A4%9A%E4%B8%AA%E5%8F%91%E8%A1%8C%E7%89%88linux%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/</url>
       <content type="html"><![CDATA[<p><em>本文主要记录自己使用多个linux的发行版的一些感受体验，会包括CLI和GUI的一些体验。本文具有一定的主观性，仅供参考。</em></p>
 <p>发行版包括：ubuntu，debian，centOS，openSUSE等<br>窗口管理器包括：gnome，kde，awesome等</p>
 <a id="more"></a>
@@ -5055,14 +5775,14 @@
       
         <categories>
             
-            <category> 问题总结 </category>
+            <category> 软件应用 </category>
             
         </categories>
         
         
         <tags>
             
-            <tag> 问题总结 </tag>
+            <tag> 使用体验 </tag>
             
         </tags>
         
@@ -5111,7 +5831,7 @@
       
         <categories>
             
-            <category> 问题总结 </category>
+            <category> 软件应用 </category>
             
         </categories>
         
@@ -5129,6 +5849,8 @@
       <url>http://noparkinghere.top/2016/07/21/2016/2016-07-21-githubpage-jekyll%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
       <content type="html"><![CDATA[<p>使用 githubpage+jekyll 搭建博客也有半年时间了，这篇文章早该写好，但一致迟迟没有下笔。怎么说呢，githubpage+jekyll 搭建博客的静态博客，操作起来可视化成都较低，缺少 wordpress 等知名博客酷炫的管理后台，也很少能够找到炫酷的模板（文章下方链接给出了 jekyll 的一些模板），以上缺点也是显而易见，简而言之就是 jekyll 的界面丑陋用起来麻烦。但因为 githubpage 是 jekyll 提供的服务，所以好处就是 jekyll 文件无需每次本地编译，直接 push 到 github 上面，就可以生成页面，另外本地也会同时保存一份完整的源文件，书写时只需要按照 markdown 语法码字，更换平台博客搬家更是轻松。</p>
 <a id="more"></a>
+<hr>
+<p><em>本来是打算自己写一些文章的，但由于网上有关这一块的博客内容都已经极为详细，因此不再另外累述，详细可以参考下方链接。</em></p>
 <blockquote>
 <p>参考链接：<br><a href="http://www.perfectlyrandom.org/2014/06/29/adding-disqus-to-your-jekyll-powered-github-pages/" target="_blank" rel="external">http://www.perfectlyrandom.org/2014/06/29/adding-disqus-to-your-jekyll-powered-github-pages/</a><br><a href="http://jekyll.com.cn/" target="_blank" rel="external">http://jekyll.com.cn/</a><br><a href="http://playingfingers.com/2016/03/26/build-a-blog/" target="_blank" rel="external">http://playingfingers.com/2016/03/26/build-a-blog/</a><br><a href="https://github.com/jekyll/jekyll/wiki/sites" target="_blank" rel="external">https://github.com/jekyll/jekyll/wiki/sites</a><br><a href="http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html</a><br><a href="http://www.cnfeat.com/blog/2014/05/10/how-to-build-a-blog/" target="_blank" rel="external">http://www.cnfeat.com/blog/2014/05/10/how-to-build-a-blog/</a></p>
 </blockquote>
@@ -5136,10 +5858,16 @@
       
         <categories>
             
-            <category> 软件安装 </category>
+            <category> 软件应用 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> githubpage </tag>
+            
+        </tags>
         
     </entry>
     
@@ -5227,30 +5955,16 @@
       
         <categories>
             
-            <category> 软件安装 </category>
+            <category> 软件应用 </category>
             
         </categories>
         
         
-    </entry>
-    
-    <entry>
-      <title><![CDATA[（转）github_markdown]]></title>
-      <url>http://noparkinghere.top/2016/07/15/2016/2016-07-05-%EF%BC%88%E8%BD%AC%EF%BC%89github_markdown/</url>
-      <content type="html"><![CDATA[<p><em>本内容主要例举了github适用的markdown语法，类似于基于基础markdown定制的语法特性，并非适用于所有的其他markdown编辑器，尤其是下述表情包基本上其他编辑器都不一定能够支持，本人使用的是atom外加一些github的插件，基本能够显示大多数内容，但仍由部分不能支持，另外本文的主要适用范围：<strong>在新建项目工程，书写readme时使用，其他如github page或者其他一些站点的markdown页面请勿参考本文。</strong></em></p>
-<h4 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a><a href="https://github.com/guodongxiaren/README" target="_blank" rel="external">实现效果</a></h4><a id="more"></a>
-<h4 id="源码地址"><a href="#源码地址" class="headerlink" title="源码地址"></a><a href="https://github.com/guodongxiaren" target="_blank" rel="external">源码地址</a></h4><hr>
-<blockquote>
-<p>参考链接：<br><a href="https://github.com/guodongxiaren/README" target="_blank" rel="external">https://github.com/guodongxiaren/README</a> （正文原始地址）<br><a href="https://raw.githubusercontent.com/noparkinghere/README/master/README.md" target="_blank" rel="external">https://raw.githubusercontent.com/noparkinghere/README/master/README.md</a><br><a href="http://blog.csdn.net/wqvbjhc/article/details/27349209" target="_blank" rel="external">http://blog.csdn.net/wqvbjhc/article/details/27349209</a></p>
-</blockquote>
-]]></content>
-      
-        <categories>
+        <tags>
             
-            <category> 问题总结 </category>
+            <tag> 系统安装 </tag>
             
-        </categories>
-        
+        </tags>
         
     </entry>
     
@@ -5298,14 +6012,14 @@
       
         <categories>
             
-            <category> 问题总结 </category>
+            <category> 软件应用 </category>
             
         </categories>
         
         
         <tags>
             
-            <tag> 问题总结 </tag>
+            <tag> IDE </tag>
             
         </tags>
         
@@ -5338,10 +6052,16 @@
       
         <categories>
             
-            <category> 配置推荐 </category>
+            <category> 软件应用 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> 配置 </tag>
+            
+        </tags>
         
     </entry>
     
@@ -5373,55 +6093,16 @@
       
         <categories>
             
-            <category> 问题总结 </category>
+            <category> 软件应用 </category>
             
         </categories>
         
         
         <tags>
             
-            <tag> 问题总结 </tag>
+            <tag> 嵌入式 </tag>
             
         </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[linux下vpn配置]]></title>
-      <url>http://noparkinghere.top/2016/07/12/2016/2016-07-12-linux%E4%B8%8Bvpn%E9%85%8D%E7%BD%AE/</url>
-      <content type="html"><![CDATA[<p>这篇文章的初稿是在一年前写的，今天简书通知我之前上传的一篇有关 ss 的文章竟然被强制下架了，让我突然想起以前写过这样一篇文章，ss 在国内查封的十分严重，百度几乎找不到任何有关的内容，而 VPN 在市面上算是广为流传，今天（2017-03-20）再次把文章拿出来总结下。</p>
-<p>由于众所周知的原因，国内用户被强大的 GFW 保（lan）护（jie）而无法访问外网，或者即便可以访问，也会遇到访问速度慢，网页无法刷新等问题。因此如果你要访问谷歌，Facebook，需要去国外厂家查找某方面的资料等，就一定需要学会翻墙上网，该方面的能力甚至已经算是软件从业/科研人员的基本素养，因此一般也将翻墙称作科学上网。本文主要介绍使用付费 VPN 的方式来绕过 GFW 的过滤，让小伙伴们能够轻松畅游天地，无拘无束。</p>
-<h3 id="推荐-VPN"><a href="#推荐-VPN" class="headerlink" title="推荐 VPN"></a>推荐 VPN</h3><p>如果你偶然需要访问下国外的网站，一般可以到网上试用免费的 VPN，几乎所有的 VPN 提供商都免费提供了试用 IP 地址，试用的账号大多是 1h 更换一次密码，速度仅能够访问网页。</p>
-<p>购买付费 VPN 的时候，一定需要谨慎，由于众所周知的法律盲区或者说是非法的原因，VPN 一般都缺少市场规范和管控，简而言之就是本身就不合法，因此很多网站出售 VPN 可能存在诈骗或被查封的可能性。本文推荐的是一个老牌 VPN，经营多年，信誉各方面都有的保障，具备速度快，链接稳定，站点多，软件跨平台，支持市面上各种操作系统等有点。</p>
-<p>这边首推国内最出名的 <a href="http://gjsq.me/web" target="_blank" rel="external">Green VPN</a>，域名经常会被查封，以上给出的这个网址一般会自动跳转，大多数情况不会变化。Green VPN 的费用一般在 ￥150/year 左右，可以两个客户端同时使用，特点是使用起来方便，速度稳定，一般带宽在 4M 以上，但不能长期链接，每天可能会断线一次。Green VPN 算是一家老牌的 VPN 了，价格虽然不算最便宜，但稳定性服务等都比较有保证，市面上面冒充 Green VPN 诈骗的也比较多，购买时需要当心注意。</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-12-linux%E4%B8%8Bvpn%E9%85%8D%E7%BD%AE/1.png" alt=""></p>
-<p><a href="http://gjsq.me/web" target="_blank" rel="external">Green VPN</a> 官方给出了最详细的指导教程，使用前可以先观看图文教程，步骤详细，而且都配置简单。</p>
-<p>VPN 的加密效果一般，还是有很大几率被监控到的，因此使用时，需要谨慎，切勿发表一些激动言论，谨防家中水表。</p>
-<a id="more"></a>
-<h3 id="linux-下的-VPN-配置"><a href="#linux-下的-VPN-配置" class="headerlink" title="linux 下的 VPN 配置"></a>linux 下的 VPN 配置</h3><p>Green VPN 上面的参考文档很多，其实已经给出了详细步骤，一般采用<a href="https://www.getgreenjsq.co/shiyong/67.html" target="_blank" rel="external">Ubuntu 设置方法 (PPTP)配置</a>，该步骤也适用于其他地方购买的 VPN，下面列出详细设置：</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-12-linux%E4%B8%8Bvpn%E9%85%8D%E7%BD%AE/2.png" alt=""></p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-12-linux%E4%B8%8Bvpn%E9%85%8D%E7%BD%AE/3.png" alt=""></p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-12-linux%E4%B8%8Bvpn%E9%85%8D%E7%BD%AE/4.png" alt=""></p>
-<p>网关填写服务器地址，该地址是 VPN 网站提供给你的连接地址，用户名密码填写在 VPN 网站注册的信息，验证通过即可登录，但有时连接未必稳定，需要尝试多次才可以连接成功。</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-12-linux%E4%B8%8Bvpn%E9%85%8D%E7%BD%AE/5.png" alt=""></p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-12-linux%E4%B8%8Bvpn%E9%85%8D%E7%BD%AE/6.png" alt=""></p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-12-linux%E4%B8%8Bvpn%E9%85%8D%E7%BD%AE/7.png" alt=""></p>
-<h3 id="VPN-和-ssh-兼容"><a href="#VPN-和-ssh-兼容" class="headerlink" title="VPN 和 ssh 兼容"></a>VPN 和 ssh 兼容</h3><p>VPN 的所用的协议和 SSH 协议是互不兼容的，也就是说，如果你登陆了 VPN ，这时使用 SSH 命令想完成一些操作的话，会出现不响应的状况。如果遇到这种问题可以参考本博客的<strong>linux下ssh通过VPN推送失败</strong>文章。</p>
-<h3 id="VPN-的开机自启动"><a href="#VPN-的开机自启动" class="headerlink" title="VPN 的开机自启动"></a>VPN 的开机自启动</h3><p>linux 下 VPN 的开机自启还没有找到，windows 等其他平台都有客户端可以很容易设置开机自启。</p>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>VPN 相比 ss 而言，更加容易使用，无需具备太多的电脑知识，但 VPN 加密不如 ss，更容易被监控到。</p>
-<hr>
-<p>To be continued…</p>
-<blockquote>
-<p>参考链接：<br><a href="https://www.getgreenjsq.co/shiyong/67.html" target="_blank" rel="external">https://www.getgreenjsq.co/shiyong/67.html</a></p>
-</blockquote>
-]]></content>
-      
-        <categories>
-            
-            <category> 配置推荐 </category>
-            
-        </categories>
-        
         
     </entry>
     
@@ -5492,10 +6173,16 @@
       
         <categories>
             
-            <category> linux </category>
+            <category> 软件应用 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
         
     </entry>
     
@@ -5548,49 +6235,9 @@
         </categories>
         
         
-    </entry>
-    
-    <entry>
-      <title><![CDATA[stm32F439案例汇总]]></title>
-      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
-      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
-<blockquote>
-<p>www.armjishu.com(无法访问)</p>
-</blockquote>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
-<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
-<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
-</ul>
-<a id="more"></a>
-<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
-<li>实验0 Template工程模板</li>
-<li>实验1 跑马灯</li>
-<li>实验2 蜂鸣器</li>
-<li>实验3 按键和外部中断</li>
-<li>实验4 看门狗（独立和窗口）</li>
-<li>实验5 待机唤醒</li>
-<li>实验6 串口通讯（232和485）</li>
-<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
-<li>实验8 PWM输出和输入捕获</li>
-</ul>
-<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
-<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
-</blockquote>
-<hr>
-<p><em>未完待续</em></p>
-]]></content>
-      
-        <categories>
-            
-            <category> 嵌入式 </category>
-            
-        </categories>
-        
-        
         <tags>
             
-            <tag> MCU </tag>
+            <tag> 版本控制 </tag>
             
         </tags>
         
@@ -5673,14 +6320,60 @@
       
         <categories>
             
-            <category> 配置推荐 </category>
+            <category> 软件应用 </category>
             
         </categories>
         
         
         <tags>
             
-            <tag> 软件安装 </tag>
+            <tag> 配置 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[stm32F439案例汇总]]></title>
+      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
+      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
+<blockquote>
+<p>www.armjishu.com(无法访问)</p>
+</blockquote>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
+<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
+<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
+</ul>
+<a id="more"></a>
+<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
+<li>实验0 Template工程模板</li>
+<li>实验1 跑马灯</li>
+<li>实验2 蜂鸣器</li>
+<li>实验3 按键和外部中断</li>
+<li>实验4 看门狗（独立和窗口）</li>
+<li>实验5 待机唤醒</li>
+<li>实验6 串口通讯（232和485）</li>
+<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
+<li>实验8 PWM输出和输入捕获</li>
+</ul>
+<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
+<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
+</blockquote>
+<hr>
+<p><em>未完待续</em></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 软件应用 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 嵌入式 </tag>
             
         </tags>
         
@@ -5761,14 +6454,14 @@ print(&apos;hello&apos;)
       
         <categories>
             
-            <category> 问题总结 </category>
+            <category> 转载文章 </category>
             
         </categories>
         
         
         <tags>
             
-            <tag> 问题总结 </tag>
+            <tag> 基础 </tag>
             
         </tags>
         
@@ -5797,14 +6490,14 @@ print(&apos;hello&apos;)
       
         <categories>
             
-            <category> 问题总结 </category>
+            <category> 软件应用 </category>
             
         </categories>
         
         
         <tags>
             
-            <tag> 问题总结 </tag>
+            <tag> 版本控制 </tag>
             
         </tags>
         
@@ -5913,6 +6606,12 @@ print(&apos;hello&apos;)
         </categories>
         
         
+        <tags>
+            
+            <tag> chrome </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -5980,6 +6679,12 @@ print(&apos;hello&apos;)
         </categories>
         
         
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
@@ -6029,39 +6734,6 @@ print(&apos;hello&apos;)
             <tag> 版本控制 </tag>
             
         </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[linux下文件查找]]></title>
-      <url>http://noparkinghere.top/2016/07/01/2016/2016-07-01-linux%E4%B8%8B%E6%96%87%E4%BB%B6%E6%9F%A5%E6%89%BE/</url>
-      <content type="html"><![CDATA[<p>linux 使用 CLI 的情况下，如果要查找文件还是很方便的，本身提供了多个搜索查找工具，这边主要列出一般随系统自带的工具：”find”；”locate”；”whereis”；”which”；”type”，这几个工具，一般绝大多数 linux 发行版都会自带；linux 是一个小而美的系统，基于 linux 内核之上，肯定还有一些发行版或者个人会提供一些更加强大的检索工具，这边不做详细介绍。</p>
-<h3 id="1-find"><a href="#1-find" class="headerlink" title="1. find"></a>1. find</h3><p>find是最常见和最强大的查找命令，你可以用它找到任何你想找的文件。<br>find的使用格式如下：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">find &lt;指定目录&gt; &lt;指定条件&gt; &lt;指定动作&gt;</div><div class="line">&lt;指定目录&gt;： 所要搜索的目录及其所有子目录。默认为当前目录。</div><div class="line">&lt;指定条件&gt;： 所要搜索的文件的特征。</div><div class="line">&lt;指定动作&gt;： 对搜索结果进行特定的处理。</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>如果什么参数也不加，find默认搜索当前目录及其子目录，并且不过滤任何结果（也就是返回所有文件），将它们全都显示在屏幕上。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">find的使用实例：</div><div class="line">$ find . -name <span class="string">'my*'</span></div><div class="line">搜索当前目录（含子目录，以下同）中，所有文件名以my开头的文件。</div><div class="line">$ find / -name <span class="string">'my*'</span> -ls</div><div class="line">搜索根目录中，所有文件名以my开头的文件，并显示它们的详细信息。</div><div class="line">$ find . -type f -mmin -10</div><div class="line">搜索当前目录中，所有过去10分钟中更新过的普通文件。如果不加-type f参数，则搜索普通文件+特殊文件+目录。</div></pre></td></tr></table></figure>
-<p>注意：find 每次会遍历你索要搜索的路径，然后查找文件名，另外 find 后面如果直接跟文件名如： find . -name myfile 则只会查找文件名为 myfile 的文件，如果需要搜索 myfile1 等文件，则需要加入 * 通配符。</p>
-<h3 id="2-locate"><a href="#2-locate" class="headerlink" title="2. locate"></a>2. locate</h3><p>locate 命令其实是 “find -name” 的另一种写法，但是要比后者快得多，原因在于它不搜索具体目录，而是搜索一个数据库（/var/lib/locatedb），这个数据库中含有本地所有文件信息。Linux 系统自动创建这个数据库，并且每天自动更新一次，所以使用 locate 命令查不到最新变动过的文件。为了避免这种情况，可以在使用locate之前，<strong>先使用 updatedb 命令</strong>，手动更新数据库，ubuntu 下需要使用 sudo 才可以更新该数据库。</p>
-<p>locate 相当于快速检索的 <code>find -name &quot;*name*&quot;</code> 写法，默认就带入模糊查找的功能，如果需要精准查找需要 <code>locate -b &#39;\NAME&#39;</code> man 文档中有详细描述。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">locate命令的使用实例：</div><div class="line">$ locate /etc/sh</div><div class="line">搜索etc目录下所有以sh开头的文件。</div><div class="line">$ locate ~/m</div><div class="line">搜索用户主目录下，所有以m开头的文件。</div><div class="line">$ locate -i ~/m</div><div class="line">搜索用户主目录下，所有以m开头的文件，并且忽略大小写。</div></pre></td></tr></table></figure>
-<h3 id="3-whereis"><a href="#3-whereis" class="headerlink" title="3. whereis"></a>3. whereis</h3><p>whereis命令只能用于程序名的搜索，而且只搜索二进制文件（参数-b）、man说明文件（参数-m）和源代码文件（参数-s）。如果省略参数，则返回所有信息。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">whereis命令的使用实例：</div><div class="line">$ whereis grep</div></pre></td></tr></table></figure>
-<h3 id="4-which"><a href="#4-which" class="headerlink" title="4. which"></a>4. which</h3><p>which命令的作用是，在PATH变量指定的路径中，搜索某个系统命令的位置，并且返回第一个搜索结果。也就是说，使用which命令，就可以看到某个系统命令是否存在，以及执行的到底是哪一个位置的命令。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">which</span>命令的使用实例：</div><div class="line">$ <span class="built_in">which</span> grep</div></pre></td></tr></table></figure>
-<h3 id="5-type"><a href="#5-type" class="headerlink" title="5. type"></a>5. type</h3><p>type命令其实不能算查找命令，它是用来区分某个命令到底是由shell自带的，还是由shell外部的独立二进制文件提供的。如果一个命令是外部命令，那么使用-p参数，会显示该命令的路径，相当于which命令。<br>type命令的使用实例：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">type</span> <span class="built_in">cd</span></div><div class="line">系统会提示，<span class="built_in">cd</span>是shell的自带命令（build-in）。</div><div class="line">$ <span class="built_in">type</span> grep</div><div class="line">系统会提示，grep是一个外部命令，并显示该命令的路径。</div><div class="line">$ <span class="built_in">type</span> -p grep</div><div class="line">加上-p参数后，就相当于<span class="built_in">which</span>命令。</div></pre></td></tr></table></figure>
-<blockquote>
-<p>参考链接：<br><a href="http://www.ruanyifeng.com/blog/2009/10/5_ways_to_search_for_files_using_the_terminal.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2009/10/5_ways_to_search_for_files_using_the_terminal.html</a><br><a href="http://jingyan.baidu.com/article/335530dab6fe0919ca41c365.htm" target="_blank" rel="external">http://jingyan.baidu.com/article/335530dab6fe0919ca41c365.htm</a></p>
-</blockquote>
-]]></content>
-      
-        <categories>
-            
-            <category> linux </category>
-            
-        </categories>
-        
         
     </entry>
     
@@ -6153,7 +6825,7 @@ print(&apos;hello&apos;)
       
         <categories>
             
-            <category> 软件安装 </category>
+            <category> 软件应用 </category>
             
         </categories>
         
@@ -6241,10 +6913,16 @@ print(&apos;hello&apos;)
       
         <categories>
             
-            <category> linux </category>
+            <category> 软件应用 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
         
     </entry>
     
@@ -6308,10 +6986,16 @@ print(&apos;hello&apos;)
       
         <categories>
             
-            <category> 问题总结 </category>
+            <category> 软件应用 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
         
     </entry>
     
@@ -6344,12 +7028,6 @@ print(&apos;hello&apos;)
             
         </categories>
         
-        
-        <tags>
-            
-            <tag> 杂谈 </tag>
-            
-        </tags>
         
     </entry>
     
@@ -6390,10 +7068,16 @@ print(&apos;hello&apos;)
       
         <categories>
             
-            <category> 软件安装 </category>
+            <category> 软件应用 </category>
             
         </categories>
         
+        
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
         
     </entry>
     

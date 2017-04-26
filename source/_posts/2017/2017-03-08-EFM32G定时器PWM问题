@@ -1,6 +1,8 @@
 ---
 layout: "post"
 title: "EFM32G定时器PWM问题"
+category: "程序开发"
+tags:   "嵌入式"
 date: "2017-03-08 11:06"
 ---
 

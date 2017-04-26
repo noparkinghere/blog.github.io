@@ -2,17 +2,15 @@
 layout: "post"
 title: "notepad++和MinGW"
 category: "软件应用"
-tags: 
+tags:   "IDE"
 date: "2016-11-15 16:16"
 ---
 
 今天写一个换算的小程序，但无奈手头没有编译工具，归根结底为何如此麻烦还是因为windows下的开发不友好不自带常规编译器所决定的，一个简单的程序编译需要你去安装庞大的IDE等。以前用windows偶尔弄点c代码编译或者查看一些文件都是使用notepad++的，有算是比较长的一段时间了，但不久前重装了系统，notepad++虽然仅仅需要选几个皮肤，简单配置作为文本编辑器即可，但无奈MinGW如何调用已经忘了，本文列出个简要步骤，以便下次查看。
 
-
 ### 实际需求
 
 Windows下编写C语言程序，使用如VS2010之类的IDE往往显得大材小用，并且这些集成开发环境都占用了大量的系统和硬件资源，且不如Notepad++之类的编辑器简单易用、定制性强大。最重要的一点在于学习编程的话，建议不要怕麻烦还是从最基础的学起，IDE往往屏蔽了很多的细节，并不利于初学者的学习。Linux下写C推荐可以研习emacs、vim配gcc。起初是想从网上直接找个教程按部就班执行，轻松配置完成的，但看了几个教程都不尽如人意，通过自己多次尝试最终找到了较为满意的解决方法，文章列出了部分参考网络教程的链接，下面对此详细阐述。而MinGW (Minimalist GNU for Windows)听名字就只是很强大，因为gcc的使用广泛和强大，无疑这个套件是编译的理想选择。
-
 
 ### 软件安装
 
@@ -20,9 +18,7 @@ Windows下编写C语言程序，使用如VS2010之类的IDE往往显得大材小
 
 <!-- more -->
 
-
 ### 相关配置
-
 
 #### MinGW
 
@@ -52,8 +48,6 @@ Windows下编写C语言程序，使用如VS2010之类的IDE往往显得大材小
 上述两步，环境搭建完成，当你用N++编写程序时，先保存再按F9可编译，然后再按Ctrl+F9开看到运行结果。
 
 熟练习惯后，可以将编译运行一起使用：`cmd /k gcc -std=c99 -o "$(CURRENT_DIRECTORY)\$(NAME_PART).exe" "$(FULL_CURRENT_PATH)" & cmd /k "$(CURRENT_DIRECTORY)\$(NAME_PART).exe"& PAUSE & EXIT`或者`cmd /k gcc -std=c99 -o "$(CURRENT_DIRECTORY)\$(NAME_PART).exe" "$(FULL_CURRENT_PATH)" & pause & "$(CURRENT_DIRECTORY)\$(NAME_PART).exe"& PAUSE & EXIT`保存，设置快捷键为Ctrl+F5。
-
-
 
 **关键字说明：**
 

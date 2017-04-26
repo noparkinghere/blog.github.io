@@ -1,8 +1,8 @@
 ---
 layout: "post"
 title: "桥接、NAT、Host-only上网方式的区别"
-category: "问题总结"
-tags:   问题总结
+category: "软件应用"
+tags:   "问题总结"
 date: "2016-07-25 13:53"
 ---
 
@@ -12,7 +12,6 @@ date: "2016-07-25 13:53"
 ![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-25-%E6%A1%A5%E6%8E%A5%E3%80%81nat%E3%80%81host-only%E4%B8%8A%E7%BD%91%E6%96%B9%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB/0.png)
 
 **本文会尽可能详细地总结和罗列出三者的含义和区别，以及虚拟机中该如何配置他们更加合适。**
-
 
 ### 桥接:
 

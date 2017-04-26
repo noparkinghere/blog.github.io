@@ -1,11 +1,10 @@
 ---
 layout: "post"
 title: "ubuntu搭建wordpress服务"
-category: "软件安装"
-tags:  
+category: "软件应用"
+tags:   "linux"
 date: "2016-09-14 09:02"
 ---
-
 
 *[wordpress](https://cn.wordpress.org/) 是目前比较流行的博客模板，精美的外观强可定制性收到了国内外很多bloger的亲睐，之前在虚拟机的ubuntu_server上面搭建过这个环境，个人所使用的blog是基于jekyll的静态页面，所以对wordpress不是特别了解，这边以腾讯云的ubuntu服务器为基础搭建自己的wordpress服务，当然现在很多云服务已经支持一键搭建wordpress的功能，但据说“访问速度和灵活性会受到很大影响”，这边有兴趣的朋友可以自己去尝试一下。*
 
@@ -14,7 +13,6 @@ date: "2016-09-14 09:02"
 - 需要搭建一个服务器，首先需要选定自己使用哪些服务套件，这边我选用LAMP套装，即linux(ubuntu), apache2.0, mysql, php(wordpress)。
 
 <!-- more -->
-
 
 ### 详细安装步骤
 

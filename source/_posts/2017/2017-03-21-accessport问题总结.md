@@ -1,6 +1,8 @@
 ---
 layout: "post"
 title: "accessport问题总结"
+category: "软件应用"
+tags:   ""
 date: "2017-03-21 10:56"
 ---
 

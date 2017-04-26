@@ -1,7 +1,8 @@
 ---
 layout: post
 title:  linux下ssh通过VPN推送失败
-category: "问题总结"
+category: "软件应用"
+tags: "linux"
 date: "2016-06-28 12:12"
 ---
 

@@ -1,7 +1,8 @@
 ---
-layout: post
-title:  ubuntu下安装remarkable
-category: "软件安装"
+layout: "post"
+title:  "ubuntu下安装remarkable"
+category: "软件应用"
+tags: "linux"
 date: "2016-06-23 12:12"
 ---
 

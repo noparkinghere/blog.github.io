@@ -4107,12 +4107,76 @@
     </entry>
     
     <entry>
-      <title><![CDATA[IIC通信详解]]></title>
-      <url>http://noparkinghere.top/2016/10/20/2016-10-20-iic%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
-      <content type="html"><![CDATA[<p>我们在使用单片机的过程中，IIC通信可以说是最被广泛使用和采纳的一个协议，这边</p>
+      <title><![CDATA[I2C通信详解]]></title>
+      <url>http://noparkinghere.top/2016/10/20/2016/2016-10-20-I2C%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<p>在使用单片机的过程中，I2C 通信可以说是最被广泛使用和采纳的协议之一，采用 I2C 协议可以占用更少的资源，链接多台设备，因此它和 SPI 一样，在数字传感器中备受偏爱。</p>
+<p>I²C（Inter-Integrated Circuit）字面上的意思是集成电路之间，它其实是 I²C Bus 简称，所以中文应该叫集成电路总线，它是一种串行通信总线，使用多主从架构，由飞利浦公司在1980年代为了让主板、嵌入式系统或手机用以连接低速周边设备而发展。I²C 的正确读法为“I平方C”（”I-squared-C”），而“I二C”（”I-two-C”）则是另一种错误但被广泛使用的读法。自2006年11月1日起，使用I²C协议已经不需要支付专利费，但制造商仍然需要付费以获取I²C从属设备地址。</p>
+<p>I2C 主要用于电压、温度监控，EEPROM数据的读写，光模块的管理等。该总线只有两根线，SCL 和 SDA，SCL 即 Serial Clock，串行参考时钟，SDA 即 Serial Data，串行数据。</p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><h4 id="IO口"><a href="#IO口" class="headerlink" title="IO口"></a>IO口</h4><p>注意使用其他通讯协议时，你可能不需要特别注意 IO 的模式，但如果你使用的是模拟 I2C 的话，则最好关注下 IO 口模式设置。在 I2C 总线中有 2 个口线，SDA 和 SCL。这两个口线对为 OC 输出。</p>
+<p>OC就是开漏输出(Open Collector)的简称，有时候也叫OD输出（Open-Drain），OD是对mos管而言，OC是对双极型管而言，在用法上没啥区别。相对于OC输出，另一种输出叫推挽输出(Push-Pull)，一般的MCU管脚输出可以设置这两种模式。这里分别介绍下这两种输出的不同点。</p>
+<ul>
+<li>推挽输出 : 可以输出高、低电平连接数字器件，推挽结构一般是指两个三极管分别受两互补信号的控制，总是在一个三极管导通的时候另一个截止.</li>
+<li>开漏输出 : 输出端相当于三极管的集电极未接任何电平， 要得到高电平状态需要上拉电阻才行，适合于做电流型的驱动,其吸收电流的能力相对强(一般20ma以内)。</li>
+</ul>
+<p>对于MCU的开发者来讲，简单的这样理解就可以了。如果管脚设置成推挽输出模式，输出高时，IO口相当于VCC, 输出低时IO口相当于接地。如果管脚设置成开漏输出模式，输出高时，IO口的电平会和与其相连的口线进行与操作，如果都为高，才会被上拉拉成高电平，输出为低时，也相当于接地。</p>
+<p>在网上我们看到很多的例程代码都是直接设置IO口的高低电平，这样做其实是不太合理的。因为我们只满足了 I2C 总线在自己这端的时序要求。而没有考虑到连接在总线上的其他器件。如果总线上其他器件的电平和MCU输出的电平一致，这样做是没问题的，如果两边的电平不一致时，这样做就有一定风险造成IO的损坏。当你输出高时，相当于IO口连接到VCC，如果对方这是恰好输出的是低电平，那就相当于短路了。因为 I2C 总线要实现线与的功能，所以 SDA 和 SCL 口线都必须设置为开漏输出模式，这种方式也是最安全的模式。我们使用 MCU 的硬件 I2C 接口时，口线会被自动设置成开漏。但有时候我们会使用 IO 口来模拟 I2C 总线，这个时候我们如何设置口线呢?</p>
+<p>因为 I2C 的总线是开漏输出的，总线上接上上拉电阻后，SCL 和 SDA 就变成了高电平，这个时候挂接在总线上的任意一个 I2C 主机口可以把 SDA 拉低，即产生了一个 START 信号，挂接在总线上的其他 I2C 主机检测到这个信号后就不能去操作 I2C 总线了，否则会发生冲突。直到检测到一个 STOP 信号为止。STOP 的信号是在 SCL 口线为高时，SDA 产生一个上升沿。STOP 信号之后，I2C总线恢复到初始状态。</p>
+<p>这里要分两种情况，如果MCU的口线支持开漏输出模式，则可以直接把 SDA 和 SCL 设置成开漏输出。例如 Silicon 的 C8051 系列 MCU，它的口线就支持开漏和推挽输出。如果 MCU 不支持开漏输出，例如 MSP430。当然如果软件做的合理，是可以避免这样的事情的，但总线上的很多器件都不是由你能控制的，如何设计出更合理的软件来避免这样的问题发生呢？对于不支持开漏输出MCU，我们最合理的做法是，当设置口线电平为高时，我们把口线设置成输入状态，然后利用口线上的上拉电阻来把口线拉高。这样即使是两边电平不一致时，也不会造成IO口的损坏。</p>
+<h4 id="速度"><a href="#速度" class="headerlink" title="速度"></a>速度</h4><p>常见的I²C总线依传输速率的不同而有不同的模式：标准模式（100 Kbit/s）、低速模式（10 Kbit/s），但时钟频率可被允许下降至零，这代表可以暂停通信。而新一代的I²C总线可以和更多的节点（支持10比特长度的地址空间）以更快的速率通信：快速模式（400 Kbit/s）、高速模式（3.4 Mbit/s）。</p>
+<h4 id="连线"><a href="#连线" class="headerlink" title="连线"></a>连线</h4><p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-20-I2C通信详解/1.png" alt=""></p>
+<p>如上图所示，I2C 是 OC 或 OD 输出结构，使用时必须在芯片外部进行上拉，上拉电阻R的取值根据 I2C 总线上所挂器件数量及 I2C 总线的速率有关，一般是标准模式下 R 选择 10kohm，快速模式下 R 选取 1kohm，I2C 总线上挂的 I2C 器件越多，就要求 I2C 的驱动能力越强，R 的取值就要越小，实际设计中，一般是先选取 4.7kohm 上拉电阻，然后在调试的时候根据实测的 I2C 波形再调整 R 的值。</p>
+<p>I²C 只有两根通讯线：数据线 SDA 和时钟 SCL，可发送和接收数据。I2C 总线在传送数据过程中共有三种类型信号， 它们分别是：</p>
+<ul>
+<li>开始信号： SCL 为高电平时， SDA 由高电平向低电平跳变，开始传送数据。</li>
+<li>结束信号： SCL 为高电平时， SDA 由低电平向高电平跳变，结束传送数据。</li>
+<li>应答信号：接收数据的 IC 在接收到 8bit 数据后，向发送数据的 IC 发出特定的低电平脉冲，表示已收到数据。 CPU 向受控单元发出一个信号后，等待受控单元发出一个应答信号， CPU 接收到应答信号后，根据实际情况作出是否继续传递信号的判断。若未收到应答信号，由判断为受控单元出现故障。</li>
+</ul>
+<p>具体时序如下图所示：</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-20-I2C通信详解/2.png" alt=""></p>
+<p>I2C总线的主要时序参数有：开始建立时间 t(SUSTA)，开始保持时间 t(HDSTA)，数据建立时间 t(SUDAT)，数据保持时间 t(SUDAT) ，结束建立时间 t(SUSTO) 。</p>
+<ul>
+<li>开始建立时间：SCL 上升至幅度的90%与SDA下降至幅度的90%之间的时间间隔；</li>
+<li>开始保持时间：SDA下降至幅度的10%与SCL下降至幅度的10%之间的时间间隔；</li>
+<li>数据建立时间：SDA上升至幅度的90%或SDA下降至幅度的10%与SCL上升至幅度的10%之间的时间间隔；</li>
+<li>数据保持时间：SCL下降至幅度的10%与SDA上升至幅度的10%或SDA下降至幅度的90%之间的时间间隔；</li>
+<li><p>结束建立时间：SCL上升至幅度的90%与SDA上升至幅度的90%之间的时间间隔；</p>
+</li>
+<li><p>I2C总线传输的特点：I2C总线按字节传输，即每次传输8bits二进制数据，传输完毕后等待接收端的应答信号ACK，收到应答信号后再传输下一字节。等不到ACK信号后，传输终止。空闲情况下，SCL和SDA都处于高电平状态。</p>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-20-I2C通信详解/3.png" alt=""></p>
+<ul>
+<li>判断一次传输的开始：如上图所示，I2C总线传输开始的标志是：SCL信号处于高电平期间，SDA信号出现一个由高电平向低电平的跳变。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-20-I2C通信详解/4.png" alt=""></p>
+<ul>
+<li>判断一次传输的结束:如上图所示，I2C总线传输结束的标志是：SCL信号处于高电平期间，SDA信号出现一个由低电平向高电平的跳变。跟开始标识正好相反。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-20-I2C通信详解/5.png" alt=""></p>
+<ul>
+<li>有效数据:在SCL处于高电平期间，SDA保持状态稳定的数据才是有效数据，只有在SCL处于低电平状态时，SDA才允许状态切换。前面已经讲过了，SCL高电平期间，SDA状态发生改变，是传输开始/.结束的标志。</li>
+</ul>
+<h4 id="读写"><a href="#读写" class="headerlink" title="读写"></a>读写</h4><p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-20-I2C通信详解/6.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-20-I2C通信详解/7.png" alt=""></p>
+<p>如上图所示，I2C开始传输时，第一个字节的前7bit是地址信息(7位地址器件)，第8bit是操作标识，为“0”时表示写操作，为“1”时表示读操作，第9个时钟周期是应答信号ACK，低有效，高电平表示无应答，传输终止。在上图中还可以看出，正常情况下，写操作是I2C主设备方发起终止操作的，而读操作时，I2C主控制器在接收完最后一个数据后，不对从设备进行应答，传输终止。</p>
+<p>I2C数据总线SDA是在时钟为高时有效，在时钟SCL为高期间，SDA如果发生了电平变化就会终止或重启I2C中线，所以我们在数据传输过程中，要在SCL为低的时候去更改SDA的电平。</p>
+<h4 id="总线信号时序"><a href="#总线信号时序" class="headerlink" title="总线信号时序"></a>总线信号时序</h4><p>再次总结下总线的各种时序状态：</p>
+<ul>
+<li>总线空闲状态：SDA 和 SCL 两条信号线都处于高电平，即总线上所有的器件都释放总线，两条信号线各自的上拉电阻把电平拉高；</li>
+<li>启动信号 START：信号 SCL 保持高电平，数据信号SDA的电平被拉低(即负跳变)。启动信号必须是跳变信号，而且在建立该信号前必修保证总线处于空闲状态；</li>
+<li>停止信号 STOP：时钟信号SCL保持高电平，数据线被释放，使得SDA返回高电平(即正跳变)，停止信号也必须是跳变信号。</li>
+<li>数据传送：SCL 线呈现高电平期间，SDA 线上的电平必须保持稳定，低电平表示 0 (此时的线电压为地电压)，高电平表示1(此时的电压由元器件的VDD决定)。只有在 SCL 线为低电平期间，SDA 上的电平允许变化。</li>
+<li>应答信号 ACK：I2C 总线的数据都是以字节( 8 位)的方式传送的，发送器件每发送一个字节之后，在时钟的第9个脉冲期间释放数据总线，由接收器发送一个ACK(把数据总线的电平拉低)来表示数据成功接收。</li>
+<li>无应答信号 NACK：在时钟的第 9 个脉冲期间发送器释放数据总线，接收器不拉低数据总线表示一个 NACK，NACK 有两种用途:<br>a. 一般表示接收器未成功接收数据字节；<br>b. 当接收器是主控器时，它收到最后一个字节后，应发送一个 NACK 信号，以通知被控发送器结束数据发送，并释放总线，以便主控接收器发送一个停止信号 STOP。</li>
+</ul>
+<p><em>起始信号是必需的，结束信号和应答信号，都可以不要。</em></p>
+<h3 id="模拟-I2C"><a href="#模拟-I2C" class="headerlink" title="模拟 I2C"></a>模拟 I2C</h3><p>目前大部分 MCU 都带有 I2C 总线接口，但是芯片自带的 I2C 也有两个问题，一个是移植性较差不够通用，另外部分 MCU 不带 I2C 还是得要模拟的方式，以及一些芯片设计的 I2C 据说是存在问题的，如： stm32 的 I2C 不够稳定，efm32 的 I2C 不够节能等等。这边建议，在权衡 I2C 占用的 CPU 资源是否可以承受后，再做选择。</p>
+<p>以下以 EFM32 为例，给出参考代码，这边的代码只需要修改部分宏定义，就可以直接移植到 STM32 等其他单片机上。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* iic相关引脚定义 */</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> IIC_SDA_PORT      gpioPortA  </span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> IIC_SDA_PIN        0  </span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> IIC_SCL_PORT      gpioPortA  </span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> IIC_SCL_PIN        1</span></div><div class="line"></div><div class="line"><span class="comment">/* iic相关功能函数定义 */</span></div><div class="line"><span class="comment">//I2C_SDA PC0 --&gt; IIC_SDA=1;</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> IIC_SDA_HIGH()      GPIO_PinOutSet(IIC_SDA_PORT, IIC_SDA_PIN)  </span></div><div class="line"><span class="comment">//I2C_SCL PC1 --&gt; IIC_SCL=1;</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> IIC_SCL_HIGH()      GPIO_PinOutSet(IIC_SCL_PORT, IIC_SCL_PIN)</span></div><div class="line"><span class="comment">//I2C_SDA PC0 --&gt; IIC_SDA=0;</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> IIC_SDA_LOW()      GPIO_PinOutClear(IIC_SDA_PORT, IIC_SDA_PIN)</span></div><div class="line"><span class="comment">//I2C_SCL PC1 --&gt; IIC_SCL=0;</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> IIC_SCL_LOW()      GPIO_PinOutClear(IIC_SCL_PORT, IIC_SCL_PIN)</span></div><div class="line"><span class="comment">//设置SDA为输入</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> IIC_SDA_DISABLE()  GPIO_PinModeSet(IIC_SDA_PORT, IIC_SDA_PIN, gpioModeDisabled, 0)</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> IIC_SCL_DISABLE()  GPIO_PinModeSet(IIC_SCL_PORT, IIC_SCL_PIN, gpioModeDisabled, 0)</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> IIC_SCL_SET_OUT()    GPIO_PinModeSet(IIC_SCL_PORT, IIC_SCL_PIN, gpioModePushPull, 0)</span></div><div class="line"></div><div class="line"><span class="comment">//设置为推挽输出模式</span></div><div class="line"><span class="comment">//#define IIC_SDA_SET_OUT()    GPIO_PinModeSet(IIC_SDA_PORT, IIC_SDA_PIN, gpioModePushPull, 0)</span></div><div class="line"><span class="comment">//设置为推开漏出模式</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> IIC_SDA_SET_OUT()    GPIO_PinModeSet(IIC_SDA_PORT, IIC_SDA_PIN, gpioModeWiredAndDrive, 0)</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> IIC_SDA_SET_IN()    GPIO_PinModeSet(IIC_SDA_PORT, IIC_SDA_PIN, gpioModeInput, 0)</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> IIC_SDA_INPUT()      GPIO_PinInGet(IIC_SDA_PORT, IIC_SDA_PIN)</span></div><div class="line"></div><div class="line"><span class="comment">/* 初始化IIC */</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">IIC_Init</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">  <span class="comment">//设置为推挽输出模式</span></div><div class="line">  IIC_SDA_SET_OUT();  </div><div class="line">  IIC_SCL_SET_OUT();    </div><div class="line"></div><div class="line">  <span class="comment">//I2C_SDA PC0 --&gt; IIC_SDA=1;</span></div><div class="line">  IIC_SDA_HIGH();</div><div class="line">  <span class="comment">//I2C_SCL PC1 --&gt; IIC_SCL=1;</span></div><div class="line">  IIC_SCL_HIGH();</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/* 产生IIC起始信号 */</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">IIC_Start</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">  u8 i;</div><div class="line">  <span class="comment">//IIC_SDA设置为推挽输出</span></div><div class="line">  IIC_SDA_SET_OUT();</div><div class="line">  </div><div class="line">  <span class="comment">//I2C_SDA PC0 --&gt; IIC_SDA=1;</span></div><div class="line">  IIC_SDA_HIGH();</div><div class="line">  <span class="comment">//I2C_SCL PC1 --&gt; IIC_SCL=1;</span></div><div class="line">  IIC_SCL_HIGH();</div><div class="line"></div><div class="line">  i = <span class="number">5</span>;</div><div class="line">  <span class="keyword">while</span>(i--);                               <span class="comment">//setup time for stop 4us</span></div><div class="line">  </div><div class="line">  <span class="comment">//I2C_SDA PC0 --&gt; IIC_SDA=0;</span></div><div class="line">  IIC_SDA_LOW();</div><div class="line">  </div><div class="line">  i = <span class="number">5</span>;</div><div class="line">  <span class="keyword">while</span>(i--);                               <span class="comment">//setup time for stop 4us</span></div><div class="line">  </div><div class="line">  <span class="comment">//I2C_SCL PC1 --&gt; IIC_SCL=0;</span></div><div class="line">  IIC_SCL_LOW();</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="comment">//产生IIC停止信号</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">IIC_Stop</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">  u8 i;</div><div class="line">  <span class="comment">//IIC_SDA设置为推挽输出</span></div><div class="line">  IIC_SDA_SET_OUT();</div><div class="line">  </div><div class="line">  <span class="comment">//I2C_SCL PC1 --&gt; IIC_SCL=0;</span></div><div class="line">  IIC_SCL_LOW();</div><div class="line">  <span class="comment">//I2C_SDA PC0 --&gt; IIC_SDA=0;</span></div><div class="line">  IIC_SDA_LOW();</div><div class="line">    </div><div class="line">  i = <span class="number">5</span>;</div><div class="line">  <span class="keyword">while</span>(i--);                               <span class="comment">//setup time for stop 4us</span></div><div class="line">  </div><div class="line">  <span class="comment">//I2C_SCL PC1 --&gt; IIC_SCL=1;</span></div><div class="line">  IIC_SCL_HIGH();</div><div class="line">  <span class="comment">//I2C_SDA PC0 --&gt; IIC_SDA=1;</span></div><div class="line">  IIC_SDA_HIGH();</div><div class="line"></div><div class="line">  i = <span class="number">5</span>;</div><div class="line">  <span class="keyword">while</span>(i--);                               <span class="comment">//setup time for stop 4us                 </span></div><div class="line">&#125;</div><div class="line"><span class="comment">//主机接收从机应答信号</span></div><div class="line"><span class="comment">//等待应答信号到来</span></div><div class="line"><span class="comment">//返回值：1，接收应答失败</span></div><div class="line"><span class="comment">//        0，接收应答成功</span></div><div class="line"><span class="function">u8 <span class="title">IIC_Wait_Ack</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">  u8 ucErrTime=<span class="number">0</span>;</div><div class="line">  </div><div class="line">  <span class="comment">//SDA设置为输入</span></div><div class="line">  IIC_SDA_SET_IN();</div><div class="line"></div><div class="line">  <span class="comment">//I2C_SDA PC0 --&gt; IIC_SDA=1;</span></div><div class="line">  IIC_SDA_HIGH();</div><div class="line">  </div><div class="line">  __nop();</div><div class="line">  </div><div class="line">  <span class="comment">//I2C_SCL PC1 --&gt; IIC_SCL=1;</span></div><div class="line">  IIC_SCL_HIGH();</div><div class="line">  </div><div class="line">  __nop();</div><div class="line">  <span class="keyword">while</span>(IIC_SDA_INPUT())</div><div class="line">  &#123;</div><div class="line">    ucErrTime++;</div><div class="line">    <span class="keyword">if</span>(ucErrTime&gt;<span class="number">250</span>)</div><div class="line">    &#123;</div><div class="line">      IIC_Stop();</div><div class="line">      <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="comment">//I2C_SCL PC1 --&gt; IIC_SCL=0;</span></div><div class="line">  IIC_SCL_LOW();  </div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="comment">//主机发送给从机应答信号</span></div><div class="line"><span class="comment">//产生ACK应答</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">IIC_Ack</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">  <span class="comment">//I2C_SCL PC1 --&gt; IIC_SCL=0;</span></div><div class="line">  IIC_SCL_LOW();  </div><div class="line">  <span class="comment">//IIC_SDA设置为推挽输出</span></div><div class="line">  IIC_SDA_SET_OUT();</div><div class="line">  </div><div class="line">  <span class="comment">//I2C_SDA PC0 --&gt; IIC_SDA=0;</span></div><div class="line">  IIC_SDA_LOW();</div><div class="line">  __nop();</div><div class="line">  </div><div class="line">  <span class="comment">//I2C_SCL PC1 --&gt; IIC_SCL=1;</span></div><div class="line">  IIC_SCL_HIGH();</div><div class="line">  __nop();</div><div class="line">  </div><div class="line">  <span class="comment">//I2C_SCL PC1 --&gt; IIC_SCL=0;</span></div><div class="line">  IIC_SCL_LOW();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//主机发送给从机应答信号</span></div><div class="line"><span class="comment">//不产生ACK应答        </span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">IIC_NAck</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">  <span class="comment">//I2C_SCL PC1 --&gt; IIC_SCL=0;</span></div><div class="line">  IIC_SCL_LOW();</div><div class="line">  <span class="comment">//IIC_SDA设置为推挽输出</span></div><div class="line">  IIC_SDA_SET_OUT();  </div><div class="line">  </div><div class="line">  <span class="comment">//I2C_SDA PC0 --&gt; IIC_SDA=1;</span></div><div class="line">  IIC_SDA_HIGH();</div><div class="line">  __nop();</div><div class="line">  </div><div class="line">  <span class="comment">//I2C_SCL PC1 --&gt; IIC_SCL=1;</span></div><div class="line">  IIC_SCL_HIGH();</div><div class="line">  </div><div class="line">  __nop();</div><div class="line">  </div><div class="line">  <span class="comment">//I2C_SCL PC1 --&gt; IIC_SCL=0;</span></div><div class="line">  IIC_SCL_LOW();</div><div class="line">&#125;                        </div><div class="line"><span class="comment">//IIC发送一个字节</span></div><div class="line"><span class="comment">//返回从机有无应答</span></div><div class="line"><span class="comment">//1，有应答</span></div><div class="line"><span class="comment">//0，无应答        </span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">IIC_Send_Byte</span><span class="params">(u8 txd)</span></span></div><div class="line">&#123;                        </div><div class="line">    u8 t;   </div><div class="line">  </div><div class="line">  <span class="comment">//IIC_SDA设置为推挽输出</span></div><div class="line">  IIC_SDA_SET_OUT();  </div><div class="line">     </div><div class="line">  <span class="comment">//I2C_SCL PC1 --&gt; IIC_SCL=0;</span></div><div class="line">  IIC_SCL_LOW();</div><div class="line">  </div><div class="line">    <span class="keyword">for</span>(t=<span class="number">0</span>;t&lt;<span class="number">8</span>;t++)</div><div class="line">    &#123;              </div><div class="line">    <span class="comment">//I2C_SDA PC0 --&gt; IIC_SDA输出数据</span></div><div class="line">        <span class="keyword">if</span> (((txd&amp;<span class="number">0x80</span>)&gt;&gt;<span class="number">7</span>) &amp; <span class="number">1</span>)</div><div class="line">    &#123;</div><div class="line">      IIC_SDA_HIGH();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> </div><div class="line">    &#123;</div><div class="line">      IIC_SDA_LOW();  </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">        txd&lt;&lt;=<span class="number">1</span>;     </div><div class="line">    __nop();   <span class="comment">//对TEA5767这三个延时都是必须的</span></div><div class="line">    </div><div class="line">    <span class="comment">//I2C_SCL PC1 --&gt; IIC_SCL=1;</span></div><div class="line">    IIC_SCL_HIGH();</div><div class="line">    __nop(); </div><div class="line">    </div><div class="line">    <span class="comment">//I2C_SCL PC1 --&gt; IIC_SCL=0;</span></div><div class="line">    IIC_SCL_LOW();</div><div class="line">    __nop();</div><div class="line">    &#125;</div><div class="line">&#125;       </div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//读1个字节，ack=1时，发送ACK，ack=0，发送nACK   </span></div><div class="line"><span class="function">u8 <span class="title">IIC_Read_Byte</span><span class="params">(u8 ack)</span></span></div><div class="line">&#123;</div><div class="line">  u8 i, receive=<span class="number">0</span>;</div><div class="line">  </div><div class="line">  <span class="comment">//SDA设置为输入</span></div><div class="line">  IIC_SDA_SET_IN();</div><div class="line"></div><div class="line">  </div><div class="line">  </div><div class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; <span class="number">8</span>; i++)</div><div class="line">  &#123;</div><div class="line">    <span class="comment">//I2C_SCL PC1 --&gt; IIC_SCL=0;</span></div><div class="line">    IIC_SCL_LOW();</div><div class="line">    __nop();</div><div class="line">    <span class="comment">//I2C_SCL PC1 --&gt; IIC_SCL=1;</span></div><div class="line">    IIC_SCL_HIGH();</div><div class="line">        receive &lt;&lt;= <span class="number">1</span>;</div><div class="line">    </div><div class="line">        <span class="keyword">if</span>(IIC_SDA_INPUT())</div><div class="line">      receive++;   </div><div class="line">      </div><div class="line">    __nop(); </div><div class="line">    &#125;</div><div class="line">  </div><div class="line">  __nop(); </div><div class="line"></div><div class="line">  ack ? IIC_Ack() : IIC_NAck();</div><div class="line">  </div><div class="line">    <span class="keyword">return</span> receive;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="自带-I2C"><a href="#自带-I2C" class="headerlink" title="自带 I2C"></a>自带 I2C</h3><p>这边仅以 stm32 平台为例，说明下如何通过芯片自带 I2C 功能来通信。</p>
 <a id="more"></a>
 <blockquote>
-<p>参考链接：<br><a href="http://wenku.baidu.com/view/2a0a7f9869dc5022abea001d.html" target="_blank" rel="external">http://wenku.baidu.com/view/2a0a7f9869dc5022abea001d.html</a></p>
+<p>参考链接：<br><a href="http://wenku.baidu.com/view/2a0a7f9869dc5022abea001d.html" target="_blank" rel="external">http://wenku.baidu.com/view/2a0a7f9869dc5022abea001d.html</a><br><a href="http://blog.csdn.net/zmq5411/article/details/6085740" target="_blank" rel="external">http://blog.csdn.net/zmq5411/article/details/6085740</a><br><a href="https://zh.wikipedia.org/wiki/I%C2%B2C" target="_blank" rel="external">https://zh.wikipedia.org/wiki/I%C2%B2C</a></p>
 </blockquote>
 ]]></content>
       
@@ -4165,6 +4229,51 @@
         <categories>
             
             <category> 软件应用 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[串口RS485通信详解]]></title>
+      <url>http://noparkinghere.top/2016/10/19/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<p><strong>注意：串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。串口的一些内容不再逐一介绍说明，可以参加之前的usb转串口及RS232通信等文章</strong></p>
+<h3 id="特性介绍"><a href="#特性介绍" class="headerlink" title="特性介绍"></a>特性介绍</h3><p>485（一般称作 RS485/EIA-485）是隶属于 OSI 模型物理层的电气特性规定为 2 线，半双工，多点通信的标准。它的电气特性和 RS-232 大不一样。用缆线两端的电压差值来表示传递信号。值得注意的是：RS485 仅仅规定了接受端和发送端的电气特性，它没有规定或推荐任何数据协议。</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/1.jpg" alt=""></p>
+<p>RS485接口可以只使用两根线进行通讯（其他串口通讯至少需要三根线，一根为地线作为参考电平），通过差分电平（利用两个信号的差值来判断信息，使用差分信号来传输的，也就是一根线传同相信号，一根线传反相，这样差值最大，抗干扰能力强。）来确定信号是0还是1，也正因为这个原因，所以RS485每次有且仅有一根线能够传输数据，另外一根线作为比对信号，因此RS485是半双工的通讯方式。主要特点如下：</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/2.jpg" alt=""></p>
+<ul>
+<li>接口电平低，不易损坏芯片。 RS485 的电气特性：逻辑“ 1”以两线间的电压差为+(2~6)V<br>表示；逻辑“ 0”以两线间的电压差为-(2~6)V 表示。接口信号电平比 RS232 降低了，<br>不易损坏接口电路的芯片，且该电平与 TTL 电平兼容，可方便与 TTL 电路连接。</li>
+<li>传输速率高。 10 米时， RS485 的数据最高传输速率可达 35Mbps，在 1200m 时，传输<br>速度可达 100Kbps。</li>
+<li>抗干扰能力强。 RS485 接口是采用平衡驱动器和差分接收器的组合，抗共模干扰能力<br>增强，即抗噪声干扰性好。 传输距离远，支持节点多。 RS485 总线最长可以传输 1200m<br>以上（速率≤100Kbps）</li>
+<li>一般最大支持 32 个节点，如果使用特制的 485 芯片，可以达到 128 个或者 256 个节点，<br>最大的可以支持到 400 个节点。</li>
+</ul>
+<a id="more"></a>
+<h3 id="类比RS232"><a href="#类比RS232" class="headerlink" title="类比RS232"></a>类比RS232</h3><p>实际上232串口在实际使用已经用处不大，但基于232发展出来的485等串口设备仍然被广泛使用，RS-485（EIA-485标准）是RS-422的改进，因为它增加了设备的个数，从10个增加到32个，同时定义了在最大设备个数情况下的电气特性，以保证足够的信号电压。有了多个设备的能力，你可以使用一个单个RS-485口建立设备网络。</p>
+<p>因为都是采用串口通信协议，所以软件端几乎可以直接使用，且RS485具备耗材少，抗干扰强等特点，在目前的工业领域仍然被广泛使用，这边主要列举出不同：</p>
+<ul>
+<li>从接线上，RS232是三线制，RS485是两线制</li>
+<li>从传输距离上，RS232只能传输15米，RS485最远可以传输1200米</li>
+<li>从速率上，RS232是全双工传输，RS485是半双工传输</li>
+<li>从协议层上，RS232只支持点对点通讯(1:1)，RS485支持总线形式通讯（1:N）</li>
+</ul>
+<p>RS232的接线：<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/3.jpg" alt="">)</p>
+<p>RS485的接线<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/4.jpg" alt=""></p>
+<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><blockquote>
+<p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a></p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> 程序开发 </category>
             
         </categories>
         
@@ -4237,51 +4346,6 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
 <blockquote>
 <p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a><br><a href="http://www.baike.com/wiki/51+IO%E5%8F%A3%E6%A8%A1%E6%8B%9F%E4%B8%B2%E5%8F%A3%E9%80%9A%E8%AE%AFC%E6%BA%90%E7%A8%8B%E5%BA%8F" target="_blank" rel="external">http://www.baike.com/wiki/51+IO%E5%8F%A3%E6%A8%A1%E6%8B%9F%E4%B8%B2%E5%8F%A3%E9%80%9A%E8%AE%AFC%E6%BA%90%E7%A8%8B%E5%BA%8F</a><br><a href="http://ziye334.blog.163.com/blog/static/224306191201452833850647" target="_blank" rel="external">http://ziye334.blog.163.com/blog/static/224306191201452833850647</a></p>
-</blockquote>
-]]></content>
-      
-        <categories>
-            
-            <category> 程序开发 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 嵌入式 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[串口RS485通信详解]]></title>
-      <url>http://noparkinghere.top/2016/10/19/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
-      <content type="html"><![CDATA[<p><strong>注意：串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。串口的一些内容不再逐一介绍说明，可以参加之前的usb转串口及RS232通信等文章</strong></p>
-<h3 id="特性介绍"><a href="#特性介绍" class="headerlink" title="特性介绍"></a>特性介绍</h3><p>485（一般称作 RS485/EIA-485）是隶属于 OSI 模型物理层的电气特性规定为 2 线，半双工，多点通信的标准。它的电气特性和 RS-232 大不一样。用缆线两端的电压差值来表示传递信号。值得注意的是：RS485 仅仅规定了接受端和发送端的电气特性，它没有规定或推荐任何数据协议。</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/1.jpg" alt=""></p>
-<p>RS485接口可以只使用两根线进行通讯（其他串口通讯至少需要三根线，一根为地线作为参考电平），通过差分电平（利用两个信号的差值来判断信息，使用差分信号来传输的，也就是一根线传同相信号，一根线传反相，这样差值最大，抗干扰能力强。）来确定信号是0还是1，也正因为这个原因，所以RS485每次有且仅有一根线能够传输数据，另外一根线作为比对信号，因此RS485是半双工的通讯方式。主要特点如下：</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/2.jpg" alt=""></p>
-<ul>
-<li>接口电平低，不易损坏芯片。 RS485 的电气特性：逻辑“ 1”以两线间的电压差为+(2~6)V<br>表示；逻辑“ 0”以两线间的电压差为-(2~6)V 表示。接口信号电平比 RS232 降低了，<br>不易损坏接口电路的芯片，且该电平与 TTL 电平兼容，可方便与 TTL 电路连接。</li>
-<li>传输速率高。 10 米时， RS485 的数据最高传输速率可达 35Mbps，在 1200m 时，传输<br>速度可达 100Kbps。</li>
-<li>抗干扰能力强。 RS485 接口是采用平衡驱动器和差分接收器的组合，抗共模干扰能力<br>增强，即抗噪声干扰性好。 传输距离远，支持节点多。 RS485 总线最长可以传输 1200m<br>以上（速率≤100Kbps）</li>
-<li>一般最大支持 32 个节点，如果使用特制的 485 芯片，可以达到 128 个或者 256 个节点，<br>最大的可以支持到 400 个节点。</li>
-</ul>
-<a id="more"></a>
-<h3 id="类比RS232"><a href="#类比RS232" class="headerlink" title="类比RS232"></a>类比RS232</h3><p>实际上232串口在实际使用已经用处不大，但基于232发展出来的485等串口设备仍然被广泛使用，RS-485（EIA-485标准）是RS-422的改进，因为它增加了设备的个数，从10个增加到32个，同时定义了在最大设备个数情况下的电气特性，以保证足够的信号电压。有了多个设备的能力，你可以使用一个单个RS-485口建立设备网络。</p>
-<p>因为都是采用串口通信协议，所以软件端几乎可以直接使用，且RS485具备耗材少，抗干扰强等特点，在目前的工业领域仍然被广泛使用，这边主要列举出不同：</p>
-<ul>
-<li>从接线上，RS232是三线制，RS485是两线制</li>
-<li>从传输距离上，RS232只能传输15米，RS485最远可以传输1200米</li>
-<li>从速率上，RS232是全双工传输，RS485是半双工传输</li>
-<li>从协议层上，RS232只支持点对点通讯(1:1)，RS485支持总线形式通讯（1:N）</li>
-</ul>
-<p>RS232的接线：<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/3.jpg" alt="">)</p>
-<p>RS485的接线<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/4.jpg" alt=""></p>
-<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><blockquote>
-<p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a></p>
 </blockquote>
 ]]></content>
       
@@ -4793,6 +4857,33 @@
     </entry>
     
     <entry>
+      <title><![CDATA[git的配置及相关插件]]></title>
+      <url>http://noparkinghere.top/2016/09/28/2016-09-28-git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6/</url>
+      <content type="html"><![CDATA[<p>一个好的工具，需要不断的打磨和熟悉使用技巧才可以把它用的炉火纯青，git同样如此，本文主要是推荐一些git常用的配置以及配套的一些工具。</p>
+<h3 id="git的相关配置："><a href="#git的相关配置：" class="headerlink" title="git的相关配置："></a>git的相关配置：</h3><h4 id="gitignore配置"><a href="#gitignore配置" class="headerlink" title=".gitignore配置"></a>.gitignore配置</h4><a id="more"></a>
+<h3 id="推荐的git插件："><a href="#推荐的git插件：" class="headerlink" title="推荐的git插件："></a>推荐的git插件：</h3><h4 id="tig"><a href="#tig" class="headerlink" title="tig"></a>tig</h4><p>首先推荐<a href="http://jonas.nitro.dk/tig/" target="_blank" rel="external">tig</a>（名字刚好和git相反），是一个专门针对git的小软件，官方这么介绍<em>text-mode interface for Git</em>。</p>
+<p>推荐可以访问<a href="https://github.com/jonas/tig" target="_blank" rel="external">tig的github页面</a>,里面有相关的下载安装说明。</p>
+<ul>
+<li>软件能够恨清晰的看到你的版本目录结构</li>
+</ul>
+<h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><h4 id="小乌龟插件"><a href="#小乌龟插件" class="headerlink" title="小乌龟插件"></a>小乌龟插件</h4><h4 id="atom"><a href="#atom" class="headerlink" title="atom"></a>atom</h4>]]></content>
+      
+        <categories>
+            
+            <category> 转载文章 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 英语 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[通过git管理一个工程]]></title>
       <url>http://noparkinghere.top/2016/09/28/2016/2016-09-28-%E9%80%9A%E8%BF%87git%E7%AE%A1%E7%90%86%E4%B8%80%E4%B8%AA%E5%B7%A5%E7%A8%8B/</url>
       <content type="html"><![CDATA[<p>GIT虽然能够实现各种版本控制，且功能强大，可以做到随时切换版本，回退等各种功能，但过多的分支，无效的分支，杂乱的提交，无意义的命名等等问题，往往会让像我这样的初学者，异常头痛，网络上关于git的往往都是指导你各个命令如何去用，部分命令的使用场景等，但却缺少一个完整工程项目的管理步骤。部分大神的确总结出了自己的使用习惯，但却不是作为教程来陈述的，下面我会将自己的一些习惯进行总结，后续可能遇到更好的也还会不断的更改。</p>
@@ -4832,33 +4923,6 @@
         <tags>
             
             <tag> git </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[git的配置及相关插件]]></title>
-      <url>http://noparkinghere.top/2016/09/28/2016-09-28-git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6/</url>
-      <content type="html"><![CDATA[<p>一个好的工具，需要不断的打磨和熟悉使用技巧才可以把它用的炉火纯青，git同样如此，本文主要是推荐一些git常用的配置以及配套的一些工具。</p>
-<h3 id="git的相关配置："><a href="#git的相关配置：" class="headerlink" title="git的相关配置："></a>git的相关配置：</h3><h4 id="gitignore配置"><a href="#gitignore配置" class="headerlink" title=".gitignore配置"></a>.gitignore配置</h4><a id="more"></a>
-<h3 id="推荐的git插件："><a href="#推荐的git插件：" class="headerlink" title="推荐的git插件："></a>推荐的git插件：</h3><h4 id="tig"><a href="#tig" class="headerlink" title="tig"></a>tig</h4><p>首先推荐<a href="http://jonas.nitro.dk/tig/" target="_blank" rel="external">tig</a>（名字刚好和git相反），是一个专门针对git的小软件，官方这么介绍<em>text-mode interface for Git</em>。</p>
-<p>推荐可以访问<a href="https://github.com/jonas/tig" target="_blank" rel="external">tig的github页面</a>,里面有相关的下载安装说明。</p>
-<ul>
-<li>软件能够恨清晰的看到你的版本目录结构</li>
-</ul>
-<h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><h4 id="小乌龟插件"><a href="#小乌龟插件" class="headerlink" title="小乌龟插件"></a>小乌龟插件</h4><h4 id="atom"><a href="#atom" class="headerlink" title="atom"></a>atom</h4>]]></content>
-      
-        <categories>
-            
-            <category> 转载文章 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 英语 </tag>
             
         </tags>
         
@@ -6218,6 +6282,52 @@
     </entry>
     
     <entry>
+      <title><![CDATA[stm32F439案例汇总]]></title>
+      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
+      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
+<blockquote>
+<p>www.armjishu.com(无法访问)</p>
+</blockquote>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
+<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
+<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
+</ul>
+<a id="more"></a>
+<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
+<li>实验0 Template工程模板</li>
+<li>实验1 跑马灯</li>
+<li>实验2 蜂鸣器</li>
+<li>实验3 按键和外部中断</li>
+<li>实验4 看门狗（独立和窗口）</li>
+<li>实验5 待机唤醒</li>
+<li>实验6 串口通讯（232和485）</li>
+<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
+<li>实验8 PWM输出和输入捕获</li>
+</ul>
+<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
+<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
+</blockquote>
+<hr>
+<p><em>未完待续</em></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 软件应用 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[（转）回车、换行、和文件末尾空行]]></title>
       <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%EF%BC%88%E8%BD%AC%EF%BC%89%E5%9B%9E%E8%BD%A6%E3%80%81%E6%8D%A2%E8%A1%8C%E3%80%81%E5%92%8C%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E7%A9%BA%E8%A1%8C/</url>
       <content type="html"><![CDATA[<h2 id="回车和换行"><a href="#回车和换行" class="headerlink" title="回车和换行"></a>回车和换行</h2><p>回车 (Carriage Return) 和换行 (Line Feed) 的区别，<a href="http://stackoverflow.com/questions/1761051/difference-between-n-and-r" target="_blank" rel="external">这里</a>有一个历史原因可参考：</p>
@@ -6300,52 +6410,6 @@ print(&apos;hello&apos;)
         <tags>
             
             <tag> 基础 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[stm32F439案例汇总]]></title>
-      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
-      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
-<blockquote>
-<p>www.armjishu.com(无法访问)</p>
-</blockquote>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
-<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
-<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
-</ul>
-<a id="more"></a>
-<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
-<li>实验0 Template工程模板</li>
-<li>实验1 跑马灯</li>
-<li>实验2 蜂鸣器</li>
-<li>实验3 按键和外部中断</li>
-<li>实验4 看门狗（独立和窗口）</li>
-<li>实验5 待机唤醒</li>
-<li>实验6 串口通讯（232和485）</li>
-<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
-<li>实验8 PWM输出和输入捕获</li>
-</ul>
-<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
-<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
-</blockquote>
-<hr>
-<p><em>未完待续</em></p>
-]]></content>
-      
-        <categories>
-            
-            <category> 软件应用 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 嵌入式 </tag>
             
         </tags>
         
@@ -6489,31 +6553,42 @@ print(&apos;hello&apos;)
 </ul>
 <p>Chromium 是 Google 为发展自家的浏览器 Google Chrome 而做的开源项目，所以 Chromium 相当于 Google Chrome 的工程版或称实验版（尽管Google Chrome自身也有β版阶段），新功能会率先在 Chromium 上实现，待验证后才会应用在 Google Chrome 上。这边可以认为 Chromium 类似于谷歌发型的公版安卓系统，各家厂商，可以将 Chromium 修改定制，然后放入到自家的浏览器中。目前国内的主流浏览器大都是基于 Chromium 开发，同时兼容 IE 内核，如：360极速，遨游，猎豹，世界之窗极速版等等。</p>
 <a id="more"></a>
-<h3 id="基本快捷键："><a href="#基本快捷键：" class="headerlink" title="基本快捷键："></a>基本快捷键：</h3><ul>
+<h3 id="基本快捷操作："><a href="#基本快捷操作：" class="headerlink" title="基本快捷操作："></a>基本快捷操作：</h3><p>对于太过复杂和不常用的，这边不会列出来，以下都为切实实用的快捷操作。</p>
+<ul>
+<li>鼠标中击键点击链接，则会新标签打开该链接，并且不切换到新标签；Ctrl+Shift 的同时点击链接，新标签页中打开链接并切换到刚打开的标签页；Shift 的同时点击链接，新窗口中打开链接。</li>
+<li>同时按 Ctrl 和 +，或者按住 Ctrl 键并向上滚动鼠标滚轮。 放大网页上的所有内容；同时按 Ctrl 和 -，或者按住 Ctrl 键并向下滚动鼠标滚轮；Ctrl+0 将网页上的所有内容都恢复到正常大小。 </li>
+<li>Ctrl+Tab 或 Ctrl+PgDown 切换到下一个标签页； Ctrl+Shift+Tab或 Ctrl+PgUp 切换到上一个标签页。 </li>
 <li>Ctrl+N 打开新窗口</li>
 <li>Ctrl+T 打开新标签页</li>
 <li>Ctrl+O，然后选择文件 在谷歌浏览器中打开计算机上的文件</li>
 <li><strong>Ctrl+Shift+N 在隐身模式下打开新窗口</strong></li>
 <li><strong>Ctrl+Shift+T 重新打开上次关闭的标签页。谷歌浏览器可记住最近关闭的 10 个标签页。</strong></li>
-<li>Ctrl+W 或 Ctrl+F4 关闭当前标签页或弹出式窗口</li>
+<li>Ctrl+W 或 Ctrl+F4 关闭当前标签页或弹出式窗口，一般也可以使用鼠标中击键点击标签关闭该页面。</li>
 <li>Ctrl+H 查看”历史记录”页</li>
 <li>Ctrl+J 查看”下载”页</li>
 <li><strong>Shift+Escape 查看任务管理器</strong></li>
-<li>F5 或 Ctrl+R 重新加载当前网页。</li>
-<li>Ctrl+F5 或 Ctrl+Shift+R 重新加载当前网页，忽略缓存的内容。</li>
+<li>F5 或 Ctrl+R 重新加载当前网页。Ctrl+F5 或 Ctrl+Shift+R 重新加载当前网页，忽略缓存的内容。</li>
 <li>Ctrl+F 打开”在网页上查找”框</li>
 <li>Ctrl+U 查看源代码</li>
 <li>Ctrl+D 将当前网页加入书签</li>
+<li>Ctrl+P 打印当前网页。这里有个小技巧，Ctrl+P后选择更改… 另存为PDF可将当前页面保存为pdf格式。</li>
 <li><strong>Ctrl+0 将网页上的所有内容都恢复到正常大小</strong></li>
 <li>ctrl+shift+T：这个快捷键组合可以打开你上次关闭的 tab 或者上次关闭窗口里面所有的 tab。</li>
+<li>按 Backspace 键，或同时按 Alt 和向左箭头键，转到当前标签页浏览历史记录中的上一页；按 Shift+Backspace，或同时按 Alt 和向右箭头键。 转到当前标签页浏览历史记录中的下一页。 </li>
+<li>F12/ctrl+shift+C 打开页面调试工具；Ctrl+Shift+J 打开开发者工具 console；Ctrl+U 打开当前网页的源代码。</li>
+<li>F11 在全屏模式下打开网页。再按一次F11即可退出全屏模式。  </li>
+<li>Shift+Delete 地址栏中跳出错误链接记录，选中该地址，使用这个快捷将浏览历史记录中删除所选条目，下次就不会再有这个提示内容了。  </li>
+<li>Alt+F或Alt+E或F10 打开Chrome菜单 ，以自定义和控制Google Chrome中的设置。</li>
+<li>Shift+Esc 打开 chrome 任务管理器。</li>
 </ul>
 <p><strong><a href="https://support.google.com/chrome/answer/157179?hl=zh-Hans" target="_blank" rel="external">更加详细的快捷键参考地址</a></strong></p>
+<p><em>另外一些快捷按键，不是特别方面，可以采用 crxMouse Chrome Gestures 之类的手势工具加以设置。</em></p>
 <h3 id="扩展插件："><a href="#扩展插件：" class="headerlink" title="扩展插件："></a>扩展插件：</h3><p>chrome 的强大之处就在于它丰富的插件，本人 chrome 常用的插件有大概 50 多个，每次更换电脑时，chrome 都会自动帮你同步插件，但注意很多插件有隐藏功能会可能修改你的一些默认配置。</p>
 <p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-10-chrome使用技巧/2.png" alt=""></p>
 <h4 id="必备插件："><a href="#必备插件：" class="headerlink" title="必备插件："></a>必备插件：</h4><ul>
 <li>广告拦截：adblock plus 和 adblock pro，可以手动添加拦截，可以自动拦截，两个插件基本可以拦截腾讯视频的广告，但很多其他网站上的广告拦截不了。小黄瓜视频广告拦截，这个貌似可以拦截绝大多数的国内视频广告，但也存在一些副作用。</li>
 <li>infinity new tab： 相当好用的一款tab插件，提供了不少针对chrome的扩展功能，重新规划了书签，扩展入口，历史记录等功能。Momentum：同infinity new tab类似，界面美观，但功能不够强大。</li>
-<li>crxMouse Chrome Gestures：一款必备的定制手势的插件</li>
+<li>crxMouse Chrome Gestures：一款必备的定制手势的插件，可以自定义多种手势操作，功能强大，反应快捷。</li>
 <li>Google Translate：一个小插件，用户体验不够好，提供了太多语言的选项，往往常用不是特别好，没有语言直接切换功能。翰林英汉双解词典：功能强大较多，但手动查找叫繁琐。</li>
 <li>惠惠购物助手：国内可以直观的购物比价的一个插件</li>
 <li>hover zoom：鼠标悬停后自动放大图片，无论是浏览图片网站还是购物都是上佳的选择</li>
@@ -6548,6 +6623,7 @@ print(&apos;hello&apos;)
 <h4 id="chrome-插件推荐网站"><a href="#chrome-插件推荐网站" class="headerlink" title="chrome 插件推荐网站"></a>chrome 插件推荐网站</h4><blockquote>
 <p><a href="http://www.cnplugins.com/" target="_blank" rel="external">http://www.cnplugins.com/</a><br><a href="http://chromecj.com/" target="_blank" rel="external">http://chromecj.com/</a></p>
 </blockquote>
+<p>这些网站不仅会定期推荐一些 chrome 的插件，甚至还可以提供<a href="https://chrome.google.com/webstore/category/extensions?utm_source=chrome-ntp-icon" target="_blank" rel="external">官方商城</a>的应用下载（帮助不能科学上网的朋友），但是需要自己手动安装，另外对于从这些第三方网站下载下来的插件安全性方面没有保证，使用的话需谨慎。</p>
 <h3 id="小技巧："><a href="#小技巧：" class="headerlink" title="小技巧："></a>小技巧：</h3><ul>
 <li>在网页标签处，单击鼠标中间键即可关闭网页，国内用户大都喜欢双击关闭页面，但大多数浏览器都支持中击关闭页面</li>
 <li>Ctrl++，或者按住 Ctrl 键并向上滚动鼠标滚轮 放大网页上的所有内容,  Ctrl+-，或者按住 Ctrl 键并向下滚动鼠标滚轮 缩小网页上的所有内容，但一般<strong>按住 ctrl 键转动鼠标滚轮实现页面缩放</strong>, <strong>Ctrl+0  将网页上的所有内容都恢复到正常大小</strong>。</li>
@@ -6570,7 +6646,7 @@ print(&apos;hello&apos;)
 <hr>
 <p>To be continued…</p>
 <blockquote>
-<p>参考链接：<br><a href="http://jingyan.baidu.com/article/359911f516583d57fe0306ae.html" target="_blank" rel="external">http://jingyan.baidu.com/article/359911f516583d57fe0306ae.html</a><br><a href="http://zhidao.baidu.com/question/502291145.html" target="_blank" rel="external">http://zhidao.baidu.com/question/502291145.html</a><br><a href="http://www.igooda.cn/jzjl/201604061075.html" target="_blank" rel="external">http://www.igooda.cn/jzjl/201604061075.html</a><br><a href="http://jingyan.baidu.com/article/37bce2be1403ce1003f3a26d.html" target="_blank" rel="external">http://jingyan.baidu.com/article/37bce2be1403ce1003f3a26d.html</a><br><a href="https://www.zhihu.com/question/28531079?sort=created&amp;page=2" target="_blank" rel="external">https://www.zhihu.com/question/28531079?sort=created&amp;page=2</a><br><a href="https://www.zhihu.com/question/34682699" target="_blank" rel="external">https://www.zhihu.com/question/34682699</a><br><a href="http://www.cnblogs.com/constantince/p/4565261.html" target="_blank" rel="external">http://www.cnblogs.com/constantince/p/4565261.html</a><br><a href="https://www.zhihu.com/question/28531079" target="_blank" rel="external">https://www.zhihu.com/question/28531079</a><br><a href="http://www.ghacks.net/2012/09/04/list-of-chrome-urls-and-their-purpose/" target="_blank" rel="external">http://www.ghacks.net/2012/09/04/list-of-chrome-urls-and-their-purpose/</a></p>
+<p>参考链接：<br><a href="http://jingyan.baidu.com/article/359911f516583d57fe0306ae.html" target="_blank" rel="external">http://jingyan.baidu.com/article/359911f516583d57fe0306ae.html</a><br><a href="http://zhidao.baidu.com/question/502291145.html" target="_blank" rel="external">http://zhidao.baidu.com/question/502291145.html</a><br><a href="http://www.igooda.cn/jzjl/201604061075.html" target="_blank" rel="external">http://www.igooda.cn/jzjl/201604061075.html</a><br><a href="http://jingyan.baidu.com/article/37bce2be1403ce1003f3a26d.html" target="_blank" rel="external">http://jingyan.baidu.com/article/37bce2be1403ce1003f3a26d.html</a><br><a href="https://www.zhihu.com/question/28531079?sort=created&amp;page=2" target="_blank" rel="external">https://www.zhihu.com/question/28531079?sort=created&amp;page=2</a><br><a href="https://www.zhihu.com/question/34682699" target="_blank" rel="external">https://www.zhihu.com/question/34682699</a><br><a href="http://www.cnblogs.com/constantince/p/4565261.html" target="_blank" rel="external">http://www.cnblogs.com/constantince/p/4565261.html</a><br><a href="https://www.zhihu.com/question/28531079" target="_blank" rel="external">https://www.zhihu.com/question/28531079</a><br><a href="http://tieba.baidu.com/p/3677249170" target="_blank" rel="external">http://tieba.baidu.com/p/3677249170</a><br><a href="http://www.ghacks.net/2012/09/04/list-of-chrome-urls-and-their-purpose/" target="_blank" rel="external">http://www.ghacks.net/2012/09/04/list-of-chrome-urls-and-their-purpose/</a></p>
 </blockquote>
 ]]></content>
       

@@ -3,7 +3,7 @@ layout: "post"
 title: "linux下的shell和终端使用"
 category: "软件应用"
 tags:   "linux"
-date: "2017-04-26 16:11"
+date: "2016-04-26 16:11"
 ---
 
 

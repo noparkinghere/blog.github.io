@@ -2476,7 +2476,7 @@
     <entry>
       <title><![CDATA[linux-shadowsocks全局代理]]></title>
       <url>http://noparkinghere.top/2017/01/25/2017/2017-01-25-ss-linux%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86/</url>
-      <content type="html"><![CDATA[<p>windows 直接下载 ss 终端，稍加设置即可完成全局代理，linux 用户如果需要让某个软件可以使用 ss 一般都需要连接端口才行。例如本地 ss 配置为：<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"server_port"</span>:<span class="number">1800</span>,</div><div class="line"><span class="string">"local_port"</span>:<span class="number">1080</span>,</div></pre></td></tr></table></figure></p>
+      <content type="html"><![CDATA[<p>windows 直接下载 ss 终端，稍加设置即可完成全局代理，linux 用户如果需要让某个软件可以使用 ss 一般都需要连接端口才行。例如本地 ss 配置为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"server_port"</span>:1800,</div><div class="line"><span class="string">"local_port"</span>:1080,</div></pre></td></tr></table></figure></p>
 <h3 id="原理简述"><a href="#原理简述" class="headerlink" title="原理简述"></a>原理简述</h3><p>这边就相当于将本地的 127.0.0.1:1080 和 server_ip:1800 建立了连接关系。因此软件如果需要使用 vps 上面搭建的 ss 服务的话，则需要让该软件使用的协议连接到 127.0.0.1:1080 上。之前在 vps-shadowsocks 中介绍的 chrome 插件 SwitchyOmega 就是使用 SOCKS5 协议连接到 127.0.0.1:1080 上，让所有数据通过 SOCKS5 协议，然后从 127.0.0.1:1080 进行收发。</p>
 <p>可以看出如果我们需要让其他软件也能够使用 ss 则需要让他们也能够使用 127.0.0.1:1080 代理服务器，然而不幸的是，大多数软件并不支持代理服务的功能， windows 平台下的软件很多可以通过设置 IE 代理让其他软件使用代理服务（原理是：大多数软件都会优先读取 IE 的代理设置，再访问网络）。</p>
 <a id="more"></a>
@@ -4249,6 +4249,51 @@
     </entry>
     
     <entry>
+      <title><![CDATA[串口RS485通信详解]]></title>
+      <url>http://noparkinghere.top/2016/10/19/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<p><strong>注意：串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。串口的一些内容不再逐一介绍说明，可以参加之前的usb转串口及RS232通信等文章</strong></p>
+<h3 id="特性介绍"><a href="#特性介绍" class="headerlink" title="特性介绍"></a>特性介绍</h3><p>485（一般称作 RS485/EIA-485）是隶属于 OSI 模型物理层的电气特性规定为 2 线，半双工，多点通信的标准。它的电气特性和 RS-232 大不一样。用缆线两端的电压差值来表示传递信号。值得注意的是：RS485 仅仅规定了接受端和发送端的电气特性，它没有规定或推荐任何数据协议。</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/1.jpg" alt=""></p>
+<p>RS485接口可以只使用两根线进行通讯（其他串口通讯至少需要三根线，一根为地线作为参考电平），通过差分电平（利用两个信号的差值来判断信息，使用差分信号来传输的，也就是一根线传同相信号，一根线传反相，这样差值最大，抗干扰能力强。）来确定信号是0还是1，也正因为这个原因，所以RS485每次有且仅有一根线能够传输数据，另外一根线作为比对信号，因此RS485是半双工的通讯方式。主要特点如下：</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/2.jpg" alt=""></p>
+<ul>
+<li>接口电平低，不易损坏芯片。 RS485 的电气特性：逻辑“ 1”以两线间的电压差为+(2~6)V<br>表示；逻辑“ 0”以两线间的电压差为-(2~6)V 表示。接口信号电平比 RS232 降低了，<br>不易损坏接口电路的芯片，且该电平与 TTL 电平兼容，可方便与 TTL 电路连接。</li>
+<li>传输速率高。 10 米时， RS485 的数据最高传输速率可达 35Mbps，在 1200m 时，传输<br>速度可达 100Kbps。</li>
+<li>抗干扰能力强。 RS485 接口是采用平衡驱动器和差分接收器的组合，抗共模干扰能力<br>增强，即抗噪声干扰性好。 传输距离远，支持节点多。 RS485 总线最长可以传输 1200m<br>以上（速率≤100Kbps）</li>
+<li>一般最大支持 32 个节点，如果使用特制的 485 芯片，可以达到 128 个或者 256 个节点，<br>最大的可以支持到 400 个节点。</li>
+</ul>
+<a id="more"></a>
+<h3 id="类比RS232"><a href="#类比RS232" class="headerlink" title="类比RS232"></a>类比RS232</h3><p>实际上232串口在实际使用已经用处不大，但基于232发展出来的485等串口设备仍然被广泛使用，RS-485（EIA-485标准）是RS-422的改进，因为它增加了设备的个数，从10个增加到32个，同时定义了在最大设备个数情况下的电气特性，以保证足够的信号电压。有了多个设备的能力，你可以使用一个单个RS-485口建立设备网络。</p>
+<p>因为都是采用串口通信协议，所以软件端几乎可以直接使用，且RS485具备耗材少，抗干扰强等特点，在目前的工业领域仍然被广泛使用，这边主要列举出不同：</p>
+<ul>
+<li>从接线上，RS232是三线制，RS485是两线制</li>
+<li>从传输距离上，RS232只能传输15米，RS485最远可以传输1200米</li>
+<li>从速率上，RS232是全双工传输，RS485是半双工传输</li>
+<li>从协议层上，RS232只支持点对点通讯(1:1)，RS485支持总线形式通讯（1:N）</li>
+</ul>
+<p>RS232的接线：<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/3.jpg" alt="">)</p>
+<p>RS485的接线<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/4.jpg" alt=""></p>
+<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><blockquote>
+<p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a></p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> 程序开发 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[串口RS232通信详解]]></title>
       <url>http://noparkinghere.top/2016/10/19/2016/2016-10-19-%E4%B8%B2%E5%8F%A3RS232%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<p>串行接口是一种可以将接受来自CPU的并行数据字符转换为连续的串行数据流发送出去，同时可将接受的串行数据流转换为并行的数据字符供给CPU的器件。一般完成这种功能的电路，我们称为串行接口电路。曾经PC之间进行串口通信可以说是标配，很多老式电脑上面可以看到DB25的接头，但后来逐渐被DB9取代，早期鼠标打印机都通过串口进行数据传输的，但现在逐渐被USB和网络所取代，DB9的串口接头在PC和笔记本上面也较少能够看到了。做嵌入式开发可以看到有个DB9的串口标准接口，串口对于开发人员输入输出调试等有着至关重要的作用。串行接口按电气标准及协议来分包括RS-232-C、RS-422、RS485等，现在串口一般在工业嵌入式领域使用。</p>
@@ -4308,51 +4353,6 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
 <blockquote>
 <p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a><br><a href="http://www.baike.com/wiki/51+IO%E5%8F%A3%E6%A8%A1%E6%8B%9F%E4%B8%B2%E5%8F%A3%E9%80%9A%E8%AE%AFC%E6%BA%90%E7%A8%8B%E5%BA%8F" target="_blank" rel="external">http://www.baike.com/wiki/51+IO%E5%8F%A3%E6%A8%A1%E6%8B%9F%E4%B8%B2%E5%8F%A3%E9%80%9A%E8%AE%AFC%E6%BA%90%E7%A8%8B%E5%BA%8F</a><br><a href="http://ziye334.blog.163.com/blog/static/224306191201452833850647" target="_blank" rel="external">http://ziye334.blog.163.com/blog/static/224306191201452833850647</a></p>
-</blockquote>
-]]></content>
-      
-        <categories>
-            
-            <category> 程序开发 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 嵌入式 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[串口RS485通信详解]]></title>
-      <url>http://noparkinghere.top/2016/10/19/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
-      <content type="html"><![CDATA[<p><strong>注意：串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。串口的一些内容不再逐一介绍说明，可以参加之前的usb转串口及RS232通信等文章</strong></p>
-<h3 id="特性介绍"><a href="#特性介绍" class="headerlink" title="特性介绍"></a>特性介绍</h3><p>485（一般称作 RS485/EIA-485）是隶属于 OSI 模型物理层的电气特性规定为 2 线，半双工，多点通信的标准。它的电气特性和 RS-232 大不一样。用缆线两端的电压差值来表示传递信号。值得注意的是：RS485 仅仅规定了接受端和发送端的电气特性，它没有规定或推荐任何数据协议。</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/1.jpg" alt=""></p>
-<p>RS485接口可以只使用两根线进行通讯（其他串口通讯至少需要三根线，一根为地线作为参考电平），通过差分电平（利用两个信号的差值来判断信息，使用差分信号来传输的，也就是一根线传同相信号，一根线传反相，这样差值最大，抗干扰能力强。）来确定信号是0还是1，也正因为这个原因，所以RS485每次有且仅有一根线能够传输数据，另外一根线作为比对信号，因此RS485是半双工的通讯方式。主要特点如下：</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/2.jpg" alt=""></p>
-<ul>
-<li>接口电平低，不易损坏芯片。 RS485 的电气特性：逻辑“ 1”以两线间的电压差为+(2~6)V<br>表示；逻辑“ 0”以两线间的电压差为-(2~6)V 表示。接口信号电平比 RS232 降低了，<br>不易损坏接口电路的芯片，且该电平与 TTL 电平兼容，可方便与 TTL 电路连接。</li>
-<li>传输速率高。 10 米时， RS485 的数据最高传输速率可达 35Mbps，在 1200m 时，传输<br>速度可达 100Kbps。</li>
-<li>抗干扰能力强。 RS485 接口是采用平衡驱动器和差分接收器的组合，抗共模干扰能力<br>增强，即抗噪声干扰性好。 传输距离远，支持节点多。 RS485 总线最长可以传输 1200m<br>以上（速率≤100Kbps）</li>
-<li>一般最大支持 32 个节点，如果使用特制的 485 芯片，可以达到 128 个或者 256 个节点，<br>最大的可以支持到 400 个节点。</li>
-</ul>
-<a id="more"></a>
-<h3 id="类比RS232"><a href="#类比RS232" class="headerlink" title="类比RS232"></a>类比RS232</h3><p>实际上232串口在实际使用已经用处不大，但基于232发展出来的485等串口设备仍然被广泛使用，RS-485（EIA-485标准）是RS-422的改进，因为它增加了设备的个数，从10个增加到32个，同时定义了在最大设备个数情况下的电气特性，以保证足够的信号电压。有了多个设备的能力，你可以使用一个单个RS-485口建立设备网络。</p>
-<p>因为都是采用串口通信协议，所以软件端几乎可以直接使用，且RS485具备耗材少，抗干扰强等特点，在目前的工业领域仍然被广泛使用，这边主要列举出不同：</p>
-<ul>
-<li>从接线上，RS232是三线制，RS485是两线制</li>
-<li>从传输距离上，RS232只能传输15米，RS485最远可以传输1200米</li>
-<li>从速率上，RS232是全双工传输，RS485是半双工传输</li>
-<li>从协议层上，RS232只支持点对点通讯(1:1)，RS485支持总线形式通讯（1:N）</li>
-</ul>
-<p>RS232的接线：<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/3.jpg" alt="">)</p>
-<p>RS485的接线<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/4.jpg" alt=""></p>
-<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><blockquote>
-<p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a></p>
 </blockquote>
 ]]></content>
       
@@ -4864,33 +4864,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[git的配置及相关插件]]></title>
-      <url>http://noparkinghere.top/2016/09/28/2016-09-28-git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6/</url>
-      <content type="html"><![CDATA[<p>一个好的工具，需要不断的打磨和熟悉使用技巧才可以把它用的炉火纯青，git同样如此，本文主要是推荐一些git常用的配置以及配套的一些工具。</p>
-<h3 id="git的相关配置："><a href="#git的相关配置：" class="headerlink" title="git的相关配置："></a>git的相关配置：</h3><h4 id="gitignore配置"><a href="#gitignore配置" class="headerlink" title=".gitignore配置"></a>.gitignore配置</h4><a id="more"></a>
-<h3 id="推荐的git插件："><a href="#推荐的git插件：" class="headerlink" title="推荐的git插件："></a>推荐的git插件：</h3><h4 id="tig"><a href="#tig" class="headerlink" title="tig"></a>tig</h4><p>首先推荐<a href="http://jonas.nitro.dk/tig/" target="_blank" rel="external">tig</a>（名字刚好和git相反），是一个专门针对git的小软件，官方这么介绍<em>text-mode interface for Git</em>。</p>
-<p>推荐可以访问<a href="https://github.com/jonas/tig" target="_blank" rel="external">tig的github页面</a>,里面有相关的下载安装说明。</p>
-<ul>
-<li>软件能够恨清晰的看到你的版本目录结构</li>
-</ul>
-<h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><h4 id="小乌龟插件"><a href="#小乌龟插件" class="headerlink" title="小乌龟插件"></a>小乌龟插件</h4><h4 id="atom"><a href="#atom" class="headerlink" title="atom"></a>atom</h4>]]></content>
-      
-        <categories>
-            
-            <category> 转载文章 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 英语 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[通过git管理一个工程]]></title>
       <url>http://noparkinghere.top/2016/09/28/2016/2016-09-28-%E9%80%9A%E8%BF%87git%E7%AE%A1%E7%90%86%E4%B8%80%E4%B8%AA%E5%B7%A5%E7%A8%8B/</url>
       <content type="html"><![CDATA[<p>GIT虽然能够实现各种版本控制，且功能强大，可以做到随时切换版本，回退等各种功能，但过多的分支，无效的分支，杂乱的提交，无意义的命名等等问题，往往会让像我这样的初学者，异常头痛，网络上关于git的往往都是指导你各个命令如何去用，部分命令的使用场景等，但却缺少一个完整工程项目的管理步骤。部分大神的确总结出了自己的使用习惯，但却不是作为教程来陈述的，下面我会将自己的一些习惯进行总结，后续可能遇到更好的也还会不断的更改。</p>
@@ -4930,6 +4903,33 @@
         <tags>
             
             <tag> git </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[git的配置及相关插件]]></title>
+      <url>http://noparkinghere.top/2016/09/28/2016-09-28-git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6/</url>
+      <content type="html"><![CDATA[<p>一个好的工具，需要不断的打磨和熟悉使用技巧才可以把它用的炉火纯青，git同样如此，本文主要是推荐一些git常用的配置以及配套的一些工具。</p>
+<h3 id="git的相关配置："><a href="#git的相关配置：" class="headerlink" title="git的相关配置："></a>git的相关配置：</h3><h4 id="gitignore配置"><a href="#gitignore配置" class="headerlink" title=".gitignore配置"></a>.gitignore配置</h4><a id="more"></a>
+<h3 id="推荐的git插件："><a href="#推荐的git插件：" class="headerlink" title="推荐的git插件："></a>推荐的git插件：</h3><h4 id="tig"><a href="#tig" class="headerlink" title="tig"></a>tig</h4><p>首先推荐<a href="http://jonas.nitro.dk/tig/" target="_blank" rel="external">tig</a>（名字刚好和git相反），是一个专门针对git的小软件，官方这么介绍<em>text-mode interface for Git</em>。</p>
+<p>推荐可以访问<a href="https://github.com/jonas/tig" target="_blank" rel="external">tig的github页面</a>,里面有相关的下载安装说明。</p>
+<ul>
+<li>软件能够恨清晰的看到你的版本目录结构</li>
+</ul>
+<h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><h4 id="小乌龟插件"><a href="#小乌龟插件" class="headerlink" title="小乌龟插件"></a>小乌龟插件</h4><h4 id="atom"><a href="#atom" class="headerlink" title="atom"></a>atom</h4>]]></content>
+      
+        <categories>
+            
+            <category> 转载文章 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 英语 </tag>
             
         </tags>
         
@@ -5694,8 +5694,11 @@
     <entry>
       <title><![CDATA[GPIO口详解]]></title>
       <url>http://noparkinghere.top/2016/08/03/2016-08-03-gpio%E5%8F%A3%E8%AF%A6%E8%A7%A3/</url>
-      <content type="html"><![CDATA[<p><em>在做 MCU 编程开发的时候，GPIO 可以说是最基础也是最重要的部分，MCU 的学习研究无非就是三点：高低电频，输入输出，通讯协议。而GPIO可以说贯穿始终，在模拟一些通讯协议时，GPIO 所采用的模式，往往会引起各种意想不到的问题。</em></p>
-<h3 id="GPIO-模式："><a href="#GPIO-模式：" class="headerlink" title="GPIO 模式："></a>GPIO 模式：</h3><h4 id="通用推挽输出（push-pull）："><a href="#通用推挽输出（push-pull）：" class="headerlink" title="通用推挽输出（push-pull）："></a>通用推挽输出（push-pull）：</h4><p>在功率放大器电路中大量采用推挽放大器电路，这种电路中用两只三极管构成一级放大器电路，两只三极管分别放大输入信号的正半周和负半周，即用一只三极管放大信号的正半周，用另一只三极管放大信号的负半周，两只三极管输出的半周信号在放大器负载上合并后得到一个完整周期的输出信号。原理图如下：</p>
+      <content type="html"><![CDATA[<p><em>在做 MCU 编程开发的时候，GPIO 可以说是最基础也是最重要的部分，MCU 的学习研究无非就是三点：高低电频，输入输出，通讯协议。而GPIO可以说贯穿始终，在模拟一些通讯协议时，GPIO 所采用的模式错误，往往会引起各种意想不到的问题。</em></p>
+<p>对于不同的计算机体系结构，设备可能是端口映射，也可能是内存映射的。如果系统结构支持独立的 IO 地址空间，并且是端口映射，就必须使用汇编语言完成实际对设备的控制，因为 C 语言并没有提供真正的“端口”的概念。如果是内存映射，那就方便的多了。比如像寄存器A（地址假定为0x48000000）写入数据0x01，那么就可以这样设置了，<code>#define A (*(volatile unsigned long *)0x48000000) A = 0x01;</code>这种通过宏定义某个存储空间，然后对该空间写入数据的过程是最为常见的。</p>
+<h3 id="GPIO-模式："><a href="#GPIO-模式：" class="headerlink" title="GPIO 模式："></a>GPIO 模式：</h3><p>不同的 MCU 会提供不同的模式选择，一般 GPIO 的模式无外乎以下几种：推挽输出，开漏输出，浮空输入,上拉/下拉输入，模拟口，复用功能等等。</p>
+<p>而实际使用中，</p>
+<h4 id="通用推挽输出（push-pull）："><a href="#通用推挽输出（push-pull）：" class="headerlink" title="通用推挽输出（push-pull）："></a>通用推挽输出（push-pull）：</h4><p>在功率放大器电路中大量采用推挽放大器电路，这种电路中用两只三极管构成一级放大器电路，两只三极管分别放大输入信号的正半周和负半周，即用一只三极管放大信号的正半周，用另一只三极管放大信号的负半周，两只三极管输出的半周信号在放大器负载上合并后得到一个完整周期的输出信号。原理图如下：</p>
 <p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-08-03-gpio%E5%8F%A3%E8%AF%A6%E8%A7%A3/8b82b9014a90f6037a3d50aa3a12b31bb151ed4a.jpg" alt=""></p>
 <p>推挽放大器电路中，一只三极管工作在导通、放大状态时，另一只三极管处于截止状态，当输入信号变化到另一个半周后，原先导通、放大的三极管进入截止，而原先截止的三极管进入导通、放大状态，两只三极管在不断地交替导通放大和截止变化，所以称为<strong>推挽放大器</strong>。</p>
 <p><em>这种电路主要用于低功耗情况下能输出较大功率的交流信号，通常用于低频放大电路设计中。可增强输出的负载能力。这种输出结构带负载能力较强，你驱动个LED灯什么的操作IO口可以用推挽输出。</em></p>
@@ -5708,8 +5711,14 @@
 <li>可以用于如继电器之类只吸入电流的负载, 或驱动比你的芯片电源电压高的负载，吸电流能力较强，但是输出能力不如推挽输出较弱，（一般如果单一驱动的话，大都选用推挽输出。）</li>
 <li>对于一些需要防止干扰的操作，如：不希望单片机的上拉电阻对外部电路（如ADC）产生任何影响。</li>
 </ul>
-<h4 id="开集输出（open-collector）："><a href="#开集输出（open-collector）：" class="headerlink" title="开集输出（open collector）："></a>开集输出（open collector）：</h4><h4 id="开漏输出"><a href="#开漏输出" class="headerlink" title="开漏输出"></a>开漏输出</h4><h3 id="通信协议："><a href="#通信协议：" class="headerlink" title="通信协议："></a>通信协议：</h3><blockquote>
-<p>参考链接：<br><a href="http://www.openedv.com/forum.php?mod=viewthread&amp;tid=2288&amp;highlight=%CD%C6%CD%EC%2B%BF%AA%C2%A9" target="_blank" rel="external">http://www.openedv.com/forum.php?mod=viewthread&amp;tid=2288&amp;highlight=%CD%C6%CD%EC%2B%BF%AA%C2%A9</a><br><a href="http://www.openedv.com/forum.php?mod=viewthread&amp;tid=67623&amp;highlight=%CD%C6%CD%EC%2B%BF%AA%C2%A9" target="_blank" rel="external">http://www.openedv.com/forum.php?mod=viewthread&amp;tid=67623&amp;highlight=%CD%C6%CD%EC%2B%BF%AA%C2%A9</a><br><a href="http://jingyan.baidu.com/article/5225f26b047a5ee6fa0908f6.html" target="_blank" rel="external">http://jingyan.baidu.com/article/5225f26b047a5ee6fa0908f6.html</a><br><a href="http://zhidao.baidu.com/link?url=ZnvwHHE10-0UZ8hPRvLczpw7-qZolpNolBuT0TsGZHEjDMxmZeYz5QsOYUybxc7OBMSiPOfZx_401s5KlEIQKcrUZPqSaOTMX4yrEgfsbX3" target="_blank" rel="external">http://zhidao.baidu.com/link?url=ZnvwHHE10-0UZ8hPRvLczpw7-qZolpNolBuT0TsGZHEjDMxmZeYz5QsOYUybxc7OBMSiPOfZx_401s5KlEIQKcrUZPqSaOTMX4yrEgfsbX3</a><br><a href="http://blog.chinaunix.net/uid-23065002-id-3885199.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-23065002-id-3885199.html</a><br><a href="http://wenku.baidu.com/link?url=9BSyigTdzjcZ73LWkfGOhzfxyD1oDhVHMS0ykLUG1sMp9lUbY9yGhL2hsqIKPaX47fdcfDwRxLnfu46m_Z4y0_HGE6XPk_8VSpE38ztCFIe" target="_blank" rel="external">http://wenku.baidu.com/link?url=9BSyigTdzjcZ73LWkfGOhzfxyD1oDhVHMS0ykLUG1sMp9lUbY9yGhL2hsqIKPaX47fdcfDwRxLnfu46m_Z4y0_HGE6XPk_8VSpE38ztCFIe</a><br><a href="http://www.9mcu.com/9mcubbs/forum.php?mod=viewthread&amp;tid=951093" target="_blank" rel="external">http://www.9mcu.com/9mcubbs/forum.php?mod=viewthread&amp;tid=951093</a></p>
+<p>open-drain 是漏极开路输出的意思，相当于集电极开路(open-collector)输出，即 ttl 中的集电极开路（oc）输出。一般用于线或、线与，也有的用于电流驱动。open-drain 是对 mos 管而言，open-collector 是对双极型管而言，在用法上没啥区别。OC 门的输出就是开漏输出；OD(open-collector) 门的输出也是开漏输出（实际是开集）。TTL 电路有集电极开路 OC 门，MOS 管也有和集电极对应的漏极开路的 OD 门，它的输出就叫做开漏输出。它可以吸收很大的电流，但是不能向外输出电流。所以，为了能输入和输出电流，它使用的时候要跟电源和上拉电阻一齐用。因此在 MCU 中我们就用开漏来表示本身无上拉能力，高阻抗的这种功能。</p>
+<h4 id="上拉-下拉输入"><a href="#上拉-下拉输入" class="headerlink" title="上拉/下拉输入"></a>上拉/下拉输入</h4><p>上拉就是输入高电平，然后接一个上拉电阻（起保护作用），需要知道上拉就表示该端口在默认情况下输入为高电平；同理，下拉就是默认情况输入低电平。</p>
+<p>这边上下拉比较好理解，而且一般的单片机都可以配置成这种功能，有关上下拉，可能一些人不会太在意，认为并不会有多大影响，但是一个稳定的产品配置上下拉很重要，而且，如果你需要考虑功能的话，那就更加需要注意这点。</p>
+<h4 id="复用功能"><a href="#复用功能" class="headerlink" title="复用功能"></a>复用功能</h4><p>新款的 MCU 中为了实现某些特殊的功能，如 uart，I2C 通讯等，加入了复用功能这种 IO 模式，GPIO 需要使用复用功能，然后配置相关的寄存器才可以开启这些功能，但是，也并不绝对，一些 MCU 即便使用其他模式，开启相关功能后，仍然是可以使用这些特殊功能的。</p>
+<p>但需要注意的是，个人认为 MCU 采用复用功能的模式，是为了安全，防止你错误的配置 GPIO 口，然后可能会导致 IO 口烧坏，所以如果你对相关功能需要的 GPIO 状态不是太熟悉的话，如果需要使用 MCU 寄存器来配置 GPIO 口，则最好按照规定将 GPIO 口配置为复用功能。</p>
+<p>这边关于通讯协议就不另外展开叙述，详细可以参考一些案例，尤其是需要模拟通讯协议输出时，一定要以芯片手册为准，部分网上流传的例程可能 IO 口配置是错误的，短时间没有问题，但不利于长久使用。</p>
+<blockquote>
+<p>参考链接：<br><a href="https://wenku.baidu.com/view/50417ea6f524ccbff121845c.html" target="_blank" rel="external">https://wenku.baidu.com/view/50417ea6f524ccbff121845c.html</a><br><a href="http://blog.csdn.net/ybhuangfugui/article/details/52953533" target="_blank" rel="external">http://blog.csdn.net/ybhuangfugui/article/details/52953533</a><br><a href="http://blog.csdn.net/kevinhg/article/details/17490273" target="_blank" rel="external">http://blog.csdn.net/kevinhg/article/details/17490273</a><br><a href="http://www.openedv.com/forum.php?mod=viewthread&amp;tid=2288&amp;highlight=%CD%C6%CD%EC%2B%BF%AA%C2%A9" target="_blank" rel="external">http://www.openedv.com/forum.php?mod=viewthread&amp;tid=2288&amp;highlight=%CD%C6%CD%EC%2B%BF%AA%C2%A9</a><br><a href="http://www.openedv.com/forum.php?mod=viewthread&amp;tid=67623&amp;highlight=%CD%C6%CD%EC%2B%BF%AA%C2%A9" target="_blank" rel="external">http://www.openedv.com/forum.php?mod=viewthread&amp;tid=67623&amp;highlight=%CD%C6%CD%EC%2B%BF%AA%C2%A9</a><br><a href="http://jingyan.baidu.com/article/5225f26b047a5ee6fa0908f6.html" target="_blank" rel="external">http://jingyan.baidu.com/article/5225f26b047a5ee6fa0908f6.html</a><br><a href="http://zhidao.baidu.com/link?url=ZnvwHHE10-0UZ8hPRvLczpw7-qZolpNolBuT0TsGZHEjDMxmZeYz5QsOYUybxc7OBMSiPOfZx_401s5KlEIQKcrUZPqSaOTMX4yrEgfsbX3" target="_blank" rel="external">http://zhidao.baidu.com/link?url=ZnvwHHE10-0UZ8hPRvLczpw7-qZolpNolBuT0TsGZHEjDMxmZeYz5QsOYUybxc7OBMSiPOfZx_401s5KlEIQKcrUZPqSaOTMX4yrEgfsbX3</a><br><a href="http://blog.chinaunix.net/uid-23065002-id-3885199.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-23065002-id-3885199.html</a><br><a href="http://wenku.baidu.com/link?url=9BSyigTdzjcZ73LWkfGOhzfxyD1oDhVHMS0ykLUG1sMp9lUbY9yGhL2hsqIKPaX47fdcfDwRxLnfu46m_Z4y0_HGE6XPk_8VSpE38ztCFIe" target="_blank" rel="external">http://wenku.baidu.com/link?url=9BSyigTdzjcZ73LWkfGOhzfxyD1oDhVHMS0ykLUG1sMp9lUbY9yGhL2hsqIKPaX47fdcfDwRxLnfu46m_Z4y0_HGE6XPk_8VSpE38ztCFIe</a><br><a href="http://www.9mcu.com/9mcubbs/forum.php?mod=viewthread&amp;tid=951093" target="_blank" rel="external">http://www.9mcu.com/9mcubbs/forum.php?mod=viewthread&amp;tid=951093</a><br><a href="https://wenku.baidu.com/view/131592ba1a37f111f1855b79" target="_blank" rel="external">https://wenku.baidu.com/view/131592ba1a37f111f1855b79</a></p>
 </blockquote>
 ]]></content>
       

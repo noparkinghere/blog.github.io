@@ -97,24 +97,27 @@ method 加密方法
 
 如要你需要分享SS服务给朋友或家人，可以配置多个SS账户，具体可以参考下面的代码:
 {
+    "server":"0.0.0.0",
+    "local_address": "127.0.0.1",
+    "local_port":1080,
     "timeout": 600,
     "method": "aes-256-cfb",
     "port_password":
     {
-        "40001": "password1",
-        "40002": "password2",
-        "40003": "password3"
+        "10001": "password1",
+        "10002": "password2",
+        "10003": "password3"
     },
     "_comment":
     {
-        "40001": "xiaoming",
-        "40002": "lilei",
-        "40003": "mike"
+        "10001": "xiaoming",
+        "10002": "lilei",
+        "10003": "mike"
     }
 }
 ```
 
-注意这边 server 的地址可以通过 ipconfig 获取本机地址，如果是一些多层虚拟出来的机器，如果无法获得本机IP，则输入0.0.0.0即可。
+注意这边 server 的地址可以通过 ifconfig 获取本机地址，如果是一些多层虚拟出来的机器，如果无法获得本机IP，则输入0.0.0.0即可。
 
 - 安装 supervisor： apt-get install supervisor
 - 将 shadowsocks 加入到 supervisor 中进行管理：vim /etc/supervisor/supervisord.conf 在末尾加入如下内容：

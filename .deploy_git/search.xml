@@ -2874,7 +2874,9 @@
 <p><strong>scp 是有Security的文件 copy，基于 ssh 登录。操作起来比较方便，比如要把当前一个文件 copy 到远程另外一台主机上，可以如下命令。</strong></p>
 <figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp /home/daisy/full.tar.gz root<span class="variable">@172</span>.<span class="number">19.2</span>.<span class="number">75</span><span class="symbol">:/home/root</span></div></pre></td></tr></table></figure>
 <p>然后会提示你输入另外那台 172.19.2.75 主机的 root 用户的登录密码，接着就开始 copy 了。如果想反过来操作，把文件从远程主机 copy 到当前系统，也很简单。</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp root@/full<span class="selector-class">.tar</span><span class="selector-class">.gz</span> <span class="number">172.19</span>.<span class="number">2.75</span>:/home/root/full<span class="selector-class">.tar</span><span class="selector-class">.gz</span> home/daisy/full<span class="selector-class">.tar</span><span class="selector-class">.gz</span></div></pre></td></tr></table></figure>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp root<span class="variable">@172</span>.<span class="number">19.2</span>.<span class="number">75</span><span class="symbol">:/home/root/full</span>.tar.gz home/daisy/full.tar.gz</div></pre></td></tr></table></figure>
+<p>scp 沿用了 ssh 的规则，默认一般是 22 端口，如果需要指定其他端口的话可以加上 -P [端口号]，如：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp -P <span class="number">2222</span> /home/daisy/full.tar.gz root<span class="variable">@172</span>.<span class="number">19.2</span>.<span class="number">75</span><span class="symbol">:/home/root</span></div></pre></td></tr></table></figure>
 <ul>
 <li>我们将原始机的公钥拷贝到目标服务器的 .ssh 目录下，且命名为 authorized_keys。</li>
 </ul>
@@ -3323,8 +3325,8 @@
 <li>安装软件，终端输入：<code>apt-get install python-pip &amp;&amp; pip install shadowsocks</code>。</li>
 <li>写 shadowsocks 配置文件： vim /etc/shadowsocks.json ， 具体内容如下：</li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="string">"server"</span>:<span class="string">"0.0.0.0"</span>,</div><div class="line">    <span class="string">"server_port"</span>:50003,</div><div class="line">    <span class="string">"local_address"</span>: <span class="string">"127.0.0.1"</span>,</div><div class="line">    <span class="string">"local_port"</span>:1080,</div><div class="line">    <span class="string">"password"</span>:<span class="string">"123456"</span>,</div><div class="line">    <span class="string">"timeout"</span>:300,</div><div class="line">    <span class="string">"method"</span>:<span class="string">"aes-256-cfb"</span>,</div><div class="line">    <span class="string">"fast_open"</span>: <span class="literal">false</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">说明： </div><div class="line">server 你vps的IP</div><div class="line">servier_port 服务端的端口</div><div class="line">local_port 本地端口，一般默认1080</div><div class="line">password 服务端设置的密码</div><div class="line">timeout 超时设置</div><div class="line">method 加密方法</div><div class="line"></div><div class="line">如要你需要分享SS服务给朋友或家人，可以配置多个SS账户，具体可以参考下面的代码:</div><div class="line">&#123;</div><div class="line">    <span class="string">"timeout"</span>: 600,</div><div class="line">    <span class="string">"method"</span>: <span class="string">"aes-256-cfb"</span>,</div><div class="line">    <span class="string">"port_password"</span>:</div><div class="line">    &#123;</div><div class="line">        <span class="string">"40001"</span>: <span class="string">"password1"</span>,</div><div class="line">        <span class="string">"40002"</span>: <span class="string">"password2"</span>,</div><div class="line">        <span class="string">"40003"</span>: <span class="string">"password3"</span></div><div class="line">    &#125;,</div><div class="line">    <span class="string">"_comment"</span>:</div><div class="line">    &#123;</div><div class="line">        <span class="string">"40001"</span>: <span class="string">"xiaoming"</span>,</div><div class="line">        <span class="string">"40002"</span>: <span class="string">"lilei"</span>,</div><div class="line">        <span class="string">"40003"</span>: <span class="string">"mike"</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>注意这边 server 的地址可以通过 ipconfig 获取本机地址，如果是一些多层虚拟出来的机器，如果无法获得本机IP，则输入0.0.0.0即可。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="string">"server"</span>:<span class="string">"0.0.0.0"</span>,</div><div class="line">    <span class="string">"server_port"</span>:50003,</div><div class="line">    <span class="string">"local_address"</span>: <span class="string">"127.0.0.1"</span>,</div><div class="line">    <span class="string">"local_port"</span>:1080,</div><div class="line">    <span class="string">"password"</span>:<span class="string">"123456"</span>,</div><div class="line">    <span class="string">"timeout"</span>:300,</div><div class="line">    <span class="string">"method"</span>:<span class="string">"aes-256-cfb"</span>,</div><div class="line">    <span class="string">"fast_open"</span>: <span class="literal">false</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">说明： </div><div class="line">server 你vps的IP</div><div class="line">servier_port 服务端的端口</div><div class="line">local_port 本地端口，一般默认1080</div><div class="line">password 服务端设置的密码</div><div class="line">timeout 超时设置</div><div class="line">method 加密方法</div><div class="line"></div><div class="line">如要你需要分享SS服务给朋友或家人，可以配置多个SS账户，具体可以参考下面的代码:</div><div class="line">&#123;</div><div class="line">    <span class="string">"server"</span>:<span class="string">"0.0.0.0"</span>,</div><div class="line">    <span class="string">"local_address"</span>: <span class="string">"127.0.0.1"</span>,</div><div class="line">    <span class="string">"local_port"</span>:1080,</div><div class="line">    <span class="string">"timeout"</span>: 600,</div><div class="line">    <span class="string">"method"</span>: <span class="string">"aes-256-cfb"</span>,</div><div class="line">    <span class="string">"port_password"</span>:</div><div class="line">    &#123;</div><div class="line">        <span class="string">"10001"</span>: <span class="string">"password1"</span>,</div><div class="line">        <span class="string">"10002"</span>: <span class="string">"password2"</span>,</div><div class="line">        <span class="string">"10003"</span>: <span class="string">"password3"</span></div><div class="line">    &#125;,</div><div class="line">    <span class="string">"_comment"</span>:</div><div class="line">    &#123;</div><div class="line">        <span class="string">"10001"</span>: <span class="string">"xiaoming"</span>,</div><div class="line">        <span class="string">"10002"</span>: <span class="string">"lilei"</span>,</div><div class="line">        <span class="string">"10003"</span>: <span class="string">"mike"</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注意这边 server 的地址可以通过 ifconfig 获取本机地址，如果是一些多层虚拟出来的机器，如果无法获得本机IP，则输入0.0.0.0即可。</p>
 <ul>
 <li>安装 supervisor： apt-get install supervisor</li>
 <li>将 shadowsocks 加入到 supervisor 中进行管理：vim /etc/supervisor/supervisord.conf 在末尾加入如下内容：</li>
@@ -4296,51 +4298,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[串口RS485通信详解]]></title>
-      <url>http://noparkinghere.top/2016/10/19/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
-      <content type="html"><![CDATA[<p><strong>注意：串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。串口的一些内容不再逐一介绍说明，可以参加之前的usb转串口及RS232通信等文章</strong></p>
-<h3 id="特性介绍"><a href="#特性介绍" class="headerlink" title="特性介绍"></a>特性介绍</h3><p>485（一般称作 RS485/EIA-485）是隶属于 OSI 模型物理层的电气特性规定为 2 线，半双工，多点通信的标准。它的电气特性和 RS-232 大不一样。用缆线两端的电压差值来表示传递信号。值得注意的是：RS485 仅仅规定了接受端和发送端的电气特性，它没有规定或推荐任何数据协议。</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/1.jpg" alt=""></p>
-<p>RS485接口可以只使用两根线进行通讯（其他串口通讯至少需要三根线，一根为地线作为参考电平），通过差分电平（利用两个信号的差值来判断信息，使用差分信号来传输的，也就是一根线传同相信号，一根线传反相，这样差值最大，抗干扰能力强。）来确定信号是0还是1，也正因为这个原因，所以RS485每次有且仅有一根线能够传输数据，另外一根线作为比对信号，因此RS485是半双工的通讯方式。主要特点如下：</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/2.jpg" alt=""></p>
-<ul>
-<li>接口电平低，不易损坏芯片。 RS485 的电气特性：逻辑“ 1”以两线间的电压差为+(2~6)V<br>表示；逻辑“ 0”以两线间的电压差为-(2~6)V 表示。接口信号电平比 RS232 降低了，<br>不易损坏接口电路的芯片，且该电平与 TTL 电平兼容，可方便与 TTL 电路连接。</li>
-<li>传输速率高。 10 米时， RS485 的数据最高传输速率可达 35Mbps，在 1200m 时，传输<br>速度可达 100Kbps。</li>
-<li>抗干扰能力强。 RS485 接口是采用平衡驱动器和差分接收器的组合，抗共模干扰能力<br>增强，即抗噪声干扰性好。 传输距离远，支持节点多。 RS485 总线最长可以传输 1200m<br>以上（速率≤100Kbps）</li>
-<li>一般最大支持 32 个节点，如果使用特制的 485 芯片，可以达到 128 个或者 256 个节点，<br>最大的可以支持到 400 个节点。</li>
-</ul>
-<a id="more"></a>
-<h3 id="类比RS232"><a href="#类比RS232" class="headerlink" title="类比RS232"></a>类比RS232</h3><p>实际上232串口在实际使用已经用处不大，但基于232发展出来的485等串口设备仍然被广泛使用，RS-485（EIA-485标准）是RS-422的改进，因为它增加了设备的个数，从10个增加到32个，同时定义了在最大设备个数情况下的电气特性，以保证足够的信号电压。有了多个设备的能力，你可以使用一个单个RS-485口建立设备网络。</p>
-<p>因为都是采用串口通信协议，所以软件端几乎可以直接使用，且RS485具备耗材少，抗干扰强等特点，在目前的工业领域仍然被广泛使用，这边主要列举出不同：</p>
-<ul>
-<li>从接线上，RS232是三线制，RS485是两线制</li>
-<li>从传输距离上，RS232只能传输15米，RS485最远可以传输1200米</li>
-<li>从速率上，RS232是全双工传输，RS485是半双工传输</li>
-<li>从协议层上，RS232只支持点对点通讯(1:1)，RS485支持总线形式通讯（1:N）</li>
-</ul>
-<p>RS232的接线：<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/3.jpg" alt="">)</p>
-<p>RS485的接线<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/4.jpg" alt=""></p>
-<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><blockquote>
-<p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a></p>
-</blockquote>
-]]></content>
-      
-        <categories>
-            
-            <category> 程序开发 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 嵌入式 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[串口RS232通信详解]]></title>
       <url>http://noparkinghere.top/2016/10/19/2016/2016-10-19-%E4%B8%B2%E5%8F%A3RS232%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<p>串行接口是一种可以将接受来自CPU的并行数据字符转换为连续的串行数据流发送出去，同时可将接受的串行数据流转换为并行的数据字符供给CPU的器件。一般完成这种功能的电路，我们称为串行接口电路。曾经PC之间进行串口通信可以说是标配，很多老式电脑上面可以看到DB25的接头，但后来逐渐被DB9取代，早期鼠标打印机都通过串口进行数据传输的，但现在逐渐被USB和网络所取代，DB9的串口接头在PC和笔记本上面也较少能够看到了。做嵌入式开发可以看到有个DB9的串口标准接口，串口对于开发人员输入输出调试等有着至关重要的作用。串行接口按电气标准及协议来分包括RS-232-C、RS-422、RS485等，现在串口一般在工业嵌入式领域使用。</p>
@@ -4400,6 +4357,51 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
 <blockquote>
 <p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a><br><a href="http://www.baike.com/wiki/51+IO%E5%8F%A3%E6%A8%A1%E6%8B%9F%E4%B8%B2%E5%8F%A3%E9%80%9A%E8%AE%AFC%E6%BA%90%E7%A8%8B%E5%BA%8F" target="_blank" rel="external">http://www.baike.com/wiki/51+IO%E5%8F%A3%E6%A8%A1%E6%8B%9F%E4%B8%B2%E5%8F%A3%E9%80%9A%E8%AE%AFC%E6%BA%90%E7%A8%8B%E5%BA%8F</a><br><a href="http://ziye334.blog.163.com/blog/static/224306191201452833850647" target="_blank" rel="external">http://ziye334.blog.163.com/blog/static/224306191201452833850647</a></p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> 程序开发 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[串口RS485通信详解]]></title>
+      <url>http://noparkinghere.top/2016/10/19/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<p><strong>注意：串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。串口的一些内容不再逐一介绍说明，可以参加之前的usb转串口及RS232通信等文章</strong></p>
+<h3 id="特性介绍"><a href="#特性介绍" class="headerlink" title="特性介绍"></a>特性介绍</h3><p>485（一般称作 RS485/EIA-485）是隶属于 OSI 模型物理层的电气特性规定为 2 线，半双工，多点通信的标准。它的电气特性和 RS-232 大不一样。用缆线两端的电压差值来表示传递信号。值得注意的是：RS485 仅仅规定了接受端和发送端的电气特性，它没有规定或推荐任何数据协议。</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/1.jpg" alt=""></p>
+<p>RS485接口可以只使用两根线进行通讯（其他串口通讯至少需要三根线，一根为地线作为参考电平），通过差分电平（利用两个信号的差值来判断信息，使用差分信号来传输的，也就是一根线传同相信号，一根线传反相，这样差值最大，抗干扰能力强。）来确定信号是0还是1，也正因为这个原因，所以RS485每次有且仅有一根线能够传输数据，另外一根线作为比对信号，因此RS485是半双工的通讯方式。主要特点如下：</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/2.jpg" alt=""></p>
+<ul>
+<li>接口电平低，不易损坏芯片。 RS485 的电气特性：逻辑“ 1”以两线间的电压差为+(2~6)V<br>表示；逻辑“ 0”以两线间的电压差为-(2~6)V 表示。接口信号电平比 RS232 降低了，<br>不易损坏接口电路的芯片，且该电平与 TTL 电平兼容，可方便与 TTL 电路连接。</li>
+<li>传输速率高。 10 米时， RS485 的数据最高传输速率可达 35Mbps，在 1200m 时，传输<br>速度可达 100Kbps。</li>
+<li>抗干扰能力强。 RS485 接口是采用平衡驱动器和差分接收器的组合，抗共模干扰能力<br>增强，即抗噪声干扰性好。 传输距离远，支持节点多。 RS485 总线最长可以传输 1200m<br>以上（速率≤100Kbps）</li>
+<li>一般最大支持 32 个节点，如果使用特制的 485 芯片，可以达到 128 个或者 256 个节点，<br>最大的可以支持到 400 个节点。</li>
+</ul>
+<a id="more"></a>
+<h3 id="类比RS232"><a href="#类比RS232" class="headerlink" title="类比RS232"></a>类比RS232</h3><p>实际上232串口在实际使用已经用处不大，但基于232发展出来的485等串口设备仍然被广泛使用，RS-485（EIA-485标准）是RS-422的改进，因为它增加了设备的个数，从10个增加到32个，同时定义了在最大设备个数情况下的电气特性，以保证足够的信号电压。有了多个设备的能力，你可以使用一个单个RS-485口建立设备网络。</p>
+<p>因为都是采用串口通信协议，所以软件端几乎可以直接使用，且RS485具备耗材少，抗干扰强等特点，在目前的工业领域仍然被广泛使用，这边主要列举出不同：</p>
+<ul>
+<li>从接线上，RS232是三线制，RS485是两线制</li>
+<li>从传输距离上，RS232只能传输15米，RS485最远可以传输1200米</li>
+<li>从速率上，RS232是全双工传输，RS485是半双工传输</li>
+<li>从协议层上，RS232只支持点对点通讯(1:1)，RS485支持总线形式通讯（1:N）</li>
+</ul>
+<p>RS232的接线：<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/3.jpg" alt="">)</p>
+<p>RS485的接线<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/4.jpg" alt=""></p>
+<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><blockquote>
+<p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a></p>
 </blockquote>
 ]]></content>
       
@@ -4913,6 +4915,33 @@
     </entry>
     
     <entry>
+      <title><![CDATA[git的配置及相关插件]]></title>
+      <url>http://noparkinghere.top/2016/09/28/2016-09-28-git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6/</url>
+      <content type="html"><![CDATA[<p>一个好的工具，需要不断的打磨和熟悉使用技巧才可以把它用的炉火纯青，git同样如此，本文主要是推荐一些git常用的配置以及配套的一些工具。</p>
+<h3 id="git的相关配置："><a href="#git的相关配置：" class="headerlink" title="git的相关配置："></a>git的相关配置：</h3><h4 id="gitignore配置"><a href="#gitignore配置" class="headerlink" title=".gitignore配置"></a>.gitignore配置</h4><a id="more"></a>
+<h3 id="推荐的git插件："><a href="#推荐的git插件：" class="headerlink" title="推荐的git插件："></a>推荐的git插件：</h3><h4 id="tig"><a href="#tig" class="headerlink" title="tig"></a>tig</h4><p>首先推荐<a href="http://jonas.nitro.dk/tig/" target="_blank" rel="external">tig</a>（名字刚好和git相反），是一个专门针对git的小软件，官方这么介绍<em>text-mode interface for Git</em>。</p>
+<p>推荐可以访问<a href="https://github.com/jonas/tig" target="_blank" rel="external">tig的github页面</a>,里面有相关的下载安装说明。</p>
+<ul>
+<li>软件能够恨清晰的看到你的版本目录结构</li>
+</ul>
+<h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><h4 id="小乌龟插件"><a href="#小乌龟插件" class="headerlink" title="小乌龟插件"></a>小乌龟插件</h4><h4 id="atom"><a href="#atom" class="headerlink" title="atom"></a>atom</h4>]]></content>
+      
+        <categories>
+            
+            <category> 转载文章 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 英语 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[通过git管理一个工程]]></title>
       <url>http://noparkinghere.top/2016/09/28/2016/2016-09-28-%E9%80%9A%E8%BF%87git%E7%AE%A1%E7%90%86%E4%B8%80%E4%B8%AA%E5%B7%A5%E7%A8%8B/</url>
       <content type="html"><![CDATA[<p>GIT虽然能够实现各种版本控制，且功能强大，可以做到随时切换版本，回退等各种功能，但过多的分支，无效的分支，杂乱的提交，无意义的命名等等问题，往往会让像我这样的初学者，异常头痛，网络上关于git的往往都是指导你各个命令如何去用，部分命令的使用场景等，但却缺少一个完整工程项目的管理步骤。部分大神的确总结出了自己的使用习惯，但却不是作为教程来陈述的，下面我会将自己的一些习惯进行总结，后续可能遇到更好的也还会不断的更改。</p>
@@ -4952,33 +4981,6 @@
         <tags>
             
             <tag> git </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[git的配置及相关插件]]></title>
-      <url>http://noparkinghere.top/2016/09/28/2016-09-28-git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6/</url>
-      <content type="html"><![CDATA[<p>一个好的工具，需要不断的打磨和熟悉使用技巧才可以把它用的炉火纯青，git同样如此，本文主要是推荐一些git常用的配置以及配套的一些工具。</p>
-<h3 id="git的相关配置："><a href="#git的相关配置：" class="headerlink" title="git的相关配置："></a>git的相关配置：</h3><h4 id="gitignore配置"><a href="#gitignore配置" class="headerlink" title=".gitignore配置"></a>.gitignore配置</h4><a id="more"></a>
-<h3 id="推荐的git插件："><a href="#推荐的git插件：" class="headerlink" title="推荐的git插件："></a>推荐的git插件：</h3><h4 id="tig"><a href="#tig" class="headerlink" title="tig"></a>tig</h4><p>首先推荐<a href="http://jonas.nitro.dk/tig/" target="_blank" rel="external">tig</a>（名字刚好和git相反），是一个专门针对git的小软件，官方这么介绍<em>text-mode interface for Git</em>。</p>
-<p>推荐可以访问<a href="https://github.com/jonas/tig" target="_blank" rel="external">tig的github页面</a>,里面有相关的下载安装说明。</p>
-<ul>
-<li>软件能够恨清晰的看到你的版本目录结构</li>
-</ul>
-<h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><h4 id="小乌龟插件"><a href="#小乌龟插件" class="headerlink" title="小乌龟插件"></a>小乌龟插件</h4><h4 id="atom"><a href="#atom" class="headerlink" title="atom"></a>atom</h4>]]></content>
-      
-        <categories>
-            
-            <category> 转载文章 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 英语 </tag>
             
         </tags>
         
@@ -5637,27 +5639,32 @@
     </entry>
     
     <entry>
-      <title><![CDATA[C/C++编程规范]]></title>
+      <title><![CDATA[C编程规范]]></title>
       <url>http://noparkinghere.top/2016/08/11/2016/2016-08-11-C%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/</url>
-      <content type="html"><![CDATA[<p><em>文章阐述个人使用 C/C++ 的一些命名规范总结，当然现在很多编辑器强大，很多人不再注意这些规范，但由于本人记性较差，加上打字速度较快，所以这套规范虽然繁琐，但还是比较适合我自己的。</em></p>
-<h3 id="1-命名规范"><a href="#1-命名规范" class="headerlink" title="1. 命名规范"></a>1. 命名规范</h3><h4 id="1-1-宏定义的命名全部采用大写，中间间隔用隔开，要求常量名用大写，常量名用英文表达其意思。-当需要由多个单词表示时，单词与单词之间必须采用连字符”“连接。"><a href="#1-1-宏定义的命名全部采用大写，中间间隔用隔开，要求常量名用大写，常量名用英文表达其意思。-当需要由多个单词表示时，单词与单词之间必须采用连字符”“连接。" class="headerlink" title="1.1 宏定义的命名全部采用大写，中间间隔用隔开，要求常量名用大写，常量名用英文表达其意思。 当需要由多个单词表示时，单词与单词之间必须采用连字符”“连接。"></a>1.1 宏定义的命名全部采用大写，中间间隔用<em>隔开，要求常量名用大写，常量名用英文表达其意思。 当需要由多个单词表示时，单词与单词之间必须采用连字符”</em>“连接。</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">如：</div><div class="line"><span class="comment">#define CM_FILE_NOT_FOUND  CMMAKEHR(0X20B) 其中CM表示类别。</span></div></pre></td></tr></table></figure>
-<h4 id="1-2-变量的命名规则要求用“匈牙利命名法”。-即便很冗余且很多时候并没有实际作用，但方便查看，记性差防止跳过去查了就忘的情况"><a href="#1-2-变量的命名规则要求用“匈牙利命名法”。-即便很冗余且很多时候并没有实际作用，但方便查看，记性差防止跳过去查了就忘的情况" class="headerlink" title="1.2 变量的命名规则要求用“匈牙利命名法”。 (即便很冗余且很多时候并没有实际作用，但方便查看，记性差防止跳过去查了就忘的情况)"></a>1.2 变量的命名规则要求用“匈牙利命名法”。 (即便很冗余且很多时候并没有实际作用，但方便查看，记性差防止跳过去查了就忘的情况)</h4><p><em>这种命名法的出发点是把变量名按：属性+类型+对象描述的顺序组合起来：</em></p>
+      <content type="html"><![CDATA[<p><em>文章阐述了一些个人使用 C 编程时的习惯，主要参考一些网传的文档，固件库以及多个工程。</em></p>
+<h3 id="命名规则"><a href="#命名规则" class="headerlink" title="命名规则"></a>命名规则</h3><h4 id="宏定义的命名全部采用大写，单词之间用隔开，要求常量名只含有大写字母和下划线，且常量名用英文表达其意思不得使用拼音，当需要由多个单词表示时，单词与单词之间必须采用连字符”“连接。"><a href="#宏定义的命名全部采用大写，单词之间用隔开，要求常量名只含有大写字母和下划线，且常量名用英文表达其意思不得使用拼音，当需要由多个单词表示时，单词与单词之间必须采用连字符”“连接。" class="headerlink" title="宏定义的命名全部采用大写，单词之间用隔开，要求常量名只含有大写字母和下划线，且常量名用英文表达其意思不得使用拼音，当需要由多个单词表示时，单词与单词之间必须采用连字符”“连接。"></a>宏定义的命名全部采用大写，单词之间用<em>隔开，要求常量名只含有大写字母和下划线，且常量名用英文表达其意思不得使用拼音，当需要由多个单词表示时，单词与单词之间必须采用连字符”</em>“连接。</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">如：</div><div class="line"><span class="comment">#define ERR_FILE_NOT_FOUND</span></div></pre></td></tr></table></figure>
+<h4 id="结构体类型和函数的标识符一般用大驼峰式书写格式，普通变量和结构体变量的标识符则多用小驼峰式书写格式，但在此基础之上进行一定的改进不完全沿用。"><a href="#结构体类型和函数的标识符一般用大驼峰式书写格式，普通变量和结构体变量的标识符则多用小驼峰式书写格式，但在此基础之上进行一定的改进不完全沿用。" class="headerlink" title="结构体类型和函数的标识符一般用大驼峰式书写格式，普通变量和结构体变量的标识符则多用小驼峰式书写格式，但在此基础之上进行一定的改进不完全沿用。"></a>结构体类型和函数的标识符一般用大驼峰式书写格式，普通变量和结构体变量的标识符则多用小驼峰式书写格式，但在此基础之上进行一定的改进不完全沿用。</h4><p><em>这种命名法的出发点是把变量名按：属性+类型+对象描述的顺序组合起来：</em></p>
 <a id="more"></a>
 <ul>
-<li>属性部分：   </li>
+<li>硬件相关部分：</li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">g_ 全局变量	：如一个全局的长型变量定义为g_lFailCount。  </div><div class="line">m_ 　类，结构体成员变量</div><div class="line">s_ 　静态变量：如一个静态的指针变量定义为s_plPerv_Inst</div><div class="line">c_ 　常量： const 的变量 示例：const char* c_szFileName;</div></pre></td></tr></table></figure>
+<p>由于 C 语言很多时候面向硬件开发，这边规定，硬件相关的名称全部大写，后面用“_”隔开，如：</p>
+<ul>
+<li>属性部分：</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">g_ ：全局变量，如一个全局的长型变量定义为 g_lFailCount</div><div class="line">s_ ：静态变量，如一个静态的指针变量定义为 s_plPerv_Inst</div><div class="line">c_ ：常量，const 的变量 示例：const char* c_szFileName</div></pre></td></tr></table></figure>
 <ul>
 <li>类型部分：</li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">bool 用b开头 b标志寄存器 </div><div class="line">int 用i  32位开头 iCount </div><div class="line">short  int  16位用n开头 nStepCount </div><div class="line">long  int 用l开头 lSum </div><div class="line">char  用c开头 cCount </div><div class="line"><span class="built_in">float</span> 用f开头 fAvg </div><div class="line">double 用d开头 dDeta </div><div class="line">unsigned  char / byte(字节) 用by开头 </div><div class="line">unsigned  int(WORD) 用w开头 wCount </div><div class="line">unsigned  long  int(DWORD) 用dw开头 dwBroad </div><div class="line">字符串 用s开头 sFileName </div><div class="line">用0结尾的字符串 用sz开头 szFileName </div><div class="line">指针数组跟着上面类型之前：</div><div class="line">数组 a：如一个short int型数组应该表示为anStat。</div><div class="line">指针 p：</div><div class="line">对一重指针变量的基本原则为：“p”+变量类型前缀+命名，如一个<span class="built_in">float</span>*型应该表示为pfStat。对二重指针变量的基本规则为：“pp”+变量类型前缀+命名。对三重指针变量的基本规则为：“ppp”+变量类型前缀+命名。</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">bool 用b开头 b标志寄存器 </div><div class="line"></div><div class="line">int 用 i  32位开头 iCount </div><div class="line">long  int 用l开头 lSum </div><div class="line">char  用c开头 cCount </div><div class="line"><span class="built_in">float</span> 用f开头 fAvg </div><div class="line">double 用d开头 dDeta </div><div class="line"></div><div class="line">unsigned  char / byte(字节) 用by开头 </div><div class="line">unsigned  int(WORD) 用w开头 wCount </div><div class="line">unsigned  long  int(DWORD) 用dw开头 dwBroad </div><div class="line"></div><div class="line">字符串 用s开头 sFileName </div><div class="line"></div><div class="line">注意：以上所有类型只有在和属性部分（g_，s_，c_等）一起使用。</div><div class="line"></div><div class="line">数组 arr：如一个 int 型数组应该表示为 arriStat。</div><div class="line">指针 p：pData</div><div class="line">对一重指针变量的基本原则为：“p”+变量类型前缀+命名，如一个<span class="built_in">float</span>*型应该表示为pfStat。对二重指针变量的基本规则为：“pp”+变量类型前缀+命名。对三重指针变量的基本规则为：“ppp”+变量类型前缀+命名。 </div><div class="line"></div><div class="line">注意：虽然上面的基本类型不在局部变量中沿用，但是数组和指针类型在局部变量中也要使用，但不加入其他基本类型的符号。</div></pre></td></tr></table></figure>
+<p><strong>普通局部变量，尽量做到简洁明了，毕竟函数较短，能够轻松查看原型，因此这边一般都采用直接小写的方式，尽量通过一个单词来表述意思，只有在用到指针和数组时才会加入前缀，且后面命名用大写，如：arrMember, pScore 等等。</strong></p>
 <ul>
 <li>描述部分：</li>
 </ul>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">最大　Max		最小　M<span class="keyword">in</span>		初始化　Init		临时变量　T（或Temp）</div><div class="line">源对象　Src		目的对象　Dest</div></pre></td></tr></table></figure>
-<h4 id="1-3-枚举型命名类型名采用驼峰命名法，前面加EM前缀，其中的变量采用-EM-大写字母类似宏定义的形式，申明为枚举型的变量使用以-em-为头的驼峰式命名-枚举变量本身就类似于常量-。"><a href="#1-3-枚举型命名类型名采用驼峰命名法，前面加EM前缀，其中的变量采用-EM-大写字母类似宏定义的形式，申明为枚举型的变量使用以-em-为头的驼峰式命名-枚举变量本身就类似于常量-。" class="headerlink" title="1.3 枚举型命名类型名采用驼峰命名法，前面加EM前缀，其中的变量采用 EM_+ 大写字母类似宏定义的形式，申明为枚举型的变量使用以 em 为头的驼峰式命名(枚举变量本身就类似于常量)。"></a>1.3 枚举型命名类型名采用驼峰命名法，前面加EM前缀，其中的变量采用 EM_+ 大写字母类似宏定义的形式，申明为枚举型的变量使用以 em 为头的驼峰式命名(枚举变量本身就类似于常量)。</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">如： </div><div class="line">enum EMDays </div><div class="line">&#123; </div><div class="line">	EM_DAYS_MONDAY; </div><div class="line">	EM_DAYS_TUESDAY; </div><div class="line">	…… </div><div class="line">&#125;; </div><div class="line">EMDays  emToday;</div></pre></td></tr></table></figure>
-<h4 id="1-4-结构体、类、共用体的命名规则统一采用大驼峰式（帕斯克命名法），结构体类型定义时在前面需要加上-stru-前缀，结构体变量初始化申明的时候直接采用大驼峰式即可，其成员变量统一加-m-不允许使用任何下划线。（函数与结构体变量方便区分，固都采用大驼峰式）"><a href="#1-4-结构体、类、共用体的命名规则统一采用大驼峰式（帕斯克命名法），结构体类型定义时在前面需要加上-stru-前缀，结构体变量初始化申明的时候直接采用大驼峰式即可，其成员变量统一加-m-不允许使用任何下划线。（函数与结构体变量方便区分，固都采用大驼峰式）" class="headerlink" title="1.4 结构体、类、共用体的命名规则统一采用大驼峰式（帕斯克命名法），结构体类型定义时在前面需要加上 stru 前缀，结构体变量初始化申明的时候直接采用大驼峰式即可，其成员变量统一加 m_ 不允许使用任何下划线。（函数与结构体变量方便区分，固都采用大驼峰式）"></a>1.4 结构体、类、共用体的命名规则统一采用大驼峰式（帕斯克命名法），结构体类型定义时在前面需要加上 stru 前缀，结构体变量初始化申明的时候直接采用大驼峰式即可，其成员变量统一加 m_ 不允许使用任何下划线。（函数与结构体变量方便区分，固都采用大驼峰式）</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">如：</div><div class="line">typedef struct</div><div class="line">&#123; </div><div class="line">	char *m_pcNodeNext;</div><div class="line">char *m_pcNodePreview;</div><div class="line">&#125;struStudentNode; </div><div class="line">struStudentNode  StudentNode;</div></pre></td></tr></table></figure>
-<h4 id="1-5-函数的命名规则一般采用大驼峰式，命名采用“主动宾”或者“动宾”结构，与结构体变量虽然同样采用大驼峰式，但通过使用方法和命名方便进行区分。同时部分特殊函数可以采用其他命名规则，如NVIC-Configuration，init-I2C，delay-us-硬件设备相关的使用下划线，以此来区分哪些是特殊函数（函数与结构体方便区分采用大驼峰式）"><a href="#1-5-函数的命名规则一般采用大驼峰式，命名采用“主动宾”或者“动宾”结构，与结构体变量虽然同样采用大驼峰式，但通过使用方法和命名方便进行区分。同时部分特殊函数可以采用其他命名规则，如NVIC-Configuration，init-I2C，delay-us-硬件设备相关的使用下划线，以此来区分哪些是特殊函数（函数与结构体方便区分采用大驼峰式）" class="headerlink" title="1.5 函数的命名规则一般采用大驼峰式，命名采用“主动宾”或者“动宾”结构，与结构体变量虽然同样采用大驼峰式，但通过使用方法和命名方便进行区分。同时部分特殊函数可以采用其他命名规则，如NVIC_Configuration，init_I2C，delay_us 硬件设备相关的使用下划线，以此来区分哪些是特殊函数（函数与结构体方便区分采用大驼峰式）"></a>1.5 函数的命名规则一般采用大驼峰式，命名采用“主动宾”或者“动宾”结构，与结构体变量虽然同样采用大驼峰式，但通过使用方法和命名方便进行区分。同时部分特殊函数可以采用其他命名规则，如<code>NVIC_Configuration，init_I2C，delay_us 硬件设备相关的使用下划线</code>，以此来区分哪些是特殊函数（函数与结构体方便区分采用大驼峰式）</h4><p><strong>函数参数命名规范 :</strong></p>
+<h4 id="枚举型命名类型名采用驼峰命名法，前面加EM前缀，其中的变量采用-EM-大写字母类似宏定义的形式，申明为枚举型的变量使用以-em-为头的驼峰式命名-枚举变量本身就类似于常量-。"><a href="#枚举型命名类型名采用驼峰命名法，前面加EM前缀，其中的变量采用-EM-大写字母类似宏定义的形式，申明为枚举型的变量使用以-em-为头的驼峰式命名-枚举变量本身就类似于常量-。" class="headerlink" title="枚举型命名类型名采用驼峰命名法，前面加EM前缀，其中的变量采用 EM_+ 大写字母类似宏定义的形式，申明为枚举型的变量使用以 em 为头的驼峰式命名(枚举变量本身就类似于常量)。"></a>枚举型命名类型名采用驼峰命名法，前面加EM前缀，其中的变量采用 EM_+ 大写字母类似宏定义的形式，申明为枚举型的变量使用以 em 为头的驼峰式命名(枚举变量本身就类似于常量)。</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">如： </div><div class="line">enum EMDays </div><div class="line">&#123; </div><div class="line">	EM_DAYS_MONDAY; </div><div class="line">	EM_DAYS_TUESDAY; </div><div class="line">	…… </div><div class="line">&#125;; </div><div class="line">EMDays  emToday;</div></pre></td></tr></table></figure>
+<h4 id="结构体、类、共用体的命名规则统一采用大驼峰式命名法，结构体类型定义时在前面需要加上-Stru-前缀，结构体变量初始化申明的时候直接采用大驼峰式即可，其成员变量采用小驼峰式命名和普通变量一致。（函数与结构体变量方便区分，固都采用大驼峰式）"><a href="#结构体、类、共用体的命名规则统一采用大驼峰式命名法，结构体类型定义时在前面需要加上-Stru-前缀，结构体变量初始化申明的时候直接采用大驼峰式即可，其成员变量采用小驼峰式命名和普通变量一致。（函数与结构体变量方便区分，固都采用大驼峰式）" class="headerlink" title="结构体、类、共用体的命名规则统一采用大驼峰式命名法，结构体类型定义时在前面需要加上 Stru 前缀，结构体变量初始化申明的时候直接采用大驼峰式即可，其成员变量采用小驼峰式命名和普通变量一致。（函数与结构体变量方便区分，固都采用大驼峰式）"></a>结构体、类、共用体的命名规则统一采用大驼峰式命名法，结构体类型定义时在前面需要加上 Stru 前缀，结构体变量初始化申明的时候直接采用大驼峰式即可，其成员变量采用小驼峰式命名和普通变量一致。（函数与结构体变量方便区分，固都采用大驼峰式）</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">如：</div><div class="line">typedef struct</div><div class="line">&#123; </div><div class="line">	char *pNodeNext;</div><div class="line">	char *pNodePreview;</div><div class="line">&#125;StruStudentNode; </div><div class="line">StruStudentNode  StudentNode;</div></pre></td></tr></table></figure>
+<h4 id="函数的命名规则一般采用大驼峰式，命名采用“主动宾”或者“动宾”结构，与结构体变量虽然同样采用大驼峰式，但通过使用方法和命名方便进行区分。同时部分特殊函数可以采用其他命名规则，如NVIC-Configuration，I2C-init，delay-us-硬件控制，非软件延时-硬件设备相关的使用下划线，以此来区分哪些是特殊函数（函数与结构体方便区分采用大驼峰式）"><a href="#函数的命名规则一般采用大驼峰式，命名采用“主动宾”或者“动宾”结构，与结构体变量虽然同样采用大驼峰式，但通过使用方法和命名方便进行区分。同时部分特殊函数可以采用其他命名规则，如NVIC-Configuration，I2C-init，delay-us-硬件控制，非软件延时-硬件设备相关的使用下划线，以此来区分哪些是特殊函数（函数与结构体方便区分采用大驼峰式）" class="headerlink" title="函数的命名规则一般采用大驼峰式，命名采用“主动宾”或者“动宾”结构，与结构体变量虽然同样采用大驼峰式，但通过使用方法和命名方便进行区分。同时部分特殊函数可以采用其他命名规则，如NVIC_Configuration，I2C_init，delay_us(硬件控制，非软件延时) 硬件设备相关的使用下划线，以此来区分哪些是特殊函数（函数与结构体方便区分采用大驼峰式）"></a>函数的命名规则一般采用大驼峰式，命名采用“主动宾”或者“动宾”结构，与结构体变量虽然同样采用大驼峰式，但通过使用方法和命名方便进行区分。同时部分特殊函数可以采用其他命名规则，如<code>NVIC_Configuration，I2C_init，delay_us(硬件控制，非软件延时) 硬件设备相关的使用下划线</code>，以此来区分哪些是特殊函数（函数与结构体方便区分采用大驼峰式）</h4><p><strong>函数参数命名规范 :</strong></p>
 <ul>
 <li>参数名称的命名参照变量命名规范。</li>
 <li>为了提高程序的运行效率，减少参数占用的堆栈，传递大结构的参数，一律采用指针或引用方式传递。</li>
@@ -5678,7 +5685,10 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">/**************************************************************************</div><div class="line">	Function: 		InitChannel</div><div class="line">	Description: 		启动初始化所有通道</div><div class="line">	Calls: 			TIM_DeInit</div><div class="line">					TIM3_Int_Init</div><div class="line">	Called By:			main()</div><div class="line">	Input: 			无</div><div class="line">	Output: 			让所有通道输出低电平</div><div class="line">	Return: 			无</div><div class="line">************************************************************************/</div></pre></td></tr></table></figure>
 <h4 id="2-3-程序块注释："><a href="#2-3-程序块注释：" class="headerlink" title="2.3 程序块注释："></a>2.3 程序块注释：</h4><p><em>一般的程序块注释如 for，while 之类的注释在前面，程序排版整齐，并方便注释的阅读与理解，将注释与其上面的代码用空一行隔开，且该程序块与下面的代码也应该用空一行(使用/\</em>…*/整体注释，不得采用//行注释)*</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">例：</div><div class="line">void example_fun( void )</div><div class="line">&#123;</div><div class="line">	/* code one comments */</div><div class="line">	CodeBlock One</div><div class="line"></div><div class="line">	/* code two comments */</div><div class="line">	CodeBlock Two</div><div class="line"></div><div class="line">	/* code three comments */</div><div class="line">	CodeBlock Three</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="2-4-边写代码边注释，修改代码同时修改相应的注释，以保证注释与代码的一致性。不再有用的注释要删除。命名一般要采用自注释的命名规则-详见命名规范-在需要注释的变量以及函数调用后加注释使用-，无需空行。"><a href="#2-4-边写代码边注释，修改代码同时修改相应的注释，以保证注释与代码的一致性。不再有用的注释要删除。命名一般要采用自注释的命名规则-详见命名规范-在需要注释的变量以及函数调用后加注释使用-，无需空行。" class="headerlink" title="2.4 边写代码边注释，修改代码同时修改相应的注释，以保证注释与代码的一致性。不再有用的注释要删除。命名一般要采用自注释的命名规则(详见命名规范),在需要注释的变量以及函数调用后加注释使用//，无需空行。"></a>2.4 边写代码边注释，修改代码同时修改相应的注释，以保证注释与代码的一致性。不再有用的注释要删除。命名一般要采用自注释的命名规则(详见命名规范),在需要注释的变量以及函数调用后加注释使用//，无需空行。</h4>]]></content>
+<h4 id="2-4-边写代码边注释，修改代码同时修改相应的注释，以保证注释与代码的一致性。不再有用的注释要删除。命名一般要采用自注释的命名规则-详见命名规范-在需要注释的变量以及函数调用后加注释使用-，无需空行。"><a href="#2-4-边写代码边注释，修改代码同时修改相应的注释，以保证注释与代码的一致性。不再有用的注释要删除。命名一般要采用自注释的命名规则-详见命名规范-在需要注释的变量以及函数调用后加注释使用-，无需空行。" class="headerlink" title="2.4 边写代码边注释，修改代码同时修改相应的注释，以保证注释与代码的一致性。不再有用的注释要删除。命名一般要采用自注释的命名规则(详见命名规范),在需要注释的变量以及函数调用后加注释使用//，无需空行。"></a>2.4 边写代码边注释，修改代码同时修改相应的注释，以保证注释与代码的一致性。不再有用的注释要删除。命名一般要采用自注释的命名规则(详见命名规范),在需要注释的变量以及函数调用后加注释使用//，无需空行。</h4><blockquote>
+<p>参考链接：<br><a href="http://itec.hust.edu.cn/~xujing/cpp/common-cpp/text-book/C-coding-rules-simple.pdf" target="_blank" rel="external">http://itec.hust.edu.cn/~xujing/cpp/common-cpp/text-book/C-coding-rules-simple.pdf</a></p>
+</blockquote>
+]]></content>
       
         <categories>
             
@@ -6348,6 +6358,96 @@
     </entry>
     
     <entry>
+      <title><![CDATA[MDK5安装及配置]]></title>
+      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
+      <content type="html"><![CDATA[<h3 id="MDK简介"><a href="#MDK简介" class="headerlink" title="MDK简介"></a>MDK简介</h3><blockquote>
+<p>Keil MDK，也称MDK-ARM，Realview MDK、I-MDK、uVision4 等。Keil C51 是美国 Keil Software 公司出品的 51 系列兼容单片机 C 语言软件开发系统，被 ARM（英国）公司收购，作为在 51 单片机时代相当流行的一个软件。</p>
+</blockquote>
+<p><em>而如果你是一个嵌入式工作者，尤其是主要使用ST或者飞思卡尔等工业产品为主的芯片，在国内的话可以说你的选择要么是keil要么就是IAR。keil作为一个IDE来说编辑功能缺失恨薄弱，但是硬件调试能力还是毋容置疑的，而keil配置简单容易上手，该有的功能操作也都具备，本文主要讲述作者的一些keil配置及习惯。</em></p>
+<h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ul>
+<li>界面友好，上手简单</li>
+<li>被ARM公司收购，编辑ARM相对友好，仿真功能十分强大</li>
+<li>官方提供各种芯片的启动代码，仿真库</li>
+</ul>
+<h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><ul>
+<li>自带编辑功能薄弱</li>
+<li>不支持/极少支持第三方插件</li>
+</ul>
+<a id="more"></a>
+<h3 id="KEIL-5配置"><a href="#KEIL-5配置" class="headerlink" title="KEIL 5配置"></a>KEIL 5配置</h3><h4 id="界面配置"><a href="#界面配置" class="headerlink" title="界面配置"></a>界面配置</h4><ul>
+<li>Keil 5及之后的版本缺少相关的原件类库，需要额外安装。可以从官网下载芯片库</li>
+<li><p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture1.png" alt=""></p>
+</li>
+<li><p>Keil 4.6及之后的版本对中文字体支持依旧很差，通过修改成GB2312的简体中文编码，可以让注释的中文字体不会拆分，但默认的Courier New - 10不能够良好的显示所有字体，直接通过修改GB2312会形成字体锯齿化，缺少虚化的过渡。</p>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture2.png" alt=""></p>
+<ul>
+<li>通过尝试多种字体以及添加fonts文件，发现要么中文字体显示不错，英文不行，要么英文显示不错，中文不行，很多情况代码字体偏大或者偏小，最终个人觉得较好的配置界面如下：</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture3.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture4.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture5.png" alt=""></p>
+<ul>
+<li>如果需要修改背景颜色，需要对c/c++ Editor files 下的text，number等所有的background进行修改。配置如下：</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture6.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture7.png" alt=""></p>
+<ul>
+<li>光标指向向的颜色修改如下：</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture8.png" alt=""></p>
+<ul>
+<li>菜单栏view下面的所有工具栏颜色是跟随系统变化的，可以采用如果腾讯软件管家之类的工具开启护眼模式。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture9.png" alt=""></p>
+<h4 id="KEIL建立单片机工程文件注意事项：："><a href="#KEIL建立单片机工程文件注意事项：：" class="headerlink" title="KEIL建立单片机工程文件注意事项：："></a>KEIL建立单片机工程文件注意事项：：</h4><ul>
+<li>注意KEIL的配置详细可以参考“Keil 5配置”文档。</li>
+<li>工程文件建立目录结构需清晰可参考下图：</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture10.png" alt=""></p>
+<p>该工具条中主要存放的是项目中需要使用到的C文件（注意并不包含任何头文件），只有加入这个工具中得.c文件才会进行项目的编译。<br>下面仅作参考，根据个人的习惯而定制，相关存放内容说明：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">CORE</span>：存放<span class="selector-tag">SOC</span>相关代码，包含<span class="selector-class">.s</span>启动文件，<span class="selector-tag">CMSIS</span>的部分<span class="selector-class">.c</span>文件以及<span class="selector-tag">CPU</span>相关的底层核心文件</div><div class="line"><span class="selector-tag">FWLIB</span>：固件库，厂方提供的标准固件库，用于调用外设的函数。</div><div class="line"><span class="selector-tag">BSP</span>：操作系统与芯片的中间层</div><div class="line"><span class="selector-tag">USER</span>：用户自己写的函数文件，包括<span class="selector-tag">main</span>和用户定制的功能函数</div><div class="line"><span class="selector-tag">OS</span>：具体名称为操作系统名称，可以是<span class="selector-tag">UCOS</span>，<span class="selector-tag">uclinux</span>等等嵌入式操作系统</div><div class="line"><span class="selector-tag">README</span>：整个工程的相关项目说明</div></pre></td></tr></table></figure></p>
+<ul>
+<li>新建工程重点配置Define和Include Paths，如下图</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture12.png" alt=""></p>
+<p><em>需强调的是 Define 中的选项不能少，这些选项一般都是如：stm32f10x.h（芯片寄存器定义文件） 或者内核中的宏定义，可以用来进行芯片选型等操作，可以用查找工具全局查找，会发现相关的 #ifdef 语句。本质上面来说，Define 加入的内容就相当于在 c 文件中手动的写入 #define xxx 语句。<br>Include Paths 中定义的都是头文件所在的路径，注意是头文件的路经，这边 ..\CMSIS 等都是使用 windows 下相对路径的格式，如果头文件不在 Include Paths 下的路经中，则编译器无法找到相关头文件，会编译失败。</em></p>
+<p><strong>其他注意点：</strong><br>C99Mode如果不勾选，默认可能会使用C89的编译器，一些如 bool 类型或者定义申明可能会无法编译，C89对老版本兼容性更好，但C99加入的许多新特性让编程更“合理”。具体根据自己项目需求而定。</p>
+<ul>
+<li>Debug 中进行相关模拟仿真下载器设置。一定要记得仿真设置 Reset and Run</li>
+</ul>
+<p>有仿真器的话，使用右边的仿真器选项，没有的话，则使用模拟。仿真器种类繁多，最常用的比如 JLINK，和 keil ulink 之类的，一些公司也会推出自己的仿真器，如silabs uda等</p>
+<p><em>最好勾选setting-&gt;flash download下的Reset and Run，这样可以无需重新上电即可运行程序。</em></p>
+<p>JLink 在连接 STM32F439 时，在勾选或者不勾选 Verify Code Download 时可能会出现下载错误，可能会是板子设计缺陷或者JLink版本过高。</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture11.png" alt=""></p>
+<ul>
+<li><p>Utilities：将Use Debug Driver勾选或者手动设置成相同的调试器。</p>
+</li>
+<li><p>移植程序注意重点：</p>
+</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Project 的 USER 中一定要把 .c 源文件添加进去 </div><div class="line">FWLIB一定要记得添加 stm32f10x_xxx 相关的外设库文件</div><div class="line">Stm32xxx_conf.h 中需取消相关注释</div><div class="line">用户定义的.h头文件需加入 <span class="comment">#include "stm32f10x.h"，且不需要加入 Stm32xxx_conf.h 因为该头文件已经在 #include "stm32f10x.h" 中包含了。</span></div><div class="line">添加用户自定义 .c 文件时，记得把其头文件写入到 main 函数所在文件中</div></pre></td></tr></table></figure>
+<blockquote>
+<p>参考链接：<br><a href="http://www.jb51.net/os/windows/211837.html" target="_blank" rel="external">http://www.jb51.net/os/windows/211837.html</a><br><a href="http://comm.chinaaet.com/adi/blogdetail/32471.html" target="_blank" rel="external">http://comm.chinaaet.com/adi/blogdetail/32471.html</a></p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> 软件应用 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 配置 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[stm32F439案例汇总]]></title>
       <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
       <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
@@ -6476,96 +6576,6 @@ print(&apos;hello&apos;)
         <tags>
             
             <tag> 基础 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[MDK5安装及配置]]></title>
-      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
-      <content type="html"><![CDATA[<h3 id="MDK简介"><a href="#MDK简介" class="headerlink" title="MDK简介"></a>MDK简介</h3><blockquote>
-<p>Keil MDK，也称MDK-ARM，Realview MDK、I-MDK、uVision4 等。Keil C51 是美国 Keil Software 公司出品的 51 系列兼容单片机 C 语言软件开发系统，被 ARM（英国）公司收购，作为在 51 单片机时代相当流行的一个软件。</p>
-</blockquote>
-<p><em>而如果你是一个嵌入式工作者，尤其是主要使用ST或者飞思卡尔等工业产品为主的芯片，在国内的话可以说你的选择要么是keil要么就是IAR。keil作为一个IDE来说编辑功能缺失恨薄弱，但是硬件调试能力还是毋容置疑的，而keil配置简单容易上手，该有的功能操作也都具备，本文主要讲述作者的一些keil配置及习惯。</em></p>
-<h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ul>
-<li>界面友好，上手简单</li>
-<li>被ARM公司收购，编辑ARM相对友好，仿真功能十分强大</li>
-<li>官方提供各种芯片的启动代码，仿真库</li>
-</ul>
-<h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><ul>
-<li>自带编辑功能薄弱</li>
-<li>不支持/极少支持第三方插件</li>
-</ul>
-<a id="more"></a>
-<h3 id="KEIL-5配置"><a href="#KEIL-5配置" class="headerlink" title="KEIL 5配置"></a>KEIL 5配置</h3><h4 id="界面配置"><a href="#界面配置" class="headerlink" title="界面配置"></a>界面配置</h4><ul>
-<li>Keil 5及之后的版本缺少相关的原件类库，需要额外安装。可以从官网下载芯片库</li>
-<li><p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture1.png" alt=""></p>
-</li>
-<li><p>Keil 4.6及之后的版本对中文字体支持依旧很差，通过修改成GB2312的简体中文编码，可以让注释的中文字体不会拆分，但默认的Courier New - 10不能够良好的显示所有字体，直接通过修改GB2312会形成字体锯齿化，缺少虚化的过渡。</p>
-</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture2.png" alt=""></p>
-<ul>
-<li>通过尝试多种字体以及添加fonts文件，发现要么中文字体显示不错，英文不行，要么英文显示不错，中文不行，很多情况代码字体偏大或者偏小，最终个人觉得较好的配置界面如下：</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture3.png" alt=""></p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture4.png" alt=""></p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture5.png" alt=""></p>
-<ul>
-<li>如果需要修改背景颜色，需要对c/c++ Editor files 下的text，number等所有的background进行修改。配置如下：</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture6.png" alt=""></p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture7.png" alt=""></p>
-<ul>
-<li>光标指向向的颜色修改如下：</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture8.png" alt=""></p>
-<ul>
-<li>菜单栏view下面的所有工具栏颜色是跟随系统变化的，可以采用如果腾讯软件管家之类的工具开启护眼模式。</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture9.png" alt=""></p>
-<h4 id="KEIL建立单片机工程文件注意事项：："><a href="#KEIL建立单片机工程文件注意事项：：" class="headerlink" title="KEIL建立单片机工程文件注意事项：："></a>KEIL建立单片机工程文件注意事项：：</h4><ul>
-<li>注意KEIL的配置详细可以参考“Keil 5配置”文档。</li>
-<li>工程文件建立目录结构需清晰可参考下图：</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture10.png" alt=""></p>
-<p>该工具条中主要存放的是项目中需要使用到的C文件（注意并不包含任何头文件），只有加入这个工具中得.c文件才会进行项目的编译。<br>下面仅作参考，根据个人的习惯而定制，相关存放内容说明：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">CORE</span>：存放<span class="selector-tag">SOC</span>相关代码，包含<span class="selector-class">.s</span>启动文件，<span class="selector-tag">CMSIS</span>的部分<span class="selector-class">.c</span>文件以及<span class="selector-tag">CPU</span>相关的底层核心文件</div><div class="line"><span class="selector-tag">FWLIB</span>：固件库，厂方提供的标准固件库，用于调用外设的函数。</div><div class="line"><span class="selector-tag">BSP</span>：操作系统与芯片的中间层</div><div class="line"><span class="selector-tag">USER</span>：用户自己写的函数文件，包括<span class="selector-tag">main</span>和用户定制的功能函数</div><div class="line"><span class="selector-tag">OS</span>：具体名称为操作系统名称，可以是<span class="selector-tag">UCOS</span>，<span class="selector-tag">uclinux</span>等等嵌入式操作系统</div><div class="line"><span class="selector-tag">README</span>：整个工程的相关项目说明</div></pre></td></tr></table></figure></p>
-<ul>
-<li>新建工程重点配置Define和Include Paths，如下图</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture12.png" alt=""></p>
-<p><em>需强调的是 Define 中的选项不能少，这些选项一般都是如：stm32f10x.h（芯片寄存器定义文件） 或者内核中的宏定义，可以用来进行芯片选型等操作，可以用查找工具全局查找，会发现相关的 #ifdef 语句。本质上面来说，Define 加入的内容就相当于在 c 文件中手动的写入 #define xxx 语句。<br>Include Paths 中定义的都是头文件所在的路径，注意是头文件的路经，这边 ..\CMSIS 等都是使用 windows 下相对路径的格式，如果头文件不在 Include Paths 下的路经中，则编译器无法找到相关头文件，会编译失败。</em></p>
-<p><strong>其他注意点：</strong><br>C99Mode如果不勾选，默认可能会使用C89的编译器，一些如 bool 类型或者定义申明可能会无法编译，C89对老版本兼容性更好，但C99加入的许多新特性让编程更“合理”。具体根据自己项目需求而定。</p>
-<ul>
-<li>Debug 中进行相关模拟仿真下载器设置。一定要记得仿真设置 Reset and Run</li>
-</ul>
-<p>有仿真器的话，使用右边的仿真器选项，没有的话，则使用模拟。仿真器种类繁多，最常用的比如 JLINK，和 keil ulink 之类的，一些公司也会推出自己的仿真器，如silabs uda等</p>
-<p><em>最好勾选setting-&gt;flash download下的Reset and Run，这样可以无需重新上电即可运行程序。</em></p>
-<p>JLink 在连接 STM32F439 时，在勾选或者不勾选 Verify Code Download 时可能会出现下载错误，可能会是板子设计缺陷或者JLink版本过高。</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture11.png" alt=""></p>
-<ul>
-<li><p>Utilities：将Use Debug Driver勾选或者手动设置成相同的调试器。</p>
-</li>
-<li><p>移植程序注意重点：</p>
-</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Project 的 USER 中一定要把 .c 源文件添加进去 </div><div class="line">FWLIB一定要记得添加 stm32f10x_xxx 相关的外设库文件</div><div class="line">Stm32xxx_conf.h 中需取消相关注释</div><div class="line">用户定义的.h头文件需加入 <span class="comment">#include "stm32f10x.h"，且不需要加入 Stm32xxx_conf.h 因为该头文件已经在 #include "stm32f10x.h" 中包含了。</span></div><div class="line">添加用户自定义 .c 文件时，记得把其头文件写入到 main 函数所在文件中</div></pre></td></tr></table></figure>
-<blockquote>
-<p>参考链接：<br><a href="http://www.jb51.net/os/windows/211837.html" target="_blank" rel="external">http://www.jb51.net/os/windows/211837.html</a><br><a href="http://comm.chinaaet.com/adi/blogdetail/32471.html" target="_blank" rel="external">http://comm.chinaaet.com/adi/blogdetail/32471.html</a></p>
-</blockquote>
-]]></content>
-      
-        <categories>
-            
-            <category> 软件应用 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 配置 </tag>
             
         </tags>
         

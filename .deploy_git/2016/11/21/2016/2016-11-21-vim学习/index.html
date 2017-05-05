@@ -1,0 +1,125 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Hard work makes things easier."><title>vim学习 | Damon's Blog</title><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/5.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">vim学习</h1><a id="logo" href="/.">Damon's Blog</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/about/"><i class="fa fa-user"> About</i></a><a href="/blogroll/"><i class="fa fa-rss"> Blogroll</i></a><a href="/msg/"><i class="fa fa-comments"> Msg</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">vim学习</h1><div class="post-meta">Nov 21, 2016<span> | </span><span class="category"><a href="/categories/软件应用/">软件应用</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-thread-key="2016/11/21/2016/2016-11-21-vim学习/" href="/2016/11/21/2016/2016-11-21-vim学习/#comments" class="ds-thread-count"></a><a data-disqus-identifier="2016/11/21/2016/2016-11-21-vim学习/" href="/2016/11/21/2016/2016-11-21-vim学习/#disqus_thread" class="disqus-comment-count"></a><div class="post-content"><p>vim 和 emacs 一个号称编辑器之神，一个被称为神的编辑器。打开 vim 执行命令：vimtutor 则可以查看官方说明教程，vimtutor是vim使用入门教程。老实说，自从接触vim到现在也有好多年了，但一直没有强迫自己使用，以及它的难定制性，让我至今都还无法像那些大神一样，完全脱离鼠标和IDE，本文只对 vim 最基础和常用的部分进行详细讲解，不涉及定制和插件等部分内容。</p>
+<p>普通模式的操作： [数字] command motion，数字代表了后面实际操作执行的次数；command 是执行命令，如：复制，粘贴，剪切等；motion 是操作符，代表了执行命令的操作范围就是定位命令如：i,j,k,l,G等等。</p>
+<p>普通模式是任何模式的中继，虽然普通模式下你只能通过一些命令进行简单的操作，但如果你想从某个模式进入另外一个模式都必须要先进入普通模式，如：从插入模式进入可视模式，必须先按 esc 进入普通模式，然后按 v 进入可视模式。</p>
+<h3 id="移动"><a href="#移动" class="headerlink" title="移动"></a>移动</h3><p>在普通模式下，可以用键盘实现光标的移动，h j k l 分别代表光标的 左 下 上 右 的移动。请按 esc 键(这是为了确保您处在正常模式)。</p>
+<ul>
+<li>h 的键位于左边，每次按下就会向左移动。</li>
+<li>l 的键位于右边，每次按下就会向右移动。</li>
+<li>j 键看起来很象一支尖端方向朝下的箭头。</li>
+<li>k 朝上移动。</li>
+<li>gg 跳到首行</li>
+<li>G 跳到末行</li>
+</ul>
+<h3 id="退出"><a href="#退出" class="headerlink" title="退出"></a>退出</h3><p>在命令模式下，在普通模式中，输入冒号则进入命令行模式：</p>
+<ul>
+<li>输入 w 则保存</li>
+<li>输入 q 则退出该软件</li>
+<li>输入 wq 保存并退出</li>
+<li>输入 q! 强制退出。</li>
+</ul>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>在<strong>普通模式下</strong>，删除单一字符可以使用 x 命令，如果删除更多字符则可以使用 d 命令：<code>d motion</code>。</p>
+<p>motion 表示操作范围的指令，一下内容再次出现的 motion 都参见这边的表格：</p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>将光标定位到行首位置</td>
+</tr>
+<tr>
+<td>$</td>
+<td>光标定位到行尾位置</td>
+</tr>
+<tr>
+<td>b</td>
+<td>将光标定位到光标所在单词的起始处</td>
+</tr>
+<tr>
+<td>e</td>
+<td>将光标定位到光标所在单词的结尾处</td>
+</tr>
+<tr>
+<td>w</td>
+<td>将光标定位到下一个单词的起始处</td>
+</tr>
+<tr>
+<td>gg</td>
+<td>将光标定位到文件开头</td>
+</tr>
+<tr>
+<td>G</td>
+<td>将光标定位到文件结尾</td>
+</tr>
+</tbody>
+</table>
+<p>如果删除更多字符则可以使用 c 命令：<code>c motion</code>，和 d 命令类似，区别是删除后，进入插入模式。</p>
+<p><strong>vim 中所有的删除都相当于剪切，并不是真正意义上的删除，所以一旦粘贴的话往往会是你所删除的那些内容。</strong></p>
+<h3 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h3><p>在<strong>普通模式下</strong>，可以使用 y 命令：<code>y [数字] motion</code>。复制的操作和删除类似，学习 vim 时尤其需要注意这些共性。</p>
+<p>vim有12个粘贴板，分别是 <code>0、1、2、...、9、a、&quot;、+</code> 用 :reg 命令可以查看各个粘贴板里的内容。下面讲一下vim的粘贴板的基础知识：</p>
+<ul>
+<li>+号粘贴板是系统粘贴板，用 “+y 将内容复制到该粘贴板后可以使用 Ctrl＋V 将其粘贴到其他文档（如firefox、gedit）中，同理，要把在其他地方用 Ctrl＋C 或右键复制的内容复制到 vim 中，需要在正常模式下按 “+p 。</li>
+<li>“ 号粘贴板（临时粘贴板）比较特殊，直接按 y 就复制到这个粘贴板中了，直接按 p 就粘贴这个粘贴板中的内容；</li>
+<li>要将vim某个粘贴板里的内容粘贴进来，需要退出编辑模式，在正常模式按”Np，其中N为粘贴板号，如上所述，可以按”5p将5号粘贴板里的内容粘贴进来，也可以按”+p将系统全局粘贴板里的内容粘贴进来。</li>
+</ul>
+<h3 id="粘贴"><a href="#粘贴" class="headerlink" title="粘贴"></a>粘贴</h3><p>p 将最后一次剪切或者复制的内容，粘贴到<strong>光标之后</strong>；P 将最后一次剪切或者复制的内容，粘贴到<strong>光标之前</strong>。</p>
+<h3 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h3><p>在<strong>普通模式下</strong>，u 表示撤销最后一次修改，U 撤销整行的修改，ctrl+r 恢复撤销的内容。</p>
+<h3 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h3><p>在普通模式下进入插入模式，可以使用以下指令：</p>
+<ul>
+<li>i：光标前插入</li>
+<li>I ：行首插入</li>
+<li>a：光标后插入</li>
+<li>A：行尾插入</li>
+</ul>
+<h3 id="可视"><a href="#可视" class="headerlink" title="可视"></a>可视</h3><p>出了插入，普通，命令模式外，还有可视模式，通过 v 和 V 进入该模式。</p>
+<h3 id="跳转"><a href="#跳转" class="headerlink" title="跳转"></a>跳转</h3><p>跳转到指定行：</p>
+<ul>
+<li>普通模式下输入：行号+G</li>
+<li>进入命令行模式：<code>:行号</code></li>
+</ul>
+<h3 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h3><p>查找光标所指向的单词，直接 <code>shift+*</code> 即可高亮。</p>
+<p>输入/内容，则会匹配所有相关内容，按 n 搜索下一个匹配， 按 N 搜索上一个匹配。</p>
+<p>搜索诸如：<code>. * [ ] ^ % / ? ~ $</code> 等，需要在前面加上 \ 转义字符。</p>
+<p>取消搜索的高亮，则可以输入：<code>nohl</code>（nohighlight的缩写）。</p>
+<h3 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h3><ul>
+<li>:s/原内容/替换 ： 光标后找到第一匹配内容并替换</li>
+<li>:%s/原内容/替换 ： 请示替换内容</li>
+<li>:1,10s/原内容/替换/g ： 1-10 行的所有内容进行替换</li>
+</ul>
+<h3 id="多窗口"><a href="#多窗口" class="headerlink" title="多窗口"></a>多窗口</h3><p>打开 vim 时，输入 vim -o a b c 可以并排打开三个文件，使用 ctrl + w + w 切换到下个窗口，也可以使用 ctrl + w + 方向按键进行切换。</p>
+<blockquote>
+<p>参考链接：<br><a href="http://blog.csdn.net/nkguohao/article/details/8937695" target="_blank" rel="external">http://blog.csdn.net/nkguohao/article/details/8937695</a></p>
+</blockquote>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://noparkinghere.top/2016/11/21/2016/2016-11-21-vim学习/" data-id="cj2bjkt8t006rd0muf9kdkeft" class="article-share-link">Share</a><div class="tags"><a href="/tags/linux/">linux</a></div><div class="post-nav"><a href="/2016/11/22/2016-11-22-crc校验/" class="pre">CRC校验</a><a href="/2016/11/19/2016/2016-11-19-vps-简介/" class="next">VPS 简介</a></div><div data-thread-key="2016/11/21/2016/2016-11-21-vim学习/" data-title="vim学习" data-url="http://noparkinghere.top/2016/11/21/2016/2016-11-21-vim学习/" class="ds-share flat"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><a href="javascript:void(0);" class="ds-more">分享到：</a></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qzone" class="ds-qzone">QQ空间</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div><div data-thread-key="2016/11/21/2016/2016-11-21-vim学习/" data-title="vim学习" data-url="http://noparkinghere.top/2016/11/21/2016/2016-11-21-vim学习/" data-author-key="1" class="ds-thread"></div><div id="disqus_thread"><script>var disqus_shortname = 'noparkinghere';
+var disqus_identifier = '2016/11/21/2016/2016-11-21-vim学习/';
+var disqus_title = 'vim学习';
+var disqus_url = 'http://noparkinghere.top/2016/11/21/2016/2016-11-21-vim学习/';
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//noparkinghere.disqus.com/count.js" async></script></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/个人观点/">个人观点</a><span class="category-list-count">26</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习提高/">学习提高</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂谈/">生活杂谈</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/程序开发/">程序开发</a><span class="category-list-count">26</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/转载文章/">转载文章</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件应用/">软件应用</a><span class="category-list-count">70</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/问题总结/">问题总结</a><span class="category-list-count">1</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/IDE/" style="font-size: 15px;">IDE</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/嵌入式/" style="font-size: 15px;">嵌入式</a> <a href="/tags/网络/" style="font-size: 15px;">网络</a> <a href="/tags/英语/" style="font-size: 15px;">英语</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/VPS/" style="font-size: 15px;">VPS</a> <a href="/tags/服务器/" style="font-size: 15px;">服务器</a> <a href="/tags/版本控制/" style="font-size: 15px;">版本控制</a> <a href="/tags/配置/" style="font-size: 15px;">配置</a> <a href="/tags/chrome/" style="font-size: 15px;">chrome</a> <a href="/tags/基础/" style="font-size: 15px;">基础</a> <a href="/tags/使用体验/" style="font-size: 15px;">使用体验</a> <a href="/tags/githubpage/" style="font-size: 15px;">githubpage</a> <a href="/tags/系统安装/" style="font-size: 15px;">系统安装</a> <a href="/tags/问题总结/" style="font-size: 15px;">问题总结</a> <a href="/tags/C语言/" style="font-size: 15px;">C语言</a> <a href="/tags/学习方法/" style="font-size: 15px;">学习方法</a> <a href="/tags/手机/" style="font-size: 15px;">手机</a> <a href="/tags/基础知识/" style="font-size: 15px;">基础知识</a> <a href="/tags/ssh/" style="font-size: 15px;">ssh</a> <a href="/tags/vps/" style="font-size: 15px;">vps</a> <a href="/tags/文档/" style="font-size: 15px;">文档</a> <a href="/tags/调试/" style="font-size: 15px;">调试</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Blogroll</i></div><ul></ul><a href="https://news.ycombinator.com/" title="Hacker News" target="_blank">Hacker News</a><ul></ul><a href="http://blog.jobbole.com/" title="Jobbole" target="_blank">Jobbole</a><ul></ul><a href="http://www.ruanyifeng.com/blog/" title="阮一峰的网络日志" target="_blank">阮一峰的网络日志</a><ul></ul><a href="http://www.panxw.com/" title="潘学文个人博客" target="_blank">潘学文个人博客</a><ul></ul><a href="https://www.haomwei.com/" title="屠城" target="_blank">屠城</a><ul></ul><a href="https://blog.0xbbc.com/" title="3004" target="_blank">3004</a><ul></ul><a href="https://emiria.io/" title="Sakara Hiroya" target="_blank">Sakara Hiroya</a></div><div class="widget"><div class="comments-title"><i class="fa fa-comment-o"> Recent Comments</i></div><div data-num-items="5" data-show-avatars="0" data-show-time="1" data-show-admin="0" data-excerpt-length="32" data-show-title="1" class="ds-recent-comments"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> Recent Comments</i></div><script type="text/javascript" src="//noparkinghere.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">Damon's Blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script>var duoshuoQuery = {short_name:'noparkinghere'};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','UA-80280728-1','auto');ga('send','pageview');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

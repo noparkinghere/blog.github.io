@@ -5642,8 +5642,9 @@
       <title><![CDATA[C编程规范]]></title>
       <url>http://noparkinghere.top/2016/08/11/2016/2016-08-11-C%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/</url>
       <content type="html"><![CDATA[<p><em>文章阐述了一些个人使用 C 编程时的习惯，主要参考一些网传的文档，固件库以及多个工程。</em></p>
-<h3 id="命名规则"><a href="#命名规则" class="headerlink" title="命名规则"></a>命名规则</h3><h4 id="宏定义的命名全部采用大写，单词之间用隔开，要求常量名只含有大写字母和下划线，且常量名用英文表达其意思不得使用拼音，当需要由多个单词表示时，单词与单词之间必须采用连字符”“连接。"><a href="#宏定义的命名全部采用大写，单词之间用隔开，要求常量名只含有大写字母和下划线，且常量名用英文表达其意思不得使用拼音，当需要由多个单词表示时，单词与单词之间必须采用连字符”“连接。" class="headerlink" title="宏定义的命名全部采用大写，单词之间用隔开，要求常量名只含有大写字母和下划线，且常量名用英文表达其意思不得使用拼音，当需要由多个单词表示时，单词与单词之间必须采用连字符”“连接。"></a>宏定义的命名全部采用大写，单词之间用<em>隔开，要求常量名只含有大写字母和下划线，且常量名用英文表达其意思不得使用拼音，当需要由多个单词表示时，单词与单词之间必须采用连字符”</em>“连接。</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">如：</div><div class="line"><span class="comment">#define ERR_FILE_NOT_FOUND</span></div></pre></td></tr></table></figure>
-<h4 id="结构体类型和函数的标识符一般用大驼峰式书写格式，普通变量和结构体变量的标识符则多用小驼峰式书写格式，但在此基础之上进行一定的改进不完全沿用。"><a href="#结构体类型和函数的标识符一般用大驼峰式书写格式，普通变量和结构体变量的标识符则多用小驼峰式书写格式，但在此基础之上进行一定的改进不完全沿用。" class="headerlink" title="结构体类型和函数的标识符一般用大驼峰式书写格式，普通变量和结构体变量的标识符则多用小驼峰式书写格式，但在此基础之上进行一定的改进不完全沿用。"></a>结构体类型和函数的标识符一般用大驼峰式书写格式，普通变量和结构体变量的标识符则多用小驼峰式书写格式，但在此基础之上进行一定的改进不完全沿用。</h4><p><em>这种命名法的出发点是把变量名按：属性+类型+对象描述的顺序组合起来：</em></p>
+<h3 id="命名规则"><a href="#命名规则" class="headerlink" title="命名规则"></a>命名规则</h3><p><strong>结构体类型和函数的标识符一般用大驼峰式书写格式，普通变量和结构体变量的标识符则多用小驼峰式书写格式，但在此基础之上进行一定的改进不完全沿用。</strong></p>
+<h4 id="宏定义的命名全部采用大写，单词之间用隔开，要求常量名只含有大写字母和下划线，且常量名用英文表达其意思不得使用拼音，当需要由多个单词表示时，单词与单词之间必须采用连字符”“连接。"><a href="#宏定义的命名全部采用大写，单词之间用隔开，要求常量名只含有大写字母和下划线，且常量名用英文表达其意思不得使用拼音，当需要由多个单词表示时，单词与单词之间必须采用连字符”“连接。" class="headerlink" title="宏定义的命名全部采用大写，单词之间用隔开，要求常量名只含有大写字母和下划线，且常量名用英文表达其意思不得使用拼音，当需要由多个单词表示时，单词与单词之间必须采用连字符”“连接。"></a>宏定义的命名全部采用大写，单词之间用<em>隔开，要求常量名只含有大写字母和下划线，且常量名用英文表达其意思不得使用拼音，当需要由多个单词表示时，单词与单词之间必须采用连字符”</em>“连接。</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">如：</div><div class="line"><span class="comment">#define ERR_FILE_NOT_FOUND</span></div></pre></td></tr></table></figure>
+<h4 id="全局变量、静态变量、常量尽可能的详细描述，普通局部变量和成员变量尽可能的书写简单；变量的描述都普遍按照小驼峰的方式。"><a href="#全局变量、静态变量、常量尽可能的详细描述，普通局部变量和成员变量尽可能的书写简单；变量的描述都普遍按照小驼峰的方式。" class="headerlink" title="全局变量、静态变量、常量尽可能的详细描述，普通局部变量和成员变量尽可能的书写简单；变量的描述都普遍按照小驼峰的方式。"></a>全局变量、静态变量、常量尽可能的详细描述，普通局部变量和成员变量尽可能的书写简单；变量的描述都普遍按照小驼峰的方式。</h4><p><em>这种命名法的出发点是把变量名按：属性+类型+对象描述的顺序组合起来：</em></p>
 <a id="more"></a>
 <ul>
 <li>硬件相关部分：</li>
@@ -5674,19 +5675,28 @@
 <ul>
 <li>普通函数与中断调用函数区别命名，普通函数如果需要设定控制终中断函数则命名以Set开头通过修改中断函数中的全局变量判定条件来控制中断执行，而中断功能函数只能被中断调用，不可直接被普通函数调用(包括主函数)，命名以 Run 开头。</li>
 </ul>
-<h4 id="1-6-硬件设备名称函数命名参考-stm32-固件库命名法则：外设名称在前面全部大写"><a href="#1-6-硬件设备名称函数命名参考-stm32-固件库命名法则：外设名称在前面全部大写" class="headerlink" title="1.6 硬件设备名称函数命名参考 stm32 固件库命名法则：外设名称在前面全部大写"></a>1.6 硬件设备名称函数命名参考 stm32 固件库命名法则：外设名称在前面全部大写</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">如：</div><div class="line">void NVIC_PriorityGroupConfig(uint32_t NVIC_PriorityGroup)</div><div class="line">&#123;</div><div class="line">	/* Check the parameters */</div><div class="line">	assert_param(IS_NVIC_PRIORITY_GROUP(NVIC_PriorityGroup));</div><div class="line"></div><div class="line">	/* Set the PRIGROUP[10:8] bits according to NVIC_PriorityGroup value */</div><div class="line">	SCB-&gt;AIRCR = AIRCR_VECTKEY_MASK | NVIC_PriorityGroup;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="1-7-文件名-包括动态库、组件、控件、工程文件等-的命名规范-文件名的命名要求表达出文件的内容-要求文件名的长度不得少于5个字母，严禁使用象-file1-myfile-之类的文件名，多个具体含义的单词中用-隔开，一般都采用小写。"><a href="#1-7-文件名-包括动态库、组件、控件、工程文件等-的命名规范-文件名的命名要求表达出文件的内容-要求文件名的长度不得少于5个字母，严禁使用象-file1-myfile-之类的文件名，多个具体含义的单词中用-隔开，一般都采用小写。" class="headerlink" title="1.7 文件名(包括动态库、组件、控件、工程文件等)的命名规范,文件名的命名要求表达出文件的内容:要求文件名的长度不得少于5个字母，严禁使用象 file1,myfile 之类的文件名，多个具体含义的单词中用_隔开，一般都采用小写。"></a>1.7 文件名(包括动态库、组件、控件、工程文件等)的命名规范,文件名的命名要求表达出文件的内容:要求文件名的长度不得少于5个字母，严禁使用象 file1,myfile 之类的文件名，多个具体含义的单词中用_隔开，一般都采用小写。</h4><h4 id="1-8-除了编译开关-头文件等特殊应用，应避免使用-EXAMPLETEST-之类以下划线开始和结尾的定义。"><a href="#1-8-除了编译开关-头文件等特殊应用，应避免使用-EXAMPLETEST-之类以下划线开始和结尾的定义。" class="headerlink" title="1.8 除了编译开关/头文件等特殊应用，应避免使用 _EXAMPLETEST 之类以下划线开始和结尾的定义。"></a>1.8 除了编译开关/头文件等特殊应用，应避免使用 _EXAMPLE<em>TEST</em> 之类以下划线开始和结尾的定义。</h4><h3 id="2-注释规范"><a href="#2-注释规范" class="headerlink" title="2 注释规范"></a>2 注释规范</h3><h4 id="2-1-文件注释：-使用-…-整体注释，不得采用-行注释"><a href="#2-1-文件注释：-使用-…-整体注释，不得采用-行注释" class="headerlink" title="2.1 文件注释：(使用/…/整体注释，不得采用//行注释)"></a>2.1 文件注释：(使用/<em>…</em>/整体注释，不得采用//行注释)</h4><p><em>格式：</em></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">/********************* Copyright(C)  20xx  company********************</div><div class="line">	File name: 	// 文件名</div><div class="line">	Author: 		// 作者、</div><div class="line">	Version:		// 版本</div><div class="line">	Date: 		// 完成日期</div><div class="line">	Description: 	// 用于详细说明此程序文件完成的主要功能，与其他模块</div><div class="line">				// 或函数的接口，输出值、取值范围、含义及参数间的控</div><div class="line">				// 制、顺序、独立或依赖等关系</div><div class="line">	Others: 		// 其它内容的说明</div><div class="line">	Function List: // 主要函数列表，每条记录应包括函数名及功能简要说明</div><div class="line">					1. ....</div><div class="line">	History: 	// 修改历史记录列表，每条修改记录应包括修改日期、修改</div><div class="line">				// 者及修改内容简述</div><div class="line">	&lt;author&gt; 		&lt;time&gt;	 	&lt;version &gt; 		&lt;desc&gt;</div><div class="line">	Name1			20xx.x.x		Vx.x		//修改的内容</div><div class="line"></div><div class="line">*************************************************/</div></pre></td></tr></table></figure>
+<h4 id="硬件设备名称函数命名参考-stm32-固件库命名法则：外设名称在前面全部大写"><a href="#硬件设备名称函数命名参考-stm32-固件库命名法则：外设名称在前面全部大写" class="headerlink" title="硬件设备名称函数命名参考 stm32 固件库命名法则：外设名称在前面全部大写"></a>硬件设备名称函数命名参考 stm32 固件库命名法则：外设名称在前面全部大写</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">如：</div><div class="line">void NVIC_PriorityGroupConfig(uint32_t NVIC_PriorityGroup)</div><div class="line">&#123;</div><div class="line">	/* Check the parameters */</div><div class="line">	assert_param(IS_NVIC_PRIORITY_GROUP(NVIC_PriorityGroup));</div><div class="line"></div><div class="line">	/* Set the PRIGROUP[10:8] bits according to NVIC_PriorityGroup value */</div><div class="line">	SCB-&gt;AIRCR = AIRCR_VECTKEY_MASK | NVIC_PriorityGroup;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="除了编译开关-头文件等特殊应用，应避免使用-EXAMPLETEST-之类以下划线开始和结尾的定义。"><a href="#除了编译开关-头文件等特殊应用，应避免使用-EXAMPLETEST-之类以下划线开始和结尾的定义。" class="headerlink" title="除了编译开关/头文件等特殊应用，应避免使用 _EXAMPLETEST 之类以下划线开始和结尾的定义。"></a>除了编译开关/头文件等特殊应用，应避免使用 _EXAMPLE<em>TEST</em> 之类以下划线开始和结尾的定义。</h4><h3 id="文件名"><a href="#文件名" class="headerlink" title="文件名"></a>文件名</h3><h4 id="文件名全部使用小写字母、下划线和数字，多个具体含义的单词中用-隔开，不得出现大写字母等任何其他字符。"><a href="#文件名全部使用小写字母、下划线和数字，多个具体含义的单词中用-隔开，不得出现大写字母等任何其他字符。" class="headerlink" title="文件名全部使用小写字母、下划线和数字，多个具体含义的单词中用_隔开，不得出现大写字母等任何其他字符。"></a>文件名全部使用小写字母、下划线和数字，多个具体含义的单词中用_隔开，不得出现大写字母等任何其他字符。</h4><ul>
+<li>Linux 系统是大小写敏感的，如果文件名只有大小写不同，则跨平台就会出问题。</li>
+<li>小写文件名通常比大写文件名更易读，比如 accessibility.txt 就比 ACCESSIBILITY.TXT 易读。</li>
+<li>某些系统会生成一些预置的用户目录，采用首字母大写的目录名。比如，Ubuntu 在用户主目录会默认生成Downloads、 Pictures、Documents等目录。</li>
+<li>文件名全部小写，还有利于命令行操作。比如，某些命令可以不使用-i参数了。</li>
+</ul>
+<h4 id="命名具备意义"><a href="#命名具备意义" class="headerlink" title="命名具备意义"></a>命名具备意义</h4><p>文件名(包括动态库、组件、控件、工程文件等)的命名规范,文件名的命名要求表达出文件的内容，要求文件名的长度不得少于5个字母，严禁使用象 file1,myfile 之类的文件名。</p>
+<h3 id="注释规范"><a href="#注释规范" class="headerlink" title="注释规范"></a>注释规范</h3><h4 id="文件注释：-使用-整体注释，不得采用-行注释"><a href="#文件注释：-使用-整体注释，不得采用-行注释" class="headerlink" title="文件注释：(使用 /*...*/ 整体注释，不得采用 // 行注释)"></a>文件注释：(使用 <code>/*...*/</code> 整体注释，不得采用 <code>//</code> 行注释)</h4><p>每个文件，都必须具备文件注释，可以不完全具备下面的内容，但至少要具备：文件名、版权、简述。</p>
+<p><em>详细格式如下：</em></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">/********************* Copyright(C)  20xx  company********************</div><div class="line">	File name:	 	// 文件名</div><div class="line">	Author: 		// 作者、</div><div class="line">	Version:		// 版本</div><div class="line">	Date: 			// 完成日期</div><div class="line">	Description: 	// 用于详细说明此程序文件完成的主要功能，与其他模块</div><div class="line">					// 或函数的接口，输出值、取值范围、含义及参数间的控</div><div class="line">					// 制、顺序、独立或依赖等关系</div><div class="line">	License:		// 版权协议</div><div class="line">	Others: 		// 其它内容的说明</div><div class="line">	Function List: 	// 主要函数列表，每条记录应包括函数名及功能简要说明</div><div class="line">					1. ....</div><div class="line">	History: 		// 修改历史记录列表，每条修改记录应包括修改日期、修改</div><div class="line">					// 者及修改内容简述</div><div class="line">	&lt;author&gt; 		&lt;time&gt;	 	&lt;version &gt; 		&lt;desc&gt;</div><div class="line">	Name1			20xx.x.x		Vx.x		//修改的内容</div><div class="line"></div><div class="line">*************************************************/</div></pre></td></tr></table></figure>
 <p><em>例：</em></p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">/************************************ Copyright (C)  2015  HS ***********************************</div><div class="line">	File name：    	channel.c</div><div class="line">	Author: 		name</div><div class="line">	version:			V1.0</div><div class="line">	Description:		实现多个通道的脉冲发送</div><div class="line">	Others:</div><div class="line">	Function List:</div><div class="line">					void GetChanCtrl(void);</div><div class="line">					void SetNormalMode(void);</div><div class="line">					void SetImMode(void);</div><div class="line">					void CtrlPulse(u8 g_byComRev);</div><div class="line">					void SetTimeMode(void);</div><div class="line">					u16 ScanfValue(void);</div><div class="line">					u32 ScanfTime(void);</div><div class="line">					void CtrlChannel(void);</div><div class="line">					void InitChannel(void);</div><div class="line">					void RunNormal(void);</div><div class="line">					void RunPulse(void);</div><div class="line">					void RunMode(void);</div><div class="line">	History:</div><div class="line">	&lt;author&gt; 		&lt;time&gt;	 	&lt;version &gt; 		&lt;desc&gt;</div><div class="line">Name1			2015.6.1		V1.1		修复xx问题</div><div class="line">**************************************************************************************************/</div></pre></td></tr></table></figure>
-<h4 id="2-2-函数注释：-使用-…-整体注释，不得采用-行注释"><a href="#2-2-函数注释：-使用-…-整体注释，不得采用-行注释" class="headerlink" title="2.2 函数注释：(使用/…/整体注释，不得采用//行注释)"></a>2.2 函数注释：(使用/<em>…</em>/整体注释，不得采用//行注释)</h4><p><em>格式：</em></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">/**************************************************************************</div><div class="line">	Function: 		// 函数名称</div><div class="line">	Description: 		// 函数功能、性能等的描述</div><div class="line">	Calls: 			// 被本函数调用的函数清单</div><div class="line">	Called By:		 	// 调用本函数的函数清单</div><div class="line">	Table Accessed: 	// 被访问的表（此项仅对于牵扯到数据库操作的程序）</div><div class="line">	Table Updated: 	// 被修改的表（此项仅对于牵扯到数据库操作的程序）</div><div class="line">	Input: 			// 输入参数说明，包括每个参数的作</div><div class="line">					// 用、取值说明及参数间关系。</div><div class="line">	Output: 			// 对输出参数的说明。</div><div class="line">	Return: 			// 函数返回值的说明</div><div class="line">	Others: 			// 其它说明</div><div class="line">**************************************************************************/</div></pre></td></tr></table></figure>
-<p><em>例：</em></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">/**************************************************************************</div><div class="line">	Function: 		InitChannel</div><div class="line">	Description: 		启动初始化所有通道</div><div class="line">	Calls: 			TIM_DeInit</div><div class="line">					TIM3_Int_Init</div><div class="line">	Called By:			main()</div><div class="line">	Input: 			无</div><div class="line">	Output: 			让所有通道输出低电平</div><div class="line">	Return: 			无</div><div class="line">************************************************************************/</div></pre></td></tr></table></figure>
-<h4 id="2-3-程序块注释："><a href="#2-3-程序块注释：" class="headerlink" title="2.3 程序块注释："></a>2.3 程序块注释：</h4><p><em>一般的程序块注释如 for，while 之类的注释在前面，程序排版整齐，并方便注释的阅读与理解，将注释与其上面的代码用空一行隔开，且该程序块与下面的代码也应该用空一行(使用/\</em>…*/整体注释，不得采用//行注释)*</p>
+<h4 id="函数注释：-使用-整体注释，不得采用-行注释"><a href="#函数注释：-使用-整体注释，不得采用-行注释" class="headerlink" title="函数注释：(使用 /*...*/ 整体注释，不得采用 // 行注释)"></a>函数注释：(使用 <code>/*...*/</code> 整体注释，不得采用 <code>//</code> 行注释)</h4><p>要求每个函数都需要有注释，但格式不做强制要求，功能复杂的函数必须具备：函数描述、参数说明、返回值；较为简短的函数可以简述功能。</p>
+<p><em>以下为一个比较详细的格式说明：</em></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">/**************************************************************************</div><div class="line">	Function: 			// 函数名称</div><div class="line">	Description: 		// 函数功能、性能等的描述</div><div class="line">	Calls: 				// 被本函数调用的函数清单</div><div class="line">	Called By:		 	// 调用本函数的函数清单</div><div class="line">	Table Accessed: 	// 被访问的表（此项仅对于牵扯到数据库操作的程序）</div><div class="line">	Table Updated: 		// 被修改的表（此项仅对于牵扯到数据库操作的程序）</div><div class="line">	Input: 				// 输入参数说明，包括每个参数的作</div><div class="line">						// 用、取值说明及参数间关系。</div><div class="line">	Output: 			// 对输出参数的说明。</div><div class="line">	Return: 			// 函数返回值的说明</div><div class="line">	Others: 			// 其它说明</div><div class="line">**************************************************************************/</div></pre></td></tr></table></figure>
+<p><em>参考案例：</em></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">/************************************************************************</div><div class="line">	Function: 		InitChannel</div><div class="line">	Description: 	启动初始化所有通道</div><div class="line">	Calls: 			TIM_DeInit</div><div class="line">					TIM3_Int_Init</div><div class="line">	Called By:		main()</div><div class="line">	Input: 			无</div><div class="line">	Output: 		让所有通道输出低电平</div><div class="line">	Return: 		无</div><div class="line">************************************************************************/</div></pre></td></tr></table></figure>
+<h4 id="程序块注释："><a href="#程序块注释：" class="headerlink" title="程序块注释："></a>程序块注释：</h4><p><em>一般的程序块注释如 for，while 之类的注释在前面，程序排版整齐，并方便注释的阅读与理解，将注释与其上面的代码用空一行隔开，且该程序块与下面的代码也应该用空一行(使用/\</em>…*/整体注释，不得采用//行注释)*</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">例：</div><div class="line">void example_fun( void )</div><div class="line">&#123;</div><div class="line">	/* code one comments */</div><div class="line">	CodeBlock One</div><div class="line"></div><div class="line">	/* code two comments */</div><div class="line">	CodeBlock Two</div><div class="line"></div><div class="line">	/* code three comments */</div><div class="line">	CodeBlock Three</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="2-4-边写代码边注释，修改代码同时修改相应的注释，以保证注释与代码的一致性。不再有用的注释要删除。命名一般要采用自注释的命名规则-详见命名规范-在需要注释的变量以及函数调用后加注释使用-，无需空行。"><a href="#2-4-边写代码边注释，修改代码同时修改相应的注释，以保证注释与代码的一致性。不再有用的注释要删除。命名一般要采用自注释的命名规则-详见命名规范-在需要注释的变量以及函数调用后加注释使用-，无需空行。" class="headerlink" title="2.4 边写代码边注释，修改代码同时修改相应的注释，以保证注释与代码的一致性。不再有用的注释要删除。命名一般要采用自注释的命名规则(详见命名规范),在需要注释的变量以及函数调用后加注释使用//，无需空行。"></a>2.4 边写代码边注释，修改代码同时修改相应的注释，以保证注释与代码的一致性。不再有用的注释要删除。命名一般要采用自注释的命名规则(详见命名规范),在需要注释的变量以及函数调用后加注释使用//，无需空行。</h4><blockquote>
-<p>参考链接：<br><a href="http://itec.hust.edu.cn/~xujing/cpp/common-cpp/text-book/C-coding-rules-simple.pdf" target="_blank" rel="external">http://itec.hust.edu.cn/~xujing/cpp/common-cpp/text-book/C-coding-rules-simple.pdf</a></p>
+<h4 id="边写代码边注释，修改代码同时修改相应的注释，以保证注释与代码的一致性。不再有用的注释要删除。命名一般要采用自注释的命名规则-详见命名规范-对于单行代码注释如：函数调用、变量说明等，则直接在行后使用-注释。"><a href="#边写代码边注释，修改代码同时修改相应的注释，以保证注释与代码的一致性。不再有用的注释要删除。命名一般要采用自注释的命名规则-详见命名规范-对于单行代码注释如：函数调用、变量说明等，则直接在行后使用-注释。" class="headerlink" title="边写代码边注释，修改代码同时修改相应的注释，以保证注释与代码的一致性。不再有用的注释要删除。命名一般要采用自注释的命名规则(详见命名规范),对于单行代码注释如：函数调用、变量说明等，则直接在行后使用 // 注释。"></a>边写代码边注释，修改代码同时修改相应的注释，以保证注释与代码的一致性。不再有用的注释要删除。命名一般要采用自注释的命名规则(详见命名规范),对于单行代码注释如：函数调用、变量说明等，则直接在行后使用 <code>//</code> 注释。</h4><blockquote>
+<p>参考链接：<br><a href="http://itec.hust.edu.cn/~xujing/cpp/common-cpp/text-book/C-coding-rules-simple.pdf" target="_blank" rel="external">http://itec.hust.edu.cn/~xujing/cpp/common-cpp/text-book/C-coding-rules-simple.pdf</a><br><a href="https://github.com/ruanyf/document-style-guide" target="_blank" rel="external">https://github.com/ruanyf/document-style-guide</a></p>
 </blockquote>
 ]]></content>
       
@@ -6358,96 +6368,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[MDK5安装及配置]]></title>
-      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
-      <content type="html"><![CDATA[<h3 id="MDK简介"><a href="#MDK简介" class="headerlink" title="MDK简介"></a>MDK简介</h3><blockquote>
-<p>Keil MDK，也称MDK-ARM，Realview MDK、I-MDK、uVision4 等。Keil C51 是美国 Keil Software 公司出品的 51 系列兼容单片机 C 语言软件开发系统，被 ARM（英国）公司收购，作为在 51 单片机时代相当流行的一个软件。</p>
-</blockquote>
-<p><em>而如果你是一个嵌入式工作者，尤其是主要使用ST或者飞思卡尔等工业产品为主的芯片，在国内的话可以说你的选择要么是keil要么就是IAR。keil作为一个IDE来说编辑功能缺失恨薄弱，但是硬件调试能力还是毋容置疑的，而keil配置简单容易上手，该有的功能操作也都具备，本文主要讲述作者的一些keil配置及习惯。</em></p>
-<h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ul>
-<li>界面友好，上手简单</li>
-<li>被ARM公司收购，编辑ARM相对友好，仿真功能十分强大</li>
-<li>官方提供各种芯片的启动代码，仿真库</li>
-</ul>
-<h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><ul>
-<li>自带编辑功能薄弱</li>
-<li>不支持/极少支持第三方插件</li>
-</ul>
-<a id="more"></a>
-<h3 id="KEIL-5配置"><a href="#KEIL-5配置" class="headerlink" title="KEIL 5配置"></a>KEIL 5配置</h3><h4 id="界面配置"><a href="#界面配置" class="headerlink" title="界面配置"></a>界面配置</h4><ul>
-<li>Keil 5及之后的版本缺少相关的原件类库，需要额外安装。可以从官网下载芯片库</li>
-<li><p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture1.png" alt=""></p>
-</li>
-<li><p>Keil 4.6及之后的版本对中文字体支持依旧很差，通过修改成GB2312的简体中文编码，可以让注释的中文字体不会拆分，但默认的Courier New - 10不能够良好的显示所有字体，直接通过修改GB2312会形成字体锯齿化，缺少虚化的过渡。</p>
-</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture2.png" alt=""></p>
-<ul>
-<li>通过尝试多种字体以及添加fonts文件，发现要么中文字体显示不错，英文不行，要么英文显示不错，中文不行，很多情况代码字体偏大或者偏小，最终个人觉得较好的配置界面如下：</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture3.png" alt=""></p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture4.png" alt=""></p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture5.png" alt=""></p>
-<ul>
-<li>如果需要修改背景颜色，需要对c/c++ Editor files 下的text，number等所有的background进行修改。配置如下：</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture6.png" alt=""></p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture7.png" alt=""></p>
-<ul>
-<li>光标指向向的颜色修改如下：</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture8.png" alt=""></p>
-<ul>
-<li>菜单栏view下面的所有工具栏颜色是跟随系统变化的，可以采用如果腾讯软件管家之类的工具开启护眼模式。</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture9.png" alt=""></p>
-<h4 id="KEIL建立单片机工程文件注意事项：："><a href="#KEIL建立单片机工程文件注意事项：：" class="headerlink" title="KEIL建立单片机工程文件注意事项：："></a>KEIL建立单片机工程文件注意事项：：</h4><ul>
-<li>注意KEIL的配置详细可以参考“Keil 5配置”文档。</li>
-<li>工程文件建立目录结构需清晰可参考下图：</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture10.png" alt=""></p>
-<p>该工具条中主要存放的是项目中需要使用到的C文件（注意并不包含任何头文件），只有加入这个工具中得.c文件才会进行项目的编译。<br>下面仅作参考，根据个人的习惯而定制，相关存放内容说明：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">CORE</span>：存放<span class="selector-tag">SOC</span>相关代码，包含<span class="selector-class">.s</span>启动文件，<span class="selector-tag">CMSIS</span>的部分<span class="selector-class">.c</span>文件以及<span class="selector-tag">CPU</span>相关的底层核心文件</div><div class="line"><span class="selector-tag">FWLIB</span>：固件库，厂方提供的标准固件库，用于调用外设的函数。</div><div class="line"><span class="selector-tag">BSP</span>：操作系统与芯片的中间层</div><div class="line"><span class="selector-tag">USER</span>：用户自己写的函数文件，包括<span class="selector-tag">main</span>和用户定制的功能函数</div><div class="line"><span class="selector-tag">OS</span>：具体名称为操作系统名称，可以是<span class="selector-tag">UCOS</span>，<span class="selector-tag">uclinux</span>等等嵌入式操作系统</div><div class="line"><span class="selector-tag">README</span>：整个工程的相关项目说明</div></pre></td></tr></table></figure></p>
-<ul>
-<li>新建工程重点配置Define和Include Paths，如下图</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture12.png" alt=""></p>
-<p><em>需强调的是 Define 中的选项不能少，这些选项一般都是如：stm32f10x.h（芯片寄存器定义文件） 或者内核中的宏定义，可以用来进行芯片选型等操作，可以用查找工具全局查找，会发现相关的 #ifdef 语句。本质上面来说，Define 加入的内容就相当于在 c 文件中手动的写入 #define xxx 语句。<br>Include Paths 中定义的都是头文件所在的路径，注意是头文件的路经，这边 ..\CMSIS 等都是使用 windows 下相对路径的格式，如果头文件不在 Include Paths 下的路经中，则编译器无法找到相关头文件，会编译失败。</em></p>
-<p><strong>其他注意点：</strong><br>C99Mode如果不勾选，默认可能会使用C89的编译器，一些如 bool 类型或者定义申明可能会无法编译，C89对老版本兼容性更好，但C99加入的许多新特性让编程更“合理”。具体根据自己项目需求而定。</p>
-<ul>
-<li>Debug 中进行相关模拟仿真下载器设置。一定要记得仿真设置 Reset and Run</li>
-</ul>
-<p>有仿真器的话，使用右边的仿真器选项，没有的话，则使用模拟。仿真器种类繁多，最常用的比如 JLINK，和 keil ulink 之类的，一些公司也会推出自己的仿真器，如silabs uda等</p>
-<p><em>最好勾选setting-&gt;flash download下的Reset and Run，这样可以无需重新上电即可运行程序。</em></p>
-<p>JLink 在连接 STM32F439 时，在勾选或者不勾选 Verify Code Download 时可能会出现下载错误，可能会是板子设计缺陷或者JLink版本过高。</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture11.png" alt=""></p>
-<ul>
-<li><p>Utilities：将Use Debug Driver勾选或者手动设置成相同的调试器。</p>
-</li>
-<li><p>移植程序注意重点：</p>
-</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Project 的 USER 中一定要把 .c 源文件添加进去 </div><div class="line">FWLIB一定要记得添加 stm32f10x_xxx 相关的外设库文件</div><div class="line">Stm32xxx_conf.h 中需取消相关注释</div><div class="line">用户定义的.h头文件需加入 <span class="comment">#include "stm32f10x.h"，且不需要加入 Stm32xxx_conf.h 因为该头文件已经在 #include "stm32f10x.h" 中包含了。</span></div><div class="line">添加用户自定义 .c 文件时，记得把其头文件写入到 main 函数所在文件中</div></pre></td></tr></table></figure>
-<blockquote>
-<p>参考链接：<br><a href="http://www.jb51.net/os/windows/211837.html" target="_blank" rel="external">http://www.jb51.net/os/windows/211837.html</a><br><a href="http://comm.chinaaet.com/adi/blogdetail/32471.html" target="_blank" rel="external">http://comm.chinaaet.com/adi/blogdetail/32471.html</a></p>
-</blockquote>
-]]></content>
-      
-        <categories>
-            
-            <category> 软件应用 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 配置 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[stm32F439案例汇总]]></title>
       <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
       <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
@@ -6576,6 +6496,96 @@ print(&apos;hello&apos;)
         <tags>
             
             <tag> 基础 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[MDK5安装及配置]]></title>
+      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
+      <content type="html"><![CDATA[<h3 id="MDK简介"><a href="#MDK简介" class="headerlink" title="MDK简介"></a>MDK简介</h3><blockquote>
+<p>Keil MDK，也称MDK-ARM，Realview MDK、I-MDK、uVision4 等。Keil C51 是美国 Keil Software 公司出品的 51 系列兼容单片机 C 语言软件开发系统，被 ARM（英国）公司收购，作为在 51 单片机时代相当流行的一个软件。</p>
+</blockquote>
+<p><em>而如果你是一个嵌入式工作者，尤其是主要使用ST或者飞思卡尔等工业产品为主的芯片，在国内的话可以说你的选择要么是keil要么就是IAR。keil作为一个IDE来说编辑功能缺失恨薄弱，但是硬件调试能力还是毋容置疑的，而keil配置简单容易上手，该有的功能操作也都具备，本文主要讲述作者的一些keil配置及习惯。</em></p>
+<h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ul>
+<li>界面友好，上手简单</li>
+<li>被ARM公司收购，编辑ARM相对友好，仿真功能十分强大</li>
+<li>官方提供各种芯片的启动代码，仿真库</li>
+</ul>
+<h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><ul>
+<li>自带编辑功能薄弱</li>
+<li>不支持/极少支持第三方插件</li>
+</ul>
+<a id="more"></a>
+<h3 id="KEIL-5配置"><a href="#KEIL-5配置" class="headerlink" title="KEIL 5配置"></a>KEIL 5配置</h3><h4 id="界面配置"><a href="#界面配置" class="headerlink" title="界面配置"></a>界面配置</h4><ul>
+<li>Keil 5及之后的版本缺少相关的原件类库，需要额外安装。可以从官网下载芯片库</li>
+<li><p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture1.png" alt=""></p>
+</li>
+<li><p>Keil 4.6及之后的版本对中文字体支持依旧很差，通过修改成GB2312的简体中文编码，可以让注释的中文字体不会拆分，但默认的Courier New - 10不能够良好的显示所有字体，直接通过修改GB2312会形成字体锯齿化，缺少虚化的过渡。</p>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture2.png" alt=""></p>
+<ul>
+<li>通过尝试多种字体以及添加fonts文件，发现要么中文字体显示不错，英文不行，要么英文显示不错，中文不行，很多情况代码字体偏大或者偏小，最终个人觉得较好的配置界面如下：</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture3.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture4.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture5.png" alt=""></p>
+<ul>
+<li>如果需要修改背景颜色，需要对c/c++ Editor files 下的text，number等所有的background进行修改。配置如下：</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture6.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture7.png" alt=""></p>
+<ul>
+<li>光标指向向的颜色修改如下：</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture8.png" alt=""></p>
+<ul>
+<li>菜单栏view下面的所有工具栏颜色是跟随系统变化的，可以采用如果腾讯软件管家之类的工具开启护眼模式。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture9.png" alt=""></p>
+<h4 id="KEIL建立单片机工程文件注意事项：："><a href="#KEIL建立单片机工程文件注意事项：：" class="headerlink" title="KEIL建立单片机工程文件注意事项：："></a>KEIL建立单片机工程文件注意事项：：</h4><ul>
+<li>注意KEIL的配置详细可以参考“Keil 5配置”文档。</li>
+<li>工程文件建立目录结构需清晰可参考下图：</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture10.png" alt=""></p>
+<p>该工具条中主要存放的是项目中需要使用到的C文件（注意并不包含任何头文件），只有加入这个工具中得.c文件才会进行项目的编译。<br>下面仅作参考，根据个人的习惯而定制，相关存放内容说明：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">CORE</span>：存放<span class="selector-tag">SOC</span>相关代码，包含<span class="selector-class">.s</span>启动文件，<span class="selector-tag">CMSIS</span>的部分<span class="selector-class">.c</span>文件以及<span class="selector-tag">CPU</span>相关的底层核心文件</div><div class="line"><span class="selector-tag">FWLIB</span>：固件库，厂方提供的标准固件库，用于调用外设的函数。</div><div class="line"><span class="selector-tag">BSP</span>：操作系统与芯片的中间层</div><div class="line"><span class="selector-tag">USER</span>：用户自己写的函数文件，包括<span class="selector-tag">main</span>和用户定制的功能函数</div><div class="line"><span class="selector-tag">OS</span>：具体名称为操作系统名称，可以是<span class="selector-tag">UCOS</span>，<span class="selector-tag">uclinux</span>等等嵌入式操作系统</div><div class="line"><span class="selector-tag">README</span>：整个工程的相关项目说明</div></pre></td></tr></table></figure></p>
+<ul>
+<li>新建工程重点配置Define和Include Paths，如下图</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture12.png" alt=""></p>
+<p><em>需强调的是 Define 中的选项不能少，这些选项一般都是如：stm32f10x.h（芯片寄存器定义文件） 或者内核中的宏定义，可以用来进行芯片选型等操作，可以用查找工具全局查找，会发现相关的 #ifdef 语句。本质上面来说，Define 加入的内容就相当于在 c 文件中手动的写入 #define xxx 语句。<br>Include Paths 中定义的都是头文件所在的路径，注意是头文件的路经，这边 ..\CMSIS 等都是使用 windows 下相对路径的格式，如果头文件不在 Include Paths 下的路经中，则编译器无法找到相关头文件，会编译失败。</em></p>
+<p><strong>其他注意点：</strong><br>C99Mode如果不勾选，默认可能会使用C89的编译器，一些如 bool 类型或者定义申明可能会无法编译，C89对老版本兼容性更好，但C99加入的许多新特性让编程更“合理”。具体根据自己项目需求而定。</p>
+<ul>
+<li>Debug 中进行相关模拟仿真下载器设置。一定要记得仿真设置 Reset and Run</li>
+</ul>
+<p>有仿真器的话，使用右边的仿真器选项，没有的话，则使用模拟。仿真器种类繁多，最常用的比如 JLINK，和 keil ulink 之类的，一些公司也会推出自己的仿真器，如silabs uda等</p>
+<p><em>最好勾选setting-&gt;flash download下的Reset and Run，这样可以无需重新上电即可运行程序。</em></p>
+<p>JLink 在连接 STM32F439 时，在勾选或者不勾选 Verify Code Download 时可能会出现下载错误，可能会是板子设计缺陷或者JLink版本过高。</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture11.png" alt=""></p>
+<ul>
+<li><p>Utilities：将Use Debug Driver勾选或者手动设置成相同的调试器。</p>
+</li>
+<li><p>移植程序注意重点：</p>
+</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Project 的 USER 中一定要把 .c 源文件添加进去 </div><div class="line">FWLIB一定要记得添加 stm32f10x_xxx 相关的外设库文件</div><div class="line">Stm32xxx_conf.h 中需取消相关注释</div><div class="line">用户定义的.h头文件需加入 <span class="comment">#include "stm32f10x.h"，且不需要加入 Stm32xxx_conf.h 因为该头文件已经在 #include "stm32f10x.h" 中包含了。</span></div><div class="line">添加用户自定义 .c 文件时，记得把其头文件写入到 main 函数所在文件中</div></pre></td></tr></table></figure>
+<blockquote>
+<p>参考链接：<br><a href="http://www.jb51.net/os/windows/211837.html" target="_blank" rel="external">http://www.jb51.net/os/windows/211837.html</a><br><a href="http://comm.chinaaet.com/adi/blogdetail/32471.html" target="_blank" rel="external">http://comm.chinaaet.com/adi/blogdetail/32471.html</a></p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> 软件应用 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 配置 </tag>
             
         </tags>
         

@@ -4,9 +4,11 @@
   
     
     <entry>
-      <title><![CDATA[小白锻炼之路]]></title>
-      <url>http://noparkinghere.top/2017/05/20/2017/2017-05-20-%E5%B0%8F%E7%99%BD%E9%94%BB%E7%82%BC%E4%B9%8B%E8%B7%AF/</url>
-      <content type="html"></content>
+      <title><![CDATA[小白运动之路]]></title>
+      <url>http://noparkinghere.top/2017/05/20/2017/2017-05-20-%E5%B0%8F%E7%99%BD%E8%BF%90%E5%8A%A8%E4%B9%8B%E8%B7%AF/</url>
+      <content type="html"><![CDATA[<h3 id="运动复苏"><a href="#运动复苏" class="headerlink" title="运动复苏"></a>运动复苏</h3><p>简单的拉伸等运动，时间短</p>
+<h3 id="第一个一公里"><a href="#第一个一公里" class="headerlink" title="第一个一公里"></a>第一个一公里</h3><p>可以是 800m 甚至 400m</p>
+<h3 id="1-3-公里"><a href="#1-3-公里" class="headerlink" title="1-3 公里"></a>1-3 公里</h3><h3 id="5-公里"><a href="#5-公里" class="headerlink" title="5 公里"></a>5 公里</h3>]]></content>
       
         
     </entry>
@@ -18,6 +20,7 @@
 <h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>以下内容比较抽象，如果不需要具体了解的话，可以只看<strong>路由器交换机的大致区别</strong>。</p>
 <p>Hub/集线器：集线器的主要功能是对接收到的信号进行再生整形放大，以扩大网络的传输距离，同时把所有节点集中在以它为中心的节点上。集线器工作于OSI/RM参考模型的物理层和数据链路层的MAC（介质访问控制）子层。工作原理：首先是节点发信号到线路，集线器接收该信号，因信号在电缆传输中有衰减，集线器接收信号后将衰减的信号整形放大，最后集线器将放大的信号广播转发给其他所有端口。</p>
 <p>桥接：是指依据 OSI 网络模型的链路层的地址，对网络数据包进行转发的过程，工作在 OSI 的第二层。一般的交换机，网桥就有桥接作用。</p>
+<p>AP（Wireless Access Point）：AP 就是传统有效网络中的 HUB，也是组建小型无线局域网时常用的设备。</p>
 <p>NAT（Network Address Translation，网络地址转换）：当在专用网内部的一些主机本来已经分配到了本地IP地址（即仅在本专用网内使用的专用地址），但现在又想和因特网上的主机通信（并不需要加密）时，可使用NAT方法。装有NAT软件的路由器叫做NAT路由器，NAT 之内的 PC 联机到 Internet 上面时，他所显示的 IP 是 NAT 主机的公共 IP。</p>
 <p>调制解调器：Modulator（调制器）与Demodulator（解调器）的简称，中文称为调制解调器（港台称之为数据机），根据Modem的谐音，亲昵地称之为“猫”。它是在发送端通过调制将数字信号转换为模拟信号，而在接收端通过解调再将模拟信号转换为数字信号的一种装置。而随着光纤的普及，现在很多地方使用“光猫”，和传统的“猫”相比，“光猫”可以将数字信号转换为光信号进行传输，因此可以提供更快更稳定的上网体验。</p>
 <p>交换机：交换机（Switch）意为“开关”是一种用于电（光）信号转发的网络设备。为接入交换机的任意两个网络节点提供<strong>独享</strong>的电信号通路。集线器、交换机都是做端口扩展的，就是扩大局域网(通常都是以太网)的接入点，也就是能让局域网可以连进来更多的电脑。交换机只有一根网线上网，但是大家上网是分别拨号，各自使用自己的宽带，交换机根据 MAC 地址寻址传输数据，大家上网都相当于单独接入了因特网服务，在速度和账号方面互不影响。</p>
@@ -101,18 +104,42 @@
 <p>在简单的家用无线网设置之前，我们需要先考察下“猫”是否被设置过，随着通讯设备越来越智能化，事实上，现在的“猫”大都已经集成了拨号上网的功能，服务较好的员工，会将你的账号和密码直接设置到“猫”中，而不再需要你通过路由器来拨号了。换句话说，“猫”中出来的网线直接就可以上网了，路由器只有管理局域网的作用。</p>
 <p>这边以传统的 TP-LINK 为例，配置一个需要账号上网和局域网连接的路由器：</p>
 <ul>
-<li><p>用无线或网线连接路由器，成功后在地址栏中输入“192.168.1.1”（设置过程中路由器可能提示重启，但这个IP地址不变。），然后在弹出的窗口中，输入默认的用户名：admin 密码：admin。（一般这些信息都会贴在路由器背面）。如果你不是新买的路由器，按照我上面提供的方法无法访问的话（看路由器底部信息），则按下路由器的 reset 键 10 秒钟，重置路由器。</p>
-</li>
-<li></li>
+<li>用无线或网线连接路由器，成功后在地址栏中输入“192.168.1.1”（设置过程中路由器可能提示重启，但这个IP地址不变。），然后在弹出的窗口中，输入默认的用户名：admin 密码：admin。（一般这些信息都会贴在路由器背面）。如果你不是新买的路由器，按照我上面提供的方法无法访问的话（看路由器底部信息），则按下路由器的 reset 键 10 秒钟，重置路由器。</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-05-16-路由器配置简述/5.jpg" alt=""></p>
+<ul>
+<li>TP-LINK 提供了比较人性化的设置，新手的话可以直接使用设置向导，一直点击下一步，最后选择 ADSL 虚拟拨号。</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/5532120-ff73e870f63bf834.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5532120-18fad7ecc1369f79.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5532120-1e7dd5a612fa82f3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li>接下来我们需要输入运营商给你账号和密码，这个就和网站的账号密码类似，只有有效的账号和密码验证通过后，运营商才会让你接入互联网。这个账户密码最好写在纸上贴在路由器上，否则下次如果重置路由器的话，需要打电话问运营商。</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/5532120-fd11f0c6e0745fc7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>以上步骤基本设置成功后基本就完成了上网拨号的功能，但路由器还不只这些，我们需要进一步设置。</p>
+<ul>
+<li>如果你不是使用向导模式，就需要通过设置 WAN 口来实现拨号上网，这一步步骤和上面等同。一般我们选择自动连接，或者按需链接。</li>
+</ul>
 <p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-05-16-路由器配置简述/6.jpg" alt=""></p>
+<ul>
+<li>既然使用了无线路由功能，那无线路由就得好好设置，在基本设置中，我们修改你的无线信号名称（SSID） 为自己常用名称，比如 home ，wifi 等，但注意老款路由器对中文支持不好，一般还是推荐用数字和字母来设置。</li>
+</ul>
 <p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-05-16-路由器配置简述/7.jpg" alt=""></p>
+<ul>
+<li>修改你的 LAN 口设置，LAN 口设置的 IP 地址，为你开始登录管理路由器的地址，一般简单的家用的话，这个地址可以不用修改。</li>
+</ul>
 <p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-05-16-路由器配置简述/8.jpg" alt=""></p>
 <h3 id="多台路由器组建网络"><a href="#多台路由器组建网络" class="headerlink" title="多台路由器组建网络"></a>多台路由器组建网络</h3><p><em>这种适合于家庭路由器安装位置不佳，或者房间过多的情况，这时需要通过额外的一个路由器来增加一个信号源。</em></p>
-<h3 id="路由器和交换机组建网络"><a href="#路由器和交换机组建网络" class="headerlink" title="路由器和交换机组建网络"></a>路由器和交换机组建网络</h3><p><em>这种方式，适合于中小企业的公司网络，以及家庭使用是，需要给多个房间留出有线网口</em></p>
+<p>多台路由器建立网络时，这边多种解决方案，下面一个个来介绍：</p>
+<h4 id="路由器-交换机"><a href="#路由器-交换机" class="headerlink" title="路由器+交换机"></a>路由器+交换机</h4><p>两台路由器连接时，其中一台路由器当交换机来使用，方法是：将第一台路由 器的 LAN 口用网线和 第二台无线路由器连接，这时第二台路由器就作为交换机使用，这台路由器没法分配 IP 地址，所有的 IP 分配由第一台路由器完成，第二台路由器这边相当于一个扩展的无线 hub，对它也无需进行额外配置。</p>
+<h4 id="路由器-AP"><a href="#路由器-AP" class="headerlink" title="路由器+AP"></a>路由器+AP</h4><p>TP-LINK 售卖一些小型的路由器， 这些路由器信号弱一般只能覆盖一个房间，但为了方便设置，都提供了 AP 功能，使用该功能的话，基本上可以很方便的将路由器信号进行放大，无需额外的设置。</p>
+<p>如果 AP 设置存在问题的话，这类路由器能够通过开关选择 route 模式，这时就相当于一个完整的路由器了，在 WAN 中不选择 ADSL 拨号，而选择动态分配 IP 即可。这时的分配方式是做一个二级路由，新的路由器再次建一个子网络。</p>
+<h4 id="路由器-无线信号放大器"><a href="#路由器-无线信号放大器" class="headerlink" title="路由器+无线信号放大器"></a>路由器+无线信号放大器</h4><p>市面上现在有售卖一种无线信号放大器，该放大器，是将一个无线信号接收后放大出来，且对 SSID 和密码进行完整的克隆，产生一个相同 wifi 名和密码的信号，也就是说你在不需要连接新的 wifi 就可以上网。</p>
+<h3 id="多台路由器和交换机组建网络"><a href="#多台路由器和交换机组建网络" class="headerlink" title="多台路由器和交换机组建网络"></a>多台路由器和交换机组建网络</h3><p><em>这种方式，适合于中小企业的公司网络，以及别墅使用，需要给多个房间留出有线网口</em></p>
 <p>使用这个之前一定要明白路由器和交换机的大概区别，可以看上面的<strong>路由器交换机的区别</strong>。</p>
-<h3 id="多台路由器和交换机组建网络"><a href="#多台路由器和交换机组建网络" class="headerlink" title="多台路由器和交换机组建网络"></a>多台路由器和交换机组建网络</h3><blockquote>
+<p>这种方式建议将拨号设置在“猫”中（或者使用一个单独的拨号路由器），然后猫直接接入交换机，交换机再和每个电脑链接，如果需要使用无线网的话，交换机再分别和各个路由器连接，每台路由器设置时，选择动态 IP 方式，每个路由器所对应的 LAN 管理地址不能相同需要手动修改，否则的话会产生冲突，每个路由器建立单独的局域网提供通讯设备的访问。</p>
+<blockquote>
 <p>参考链接：<br><a href="https://zhidao.baidu.com/question/438038951.html" target="_blank" rel="external">https://zhidao.baidu.com/question/438038951.html</a><br><a href="http://www.cnblogs.com/Lynn-Zhang/articles/5754336.html" target="_blank" rel="external">http://www.cnblogs.com/Lynn-Zhang/articles/5754336.html</a><br><a href="https://wenku.baidu.com/view/fcc05bcdda38376baf1faea7.html" target="_blank" rel="external">https://wenku.baidu.com/view/fcc05bcdda38376baf1faea7.html</a><br><a href="http://www.192ly.com/basic/ap-mode-and-router-mode-difference.html" target="_blank" rel="external">http://www.192ly.com/basic/ap-mode-and-router-mode-difference.html</a><br><a href="http://baike.baidu.com/link?url=omJf1nxKnBwpWR6kznR4VRcxdhcXNfus-_O8-cohO7zrpHYuEAAtCTYOQ2CGacnjjYrCi0ao5xzYDcq0E3F_pq" target="_blank" rel="external">http://baike.baidu.com/link?url=omJf1nxKnBwpWR6kznR4VRcxdhcXNfus-_O8-cohO7zrpHYuEAAtCTYOQ2CGacnjjYrCi0ao5xzYDcq0E3F_pq</a><br><a href="http://blog.sina.com.cn/s/blog_7a6598170101017d.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_7a6598170101017d.html</a><br><a href="http://baike.baidu.com/item/AP/2760808" target="_blank" rel="external">http://baike.baidu.com/item/AP/2760808</a><br><a href="http://baike.baidu.com/item/HUB" target="_blank" rel="external">http://baike.baidu.com/item/HUB</a><br><a href="https://www.zhihu.com/question/21782368" target="_blank" rel="external">https://www.zhihu.com/question/21782368</a><br><a href="https://zh.wikipedia.org/wiki/%E8%B7%AF%E7%94%B1%E5%99%A8" target="_blank" rel="external">https://zh.wikipedia.org/wiki/%E8%B7%AF%E7%94%B1%E5%99%A8</a><br><a href="http://www.ruanyifeng.com/blog/2009/06/how_to_connect_2_routers_in_home_networking" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2009/06/how_to_connect_2_routers_in_home_networking</a><br><a href="http://www.ihref.com/read-16675.html" target="_blank" rel="external">http://www.ihref.com/read-16675.html</a><br><a href="http://jingyan.baidu.com/article/eae07827e3e9fc1fec548590.html" target="_blank" rel="external">http://jingyan.baidu.com/article/eae07827e3e9fc1fec548590.html</a></p>
 </blockquote>
 ]]></content>
@@ -5162,33 +5189,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[git的配置及相关插件]]></title>
-      <url>http://noparkinghere.top/2016/09/28/2016-09-28-git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6/</url>
-      <content type="html"><![CDATA[<p>一个好的工具，需要不断的打磨和熟悉使用技巧才可以把它用的炉火纯青，git同样如此，本文主要是推荐一些git常用的配置以及配套的一些工具。</p>
-<h3 id="git的相关配置："><a href="#git的相关配置：" class="headerlink" title="git的相关配置："></a>git的相关配置：</h3><h4 id="gitignore配置"><a href="#gitignore配置" class="headerlink" title=".gitignore配置"></a>.gitignore配置</h4><a id="more"></a>
-<h3 id="推荐的git插件："><a href="#推荐的git插件：" class="headerlink" title="推荐的git插件："></a>推荐的git插件：</h3><h4 id="tig"><a href="#tig" class="headerlink" title="tig"></a>tig</h4><p>首先推荐<a href="http://jonas.nitro.dk/tig/" target="_blank" rel="external">tig</a>（名字刚好和git相反），是一个专门针对git的小软件，官方这么介绍<em>text-mode interface for Git</em>。</p>
-<p>推荐可以访问<a href="https://github.com/jonas/tig" target="_blank" rel="external">tig的github页面</a>,里面有相关的下载安装说明。</p>
-<ul>
-<li>软件能够恨清晰的看到你的版本目录结构</li>
-</ul>
-<h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><h4 id="小乌龟插件"><a href="#小乌龟插件" class="headerlink" title="小乌龟插件"></a>小乌龟插件</h4><h4 id="atom"><a href="#atom" class="headerlink" title="atom"></a>atom</h4>]]></content>
-      
-        <categories>
-            
-            <category> 转载文章 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 英语 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[通过git管理一个工程]]></title>
       <url>http://noparkinghere.top/2016/09/28/2016/2016-09-28-%E9%80%9A%E8%BF%87git%E7%AE%A1%E7%90%86%E4%B8%80%E4%B8%AA%E5%B7%A5%E7%A8%8B/</url>
       <content type="html"><![CDATA[<p>GIT虽然能够实现各种版本控制，且功能强大，可以做到随时切换版本，回退等各种功能，但过多的分支，无效的分支，杂乱的提交，无意义的命名等等问题，往往会让像我这样的初学者，异常头痛，网络上关于git的往往都是指导你各个命令如何去用，部分命令的使用场景等，但却缺少一个完整工程项目的管理步骤。部分大神的确总结出了自己的使用习惯，但却不是作为教程来陈述的，下面我会将自己的一些习惯进行总结，后续可能遇到更好的也还会不断的更改。</p>
@@ -5228,6 +5228,33 @@
         <tags>
             
             <tag> git </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[git的配置及相关插件]]></title>
+      <url>http://noparkinghere.top/2016/09/28/2016-09-28-git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6/</url>
+      <content type="html"><![CDATA[<p>一个好的工具，需要不断的打磨和熟悉使用技巧才可以把它用的炉火纯青，git同样如此，本文主要是推荐一些git常用的配置以及配套的一些工具。</p>
+<h3 id="git的相关配置："><a href="#git的相关配置：" class="headerlink" title="git的相关配置："></a>git的相关配置：</h3><h4 id="gitignore配置"><a href="#gitignore配置" class="headerlink" title=".gitignore配置"></a>.gitignore配置</h4><a id="more"></a>
+<h3 id="推荐的git插件："><a href="#推荐的git插件：" class="headerlink" title="推荐的git插件："></a>推荐的git插件：</h3><h4 id="tig"><a href="#tig" class="headerlink" title="tig"></a>tig</h4><p>首先推荐<a href="http://jonas.nitro.dk/tig/" target="_blank" rel="external">tig</a>（名字刚好和git相反），是一个专门针对git的小软件，官方这么介绍<em>text-mode interface for Git</em>。</p>
+<p>推荐可以访问<a href="https://github.com/jonas/tig" target="_blank" rel="external">tig的github页面</a>,里面有相关的下载安装说明。</p>
+<ul>
+<li>软件能够恨清晰的看到你的版本目录结构</li>
+</ul>
+<h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><h4 id="小乌龟插件"><a href="#小乌龟插件" class="headerlink" title="小乌龟插件"></a>小乌龟插件</h4><h4 id="atom"><a href="#atom" class="headerlink" title="atom"></a>atom</h4>]]></content>
+      
+        <categories>
+            
+            <category> 转载文章 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 英语 </tag>
             
         </tags>
         
@@ -6587,6 +6614,52 @@
     </entry>
     
     <entry>
+      <title><![CDATA[stm32F439案例汇总]]></title>
+      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
+      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
+<blockquote>
+<p>www.armjishu.com(无法访问)</p>
+</blockquote>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
+<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
+<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
+</ul>
+<a id="more"></a>
+<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
+<li>实验0 Template工程模板</li>
+<li>实验1 跑马灯</li>
+<li>实验2 蜂鸣器</li>
+<li>实验3 按键和外部中断</li>
+<li>实验4 看门狗（独立和窗口）</li>
+<li>实验5 待机唤醒</li>
+<li>实验6 串口通讯（232和485）</li>
+<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
+<li>实验8 PWM输出和输入捕获</li>
+</ul>
+<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
+<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
+</blockquote>
+<hr>
+<p><em>未完待续</em></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 软件应用 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[（转）回车、换行、和文件末尾空行]]></title>
       <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%EF%BC%88%E8%BD%AC%EF%BC%89%E5%9B%9E%E8%BD%A6%E3%80%81%E6%8D%A2%E8%A1%8C%E3%80%81%E5%92%8C%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E7%A9%BA%E8%A1%8C/</url>
       <content type="html"><![CDATA[<h2 id="回车和换行"><a href="#回车和换行" class="headerlink" title="回车和换行"></a>回车和换行</h2><p>回车 (Carriage Return) 和换行 (Line Feed) 的区别，<a href="http://stackoverflow.com/questions/1761051/difference-between-n-and-r" target="_blank" rel="external">这里</a>有一个历史原因可参考：</p>
@@ -6669,52 +6742,6 @@ print(&apos;hello&apos;)
         <tags>
             
             <tag> 基础 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[stm32F439案例汇总]]></title>
-      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
-      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
-<blockquote>
-<p>www.armjishu.com(无法访问)</p>
-</blockquote>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
-<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
-<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
-</ul>
-<a id="more"></a>
-<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
-<li>实验0 Template工程模板</li>
-<li>实验1 跑马灯</li>
-<li>实验2 蜂鸣器</li>
-<li>实验3 按键和外部中断</li>
-<li>实验4 看门狗（独立和窗口）</li>
-<li>实验5 待机唤醒</li>
-<li>实验6 串口通讯（232和485）</li>
-<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
-<li>实验8 PWM输出和输入捕获</li>
-</ul>
-<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
-<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
-</blockquote>
-<hr>
-<p><em>未完待续</em></p>
-]]></content>
-      
-        <categories>
-            
-            <category> 软件应用 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 嵌入式 </tag>
             
         </tags>
         

@@ -4,6 +4,48 @@
   
     
     <entry>
+      <title><![CDATA[轻松上网]]></title>
+      <url>http://noparkinghere.top/2017/06/09/2017/2017-06-09-%E8%BD%BB%E6%9D%BE%E4%B8%8A%E7%BD%91/</url>
+      <content type="html"><![CDATA[<p>本文罗列和推荐一些科学上网的方法，其中有免费也有付费的，有很容易实现的也有需要折腾一下的，具体的话需要根据你的需求来决定。</p>
+<h3 id="host-方式"><a href="#host-方式" class="headerlink" title="host 方式"></a>host 方式</h3><p>修改 host 文件的方式，是一种比较传统的方式，优点是配置简单，无需安装第三方软件；缺点是经常会失效，需要你反复配置。</p>
+<h4 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h4><p>Hosts文件是一个用于存储计算机网络中节点信息的文件，它可以将主机名映射到相应的IP地址，实现DNS的功能，它可以由计算机的用户进行控制。</p>
+<blockquote>
+<p><a href="http://blog.csdn.net/tskyfree/article/details/41214829" target="_blank" rel="external">http://blog.csdn.net/tskyfree/article/details/41214829</a></p>
+</blockquote>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[hosts 文件上网]]></title>
+      <url>http://noparkinghere.top/2017/06/08/2017/2017-06-08-hosts-%E6%96%87%E4%BB%B6%E4%B8%8A%E7%BD%91/</url>
+      <content type="html"><![CDATA[<h3 id="host-方式"><a href="#host-方式" class="headerlink" title="host 方式"></a>host 方式</h3><p>在大多数 PC 操作系统中都有 hosts 文件，我们可以通过这类文件来达到 IP 访问一些网站或者屏蔽一些网站的效果。</p>
+<h4 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h4><p>Hosts 文件是一个用于存储计算机网络中节点信息的文件，它可以将主机名映射到相应的IP地址，实现DNS的功能，它可以由计算机的用户进行控制。</p>
+<p>Hosts 文件的存储位置在不同的操作系统中并不相同，甚至不同Windows版本的位置也不大一样， Windows NT/2000/XP/2003/Vista/win7：默认位置为%SystemRoot%\system32\drivers\etc\，但也可以改变。</p>
+<p>例如 <code>c:\windows\system32\drivers\etc\</code> 动态目录由注册表键 <code>\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\ Services\Tcpip\Parameters\DataBasePath</code> 决定。 用记事本打开hosts文件，就可以看见了微软对这个文件的说明。Hosts文件文一般有如下面的基本内容 </p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="meta"># This is a sample HOSTS file used by Microsoft TCP/IP for Windows. </span></div><div class="line"><span class="meta"># </span></div><div class="line"><span class="meta"># This file contains the mappings of IP addresses to host names. Each </span></div><div class="line"><span class="meta"># entry should be kept on an individual line. The IP address should </span></div><div class="line"><span class="meta"># be placed in the first column followed by the corresponding host name. </span></div><div class="line"><span class="meta"># The IP address and the host name should be separated by at least one </span></div><div class="line"><span class="meta"># space. </span></div><div class="line"><span class="meta"># </span></div><div class="line"><span class="meta"># Additionally, comments (such as these) may be inserted on individual </span></div><div class="line"><span class="meta"># lines or following the machine name denoted by a '#' symbol. </span></div><div class="line"><span class="meta"># </span></div><div class="line"><span class="meta"># For example: </span></div><div class="line"><span class="meta"># </span></div><div class="line"><span class="meta"># 102.54.94.97 rhino.acme.com # source server </span></div><div class="line"><span class="meta"># 38.25.63.10 x.acme.com # x client host </span></div><div class="line"></div><div class="line"><span class="meta"># 127.0.0.1  localhost</span></div></pre></td></tr></table></figure>
+<p>在网络上访问网站，要首先通过 DNS 服务器把要访问的网络域名（XXXX.com）解析成XXX.XXX.XXX.XXX的IP地址后，计算机才能对这个网络域名作访问，这也是为何当你 DNS 无法访问时，输入网站名就没有反应，但一些联网的 APP （如 QQ，音乐播放器）却可以使用的原因。</p>
+<p>除了铜鼓 DNS 自动解析域名外，我们还能够通过 Hosts 文件直接建立域名和 IP 的映射关系来达到访问目的，这种情况下就不需要再通过 DNS 来访问相应网站了。</p>
+<h3 id="屏蔽网站"><a href="#屏蔽网站" class="headerlink" title="屏蔽网站"></a>屏蔽网站</h3><p>屏蔽网站也是一种常用的功能，一些网站不经过用户同意就将各种各样的插件安装到你的计算机中，其中有些说不定就是木马或病毒。而另外一些情况则是，我们使用破解软件时，一些软件需要不断地联网认证你是否使用了盗版，我们也可以将这些网站给屏蔽。对于这些网站我们可以利用 Hosts 把该网站的域名映射到错误的 IP 或本地计算机的 IP，这样就不用访问了。约定 127.0.0.1 为本地计算机的 IP 地址, 0.0.0.0 是错误的 IP 地址。 </p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">在 <span class="selector-tag">Hosts</span> 中，写入以下内容： </div><div class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">www</span><span class="selector-class">.XXXX</span><span class="selector-class">.com</span> #屏蔽的网站 <span class="selector-tag">A</span> </div><div class="line">0<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.0</span> <span class="selector-tag">www</span><span class="selector-class">.XXXX</span><span class="selector-class">.com</span> #屏蔽的网站 <span class="selector-tag">B</span> </div><div class="line">这样，计算机解析域名 <span class="selector-tag">A</span>和 <span class="selector-tag">B</span>时，就解析到本机<span class="selector-tag">IP</span>或错误的<span class="selector-tag">IP</span>，达到了屏蔽网站<span class="selector-tag">A</span> 和<span class="selector-tag">B</span>的目的。</div></pre></td></tr></table></figure>
+<h3 id="科学上网"><a href="#科学上网" class="headerlink" title="科学上网"></a>科学上网</h3><p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-06-08-hosts-文件上网/1.gif" alt=""></p>
+<p><em>为了绕开 GFW ，能够访问谷歌等网站，我们经常会采取各种手段，但其中最简单的方式还是修改 host 文件。</em></p>
+<p>修改 host 文件来科学上网，是一种比较传统的方式，优点是配置简单，无需安装第三方软件；缺点是经常会失效，需要你反复配置。</p>
+<p>这边给出几个更新比较快的 hosts 资源，使用方法就是将这些 hosts 文件替代你操作系统中的原有文件，但值得注意的是，任何这些文件都是由民间网友提供的，并不能保证它绝对的安全，所以使用的话需自己考量和谨慎。</p>
+<ul>
+<li><a href="https://github.com/racaljk/hosts" target="_blank" rel="external">hosts</a>：老牌 hosts 文件，长期更新，比较稳定。</li>
+<li><a href="https://github.com/wangchunming/2017hosts" target="_blank" rel="external">2017hosts</a>：具备详细的说明文件</li>
+</ul>
+<blockquote>
+<p><a href="http://blog.csdn.net/tskyfree/article/details/41214829" target="_blank" rel="external">http://blog.csdn.net/tskyfree/article/details/41214829</a></p>
+</blockquote>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[为何你没法坚持专注？]]></title>
       <url>http://noparkinghere.top/2017/06/03/2017/2017-06-03-%E4%B8%BA%E4%BD%95%E4%BD%A0%E6%B2%A1%E6%B3%95%E5%9D%9A%E6%8C%81%E4%B8%93%E6%B3%A8%EF%BC%9F/</url>
       <content type="html"><![CDATA[<p>人有可能会天生具备更高的智商，更强壮的体魄，但除此之外，没有谁天生就会写字说话，也没有谁天生就能够坚持能够成功。</p>
@@ -67,7 +109,7 @@
 <h3 id="平缓情绪"><a href="#平缓情绪" class="headerlink" title="平缓情绪"></a>平缓情绪</h3><p>运动和冥想都有助于让打扰产生内啡肽，让我们的情绪平复，快乐，从而更轻松的工作学习。并不是没有情绪，更是遇到很多事情能够更加的淡定，更加的平复，时刻知道自己在做什么，而不是发脾气失控。</p>
 <h3 id="增加感知"><a href="#增加感知" class="headerlink" title="增加感知"></a>增加感知</h3><p>冥想打坐可以更加人的敏锐性，挖掘出人体的部分潜能，长期冥想后，你会发现感知能够所有加强，因为大脑得到了更好的锻炼，因此你会注意到更多细节，更多原来容易被忽视的东西。</p>
 <h3 id="身心健康"><a href="#身心健康" class="headerlink" title="身心健康"></a>身心健康</h3><p>冥想可以让身心相结合，在打坐冥想时呼吸均匀，身体平复，能够帮助血液循环，让身体容易保持一个好的状态；冥想是对大脑的锻炼，身体锻炼能够强身健体，同样大脑也需要锻炼，让它更加健康。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/5532120-a529ff72347cad0e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="977303709.jpg"></p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-05-27-初识冥想/1.jpg" alt=""></p>
 <a id="more"></a>
 <blockquote>
 <h2 id="如何进行冥想"><a href="#如何进行冥想" class="headerlink" title="如何进行冥想"></a>如何进行冥想</h2></blockquote>
@@ -88,7 +130,7 @@
 <li><p>舌顶上颚，舌头前半部分轻微顶住上颚，嘴唇微闭，上下牙齿留缝。</p>
 </li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/5532120-e7db1d841d8acef7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1368947979.jpg"></p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-05-27-初识冥想/2.jpg" alt=""></p>
 <h3 id="调风"><a href="#调风" class="headerlink" title="调风"></a>调风</h3><p>调风实际就是控制呼吸，如果呼吸比较均匀，则心也会比较平静，人很多时候会被想法拖着走。嘴先闭合，嘴角微微上扬，鼻子先轻轻的慢慢的呼吸三口气，调整好坐姿后，再放松长长的呼吸三口气，呼吸要放松绵长，整个过程一定要放松不能紧张。</p>
 <p>冥想的过程是一个反复体验，验证的过程，每个人只有亲身经历才会找到最适合自己的，注意的是整个过程需要放松但不懈怠。</p>
 <h3 id="调心"><a href="#调心" class="headerlink" title="调心"></a>调心</h3><p>前面两部做充分后注意力就比较容易集中，开始进行调心，初学者，在冥想时将注意力集中在人中。</p>
@@ -110,6 +152,19 @@
 <li>身体状况不好，感冒或者特别疲惫时，应该先暂时不冥想而去养好身体。</li>
 <li>中午午休时，不一定需要单盘双盘，可以坐在椅子上，保持身体坐直，呼吸顺畅。</li>
 <li>每个人冥想时状态不同，有些初学者甚至出现头晕呕吐等，需要观察一段时间。</li>
+</ul>
+<blockquote>
+<h2 id="推荐书单"><a href="#推荐书单" class="headerlink" title="推荐书单"></a>推荐书单</h2></blockquote>
+<ul>
+<li>《冥想5分钟，等于熟睡一小时》</li>
+<li>《苹果禅》</li>
+<li>《元气禅》</li>
+<li>《正念的奇迹》</li>
+<li>《改善情绪的正念疗法》</li>
+<li>《与繁重的工作一起修行》</li>
+<li>《禅者的初心》</li>
+<li>《佛陀传》</li>
+<li>《正见》</li>
 </ul>
 <hr>
 <p>本文为听课所做笔记，后续仍然会进行一些内容更新。</p>
@@ -6738,6 +6793,52 @@
     </entry>
     
     <entry>
+      <title><![CDATA[stm32F439案例汇总]]></title>
+      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
+      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
+<blockquote>
+<p>www.armjishu.com(无法访问)</p>
+</blockquote>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
+<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
+<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
+</ul>
+<a id="more"></a>
+<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
+<li>实验0 Template工程模板</li>
+<li>实验1 跑马灯</li>
+<li>实验2 蜂鸣器</li>
+<li>实验3 按键和外部中断</li>
+<li>实验4 看门狗（独立和窗口）</li>
+<li>实验5 待机唤醒</li>
+<li>实验6 串口通讯（232和485）</li>
+<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
+<li>实验8 PWM输出和输入捕获</li>
+</ul>
+<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
+<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
+</blockquote>
+<hr>
+<p><em>未完待续</em></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 软件应用 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[（转）回车、换行、和文件末尾空行]]></title>
       <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%EF%BC%88%E8%BD%AC%EF%BC%89%E5%9B%9E%E8%BD%A6%E3%80%81%E6%8D%A2%E8%A1%8C%E3%80%81%E5%92%8C%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E7%A9%BA%E8%A1%8C/</url>
       <content type="html"><![CDATA[<h2 id="回车和换行"><a href="#回车和换行" class="headerlink" title="回车和换行"></a>回车和换行</h2><p>回车 (Carriage Return) 和换行 (Line Feed) 的区别，<a href="http://stackoverflow.com/questions/1761051/difference-between-n-and-r" target="_blank" rel="external">这里</a>有一个历史原因可参考：</p>
@@ -6820,52 +6921,6 @@ print(&apos;hello&apos;)
         <tags>
             
             <tag> 基础 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[stm32F439案例汇总]]></title>
-      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
-      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
-<blockquote>
-<p>www.armjishu.com(无法访问)</p>
-</blockquote>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
-<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
-<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
-</ul>
-<a id="more"></a>
-<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
-<li>实验0 Template工程模板</li>
-<li>实验1 跑马灯</li>
-<li>实验2 蜂鸣器</li>
-<li>实验3 按键和外部中断</li>
-<li>实验4 看门狗（独立和窗口）</li>
-<li>实验5 待机唤醒</li>
-<li>实验6 串口通讯（232和485）</li>
-<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
-<li>实验8 PWM输出和输入捕获</li>
-</ul>
-<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
-<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
-</blockquote>
-<hr>
-<p><em>未完待续</em></p>
-]]></content>
-      
-        <categories>
-            
-            <category> 软件应用 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 嵌入式 </tag>
             
         </tags>
         

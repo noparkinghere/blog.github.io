@@ -15,33 +15,35 @@
 <h3 id="三者对比"><a href="#三者对比" class="headerlink" title="三者对比"></a>三者对比</h3><table>
 <thead>
 <tr>
-<th>类别</th>
-<th>价格</th>
-<th>配置难易</th>
-<th>稳定性</th>
-<th>适合人群</th>
+<th></th>
+<th>hosts</th>
+<th>VPN</th>
+<th>vps-ss    </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>hosts</td>
+<td>价格</td>
 <td>免费</td>
-<td>配置简单，用过计算机的都能配置</td>
-<td>经常会失效，需要重新找 hosts 文件配置</td>
-<td>适合几个月或很长时间，偶尔需要翻墙上网的人 </td>
-</tr>
-<tr>
-<td>VPN</td>
 <td>免费版较难连接，付费版价格 200/year 左右</td>
-<td>一般对计算机比较熟悉的人都能够安装配置成功，某些时候可能会遇到些困难，但大都能解决</td>
-<td>较好，购买靠谱商家的 VPN 一般都能连接上，偶尔会有断线的情况</td>
-<td>适合每天或者经常需要翻墙的人</td>
+<td>价格不等，30/year - 1000/year    </td>
 </tr>
 <tr>
-<td>vps-ss</td>
-<td>价格不等，30/year - 1000/year</td>
-<td>需要配置服务器端和客户端，如果自己搭建服务器的话，需要具备一定的 linux 基础</td>
-<td>取决于你 VPS 的服务商，如果是二次打包分销的 VPS ，如果代理商过销的话会体验较差。</td>
+<td>配置难易</td>
+<td>配置简单，用过计算机的都能配置</td>
+<td>一般对计算机比较熟悉的人都能够安装配置成功，某些时候可能会遇到些困难，但大都能解决</td>
+<td>需要配置服务器端和客户端，如果自己搭建服务器的话，需要具备一定的 linux 基础    </td>
+</tr>
+<tr>
+<td>稳定性</td>
+<td>经常会失效，需要重新找 hosts 文件配置</td>
+<td>较好，购买靠谱商家的 VPN 一般都能连接上，偶尔会有断线的情况</td>
+<td>取决于你 VPS 的服务商，如果是二次打包分销的 VPS ，如果代理商过销的话会体验较差。    </td>
+</tr>
+<tr>
+<td>适合人群</td>
+<td>适合几周或几个月，偶尔需要翻墙上网的人</td>
+<td>适合每天或者经常需要翻墙的人</td>
 <td>适合每天或者经常需要翻墙的人</td>
 </tr>
 </tbody>
@@ -6829,6 +6831,52 @@
     </entry>
     
     <entry>
+      <title><![CDATA[stm32F439案例汇总]]></title>
+      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
+      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
+<blockquote>
+<p>www.armjishu.com(无法访问)</p>
+</blockquote>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
+<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
+<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
+</ul>
+<a id="more"></a>
+<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
+<li>实验0 Template工程模板</li>
+<li>实验1 跑马灯</li>
+<li>实验2 蜂鸣器</li>
+<li>实验3 按键和外部中断</li>
+<li>实验4 看门狗（独立和窗口）</li>
+<li>实验5 待机唤醒</li>
+<li>实验6 串口通讯（232和485）</li>
+<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
+<li>实验8 PWM输出和输入捕获</li>
+</ul>
+<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
+<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
+</blockquote>
+<hr>
+<p><em>未完待续</em></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 软件应用 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[MDK5安装及配置]]></title>
       <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
       <content type="html"><![CDATA[<h3 id="MDK简介"><a href="#MDK简介" class="headerlink" title="MDK简介"></a>MDK简介</h3><blockquote>
@@ -6913,52 +6961,6 @@
         <tags>
             
             <tag> 配置 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[stm32F439案例汇总]]></title>
-      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
-      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
-<blockquote>
-<p>www.armjishu.com(无法访问)</p>
-</blockquote>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
-<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
-<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
-</ul>
-<a id="more"></a>
-<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
-<li>实验0 Template工程模板</li>
-<li>实验1 跑马灯</li>
-<li>实验2 蜂鸣器</li>
-<li>实验3 按键和外部中断</li>
-<li>实验4 看门狗（独立和窗口）</li>
-<li>实验5 待机唤醒</li>
-<li>实验6 串口通讯（232和485）</li>
-<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
-<li>实验8 PWM输出和输入捕获</li>
-</ul>
-<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
-<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
-</blockquote>
-<hr>
-<p><em>未完待续</em></p>
-]]></content>
-      
-        <categories>
-            
-            <category> 软件应用 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 嵌入式 </tag>
             
         </tags>
         

@@ -8,7 +8,8 @@
       <url>http://noparkinghere.top/2017/06/09/2017/2017-06-09-%E8%BD%BB%E6%9D%BE%E4%B8%8A%E7%BD%91/</url>
       <content type="html"><![CDATA[<p>本文罗列和推荐一些科学上网的方法，其中有免费也有付费的，有很容易实现的也有需要折腾一下的，具体的话需要根据你的需求来决定。</p>
 <h3 id="host-方式"><a href="#host-方式" class="headerlink" title="host 方式"></a>host 方式</h3><p>修改 host 文件的方式，是一种比较传统的方式，优点是配置简单，无需安装第三方软件；缺点是经常会失效，需要你反复配置。</p>
-<h4 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h4><p>Hosts文件是一个用于存储计算机网络中节点信息的文件，它可以将主机名映射到相应的IP地址，实现DNS的功能，它可以由计算机的用户进行控制。</p>
+<h4 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h4><p>Hosts 文件是一个用于存储计算机网络中节点信息的文件，它可以将主机名映射到相应的 IP 地址，实现 DNS 的功能，它可以由计算机的用户进行控制。</p>
+<a id="more"></a>
 <blockquote>
 <p><a href="http://blog.csdn.net/tskyfree/article/details/41214829" target="_blank" rel="external">http://blog.csdn.net/tskyfree/article/details/41214829</a></p>
 </blockquote>
@@ -21,16 +22,17 @@
       <title><![CDATA[hosts 文件上网]]></title>
       <url>http://noparkinghere.top/2017/06/08/2017/2017-06-08-hosts-%E6%96%87%E4%BB%B6%E4%B8%8A%E7%BD%91/</url>
       <content type="html"><![CDATA[<h3 id="host-方式"><a href="#host-方式" class="headerlink" title="host 方式"></a>host 方式</h3><p>在大多数 PC 操作系统中都有 hosts 文件，我们可以通过这类文件来达到 IP 访问一些网站或者屏蔽一些网站的效果。</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-06-08-hosts-文件上网/1.gif" alt=""></p>
 <h4 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h4><p>Hosts 文件是一个用于存储计算机网络中节点信息的文件，它可以将主机名映射到相应的IP地址，实现DNS的功能，它可以由计算机的用户进行控制。</p>
 <p>Hosts 文件的存储位置在不同的操作系统中并不相同，甚至不同Windows版本的位置也不大一样， Windows NT/2000/XP/2003/Vista/win7：默认位置为%SystemRoot%\system32\drivers\etc\，但也可以改变。</p>
 <p>例如 <code>c:\windows\system32\drivers\etc\</code> 动态目录由注册表键 <code>\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\ Services\Tcpip\Parameters\DataBasePath</code> 决定。 用记事本打开hosts文件，就可以看见了微软对这个文件的说明。Hosts文件文一般有如下面的基本内容 </p>
+<a id="more"></a>
 <figure class="highlight vala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="meta"># This is a sample HOSTS file used by Microsoft TCP/IP for Windows. </span></div><div class="line"><span class="meta"># </span></div><div class="line"><span class="meta"># This file contains the mappings of IP addresses to host names. Each </span></div><div class="line"><span class="meta"># entry should be kept on an individual line. The IP address should </span></div><div class="line"><span class="meta"># be placed in the first column followed by the corresponding host name. </span></div><div class="line"><span class="meta"># The IP address and the host name should be separated by at least one </span></div><div class="line"><span class="meta"># space. </span></div><div class="line"><span class="meta"># </span></div><div class="line"><span class="meta"># Additionally, comments (such as these) may be inserted on individual </span></div><div class="line"><span class="meta"># lines or following the machine name denoted by a '#' symbol. </span></div><div class="line"><span class="meta"># </span></div><div class="line"><span class="meta"># For example: </span></div><div class="line"><span class="meta"># </span></div><div class="line"><span class="meta"># 102.54.94.97 rhino.acme.com # source server </span></div><div class="line"><span class="meta"># 38.25.63.10 x.acme.com # x client host </span></div><div class="line"></div><div class="line"><span class="meta"># 127.0.0.1  localhost</span></div></pre></td></tr></table></figure>
 <p>在网络上访问网站，要首先通过 DNS 服务器把要访问的网络域名（XXXX.com）解析成XXX.XXX.XXX.XXX的IP地址后，计算机才能对这个网络域名作访问，这也是为何当你 DNS 无法访问时，输入网站名就没有反应，但一些联网的 APP （如 QQ，音乐播放器）却可以使用的原因。</p>
 <p>除了铜鼓 DNS 自动解析域名外，我们还能够通过 Hosts 文件直接建立域名和 IP 的映射关系来达到访问目的，这种情况下就不需要再通过 DNS 来访问相应网站了。</p>
 <h3 id="屏蔽网站"><a href="#屏蔽网站" class="headerlink" title="屏蔽网站"></a>屏蔽网站</h3><p>屏蔽网站也是一种常用的功能，一些网站不经过用户同意就将各种各样的插件安装到你的计算机中，其中有些说不定就是木马或病毒。而另外一些情况则是，我们使用破解软件时，一些软件需要不断地联网认证你是否使用了盗版，我们也可以将这些网站给屏蔽。对于这些网站我们可以利用 Hosts 把该网站的域名映射到错误的 IP 或本地计算机的 IP，这样就不用访问了。约定 127.0.0.1 为本地计算机的 IP 地址, 0.0.0.0 是错误的 IP 地址。 </p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">在 <span class="selector-tag">Hosts</span> 中，写入以下内容： </div><div class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span> <span class="selector-tag">www</span><span class="selector-class">.XXXX</span><span class="selector-class">.com</span> #屏蔽的网站 <span class="selector-tag">A</span> </div><div class="line">0<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.0</span> <span class="selector-tag">www</span><span class="selector-class">.XXXX</span><span class="selector-class">.com</span> #屏蔽的网站 <span class="selector-tag">B</span> </div><div class="line">这样，计算机解析域名 <span class="selector-tag">A</span>和 <span class="selector-tag">B</span>时，就解析到本机<span class="selector-tag">IP</span>或错误的<span class="selector-tag">IP</span>，达到了屏蔽网站<span class="selector-tag">A</span> 和<span class="selector-tag">B</span>的目的。</div></pre></td></tr></table></figure>
-<h3 id="科学上网"><a href="#科学上网" class="headerlink" title="科学上网"></a>科学上网</h3><p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2017-06-08-hosts-文件上网/1.gif" alt=""></p>
-<p><em>为了绕开 GFW ，能够访问谷歌等网站，我们经常会采取各种手段，但其中最简单的方式还是修改 host 文件。</em></p>
+<h3 id="科学上网"><a href="#科学上网" class="headerlink" title="科学上网"></a>科学上网</h3><p><em>为了绕开 GFW ，能够访问谷歌等网站，我们经常会采取各种手段，但其中最简单的方式还是修改 host 文件。</em></p>
 <p>修改 host 文件来科学上网，是一种比较传统的方式，优点是配置简单，无需安装第三方软件；缺点是经常会失效，需要你反复配置。</p>
 <p>这边给出几个更新比较快的 hosts 资源，使用方法就是将这些 hosts 文件替代你操作系统中的原有文件，但值得注意的是，任何这些文件都是由民间网友提供的，并不能保证它绝对的安全，所以使用的话需自己考量和谨慎。</p>
 <ul>
@@ -54,6 +56,7 @@
 <h3 id="习性"><a href="#习性" class="headerlink" title="习性"></a>习性</h3><p>从小的教育，家庭的氛围是一个不能忽略的因素，一个从小养尊处优衣来伸手饭来张口的孩子，天生就比别人体验的少，经历的磨难少，遇到的挫折少，往往他也会神经大条遇到困难时，更加倾向于选择放弃，而不是努力一把坚持一下挺过去。</p>
 <p>不仅如此，一些小困难对于从小独立自主的人来说可能是家常便饭，但对于温室中的花朵却可能是无法承受之重。说这点并不是刻意贬低生活幸福美满的人，而是客观上面陈述一个事实，从小的经历，你做过的家务，你经历过的困难之后都会影响你的一生。</p>
 <p>你经历过的越多，你就越有可能养成坚韧的品质，长此以往这些品质就会刻录到你的身体中，让你在做事时自然而然的可以比别人更加专注持久。</p>
+<a id="more"></a>
 <h3 id="压力"><a href="#压力" class="headerlink" title="压力"></a>压力</h3><p>一个不是特别有恒心，特别专注的人，也会有可能在一些时候努力干完一些事情，并取得不错的成就。但这些事情，可能并不是由你主导的成功，来自升学的压力，来自升职的压力等等可能会迫使三心二意的你突然发愤图强，激发了自身一切的潜能，最终获得了成功。</p>
 <p>虽然说结果是美好的，但这其实并不是可持续发展可轻易复制的成功。因为虽然是你主导的事情，但动力来自于外界，而另一方面在做事时，你是受极大压力后最终爆发了自身的潜能，然后在几周甚至几个月后你成功了。人的潜能和精力都是有限的，你不可能在做完一件事后，再次爆发潜能，更不可能在持续高压下爆发几年的潜能，即便是几个月也已经让你精疲力尽了。</p>
 <p>大多数的专注和恒心都属于压力因素引起的，而如果是长时间一定成都的压力则会形成上面提到的习性，能够将部分坚持的品质刻录到自己的行为习惯中去。</p>
@@ -2893,7 +2896,7 @@
     <entry>
       <title><![CDATA[linux-shadowsocks全局代理]]></title>
       <url>http://noparkinghere.top/2017/01/25/2017/2017-01-25-ss-linux%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86/</url>
-      <content type="html"><![CDATA[<p>windows 直接下载 ss 终端，稍加设置即可完成全局代理，linux 用户如果需要让某个软件可以使用 ss 一般都需要连接端口才行。例如本地 ss 配置为：<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"server_port"</span>:<span class="number">1800</span>,</div><div class="line"><span class="string">"local_port"</span>:<span class="number">1080</span>,</div></pre></td></tr></table></figure></p>
+      <content type="html"><![CDATA[<p>windows 直接下载 ss 终端，稍加设置即可完成全局代理，linux 用户如果需要让某个软件可以使用 ss 一般都需要连接端口才行。例如本地 ss 配置为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"server_port"</span>:1800,</div><div class="line"><span class="string">"local_port"</span>:1080,</div></pre></td></tr></table></figure></p>
 <h3 id="原理简述"><a href="#原理简述" class="headerlink" title="原理简述"></a>原理简述</h3><p>这边就相当于将本地的 127.0.0.1:1080 和 server_ip:1800 建立了连接关系。因此软件如果需要使用 vps 上面搭建的 ss 服务的话，则需要让该软件使用的协议连接到 127.0.0.1:1080 上。之前在 vps-shadowsocks 中介绍的 chrome 插件 SwitchyOmega 就是使用 SOCKS5 协议连接到 127.0.0.1:1080 上，让所有数据通过 SOCKS5 协议，然后从 127.0.0.1:1080 进行收发。</p>
 <p>可以看出如果我们需要让其他软件也能够使用 ss 则需要让他们也能够使用 127.0.0.1:1080 代理服务器，然而不幸的是，大多数软件并不支持代理服务的功能， windows 平台下的软件很多可以通过设置 IE 代理让其他软件使用代理服务（原理是：大多数软件都会优先读取 IE 的代理设置，再访问网络）。</p>
 <a id="more"></a>
@@ -6793,6 +6796,96 @@
     </entry>
     
     <entry>
+      <title><![CDATA[MDK5安装及配置]]></title>
+      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
+      <content type="html"><![CDATA[<h3 id="MDK简介"><a href="#MDK简介" class="headerlink" title="MDK简介"></a>MDK简介</h3><blockquote>
+<p>Keil MDK，也称MDK-ARM，Realview MDK、I-MDK、uVision4 等。Keil C51 是美国 Keil Software 公司出品的 51 系列兼容单片机 C 语言软件开发系统，被 ARM（英国）公司收购，作为在 51 单片机时代相当流行的一个软件。</p>
+</blockquote>
+<p><em>而如果你是一个嵌入式工作者，尤其是主要使用ST或者飞思卡尔等工业产品为主的芯片，在国内的话可以说你的选择要么是keil要么就是IAR。keil作为一个IDE来说编辑功能缺失恨薄弱，但是硬件调试能力还是毋容置疑的，而keil配置简单容易上手，该有的功能操作也都具备，本文主要讲述作者的一些keil配置及习惯。</em></p>
+<h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ul>
+<li>界面友好，上手简单</li>
+<li>被ARM公司收购，编辑ARM相对友好，仿真功能十分强大</li>
+<li>官方提供各种芯片的启动代码，仿真库</li>
+</ul>
+<h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><ul>
+<li>自带编辑功能薄弱</li>
+<li>不支持/极少支持第三方插件</li>
+</ul>
+<a id="more"></a>
+<h3 id="KEIL-5配置"><a href="#KEIL-5配置" class="headerlink" title="KEIL 5配置"></a>KEIL 5配置</h3><h4 id="界面配置"><a href="#界面配置" class="headerlink" title="界面配置"></a>界面配置</h4><ul>
+<li>Keil 5及之后的版本缺少相关的原件类库，需要额外安装。可以从官网下载芯片库</li>
+<li><p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture1.png" alt=""></p>
+</li>
+<li><p>Keil 4.6及之后的版本对中文字体支持依旧很差，通过修改成GB2312的简体中文编码，可以让注释的中文字体不会拆分，但默认的Courier New - 10不能够良好的显示所有字体，直接通过修改GB2312会形成字体锯齿化，缺少虚化的过渡。</p>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture2.png" alt=""></p>
+<ul>
+<li>通过尝试多种字体以及添加fonts文件，发现要么中文字体显示不错，英文不行，要么英文显示不错，中文不行，很多情况代码字体偏大或者偏小，最终个人觉得较好的配置界面如下：</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture3.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture4.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture5.png" alt=""></p>
+<ul>
+<li>如果需要修改背景颜色，需要对c/c++ Editor files 下的text，number等所有的background进行修改。配置如下：</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture6.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture7.png" alt=""></p>
+<ul>
+<li>光标指向向的颜色修改如下：</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture8.png" alt=""></p>
+<ul>
+<li>菜单栏view下面的所有工具栏颜色是跟随系统变化的，可以采用如果腾讯软件管家之类的工具开启护眼模式。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture9.png" alt=""></p>
+<h4 id="KEIL建立单片机工程文件注意事项：："><a href="#KEIL建立单片机工程文件注意事项：：" class="headerlink" title="KEIL建立单片机工程文件注意事项：："></a>KEIL建立单片机工程文件注意事项：：</h4><ul>
+<li>注意KEIL的配置详细可以参考“Keil 5配置”文档。</li>
+<li>工程文件建立目录结构需清晰可参考下图：</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture10.png" alt=""></p>
+<p>该工具条中主要存放的是项目中需要使用到的C文件（注意并不包含任何头文件），只有加入这个工具中得.c文件才会进行项目的编译。<br>下面仅作参考，根据个人的习惯而定制，相关存放内容说明：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">CORE</span>：存放<span class="selector-tag">SOC</span>相关代码，包含<span class="selector-class">.s</span>启动文件，<span class="selector-tag">CMSIS</span>的部分<span class="selector-class">.c</span>文件以及<span class="selector-tag">CPU</span>相关的底层核心文件</div><div class="line"><span class="selector-tag">FWLIB</span>：固件库，厂方提供的标准固件库，用于调用外设的函数。</div><div class="line"><span class="selector-tag">BSP</span>：操作系统与芯片的中间层</div><div class="line"><span class="selector-tag">USER</span>：用户自己写的函数文件，包括<span class="selector-tag">main</span>和用户定制的功能函数</div><div class="line"><span class="selector-tag">OS</span>：具体名称为操作系统名称，可以是<span class="selector-tag">UCOS</span>，<span class="selector-tag">uclinux</span>等等嵌入式操作系统</div><div class="line"><span class="selector-tag">README</span>：整个工程的相关项目说明</div></pre></td></tr></table></figure></p>
+<ul>
+<li>新建工程重点配置Define和Include Paths，如下图</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture12.png" alt=""></p>
+<p><em>需强调的是 Define 中的选项不能少，这些选项一般都是如：stm32f10x.h（芯片寄存器定义文件） 或者内核中的宏定义，可以用来进行芯片选型等操作，可以用查找工具全局查找，会发现相关的 #ifdef 语句。本质上面来说，Define 加入的内容就相当于在 c 文件中手动的写入 #define xxx 语句。<br>Include Paths 中定义的都是头文件所在的路径，注意是头文件的路经，这边 ..\CMSIS 等都是使用 windows 下相对路径的格式，如果头文件不在 Include Paths 下的路经中，则编译器无法找到相关头文件，会编译失败。</em></p>
+<p><strong>其他注意点：</strong><br>C99Mode如果不勾选，默认可能会使用C89的编译器，一些如 bool 类型或者定义申明可能会无法编译，C89对老版本兼容性更好，但C99加入的许多新特性让编程更“合理”。具体根据自己项目需求而定。</p>
+<ul>
+<li>Debug 中进行相关模拟仿真下载器设置。一定要记得仿真设置 Reset and Run</li>
+</ul>
+<p>有仿真器的话，使用右边的仿真器选项，没有的话，则使用模拟。仿真器种类繁多，最常用的比如 JLINK，和 keil ulink 之类的，一些公司也会推出自己的仿真器，如silabs uda等</p>
+<p><em>最好勾选setting-&gt;flash download下的Reset and Run，这样可以无需重新上电即可运行程序。</em></p>
+<p>JLink 在连接 STM32F439 时，在勾选或者不勾选 Verify Code Download 时可能会出现下载错误，可能会是板子设计缺陷或者JLink版本过高。</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture11.png" alt=""></p>
+<ul>
+<li><p>Utilities：将Use Debug Driver勾选或者手动设置成相同的调试器。</p>
+</li>
+<li><p>移植程序注意重点：</p>
+</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Project 的 USER 中一定要把 .c 源文件添加进去 </div><div class="line">FWLIB一定要记得添加 stm32f10x_xxx 相关的外设库文件</div><div class="line">Stm32xxx_conf.h 中需取消相关注释</div><div class="line">用户定义的.h头文件需加入 <span class="comment">#include "stm32f10x.h"，且不需要加入 Stm32xxx_conf.h 因为该头文件已经在 #include "stm32f10x.h" 中包含了。</span></div><div class="line">添加用户自定义 .c 文件时，记得把其头文件写入到 main 函数所在文件中</div></pre></td></tr></table></figure>
+<blockquote>
+<p>参考链接：<br><a href="http://www.jb51.net/os/windows/211837.html" target="_blank" rel="external">http://www.jb51.net/os/windows/211837.html</a><br><a href="http://comm.chinaaet.com/adi/blogdetail/32471.html" target="_blank" rel="external">http://comm.chinaaet.com/adi/blogdetail/32471.html</a></p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> 软件应用 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 配置 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[stm32F439案例汇总]]></title>
       <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
       <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
@@ -6921,96 +7014,6 @@ print(&apos;hello&apos;)
         <tags>
             
             <tag> 基础 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[MDK5安装及配置]]></title>
-      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
-      <content type="html"><![CDATA[<h3 id="MDK简介"><a href="#MDK简介" class="headerlink" title="MDK简介"></a>MDK简介</h3><blockquote>
-<p>Keil MDK，也称MDK-ARM，Realview MDK、I-MDK、uVision4 等。Keil C51 是美国 Keil Software 公司出品的 51 系列兼容单片机 C 语言软件开发系统，被 ARM（英国）公司收购，作为在 51 单片机时代相当流行的一个软件。</p>
-</blockquote>
-<p><em>而如果你是一个嵌入式工作者，尤其是主要使用ST或者飞思卡尔等工业产品为主的芯片，在国内的话可以说你的选择要么是keil要么就是IAR。keil作为一个IDE来说编辑功能缺失恨薄弱，但是硬件调试能力还是毋容置疑的，而keil配置简单容易上手，该有的功能操作也都具备，本文主要讲述作者的一些keil配置及习惯。</em></p>
-<h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ul>
-<li>界面友好，上手简单</li>
-<li>被ARM公司收购，编辑ARM相对友好，仿真功能十分强大</li>
-<li>官方提供各种芯片的启动代码，仿真库</li>
-</ul>
-<h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><ul>
-<li>自带编辑功能薄弱</li>
-<li>不支持/极少支持第三方插件</li>
-</ul>
-<a id="more"></a>
-<h3 id="KEIL-5配置"><a href="#KEIL-5配置" class="headerlink" title="KEIL 5配置"></a>KEIL 5配置</h3><h4 id="界面配置"><a href="#界面配置" class="headerlink" title="界面配置"></a>界面配置</h4><ul>
-<li>Keil 5及之后的版本缺少相关的原件类库，需要额外安装。可以从官网下载芯片库</li>
-<li><p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture1.png" alt=""></p>
-</li>
-<li><p>Keil 4.6及之后的版本对中文字体支持依旧很差，通过修改成GB2312的简体中文编码，可以让注释的中文字体不会拆分，但默认的Courier New - 10不能够良好的显示所有字体，直接通过修改GB2312会形成字体锯齿化，缺少虚化的过渡。</p>
-</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture2.png" alt=""></p>
-<ul>
-<li>通过尝试多种字体以及添加fonts文件，发现要么中文字体显示不错，英文不行，要么英文显示不错，中文不行，很多情况代码字体偏大或者偏小，最终个人觉得较好的配置界面如下：</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture3.png" alt=""></p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture4.png" alt=""></p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture5.png" alt=""></p>
-<ul>
-<li>如果需要修改背景颜色，需要对c/c++ Editor files 下的text，number等所有的background进行修改。配置如下：</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture6.png" alt=""></p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture7.png" alt=""></p>
-<ul>
-<li>光标指向向的颜色修改如下：</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture8.png" alt=""></p>
-<ul>
-<li>菜单栏view下面的所有工具栏颜色是跟随系统变化的，可以采用如果腾讯软件管家之类的工具开启护眼模式。</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture9.png" alt=""></p>
-<h4 id="KEIL建立单片机工程文件注意事项：："><a href="#KEIL建立单片机工程文件注意事项：：" class="headerlink" title="KEIL建立单片机工程文件注意事项：："></a>KEIL建立单片机工程文件注意事项：：</h4><ul>
-<li>注意KEIL的配置详细可以参考“Keil 5配置”文档。</li>
-<li>工程文件建立目录结构需清晰可参考下图：</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture10.png" alt=""></p>
-<p>该工具条中主要存放的是项目中需要使用到的C文件（注意并不包含任何头文件），只有加入这个工具中得.c文件才会进行项目的编译。<br>下面仅作参考，根据个人的习惯而定制，相关存放内容说明：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">CORE</span>：存放<span class="selector-tag">SOC</span>相关代码，包含<span class="selector-class">.s</span>启动文件，<span class="selector-tag">CMSIS</span>的部分<span class="selector-class">.c</span>文件以及<span class="selector-tag">CPU</span>相关的底层核心文件</div><div class="line"><span class="selector-tag">FWLIB</span>：固件库，厂方提供的标准固件库，用于调用外设的函数。</div><div class="line"><span class="selector-tag">BSP</span>：操作系统与芯片的中间层</div><div class="line"><span class="selector-tag">USER</span>：用户自己写的函数文件，包括<span class="selector-tag">main</span>和用户定制的功能函数</div><div class="line"><span class="selector-tag">OS</span>：具体名称为操作系统名称，可以是<span class="selector-tag">UCOS</span>，<span class="selector-tag">uclinux</span>等等嵌入式操作系统</div><div class="line"><span class="selector-tag">README</span>：整个工程的相关项目说明</div></pre></td></tr></table></figure></p>
-<ul>
-<li>新建工程重点配置Define和Include Paths，如下图</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture12.png" alt=""></p>
-<p><em>需强调的是 Define 中的选项不能少，这些选项一般都是如：stm32f10x.h（芯片寄存器定义文件） 或者内核中的宏定义，可以用来进行芯片选型等操作，可以用查找工具全局查找，会发现相关的 #ifdef 语句。本质上面来说，Define 加入的内容就相当于在 c 文件中手动的写入 #define xxx 语句。<br>Include Paths 中定义的都是头文件所在的路径，注意是头文件的路经，这边 ..\CMSIS 等都是使用 windows 下相对路径的格式，如果头文件不在 Include Paths 下的路经中，则编译器无法找到相关头文件，会编译失败。</em></p>
-<p><strong>其他注意点：</strong><br>C99Mode如果不勾选，默认可能会使用C89的编译器，一些如 bool 类型或者定义申明可能会无法编译，C89对老版本兼容性更好，但C99加入的许多新特性让编程更“合理”。具体根据自己项目需求而定。</p>
-<ul>
-<li>Debug 中进行相关模拟仿真下载器设置。一定要记得仿真设置 Reset and Run</li>
-</ul>
-<p>有仿真器的话，使用右边的仿真器选项，没有的话，则使用模拟。仿真器种类繁多，最常用的比如 JLINK，和 keil ulink 之类的，一些公司也会推出自己的仿真器，如silabs uda等</p>
-<p><em>最好勾选setting-&gt;flash download下的Reset and Run，这样可以无需重新上电即可运行程序。</em></p>
-<p>JLink 在连接 STM32F439 时，在勾选或者不勾选 Verify Code Download 时可能会出现下载错误，可能会是板子设计缺陷或者JLink版本过高。</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture11.png" alt=""></p>
-<ul>
-<li><p>Utilities：将Use Debug Driver勾选或者手动设置成相同的调试器。</p>
-</li>
-<li><p>移植程序注意重点：</p>
-</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Project 的 USER 中一定要把 .c 源文件添加进去 </div><div class="line">FWLIB一定要记得添加 stm32f10x_xxx 相关的外设库文件</div><div class="line">Stm32xxx_conf.h 中需取消相关注释</div><div class="line">用户定义的.h头文件需加入 <span class="comment">#include "stm32f10x.h"，且不需要加入 Stm32xxx_conf.h 因为该头文件已经在 #include "stm32f10x.h" 中包含了。</span></div><div class="line">添加用户自定义 .c 文件时，记得把其头文件写入到 main 函数所在文件中</div></pre></td></tr></table></figure>
-<blockquote>
-<p>参考链接：<br><a href="http://www.jb51.net/os/windows/211837.html" target="_blank" rel="external">http://www.jb51.net/os/windows/211837.html</a><br><a href="http://comm.chinaaet.com/adi/blogdetail/32471.html" target="_blank" rel="external">http://comm.chinaaet.com/adi/blogdetail/32471.html</a></p>
-</blockquote>
-]]></content>
-      
-        <categories>
-            
-            <category> 软件应用 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 配置 </tag>
             
         </tags>
         

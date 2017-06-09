@@ -7,12 +7,45 @@
       <title><![CDATA[轻松上网]]></title>
       <url>http://noparkinghere.top/2017/06/09/2017/2017-06-09-%E8%BD%BB%E6%9D%BE%E4%B8%8A%E7%BD%91/</url>
       <content type="html"><![CDATA[<p>本文罗列和推荐一些科学上网的方法，其中有免费也有付费的，有很容易实现的也有需要折腾一下的，具体的话需要根据你的需求来决定。</p>
-<h3 id="host-方式"><a href="#host-方式" class="headerlink" title="host 方式"></a>host 方式</h3><p>修改 host 文件的方式，是一种比较传统的方式，优点是配置简单，无需安装第三方软件；缺点是经常会失效，需要你反复配置。</p>
-<h4 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h4><p>Hosts 文件是一个用于存储计算机网络中节点信息的文件，它可以将主机名映射到相应的 IP 地址，实现 DNS 的功能，它可以由计算机的用户进行控制。</p>
+<h3 id="hosts-方式"><a href="#hosts-方式" class="headerlink" title="hosts 方式"></a>hosts 方式</h3><p><em>为了绕开 GFW ，能够访问谷歌等网站，我们经常会采取各种手段，但其中最简单的方式还是修改 hosts 文件。</em></p>
+<p>Hosts 文件是一个用于存储计算机网络中节点信息的文件，它可以将主机名映射到相应的 IP 地址，实现 DNS 的功能，它可以由计算机的用户进行控制。这边就不再具体展开说明，详细文章可以<a href="https://noparkinghere.github.io/2017/06/08/2017/2017-06-08-hosts-%E6%96%87%E4%BB%B6%E4%B8%8A%E7%BD%91/" target="_blank" rel="external">参考</a></p>
+<h3 id="VPN-上网方式"><a href="#VPN-上网方式" class="headerlink" title="VPN 上网方式"></a>VPN 上网方式</h3><p>由于众所周知的原因，国内用户被强大的 GFW 保（lan）护（jie）而无法访问外网，或者即便可以访问，也会遇到访问速度慢，网页无法刷新等问题。因此如果你要访问谷歌，Facebook，需要去国外厂家查找某方面的资料等，就一定需要学会翻墙上网，该方面的能力甚至已经算是软件从业/科研人员的基本素养，因此一般也将翻墙称作科学上网。本文主要介绍使用付费 VPN 的方式来绕过 GFW 的过滤，让小伙伴们能够轻松畅游天地，无拘无束。</p>
+<h3 id="SS-上网"><a href="#SS-上网" class="headerlink" title="SS 上网"></a>SS 上网</h3><p>日常生活中，由于 GFW 的强大，很多学习资料等内容我们无法获取或者检索，因此科学上网往往相当重要，使用 VPS 搭建 shadowsocks 服务让安全的科学上网成为可能，需要注意的是 VPS 必须是境外服务器。具体文章可以<a href="https://noparkinghere.github.io/2016/11/25/2016/2016-11-25-vps-shadowsocks/" target="_blank" rel="external">参考</a></p>
 <a id="more"></a>
-<blockquote>
-<p><a href="http://blog.csdn.net/tskyfree/article/details/41214829" target="_blank" rel="external">http://blog.csdn.net/tskyfree/article/details/41214829</a></p>
-</blockquote>
+<h3 id="三者对比"><a href="#三者对比" class="headerlink" title="三者对比"></a>三者对比</h3><table>
+<thead>
+<tr>
+<th>类别</th>
+<th>价格</th>
+<th>配置难易</th>
+<th>稳定性</th>
+<th>适合人群</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hosts</td>
+<td>免费</td>
+<td>配置简单，用过计算机的都能配置</td>
+<td>经常会失效，需要重新找 hosts 文件配置</td>
+<td>适合几个月或很长时间，偶尔需要翻墙上网的人 </td>
+</tr>
+<tr>
+<td>VPN</td>
+<td>免费版较难连接，付费版价格 200/year 左右</td>
+<td>一般对计算机比较熟悉的人都能够安装配置成功，某些时候可能会遇到些困难，但大都能解决</td>
+<td>较好，购买靠谱商家的 VPN 一般都能连接上，偶尔会有断线的情况</td>
+<td>适合每天或者经常需要翻墙的人</td>
+</tr>
+<tr>
+<td>vps-ss</td>
+<td>价格不等，30/year - 1000/year</td>
+<td>需要配置服务器端和客户端，如果自己搭建服务器的话，需要具备一定的 linux 基础</td>
+<td>取决于你 VPS 的服务商，如果是二次打包分销的 VPS ，如果代理商过销的话会体验较差。</td>
+<td>适合每天或者经常需要翻墙的人</td>
+</tr>
+</tbody>
+</table>
 ]]></content>
       
         
@@ -3659,7 +3692,7 @@
     <entry>
       <title><![CDATA[VPS : shadowsocks]]></title>
       <url>http://noparkinghere.top/2016/11/25/2016/2016-11-25-vps-shadowsocks/</url>
-      <content type="html"><![CDATA[<p>日常生活中，由于GFW的强大，很多学习资料等内容我们无法获取或者检索，因此科学上网往往相当重要，本文章使用 VPS 搭建 shadowsocks 服务让安全的科学上网成为可能，需要注意的是 VPS 必须是境外服务器，推荐 vultr 搬瓦工等廉价vpn。另外你也可以访问<a href="https://shadowsocks.org/en/index.html" target="_blank" rel="external">shadowsocks 官网</a>查看详细的教程和下载软件。</p>
+      <content type="html"><![CDATA[<p>日常生活中，由于 GFW 的强大，很多学习资料等内容我们无法获取或者检索，因此科学上网往往相当重要，本文章使用 VPS 搭建 shadowsocks 服务让安全的科学上网成为可能，需要注意的是 VPS 必须是境外服务器，推荐 vultr 搬瓦工等廉价 VPS。另外你也可以访问<a href="https://shadowsocks.org/en/index.html" target="_blank" rel="external">shadowsocks 官网</a>查看详细的教程和下载软件。</p>
 <h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><p><strong>这边可以参考<a href="http://vc2tea.com/whats-shadowsocks/" target="_blank" rel="external">原文博客</a>，以下只是简单罗列一些原理：</strong></p>
 <ul>
 <li>早期互联网用户访问网站时，用户的请求通过互联网发送到服务提供方，服务提供方直接将信息反馈给用户： </li>

@@ -6,7 +6,7 @@ tags: "VPS"
 date: "2016-11-25 09:30"
 ---
 
-日常生活中，由于GFW的强大，很多学习资料等内容我们无法获取或者检索，因此科学上网往往相当重要，本文章使用 VPS 搭建 shadowsocks 服务让安全的科学上网成为可能，需要注意的是 VPS 必须是境外服务器，推荐 vultr 搬瓦工等廉价vpn。另外你也可以访问[shadowsocks 官网](https://shadowsocks.org/en/index.html)查看详细的教程和下载软件。
+日常生活中，由于 GFW 的强大，很多学习资料等内容我们无法获取或者检索，因此科学上网往往相当重要，本文章使用 VPS 搭建 shadowsocks 服务让安全的科学上网成为可能，需要注意的是 VPS 必须是境外服务器，推荐 vultr 搬瓦工等廉价 VPS。另外你也可以访问[shadowsocks 官网](https://shadowsocks.org/en/index.html)查看详细的教程和下载软件。
 
 ### 工作原理
 

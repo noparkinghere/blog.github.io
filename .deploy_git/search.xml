@@ -9,7 +9,7 @@
       <content type="html"><![CDATA[<p>本文罗列和推荐一些科学上网的方法，其中有免费也有付费的，有很容易实现的也有需要折腾一下的，具体的话需要根据你的需求来决定。</p>
 <h3 id="hosts-方式"><a href="#hosts-方式" class="headerlink" title="hosts 方式"></a>hosts 方式</h3><p><em>为了绕开 GFW ，能够访问谷歌等网站，我们经常会采取各种手段，但其中最简单的方式还是修改 hosts 文件。</em></p>
 <p>Hosts 文件是一个用于存储计算机网络中节点信息的文件，它可以将主机名映射到相应的 IP 地址，实现 DNS 的功能，它可以由计算机的用户进行控制。这边就不再具体展开说明，详细文章可以<a href="https://noparkinghere.github.io/2017/06/08/2017/2017-06-08-hosts-%E6%96%87%E4%BB%B6%E4%B8%8A%E7%BD%91/" target="_blank" rel="external">参考</a></p>
-<h3 id="VPN-上网方式"><a href="#VPN-上网方式" class="headerlink" title="VPN 上网方式"></a>VPN 上网方式</h3><p>由于众所周知的原因，国内用户被强大的 GFW 保（lan）护（jie）而无法访问外网，或者即便可以访问，也会遇到访问速度慢，网页无法刷新等问题。因此如果你要访问谷歌，Facebook，需要去国外厂家查找某方面的资料等，就一定需要学会翻墙上网，该方面的能力甚至已经算是软件从业/科研人员的基本素养，因此一般也将翻墙称作科学上网。<a href="https://noparkinghere.github.io/2016/07/12/2016/2016-07-12-vpn推荐" target="_blank" rel="external">这篇文章</a>主要介绍使用付费 VPN 的方式来绕过 GFW 的过滤，让小伙伴们能够轻松畅游天地，无拘无束。</p>
+<h3 id="VPN-上网方式"><a href="#VPN-上网方式" class="headerlink" title="VPN 上网方式"></a>VPN 上网方式</h3><p>由于众所周知的原因，国内用户被强大的 GFW 保（lan）护（jie）而无法访问外网，或者即便可以访问，也会遇到访问速度慢，网页无法刷新等问题。因此如果你要访问谷歌，Facebook，需要去国外厂家查找某方面的资料等，就一定需要学会翻墙上网，该方面的能力甚至已经算是软件从业/科研人员的基本素养，因此一般也将翻墙称作科学上网。<a href="https://noparkinghere.top/2016/07/12/2016/2016-07-12-vpn%E6%9C%8D%E5%8A%A1/">这篇文章</a>主要介绍使用付费 VPN 的方式来绕过 GFW 的过滤，让小伙伴们能够轻松畅游天地，无拘无束。</p>
 <h3 id="SS-上网"><a href="#SS-上网" class="headerlink" title="SS 上网"></a>SS 上网</h3><p>日常生活中，由于 GFW 的强大，很多学习资料等内容我们无法获取或者检索，因此科学上网往往相当重要，使用 VPS 搭建 shadowsocks 服务让安全的科学上网成为可能，需要注意的是 VPS 必须是境外服务器。具体文章可以<a href="https://noparkinghere.github.io/2016/11/25/2016/2016-11-25-vps-shadowsocks/" target="_blank" rel="external">参考</a></p>
 <a id="more"></a>
 <h3 id="三者对比"><a href="#三者对比" class="headerlink" title="三者对比"></a>三者对比</h3><table>
@@ -2931,7 +2931,7 @@
     <entry>
       <title><![CDATA[linux-shadowsocks全局代理]]></title>
       <url>http://noparkinghere.top/2017/01/25/2017/2017-01-25-ss-linux%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86/</url>
-      <content type="html"><![CDATA[<p>windows 直接下载 ss 终端，稍加设置即可完成全局代理，linux 用户如果需要让某个软件可以使用 ss 一般都需要连接端口才行。例如本地 ss 配置为：<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"server_port"</span>:<span class="number">1800</span>,</div><div class="line"><span class="string">"local_port"</span>:<span class="number">1080</span>,</div></pre></td></tr></table></figure></p>
+      <content type="html"><![CDATA[<p>windows 直接下载 ss 终端，稍加设置即可完成全局代理，linux 用户如果需要让某个软件可以使用 ss 一般都需要连接端口才行。例如本地 ss 配置为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"server_port"</span>:1800,</div><div class="line"><span class="string">"local_port"</span>:1080,</div></pre></td></tr></table></figure></p>
 <h3 id="原理简述"><a href="#原理简述" class="headerlink" title="原理简述"></a>原理简述</h3><p>这边就相当于将本地的 127.0.0.1:1080 和 server_ip:1800 建立了连接关系。因此软件如果需要使用 vps 上面搭建的 ss 服务的话，则需要让该软件使用的协议连接到 127.0.0.1:1080 上。之前在 vps-shadowsocks 中介绍的 chrome 插件 SwitchyOmega 就是使用 SOCKS5 协议连接到 127.0.0.1:1080 上，让所有数据通过 SOCKS5 协议，然后从 127.0.0.1:1080 进行收发。</p>
 <p>可以看出如果我们需要让其他软件也能够使用 ss 则需要让他们也能够使用 127.0.0.1:1080 代理服务器，然而不幸的是，大多数软件并不支持代理服务的功能， windows 平台下的软件很多可以通过设置 IE 代理让其他软件使用代理服务（原理是：大多数软件都会优先读取 IE 的代理设置，再访问网络）。</p>
 <a id="more"></a>

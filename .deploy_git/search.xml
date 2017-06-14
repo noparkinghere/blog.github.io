@@ -2931,7 +2931,7 @@
     <entry>
       <title><![CDATA[linux-shadowsocks全局代理]]></title>
       <url>http://noparkinghere.top/2017/01/25/2017/2017-01-25-ss-linux%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86/</url>
-      <content type="html"><![CDATA[<p>windows 直接下载 ss 终端，稍加设置即可完成全局代理，linux 用户如果需要让某个软件可以使用 ss 一般都需要连接端口才行。例如本地 ss 配置为：<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"server_port"</span>:<span class="number">1800</span>,</div><div class="line"><span class="string">"local_port"</span>:<span class="number">1080</span>,</div></pre></td></tr></table></figure></p>
+      <content type="html"><![CDATA[<p>windows 直接下载 ss 终端，稍加设置即可完成全局代理，linux 用户如果需要让某个软件可以使用 ss 一般都需要连接端口才行。例如本地 ss 配置为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"server_port"</span>:1800,</div><div class="line"><span class="string">"local_port"</span>:1080,</div></pre></td></tr></table></figure></p>
 <h3 id="原理简述"><a href="#原理简述" class="headerlink" title="原理简述"></a>原理简述</h3><p>这边就相当于将本地的 127.0.0.1:1080 和 server_ip:1800 建立了连接关系。因此软件如果需要使用 vps 上面搭建的 ss 服务的话，则需要让该软件使用的协议连接到 127.0.0.1:1080 上。之前在 vps-shadowsocks 中介绍的 chrome 插件 SwitchyOmega 就是使用 SOCKS5 协议连接到 127.0.0.1:1080 上，让所有数据通过 SOCKS5 协议，然后从 127.0.0.1:1080 进行收发。</p>
 <p>可以看出如果我们需要让其他软件也能够使用 ss 则需要让他们也能够使用 127.0.0.1:1080 代理服务器，然而不幸的是，大多数软件并不支持代理服务的功能， windows 平台下的软件很多可以通过设置 IE 代理让其他软件使用代理服务（原理是：大多数软件都会优先读取 IE 的代理设置，再访问网络）。</p>
 <a id="more"></a>
@@ -4789,6 +4789,51 @@
     </entry>
     
     <entry>
+      <title><![CDATA[串口RS485通信详解]]></title>
+      <url>http://noparkinghere.top/2016/10/19/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<p><strong>注意：串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。串口的一些内容不再逐一介绍说明，可以参加之前的usb转串口及RS232通信等文章</strong></p>
+<h3 id="特性介绍"><a href="#特性介绍" class="headerlink" title="特性介绍"></a>特性介绍</h3><p>485（一般称作 RS485/EIA-485）是隶属于 OSI 模型物理层的电气特性规定为 2 线，半双工，多点通信的标准。它的电气特性和 RS-232 大不一样。用缆线两端的电压差值来表示传递信号。值得注意的是：RS485 仅仅规定了接受端和发送端的电气特性，它没有规定或推荐任何数据协议。</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/1.jpg" alt=""></p>
+<p>RS485接口可以只使用两根线进行通讯（其他串口通讯至少需要三根线，一根为地线作为参考电平），通过差分电平（利用两个信号的差值来判断信息，使用差分信号来传输的，也就是一根线传同相信号，一根线传反相，这样差值最大，抗干扰能力强。）来确定信号是0还是1，也正因为这个原因，所以RS485每次有且仅有一根线能够传输数据，另外一根线作为比对信号，因此RS485是半双工的通讯方式。主要特点如下：</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/2.jpg" alt=""></p>
+<ul>
+<li>接口电平低，不易损坏芯片。 RS485 的电气特性：逻辑“ 1”以两线间的电压差为+(2~6)V<br>表示；逻辑“ 0”以两线间的电压差为-(2~6)V 表示。接口信号电平比 RS232 降低了，<br>不易损坏接口电路的芯片，且该电平与 TTL 电平兼容，可方便与 TTL 电路连接。</li>
+<li>传输速率高。 10 米时， RS485 的数据最高传输速率可达 35Mbps，在 1200m 时，传输<br>速度可达 100Kbps。</li>
+<li>抗干扰能力强。 RS485 接口是采用平衡驱动器和差分接收器的组合，抗共模干扰能力<br>增强，即抗噪声干扰性好。 传输距离远，支持节点多。 RS485 总线最长可以传输 1200m<br>以上（速率≤100Kbps）</li>
+<li>一般最大支持 32 个节点，如果使用特制的 485 芯片，可以达到 128 个或者 256 个节点，<br>最大的可以支持到 400 个节点。</li>
+</ul>
+<a id="more"></a>
+<h3 id="类比RS232"><a href="#类比RS232" class="headerlink" title="类比RS232"></a>类比RS232</h3><p>实际上232串口在实际使用已经用处不大，但基于232发展出来的485等串口设备仍然被广泛使用，RS-485（EIA-485标准）是RS-422的改进，因为它增加了设备的个数，从10个增加到32个，同时定义了在最大设备个数情况下的电气特性，以保证足够的信号电压。有了多个设备的能力，你可以使用一个单个RS-485口建立设备网络。</p>
+<p>因为都是采用串口通信协议，所以软件端几乎可以直接使用，且RS485具备耗材少，抗干扰强等特点，在目前的工业领域仍然被广泛使用，这边主要列举出不同：</p>
+<ul>
+<li>从接线上，RS232是三线制，RS485是两线制</li>
+<li>从传输距离上，RS232只能传输15米，RS485最远可以传输1200米</li>
+<li>从速率上，RS232是全双工传输，RS485是半双工传输</li>
+<li>从协议层上，RS232只支持点对点通讯(1:1)，RS485支持总线形式通讯（1:N）</li>
+</ul>
+<p>RS232的接线：<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/3.jpg" alt="">)</p>
+<p>RS485的接线<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/4.jpg" alt=""></p>
+<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><blockquote>
+<p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a></p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> 程序开发 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[串口RS232通信详解]]></title>
       <url>http://noparkinghere.top/2016/10/19/2016/2016-10-19-%E4%B8%B2%E5%8F%A3RS232%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<p>串行接口是一种可以将接受来自CPU的并行数据字符转换为连续的串行数据流发送出去，同时可将接受的串行数据流转换为并行的数据字符供给CPU的器件。一般完成这种功能的电路，我们称为串行接口电路。曾经PC之间进行串口通信可以说是标配，很多老式电脑上面可以看到DB25的接头，但后来逐渐被DB9取代，早期鼠标打印机都通过串口进行数据传输的，但现在逐渐被USB和网络所取代，DB9的串口接头在PC和笔记本上面也较少能够看到了。做嵌入式开发可以看到有个DB9的串口标准接口，串口对于开发人员输入输出调试等有着至关重要的作用。串行接口按电气标准及协议来分包括RS-232-C、RS-422、RS485等，现在串口一般在工业嵌入式领域使用。</p>
@@ -4848,51 +4893,6 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
 <blockquote>
 <p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a><br><a href="http://www.baike.com/wiki/51+IO%E5%8F%A3%E6%A8%A1%E6%8B%9F%E4%B8%B2%E5%8F%A3%E9%80%9A%E8%AE%AFC%E6%BA%90%E7%A8%8B%E5%BA%8F" target="_blank" rel="external">http://www.baike.com/wiki/51+IO%E5%8F%A3%E6%A8%A1%E6%8B%9F%E4%B8%B2%E5%8F%A3%E9%80%9A%E8%AE%AFC%E6%BA%90%E7%A8%8B%E5%BA%8F</a><br><a href="http://ziye334.blog.163.com/blog/static/224306191201452833850647" target="_blank" rel="external">http://ziye334.blog.163.com/blog/static/224306191201452833850647</a></p>
-</blockquote>
-]]></content>
-      
-        <categories>
-            
-            <category> 程序开发 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 嵌入式 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[串口RS485通信详解]]></title>
-      <url>http://noparkinghere.top/2016/10/19/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
-      <content type="html"><![CDATA[<p><strong>注意：串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。串口的一些内容不再逐一介绍说明，可以参加之前的usb转串口及RS232通信等文章</strong></p>
-<h3 id="特性介绍"><a href="#特性介绍" class="headerlink" title="特性介绍"></a>特性介绍</h3><p>485（一般称作 RS485/EIA-485）是隶属于 OSI 模型物理层的电气特性规定为 2 线，半双工，多点通信的标准。它的电气特性和 RS-232 大不一样。用缆线两端的电压差值来表示传递信号。值得注意的是：RS485 仅仅规定了接受端和发送端的电气特性，它没有规定或推荐任何数据协议。</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/1.jpg" alt=""></p>
-<p>RS485接口可以只使用两根线进行通讯（其他串口通讯至少需要三根线，一根为地线作为参考电平），通过差分电平（利用两个信号的差值来判断信息，使用差分信号来传输的，也就是一根线传同相信号，一根线传反相，这样差值最大，抗干扰能力强。）来确定信号是0还是1，也正因为这个原因，所以RS485每次有且仅有一根线能够传输数据，另外一根线作为比对信号，因此RS485是半双工的通讯方式。主要特点如下：</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/2.jpg" alt=""></p>
-<ul>
-<li>接口电平低，不易损坏芯片。 RS485 的电气特性：逻辑“ 1”以两线间的电压差为+(2~6)V<br>表示；逻辑“ 0”以两线间的电压差为-(2~6)V 表示。接口信号电平比 RS232 降低了，<br>不易损坏接口电路的芯片，且该电平与 TTL 电平兼容，可方便与 TTL 电路连接。</li>
-<li>传输速率高。 10 米时， RS485 的数据最高传输速率可达 35Mbps，在 1200m 时，传输<br>速度可达 100Kbps。</li>
-<li>抗干扰能力强。 RS485 接口是采用平衡驱动器和差分接收器的组合，抗共模干扰能力<br>增强，即抗噪声干扰性好。 传输距离远，支持节点多。 RS485 总线最长可以传输 1200m<br>以上（速率≤100Kbps）</li>
-<li>一般最大支持 32 个节点，如果使用特制的 485 芯片，可以达到 128 个或者 256 个节点，<br>最大的可以支持到 400 个节点。</li>
-</ul>
-<a id="more"></a>
-<h3 id="类比RS232"><a href="#类比RS232" class="headerlink" title="类比RS232"></a>类比RS232</h3><p>实际上232串口在实际使用已经用处不大，但基于232发展出来的485等串口设备仍然被广泛使用，RS-485（EIA-485标准）是RS-422的改进，因为它增加了设备的个数，从10个增加到32个，同时定义了在最大设备个数情况下的电气特性，以保证足够的信号电压。有了多个设备的能力，你可以使用一个单个RS-485口建立设备网络。</p>
-<p>因为都是采用串口通信协议，所以软件端几乎可以直接使用，且RS485具备耗材少，抗干扰强等特点，在目前的工业领域仍然被广泛使用，这边主要列举出不同：</p>
-<ul>
-<li>从接线上，RS232是三线制，RS485是两线制</li>
-<li>从传输距离上，RS232只能传输15米，RS485最远可以传输1200米</li>
-<li>从速率上，RS232是全双工传输，RS485是半双工传输</li>
-<li>从协议层上，RS232只支持点对点通讯(1:1)，RS485支持总线形式通讯（1:N）</li>
-</ul>
-<p>RS232的接线：<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/3.jpg" alt="">)</p>
-<p>RS485的接线<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/4.jpg" alt=""></p>
-<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><blockquote>
-<p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a></p>
 </blockquote>
 ]]></content>
       
@@ -6844,39 +6844,67 @@
       <content type="html"><![CDATA[<p>用git这个版本控制器也有一段时间了，但奈何一直停留在初浅的使用阶段，对诸如：分支，远程库，log，reflog，pull，clone等命令一直无法清晰的认识，仅仅是简单的add，commit，push，出了问题再查找。<br>始终无法串接成自有的知识体系，git 作为当下最流行的版本控制器，不得不说我对她真是既爱又恨，喜欢她的小巧高效功能强大；恨上手困难，虽然也有了一些简单易懂的教程，但在在实际使用时，始终不能形成自己的知识体系，原因可能还是项目中实际用的过少，这篇文章，会花一段时间，详细的介绍git的大概工作过程，对一些常用命令精简的介绍，然后从我个人的角度来认识git，总结自己的经验。*</p>
 <a id="more"></a>
 <p><strong>这篇文章的过程意在记录自己使用git的学习经历，并不断的总结推荐一些良好的配置以及相关软件。</strong></p>
-<h3 id="GIT介绍："><a href="#GIT介绍：" class="headerlink" title="GIT介绍："></a>GIT介绍：</h3><p>Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。Git的读音为/gɪt/。Git是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。</p>
+<h3 id="GIT介绍："><a href="#GIT介绍：" class="headerlink" title="GIT介绍："></a>GIT介绍：</h3><p>Git 是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。Git 的读音为/gɪt/。Git 是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。</p>
 <h4 id="版本控制器介绍："><a href="#版本控制器介绍：" class="headerlink" title="版本控制器介绍："></a>版本控制器介绍：</h4><p>版本控制透过文档控制（documentation control）记录程序各个模组的改动，并为每次改动编上序号。这种方法是工程图（engineering drawings）维护（maintenance）的标准做法， 它伴随着工程图从图的诞生一直到图的定型。 一种简单的版本控制形式，例如，赋给图的初版一个版本等级“A”。当做了第一次改变后，版本等级改为“B”，以此类推等等。</p>
-<h4 id="GIT特点："><a href="#GIT特点：" class="headerlink" title="GIT特点："></a>GIT特点：</h4><p><em>GIT采用分支的结构形式来记录所有文本的修改，可以看出分支和指针是git的核心，git因为指针的高速切换而高效。所有的分支名都是指针，且该指针无条件的指向这条分支的最末端，例如：master指针永远指向master这条分支的最后一个节点，而HEAD指针则指向的是当前位置，即用户目前所在的工作位置。在git的工作过程中最主要使用的是：add,commit,log,checkout这几个命令，而诸如reflog，reset等其实用的并不算多，如果有远程库的话还需要注意pull,push,remote。</em></p>
+<h4 id="GIT特点："><a href="#GIT特点：" class="headerlink" title="GIT特点："></a>GIT特点：</h4><p><em>GIT 采用分支的结构形式来记录所有文本的修改，可以看出分支和指针是 git 的核心，git 因为指针的高速切换而高效。所有的分支名都是指针，且该指针无条件的指向这条分支的最末端，例如：master指针永远指向 master 这条分支的最后一个节点，而HEAD指针则指向的是当前位置，即用户目前所在的工作位置。在 git 的工作过程中最主要使用的是：add,commit,log,checkout 这几个命令，而诸如 reflog，reset 等其实用的并不算多，如果有远程库的话还需要注意 pull,push,remote。</em></p>
 <h3 id="常用GIT指令："><a href="#常用GIT指令：" class="headerlink" title="常用GIT指令："></a>常用GIT指令：</h3><ul>
 <li><p>git add filename:将相关文件加入到暂存区stage中，注意有新文件的话，add步骤不能少。如果是一个人做的项目，一般如果整个项目加入可以使用git add . 或者git add * 。</p>
 </li>
-<li><p>git commit -m “commment”：git的版本提交，执行完这步骤，你就完成了版本的创建提交了，也是最常用的步骤。<em>建议：使用git commit -m 即可，去配置文件中修改editor，这样可以调用如vim之类的编辑器，否则备注写起来麻烦，且字数有限制。</em></p>
+<li><p>git commit -m “commment”：git 的版本提交，执行完这步骤，你就完成了版本的创建提交了，也是最常用的步骤。<em>建议：使用git commit -m 即可，去配置文件中修改 editor，这样可以调用如 vim 之类的编辑器，否则备注写起来麻烦，且字数有限制。</em></p>
 </li>
-<li><p>git branch：查看分支结构，git的颇有c语言和数据结构的风格，整个git的版本控制，类似于一颗数，可以不断创建新的分支，然后分支名称类似于一个tag指针，始终指向分支的末尾处，而head这个指针指向的地方就是当前你所能看到的处在的版本位置，<strong>严格的来说并不是指向当前，而是上一个提交了的版本的位置，当前如果做了一些修改，而没去提交，则使用reset会回到上一个提交的版本，修改的内容会丢失</strong>。</p>
+<li><p>git branch：查看分支结构，git 的颇有c语言和数据结构的风格，整个 git 的版本控制，类似于一颗数，可以不断创建新的分支，然后分支名称类似于一个 tag 指针，始终指向分支的末尾处，而head这个指针指向的地方就是当前你所能看到的处在的版本位置，<strong>严格的来说并不是指向当前，而是上一个提交了的版本的位置，当前如果做了一些修改，而没去提交，则使用reset会回到上一个提交的版本，修改的内容会丢失</strong>。</p>
 </li>
-<li><p><strong>git checkout</strong>(<em>该命令的理解贯穿git的始终，如果理解不精准，往往会遇到很多莫名其妙的错误。)</em>：<strong>用于控制head指针所指向的位置</strong>，也就是说控制当前用户的工作位置。该指令尤为重要，<strong>一般都是通过checkout找到过去的某个版本，然后在该位置创建分支结构，再进行相应修改。</strong>(<em>注意是切换HEAD的位置，此时仅仅用于查看该版本，而如果你没有在该位置建立新的分支，则无法对改版本进行修改，git的所有修改都是基于分支进行的，每条枝干的前后各个版本都是存在强关联性的，所有枝干的后一个节点都是基于前一个节点建立的，如果checkout到前一个节点对它进行了破坏，则后面也必然会受影响，这种情况一般是不允许发生的，因此checkout的每次修改都是要求该节点必须要重新开枝散叶，这样新的修改会在新的枝干上面进行，不会影响原有的内容。</em>)checkout的好处在于不会破坏原有的分支结构，可以任意在整个的目录树上面对head进行移动，方便用户查看各个版本。（<strong>再次注意：checkout只是用来控制head的，如果head通过checkout发生了移动，不再指向原有分支的末尾如：master，则必须建立新分支，才可以对文件进行提交修改。另外即便checkout指向原有分支的末尾，但如果是版本号的话也是没法进行修改的，必须要是指向master这个分支名才可以进行修改，类似于HEAD必须指向指针才可以，而不是指向某一个节点，这一点有指针操作经验的话，较容易理解。</strong>），<em>checkout – filename：回退某一个文件，注意需要加–，这一步并不是更改HEAD指向，而仅仅是回退某一个错误修改了的文件，这也是撤销修改文件最常用的命令。</em></p>
+<li><p><strong>git checkout</strong>(<em>该命令的理解贯穿git的始终，如果理解不精准，往往会遇到很多莫名其妙的错误。)</em>：<strong>用于控制head指针所指向的位置</strong>，也就是说控制当前用户的工作位置。该指令尤为重要，<strong>一般都是通过checkout找到过去的某个版本，然后在该位置创建分支结构，再进行相应修改。</strong>(<em>注意是切换HEAD的位置，此时仅仅用于查看该版本，而如果你没有在该位置建立新的分支，则无法对改版本进行修改，git 的所有修改都是基于分支进行的，每条枝干的前后各个版本都是存在强关联性的，所有枝干的后一个节点都是基于前一个节点建立的，如果 checkout 到前一个节点对它进行了破坏，则后面也必然会受影响，这种情况一般是不允许发生的，因此 checkout 的每次修改都是要求该节点必须要重新开枝散叶，这样新的修改会在新的枝干上面进行，不会影响原有的内容。</em>) checkout 的好处在于不会破坏原有的分支结构，可以任意在整个的目录树上面对 head 进行移动，方便用户查看各个版本。（<strong>再次注意：checkout只是用来控制 head 的，如果 head 通过 checkout 发生了移动，不再指向原有分支的末尾如：master，则必须建立新分支，才可以对文件进行提交修改。另外即便 checkout 指向原有分支的末尾，但如果是版本号的话也是没法进行修改的，必须要是指向 master 这个分支名才可以进行修改，类似于HEAD必须指向指针才可以，而不是指向某一个节点，这一点有指针操作经验的话，较容易理解。</strong>），<em>checkout – filename：回退某一个文件，注意需要加–，这一步并不是更改 HEAD 指向，而仅仅是回退某一个错误修改了的文件，这也是撤销修改文件最常用的命令。</em></p>
 </li>
-<li><p>git reset “branchname/editionnum”：事实上这个指令很少用的，或者说谨慎使用，一旦使用了就会破坏原有的分支结构，reset是一个回退功能，会将原有的分支剪掉，虽然仍然可以通过reflog查找出版本信息，强制指向某个回退之前的版本，但这并不是该有的操作，且很可能因为误操作造成更大麻烦。建议：<em>只有在确定很清楚自己要进行的操作和上次提交错误的情况下使用该指令，其他时候都不使用。</em>版本回退使用reset后面一般加上–hard彻底回退，否则有些修改了的未建立版本的文件仍然会保留。</p>
+<li><p>git reset “branchname/editionnum”：事实上这个指令很少用的，或者说谨慎使用，一旦使用了就会破坏原有的分支结构，reset 是一个回退功能，会将原有的分支剪掉，虽然仍然可以通过 reflog 查找出版本信息，强制指向某个回退之前的版本，但这并不是该有的操作，且很可能因为误操作造成更大麻烦。建议：<em>只有在确定很清楚自己要进行的操作和上次提交错误的情况下使用该指令，其他时候都不使用。</em>版本回退使用 reset 后面一般加上 –hard 彻底回退，否则有些修改了的未建立版本的文件仍然会保留。</p>
 </li>
-<li><p>git merge “branchname”：将两个分支进行合并，也是比较常用的操作，如果没有文件冲突，一般git会快速自动合并，如果有冲突，会需要你进行比较手动修改冲突，合并的过程是当前HEAD指向的分支名，会跳转到branchname的位置。</p>
+<li><p>git merge “branchname”：将两个分支进行合并，也是比较常用的操作，如果没有文件冲突，一般 git 会快速自动合并，如果有冲突，会需要你进行比较手动修改冲突，合并的过程是当前HEAD指向的分支名，会跳转到 branchname 的位置。</p>
 </li>
 <li><p>git branch -d dev：合并分支后，可以将被合并了的分支号删除。</p>
 </li>
-<li><p>git tag ：这个也是个比较有用的方法，毕竟版本号是一大串随机数字，即便只要输入前4个，你也很难记得，对某个特别的版本加入tag标签名，之后可以直接使用git checkout tagname来指向该版本。</p>
+<li><p>git tag ：这个也是个比较有用的方法，毕竟版本号是一大串随机数字，即便只要输入前 4 个，你也很难记得，对某个特别的版本加入 tag 标签名，之后可以直接使用 <code>git checkout tagname</code> 来指向该版本。</p>
 </li>
 <li>git diff : 将当前所有状态同指令后面对应的版本状态进行比较。</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-git%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E8%AF%A6%E8%A7%A3/265643011.jpg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-git%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E8%AF%A6%E8%A7%A3/1.jpg" alt=""></p>
+<h3 id="概念分析"><a href="#概念分析" class="headerlink" title="概念分析"></a>概念分析</h3><h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><ul>
+<li>HEAD : 这是当前分支版本顶端的别名，也就是在当前分支你最近的一个提交，即 HEAD 的本质是一次已经进行过的提交（commit）。</li>
+<li>Index : 也被称为 staging area，是指一整套即将被下一个提交的文件集合，他也是将成为HEAD的父亲的那个commit，index 实际是通过 add 等生成的即将被提交的区域。</li>
+<li>Working Copy : 代表你正在工作的那个文件集，Working Copy 是当前你工作目录的状态。</li>
+</ul>
+<h4 id="具体执行区别："><a href="#具体执行区别：" class="headerlink" title="具体执行区别："></a>具体执行区别：</h4><ul>
+<li>当你第一次 checkout 一个分支，HEAD 就指向当前分支的最近一个 commit。在 HEAD 中的文件集（实际上他们从技术上不是文件，他们是 blobs，但是为了讨论的方便我们就简化认为他们就是一些文件）和在 index 中的文件集是相同的，在 working copy 的文件集和 HEAD,index 中的文件集是完全相同的。所有三者(HEAD,INDEX(STAGING),WORKING COPY)都是相同的状态。</li>
+<li>当你对一个文件执行一次修改，你的 working copy 不再和index,HEAD 相同。</li>
+<li>当你执行一个git add,它就stages the file in the index，你的working copy和index区是相同的，但是他们和HEAD区是不同的。</li>
+<li>当你执行一个git commit,GIT就创建一个新的commit，随后HEAD就指向这个新的commit，而index,working copy的状态和HEAD就又完全匹配相同了。</li>
+</ul>
+<h4 id="reset"><a href="#reset" class="headerlink" title="reset"></a>reset</h4><p>如果你仔细研究 reset 命令本身就知道，它本身做的事情就是重置 HEAD (当前分支的版本顶端）到另外一个 commit。假设我们有一个分支（名称本身无所谓，所以我们就简单称为”super-duper-feature”分支吧），图形化表示如下：</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-git%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E8%AF%A6%E8%A7%A3/1.png" alt=""></p>
+<p>如果我们执行：<code>git reset HEAD</code> 任何事情都不会发生，这是因为我们告诉GIT重置这个分支到HEAD，而这个正是它现在所在的位置。<code>git reset HEAD~1</code> 当我们再执行上面的命令时（HEAD~1是 “the commit right before HEAD” 的别名，或者说：put differently “HEAD’s parent”），我们的分支将会如下所示</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-git%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E8%AF%A6%E8%A7%A3/2.png" alt=""></p>
+<p>如果我们执行git reset HEAD~2,则意味着将HEAD从顶端的commit往下移动两个更早的commit。</p>
+<ul>
+<li>soft ： –soft 参数告诉 Git 重置 HEAD 到另外一个 commit，但也到此为止。如果你指定 –soft 参数，Git 将停止在那里而什么也不会根本变化。这意味着 index,working copy 都不会做任何变化，所有的在 original HEAD 和你重置到的那个 commit 之间的所有变更集都放在 stage(index) 区域中。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-git%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E8%AF%A6%E8%A7%A3/3.png" alt=""></p>
+<ul>
+<li>hard ： –hard 参数将会 blow out everything.它将重置HEAD返回到另外一个 commit (取决于~12的参数），重置 index 以便反映 HEAD 的变化，并且重置 working copy 也使得其完全匹配起来。这是一个比较危险的动作，具有破坏性，数据因此可能会丢失！如果真是发生了数据丢失又希望找回来，那么只有使用：git reflog 命令了。makes everything match the commit you have reset to.你的所有本地修改将丢失。如果我们希望彻底丢掉本地修改但是又不希望更改branch所指向的commit，则执行 <code>git reset --hard = git reset --hard HEAD</code>； i.e. don’t change the branch but get rid of all local changes. 另外一个场景是简单地移动 branch 从一个到另一个 commit 而保持 index/work 区域同步。这将确实令你丢失你的工作，因为它将修改你的 work tree！</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-git%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E8%AF%A6%E8%A7%A3/4.png" alt=""></p>
+<ul>
+<li>mixed(default）：–mixed 是 reset 的默认参数，也就是当你不指定任何参数时的参数。它将重置HEAD 到另外一个 commit,并且重置 index 以便和 HEAD 相匹配，但是也到此为止。working copy 不会被更改。所有该 branch 上从 original HEAD（commit）到你重置到的那个 commit 之间的所有变更将作为 local modifications 保存在 working area 中，（被标示为 local modification or untracked via git status)，但是并未 staged 的状态，你可以重新检视然后再做修改和 commit。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-git%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E8%AF%A6%E8%A7%A3/5.png" alt=""></p>
 <h4 id="简述分支策略："><a href="#简述分支策略：" class="headerlink" title="简述分支策略："></a>简述分支策略：</h4><p><strong>在实际开发中，我们应该按照几个基本原则进行分支管理：</strong></p>
 <ul>
-<li>master分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活；</li>
-<li>干活都在dev分支上，也就是说，dev分支是不稳定的，到某个时候，比如1.0版本发布时，再把dev分支合并到master上，在master分支发布1.0版本；</li>
-<li>每个人都在dev分支上干活，每个人都有自己的分支，时不时地往dev分支上合并就可以了。</li>
+<li>master 分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活；</li>
+<li>干活都在 dev 分支上，也就是说，dev分支是不稳定的，到某个时候，比如 1.0 版本发布时，再把 dev 分支合并到 master 上，在 master 分支发布 1.0 版本；</li>
+<li>每个人都在 dev 分支上干活，每个人都有自己的分支，时不时地往 dev 分支上合并就可以了。</li>
 </ul>
 <p><strong>团队合作示意图：</strong></p>
 <p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-git%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E8%AF%A6%E8%A7%A3/0.png" alt=""></p>
 <blockquote>
-<p>参考链接：<br><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000</a><br><a href="http://baike.baidu.com/link?url=weNC33XuaXOCTBp5s3WeZVu-Z9LP41KY_M6_WdGxAJZpJs_sq7jcgZ-3B01u2EiqfK6gb0L6s3-IDiWp1cVgF_" target="_blank" rel="external">http://baike.baidu.com/link?url=weNC33XuaXOCTBp5s3WeZVu-Z9LP41KY_M6_WdGxAJZpJs_sq7jcgZ-3B01u2EiqfK6gb0L6s3-IDiWp1cVgF_</a></p>
+<p>参考链接：<br><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000</a><br><a href="http://baike.baidu.com/link?url=weNC33XuaXOCTBp5s3WeZVu-Z9LP41KY_M6_WdGxAJZpJs_sq7jcgZ-3B01u2EiqfK6gb0L6s3-IDiWp1cVgF_" target="_blank" rel="external">http://baike.baidu.com/link?url=weNC33XuaXOCTBp5s3WeZVu-Z9LP41KY_M6_WdGxAJZpJs_sq7jcgZ-3B01u2EiqfK6gb0L6s3-IDiWp1cVgF_</a><br><a href="http://www.cnblogs.com/kidsitcn/p/4513297.html" target="_blank" rel="external">http://www.cnblogs.com/kidsitcn/p/4513297.html</a></p>
 </blockquote>
 ]]></content>
       
@@ -6984,6 +7012,52 @@ print(&apos;hello&apos;)
     </entry>
     
     <entry>
+      <title><![CDATA[stm32F439案例汇总]]></title>
+      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
+      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
+<blockquote>
+<p>www.armjishu.com(无法访问)</p>
+</blockquote>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
+<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
+<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
+</ul>
+<a id="more"></a>
+<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
+<li>实验0 Template工程模板</li>
+<li>实验1 跑马灯</li>
+<li>实验2 蜂鸣器</li>
+<li>实验3 按键和外部中断</li>
+<li>实验4 看门狗（独立和窗口）</li>
+<li>实验5 待机唤醒</li>
+<li>实验6 串口通讯（232和485）</li>
+<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
+<li>实验8 PWM输出和输入捕获</li>
+</ul>
+<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
+<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
+</blockquote>
+<hr>
+<p><em>未完待续</em></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 软件应用 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[MDK5安装及配置]]></title>
       <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
       <content type="html"><![CDATA[<h3 id="MDK简介"><a href="#MDK简介" class="headerlink" title="MDK简介"></a>MDK简介</h3><blockquote>
@@ -7068,52 +7142,6 @@ print(&apos;hello&apos;)
         <tags>
             
             <tag> 配置 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[stm32F439案例汇总]]></title>
-      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
-      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
-<blockquote>
-<p>www.armjishu.com(无法访问)</p>
-</blockquote>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
-<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
-<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
-</ul>
-<a id="more"></a>
-<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
-<li>实验0 Template工程模板</li>
-<li>实验1 跑马灯</li>
-<li>实验2 蜂鸣器</li>
-<li>实验3 按键和外部中断</li>
-<li>实验4 看门狗（独立和窗口）</li>
-<li>实验5 待机唤醒</li>
-<li>实验6 串口通讯（232和485）</li>
-<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
-<li>实验8 PWM输出和输入捕获</li>
-</ul>
-<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
-<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
-</blockquote>
-<hr>
-<p><em>未完待续</em></p>
-]]></content>
-      
-        <categories>
-            
-            <category> 软件应用 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 嵌入式 </tag>
             
         </tags>
         

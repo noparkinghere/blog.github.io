@@ -1,0 +1,537 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Hard work makes things easier."><title>bash脚本基础学习 | Damon's Blog</title><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/5.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">bash脚本基础学习</h1><a id="logo" href="/.">Damon's Blog</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/about/"><i class="fa fa-user"> About</i></a><a href="/blogroll/"><i class="fa fa-rss"> Blogroll</i></a><a href="/msg/"><i class="fa fa-comments"> Msg</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">bash脚本基础学习</h1><div class="post-meta">Jun 17, 2017<script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-thread-key="2017/06/17/2017/2017-06-17-bash脚本基础学习/" href="/2017/06/17/2017/2017-06-17-bash脚本基础学习/#comments" class="ds-thread-count"></a><a data-disqus-identifier="2017/06/17/2017/2017-06-17-bash脚本基础学习/" href="/2017/06/17/2017/2017-06-17-bash脚本基础学习/#disqus_thread" class="disqus-comment-count"></a><div class="post-content"><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>shell 是类 UNIX 系统的外壳，使用 shell 用于实现人机交互的目的，我们通过它可以与内核之间进行交互，从而轻松完成一些操作。换句话说，我们可以认为 shell 就是一个人机交互方式，通过它，我们不需要有编程基础，不需要直接操作计算机内核则可以完成一些想要的工作；事实上 shell 可以分为图形化的 shell 和命令行 shell，我们用鼠标操作桌面也是一个图形化 shell 为我们提供了交互，这边主要讨论的是命令行 shell 的学习。</p>
+<p>Shell有两种执行命令的方式：</p>
+<ul>
+<li>交互式（Interactive）：用户在终端输入一条命令，Shell就解释执行一条，并且可以直接显示结果。</li>
+<li>批处理（Batch）：用户事先写一个Shell脚本(Script)，其中有很多条命令，让Shell一次把这些命令执行完，而不必一条一条地敲命令，而由于 shell 本身就被看做是一种脚本语言，也有变量和流程控制语句，因此它具备的功能远比 windows 下的批处理要强大。</li>
+</ul>
+<h3 id="常用-shell"><a href="#常用-shell" class="headerlink" title="常用 shell"></a>常用 shell</h3><p>shell 本身是作为类 UNIX 系统的外壳，而它本身并不是唯一的，也就是说当你使用 linux 操作系统时，你可以更换不同的 shell，常用的 shell 有： bash,zsh,dash,csh 等等。</p>
+<h4 id="bash"><a href="#bash" class="headerlink" title="bash"></a>bash</h4><p>一般而言 MAC 电脑下默认的 shell 为 bash，ubuntu 等系统登录后，用户的默认 shell 为 bash，内部命令一共有40个。</p>
+<h4 id="dash"><a href="#dash" class="headerlink" title="dash"></a>dash</h4><p>它比 Bash 小，只需要较少的磁盘空间，但是它的对话性功能也较少，而 ubuntu 等系统开启加载的 shell 为 dash (据说可以提高启动速度)。</p>
+<h4 id="csh"><a href="#csh" class="headerlink" title="csh"></a>csh</h4><p>C shell 是一个交互式命令解释器和一种命令编程语言，采用的语法类似于 C 编程语言，共有 52 个内部命令。</p>
+<h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><p>zsh 原本是一个 Linux 用户很少使用的 shell，虽然它功能强大，但由于配置过于复杂，难以学习，因此使用的人少，但这两年由于 <a href="http://ohmyz.sh/" target="_blank" rel="external">oh my zsh</a> github 等一些社区的流行，让 zsh 的使用越来越广泛，由于它更加人性化，功能更加强大，也成为越来越多人 UNIX 下的默认 shell。</p>
+<h3 id="解释型语言"><a href="#解释型语言" class="headerlink" title="解释型语言"></a>解释型语言</h3><p>传统的程序设计语言，例如Fortran、Ada、Pascal、C、C++和Java，都是编译型语言；而像 awk、Perl、Python、Ruby 与 Shell 等都属于解释型语言，即脚本语言。</p>
+<p>两者的区别是，编译型语言需要一次性编译成二进制代码，才可以被计算机执行，之后都是执行这个可执行程序，无需再编译因此执行速度快；解释型语言则是，解释器(interpreter)需要读取我们编写的源代码(source code)，并将其转换成目标代码(object code)，再由计算机运行，因为每次执行程序都多了编译的过程，因此效率有所下降。</p>
+<h2 id="shell-的适用场景"><a href="#shell-的适用场景" class="headerlink" title="shell 的适用场景"></a>shell 的适用场景</h2><p>shell 脚本有着相当好的移植性，经过 POSIX 标准化，shell 脚本几乎可以在各种类 UNIX 操作系统上使用，并且最新的 windows 系统也将会加入 shell，也就是说，未来，几乎所有的 PC 都将支持 shell  脚本的使用。</p>
+<p>shell 脚本开发较为简单，语法简单易学，通过调用各种工具可以轻松的实现某个功能，相比于 C、C++ 等可以说要简单的多。</p>
+<p>shell 脚本同样有它不完美之处，有效率低，功能受限等问题，在如下情况下，一般不使用 shell：</p>
+<ul>
+<li>资源密集型的任务，尤其在需要考虑效率时（比如，排序，hash等等）。</li>
+<li>需要处理大任务的数学操作，尤其是浮点运算，精确运算，或者复杂的算术运算（这种情况一般使用C++或FORTRAN 来处理）。</li>
+<li>有跨平台（操作系统）移植需求（一般使用C 或Java）。</li>
+<li>复杂的应用，在必须使用结构化编程的时候（需要变量的类型检查，函数原型，等等）。</li>
+<li>对于影响系统全局性的关键任务应用。</li>
+<li>对于安全有很高要求的任务，比如你需要一个健壮的系统来防止入侵、破解、恶意破坏等等。</li>
+<li>项目由连串的依赖的各个部分组成。</li>
+<li>需要大规模的文件操作。</li>
+<li>需要多维数组的支持。</li>
+<li>需要数据结构的支持，比如链表或数等数据结构。</li>
+<li>需要产生或操作图形化界面 GUI。</li>
+<li>需要直接操作系统硬件。</li>
+<li>需要 I/O 或socket 接口。</li>
+<li>需要使用库或者遗留下来的老代码的接口。</li>
+<li>私人的、闭源的应用（shell 脚本把代码就放在文本文件中，全世界- 都能看到）。</li>
+</ul>
+<h2 id="脚本执行"><a href="#脚本执行" class="headerlink" title="脚本执行"></a>脚本执行</h2><h3 id="加入解释器说明"><a href="#加入解释器说明" class="headerlink" title="加入解释器说明"></a>加入解释器说明</h3><p>首先新建一个文件，一般我们取名为 xxx.sh，.sh 为扩展名，事实上你可以不加入这个扩展名，但为了方便我们自己了解，一般建议还是加上 .sh。</p>
+<p>第一行输入 <code>#!/bin/bash</code>，“#!” 是一个约定的标记，它告诉系统这个脚本需要什么解释器来执行，即使用哪一种Shell。如果你使用 csh ，你则在第一行输入 <code>#!/bin/csh</code>。</p>
+<h3 id="如何运行脚本"><a href="#如何运行脚本" class="headerlink" title="如何运行脚本"></a>如何运行脚本</h3><p>以这段脚本代码为例，文件名为 tesh.sh：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"><span class="built_in">echo</span> <span class="string">"Hello World !"</span></div></pre></td></tr></table></figure>
+<p>我们有三种方法执行这段脚本。</p>
+<ul>
+<li>终端输入作为解释器参数： <code>bash test.sh</code>，注意这种方式运行的脚本，不需要在第一行指定解释器信息，因为不会起到任何效果，也就是说，你输入 <code>bash test.sh</code> 和 <code>dash test.sh</code> 很可能会得到不同的结果。</li>
+<li>作为可执行程序：首先我们需要将文件变成可执行程序，一般而言，linux 下除非二进制可执行程序（编译生成的文件），一般的文本文件默认都是不可执行的，<code>chmod +x ./test.sh  #使脚本具有执行权限</code>，然后直接执行该文件，<code>./test.sh  #执行脚本</code>。注意，一定要写成 <code>./test.sh</code>，而不是 test.sh。</li>
+<li><code>source ./test.sh</code> 使用 bash 的内置命令来运行脚本，source 可以用 <code>.</code> 符号来代替。</li>
+</ul>
+<p>source filename 与 sh filename 及 ./filename 执行脚本的区别:</p>
+<ul>
+<li>当shell脚本具有可执行权限时，用 sh filename 与 ./filename 执行脚本是没有区别得。./filename 是因为当前目录没有在 PATH 中，所有”.”是用来表示当前目录的。</li>
+<li>sh filename 重新建立一个子shell，在子 shell 中执行脚本里面的语句，该子 shell 继承父 shell 的环境变量，但子 shell 新建的、改变的变量不会被带回父 shell，除非使用 export。</li>
+<li>source filename：这个命令其实只是简单地读取脚本里面的语句依次在当前 shell 里面执行，<strong>没有建立新的子 shell</strong>。那么脚本里面所有新建、改变变量的语句都会保存在当前shell里面。</li>
+</ul>
+<h2 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h2><h3 id="echo"><a href="#echo" class="headerlink" title="echo"></a>echo</h3><p>echo是Shell的一个内部指令，用于在屏幕上打印出指定的字符串。</p>
+<p>直接输出字符串：echo “hello world!”</p>
+<p>输出变量：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">o=<span class="string">"hello world!"</span></div><div class="line"><span class="built_in">echo</span> <span class="string">"the string is <span class="variable">$o</span>"</span></div></pre></td></tr></table></figure>
+<p>显示结果重定向至文件：<code>echo &quot;It is a test&quot; &gt; myfile</code></p>
+<h3 id="printf"><a href="#printf" class="headerlink" title="printf"></a>printf</h3><p>printf 命令用于格式化输出， 是 echo 命令的增强版。它是 C 语言 printf() 库函数的一个有限的变形，并且在语法上有些不同。注意：printf 由 POSIX 标准所定义，移植性要比 echo 好。</p>
+<p>printf 命令的语法：printf  format-string  [arguments…] format-string 为格式控制字符串，arguments 为参数列表。shell 中 printf 功能和用法与 C 语言中的 printf 函数类似，这边不再详细说明。</p>
+<h3 id="定义变量"><a href="#定义变量" class="headerlink" title="定义变量"></a>定义变量</h3><p>变量直接采用赋值语句，类似 C 语言，但变量名和等号之间不能有空格，这可能和你熟悉的所有编程语言都不一样，一旦加入空格，则会报错。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">firstValue=<span class="string">"hello"</span></div></pre></td></tr></table></figure>
+<p>变量名的命名须遵循如下规则：</p>
+<ul>
+<li>首个字符必须为字母（a-z，A-Z）。</li>
+<li>中间不能有空格，可以使用下划线（_）。</li>
+<li>不能使用标点符号。</li>
+<li>不能使用bash里的关键字（可用help命令查看保留关键字）。</li>
+</ul>
+<h3 id="使用变量"><a href="#使用变量" class="headerlink" title="使用变量"></a>使用变量</h3><p>使用一个定义过的变量，只要在变量名前面加美元符号（$）即可，如：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">your_name=<span class="string">"alading"</span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$your_name</span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$&#123;your_name&#125;</span></div></pre></td></tr></table></figure>
+<p>变量名外面的花括号是可选的，加不加都行，加花括号是为了帮助解释器识别变量的边界，如：<code>echo &quot;I am good at ${skill}Script&quot;</code></p>
+<p><strong>推荐给所有变量加上花括号，这是个好的 shell 编程习惯。</strong></p>
+<h3 id="重新定义变量"><a href="#重新定义变量" class="headerlink" title="重新定义变量"></a>重新定义变量</h3><p>已定义的变量，可以被重新定义，如：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">your_name=<span class="string">"alading"</span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$&#123;your_name&#125;</span></div><div class="line">your_name=<span class="string">"aladin"</span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$&#123;your_name&#125;</span></div></pre></td></tr></table></figure>
+<p>注意，第二次赋值的时候不能写 $myUrl=”adin”，只有使用变量的时候才加美元符（$）。</p>
+<h3 id="只读变量"><a href="#只读变量" class="headerlink" title="只读变量"></a>只读变量</h3><p>使用 readonly 命令可以将变量定义为只读变量，只读变量的值不能被改变。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line">your_name=<span class="string">"alading"</span></div><div class="line"><span class="built_in">readonly</span> your_name</div><div class="line">your_name=<span class="string">"aladin"</span></div></pre></td></tr></table></figure>
+<p>运行脚本，结果如下：<br>/bin/sh: NAME: This variable is read only.</p>
+<h3 id="删除变量"><a href="#删除变量" class="headerlink" title="删除变量"></a>删除变量</h3><p>使用 unset 命令可以删除变量。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line">your_name=<span class="string">"alading"</span></div><div class="line"><span class="built_in">unset</span> your_name</div><div class="line"><span class="built_in">echo</span> <span class="variable">$your_name</span></div></pre></td></tr></table></figure>
+<h3 id="特殊变量"><a href="#特殊变量" class="headerlink" title="特殊变量"></a><strong>特殊变量</strong></h3><p><strong>这边需要记住如下表格的内容，shell 脚本会频繁灵活的调用如下内容。</strong></p>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$0</td>
+<td>当前脚本的文件名</td>
+</tr>
+<tr>
+<td>$n</td>
+<td>传递给脚本或函数的参数。n 是一个数字，表示第几个参数。例如，第一个参数是$1，第二个参数是$2。</td>
+</tr>
+<tr>
+<td>$#</td>
+<td>传递给脚本或函数的参数个数。</td>
+</tr>
+<tr>
+<td>$*</td>
+<td>传递给脚本或函数的所有参数。</td>
+</tr>
+<tr>
+<td>$@</td>
+<td>传递给脚本或函数的所有参数。被双引号(“ “)包含时，与 $* 稍有不同，下面将会讲到。</td>
+</tr>
+<tr>
+<td>$?</td>
+<td>上个命令的退出状态，或<strong>函数的返回值</strong>。</td>
+</tr>
+<tr>
+<td>$$</td>
+<td>当前Shell进程ID。对于 Shell 脚本，就是这些脚本所在的进程ID。</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$0</span> <span class="variable">$1</span> <span class="variable">$#</span> $* <span class="variable">$@</span> $? $$"</span></div></pre></td></tr></table></figure>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">运行结果：</div><div class="line">$./<span class="keyword">test</span>.<span class="keyword">sh</span> haha</div><div class="line"></div><div class="line">./<span class="keyword">test</span>.<span class="keyword">sh</span> haha 1 haha haha 0 14520</div></pre></td></tr></table></figure>
+<h3 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h3><p>可以使用 echo 命令的 -e 进行转义，-E 选项禁止转义，默认情况，不进行转义。</p>
+<table>
+<thead>
+<tr>
+<th>转义字符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\</td>
+<td>反斜杠</td>
+</tr>
+<tr>
+<td>\a</td>
+<td>警报，响铃</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>退格（删除键）</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>换页(FF)，将当前位置移到下页开头</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>换行</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>回车</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>水平制表符（tab键） </td>
+</tr>
+<tr>
+<td>\v</td>
+<td>垂直制表符</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">echo -e <span class="string">"Value1 \n"</span></div><div class="line">echo <span class="string">"Value2 \n"</span></div><div class="line"></div><div class="line">运行结果：</div><div class="line"><span class="meta">&gt;&gt;</span> Value \n</div><div class="line"><span class="meta">&gt;&gt;</span> Value2</div></pre></td></tr></table></figure>
+<h3 id="命令替换"><a href="#命令替换" class="headerlink" title="命令替换"></a>命令替换</h3><p>shell 中有许多内置的软件和命令，如： ls , pwd , date 等，我们可以在 shell 脚本中嵌入这些软件运行的结果。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line">DATE=`date`</div><div class="line"><span class="built_in">echo</span> <span class="string">"Date is <span class="variable">$DATE</span>"</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">运行结果</div><div class="line"><span class="selector-tag">Sat</span> <span class="selector-tag">Jun</span> 17 15<span class="selector-pseudo">:19</span><span class="selector-pseudo">:56</span> <span class="selector-tag">CST</span> 2017</div></pre></td></tr></table></figure>
+<h3 id="变量替换"><a href="#变量替换" class="headerlink" title="变量替换"></a>变量替换</h3><table>
+<thead>
+<tr>
+<th>形式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>${var}</td>
+<td>变量本来的值</td>
+</tr>
+<tr>
+<td>${var:-word}</td>
+<td>如果变量 var 为空或已被删除(unset)，那么返回 word，但不改变 var 的值。</td>
+</tr>
+<tr>
+<td>${var:=word}</td>
+<td>如果变量 var 为空或已被删除(unset)，那么返回 word，并将 var 的值设置为 word。</td>
+</tr>
+<tr>
+<td>${var:?message}</td>
+<td>如果变量 var 为空或已被删除(unset)，那么将消息 message 送到标准错误输出，可以用来检测变量 var 是否可以被正常赋值。若此替换出现在Shell脚本中，那么脚本将停止运行。</td>
+</tr>
+<tr>
+<td>${var:+word}</td>
+<td>如果变量 var 被定义，那么返回 word，但不改变 var 的值。</td>
+</tr>
+</tbody>
+</table>
+<p>减号“—”和加号“+”分别是当变量无定义和有定义的时候返回Word，都不改变var；等于号“=”，不管有没有定义，都给var重新赋值，并返回Word；对于问号“？”，当变量没有定义的时候直接输出message并且退出，当变量有定义的时候，不执行任何操作，相当于直接跳过了。</p>
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>字符串是shell编程中最常用最有用的数据类型（除了数字和字符串，也没啥其它类型好用了），字符串可以用单引号，也可以用双引号，也可以不用引号。</p>
+<ul>
+<li>单引号里的任何字符都会原样输出，单引号字符串中的变量是无效的；</li>
+<li>双引号里可以有变量，双引号里可以出现转义字符</li>
+</ul>
+<h4 id="获取字符串长度："><a href="#获取字符串长度：" class="headerlink" title="获取字符串长度："></a>获取字符串长度：</h4><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$&#123;<span class="comment">#parameter&#125;</span></div><div class="line">Parameter  <span class="built_in">length</span>.  The <span class="built_in">length</span> <span class="keyword">in</span> <span class="built_in">characters</span> <span class="keyword">of</span> <span class="keyword">the</span> value <span class="keyword">of</span> parameter <span class="keyword">is</span> substituted.</div><div class="line"></div><div class="line"><span class="built_in">string</span>=<span class="string">"abcd"</span></div><div class="line">echo $&#123;<span class="comment">#string&#125; #输出 4</span></div></pre></td></tr></table></figure>
+<h4 id="提取子字符串："><a href="#提取子字符串：" class="headerlink" title="提取子字符串："></a>提取子字符串：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">string=<span class="string">"alibaba is a great company"</span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$&#123;string:1:4&#125;</span> <span class="comment">#输出liba</span></div></pre></td></tr></table></figure>
+<h4 id="查找子字符串"><a href="#查找子字符串" class="headerlink" title="查找子字符串"></a>查找子字符串</h4><figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">string</span>=<span class="string">"alibaba is a great company"</span></div><div class="line"><span class="keyword">echo</span> `expr <span class="built_in">index</span> <span class="string">"$string"</span> <span class="keyword">is</span>`</div></pre></td></tr></table></figure>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>bash支持一维数组（不支持多维数组），并且没有限定数组的大小。类似与C语言，数组元素的下标由0开始编号。获取数组中的元素要利用下标，下标可以是整数或算术表达式，其值应大于或等于0。</p>
+<p>用括号来表示数组，数组元素用“空格”符号分割开。定义数组的一般形式为：array_name=(value1 … valuen)</p>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">array<span class="number">_n</span>ame=(<span class="keyword">value</span><span class="number">0</span> <span class="keyword">value</span><span class="number">1</span> <span class="keyword">value</span><span class="number">2</span> <span class="keyword">value</span><span class="number">3</span>)</div><div class="line">或者</div><div class="line">array<span class="number">_n</span>ame=(</div><div class="line"><span class="keyword">value</span><span class="number">0</span></div><div class="line"><span class="keyword">value</span><span class="number">1</span></div><div class="line"><span class="keyword">value</span><span class="number">2</span></div><div class="line"><span class="keyword">value</span><span class="number">3</span></div><div class="line">)</div><div class="line">单独赋值：</div><div class="line">array<span class="number">_n</span>ame[<span class="number">0</span>]=<span class="keyword">value</span><span class="number">0</span></div><div class="line">array<span class="number">_n</span>ame[<span class="number">1</span>]=<span class="keyword">value</span><span class="number">1</span></div><div class="line">array<span class="number">_n</span>ame[<span class="number">2</span>]=<span class="keyword">value</span><span class="number">2</span></div></pre></td></tr></table></figure>
+<p>读取数组元素值的一般格式是：${array_name[index]}，同普通变量类似。</p>
+<p>获取数组的长度：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 取得数组元素的个数</span></div><div class="line"><span class="attr">length</span>=<span class="variable">$&#123;#array_name[@]&#125;</span></div><div class="line"><span class="comment"># 或者</span></div><div class="line"><span class="attr">length</span>=<span class="variable">$&#123;#array_name[*]&#125;</span></div><div class="line"><span class="comment"># 取得数组单个元素的长度</span></div><div class="line"><span class="attr">lengthn</span>=<span class="variable">$&#123;#array_name[n]&#125;</span></div></pre></td></tr></table></figure>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><p>算术运算符基本上和 C 语言保持一致。</p>
+<p>a=10<br>b=20</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>说明</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+</td>
+<td>加法</td>
+<td><code>expr $a + $b</code> 结果为 30。</td>
+</tr>
+<tr>
+<td>-</td>
+<td>减法</td>
+<td><code>expr $a - $b</code> 结果为 10。</td>
+</tr>
+<tr>
+<td>*</td>
+<td>乘法</td>
+<td><code>expr $a \* $b</code> 结果为  200。</td>
+</tr>
+<tr>
+<td>/</td>
+<td>除法</td>
+<td><code>expr $b / $a</code> 结果为 2。</td>
+</tr>
+<tr>
+<td>%</td>
+<td>取余</td>
+<td><code>expr $b % $a</code> 结果为 0。</td>
+</tr>
+<tr>
+<td>=</td>
+<td>赋值</td>
+<td>a=$b 将把变量 b 的值赋给 a。</td>
+</tr>
+<tr>
+<td>==</td>
+<td>相等。用于比较两个数字，相同则返回 true。</td>
+<td>[ $a == $b ] 返回 false。</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>不相等。用于比较两个数字，不相同则返回 true。</td>
+<td>[ $a != $b ] 返回 true。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h3><p>a=10<br>b=20</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>说明</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-eq</td>
+<td>检测两个数是否相等，相等返回 true。</td>
+<td>[ $a -eq $b ] 返回 true。</td>
+</tr>
+<tr>
+<td>-ne</td>
+<td>检测两个数是否相等，不相等返回 true。</td>
+<td>[ $a -ne $b ] 返回 true。</td>
+</tr>
+<tr>
+<td>-gt</td>
+<td>检测左边的数是否大于右边的，如果是，则返回 true。</td>
+<td>[ $a -gt $b ] 返回 false。</td>
+</tr>
+<tr>
+<td>-lt</td>
+<td>检测左边的数是否小于右边的，如果是，则返回 true。</td>
+<td>[ $a -lt $b ] 返回 true。</td>
+</tr>
+<tr>
+<td>-ge</td>
+<td>检测左边的数是否大等于右边的，如果是，则返回 true。</td>
+<td>[ $a -ge $b ] 返回 false。</td>
+</tr>
+<tr>
+<td>-le</td>
+<td>检测左边的数是否小于等于右边的，如果是，则返回 true。</td>
+<td>[ $a -le $b ] 返回 true。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="布尔运算符"><a href="#布尔运算符" class="headerlink" title="布尔运算符"></a>布尔运算符</h3><p>a=10<br>b=20</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>说明</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>!</td>
+<td>非运算，表达式为 true 则返回 false，否则返回 true。</td>
+<td>[ ! false ] 返回 true。</td>
+</tr>
+<tr>
+<td>-o</td>
+<td>或运算，有一个表达式为 true 则返回 true。</td>
+<td>[ $a -lt 20 -o $b -gt 100 ] 返回 true。</td>
+</tr>
+<tr>
+<td>-a</td>
+<td>与运算，两个表达式都为 true 才返回 true。</td>
+<td>[ $a -lt 20 -a $b -gt 100 ] 返回 false。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="字符串运算符"><a href="#字符串运算符" class="headerlink" title="字符串运算符"></a>字符串运算符</h3><p>a=”abc”<br>b=”efg”</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>说明</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=</td>
+<td>检测两个字符串是否相等，相等返回 true。</td>
+<td>[ $a = $b ] 返回 false。</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>检测两个字符串是否相等，不相等返回 true。</td>
+<td>[ $a != $b ] 返回 true。</td>
+</tr>
+<tr>
+<td>-z</td>
+<td>检测字符串长度是否为0，为0返回 true。</td>
+<td>[ -z $a ] 返回 false。</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>检测字符串长度是否为0，不为0返回 true。</td>
+<td>[ -z $a ] 返回 true。</td>
+</tr>
+<tr>
+<td>str</td>
+<td>检测字符串是否为空，不为空返回 true。</td>
+<td>[ $a ] 返回 true。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="文件测试运算符"><a href="#文件测试运算符" class="headerlink" title="文件测试运算符"></a>文件测试运算符</h3><p>file=”~/test.sh”</p>
+<table>
+<thead>
+<tr>
+<th>操作符</th>
+<th>说明</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-b file</td>
+<td>检测文件是否是块设备文件，如果是，则返回 true。</td>
+<td>[ -b $file ] 返回 false。</td>
+</tr>
+<tr>
+<td>-c file</td>
+<td>检测文件是否是字符设备文件，如果是，则返回 true。</td>
+<td>[ -b $file ] 返回 false。</td>
+</tr>
+<tr>
+<td>-d file</td>
+<td>检测文件是否是目录，如果是，则返回 true。</td>
+<td>[ -d $file ] 返回 false。</td>
+</tr>
+<tr>
+<td>-f file</td>
+<td>检测文件是否是普通文件（既不是目录，也不是设备文件），如果是，则返回 true。</td>
+<td>[ -f $file ] 返回 true。</td>
+</tr>
+<tr>
+<td>-g file</td>
+<td>检测文件是否设置了 SGID 位，如果是，则返回 true。</td>
+<td>[ -g $file ] 返回 false。</td>
+</tr>
+<tr>
+<td>-k file</td>
+<td>检测文件是否设置了粘着位(Sticky Bit)，如果是，则返回 true。    [ -k $file ] 返回 false。</td>
+</tr>
+<tr>
+<td>-p file</td>
+<td>检测文件是否是具名管道，如果是，则返回 true。</td>
+<td>[ -p $file ] 返回 false。</td>
+</tr>
+<tr>
+<td>-u file</td>
+<td>检测文件是否设置了 SUID 位，如果是，则返回 true。</td>
+<td>[ -u $file ] 返回 false。</td>
+</tr>
+<tr>
+<td>-r file</td>
+<td>检测文件是否可读，如果是，则返回 true。</td>
+<td>[ -r $file ] 返回 true。</td>
+</tr>
+<tr>
+<td>-w file</td>
+<td>检测文件是否可写，如果是，则返回 true。</td>
+<td>[ -w $file ] 返回 true。</td>
+</tr>
+<tr>
+<td>-x file</td>
+<td>检测文件是否可执行，如果是，则返回 true。</td>
+<td>[ -x $file ] 返回 true。</td>
+</tr>
+<tr>
+<td>-s file</td>
+<td>检测文件是否为空（文件大小是否大于0），不为空返回 true。</td>
+<td>[ -s $file ] 返回 true。</td>
+</tr>
+<tr>
+<td>-e file</td>
+<td>检测文件（包括目录）是否存在，如果是，则返回 true。</td>
+<td>[ -e $file ] 返回 true。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>以“#”开头的行就是注释，会被解释器忽略，sh 里没有多行注释，只能每一行加一个 # 号。</p>
+<p>在开发过程中，遇到大段的代码需要临时注释起来，过一会儿又取消注释，怎么办呢？每一行加个#符号太费力了，可以把这一段要注释的代码用一对花括号括起来，定义成一个函数，没有地方调用这个函数，这块代码就不会执行，达到了和注释一样的效果。</p>
+<h2 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h2><h3 id="判断语句"><a href="#判断语句" class="headerlink" title="判断语句"></a>判断语句</h3><p>if … else 语句的语法：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> [ expression ]</div><div class="line"><span class="keyword">then</span></div><div class="line">   Statement(s) <span class="keyword">to</span> be executed <span class="keyword">if</span> expression <span class="keyword">is</span> <span class="literal">true</span></div><div class="line">fi</div></pre></td></tr></table></figure>
+<p>expression 和方括号([ ])之间必须有空格，条件语句的主体内容前面必须有 tab 间隔，否则会有语法错误。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/sh</span></div><div class="line">a=10</div><div class="line">b=20</div><div class="line"><span class="keyword">if</span> [ <span class="variable">$a</span> ！= <span class="variable">$b</span> ]</div><div class="line"><span class="keyword">then</span></div><div class="line">   <span class="built_in">echo</span> <span class="string">"a is not equal to b"</span></div><div class="line"><span class="keyword">fi</span></div><div class="line"></div><div class="line">运行结果：</div><div class="line">a is not equal to b</div></pre></td></tr></table></figure>
+<p>if … else … fi 语句的语法：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> [ expression ]</div><div class="line"><span class="keyword">then</span></div><div class="line">   Statement(s) <span class="keyword">to</span> be executed <span class="keyword">if</span> expression <span class="keyword">is</span> <span class="literal">true</span></div><div class="line"><span class="keyword">else</span></div><div class="line">   Statement(s) <span class="keyword">to</span> be executed <span class="keyword">if</span> expression <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">true</span></div><div class="line">fi</div></pre></td></tr></table></figure>
+<p>if … elif … fi 语句的语法为：</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> [ expression <span class="number">1</span> ]</div><div class="line"><span class="keyword">then</span></div><div class="line">   Statement(s) <span class="keyword">to</span> be executed <span class="keyword">if</span> expression <span class="number">1</span> <span class="keyword">is</span> <span class="literal">true</span></div><div class="line">elif [ expression <span class="number">2</span> ]</div><div class="line"><span class="keyword">then</span></div><div class="line">   Statement(s) <span class="keyword">to</span> be executed <span class="keyword">if</span> expression <span class="number">2</span> <span class="keyword">is</span> <span class="literal">true</span></div><div class="line">elif [ expression <span class="number">3</span> ]</div><div class="line"><span class="keyword">then</span></div><div class="line">   Statement(s) <span class="keyword">to</span> be executed <span class="keyword">if</span> expression <span class="number">3</span> <span class="keyword">is</span> <span class="literal">true</span></div><div class="line"><span class="keyword">else</span></div><div class="line">   Statement(s) <span class="keyword">to</span> be executed <span class="keyword">if</span> <span class="literal">no</span> expression <span class="keyword">is</span> <span class="literal">true</span></div><div class="line">fi</div></pre></td></tr></table></figure>
+<h3 id="测试语句"><a href="#测试语句" class="headerlink" title="测试语句"></a>测试语句</h3><p>Shell中的 test 命令用于检查某个条件是否成立，它可以进行数值、字符和文件三个方面的测试，例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">num1=100</div><div class="line">num2=100</div><div class="line"><span class="keyword">if</span> <span class="built_in">test</span> $[num1] <span class="_">-eq</span> $[num2]</div><div class="line"><span class="keyword">then</span></div><div class="line">    <span class="built_in">echo</span> <span class="string">'The two numbers are equal!'</span></div><div class="line"><span class="keyword">else</span></div><div class="line">    <span class="built_in">echo</span> <span class="string">'The two numbers are not equal!'</span></div><div class="line"><span class="keyword">fi</span></div><div class="line"></div><div class="line">结果：</div><div class="line">The two numbers are equal!</div></pre></td></tr></table></figure>
+<p>test 的表述方法一般都可以直接用 if 来完成，这边只做个介绍，不推荐使用。</p>
+<h3 id="case"><a href="#case" class="headerlink" title="case"></a>case</h3><p>case … esac 与其他语言中的 switch … case 语句类似，是一种多分枝选择结构。case 语句匹配一个值或一个模式，如果匹配成功，执行相匹配的命令。case语句格式如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">case</span> 值 <span class="keyword">in</span></div><div class="line">模式1)</div><div class="line">    <span class="built_in">command</span>1</div><div class="line">    <span class="built_in">command</span>2</div><div class="line">    <span class="built_in">command</span>3</div><div class="line">    ;;</div><div class="line">模式2）</div><div class="line">    <span class="built_in">command</span>1</div><div class="line">    <span class="built_in">command</span>2</div><div class="line">    <span class="built_in">command</span>3</div><div class="line">    ;;</div><div class="line">*)</div><div class="line">    <span class="built_in">command</span>1</div><div class="line">    <span class="built_in">command</span>2</div><div class="line">    <span class="built_in">command</span>3</div><div class="line">    ;;</div><div class="line"><span class="keyword">esac</span></div></pre></td></tr></table></figure>
+<p>举例：</p>
+<figure class="highlight vhdl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">echo <span class="symbol">'Input</span> a number between <span class="number">1</span> <span class="keyword">to</span> <span class="number">4</span>'</div><div class="line">echo <span class="symbol">'Your</span> number <span class="keyword">is</span>:\c'</div><div class="line">read aNum</div><div class="line"><span class="keyword">case</span> $aNum <span class="keyword">in</span></div><div class="line">    <span class="number">1</span>)  echo <span class="symbol">'You</span> <span class="keyword">select</span> <span class="number">1</span>'</div><div class="line">    ;;</div><div class="line">    <span class="number">2</span>)  echo <span class="symbol">'You</span> <span class="keyword">select</span> <span class="number">2</span>'</div><div class="line">    ;;</div><div class="line">    <span class="number">3</span>)  echo <span class="symbol">'You</span> <span class="keyword">select</span> <span class="number">3</span>'</div><div class="line">    ;;</div><div class="line">    <span class="number">4</span>)  echo <span class="symbol">'You</span> <span class="keyword">select</span> <span class="number">4</span>'</div><div class="line">    ;;</div><div class="line">    *)  echo <span class="symbol">'You</span> do <span class="keyword">not</span> <span class="keyword">select</span> a number between <span class="number">1</span> <span class="keyword">to</span> <span class="number">4</span>'</div><div class="line">    ;;</div><div class="line">esac</div><div class="line"></div><div class="line"></div><div class="line">输入不同的内容，会有不同的结果，例如：</div><div class="line">Input a number between <span class="number">1</span> <span class="keyword">to</span> <span class="number">4</span></div><div class="line">Your number <span class="keyword">is</span>:<span class="number">3</span></div><div class="line">You <span class="keyword">select</span> <span class="number">3</span></div></pre></td></tr></table></figure>
+<h3 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h3><p>与其他编程语言类似，Shell支持for循环。for循环一般格式为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> 变量 <span class="keyword">in</span> 列表</div><div class="line"><span class="keyword">do</span></div><div class="line">    <span class="built_in">command</span>1</div><div class="line">    <span class="built_in">command</span>2</div><div class="line">    ...</div><div class="line">    <span class="built_in">command</span>N</div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
+<p>列表是一组值（数字、字符串等）组成的序列，每个值通过空格分隔。每循环一次，就将列表中的下一个值赋给变量。in 列表是可选的，如果不用它，for 循环使用命令行的位置参数。for 循环在使用过程中相当方便，可以将任意内容作为 in 的目标，然后可以快速的检索执行相关内容。例如，我们需要将 windows 下压缩的所有文件夹在 linux 下解压，则可以用 for 语句将文件以 gb2312 的模式解压，具体代码如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> *.zip</div><div class="line"><span class="keyword">do</span></div><div class="line">    unzip -O Gb2312 <span class="string">"<span class="variable">$i</span>"</span></div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
+<h3 id="while-语句"><a href="#while-语句" class="headerlink" title="while 语句"></a>while 语句</h3><p>while循环用于不断执行一系列命令，也用于从输入文件中读取数据；命令通常为测试条件。其格式为：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span> <span class="keyword">command</span></div><div class="line"><span class="built_in">do</span></div><div class="line">   Statement(s) <span class="built_in">to</span> be executed <span class="keyword">if</span> <span class="keyword">command</span> <span class="title">is</span> <span class="title">true</span></div><div class="line">done</div></pre></td></tr></table></figure>
+<p>while循环可用于读取键盘信息。下面的例子中，输入信息被设置为变量FILM，按<ctrl-d>结束循环。</ctrl-d></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="string">'type &lt;CTRL-D&gt; to terminate'</span></div><div class="line"><span class="built_in">echo</span> -n <span class="string">'enter your most liked film: '</span></div><div class="line"><span class="keyword">while</span> <span class="built_in">read</span> FILM</div><div class="line"><span class="keyword">do</span></div><div class="line">    <span class="built_in">echo</span> <span class="string">"Yeah! great film the <span class="variable">$FILM</span>"</span></div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
+<h3 id="until-语句"><a href="#until-语句" class="headerlink" title="until 语句"></a>until 语句</h3><p>until 循环与 while 循环在处理方式上刚好相反，until 循环执行一系列命令直至条件为 true 时停止。</p>
+<p>until 循环格式为：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">until</span> <span class="keyword">command</span></div><div class="line"><span class="built_in">do</span></div><div class="line">   Statement(s) <span class="built_in">to</span> be executed <span class="keyword">until</span> <span class="keyword">command</span> <span class="title">is</span> <span class="title">true</span></div><div class="line">done</div></pre></td></tr></table></figure>
+<p>例如，使用 until 命令输出 0 ~ 9 的数字：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line">a=0</div><div class="line">until [ ! <span class="variable">$a</span> <span class="_">-lt</span> 10 ]</div><div class="line"><span class="keyword">do</span></div><div class="line">   <span class="built_in">echo</span> <span class="variable">$a</span></div><div class="line">   a=`expr <span class="variable">$a</span> + 1`</div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
+<h3 id="break-语句"><a href="#break-语句" class="headerlink" title="break 语句"></a>break 语句</h3><p>在循环过程中，有时候需要在未达到循环结束条件时强制跳出循环，像大多数编程语言一样，Shell也使用 break 和 continue 来跳出循环。</p>
+<h3 id="continue命令"><a href="#continue命令" class="headerlink" title="continue命令"></a>continue命令</h3><p>continue 命令与 break 命令类似，只有一点差别，它不会跳出所有循环，仅仅跳出当前循环。</p>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>函数可以让我们将一个复杂功能划分成若干模块，让程序结构更加清晰，代码重复利用率更高，Shell 函数也必须先定义后使用。</p>
+<p>Shell 函数的定义格式如下：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">function_name</span></span> () &#123;</div><div class="line">    list of commands</div><div class="line">    [ <span class="built_in">return</span> value ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>function 关键字可加可不加；函数返回值，可以显式增加return语句；如果不加，会将最后一条命令运行结果作为返回值。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"><span class="function"><span class="title">funWithReturn</span></span>()&#123;</div><div class="line">    <span class="built_in">echo</span> <span class="string">"The function is to get the sum of two numbers..."</span></div><div class="line">    <span class="built_in">echo</span> -n <span class="string">"Input first number: "</span></div><div class="line">    <span class="built_in">read</span> aNum</div><div class="line">    <span class="built_in">echo</span> -n <span class="string">"Input another number: "</span></div><div class="line">    <span class="built_in">read</span> anotherNum</div><div class="line">    <span class="built_in">echo</span> <span class="string">"The two numbers are <span class="variable">$aNum</span> and <span class="variable">$anotherNum</span> !"</span></div><div class="line">    <span class="built_in">return</span> $((<span class="variable">$aNum</span>+<span class="variable">$anotherNum</span>))</div><div class="line">&#125;</div><div class="line">funWithReturn</div><div class="line"><span class="comment"># Capture value returnd by last command</span></div><div class="line">ret=$?</div><div class="line"><span class="built_in">echo</span> <span class="string">"The sum of two numbers is <span class="variable">$ret</span> !"</span></div></pre></td></tr></table></figure>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">运行结果：</div><div class="line">The function <span class="keyword">is</span> <span class="keyword">to</span> <span class="keyword">get</span> <span class="keyword">the</span> sum <span class="keyword">of</span> two numbers...</div><div class="line">Input <span class="keyword">first</span> <span class="built_in">number</span>: <span class="number">25</span></div><div class="line">Input another <span class="built_in">number</span>: <span class="number">50</span></div><div class="line">The two numbers are <span class="number">25</span> <span class="keyword">and</span> <span class="number">50</span> !</div><div class="line">The sum <span class="keyword">of</span> two numbers <span class="keyword">is</span> <span class="number">75</span> !</div></pre></td></tr></table></figure>
+<p>函数返回值在调用该函数后通过 $? 来获得，不像 C 语言的直接调用赋值。</p>
+<p>在Shell中，调用函数时可以向其传递参数。在函数体内部，通过 $n 的形式来获取参数的值，例如，$1表示第一个参数，$2表示第二个参数…</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"><span class="function"><span class="title">funWithParam</span></span>()&#123;</div><div class="line">    <span class="built_in">echo</span> <span class="string">"The value of the first parameter is <span class="variable">$1</span> !"</span></div><div class="line">    <span class="built_in">echo</span> <span class="string">"The value of the second parameter is <span class="variable">$2</span> !"</span></div><div class="line">    <span class="built_in">echo</span> <span class="string">"The value of the tenth parameter is <span class="variable">$10</span> !"</span></div><div class="line">    <span class="built_in">echo</span> <span class="string">"The value of the tenth parameter is <span class="variable">$&#123;10&#125;</span> !"</span></div><div class="line">    <span class="built_in">echo</span> <span class="string">"The value of the eleventh parameter is <span class="variable">$&#123;11&#125;</span> !"</span></div><div class="line">    <span class="built_in">echo</span> <span class="string">"The amount of the parameters is <span class="variable">$#</span> !"</span>  <span class="comment"># 参数个数</span></div><div class="line">    <span class="built_in">echo</span> <span class="string">"The string of the parameters is $* !"</span>  <span class="comment"># 传递给函数的所有参数</span></div><div class="line">&#125;</div><div class="line">funWithParam 1 2 3 4 5 6 7 8 9 34 73</div></pre></td></tr></table></figure>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">运行结果：</div><div class="line">The <span class="built_in">value</span> <span class="keyword">of</span> <span class="keyword">the</span> <span class="keyword">first</span> parameter is <span class="number">1</span> !</div><div class="line">The <span class="built_in">value</span> <span class="keyword">of</span> <span class="keyword">the</span> <span class="keyword">second</span> parameter is <span class="number">2</span> !</div><div class="line">The <span class="built_in">value</span> <span class="keyword">of</span> <span class="keyword">the</span> <span class="keyword">tenth</span> parameter is <span class="number">10</span> !</div><div class="line">The <span class="built_in">value</span> <span class="keyword">of</span> <span class="keyword">the</span> <span class="keyword">tenth</span> parameter is <span class="number">34</span> !</div><div class="line">The <span class="built_in">value</span> <span class="keyword">of</span> <span class="keyword">the</span> eleventh parameter is <span class="number">73</span> !</div><div class="line">The amount <span class="keyword">of</span> <span class="keyword">the</span> parameters is <span class="number">12</span> !</div><div class="line">The <span class="keyword">string</span> <span class="keyword">of</span> <span class="keyword">the</span> parameters is <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">34</span> <span class="number">73</span> !<span class="string">"</span></div></pre></td></tr></table></figure>
+<p>注意：$10 不能获取第十个参数，获取第十个参数需要${10}。当 n&gt;=10 时，需要使用${n}来获取参数，所以一般良好的方式是所有的变量参数调用时都加上 <code>{}</code> 。</p>
+<h2 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h2><h3 id="输出重定向"><a href="#输出重定向" class="headerlink" title="输出重定向"></a>输出重定向</h3><p>命令的输出不仅可以是显示器，还可以很容易的转移向到文件，这被称为输出重定向。上面我们在使用 echo 的时候其实已经用到了输出重定向，这是 shell 下记录日志的常用方法。</p>
+<p>命令输出重定向的语法为：</p>
+<ul>
+<li><code>command &gt; file</code> ： 表示创建 file 文件，将 command 的结果输出到 file 文件中，如果已经存在 file 文件，则直接覆盖源文件内容。</li>
+<li><code>command &gt;&gt; file</code>： 表示创建 file 文件，将 command 的结果输出到 file 文件中，如果已经存在 file 文件，则不覆盖原文内容，而在文件末尾进行追加。</li>
+</ul>
+<h3 id="输入重定向"><a href="#输入重定向" class="headerlink" title="输入重定向"></a>输入重定向</h3><p>和输出重定向一样，shell 命令也可以从文件获取输入，语法为：<code>command &lt; file</code>，这样，本来需要从键盘获取输入的命令会转移到文件读取内容。</p>
+<p>输入重定向到 users 文件，即：读取 user 文件下的内容，用 command 对这个文件内容进行处理。例如：<code>wc -l &lt; users</code>。</p>
+<h3 id="标准错误文件"><a href="#标准错误文件" class="headerlink" title="标准错误文件"></a>标准错误文件</h3><p>一般情况下，每个 Unix/Linux 命令运行时都会打开三个文件：</p>
+<ul>
+<li>标准输入文件(stdin)：stdin的文件描述符为0，Unix程序默认从stdin读取数据。默认情况下，command &gt; file 将 stdout 重定向到 file</li>
+<li>标准输出文件(stdout)：stdout 的文件描述符为1，Unix程序默认向stdout输出数据。command &lt; file 将 stdin 重定向到 file。</li>
+<li>标准错误文件(stderr)：stderr的文件描述符为2，Unix程序会向stderr流中写入错误信息。command 2 &gt; file，stderr 重定向到 file。</li>
+</ul>
+<p>一般我们可以这样操作，将 stdout 和 stderr 分别重定向到 file：<code>command &gt;&gt; file1 2 &gt;&gt; file2</code></p>
+<h3 id="dev-null-文件"><a href="#dev-null-文件" class="headerlink" title="/dev/null 文件"></a>/dev/null 文件</h3><p>如果希望执行某个命令，但又不希望在屏幕上显示输出结果，那么可以将输出重定向到 <code>/dev/null</code>，<code>command &gt; /dev/null 2&gt;&amp;1</code> 可以用来屏蔽 stdout 和 stderr。</p>
+<p><em>本文是一个 bash 入门的基础语法笔记，主要参考学习和整理了如下链接的内容。</em></p>
+<blockquote>
+<p>参考链接：<br><a href="http://c.biancheng.net/cpp/shell/" target="_blank" rel="external">http://c.biancheng.net/cpp/shell/</a><br><a href="http://blog.csdn.net/wangyangkobe/article/details/6595143" target="_blank" rel="external">http://blog.csdn.net/wangyangkobe/article/details/6595143</a><br><a href="https://zhidao.baidu.com/question/489742760031792892.html" target="_blank" rel="external">https://zhidao.baidu.com/question/489742760031792892.html</a><br><a href="http://blog.csdn.net/hansel/article/details/9817129" target="_blank" rel="external">http://blog.csdn.net/hansel/article/details/9817129</a><br><a href="http://www.360doc.com/content/13/1211/14/14541491_336331604.shtml" target="_blank" rel="external">http://www.360doc.com/content/13/1211/14/14541491_336331604.shtml</a></p>
+</blockquote>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://noparkinghere.top/2017/06/17/2017/2017-06-17-bash脚本基础学习/" data-id="cj4298sie00c7nkmuigvconmh" class="article-share-link">Share</a><div class="tags"></div><div class="post-nav"><a href="/2017/06/09/2017/2017-06-09-轻松上网/" class="next">轻松上网</a></div><div data-thread-key="2017/06/17/2017/2017-06-17-bash脚本基础学习/" data-title="bash脚本基础学习" data-url="http://noparkinghere.top/2017/06/17/2017/2017-06-17-bash脚本基础学习/" class="ds-share flat"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><a href="javascript:void(0);" class="ds-more">分享到：</a></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qzone" class="ds-qzone">QQ空间</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div><div data-thread-key="2017/06/17/2017/2017-06-17-bash脚本基础学习/" data-title="bash脚本基础学习" data-url="http://noparkinghere.top/2017/06/17/2017/2017-06-17-bash脚本基础学习/" data-author-key="1" class="ds-thread"></div><div id="disqus_thread"><script>var disqus_shortname = 'noparkinghere';
+var disqus_identifier = '2017/06/17/2017/2017-06-17-bash脚本基础学习/';
+var disqus_title = 'bash脚本基础学习';
+var disqus_url = 'http://noparkinghere.top/2017/06/17/2017/2017-06-17-bash脚本基础学习/';
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//noparkinghere.disqus.com/count.js" async></script></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人观点/">个人观点</a><span class="category-list-count">26</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习提高/">学习提高</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂谈/">生活杂谈</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/程序开发/">程序开发</a><span class="category-list-count">26</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/转载文章/">转载文章</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件应用/">软件应用</a><span class="category-list-count">70</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/问题总结/">问题总结</a><span class="category-list-count">1</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/IDE/" style="font-size: 15px;">IDE</a> <a href="/tags/使用体验/" style="font-size: 15px;">使用体验</a> <a href="/tags/英语/" style="font-size: 15px;">英语</a> <a href="/tags/网络/" style="font-size: 15px;">网络</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/服务器/" style="font-size: 15px;">服务器</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/VPS/" style="font-size: 15px;">VPS</a> <a href="/tags/版本控制/" style="font-size: 15px;">版本控制</a> <a href="/tags/配置/" style="font-size: 15px;">配置</a> <a href="/tags/VPN/" style="font-size: 15px;">VPN</a> <a href="/tags/chrome/" style="font-size: 15px;">chrome</a> <a href="/tags/嵌入式/" style="font-size: 15px;">嵌入式</a> <a href="/tags/基础/" style="font-size: 15px;">基础</a> <a href="/tags/githubpage/" style="font-size: 15px;">githubpage</a> <a href="/tags/问题总结/" style="font-size: 15px;">问题总结</a> <a href="/tags/系统安装/" style="font-size: 15px;">系统安装</a> <a href="/tags/C语言/" style="font-size: 15px;">C语言</a> <a href="/tags/基础知识/" style="font-size: 15px;">基础知识</a> <a href="/tags/学习方法/" style="font-size: 15px;">学习方法</a> <a href="/tags/手机/" style="font-size: 15px;">手机</a> <a href="/tags/ssh/" style="font-size: 15px;">ssh</a> <a href="/tags/文档/" style="font-size: 15px;">文档</a> <a href="/tags/vps/" style="font-size: 15px;">vps</a> <a href="/tags/调试/" style="font-size: 15px;">调试</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Blogroll</i></div><ul></ul><a href="https://news.ycombinator.com/" title="Hacker News" target="_blank">Hacker News</a><ul></ul><a href="http://blog.jobbole.com/" title="Jobbole" target="_blank">Jobbole</a><ul></ul><a href="http://www.ruanyifeng.com/blog/" title="阮一峰的网络日志" target="_blank">阮一峰的网络日志</a><ul></ul><a href="http://www.panxw.com/" title="潘学文个人博客" target="_blank">潘学文个人博客</a><ul></ul><a href="https://www.haomwei.com/" title="屠城" target="_blank">屠城</a><ul></ul><a href="https://blog.0xbbc.com/" title="3004" target="_blank">3004</a><ul></ul><a href="https://emiria.io/" title="Sakara Hiroya" target="_blank">Sakara Hiroya</a></div><div class="widget"><div class="comments-title"><i class="fa fa-comment-o"> Recent Comments</i></div><div data-num-items="5" data-show-avatars="0" data-show-time="1" data-show-admin="0" data-excerpt-length="32" data-show-title="1" class="ds-recent-comments"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> Recent Comments</i></div><script type="text/javascript" src="//noparkinghere.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">Damon's Blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script>var duoshuoQuery = {short_name:'noparkinghere'};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','UA-80280728-1','auto');ga('send','pageview');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "GitHub_Page页面无法更新"
-category: "软件应用"
+category: "问题总结"
 tags:   "版本控制"
 date: "2016-07-11 1:00"
 ---

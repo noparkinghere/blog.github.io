@@ -73,6 +73,7 @@ Linux的后台进程运行有好几种方法，例如nohup，screen等，但是�
 
 - 安装软件，终端输入：`apt-get install python-pip && pip install shadowsocks`。
 - 写 shadowsocks 配置文件： vim /etc/shadowsocks.json ， 具体内容如下：
+- 如果无法安装成功，请[访问](https://github.com/shadowsocks/shadowsocks/tree/master)
 
 ```sh
 {
@@ -88,7 +89,7 @@ Linux的后台进程运行有好几种方法，例如nohup，screen等，但是�
 
 
 说明： 
-server 你vps的IP
+server 你 vps 的 IP
 servier_port 服务端的端口
 local_port 本地端口，一般默认1080
 password 服务端设置的密码
@@ -134,12 +135,12 @@ logfile=/var/log/shadowsocks.log
 - 最后让 supervisor 开机自启动：在 `vim /etc/rc.local` 空白行加入 `service supervisor restart` (事实上这一步可以不用加，supervisor 本身就会开机自启动，在 `/etc/rc2.d/` 下 我们可以看到 `lrwxrwxrwx 1 root root  20 Nov 25 11:56 S01supervisor -> ../init.d/supervisor` ，当然如果你的系统没能自动开启 supervisor 守护进程，则需要手动完成上述操作)，重启服务器查看是否配置成功。
 
 
-*采用 supervisor 的原因很大程度上是：将 `sslocal -c /etc/shadowsocks.json` 放入/etc/rc.local中没法开启自启该服务，有待查找原因。*
+*采用 supervisor 的原因很大程度上是：将 `ssserver -c /etc/shadowsocks.json` 放入/etc/rc.local中没法开启自启该服务，有待查找原因。*
 
 
 **以上内容均为个人总结转述，如果可以访问外网，请参考[官网](https://shadowsocks.org/en/download/servers.html)给出的更加详细的配置步骤。以下为客户端配置，注意只有在完成了服务器端配置或者你已经有一个可以使用的 shadowsocks 服务器，才能够在本地搭建以下服务。**
 
-
+注意：如果你运行： ssserver -c /etc/shadowsocks.json 无法成功的话，则推荐去仔细阅读官网说明文档。
 
 ### 本地 linux 下的安装配置
 

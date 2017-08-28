@@ -4,6 +4,112 @@
   
     
     <entry>
+      <title><![CDATA[Plan2017(下)-改1]]></title>
+      <url>http://noparkinghere.top/2017/08/01/2017/2017-08-01-plan2017-%E4%B8%8B-%E6%94%B91/</url>
+      <content type="html"><![CDATA[<p><strong>整体计划参照总纲，每阶段做的事情按照后面的细则来执行，尽量合理安排，让工作学习计划更加弹性，每个周期安排的任务少、时间尽可能的多以保证不会被一些事情所打算；一定要做好充足的休息和锻炼，计划的初衷是生活学习习惯的培养，因此优先多喝水，锻炼和休息。</strong></p>
+<p><strong>经过一个多月来的实践，其中有一半的任务完成不错，另外仍然有很多比较局限或者不得要领。接下来一段时间准备实践一套英语学习法，由于占用的时间比较多，因此计划会有很大的调整，目标是将这套学习法较好的实现，并且通过它，找到真正适合自己的学习套路。</strong></p>
+<h2 id="总纲"><a href="#总纲" class="headerlink" title="总纲"></a>总纲</h2><p>在保证充足的休息和定期锻炼的前提下，更好的合理安排工作和学习，每天 10:00 后不额外安排新任务，所有工作学习任务确保 10:30 之前完成。</p>
+<h3 id="阅读"><a href="#阅读" class="headerlink" title="阅读"></a>阅读</h3><p>阅读多本畅销书籍，类型可以是：历史、时间管理、学习方法、经典小说、个人传记等。</p>
+<p>主要阅读时间在：清晨 15 min，饭后 15min，睡前 15 min。</p>
+<h3 id="英语学习"><a href="#英语学习" class="headerlink" title="英语学习"></a>英语学习</h3><p>无特殊情况下，工作日上午 7:30-8:00 ，晚上 5:00-6:00 作为英语的固定学习时间，完成的内容包括且不仅限于如下：</p>
+<ul>
+<li>《GRE 词汇精选》</li>
+<li>《语法俱乐部》</li>
+<li>《恋恋有词》 </li>
+<li>英文小说阅读</li>
+<li>扇贝英语阅读，单词等</li>
+</ul>
+<h3 id="计算机学习"><a href="#计算机学习" class="headerlink" title="计算机学习"></a>计算机学习</h3><p>由于之前执行效率不高，新任务加入等问题，计算机的学习计划全面挪后。</p>
+<ul>
+<li>C 语言基础回顾</li>
+<li>详细研习 linux 的应用教程</li>
+<li>数据结构和算法</li>
+<li>深入研究学习 linux 程序开发</li>
+<li>C++ 详细研究学习，掌握 Qt 的开发要领，设计多个程序</li>
+</ul>
+<h3 id="工作任务-充分利用工作时间，尽量不加班"><a href="#工作任务-充分利用工作时间，尽量不加班" class="headerlink" title="工作任务 (充分利用工作时间，尽量不加班)"></a>工作任务 (充分利用工作时间，尽量不加班)</h3><ul>
+<li>进一步研究 EFM32 平台以及硬件软件内容，家用表研发项目推进</li>
+<li>神舟开 stm32 案例整理，将 stm32 相关知识应用到家用表项目中(8.1-11.30)</li>
+<li>仔细研究操作系统相关内容，ucos 内容整理研究(9.1-11.30)</li>
+<li>研究 6S 项目(12.1-12.31)</li>
+</ul>
+<h3 id="作息-每晚保证-7h-以上的睡眠时间"><a href="#作息-每晚保证-7h-以上的睡眠时间" class="headerlink" title="作息 (每晚保证 7h 以上的睡眠时间)"></a>作息 (每晚保证 7h 以上的睡眠时间)</h3><ul>
+<li>早 6:30 起床，一组冥想</li>
+<li>工作日中午小息十几分钟，周末中午午休</li>
+<li>7:30-8:00 17:00-18:00 英语学习</li>
+<li>19:30-20:30 至少周二、周四、周六跑步</li>
+<li>19:00-23:00 研究专业相关内容，每隔一个小时穿插（冥想，运动，洗漱等）</li>
+<li>23:00 左右休息，最晚不超过 23:30</li>
+<li>周末正常作息，清晨跑步锻炼，上午完成所有学习内容</li>
+<li>周六下午及晚上休息，劳逸结合，周日正常工作学习，补偿之前欠缺内容</li>
+</ul>
+<hr>
+<h2 id="英语-早晚学习，9h-week"><a href="#英语-早晚学习，9h-week" class="headerlink" title="英语 (早晚学习，9h/week)"></a>英语 (早晚学习，9h/week)</h2><h3 id="GRE-单词-25-天-8-1-8-25"><a href="#GRE-单词-25-天-8-1-8-25" class="headerlink" title="GRE 单词 25 天(8.1-8.25)"></a>GRE 单词 25 天(8.1-8.25)</h3><p>这段周期内，首要任务就是英语单词学习，其他一切任务靠边，早晨学习新单词 2h，晚上完成相关内容复习。</p>
+<p>实际完整的学习周期在 55 天左右，后面的复习不对其他学习造成影响。</p>
+<p>注意不断地总结经验和方法，希望可以将这套方法运用于其他学科内容的学习。</p>
+<ul>
+<li>[ ] 《GRE 词汇精选》，详细完成程度见详细表格(8.1-9.23)</li>
+</ul>
+<h3 id="语法句子"><a href="#语法句子" class="headerlink" title="语法句子"></a>语法句子</h3><ul>
+<li>[ ] 《语法俱乐部》学习(8.26-9.10)</li>
+</ul>
+<h3 id="课程学习"><a href="#课程学习" class="headerlink" title="课程学习"></a>课程学习</h3><ul>
+<li>[x] 《恋恋有词》第一篇学习(6.1-7.30)书本初步复习相关内容，主要是单词和短语</li>
+<li>[ ] 《恋恋有词》第二遍学习(9.11-9.22)，复习阅读句子为主</li>
+<li>[ ] 《恋恋有词》第三遍学习(9.22-9.30)，将句子所有句子翻译一遍</li>
+</ul>
+<h3 id="长难句"><a href="#长难句" class="headerlink" title="长难句"></a>长难句</h3><ul>
+<li>[ ] 《GRE 核心词汇精析》(10.1-11.1)</li>
+<li>[ ] 《GRE&amp;GMAT 阅读难句教程》(10.1-12.30)</li>
+</ul>
+<h3 id="扇贝英语-8-1-12-30"><a href="#扇贝英语-8-1-12-30" class="headerlink" title="扇贝英语(8.1-12.30)"></a>扇贝英语(8.1-12.30)</h3><ul>
+<li>[ ] 完成扇贝单词书的学习(1.1-12.31)</li>
+<li>[ ] 每天两篇扇贝阅读(1.1-12.31)</li>
+<li>[ ] 每天翻译一篇扇贝新闻文章(10.8-12.30)</li>
+</ul>
+<h3 id="英文书单-9-11-12-30"><a href="#英文书单-9-11-12-30" class="headerlink" title="英文书单(9.11-12.30)"></a>英文书单(9.11-12.30)</h3><ul>
+<li>[x] 巴斯克韦尔猎犬(书虫版)</li>
+<li>[ ] The Little Prince (重读)</li>
+<li>[ ] 苏菲的世界</li>
+<li>[ ] Harry Potter 1</li>
+<li>[ ] Harry Potter 2</li>
+<li>[ ] Harry Potter 3</li>
+</ul>
+<h2 id="2017-书单-起床后，和睡觉前阅读-15min-左右"><a href="#2017-书单-起床后，和睡觉前阅读-15min-左右" class="headerlink" title="2017 书单 (起床后，和睡觉前阅读 15min 左右)"></a>2017 书单 (起床后，和睡觉前阅读 15min 左右)</h2><h3 id="中文书单"><a href="#中文书单" class="headerlink" title="中文书单"></a>中文书单</h3><ul>
+<li>[x] 腾讯传</li>
+<li>[x] 悟空传</li>
+<li>[x] 把你的英语用起来</li>
+<li>[ ] 自控力</li>
+<li>[ ] 刻意练习</li>
+<li>[ ] 人类简史</li>
+<li>[ ] 如何阅读一本书</li>
+<li>[ ] 把时间当作朋友</li>
+</ul>
+<h2 id="2017-计算机学习-跑步日-2h，非跑步日-3h，周日补欠缺，21h-week"><a href="#2017-计算机学习-跑步日-2h，非跑步日-3h，周日补欠缺，21h-week" class="headerlink" title="2017 计算机学习 (跑步日 2h，非跑步日 3h，周日补欠缺，21h/week)"></a>2017 计算机学习 (跑步日 2h，非跑步日 3h，周日补欠缺，21h/week)</h2><h3 id="C-C-6-months-优先学习，重点在于实践"><a href="#C-C-6-months-优先学习，重点在于实践" class="headerlink" title="C/C++ (6 months 优先学习，重点在于实践)"></a>C/C++ (6 months 优先学习，重点在于实践)</h3><ul>
+<li>[ ] 《传智播客 C++ 第三期》 C 语言基础篇，传智播客 C++ 第五期》对应结尾三节课 (8.6日前)</li>
+<li>[ ] 《郝斌数据结构 78节 60h》和《传智播客 C++ 第三期》 C 就业，代码实现基础数据结构 (9.11-10.15)</li>
+<li>[ ] 《linux 编程相关书籍》+《linux C 编程一站式学习》+《传智播客 C++ 第五期》 linux-c 编程 (10.16-11.11)</li>
+<li>[ ] 《传智播客 QT 教程》，利用闲暇时间快速入门 C++ 和 QT ，简单实践，不详细研究</li>
+<li>[ ] 《linux 系统编程手册上、下》 (11.20-12.30)</li>
+<li>[ ] 《传智播客 C++ 第五期》 C++ 就业，QT 教程，《传智播客 C++ 第五期》 C++ 数据库和shell，由于时间关系，该部分内容学习挪后到明年</li>
+</ul>
+<h3 id="linux-3h-week-系统学习，掌握牢固"><a href="#linux-3h-week-系统学习，掌握牢固" class="headerlink" title="linux (3h/week 系统学习，掌握牢固)"></a>linux (3h/week 系统学习，掌握牢固)</h3><ul>
+<li>[ ] 《Unix&amp;Linux 大学教程》+《阿铭 linux 31 节》 (8.26-9.10)</li>
+<li>[ ] 《马哥 linux 基础篇(22天课时-110h)》一周一课，配套《鸟哥 linux 私房菜》，多实践多操作(9.11-12.30)</li>
+</ul>
+<hr>
+<h2 id="实践改进"><a href="#实践改进" class="headerlink" title="实践改进"></a>实践改进</h2>]]></content>
+      
+        <categories>
+            
+            <category> 生活杂谈 </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[读后感-悟空传]]></title>
       <url>http://noparkinghere.top/2017/07/11/2017/2017-07-11-%E8%AF%BB%E5%90%8E%E6%84%9F-%E6%82%9F%E7%A9%BA%E4%BC%A0/</url>
       <content type="html"><![CDATA[<p>最近电影版《悟空传》快上映了，于是突然想起来还在上学时似乎看过这部作品的同名小说，小说很短，也就 10 万字左右，前两天抽空翻了下。</p>
@@ -4487,8 +4593,9 @@
 <h4 id="详细步骤："><a href="#详细步骤：" class="headerlink" title="详细步骤："></a>详细步骤：</h4><ul>
 <li>安装软件，终端输入：<code>apt-get install python-pip &amp;&amp; pip install shadowsocks</code>。</li>
 <li>写 shadowsocks 配置文件： vim /etc/shadowsocks.json ， 具体内容如下：</li>
+<li>如果无法安装成功，请<a href="https://github.com/shadowsocks/shadowsocks/tree/master" target="_blank" rel="external">访问</a></li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="string">"server"</span>:<span class="string">"0.0.0.0"</span>,</div><div class="line">    <span class="string">"server_port"</span>:50003,</div><div class="line">    <span class="string">"local_address"</span>: <span class="string">"127.0.0.1"</span>,</div><div class="line">    <span class="string">"local_port"</span>:1080,</div><div class="line">    <span class="string">"password"</span>:<span class="string">"123456"</span>,</div><div class="line">    <span class="string">"timeout"</span>:300,</div><div class="line">    <span class="string">"method"</span>:<span class="string">"aes-256-cfb"</span>,</div><div class="line">    <span class="string">"fast_open"</span>: <span class="literal">false</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">说明： </div><div class="line">server 你vps的IP</div><div class="line">servier_port 服务端的端口</div><div class="line">local_port 本地端口，一般默认1080</div><div class="line">password 服务端设置的密码</div><div class="line">timeout 超时设置</div><div class="line">method 加密方法</div><div class="line"></div><div class="line">如要你需要分享SS服务给朋友或家人，可以配置多个SS账户，具体可以参考下面的代码:</div><div class="line">&#123;</div><div class="line">    <span class="string">"server"</span>:<span class="string">"0.0.0.0"</span>,</div><div class="line">    <span class="string">"local_address"</span>: <span class="string">"127.0.0.1"</span>,</div><div class="line">    <span class="string">"local_port"</span>:1080,</div><div class="line">    <span class="string">"timeout"</span>: 600,</div><div class="line">    <span class="string">"method"</span>: <span class="string">"aes-256-cfb"</span>,</div><div class="line">    <span class="string">"port_password"</span>:</div><div class="line">    &#123;</div><div class="line">        <span class="string">"10001"</span>: <span class="string">"password1"</span>,</div><div class="line">        <span class="string">"10002"</span>: <span class="string">"password2"</span>,</div><div class="line">        <span class="string">"10003"</span>: <span class="string">"password3"</span></div><div class="line">    &#125;,</div><div class="line">    <span class="string">"_comment"</span>:</div><div class="line">    &#123;</div><div class="line">        <span class="string">"10001"</span>: <span class="string">"xiaoming"</span>,</div><div class="line">        <span class="string">"10002"</span>: <span class="string">"lilei"</span>,</div><div class="line">        <span class="string">"10003"</span>: <span class="string">"mike"</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="string">"server"</span>:<span class="string">"0.0.0.0"</span>,</div><div class="line">    <span class="string">"server_port"</span>:50003,</div><div class="line">    <span class="string">"local_address"</span>: <span class="string">"127.0.0.1"</span>,</div><div class="line">    <span class="string">"local_port"</span>:1080,</div><div class="line">    <span class="string">"password"</span>:<span class="string">"123456"</span>,</div><div class="line">    <span class="string">"timeout"</span>:300,</div><div class="line">    <span class="string">"method"</span>:<span class="string">"aes-256-cfb"</span>,</div><div class="line">    <span class="string">"fast_open"</span>: <span class="literal">false</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">说明： </div><div class="line">server 你 vps 的 IP</div><div class="line">servier_port 服务端的端口</div><div class="line">local_port 本地端口，一般默认1080</div><div class="line">password 服务端设置的密码</div><div class="line">timeout 超时设置</div><div class="line">method 加密方法</div><div class="line"></div><div class="line">如要你需要分享SS服务给朋友或家人，可以配置多个SS账户，具体可以参考下面的代码:</div><div class="line">&#123;</div><div class="line">    <span class="string">"server"</span>:<span class="string">"0.0.0.0"</span>,</div><div class="line">    <span class="string">"local_address"</span>: <span class="string">"127.0.0.1"</span>,</div><div class="line">    <span class="string">"local_port"</span>:1080,</div><div class="line">    <span class="string">"timeout"</span>: 600,</div><div class="line">    <span class="string">"method"</span>: <span class="string">"aes-256-cfb"</span>,</div><div class="line">    <span class="string">"port_password"</span>:</div><div class="line">    &#123;</div><div class="line">        <span class="string">"10001"</span>: <span class="string">"password1"</span>,</div><div class="line">        <span class="string">"10002"</span>: <span class="string">"password2"</span>,</div><div class="line">        <span class="string">"10003"</span>: <span class="string">"password3"</span></div><div class="line">    &#125;,</div><div class="line">    <span class="string">"_comment"</span>:</div><div class="line">    &#123;</div><div class="line">        <span class="string">"10001"</span>: <span class="string">"xiaoming"</span>,</div><div class="line">        <span class="string">"10002"</span>: <span class="string">"lilei"</span>,</div><div class="line">        <span class="string">"10003"</span>: <span class="string">"mike"</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>注意这边 server 的地址可以通过 ifconfig 获取本机地址，如果是一些多层虚拟出来的机器，如果无法获得本机IP，则输入0.0.0.0即可。</p>
 <ul>
 <li>安装 supervisor： apt-get install supervisor</li>
@@ -4500,6 +4607,7 @@
 </ul>
 <p><em>采用 supervisor 的原因很大程度上是：将 <code>sslocal -c /etc/shadowsocks.json</code> 放入/etc/rc.local中没法开启自启该服务，有待查找原因。</em></p>
 <p><strong>以上内容均为个人总结转述，如果可以访问外网，请参考<a href="https://shadowsocks.org/en/download/servers.html" target="_blank" rel="external">官网</a>给出的更加详细的配置步骤。以下为客户端配置，注意只有在完成了服务器端配置或者你已经有一个可以使用的 shadowsocks 服务器，才能够在本地搭建以下服务。</strong></p>
+<p>注意：如果你运行： ssserver -c /etc/shadowsocks.json 无法成功的话，则推荐去仔细阅读官网说明文档。</p>
 <h3 id="本地-linux-下的安装配置"><a href="#本地-linux-下的安装配置" class="headerlink" title="本地 linux 下的安装配置"></a>本地 linux 下的安装配置</h3><h4 id="软件列表：-1"><a href="#软件列表：-1" class="headerlink" title="软件列表："></a>软件列表：</h4><ul>
 <li>linux PC端： shadowsocks ， 本地操作系统 ubuntu 16.04 , 。</li>
 <li>shadowsocks-severs： 注意安装 shadowsocks 的 severs 版本</li>
@@ -5540,51 +5648,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[串口RS485通信详解]]></title>
-      <url>http://noparkinghere.top/2016/10/19/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
-      <content type="html"><![CDATA[<p><strong>注意：串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。串口的一些内容不再逐一介绍说明，可以参加之前的usb转串口及RS232通信等文章</strong></p>
-<h3 id="特性介绍"><a href="#特性介绍" class="headerlink" title="特性介绍"></a>特性介绍</h3><p>485（一般称作 RS485/EIA-485）是隶属于 OSI 模型物理层的电气特性规定为 2 线，半双工，多点通信的标准。它的电气特性和 RS-232 大不一样。用缆线两端的电压差值来表示传递信号。值得注意的是：RS485 仅仅规定了接受端和发送端的电气特性，它没有规定或推荐任何数据协议。</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/1.jpg" alt=""></p>
-<p>RS485接口可以只使用两根线进行通讯（其他串口通讯至少需要三根线，一根为地线作为参考电平），通过差分电平（利用两个信号的差值来判断信息，使用差分信号来传输的，也就是一根线传同相信号，一根线传反相，这样差值最大，抗干扰能力强。）来确定信号是0还是1，也正因为这个原因，所以RS485每次有且仅有一根线能够传输数据，另外一根线作为比对信号，因此RS485是半双工的通讯方式。主要特点如下：</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/2.jpg" alt=""></p>
-<ul>
-<li>接口电平低，不易损坏芯片。 RS485 的电气特性：逻辑“ 1”以两线间的电压差为+(2~6)V<br>表示；逻辑“ 0”以两线间的电压差为-(2~6)V 表示。接口信号电平比 RS232 降低了，<br>不易损坏接口电路的芯片，且该电平与 TTL 电平兼容，可方便与 TTL 电路连接。</li>
-<li>传输速率高。 10 米时， RS485 的数据最高传输速率可达 35Mbps，在 1200m 时，传输<br>速度可达 100Kbps。</li>
-<li>抗干扰能力强。 RS485 接口是采用平衡驱动器和差分接收器的组合，抗共模干扰能力<br>增强，即抗噪声干扰性好。 传输距离远，支持节点多。 RS485 总线最长可以传输 1200m<br>以上（速率≤100Kbps）</li>
-<li>一般最大支持 32 个节点，如果使用特制的 485 芯片，可以达到 128 个或者 256 个节点，<br>最大的可以支持到 400 个节点。</li>
-</ul>
-<a id="more"></a>
-<h3 id="类比RS232"><a href="#类比RS232" class="headerlink" title="类比RS232"></a>类比RS232</h3><p>实际上232串口在实际使用已经用处不大，但基于232发展出来的485等串口设备仍然被广泛使用，RS-485（EIA-485标准）是RS-422的改进，因为它增加了设备的个数，从10个增加到32个，同时定义了在最大设备个数情况下的电气特性，以保证足够的信号电压。有了多个设备的能力，你可以使用一个单个RS-485口建立设备网络。</p>
-<p>因为都是采用串口通信协议，所以软件端几乎可以直接使用，且RS485具备耗材少，抗干扰强等特点，在目前的工业领域仍然被广泛使用，这边主要列举出不同：</p>
-<ul>
-<li>从接线上，RS232是三线制，RS485是两线制</li>
-<li>从传输距离上，RS232只能传输15米，RS485最远可以传输1200米</li>
-<li>从速率上，RS232是全双工传输，RS485是半双工传输</li>
-<li>从协议层上，RS232只支持点对点通讯(1:1)，RS485支持总线形式通讯（1:N）</li>
-</ul>
-<p>RS232的接线：<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/3.jpg" alt="">)</p>
-<p>RS485的接线<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/4.jpg" alt=""></p>
-<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><blockquote>
-<p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a></p>
-</blockquote>
-]]></content>
-      
-        <categories>
-            
-            <category> 程序开发 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 嵌入式 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[串口RS232通信详解]]></title>
       <url>http://noparkinghere.top/2016/10/19/2016/2016-10-19-%E4%B8%B2%E5%8F%A3RS232%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<p>串行接口是一种可以将接受来自CPU的并行数据字符转换为连续的串行数据流发送出去，同时可将接受的串行数据流转换为并行的数据字符供给CPU的器件。一般完成这种功能的电路，我们称为串行接口电路。曾经PC之间进行串口通信可以说是标配，很多老式电脑上面可以看到DB25的接头，但后来逐渐被DB9取代，早期鼠标打印机都通过串口进行数据传输的，但现在逐渐被USB和网络所取代，DB9的串口接头在PC和笔记本上面也较少能够看到了。做嵌入式开发可以看到有个DB9的串口标准接口，串口对于开发人员输入输出调试等有着至关重要的作用。串行接口按电气标准及协议来分包括RS-232-C、RS-422、RS485等，现在串口一般在工业嵌入式领域使用。</p>
@@ -5644,6 +5707,51 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
 <blockquote>
 <p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a><br><a href="http://www.baike.com/wiki/51+IO%E5%8F%A3%E6%A8%A1%E6%8B%9F%E4%B8%B2%E5%8F%A3%E9%80%9A%E8%AE%AFC%E6%BA%90%E7%A8%8B%E5%BA%8F" target="_blank" rel="external">http://www.baike.com/wiki/51+IO%E5%8F%A3%E6%A8%A1%E6%8B%9F%E4%B8%B2%E5%8F%A3%E9%80%9A%E8%AE%AFC%E6%BA%90%E7%A8%8B%E5%BA%8F</a><br><a href="http://ziye334.blog.163.com/blog/static/224306191201452833850647" target="_blank" rel="external">http://ziye334.blog.163.com/blog/static/224306191201452833850647</a></p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> 程序开发 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[串口RS485通信详解]]></title>
+      <url>http://noparkinghere.top/2016/10/19/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<p><strong>注意：串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。串口的一些内容不再逐一介绍说明，可以参加之前的usb转串口及RS232通信等文章</strong></p>
+<h3 id="特性介绍"><a href="#特性介绍" class="headerlink" title="特性介绍"></a>特性介绍</h3><p>485（一般称作 RS485/EIA-485）是隶属于 OSI 模型物理层的电气特性规定为 2 线，半双工，多点通信的标准。它的电气特性和 RS-232 大不一样。用缆线两端的电压差值来表示传递信号。值得注意的是：RS485 仅仅规定了接受端和发送端的电气特性，它没有规定或推荐任何数据协议。</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/1.jpg" alt=""></p>
+<p>RS485接口可以只使用两根线进行通讯（其他串口通讯至少需要三根线，一根为地线作为参考电平），通过差分电平（利用两个信号的差值来判断信息，使用差分信号来传输的，也就是一根线传同相信号，一根线传反相，这样差值最大，抗干扰能力强。）来确定信号是0还是1，也正因为这个原因，所以RS485每次有且仅有一根线能够传输数据，另外一根线作为比对信号，因此RS485是半双工的通讯方式。主要特点如下：</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/2.jpg" alt=""></p>
+<ul>
+<li>接口电平低，不易损坏芯片。 RS485 的电气特性：逻辑“ 1”以两线间的电压差为+(2~6)V<br>表示；逻辑“ 0”以两线间的电压差为-(2~6)V 表示。接口信号电平比 RS232 降低了，<br>不易损坏接口电路的芯片，且该电平与 TTL 电平兼容，可方便与 TTL 电路连接。</li>
+<li>传输速率高。 10 米时， RS485 的数据最高传输速率可达 35Mbps，在 1200m 时，传输<br>速度可达 100Kbps。</li>
+<li>抗干扰能力强。 RS485 接口是采用平衡驱动器和差分接收器的组合，抗共模干扰能力<br>增强，即抗噪声干扰性好。 传输距离远，支持节点多。 RS485 总线最长可以传输 1200m<br>以上（速率≤100Kbps）</li>
+<li>一般最大支持 32 个节点，如果使用特制的 485 芯片，可以达到 128 个或者 256 个节点，<br>最大的可以支持到 400 个节点。</li>
+</ul>
+<a id="more"></a>
+<h3 id="类比RS232"><a href="#类比RS232" class="headerlink" title="类比RS232"></a>类比RS232</h3><p>实际上232串口在实际使用已经用处不大，但基于232发展出来的485等串口设备仍然被广泛使用，RS-485（EIA-485标准）是RS-422的改进，因为它增加了设备的个数，从10个增加到32个，同时定义了在最大设备个数情况下的电气特性，以保证足够的信号电压。有了多个设备的能力，你可以使用一个单个RS-485口建立设备网络。</p>
+<p>因为都是采用串口通信协议，所以软件端几乎可以直接使用，且RS485具备耗材少，抗干扰强等特点，在目前的工业领域仍然被广泛使用，这边主要列举出不同：</p>
+<ul>
+<li>从接线上，RS232是三线制，RS485是两线制</li>
+<li>从传输距离上，RS232只能传输15米，RS485最远可以传输1200米</li>
+<li>从速率上，RS232是全双工传输，RS485是半双工传输</li>
+<li>从协议层上，RS232只支持点对点通讯(1:1)，RS485支持总线形式通讯（1:N）</li>
+</ul>
+<p>RS232的接线：<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/3.jpg" alt="">)</p>
+<p>RS485的接线<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/4.jpg" alt=""></p>
+<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><blockquote>
+<p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a></p>
 </blockquote>
 ]]></content>
       
@@ -7677,94 +7785,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[（转）回车、换行、和文件末尾空行]]></title>
-      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%EF%BC%88%E8%BD%AC%EF%BC%89%E5%9B%9E%E8%BD%A6%E3%80%81%E6%8D%A2%E8%A1%8C%E3%80%81%E5%92%8C%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E7%A9%BA%E8%A1%8C/</url>
-      <content type="html"><![CDATA[<h2 id="回车和换行"><a href="#回车和换行" class="headerlink" title="回车和换行"></a>回车和换行</h2><p>回车 (Carriage Return) 和换行 (Line Feed) 的区别，<a href="http://stackoverflow.com/questions/1761051/difference-between-n-and-r" target="_blank" rel="external">这里</a>有一个历史原因可参考：</p>
-<blockquote>
-<p>在计算机还没有出现之前，有一种叫做电传打字机（Teletype Model 33）的玩意，每秒钟可以打10个字符。但是它有一个问题，就是打完一行换行的时候，要用去0.2秒，正好可以打两个字符。要是在这0.2秒里面，又有新的字符传过来，那么这个字符将丢失。</p>
-<p>于是，研制人员想了个办法解决这个问题，就是在每行后面加两个表示结束的字符。一个叫做”回车”，告诉打字机把打印头定位在左边界；另一个叫做”换行”，告诉打字机把纸向下移一行。</p>
-</blockquote>
-<p>发明计算机时，这个概念被沿用下来，但因为条件的限制和设计者的喜好，有了一些分歧：</p>
-<ul>
-<li>Unix 系统里，每行结尾只有”&lt;换行&gt;”，即 “\n”</li>
-<li>Windows 系统里面，每行结尾是”&lt;回车&gt;&lt;换行&gt;”，即 “\r\n”</li>
-<li>在老的 Mac 系统里，每行结尾是”&lt;回车&gt;”，即 “\r”</li>
-</ul>
-<p>我们来验证一下，我在 Windows 下用记事本新建一个文本文件，它的二进制编码如下：</p>
-<pre><code>//源文件内容
-hello
-hello2
-
-//二进制内容
-0000000: 6865 6c6c 6f0d 0a68 656c 6c6f 32         hello..hello2
-</code></pre><p>同样在 Mac 下用 Vim 新建一个：</p>
-<pre><code>//源文件内容
-hello
-hello2
-
-//二进制内容
-0000000: 6865 6c6c 6f0a 6865 6c6c 6f32 0a         hello.hello2.
-</code></pre><p><code>0a</code>是 LF 的 ASCII 编码, <code>0d</code>是 CR 的 ASCII 编码。区别很明显了</p>
-<ul>
-<li>Mac 下的文本文件在 Windows 下打开会成为一行，因为 Windows 只认识 <code>\r\n</code>，也就是 <code>0d0a</code></li>
-<li>Windows 下的文本文件在 Mac 下打开，Vim 中会在每行末尾显示一个 <code>^M</code>，(不是两个字符组成的)</li>
-</ul>
-<a id="more"></a>
-<h2 id="文件末尾空行"><a href="#文件末尾空行" class="headerlink" title="文件末尾空行"></a>文件末尾空行</h2><p><a href="https://zh.wikipedia.org/zh-sg/POSIX" target="_blank" rel="external">POSIX</a>对行的<a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_206" target="_blank" rel="external">定义</a>如下：</p>
-<blockquote>
-<p>3.206 Line</p>
-<p>A sequence of zero or more non- <newline\> characters plus a terminating <newline\> character.</newline\></newline\></p>
-<p>行是由0个或者多个非 “换行” 符的字符组成，并且以 “换行” 符结尾。</p>
-</blockquote>
-<p>这样做有什么好处呢，举个例子：</p>
-<pre><code>//hello.c
-#include head.h
-print(&apos;hello&apos;)
-
-//world.c
-#include tail.h
-print(&apos;hello&apos;)
-</code></pre><p>如果这两个文件都按 POSIX 规范来写， 在<code>cat *.c</code>之后，是没有问题的：</p>
-<pre><code>//cat.c
-
-#include head.h
-print(&apos;hello&apos;)
-#include tail.h
-print(&apos;hello&apos;)
-</code></pre><p>如果缺少最后一行的换行符（如 Windows 文件那样的定义），<code>cat</code>之后，就有问题了：</p>
-<pre><code>//error.c
-
-#include head.h
-print(&apos;hello&apos;)#include tail.h
-print(&apos;hello&apos;)
-</code></pre><p>所以，从这点去理解 POSIX 对行的定义，非常合理，对于任意文件的拼接，也各自保持了文件的完整性。</p>
-<p>不遵守标准带来的则是：在一些编辑器下面，比如 Sublime，他把<code>\n</code>的当做了行之间的分隔符，于是文件最后一行的<code>\n</code>就看上去成了一个新的空行，这就是错误解读标准造成的，拼接文件时也会产生不必要的麻烦，比如上例。</p>
-<h2 id="No-new-line-at-end-of-file"><a href="#No-new-line-at-end-of-file" class="headerlink" title="\ No new line at end of file"></a>\ No new line at end of file</h2><p>基于上面的原因，再去看 git diff 的<code>\ No new line at end of file</code>信息，就很好解释了。</p>
-<p>各编辑器对于换行符的理解偏差，导致的文件确实发生了变化，多了或少了最后的<code>0a</code>，那么对于 diff 程序来说，这当然是不可忽略的，但因为<code>0a</code>是不可见字符，并且是长久以来的历史原因，所以 diff 程序有个专门的标记来说明这个变化，就是：</p>
-<p><code>\ No new line at end of file</code></p>
-<p>各编辑器也有相应的办法去解决这个问题，比如 Sublime，在<code>Default/Preferences.sublime-settings</code>中设置：</p>
-<pre><code>// Set to true to ensure the last line of the file ends in a newline
-// character when saving
-&quot;ensure_newline_at_eof_on_save&quot;: true,
-</code></pre><p>所以，请遵守规范。</p>
-]]></content>
-      
-        <categories>
-            
-            <category> 转载文章 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 基础 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[MDK5安装及配置]]></title>
       <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
       <content type="html"><![CDATA[<h3 id="MDK简介"><a href="#MDK简介" class="headerlink" title="MDK简介"></a>MDK简介</h3><blockquote>
@@ -7849,6 +7869,94 @@ print(&apos;hello&apos;)
         <tags>
             
             <tag> 配置 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[（转）回车、换行、和文件末尾空行]]></title>
+      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%EF%BC%88%E8%BD%AC%EF%BC%89%E5%9B%9E%E8%BD%A6%E3%80%81%E6%8D%A2%E8%A1%8C%E3%80%81%E5%92%8C%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E7%A9%BA%E8%A1%8C/</url>
+      <content type="html"><![CDATA[<h2 id="回车和换行"><a href="#回车和换行" class="headerlink" title="回车和换行"></a>回车和换行</h2><p>回车 (Carriage Return) 和换行 (Line Feed) 的区别，<a href="http://stackoverflow.com/questions/1761051/difference-between-n-and-r" target="_blank" rel="external">这里</a>有一个历史原因可参考：</p>
+<blockquote>
+<p>在计算机还没有出现之前，有一种叫做电传打字机（Teletype Model 33）的玩意，每秒钟可以打10个字符。但是它有一个问题，就是打完一行换行的时候，要用去0.2秒，正好可以打两个字符。要是在这0.2秒里面，又有新的字符传过来，那么这个字符将丢失。</p>
+<p>于是，研制人员想了个办法解决这个问题，就是在每行后面加两个表示结束的字符。一个叫做”回车”，告诉打字机把打印头定位在左边界；另一个叫做”换行”，告诉打字机把纸向下移一行。</p>
+</blockquote>
+<p>发明计算机时，这个概念被沿用下来，但因为条件的限制和设计者的喜好，有了一些分歧：</p>
+<ul>
+<li>Unix 系统里，每行结尾只有”&lt;换行&gt;”，即 “\n”</li>
+<li>Windows 系统里面，每行结尾是”&lt;回车&gt;&lt;换行&gt;”，即 “\r\n”</li>
+<li>在老的 Mac 系统里，每行结尾是”&lt;回车&gt;”，即 “\r”</li>
+</ul>
+<p>我们来验证一下，我在 Windows 下用记事本新建一个文本文件，它的二进制编码如下：</p>
+<pre><code>//源文件内容
+hello
+hello2
+
+//二进制内容
+0000000: 6865 6c6c 6f0d 0a68 656c 6c6f 32         hello..hello2
+</code></pre><p>同样在 Mac 下用 Vim 新建一个：</p>
+<pre><code>//源文件内容
+hello
+hello2
+
+//二进制内容
+0000000: 6865 6c6c 6f0a 6865 6c6c 6f32 0a         hello.hello2.
+</code></pre><p><code>0a</code>是 LF 的 ASCII 编码, <code>0d</code>是 CR 的 ASCII 编码。区别很明显了</p>
+<ul>
+<li>Mac 下的文本文件在 Windows 下打开会成为一行，因为 Windows 只认识 <code>\r\n</code>，也就是 <code>0d0a</code></li>
+<li>Windows 下的文本文件在 Mac 下打开，Vim 中会在每行末尾显示一个 <code>^M</code>，(不是两个字符组成的)</li>
+</ul>
+<a id="more"></a>
+<h2 id="文件末尾空行"><a href="#文件末尾空行" class="headerlink" title="文件末尾空行"></a>文件末尾空行</h2><p><a href="https://zh.wikipedia.org/zh-sg/POSIX" target="_blank" rel="external">POSIX</a>对行的<a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_206" target="_blank" rel="external">定义</a>如下：</p>
+<blockquote>
+<p>3.206 Line</p>
+<p>A sequence of zero or more non- <newline\> characters plus a terminating <newline\> character.</newline\></newline\></p>
+<p>行是由0个或者多个非 “换行” 符的字符组成，并且以 “换行” 符结尾。</p>
+</blockquote>
+<p>这样做有什么好处呢，举个例子：</p>
+<pre><code>//hello.c
+#include head.h
+print(&apos;hello&apos;)
+
+//world.c
+#include tail.h
+print(&apos;hello&apos;)
+</code></pre><p>如果这两个文件都按 POSIX 规范来写， 在<code>cat *.c</code>之后，是没有问题的：</p>
+<pre><code>//cat.c
+
+#include head.h
+print(&apos;hello&apos;)
+#include tail.h
+print(&apos;hello&apos;)
+</code></pre><p>如果缺少最后一行的换行符（如 Windows 文件那样的定义），<code>cat</code>之后，就有问题了：</p>
+<pre><code>//error.c
+
+#include head.h
+print(&apos;hello&apos;)#include tail.h
+print(&apos;hello&apos;)
+</code></pre><p>所以，从这点去理解 POSIX 对行的定义，非常合理，对于任意文件的拼接，也各自保持了文件的完整性。</p>
+<p>不遵守标准带来的则是：在一些编辑器下面，比如 Sublime，他把<code>\n</code>的当做了行之间的分隔符，于是文件最后一行的<code>\n</code>就看上去成了一个新的空行，这就是错误解读标准造成的，拼接文件时也会产生不必要的麻烦，比如上例。</p>
+<h2 id="No-new-line-at-end-of-file"><a href="#No-new-line-at-end-of-file" class="headerlink" title="\ No new line at end of file"></a>\ No new line at end of file</h2><p>基于上面的原因，再去看 git diff 的<code>\ No new line at end of file</code>信息，就很好解释了。</p>
+<p>各编辑器对于换行符的理解偏差，导致的文件确实发生了变化，多了或少了最后的<code>0a</code>，那么对于 diff 程序来说，这当然是不可忽略的，但因为<code>0a</code>是不可见字符，并且是长久以来的历史原因，所以 diff 程序有个专门的标记来说明这个变化，就是：</p>
+<p><code>\ No new line at end of file</code></p>
+<p>各编辑器也有相应的办法去解决这个问题，比如 Sublime，在<code>Default/Preferences.sublime-settings</code>中设置：</p>
+<pre><code>// Set to true to ensure the last line of the file ends in a newline
+// character when saving
+&quot;ensure_newline_at_eof_on_save&quot;: true,
+</code></pre><p>所以，请遵守规范。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 转载文章 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 基础 </tag>
             
         </tags>
         

@@ -135,12 +135,14 @@ logfile=/var/log/shadowsocks.log
 - 最后让 supervisor 开机自启动：在 `vim /etc/rc.local` 空白行加入 `service supervisor restart` (事实上这一步可以不用加，supervisor 本身就会开机自启动，在 `/etc/rc2.d/` 下 我们可以看到 `lrwxrwxrwx 1 root root  20 Nov 25 11:56 S01supervisor -> ../init.d/supervisor` ，当然如果你的系统没能自动开启 supervisor 守护进程，则需要手动完成上述操作)，重启服务器查看是否配置成功。
 
 
-*采用 supervisor 的原因很大程度上是：将 `ssserver -c /etc/shadowsocks.json` 放入/etc/rc.local中没法开启自启该服务，有待查找原因。*
+*采用 supervisor 的原因很大程度上是：将 `ssserver -c /etc/shadowsocks.json` 放入/etc/rc.local中没法开启自启该服务，另外 supervisor 会保护 ss 进程服务，当被终止后，会重启启动。*
 
 
 **以上内容均为个人总结转述，如果可以访问外网，请参考[官网](https://shadowsocks.org/en/download/servers.html)给出的更加详细的配置步骤。以下为客户端配置，注意只有在完成了服务器端配置或者你已经有一个可以使用的 shadowsocks 服务器，才能够在本地搭建以下服务。**
 
 注意：如果你运行： ssserver -c /etc/shadowsocks.json 无法成功的话，则推荐去仔细阅读官网说明文档。
+
+**设置完成后，root 重启 VPS。**
 
 ### 本地 linux 下的安装配置
 
@@ -226,6 +228,8 @@ logfile=/var/log/shadowsocks.log
 ![](https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-11-25-vps-shadowsocks/5.png)
 
 这边的服务器 IP 同上面 linux 的类似，填写你的域名或者 IP 即可，密码也要和服务器的 shadowsocks 服务保持一致。值得一提的是 windows 下面的客户端直接可以设置全局代理，右击任务栏的小图标可以设置相关选项。
+
+**配置成功后，重启本地电脑，或者 kill 本地 ssslocal 进程，supervisor 会重新重启 ss 服务，加载新的配置。**
 
 ### 本地 安卓手机端 安装配置
 

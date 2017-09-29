@@ -250,3 +250,4 @@ logfile=/var/log/shadowsocks.log
 > https://zh.wikipedia.org/zh-hans/Shadowsocks
 > https://github.com/shadowsocks/shadowsocks/tree/master
 > http://webcache.googleusercontent.com/search?q=cache:http://everet.org/shadowsocks.html
+> https://wiki.archlinux.org/index.php/Shadowsocks_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)

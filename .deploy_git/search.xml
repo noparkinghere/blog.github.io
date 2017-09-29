@@ -217,7 +217,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[Plan2017(下)-(1)]]></title>
+      <title><![CDATA[Plan2017(下)-(2)]]></title>
       <url>http://noparkinghere.top/2017/08/01/2017/2017-08-01-plan2017(%E4%B8%8B)-(2)/</url>
       <content type="html"><![CDATA[<p><strong>整体计划参照总纲，每阶段做的事情按照后面的细则来执行，尽量合理安排，让工作学习计划更加弹性，每个周期安排的任务少、时间尽可能的多以保证不会被一些事情所打算；一定要做好充足的休息和锻炼，计划的初衷是生活学习习惯的培养，因此优先多喝水，锻炼和休息。</strong></p>
 <p><strong>经过一个多月来的实践，其中有一半的任务完成不错，另外仍然有很多比较局限或者不得要领。接下来一段时间准备实践一套英语学习法，由于占用的时间比较多，因此计划会有很大的调整，目标是将这套学习法较好的实现，并且通过它，找到真正适合自己的学习套路。</strong></p>
@@ -656,7 +656,7 @@
 <li>双引号里可以有变量，双引号里可以出现转义字符</li>
 </ul>
 <h4 id="获取字符串长度："><a href="#获取字符串长度：" class="headerlink" title="获取字符串长度："></a>获取字符串长度：</h4><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$&#123;<span class="comment">#parameter&#125;</span></div><div class="line">Parameter  <span class="built_in">length</span>.  The <span class="built_in">length</span> <span class="keyword">in</span> <span class="built_in">characters</span> <span class="keyword">of</span> <span class="keyword">the</span> value <span class="keyword">of</span> parameter <span class="keyword">is</span> substituted.</div><div class="line"></div><div class="line"><span class="built_in">string</span>=<span class="string">"abcd"</span></div><div class="line">echo $&#123;<span class="comment">#string&#125; #输出 4</span></div></pre></td></tr></table></figure>
-<h4 id="提取子字符串："><a href="#提取子字符串：" class="headerlink" title="提取子字符串："></a>提取子字符串：</h4><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">string</span>=<span class="string">"alibaba is a great company"</span></div><div class="line">echo $&#123;<span class="built_in">string</span>:<span class="number">1</span>:<span class="number">4</span>&#125; <span class="comment">#输出liba</span></div></pre></td></tr></table></figure>
+<h4 id="提取子字符串："><a href="#提取子字符串：" class="headerlink" title="提取子字符串："></a>提取子字符串：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">string=<span class="string">"alibaba is a great company"</span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$&#123;string:1:4&#125;</span> <span class="comment">#输出liba</span></div></pre></td></tr></table></figure>
 <h4 id="查找子字符串"><a href="#查找子字符串" class="headerlink" title="查找子字符串"></a>查找子字符串</h4><figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">string</span>=<span class="string">"alibaba is a great company"</span></div><div class="line"><span class="keyword">echo</span> `expr <span class="built_in">index</span> <span class="string">"$string"</span> <span class="keyword">is</span>`</div></pre></td></tr></table></figure>
 <h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>bash支持一维数组（不支持多维数组），并且没有限定数组的大小。类似与C语言，数组元素的下标由0开始编号。获取数组中的元素要利用下标，下标可以是整数或算术表达式，其值应大于或等于0。</p>
 <p>用括号来表示数组，数组元素用“空格”符号分割开。定义数组的一般形式为：array_name=(value1 … valuen)</p>
@@ -4001,7 +4001,7 @@
     <entry>
       <title><![CDATA[linux-shadowsocks全局代理]]></title>
       <url>http://noparkinghere.top/2017/01/25/2017/2017-01-25-ss-linux%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86/</url>
-      <content type="html"><![CDATA[<p>windows 直接下载 ss 终端，稍加设置即可完成全局代理，linux 用户如果需要让某个软件可以使用 ss 一般都需要连接端口才行。例如本地 ss 配置为：<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"server_port"</span>:<span class="number">1800</span>,</div><div class="line"><span class="string">"local_port"</span>:<span class="number">1080</span>,</div></pre></td></tr></table></figure></p>
+      <content type="html"><![CDATA[<p>windows 直接下载 ss 终端，稍加设置即可完成全局代理，linux 用户如果需要让某个软件可以使用 ss 一般都需要连接端口才行。例如本地 ss 配置为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"server_port"</span>:1800,</div><div class="line"><span class="string">"local_port"</span>:1080,</div></pre></td></tr></table></figure></p>
 <h3 id="原理简述"><a href="#原理简述" class="headerlink" title="原理简述"></a>原理简述</h3><p>这边就相当于将本地的 127.0.0.1:1080 和 server_ip:1800 建立了连接关系。因此软件如果需要使用 vps 上面搭建的 ss 服务的话，则需要让该软件使用的协议连接到 127.0.0.1:1080 上。之前在 vps-shadowsocks 中介绍的 chrome 插件 SwitchyOmega 就是使用 SOCKS5 协议连接到 127.0.0.1:1080 上，让所有数据通过 SOCKS5 协议，然后从 127.0.0.1:1080 进行收发。</p>
 <p>可以看出如果我们需要让其他软件也能够使用 ss 则需要让他们也能够使用 127.0.0.1:1080 代理服务器，然而不幸的是，大多数软件并不支持代理服务的功能， windows 平台下的软件很多可以通过设置 IE 代理让其他软件使用代理服务（原理是：大多数软件都会优先读取 IE 的代理设置，再访问网络）。</p>
 <a id="more"></a>
@@ -4863,7 +4863,7 @@
 <p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-11-25-vps-shadowsocks/6.png" alt=""></p>
 <p>其中安卓和苹果的<a href="https://shadowsocks.org/en/index.html" target="_blank" rel="external">shadowsocks 官网</a>给出地址都是应用商城地址，用户可以直接去 github 去查找 shadowsocks 库，在 releases 中下载最新的版本。</p>
 <blockquote>
-<p>参考链接：<br><a href="http://vc2tea.com/whats-shadowsocks/" target="_blank" rel="external">http://vc2tea.com/whats-shadowsocks/</a><br><a href="https://aitanlu.com/ubuntu-shadowsocks-ke-hu-duan-pei-zhi.html" target="_blank" rel="external">https://aitanlu.com/ubuntu-shadowsocks-ke-hu-duan-pei-zhi.html</a><br><a href="https://aitanlu.com/linux-ubuntu-install-shadowsocks.html" target="_blank" rel="external">https://aitanlu.com/linux-ubuntu-install-shadowsocks.html</a><br><a href="https://php-rmcr7.rhcloud.com/shadowsocks-server/" target="_blank" rel="external">https://php-rmcr7.rhcloud.com/shadowsocks-server/</a><br><a href="http://blog.chinaunix.net/uid-25530360-id-5595974.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-25530360-id-5595974.html</a><br><a href="http://www.liaoxuefeng.com/article/0013738926914703df5e93589a14c19807f0e285194fe84000" target="_blank" rel="external">http://www.liaoxuefeng.com/article/0013738926914703df5e93589a14c19807f0e285194fe84000</a><br><a href="https://zh.wikipedia.org/zh-hans/Shadowsocks" target="_blank" rel="external">https://zh.wikipedia.org/zh-hans/Shadowsocks</a><br><a href="https://github.com/shadowsocks/shadowsocks/tree/master" target="_blank" rel="external">https://github.com/shadowsocks/shadowsocks/tree/master</a><br><a href="http://webcache.googleusercontent.com/search?q=cache:http://everet.org/shadowsocks.html" target="_blank" rel="external">http://webcache.googleusercontent.com/search?q=cache:http://everet.org/shadowsocks.html</a></p>
+<p>参考链接：<br><a href="http://vc2tea.com/whats-shadowsocks/" target="_blank" rel="external">http://vc2tea.com/whats-shadowsocks/</a><br><a href="https://aitanlu.com/ubuntu-shadowsocks-ke-hu-duan-pei-zhi.html" target="_blank" rel="external">https://aitanlu.com/ubuntu-shadowsocks-ke-hu-duan-pei-zhi.html</a><br><a href="https://aitanlu.com/linux-ubuntu-install-shadowsocks.html" target="_blank" rel="external">https://aitanlu.com/linux-ubuntu-install-shadowsocks.html</a><br><a href="https://php-rmcr7.rhcloud.com/shadowsocks-server/" target="_blank" rel="external">https://php-rmcr7.rhcloud.com/shadowsocks-server/</a><br><a href="http://blog.chinaunix.net/uid-25530360-id-5595974.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-25530360-id-5595974.html</a><br><a href="http://www.liaoxuefeng.com/article/0013738926914703df5e93589a14c19807f0e285194fe84000" target="_blank" rel="external">http://www.liaoxuefeng.com/article/0013738926914703df5e93589a14c19807f0e285194fe84000</a><br><a href="https://zh.wikipedia.org/zh-hans/Shadowsocks" target="_blank" rel="external">https://zh.wikipedia.org/zh-hans/Shadowsocks</a><br><a href="https://github.com/shadowsocks/shadowsocks/tree/master" target="_blank" rel="external">https://github.com/shadowsocks/shadowsocks/tree/master</a><br><a href="http://webcache.googleusercontent.com/search?q=cache:http://everet.org/shadowsocks.html" target="_blank" rel="external">http://webcache.googleusercontent.com/search?q=cache:http://everet.org/shadowsocks.html</a><br><a href="https://wiki.archlinux.org/index.php/Shadowsocks_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87" target="_blank" rel="external">https://wiki.archlinux.org/index.php/Shadowsocks_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87</a>)</p>
 </blockquote>
 ]]></content>
       
@@ -5863,51 +5863,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[串口RS485通信详解]]></title>
-      <url>http://noparkinghere.top/2016/10/19/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
-      <content type="html"><![CDATA[<p><strong>注意：串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。串口的一些内容不再逐一介绍说明，可以参加之前的usb转串口及RS232通信等文章</strong></p>
-<h3 id="特性介绍"><a href="#特性介绍" class="headerlink" title="特性介绍"></a>特性介绍</h3><p>485（一般称作 RS485/EIA-485）是隶属于 OSI 模型物理层的电气特性规定为 2 线，半双工，多点通信的标准。它的电气特性和 RS-232 大不一样。用缆线两端的电压差值来表示传递信号。值得注意的是：RS485 仅仅规定了接受端和发送端的电气特性，它没有规定或推荐任何数据协议。</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/1.jpg" alt=""></p>
-<p>RS485接口可以只使用两根线进行通讯（其他串口通讯至少需要三根线，一根为地线作为参考电平），通过差分电平（利用两个信号的差值来判断信息，使用差分信号来传输的，也就是一根线传同相信号，一根线传反相，这样差值最大，抗干扰能力强。）来确定信号是0还是1，也正因为这个原因，所以RS485每次有且仅有一根线能够传输数据，另外一根线作为比对信号，因此RS485是半双工的通讯方式。主要特点如下：</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/2.jpg" alt=""></p>
-<ul>
-<li>接口电平低，不易损坏芯片。 RS485 的电气特性：逻辑“ 1”以两线间的电压差为+(2~6)V<br>表示；逻辑“ 0”以两线间的电压差为-(2~6)V 表示。接口信号电平比 RS232 降低了，<br>不易损坏接口电路的芯片，且该电平与 TTL 电平兼容，可方便与 TTL 电路连接。</li>
-<li>传输速率高。 10 米时， RS485 的数据最高传输速率可达 35Mbps，在 1200m 时，传输<br>速度可达 100Kbps。</li>
-<li>抗干扰能力强。 RS485 接口是采用平衡驱动器和差分接收器的组合，抗共模干扰能力<br>增强，即抗噪声干扰性好。 传输距离远，支持节点多。 RS485 总线最长可以传输 1200m<br>以上（速率≤100Kbps）</li>
-<li>一般最大支持 32 个节点，如果使用特制的 485 芯片，可以达到 128 个或者 256 个节点，<br>最大的可以支持到 400 个节点。</li>
-</ul>
-<a id="more"></a>
-<h3 id="类比RS232"><a href="#类比RS232" class="headerlink" title="类比RS232"></a>类比RS232</h3><p>实际上232串口在实际使用已经用处不大，但基于232发展出来的485等串口设备仍然被广泛使用，RS-485（EIA-485标准）是RS-422的改进，因为它增加了设备的个数，从10个增加到32个，同时定义了在最大设备个数情况下的电气特性，以保证足够的信号电压。有了多个设备的能力，你可以使用一个单个RS-485口建立设备网络。</p>
-<p>因为都是采用串口通信协议，所以软件端几乎可以直接使用，且RS485具备耗材少，抗干扰强等特点，在目前的工业领域仍然被广泛使用，这边主要列举出不同：</p>
-<ul>
-<li>从接线上，RS232是三线制，RS485是两线制</li>
-<li>从传输距离上，RS232只能传输15米，RS485最远可以传输1200米</li>
-<li>从速率上，RS232是全双工传输，RS485是半双工传输</li>
-<li>从协议层上，RS232只支持点对点通讯(1:1)，RS485支持总线形式通讯（1:N）</li>
-</ul>
-<p>RS232的接线：<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/3.jpg" alt="">)</p>
-<p>RS485的接线<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/4.jpg" alt=""></p>
-<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><blockquote>
-<p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a></p>
-</blockquote>
-]]></content>
-      
-        <categories>
-            
-            <category> 程序开发 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 嵌入式 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[串口RS232通信详解]]></title>
       <url>http://noparkinghere.top/2016/10/19/2016/2016-10-19-%E4%B8%B2%E5%8F%A3RS232%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<p>串行接口是一种可以将接受来自CPU的并行数据字符转换为连续的串行数据流发送出去，同时可将接受的串行数据流转换为并行的数据字符供给CPU的器件。一般完成这种功能的电路，我们称为串行接口电路。曾经PC之间进行串口通信可以说是标配，很多老式电脑上面可以看到DB25的接头，但后来逐渐被DB9取代，早期鼠标打印机都通过串口进行数据传输的，但现在逐渐被USB和网络所取代，DB9的串口接头在PC和笔记本上面也较少能够看到了。做嵌入式开发可以看到有个DB9的串口标准接口，串口对于开发人员输入输出调试等有着至关重要的作用。串行接口按电气标准及协议来分包括RS-232-C、RS-422、RS485等，现在串口一般在工业嵌入式领域使用。</p>
@@ -5967,6 +5922,51 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
 <blockquote>
 <p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a><br><a href="http://www.baike.com/wiki/51+IO%E5%8F%A3%E6%A8%A1%E6%8B%9F%E4%B8%B2%E5%8F%A3%E9%80%9A%E8%AE%AFC%E6%BA%90%E7%A8%8B%E5%BA%8F" target="_blank" rel="external">http://www.baike.com/wiki/51+IO%E5%8F%A3%E6%A8%A1%E6%8B%9F%E4%B8%B2%E5%8F%A3%E9%80%9A%E8%AE%AFC%E6%BA%90%E7%A8%8B%E5%BA%8F</a><br><a href="http://ziye334.blog.163.com/blog/static/224306191201452833850647" target="_blank" rel="external">http://ziye334.blog.163.com/blog/static/224306191201452833850647</a></p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> 程序开发 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[串口RS485通信详解]]></title>
+      <url>http://noparkinghere.top/2016/10/19/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<p><strong>注意：串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。串口的一些内容不再逐一介绍说明，可以参加之前的usb转串口及RS232通信等文章</strong></p>
+<h3 id="特性介绍"><a href="#特性介绍" class="headerlink" title="特性介绍"></a>特性介绍</h3><p>485（一般称作 RS485/EIA-485）是隶属于 OSI 模型物理层的电气特性规定为 2 线，半双工，多点通信的标准。它的电气特性和 RS-232 大不一样。用缆线两端的电压差值来表示传递信号。值得注意的是：RS485 仅仅规定了接受端和发送端的电气特性，它没有规定或推荐任何数据协议。</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/1.jpg" alt=""></p>
+<p>RS485接口可以只使用两根线进行通讯（其他串口通讯至少需要三根线，一根为地线作为参考电平），通过差分电平（利用两个信号的差值来判断信息，使用差分信号来传输的，也就是一根线传同相信号，一根线传反相，这样差值最大，抗干扰能力强。）来确定信号是0还是1，也正因为这个原因，所以RS485每次有且仅有一根线能够传输数据，另外一根线作为比对信号，因此RS485是半双工的通讯方式。主要特点如下：</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/2.jpg" alt=""></p>
+<ul>
+<li>接口电平低，不易损坏芯片。 RS485 的电气特性：逻辑“ 1”以两线间的电压差为+(2~6)V<br>表示；逻辑“ 0”以两线间的电压差为-(2~6)V 表示。接口信号电平比 RS232 降低了，<br>不易损坏接口电路的芯片，且该电平与 TTL 电平兼容，可方便与 TTL 电路连接。</li>
+<li>传输速率高。 10 米时， RS485 的数据最高传输速率可达 35Mbps，在 1200m 时，传输<br>速度可达 100Kbps。</li>
+<li>抗干扰能力强。 RS485 接口是采用平衡驱动器和差分接收器的组合，抗共模干扰能力<br>增强，即抗噪声干扰性好。 传输距离远，支持节点多。 RS485 总线最长可以传输 1200m<br>以上（速率≤100Kbps）</li>
+<li>一般最大支持 32 个节点，如果使用特制的 485 芯片，可以达到 128 个或者 256 个节点，<br>最大的可以支持到 400 个节点。</li>
+</ul>
+<a id="more"></a>
+<h3 id="类比RS232"><a href="#类比RS232" class="headerlink" title="类比RS232"></a>类比RS232</h3><p>实际上232串口在实际使用已经用处不大，但基于232发展出来的485等串口设备仍然被广泛使用，RS-485（EIA-485标准）是RS-422的改进，因为它增加了设备的个数，从10个增加到32个，同时定义了在最大设备个数情况下的电气特性，以保证足够的信号电压。有了多个设备的能力，你可以使用一个单个RS-485口建立设备网络。</p>
+<p>因为都是采用串口通信协议，所以软件端几乎可以直接使用，且RS485具备耗材少，抗干扰强等特点，在目前的工业领域仍然被广泛使用，这边主要列举出不同：</p>
+<ul>
+<li>从接线上，RS232是三线制，RS485是两线制</li>
+<li>从传输距离上，RS232只能传输15米，RS485最远可以传输1200米</li>
+<li>从速率上，RS232是全双工传输，RS485是半双工传输</li>
+<li>从协议层上，RS232只支持点对点通讯(1:1)，RS485支持总线形式通讯（1:N）</li>
+</ul>
+<p>RS232的接线：<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/3.jpg" alt="">)</p>
+<p>RS485的接线<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/4.jpg" alt=""></p>
+<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><blockquote>
+<p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a></p>
 </blockquote>
 ]]></content>
       
@@ -6482,33 +6482,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[git的配置及相关插件]]></title>
-      <url>http://noparkinghere.top/2016/09/28/2016-09-28-git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6/</url>
-      <content type="html"><![CDATA[<p>一个好的工具，需要不断的打磨和熟悉使用技巧才可以把它用的炉火纯青，git同样如此，本文主要是推荐一些git常用的配置以及配套的一些工具。</p>
-<h3 id="git的相关配置："><a href="#git的相关配置：" class="headerlink" title="git的相关配置："></a>git的相关配置：</h3><h4 id="gitignore配置"><a href="#gitignore配置" class="headerlink" title=".gitignore配置"></a>.gitignore配置</h4><a id="more"></a>
-<h3 id="推荐的git插件："><a href="#推荐的git插件：" class="headerlink" title="推荐的git插件："></a>推荐的git插件：</h3><h4 id="tig"><a href="#tig" class="headerlink" title="tig"></a>tig</h4><p>首先推荐<a href="http://jonas.nitro.dk/tig/" target="_blank" rel="external">tig</a>（名字刚好和git相反），是一个专门针对git的小软件，官方这么介绍<em>text-mode interface for Git</em>。</p>
-<p>推荐可以访问<a href="https://github.com/jonas/tig" target="_blank" rel="external">tig的github页面</a>,里面有相关的下载安装说明。</p>
-<ul>
-<li>软件能够恨清晰的看到你的版本目录结构</li>
-</ul>
-<h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><h4 id="小乌龟插件"><a href="#小乌龟插件" class="headerlink" title="小乌龟插件"></a>小乌龟插件</h4><h4 id="atom"><a href="#atom" class="headerlink" title="atom"></a>atom</h4>]]></content>
-      
-        <categories>
-            
-            <category> 转载文章 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 英语 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[通过git管理一个工程]]></title>
       <url>http://noparkinghere.top/2016/09/28/2016/2016-09-28-%E9%80%9A%E8%BF%87git%E7%AE%A1%E7%90%86%E4%B8%80%E4%B8%AA%E5%B7%A5%E7%A8%8B/</url>
       <content type="html"><![CDATA[<p>GIT虽然能够实现各种版本控制，且功能强大，可以做到随时切换版本，回退等各种功能，但过多的分支，无效的分支，杂乱的提交，无意义的命名等等问题，往往会让像我这样的初学者，异常头痛，网络上关于git的往往都是指导你各个命令如何去用，部分命令的使用场景等，但却缺少一个完整工程项目的管理步骤。部分大神的确总结出了自己的使用习惯，但却不是作为教程来陈述的，下面我会将自己的一些习惯进行总结，后续可能遇到更好的也还会不断的更改。</p>
@@ -6548,6 +6521,33 @@
         <tags>
             
             <tag> git </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[git的配置及相关插件]]></title>
+      <url>http://noparkinghere.top/2016/09/28/2016-09-28-git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6/</url>
+      <content type="html"><![CDATA[<p>一个好的工具，需要不断的打磨和熟悉使用技巧才可以把它用的炉火纯青，git同样如此，本文主要是推荐一些git常用的配置以及配套的一些工具。</p>
+<h3 id="git的相关配置："><a href="#git的相关配置：" class="headerlink" title="git的相关配置："></a>git的相关配置：</h3><h4 id="gitignore配置"><a href="#gitignore配置" class="headerlink" title=".gitignore配置"></a>.gitignore配置</h4><a id="more"></a>
+<h3 id="推荐的git插件："><a href="#推荐的git插件：" class="headerlink" title="推荐的git插件："></a>推荐的git插件：</h3><h4 id="tig"><a href="#tig" class="headerlink" title="tig"></a>tig</h4><p>首先推荐<a href="http://jonas.nitro.dk/tig/" target="_blank" rel="external">tig</a>（名字刚好和git相反），是一个专门针对git的小软件，官方这么介绍<em>text-mode interface for Git</em>。</p>
+<p>推荐可以访问<a href="https://github.com/jonas/tig" target="_blank" rel="external">tig的github页面</a>,里面有相关的下载安装说明。</p>
+<ul>
+<li>软件能够恨清晰的看到你的版本目录结构</li>
+</ul>
+<h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><h4 id="小乌龟插件"><a href="#小乌龟插件" class="headerlink" title="小乌龟插件"></a>小乌龟插件</h4><h4 id="atom"><a href="#atom" class="headerlink" title="atom"></a>atom</h4>]]></content>
+      
+        <categories>
+            
+            <category> 转载文章 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 英语 </tag>
             
         </tags>
         
@@ -8000,34 +8000,78 @@
     </entry>
     
     <entry>
-      <title><![CDATA[stm32F439案例汇总]]></title>
-      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
-      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
-<blockquote>
-<p>www.armjishu.com(无法访问)</p>
+      <title><![CDATA[MDK5安装及配置]]></title>
+      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
+      <content type="html"><![CDATA[<h3 id="MDK简介"><a href="#MDK简介" class="headerlink" title="MDK简介"></a>MDK简介</h3><blockquote>
+<p>Keil MDK，也称MDK-ARM，Realview MDK、I-MDK、uVision4 等。Keil C51 是美国 Keil Software 公司出品的 51 系列兼容单片机 C 语言软件开发系统，被 ARM（英国）公司收购，作为在 51 单片机时代相当流行的一个软件。</p>
 </blockquote>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
-<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
-<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
+<p><em>而如果你是一个嵌入式工作者，尤其是主要使用ST或者飞思卡尔等工业产品为主的芯片，在国内的话可以说你的选择要么是keil要么就是IAR。keil作为一个IDE来说编辑功能缺失恨薄弱，但是硬件调试能力还是毋容置疑的，而keil配置简单容易上手，该有的功能操作也都具备，本文主要讲述作者的一些keil配置及习惯。</em></p>
+<h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ul>
+<li>界面友好，上手简单</li>
+<li>被ARM公司收购，编辑ARM相对友好，仿真功能十分强大</li>
+<li>官方提供各种芯片的启动代码，仿真库</li>
+</ul>
+<h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><ul>
+<li>自带编辑功能薄弱</li>
+<li>不支持/极少支持第三方插件</li>
 </ul>
 <a id="more"></a>
-<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
-<li>实验0 Template工程模板</li>
-<li>实验1 跑马灯</li>
-<li>实验2 蜂鸣器</li>
-<li>实验3 按键和外部中断</li>
-<li>实验4 看门狗（独立和窗口）</li>
-<li>实验5 待机唤醒</li>
-<li>实验6 串口通讯（232和485）</li>
-<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
-<li>实验8 PWM输出和输入捕获</li>
+<h3 id="KEIL-5配置"><a href="#KEIL-5配置" class="headerlink" title="KEIL 5配置"></a>KEIL 5配置</h3><h4 id="界面配置"><a href="#界面配置" class="headerlink" title="界面配置"></a>界面配置</h4><ul>
+<li>Keil 5及之后的版本缺少相关的原件类库，需要额外安装。可以从官网下载芯片库</li>
+<li><p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture1.png" alt=""></p>
+</li>
+<li><p>Keil 4.6及之后的版本对中文字体支持依旧很差，通过修改成GB2312的简体中文编码，可以让注释的中文字体不会拆分，但默认的Courier New - 10不能够良好的显示所有字体，直接通过修改GB2312会形成字体锯齿化，缺少虚化的过渡。</p>
+</li>
 </ul>
-<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
-<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture2.png" alt=""></p>
+<ul>
+<li>通过尝试多种字体以及添加fonts文件，发现要么中文字体显示不错，英文不行，要么英文显示不错，中文不行，很多情况代码字体偏大或者偏小，最终个人觉得较好的配置界面如下：</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture3.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture4.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture5.png" alt=""></p>
+<ul>
+<li>如果需要修改背景颜色，需要对c/c++ Editor files 下的text，number等所有的background进行修改。配置如下：</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture6.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture7.png" alt=""></p>
+<ul>
+<li>光标指向向的颜色修改如下：</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture8.png" alt=""></p>
+<ul>
+<li>菜单栏view下面的所有工具栏颜色是跟随系统变化的，可以采用如果腾讯软件管家之类的工具开启护眼模式。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture9.png" alt=""></p>
+<h4 id="KEIL建立单片机工程文件注意事项：："><a href="#KEIL建立单片机工程文件注意事项：：" class="headerlink" title="KEIL建立单片机工程文件注意事项：："></a>KEIL建立单片机工程文件注意事项：：</h4><ul>
+<li>注意KEIL的配置详细可以参考“Keil 5配置”文档。</li>
+<li>工程文件建立目录结构需清晰可参考下图：</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture10.png" alt=""></p>
+<p>该工具条中主要存放的是项目中需要使用到的C文件（注意并不包含任何头文件），只有加入这个工具中得.c文件才会进行项目的编译。<br>下面仅作参考，根据个人的习惯而定制，相关存放内容说明：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">CORE</span>：存放<span class="selector-tag">SOC</span>相关代码，包含<span class="selector-class">.s</span>启动文件，<span class="selector-tag">CMSIS</span>的部分<span class="selector-class">.c</span>文件以及<span class="selector-tag">CPU</span>相关的底层核心文件</div><div class="line"><span class="selector-tag">FWLIB</span>：固件库，厂方提供的标准固件库，用于调用外设的函数。</div><div class="line"><span class="selector-tag">BSP</span>：操作系统与芯片的中间层</div><div class="line"><span class="selector-tag">USER</span>：用户自己写的函数文件，包括<span class="selector-tag">main</span>和用户定制的功能函数</div><div class="line"><span class="selector-tag">OS</span>：具体名称为操作系统名称，可以是<span class="selector-tag">UCOS</span>，<span class="selector-tag">uclinux</span>等等嵌入式操作系统</div><div class="line"><span class="selector-tag">README</span>：整个工程的相关项目说明</div></pre></td></tr></table></figure></p>
+<ul>
+<li>新建工程重点配置Define和Include Paths，如下图</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture12.png" alt=""></p>
+<p><em>需强调的是 Define 中的选项不能少，这些选项一般都是如：stm32f10x.h（芯片寄存器定义文件） 或者内核中的宏定义，可以用来进行芯片选型等操作，可以用查找工具全局查找，会发现相关的 #ifdef 语句。本质上面来说，Define 加入的内容就相当于在 c 文件中手动的写入 #define xxx 语句。<br>Include Paths 中定义的都是头文件所在的路径，注意是头文件的路经，这边 ..\CMSIS 等都是使用 windows 下相对路径的格式，如果头文件不在 Include Paths 下的路经中，则编译器无法找到相关头文件，会编译失败。</em></p>
+<p><strong>其他注意点：</strong><br>C99Mode如果不勾选，默认可能会使用C89的编译器，一些如 bool 类型或者定义申明可能会无法编译，C89对老版本兼容性更好，但C99加入的许多新特性让编程更“合理”。具体根据自己项目需求而定。</p>
+<ul>
+<li>Debug 中进行相关模拟仿真下载器设置。一定要记得仿真设置 Reset and Run</li>
+</ul>
+<p>有仿真器的话，使用右边的仿真器选项，没有的话，则使用模拟。仿真器种类繁多，最常用的比如 JLINK，和 keil ulink 之类的，一些公司也会推出自己的仿真器，如silabs uda等</p>
+<p><em>最好勾选setting-&gt;flash download下的Reset and Run，这样可以无需重新上电即可运行程序。</em></p>
+<p>JLink 在连接 STM32F439 时，在勾选或者不勾选 Verify Code Download 时可能会出现下载错误，可能会是板子设计缺陷或者JLink版本过高。</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture11.png" alt=""></p>
+<ul>
+<li><p>Utilities：将Use Debug Driver勾选或者手动设置成相同的调试器。</p>
+</li>
+<li><p>移植程序注意重点：</p>
+</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Project 的 USER 中一定要把 .c 源文件添加进去 </div><div class="line">FWLIB一定要记得添加 stm32f10x_xxx 相关的外设库文件</div><div class="line">Stm32xxx_conf.h 中需取消相关注释</div><div class="line">用户定义的.h头文件需加入 <span class="comment">#include "stm32f10x.h"，且不需要加入 Stm32xxx_conf.h 因为该头文件已经在 #include "stm32f10x.h" 中包含了。</span></div><div class="line">添加用户自定义 .c 文件时，记得把其头文件写入到 main 函数所在文件中</div></pre></td></tr></table></figure>
+<blockquote>
+<p>参考链接：<br><a href="http://www.jb51.net/os/windows/211837.html" target="_blank" rel="external">http://www.jb51.net/os/windows/211837.html</a><br><a href="http://comm.chinaaet.com/adi/blogdetail/32471.html" target="_blank" rel="external">http://comm.chinaaet.com/adi/blogdetail/32471.html</a></p>
 </blockquote>
-<hr>
-<p><em>未完待续</em></p>
 ]]></content>
       
         <categories>
@@ -8039,7 +8083,7 @@
         
         <tags>
             
-            <tag> 嵌入式 </tag>
+            <tag> 配置 </tag>
             
         </tags>
         
@@ -8134,78 +8178,34 @@ print(&apos;hello&apos;)
     </entry>
     
     <entry>
-      <title><![CDATA[MDK5安装及配置]]></title>
-      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
-      <content type="html"><![CDATA[<h3 id="MDK简介"><a href="#MDK简介" class="headerlink" title="MDK简介"></a>MDK简介</h3><blockquote>
-<p>Keil MDK，也称MDK-ARM，Realview MDK、I-MDK、uVision4 等。Keil C51 是美国 Keil Software 公司出品的 51 系列兼容单片机 C 语言软件开发系统，被 ARM（英国）公司收购，作为在 51 单片机时代相当流行的一个软件。</p>
+      <title><![CDATA[stm32F439案例汇总]]></title>
+      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
+      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
+<blockquote>
+<p>www.armjishu.com(无法访问)</p>
 </blockquote>
-<p><em>而如果你是一个嵌入式工作者，尤其是主要使用ST或者飞思卡尔等工业产品为主的芯片，在国内的话可以说你的选择要么是keil要么就是IAR。keil作为一个IDE来说编辑功能缺失恨薄弱，但是硬件调试能力还是毋容置疑的，而keil配置简单容易上手，该有的功能操作也都具备，本文主要讲述作者的一些keil配置及习惯。</em></p>
-<h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ul>
-<li>界面友好，上手简单</li>
-<li>被ARM公司收购，编辑ARM相对友好，仿真功能十分强大</li>
-<li>官方提供各种芯片的启动代码，仿真库</li>
-</ul>
-<h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><ul>
-<li>自带编辑功能薄弱</li>
-<li>不支持/极少支持第三方插件</li>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
+<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
+<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
 </ul>
 <a id="more"></a>
-<h3 id="KEIL-5配置"><a href="#KEIL-5配置" class="headerlink" title="KEIL 5配置"></a>KEIL 5配置</h3><h4 id="界面配置"><a href="#界面配置" class="headerlink" title="界面配置"></a>界面配置</h4><ul>
-<li>Keil 5及之后的版本缺少相关的原件类库，需要额外安装。可以从官网下载芯片库</li>
-<li><p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture1.png" alt=""></p>
-</li>
-<li><p>Keil 4.6及之后的版本对中文字体支持依旧很差，通过修改成GB2312的简体中文编码，可以让注释的中文字体不会拆分，但默认的Courier New - 10不能够良好的显示所有字体，直接通过修改GB2312会形成字体锯齿化，缺少虚化的过渡。</p>
-</li>
+<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
+<li>实验0 Template工程模板</li>
+<li>实验1 跑马灯</li>
+<li>实验2 蜂鸣器</li>
+<li>实验3 按键和外部中断</li>
+<li>实验4 看门狗（独立和窗口）</li>
+<li>实验5 待机唤醒</li>
+<li>实验6 串口通讯（232和485）</li>
+<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
+<li>实验8 PWM输出和输入捕获</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture2.png" alt=""></p>
-<ul>
-<li>通过尝试多种字体以及添加fonts文件，发现要么中文字体显示不错，英文不行，要么英文显示不错，中文不行，很多情况代码字体偏大或者偏小，最终个人觉得较好的配置界面如下：</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture3.png" alt=""></p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture4.png" alt=""></p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture5.png" alt=""></p>
-<ul>
-<li>如果需要修改背景颜色，需要对c/c++ Editor files 下的text，number等所有的background进行修改。配置如下：</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture6.png" alt=""></p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture7.png" alt=""></p>
-<ul>
-<li>光标指向向的颜色修改如下：</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture8.png" alt=""></p>
-<ul>
-<li>菜单栏view下面的所有工具栏颜色是跟随系统变化的，可以采用如果腾讯软件管家之类的工具开启护眼模式。</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture9.png" alt=""></p>
-<h4 id="KEIL建立单片机工程文件注意事项：："><a href="#KEIL建立单片机工程文件注意事项：：" class="headerlink" title="KEIL建立单片机工程文件注意事项：："></a>KEIL建立单片机工程文件注意事项：：</h4><ul>
-<li>注意KEIL的配置详细可以参考“Keil 5配置”文档。</li>
-<li>工程文件建立目录结构需清晰可参考下图：</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture10.png" alt=""></p>
-<p>该工具条中主要存放的是项目中需要使用到的C文件（注意并不包含任何头文件），只有加入这个工具中得.c文件才会进行项目的编译。<br>下面仅作参考，根据个人的习惯而定制，相关存放内容说明：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">CORE</span>：存放<span class="selector-tag">SOC</span>相关代码，包含<span class="selector-class">.s</span>启动文件，<span class="selector-tag">CMSIS</span>的部分<span class="selector-class">.c</span>文件以及<span class="selector-tag">CPU</span>相关的底层核心文件</div><div class="line"><span class="selector-tag">FWLIB</span>：固件库，厂方提供的标准固件库，用于调用外设的函数。</div><div class="line"><span class="selector-tag">BSP</span>：操作系统与芯片的中间层</div><div class="line"><span class="selector-tag">USER</span>：用户自己写的函数文件，包括<span class="selector-tag">main</span>和用户定制的功能函数</div><div class="line"><span class="selector-tag">OS</span>：具体名称为操作系统名称，可以是<span class="selector-tag">UCOS</span>，<span class="selector-tag">uclinux</span>等等嵌入式操作系统</div><div class="line"><span class="selector-tag">README</span>：整个工程的相关项目说明</div></pre></td></tr></table></figure></p>
-<ul>
-<li>新建工程重点配置Define和Include Paths，如下图</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture12.png" alt=""></p>
-<p><em>需强调的是 Define 中的选项不能少，这些选项一般都是如：stm32f10x.h（芯片寄存器定义文件） 或者内核中的宏定义，可以用来进行芯片选型等操作，可以用查找工具全局查找，会发现相关的 #ifdef 语句。本质上面来说，Define 加入的内容就相当于在 c 文件中手动的写入 #define xxx 语句。<br>Include Paths 中定义的都是头文件所在的路径，注意是头文件的路经，这边 ..\CMSIS 等都是使用 windows 下相对路径的格式，如果头文件不在 Include Paths 下的路经中，则编译器无法找到相关头文件，会编译失败。</em></p>
-<p><strong>其他注意点：</strong><br>C99Mode如果不勾选，默认可能会使用C89的编译器，一些如 bool 类型或者定义申明可能会无法编译，C89对老版本兼容性更好，但C99加入的许多新特性让编程更“合理”。具体根据自己项目需求而定。</p>
-<ul>
-<li>Debug 中进行相关模拟仿真下载器设置。一定要记得仿真设置 Reset and Run</li>
-</ul>
-<p>有仿真器的话，使用右边的仿真器选项，没有的话，则使用模拟。仿真器种类繁多，最常用的比如 JLINK，和 keil ulink 之类的，一些公司也会推出自己的仿真器，如silabs uda等</p>
-<p><em>最好勾选setting-&gt;flash download下的Reset and Run，这样可以无需重新上电即可运行程序。</em></p>
-<p>JLink 在连接 STM32F439 时，在勾选或者不勾选 Verify Code Download 时可能会出现下载错误，可能会是板子设计缺陷或者JLink版本过高。</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/Picture11.png" alt=""></p>
-<ul>
-<li><p>Utilities：将Use Debug Driver勾选或者手动设置成相同的调试器。</p>
-</li>
-<li><p>移植程序注意重点：</p>
-</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Project 的 USER 中一定要把 .c 源文件添加进去 </div><div class="line">FWLIB一定要记得添加 stm32f10x_xxx 相关的外设库文件</div><div class="line">Stm32xxx_conf.h 中需取消相关注释</div><div class="line">用户定义的.h头文件需加入 <span class="comment">#include "stm32f10x.h"，且不需要加入 Stm32xxx_conf.h 因为该头文件已经在 #include "stm32f10x.h" 中包含了。</span></div><div class="line">添加用户自定义 .c 文件时，记得把其头文件写入到 main 函数所在文件中</div></pre></td></tr></table></figure>
-<blockquote>
-<p>参考链接：<br><a href="http://www.jb51.net/os/windows/211837.html" target="_blank" rel="external">http://www.jb51.net/os/windows/211837.html</a><br><a href="http://comm.chinaaet.com/adi/blogdetail/32471.html" target="_blank" rel="external">http://comm.chinaaet.com/adi/blogdetail/32471.html</a></p>
+<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
+<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
 </blockquote>
+<hr>
+<p><em>未完待续</em></p>
 ]]></content>
       
         <categories>
@@ -8217,7 +8217,7 @@ print(&apos;hello&apos;)
         
         <tags>
             
-            <tag> 配置 </tag>
+            <tag> 嵌入式 </tag>
             
         </tags>
         

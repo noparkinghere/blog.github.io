@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title><![CDATA[为何要写博客？]]></title>
+      <url>http://noparkinghere.top/2017/10/14/2017/2017-10-14-%E4%B8%BA%E4%BD%95%E8%A6%81%E5%86%99%E5%8D%9A%E5%AE%A2%EF%BC%9F/</url>
+      <content type="html"><![CDATA[<p>这段时间，看了很多人技术达人的博客，他们往往文笔精炼，内容深入浅出。也正因为如此，一度让我觉得是否自己还有写博客的必要，毕竟人家写的已经很详尽，基本能够解决读者的困惑，我直接收藏就行了，有没有必要再自己整理书写？</p>
+<p>这一晃，一两个月过去了，这段时间都没有好好书写博客，一方面似乎很忙，学习收获跟不上博客更新的进度；另外写博客比较耗时间，往往比学习花的时间还长，写着写着就偷懒了；最主要的原因还是开头说的那样，心底似乎认为没有必要再重复整理。</p>
+<p>这两天反省了下，从任何角度来说，坚持写博客都是必须的，上面的犹豫都是杞人忧天，自取烦恼。</p>
+<h3 id="博客是对自己学习进步的鞭策，对现阶段的总结"><a href="#博客是对自己学习进步的鞭策，对现阶段的总结" class="headerlink" title="博客是对自己学习进步的鞭策，对现阶段的总结"></a>博客是对自己学习进步的鞭策，对现阶段的总结</h3><p>因为需要写博客，需要更新内容，往往迫使自己读更多的书，学更多的东西，体验更多的生活，只有如此你才可以写出有意义的文章。向来我将质量放在第一位考虑，要么不做要做就一定做好，因此，养成写博客的习惯能够督察我学习进步，想来刚开始写博客的那段时间，也是我最积极去学习探索的时间。</p>
+<h3 id="不写永远也不会有写作的提高"><a href="#不写永远也不会有写作的提高" class="headerlink" title="不写永远也不会有写作的提高"></a>不写永远也不会有写作的提高</h3><p>很羡慕那些大神的博客，思路清晰，文笔简练，内容深入浅出，在被阮一峰老师那种清晰明了的技术博客震惊后，更是觉得自己写的文章实在不能看，曾经也研究过一段时间写作，但总是不得要领。</p>
+<p>太急于求成一定不是好事，虽然我底子差离终点还很远，但至少我已经在路上，相信夜以继日一定会有所提高的，在合适的时间遇到某个经验的总结，也许我会一朝顿悟。</p>
+<h3 id="博客是自己的名片"><a href="#博客是自己的名片" class="headerlink" title="博客是自己的名片"></a>博客是自己的名片</h3><p>作为一个技术从业者，博客可以说是我的名片，技术一直在更新，我写的内容也可能马上就会过时，但探索研究的初心不该变，是否善于思考总结也是评价一个技术人员能力的关键。</p>
+<h3 id="没有面面俱到的文章"><a href="#没有面面俱到的文章" class="headerlink" title="没有面面俱到的文章"></a>没有面面俱到的文章</h3><p>世界上没有完全相同的两个人，所有最适合自己的一定是经过自己加工总结的，过去我一直有一个误区，认为别人已经写的完美了，各方面都好，自己直接加个书签拿来用即可。仔细想来事实不尽如此，世上没有任何东西是完美的，浅显易懂的内容必定不够深入，太深奥的文章可能很多细节没有说清楚。</p>
+<p>如果一些内容我只是临时需要使用下，那我直接转载/收藏别人的文章即可，但如果需要深入理解学习的话，那我一定需要参考大量书籍和文章取长补短，最终才可能写出满意的内容。除此之外，只有经过自己提取总结再学习的内容才可能真正被掌握。</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[（转）Vim配置、插件和使用技巧]]></title>
+      <url>http://noparkinghere.top/2017/10/13/2017/2017-10-13-%EF%BC%88%E8%BD%AC%EF%BC%89vim%E9%85%8D%E7%BD%AE%E3%80%81%E6%8F%92%E4%BB%B6%E5%92%8C%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</url>
+      <content type="html"><![CDATA[<p>vim 研究了好一段时间，始终没有找到一篇能够清晰的指导配置 vim 的教程，网上的教程看了很多基本可以分为两类：</p>
+<ul>
+<li>对基础的命令操作介绍的特别详细，但却没有告诉你如何安装使用插件，这往往是做服务器运维的人所需要的。</li>
+<li>已经将 vim 配置的很成功，github 提供了一键式安装脚本等，但除了安装外，并没有清楚告诉你他是怎么配置的。</li>
+</ul>
+<p>这边终于找到一个通俗易懂的 vim 配置教程，<a href="http://www.jianshu.com/p/a0b452f8f720" target="_blank" rel="external">详细原文</a>。</p>
+<p>以下内容是自己的一些总结。</p>
+<hr>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[读后感-人类简史]]></title>
       <url>http://noparkinghere.top/2017/10/11/2017/2017-10-11-%E8%AF%BB%E5%90%8E%E6%84%9F-%E4%BA%BA%E7%B1%BB%E7%AE%80%E5%8F%B2/</url>
       <content type="html"><![CDATA[<p>断断续续前后可能花了几个月时间终于把《人类简史》读完了，之所以读的这么慢，并不是书写的不好，恰恰相反书写的很棒，主要因为个人这段时间比较忙，没有大片的时间，加上阅读这类书籍思考的比较多，每次阅读都要花较长时间才能进入状态。</p>
@@ -5897,51 +5930,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[串口RS485通信详解]]></title>
-      <url>http://noparkinghere.top/2016/10/19/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
-      <content type="html"><![CDATA[<p><strong>注意：串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。串口的一些内容不再逐一介绍说明，可以参加之前的usb转串口及RS232通信等文章</strong></p>
-<h3 id="特性介绍"><a href="#特性介绍" class="headerlink" title="特性介绍"></a>特性介绍</h3><p>485（一般称作 RS485/EIA-485）是隶属于 OSI 模型物理层的电气特性规定为 2 线，半双工，多点通信的标准。它的电气特性和 RS-232 大不一样。用缆线两端的电压差值来表示传递信号。值得注意的是：RS485 仅仅规定了接受端和发送端的电气特性，它没有规定或推荐任何数据协议。</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/1.jpg" alt=""></p>
-<p>RS485接口可以只使用两根线进行通讯（其他串口通讯至少需要三根线，一根为地线作为参考电平），通过差分电平（利用两个信号的差值来判断信息，使用差分信号来传输的，也就是一根线传同相信号，一根线传反相，这样差值最大，抗干扰能力强。）来确定信号是0还是1，也正因为这个原因，所以RS485每次有且仅有一根线能够传输数据，另外一根线作为比对信号，因此RS485是半双工的通讯方式。主要特点如下：</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/2.jpg" alt=""></p>
-<ul>
-<li>接口电平低，不易损坏芯片。 RS485 的电气特性：逻辑“ 1”以两线间的电压差为+(2~6)V<br>表示；逻辑“ 0”以两线间的电压差为-(2~6)V 表示。接口信号电平比 RS232 降低了，<br>不易损坏接口电路的芯片，且该电平与 TTL 电平兼容，可方便与 TTL 电路连接。</li>
-<li>传输速率高。 10 米时， RS485 的数据最高传输速率可达 35Mbps，在 1200m 时，传输<br>速度可达 100Kbps。</li>
-<li>抗干扰能力强。 RS485 接口是采用平衡驱动器和差分接收器的组合，抗共模干扰能力<br>增强，即抗噪声干扰性好。 传输距离远，支持节点多。 RS485 总线最长可以传输 1200m<br>以上（速率≤100Kbps）</li>
-<li>一般最大支持 32 个节点，如果使用特制的 485 芯片，可以达到 128 个或者 256 个节点，<br>最大的可以支持到 400 个节点。</li>
-</ul>
-<a id="more"></a>
-<h3 id="类比RS232"><a href="#类比RS232" class="headerlink" title="类比RS232"></a>类比RS232</h3><p>实际上232串口在实际使用已经用处不大，但基于232发展出来的485等串口设备仍然被广泛使用，RS-485（EIA-485标准）是RS-422的改进，因为它增加了设备的个数，从10个增加到32个，同时定义了在最大设备个数情况下的电气特性，以保证足够的信号电压。有了多个设备的能力，你可以使用一个单个RS-485口建立设备网络。</p>
-<p>因为都是采用串口通信协议，所以软件端几乎可以直接使用，且RS485具备耗材少，抗干扰强等特点，在目前的工业领域仍然被广泛使用，这边主要列举出不同：</p>
-<ul>
-<li>从接线上，RS232是三线制，RS485是两线制</li>
-<li>从传输距离上，RS232只能传输15米，RS485最远可以传输1200米</li>
-<li>从速率上，RS232是全双工传输，RS485是半双工传输</li>
-<li>从协议层上，RS232只支持点对点通讯(1:1)，RS485支持总线形式通讯（1:N）</li>
-</ul>
-<p>RS232的接线：<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/3.jpg" alt="">)</p>
-<p>RS485的接线<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/4.jpg" alt=""></p>
-<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><blockquote>
-<p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a></p>
-</blockquote>
-]]></content>
-      
-        <categories>
-            
-            <category> 程序开发 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 嵌入式 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[串口RS232通信详解]]></title>
       <url>http://noparkinghere.top/2016/10/19/2016/2016-10-19-%E4%B8%B2%E5%8F%A3RS232%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<p>串行接口是一种可以将接受来自CPU的并行数据字符转换为连续的串行数据流发送出去，同时可将接受的串行数据流转换为并行的数据字符供给CPU的器件。一般完成这种功能的电路，我们称为串行接口电路。曾经PC之间进行串口通信可以说是标配，很多老式电脑上面可以看到DB25的接头，但后来逐渐被DB9取代，早期鼠标打印机都通过串口进行数据传输的，但现在逐渐被USB和网络所取代，DB9的串口接头在PC和笔记本上面也较少能够看到了。做嵌入式开发可以看到有个DB9的串口标准接口，串口对于开发人员输入输出调试等有着至关重要的作用。串行接口按电气标准及协议来分包括RS-232-C、RS-422、RS485等，现在串口一般在工业嵌入式领域使用。</p>
@@ -6001,6 +5989,51 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
 <blockquote>
 <p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a><br><a href="http://www.baike.com/wiki/51+IO%E5%8F%A3%E6%A8%A1%E6%8B%9F%E4%B8%B2%E5%8F%A3%E9%80%9A%E8%AE%AFC%E6%BA%90%E7%A8%8B%E5%BA%8F" target="_blank" rel="external">http://www.baike.com/wiki/51+IO%E5%8F%A3%E6%A8%A1%E6%8B%9F%E4%B8%B2%E5%8F%A3%E9%80%9A%E8%AE%AFC%E6%BA%90%E7%A8%8B%E5%BA%8F</a><br><a href="http://ziye334.blog.163.com/blog/static/224306191201452833850647" target="_blank" rel="external">http://ziye334.blog.163.com/blog/static/224306191201452833850647</a></p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> 程序开发 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[串口RS485通信详解]]></title>
+      <url>http://noparkinghere.top/2016/10/19/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<p><strong>注意：串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。串口的一些内容不再逐一介绍说明，可以参加之前的usb转串口及RS232通信等文章</strong></p>
+<h3 id="特性介绍"><a href="#特性介绍" class="headerlink" title="特性介绍"></a>特性介绍</h3><p>485（一般称作 RS485/EIA-485）是隶属于 OSI 模型物理层的电气特性规定为 2 线，半双工，多点通信的标准。它的电气特性和 RS-232 大不一样。用缆线两端的电压差值来表示传递信号。值得注意的是：RS485 仅仅规定了接受端和发送端的电气特性，它没有规定或推荐任何数据协议。</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/1.jpg" alt=""></p>
+<p>RS485接口可以只使用两根线进行通讯（其他串口通讯至少需要三根线，一根为地线作为参考电平），通过差分电平（利用两个信号的差值来判断信息，使用差分信号来传输的，也就是一根线传同相信号，一根线传反相，这样差值最大，抗干扰能力强。）来确定信号是0还是1，也正因为这个原因，所以RS485每次有且仅有一根线能够传输数据，另外一根线作为比对信号，因此RS485是半双工的通讯方式。主要特点如下：</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/2.jpg" alt=""></p>
+<ul>
+<li>接口电平低，不易损坏芯片。 RS485 的电气特性：逻辑“ 1”以两线间的电压差为+(2~6)V<br>表示；逻辑“ 0”以两线间的电压差为-(2~6)V 表示。接口信号电平比 RS232 降低了，<br>不易损坏接口电路的芯片，且该电平与 TTL 电平兼容，可方便与 TTL 电路连接。</li>
+<li>传输速率高。 10 米时， RS485 的数据最高传输速率可达 35Mbps，在 1200m 时，传输<br>速度可达 100Kbps。</li>
+<li>抗干扰能力强。 RS485 接口是采用平衡驱动器和差分接收器的组合，抗共模干扰能力<br>增强，即抗噪声干扰性好。 传输距离远，支持节点多。 RS485 总线最长可以传输 1200m<br>以上（速率≤100Kbps）</li>
+<li>一般最大支持 32 个节点，如果使用特制的 485 芯片，可以达到 128 个或者 256 个节点，<br>最大的可以支持到 400 个节点。</li>
+</ul>
+<a id="more"></a>
+<h3 id="类比RS232"><a href="#类比RS232" class="headerlink" title="类比RS232"></a>类比RS232</h3><p>实际上232串口在实际使用已经用处不大，但基于232发展出来的485等串口设备仍然被广泛使用，RS-485（EIA-485标准）是RS-422的改进，因为它增加了设备的个数，从10个增加到32个，同时定义了在最大设备个数情况下的电气特性，以保证足够的信号电压。有了多个设备的能力，你可以使用一个单个RS-485口建立设备网络。</p>
+<p>因为都是采用串口通信协议，所以软件端几乎可以直接使用，且RS485具备耗材少，抗干扰强等特点，在目前的工业领域仍然被广泛使用，这边主要列举出不同：</p>
+<ul>
+<li>从接线上，RS232是三线制，RS485是两线制</li>
+<li>从传输距离上，RS232只能传输15米，RS485最远可以传输1200米</li>
+<li>从速率上，RS232是全双工传输，RS485是半双工传输</li>
+<li>从协议层上，RS232只支持点对点通讯(1:1)，RS485支持总线形式通讯（1:N）</li>
+</ul>
+<p>RS232的接线：<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/3.jpg" alt="">)</p>
+<p>RS485的接线<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/4.jpg" alt=""></p>
+<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><blockquote>
+<p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a></p>
 </blockquote>
 ]]></content>
       
@@ -8034,6 +8067,52 @@
     </entry>
     
     <entry>
+      <title><![CDATA[stm32F439案例汇总]]></title>
+      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
+      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
+<blockquote>
+<p>www.armjishu.com(无法访问)</p>
+</blockquote>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
+<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
+<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
+</ul>
+<a id="more"></a>
+<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
+<li>实验0 Template工程模板</li>
+<li>实验1 跑马灯</li>
+<li>实验2 蜂鸣器</li>
+<li>实验3 按键和外部中断</li>
+<li>实验4 看门狗（独立和窗口）</li>
+<li>实验5 待机唤醒</li>
+<li>实验6 串口通讯（232和485）</li>
+<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
+<li>实验8 PWM输出和输入捕获</li>
+</ul>
+<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
+<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
+</blockquote>
+<hr>
+<p><em>未完待续</em></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 软件应用 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[（转）回车、换行、和文件末尾空行]]></title>
       <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%EF%BC%88%E8%BD%AC%EF%BC%89%E5%9B%9E%E8%BD%A6%E3%80%81%E6%8D%A2%E8%A1%8C%E3%80%81%E5%92%8C%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E7%A9%BA%E8%A1%8C/</url>
       <content type="html"><![CDATA[<h2 id="回车和换行"><a href="#回车和换行" class="headerlink" title="回车和换行"></a>回车和换行</h2><p>回车 (Carriage Return) 和换行 (Line Feed) 的区别，<a href="http://stackoverflow.com/questions/1761051/difference-between-n-and-r" target="_blank" rel="external">这里</a>有一个历史原因可参考：</p>
@@ -8206,52 +8285,6 @@ print(&apos;hello&apos;)
         <tags>
             
             <tag> 配置 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[stm32F439案例汇总]]></title>
-      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
-      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
-<blockquote>
-<p>www.armjishu.com(无法访问)</p>
-</blockquote>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
-<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
-<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
-</ul>
-<a id="more"></a>
-<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
-<li>实验0 Template工程模板</li>
-<li>实验1 跑马灯</li>
-<li>实验2 蜂鸣器</li>
-<li>实验3 按键和外部中断</li>
-<li>实验4 看门狗（独立和窗口）</li>
-<li>实验5 待机唤醒</li>
-<li>实验6 串口通讯（232和485）</li>
-<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
-<li>实验8 PWM输出和输入捕获</li>
-</ul>
-<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
-<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
-</blockquote>
-<hr>
-<p><em>未完待续</em></p>
-]]></content>
-      
-        <categories>
-            
-            <category> 软件应用 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 嵌入式 </tag>
             
         </tags>
         

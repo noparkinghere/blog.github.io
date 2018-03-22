@@ -4,6 +4,231 @@
   
     
     <entry>
+      <title><![CDATA[（转）汇编语言--ARM汇编]]></title>
+      <url>http://noparkinghere.top/2018/03/22/2018/2018-03-22-%EF%BC%88%E8%BD%AC%EF%BC%89%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80-arm%E6%B1%87%E7%BC%96/</url>
+      <content type="html"><![CDATA[<p><em>本文为转载文章，简单易懂的介绍了 ARM 汇编指令，<a href="http://blog.csdn.net/daiyibo123/article/details/50240433" target="_blank" rel="external">见原文链接</a>。</em></p>
+<h1 id="ARM汇编指令总结"><a href="#ARM汇编指令总结" class="headerlink" title="ARM汇编指令总结"></a>ARM汇编指令总结</h1><hr>
+<h1 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h1><p>总结目的是为了看懂ARM返汇编程序含义。如果是抱着来看这篇blog的盆友，希望可以帮到你们；如果有错误，请多指出。谢谢！</p>
+<hr>
+<h2 id="ARM指令的一般格式"><a href="#ARM指令的一般格式" class="headerlink" title="ARM指令的一般格式"></a>ARM指令的一般格式</h2><p>arm指令字长为固定的32位。一条典型的arm指令编码格式如下：</p>
+<p><img src="http://img.blog.csdn.net/20151210163339634" alt=""></p>
+<p>一条典型的ARM指令语法格式如下所示：<br><img src="http://img.blog.csdn.net/20151210163410215" alt=""></p>
+<p><strong>参数</strong><br>opcode:指令操作符编码</p>
+<p>cond:决定指令的操作是否影响CPSR的值</p>
+<p>S：决定指令操作是否影响CPSR的值</p>
+<p>Rd：目标寄存器编码</p>
+<p>Rn：包含第1个操作数的寄存器编码</p>
+<p>shifter_operand表示第2个操作数</p>
+<hr>
+<h2 id="汇编指令执行条件"><a href="#汇编指令执行条件" class="headerlink" title="汇编指令执行条件"></a>汇编指令执行条件</h2><p>大多数ARM指令都可以条件执行，即根据cpsr寄存器中的条件标志位决定是否执行该指令：如果条件不满足，该指令相当于一条nop执行。</p>
+<p>每条ARM指令包含4位条件码域，这表明可以定义16个执行条件。这16个条件码和他们的助记符（标记）如下：</p>
+<p><img src="http://img.blog.csdn.net/20151210163509496" alt=""></p>
+<hr>
+<h2 id="操作数的运算处理方式"><a href="#操作数的运算处理方式" class="headerlink" title="操作数的运算处理方式"></a>操作数的运算处理方式</h2><p>一共有下面9种格式：</p>
+<ul>
+<li>[&lt; Rn&gt;, #+/-]</li>
+<li>[&lt; Rn&gt;, +/-&lt; Rm&gt;]</li>
+<li>[&lt; Rn&gt;, +/-&lt; Rm&gt;, &lt; shift&gt;#]</li>
+<li>[&lt; Rn&gt;, #+/-]!</li>
+<li>[&lt; Rn&gt;, +/-&lt; Rm&gt;]!</li>
+<li>[&lt; Rn&gt;, +/-&lt; Rm&gt;, &lt; shift&gt;#]!</li>
+<li>[&lt; Rn&gt;], #+/-</li>
+<li>[&lt; Rn&gt;], +/-&lt; Rm&gt;</li>
+<li>[&lt; Rn&gt;], +/-&lt; Rm&gt;, &lt; shift&gt;#</li>
+</ul>
+<p>总结一下我们可以对上面格式分类：例如:1~3为一类，4~6为一类，7~9为一类。同样的，我们也可以这样分类：1，4，7为一类，2，5，8为一类，3，6，9为一类。</p>
+<p><strong>例子示范</strong></p>
+<p>通过举例子来说明各个类型的意义。</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">----------------<span class="meta">[&lt; Rn&gt;, #+/-&lt;offset_12&gt;]</span>：---------------</div><div class="line"></div><div class="line">LDR R0，[R1, #<span class="number">4</span>] <span class="comment">//将内存单元R1+4中的字读取到R0寄存器中。</span></div><div class="line"></div><div class="line">-------------------<span class="meta">[&lt; Rn&gt;, +/-&lt; Rm&gt;]</span>：-------------------</div><div class="line">LDR R0,[R1,R2]      <span class="comment">//将内存单元R1+R2中的字读取到R0寄存器中</span></div><div class="line"></div><div class="line">----------<span class="meta">[&lt; Rn&gt;, +/-&lt; Rm&gt;, &lt; shift&gt;#&lt;offset_imm&gt;]</span>------</div><div class="line">LDR R0,[R1,R2, LSL #<span class="number">2</span>]  <span class="comment">//将地址单元&#123;R1+R2*4&#125;中的数据读取到R0中</span></div><div class="line"></div><div class="line">-----------------<span class="meta">[&lt; Rn&gt;, #+/-&lt;offset_12&gt;]</span>!--------------</div><div class="line">LDR R0,[R1, #<span class="number">4</span>]     <span class="comment">//将内存单元R1+4中的字读取到R0寄存器中</span></div><div class="line">                    <span class="comment">//同时R1=R1+4</span></div><div class="line"></div><div class="line">---------------------<span class="meta">[&lt; Rn&gt;, +/-&lt; Rm&gt;]</span>!-----------------</div><div class="line">LDR R0,[R1, R2]!    <span class="comment">//将内存单元(R1, R2)中的字读取到R0寄存器中</span></div><div class="line">                    <span class="comment">//同时R1=R1+R2</span></div><div class="line"></div><div class="line">---------<span class="meta">[&lt; Rn&gt;, +/-&lt; Rm&gt;, &lt; shift&gt;#&lt;offset_imm&gt;]</span>!------</div><div class="line">LDR R0,[R1, R2, LSL #<span class="number">2</span>]!    <span class="comment">//将内存单元(R1+R2*4)中的数据读取到R0寄存器中</span></div><div class="line">                            <span class="comment">//同时R1=R1+R2*4</span></div><div class="line"></div><div class="line">------------------<span class="meta">[&lt; Rn&gt;]</span>, #+/-&lt;offset_12&gt;--------------</div><div class="line">LDR R0, [R1], #<span class="number">4</span>    <span class="comment">//将地址为R1的内存单元数据读取到R0中</span></div><div class="line">                    <span class="comment">//然后R1=R1+4</span></div><div class="line"></div><div class="line">----------------------<span class="meta">[&lt; Rn&gt;]</span>, +/-&lt; Rm&gt;-----------------</div><div class="line">LDR R0, [R1], R2    <span class="comment">//将地址为R1的内存单元数据读取到R0中</span></div><div class="line">                    <span class="comment">//然后R1=R1+R2</span></div><div class="line"></div><div class="line">---------<span class="meta">[&lt; Rn&gt;]</span>, +/-&lt; Rm&gt;, &lt; shift&gt;#&lt;offset_imm&gt;-------</div><div class="line">LDR R0, [R1], R2, LSL #<span class="number">2</span>    <span class="comment">//将地址为R1的内存单元数据读取到R0中</span></div><div class="line">                            <span class="comment">//然后R1=R1+R2*4</span></div></pre></td></tr></table></figure>
+<h2 id="CPRS各位介绍"><a href="#CPRS各位介绍" class="headerlink" title="CPRS各位介绍"></a>CPRS各位介绍</h2><p>CPRS为状态寄存器，下面他各位的功能和代表的含义</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="http://img.blog.csdn.net/20151214215535449" alt="这里写图片描述"></h2><h2 id="word"><a href="#word" class="headerlink" title=".word"></a>.word</h2><p>.word expression就是在当前位置放一个word型的值，这个值就是expression</p>
+<p><strong>例子示范</strong></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">_rWTCON: </div><div class="line"><span class="selector-class">.word</span> <span class="number">0</span>x15300000 </div><div class="line"><span class="comment">//就是在当前地址，即_rWTCON处放一个值0x15300000</span></div></pre></td></tr></table></figure>
+<h2 id="macro"><a href="#macro" class="headerlink" title=".macro"></a>.macro</h2><p>宏定义</p>
+<p><strong>参数</strong></p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">宏名称 .MACRO [形式参数]</div><div class="line">        ........</div><div class="line">        宏定义语句</div><div class="line">        ........</div><div class="line">        .ENDM</div></pre></td></tr></table></figure>
+<p><strong>例子示范</strong></p>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">SWAP_REG   .MACRO   RE<span class="name">G1</span>,RE<span class="name">G2</span>   ; swap registers</div><div class="line">          XCH   A, RE<span class="name">G1</span></div><div class="line">          XCH   A, RE<span class="name">G2</span></div><div class="line">          XCH   A, RE<span class="name">G1</span></div><div class="line">          .E<span class="symbol">NDM</span></div></pre></td></tr></table></figure>
+<h2 id="global"><a href="#global" class="headerlink" title=".global"></a>.global</h2><p>告诉编译器后续跟的是一个全局可见的名字[可能是变量，也可以是函数名]</p>
+<h2 id="type"><a href="#type" class="headerlink" title=".type"></a>.type</h2><p>.type：用来指定一个符号的类型是函数类型或者是对象类型, 对象类型一般是数据, 格式如下:<br>.type 符号, 类型描述</p>
+<h2 id="-1"><a href="#-1" class="headerlink" title="@"></a>@</h2><p>这个是 GNU 汇编的规范. 就是注释.</p>
+<h1 id="A"><a href="#A" class="headerlink" title="A"></a>A</h1><hr>
+<h2 id="add"><a href="#add" class="headerlink" title="add"></a>add</h2><p>加指令</p>
+<p><strong>例子示范</strong></p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">add</span> <span class="built_in">r1</span>,<span class="built_in">r2</span>,#<span class="number">1</span>    //表示<span class="built_in">r1</span>=<span class="built_in">r2</span>+<span class="number">1</span>， 即寄存器<span class="built_in">r1</span>的值等于寄存器<span class="built_in">r2</span>的值加上<span class="number">1</span></div></pre></td></tr></table></figure>
+<hr>
+<h2 id="adr和adrl"><a href="#adr和adrl" class="headerlink" title="adr和adrl"></a>adr和adrl</h2><p>adr伪指令将基于PC相对偏移的地址值或基于寄存器相对偏移的地址值读取到寄存器中。adrl伪指令比adr伪指令可以读取更大范围的地址，其他功能一样。</p>
+<p><strong>参数</strong></p>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ADR伪指令格式 ：ADR&#123;<span class="built_in">cond</span>&#125;  register, <span class="keyword">expr</span></div><div class="line">ADRL伪指令格式：ADRL&#123;<span class="built_in">cond</span>&#125;  register, <span class="keyword">expr</span></div></pre></td></tr></table></figure>
+<p><strong>例子示范</strong></p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">adr </span>   <span class="built_in">r2</span>, mem_cfg_val  //存储相对位置</div><div class="line"><span class="keyword">adr </span>   <span class="built_in">r1</span>, mem_cfg_val  //存储相对位置</div><div class="line"><span class="symbol"></span></div><div class="line">mem_cfg_val:</div><div class="line">    ...</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="align"><a href="#align" class="headerlink" title="align"></a>align</h2><p>.align的作用在于对指令或者数据的存放地址进行对齐，有些CPU架构要求固定的指令长度并且存放地址相对于2的幂指数圆整，否则程序无法正常运行，比如ARM。</p>
+<p><strong>参考：</strong><br><a href="http://blog.csdn.net/xingyu19871124/article/details/7333622" target="_blank" rel="external">http://blog.csdn.net/xingyu19871124/article/details/7333622</a></p>
+<hr>
+<h1 id="B"><a href="#B" class="headerlink" title="B"></a>B</h1><hr>
+<h2 id="b和bl"><a href="#b和bl" class="headerlink" title="b和bl"></a>b和bl</h2><p>相对跳转指令。两条指令不同之处在于bl指令除了跳转之外，还将返回地址（bl的下一条指定的地址）保存在lr寄存器中。</p>
+<p><strong>例子示范</strong></p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">b fun1</div><div class="line"></div><div class="line">fun1:</div><div class="line">    .....</div></pre></td></tr></table></figure>
+<h2 id="bic"><a href="#bic" class="headerlink" title="bic"></a>bic</h2><p>bic（位清除）指令对 Rn 中的值 和 Operand2 值的反码按位进行逻辑“与”运算</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">BIC </span>   <span class="built_in">R1</span>,  <span class="built_in">R1</span>,   <span class="number">#0x0F</span></div><div class="line">#将<span class="built_in">R1</span>   低<span class="number">4</span>位清<span class="number">0</span></div></pre></td></tr></table></figure>
+<hr>
+<h1 id="C"><a href="#C" class="headerlink" title="C"></a>C</h1><hr>
+<h1 id="D"><a href="#D" class="headerlink" title="D"></a>D</h1><hr>
+<h1 id="E"><a href="#E" class="headerlink" title="E"></a>E</h1><hr>
+<h2 id="equ"><a href="#equ" class="headerlink" title="equ"></a>equ</h2><p>equ是类似于宏的作用，相当于#define。</p>
+<p><strong>例子示范</strong></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.equ</span>        MEM_CTL_BASE,       <span class="number">0</span>x48000000</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="F"><a href="#F" class="headerlink" title="F"></a>F</h1><hr>
+<h1 id="G"><a href="#G" class="headerlink" title="G"></a>G</h1><hr>
+<h1 id="H"><a href="#H" class="headerlink" title="H"></a>H</h1><hr>
+<h1 id="I"><a href="#I" class="headerlink" title="I"></a>I</h1><hr>
+<h1 id="J"><a href="#J" class="headerlink" title="J"></a>J</h1><hr>
+<h1 id="K"><a href="#K" class="headerlink" title="K"></a>K</h1><hr>
+<h1 id="L"><a href="#L" class="headerlink" title="L"></a>L</h1><hr>
+<h2 id="long"><a href="#long" class="headerlink" title="long"></a>long</h2><p>.long:定义4字节数据，</p>
+<p><strong>例子示范</strong></p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.long <span class="number">0x12345678</span>,<span class="number">23876565</span></div></pre></td></tr></table></figure>
+<hr>
+<h2 id="ldr"><a href="#ldr" class="headerlink" title="ldr"></a>ldr</h2><p>这个指令是一个伪指令，他不是真实存在的指令，编辑器会把它扩展成真正的指令。</p>
+<p>ldr指令从内存中读取数据到寄存器。</p>
+<p><strong>例子示范</strong></p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ldr </span><span class="built_in">r1</span>,<span class="number">=4096</span>    //<span class="built_in">r1</span> = <span class="number">4096</span></div><div class="line"></div><div class="line"><span class="keyword">ldr </span><span class="built_in">r1</span>,[<span class="built_in">r2</span>,<span class="number">#4</span>]  //将地址为<span class="built_in">r2</span>+<span class="number">4</span>的内存单元数据读取到<span class="built_in">r1</span>中去</div><div class="line"><span class="keyword">ldr </span><span class="built_in">r1</span>,[<span class="built_in">r2</span>]     //将地址为<span class="built_in">r2</span>的内存单元位数据读取到<span class="built_in">r1</span>中去</div><div class="line"><span class="keyword">ldr </span><span class="built_in">r1</span>,[<span class="built_in">r2</span>],<span class="number">#4</span>  //将地址为<span class="built_in">r2</span>的内存单元的数据读取到<span class="built_in">r1</span>中，然后<span class="built_in">r2</span><span class="symbol">=r2</span>+<span class="number">4</span></div></pre></td></tr></table></figure>
+<hr>
+<h2 id="ldm"><a href="#ldm" class="headerlink" title="ldm"></a>ldm</h2><p>ldm{cond} {!} &lt; register list&gt; {^}</p>
+<p>批量访问内存，内存中批量读取数据到寄存器。从&lt; rn&gt; 对应的内存块中取出数据，写入 &lt; register list&gt;这些寄存器。</p>
+<p><strong>参数</strong></p>
+<ul>
+<li><p>{cond}表示指定执行条件</p>
+</li>
+<li><p>表示内存变化的模式：</p>
+<ol>
+<li>ia(increment after):事后递增方式</li>
+<li>ib(increment before):事先递增方式</li>
+<li>da(decrement after):事后递减方式</li>
+<li>db(decrement before):事先递减方式</li>
+</ol>
+</li>
+<li>&lt; rn&gt;中保存着内存的地址，</li>
+<li>{!}加上了感叹号，指令执行后，rn的值会更新，等于下一个内存单元地址。</li>
+<li>&lt; register list&gt;表示寄存器列表，指令中寄存器列表和内存单元对应关系为：编号低得寄存器对应内存中得低地址单元，编号高的寄存器对应内存中的高地址单元。</li>
+<li>{^}有两个含义：如果&lt; register list&gt;中有pc寄存器，它表示指令执行之后，spsr寄存器的值将自动复制到cpsr寄存器中–这常用于从中断处理函数中返回；如果&lt; register list&gt;中没有pc寄存器，{^}表示操作的是用户模式下的寄存器，而不是当前特权模式的寄存器。</li>
+</ul>
+<p><strong>例子示范</strong></p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ldmia </span><span class="built_in">sp</span>!,&#123;<span class="built_in">r0</span>-<span class="built_in">r12</span>,<span class="built_in">pc</span>&#125;</div><div class="line"></div><div class="line">//中断返回，“^”表示将spsr的值复制到<span class="keyword">cpsr</span></div><div class="line">//于是从irq模式返回被中断的工作模式</div><div class="line">//“！”使得指令执行后，<span class="built_in">sp</span><span class="symbol">=sp</span>+<span class="number">14</span>*<span class="number">4</span></div></pre></td></tr></table></figure>
+<hr>
+<h1 id="M"><a href="#M" class="headerlink" title="M"></a>M</h1><hr>
+<h2 id="mov"><a href="#mov" class="headerlink" title="mov"></a>mov</h2><p>mov指令可以把一个寄存器的值赋给另一个寄存器，或者把一个常数赋值给寄存器。</p>
+<p><strong>例子示范</strong></p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">mov </span><span class="built_in">r1</span>,<span class="built_in">r2</span>   //<span class="built_in">r1</span> = <span class="built_in">r2</span></div><div class="line"><span class="keyword">mov </span><span class="built_in">r1</span>,<span class="number">#4096</span>    //<span class="built_in">r1</span> = <span class="number">4096</span></div></pre></td></tr></table></figure>
+<hr>
+<h2 id="msr和mrs"><a href="#msr和mrs" class="headerlink" title="msr和mrs"></a>msr和mrs</h2><p>程序状态寄存器访问指令。</p>
+<p>ARM处理器中有一个程序状态寄存器（cpsr），他用来控制处理器的工作模式，设置中断的总开关。</p>
+<p><strong>例子示范</strong></p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">msr </span><span class="keyword">cpsr，r0 </span>//复制<span class="built_in">r0</span>到<span class="keyword">cpsr中</span></div><div class="line"><span class="keyword">mrs </span><span class="built_in">r0</span>，<span class="keyword">cpsr </span>//复制<span class="keyword">cpsr到r0中</span></div></pre></td></tr></table></figure>
+<hr>
+<h2 id="mcr和mrc"><a href="#mcr和mrc" class="headerlink" title="mcr和mrc"></a>mcr和mrc</h2><p>MCR指令将ARM处理器的寄存器中的数据传送到协处理器的寄存器中。如果协处理器不能成功地执行该操作，将产生未定义的指令异常中断。</p>
+<p>MRC指令将协处理器的寄存器中数值传送到ARM处理器的寄存器中。如果协处理器不能成功地执行该操作，将产生未定义的指令异常中断。</p>
+<p><strong>格式</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">MCR&#123;<span class="tag">&lt;<span class="name">cond</span>&gt;</span>&#125; p15, 0, <span class="tag">&lt;<span class="name">Rd</span>&gt;</span>, <span class="tag">&lt;<span class="name">CRn</span>&gt;</span>, <span class="tag">&lt;<span class="name">CRm</span>&gt;</span>&#123;,<span class="tag">&lt;<span class="name">opcode_2</span>&gt;</span>&#125;</div><div class="line"></div><div class="line">MRC&#123;<span class="tag">&lt;<span class="name">cond</span>&gt;</span>&#125; p15, 0, <span class="tag">&lt;<span class="name">Rd</span>&gt;</span>, <span class="tag">&lt;<span class="name">CRn</span>&gt;</span>, <span class="tag">&lt;<span class="name">CRm</span>&gt;</span>&#123;,<span class="tag">&lt;<span class="name">opcode_2</span>&gt;</span>&#125;</div></pre></td></tr></table></figure>
+<p><strong>参数</strong></p>
+<ol>
+<li><p>为指令执行的条件码。当忽略时指令为无条件执行。MCR2中，为Ob1111,指令为无条件执行指令。</p>
+</li>
+<li><p>为协处理器将执行的操作的操作码。对于CP15协处理器来说， 永远为0b000,当不为0b000时，该指令操作结果不可预知。</p>
+</li>
+<li><p>作为元寄存器的ARM寄存器，其值被传送到得协处理器寄存器中。</p>
+</li>
+<li><p>不能为PC，当其为PC时，指令操作结果不可预知。</p>
+</li>
+<li><p>作为目标寄存器的协处理器寄存器，其编号可能为C0，C1….C15。 附加的目标寄存器或者原操作数寄存器，用于区分同一个编号的不同物理寄存器。当指令中不需要提供附加信息时，将C0指定为，否则指令操作结果不可预知。</p>
+</li>
+<li><p>提供附加信息，用于区别同一个编号的不同物理寄存器。当指令中指定附加信息时，省略或者将其指定为0,否则指令操作结果不可预知。</p>
+</li>
+</ol>
+<hr>
+<h1 id="N"><a href="#N" class="headerlink" title="N"></a>N</h1><hr>
+<h1 id="O"><a href="#O" class="headerlink" title="O"></a>O</h1><hr>
+<h1 id="P"><a href="#P" class="headerlink" title="P"></a>P</h1><hr>
+<h1 id="Q"><a href="#Q" class="headerlink" title="Q"></a>Q</h1><hr>
+<h1 id="R"><a href="#R" class="headerlink" title="R"></a>R</h1><hr>
+<h1 id="S"><a href="#S" class="headerlink" title="S"></a>S</h1><hr>
+<h2 id="str"><a href="#str" class="headerlink" title="str"></a>str</h2><p>str也是一条伪指令。str指令把寄存器的值存储到内存中。</p>
+<p><strong>例子示范</strong></p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">str</span> <span class="built_in">r1</span>,[<span class="built_in">r2</span>,#<span class="number">4</span>]  //将<span class="built_in">r1</span>的数据保存到地址为<span class="built_in">r2</span>+<span class="number">4</span>的内存单元中</div><div class="line"><span class="keyword">str</span> <span class="built_in">r1</span>,[<span class="built_in">r2</span>]     //将<span class="built_in">r1</span>的数据保存到地址为<span class="built_in">r2</span>的内存单元中</div><div class="line"><span class="keyword">str</span> <span class="built_in">r1</span>,[<span class="built_in">r2</span>],#<span class="number">4</span>  //将<span class="built_in">r1</span>的数据保存到地址为<span class="built_in">r2</span>的内存单元中，然后<span class="built_in">r2</span>=<span class="built_in">r2</span>+<span class="number">4</span></div></pre></td></tr></table></figure>
+<hr>
+<h2 id="stm"><a href="#stm" class="headerlink" title="stm"></a>stm</h2><p>stm{cond} {!} &lt; register list&gt; {^}</p>
+<p>批量存储数据到内存，寄存器批量存储数据到内存。&lt; register list&gt;这些寄存器中得数据，批量写入到&lt; rn&gt; 对应的内存块中。</p>
+<p><strong>参数</strong></p>
+<ul>
+<li><p>{cond}表示指定执行条件</p>
+</li>
+<li><p>表示内存变化的模式：</p>
+<ol>
+<li>ia(increment after):事后递增方式</li>
+<li>ib(increment before):事先递增方式</li>
+<li>da(decrement after):事后递减方式</li>
+<li>db(decrement before):事先递减方式</li>
+</ol>
+</li>
+<li>&lt; rn&gt;中保存着内存的地址，</li>
+<li>{!}加上了感叹号，指令执行后，rn的值会更新，等于下一个内存单元地址。</li>
+<li>&lt; register list&gt;表示寄存器列表，指令中寄存器列表和内存单元对应关系为：编号低得寄存器对应内存中得低地址单元，编号高的寄存器对应内存中的高地址单元。</li>
+<li>{^}有两个含义：如果&lt; register list&gt;中有pc寄存器，它表示指令执行之后，spsr寄存器的值将自动复制到cpsr寄存器中–这常用于从中断处理函数中返回；如果&lt; register list&gt;中没有pc寄存器，{^}表示操作的是用户模式下的寄存器，而不是当前特权模式的寄存器。</li>
+</ul>
+<p><strong>例子示范</strong></p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">stmdb </span><span class="built_in">sp</span>!,&#123;<span class="built_in">r0</span>-<span class="built_in">r12</span>,<span class="built_in">lr</span>&#125;</div><div class="line"></div><div class="line">//保存使用到得寄存器</div><div class="line">//<span class="built_in">r0</span>-<span class="built_in">r12</span>，<span class="built_in">lr</span>被保存在<span class="built_in">sp</span>表示的内存中</div><div class="line">//“！”使得指令执行后<span class="built_in">sp</span><span class="symbol">=sp</span>-<span class="number">14</span>*<span class="number">4</span></div></pre></td></tr></table></figure>
+<hr>
+<h2 id="sub"><a href="#sub" class="headerlink" title="sub"></a>sub</h2><p>减指令</p>
+<p><strong>例子示范</strong></p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">sub</span> <span class="built_in">r1</span>,<span class="built_in">r2</span>,#<span class="number">1</span>    //表示<span class="built_in">r1</span>=<span class="built_in">r2</span>-<span class="number">1</span></div></pre></td></tr></table></figure>
+<hr>
+<h1 id="T"><a href="#T" class="headerlink" title="T"></a>T</h1><hr>
+<h1 id="U"><a href="#U" class="headerlink" title="U"></a>U</h1><hr>
+<h1 id="V"><a href="#V" class="headerlink" title="V"></a>V</h1><hr>
+<h1 id="W"><a href="#W" class="headerlink" title="W"></a>W</h1><hr>
+<h1 id="X"><a href="#X" class="headerlink" title="X"></a>X</h1><hr>
+<h1 id="Y"><a href="#Y" class="headerlink" title="Y"></a>Y</h1><hr>
+<h1 id="Z"><a href="#Z" class="headerlink" title="Z"></a>Z</h1>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[ARM 中断]]></title>
+      <url>http://noparkinghere.top/2018/03/22/2018/2018-03-22-arm-%E4%B8%AD%E6%96%AD/</url>
+      <content type="html"><![CDATA[<p>几乎所有 MCU 都有中断，中断可以打断主程序的执行，实时地应对突发事件。一般情况下，我们可以把中断用于定时器、串口数据传输等，配套可以实现很多特殊操作。这边以 stm32 和 EFM32 为例，了解下中断的操作。</p>
+<h2 id="中断简要描述"><a href="#中断简要描述" class="headerlink" title="中断简要描述"></a>中断简要描述</h2><p>由于使用的 ARM Mx 系列的内核，因此这几款处理器配置中断的过程都相似，具体步骤如下：</p>
+<ul>
+<li>配置相关模块（如：定时器、串口等）</li>
+<li>选择开启模块的哪个中断标志位（即：中断使能标识），只有开启了该功能，才会在该事件发生时至位产生中断请求</li>
+<li>NVIC 配置中断优先级，内核的不同这边会略有差别，在 NVIC-&gt;IP 中配置。</li>
+<li>NVIC 使能该模块对应中断向量的中断。</li>
+</ul>
+<p>实际工作过程可以看出 NVIC 在内核中，而它掌管着整个中断，每个模块使能中断后，在发生中断时会给出一个中断请求信号给 NVIC，然后 NVIC 打断主程序。手册解释，当 NVIC 未被开启时会收到模块请求会挂起中断，而等待中断使能。这边可以理解为任何时候模块发送中断请求后，会将挂起位 ISPR 至位，如果中断开启的话，且没有高优先级的中断正在执行，则 ISPR 被清除，同时立即执行该中断；否则如果中断未被开启或者高优先级程序正在执行，则中断继续挂起等待执行。</p>
+<h2 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h2><p>NVIC 配置中断优先级，一般有抢占优先级和响应优先级，详细内容可以参见内核手册，内核的不同这边会略有差别，如：M0 就没有响应优先级。</p>
+<p>优先级的配置需要考虑多种因素，需要考虑主程序的功能、硬件设施、所有使用的中断等，一般来说没有固定的模式可以套用（可能缺少某些外设，内核需要休眠，中断程序需要在主程序中执行等），中断的优先级配置更多的是逻辑问题，逻辑上面没有漏洞即可行，这边还是会提供一些常用的方法，仅供参考（数值越小、优先级约高）：</p>
+<ul>
+<li>存储数据优先级 0</li>
+<li>接受数据优先级 1</li>
+<li>发送数据优先级 2</li>
+<li>定时器优先级和其他中断优先级 3</li>
+<li>按键优先级 5</li>
+</ul>
+<h2 id="中断技巧"><a href="#中断技巧" class="headerlink" title="中断技巧"></a>中断技巧</h2><p>中断的配合使用，可以实现很多特殊功能，如均匀脉冲的输出、串口数据的分帧、定时 DMA-uart 发送数据等。这边只举几个常用案例。</p>
+<h3 id="串口数据分帧"><a href="#串口数据分帧" class="headerlink" title="串口数据分帧"></a>串口数据分帧</h3><p>思路：首先协议约定当超过三个波特率时间未收到数据，则认为一帧数据接受完成，因此，我们可以使用串口中断和定时器中断结合，每次串口中断接受到数据后，启动定时器计时，如果再次收到数据，定时器则清空重新计数，如果未收到数据定时器超时，则进入定时器中断，定时器中断中标记一帧接受完成。</p>
+<hr>
+<p>后续补充</p>
+<blockquote>
+<p>参考链接：<br><a href="http://blog.sina.com.cn/s/blog_4fed55ce0100j7nd.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_4fed55ce0100j7nd.html</a><br><a href="http://www.voidcn.com/article/p-wzqbmjzl-xr.html" target="_blank" rel="external">http://www.voidcn.com/article/p-wzqbmjzl-xr.html</a></p>
+</blockquote>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[（转）不是技术也能看懂云计算，大数据，人工智能]]></title>
       <url>http://noparkinghere.top/2018/03/22/2018/2018-03-22-%EF%BC%88%E8%BD%AC%EF%BC%89%E4%B8%8D%E6%98%AF%E6%8A%80%E6%9C%AF%E4%B9%9F%E8%83%BD%E7%9C%8B%E6%87%82%E4%BA%91%E8%AE%A1%E7%AE%97%EF%BC%8C%E5%A4%A7%E6%95%B0%E6%8D%AE%EF%BC%8C%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</url>
       <content type="html"><![CDATA[<p><em>本文通俗易懂地介绍了云计算，大数据，人工智能，内容为转载整理，只用于个人收藏，请看<a href="https://www.cnblogs.com/popsuper1982/p/8505203.html" target="_blank" rel="external">原文链接</a>。</em></p>
@@ -6257,6 +6482,51 @@
     </entry>
     
     <entry>
+      <title><![CDATA[串口RS485通信详解]]></title>
+      <url>http://noparkinghere.top/2016/10/19/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<p><strong>注意：串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。串口的一些内容不再逐一介绍说明，可以参加之前的usb转串口及RS232通信等文章</strong></p>
+<h3 id="特性介绍"><a href="#特性介绍" class="headerlink" title="特性介绍"></a>特性介绍</h3><p>485（一般称作 RS485/EIA-485）是隶属于 OSI 模型物理层的电气特性规定为 2 线，半双工，多点通信的标准。它的电气特性和 RS-232 大不一样。用缆线两端的电压差值来表示传递信号。值得注意的是：RS485 仅仅规定了接受端和发送端的电气特性，它没有规定或推荐任何数据协议。</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/1.jpg" alt=""></p>
+<p>RS485接口可以只使用两根线进行通讯（其他串口通讯至少需要三根线，一根为地线作为参考电平），通过差分电平（利用两个信号的差值来判断信息，使用差分信号来传输的，也就是一根线传同相信号，一根线传反相，这样差值最大，抗干扰能力强。）来确定信号是0还是1，也正因为这个原因，所以RS485每次有且仅有一根线能够传输数据，另外一根线作为比对信号，因此RS485是半双工的通讯方式。主要特点如下：</p>
+<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/2.jpg" alt=""></p>
+<ul>
+<li>接口电平低，不易损坏芯片。 RS485 的电气特性：逻辑“ 1”以两线间的电压差为+(2~6)V<br>表示；逻辑“ 0”以两线间的电压差为-(2~6)V 表示。接口信号电平比 RS232 降低了，<br>不易损坏接口电路的芯片，且该电平与 TTL 电平兼容，可方便与 TTL 电路连接。</li>
+<li>传输速率高。 10 米时， RS485 的数据最高传输速率可达 35Mbps，在 1200m 时，传输<br>速度可达 100Kbps。</li>
+<li>抗干扰能力强。 RS485 接口是采用平衡驱动器和差分接收器的组合，抗共模干扰能力<br>增强，即抗噪声干扰性好。 传输距离远，支持节点多。 RS485 总线最长可以传输 1200m<br>以上（速率≤100Kbps）</li>
+<li>一般最大支持 32 个节点，如果使用特制的 485 芯片，可以达到 128 个或者 256 个节点，<br>最大的可以支持到 400 个节点。</li>
+</ul>
+<a id="more"></a>
+<h3 id="类比RS232"><a href="#类比RS232" class="headerlink" title="类比RS232"></a>类比RS232</h3><p>实际上232串口在实际使用已经用处不大，但基于232发展出来的485等串口设备仍然被广泛使用，RS-485（EIA-485标准）是RS-422的改进，因为它增加了设备的个数，从10个增加到32个，同时定义了在最大设备个数情况下的电气特性，以保证足够的信号电压。有了多个设备的能力，你可以使用一个单个RS-485口建立设备网络。</p>
+<p>因为都是采用串口通信协议，所以软件端几乎可以直接使用，且RS485具备耗材少，抗干扰强等特点，在目前的工业领域仍然被广泛使用，这边主要列举出不同：</p>
+<ul>
+<li>从接线上，RS232是三线制，RS485是两线制</li>
+<li>从传输距离上，RS232只能传输15米，RS485最远可以传输1200米</li>
+<li>从速率上，RS232是全双工传输，RS485是半双工传输</li>
+<li>从协议层上，RS232只支持点对点通讯(1:1)，RS485支持总线形式通讯（1:N）</li>
+</ul>
+<p>RS232的接线：<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/3.jpg" alt="">)</p>
+<p>RS485的接线<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/4.jpg" alt=""></p>
+<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><blockquote>
+<p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a></p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> 程序开发 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[串口RS232通信详解]]></title>
       <url>http://noparkinghere.top/2016/10/19/2016/2016-10-19-%E4%B8%B2%E5%8F%A3RS232%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<p>串行接口是一种可以将接受来自CPU的并行数据字符转换为连续的串行数据流发送出去，同时可将接受的串行数据流转换为并行的数据字符供给CPU的器件。一般完成这种功能的电路，我们称为串行接口电路。曾经PC之间进行串口通信可以说是标配，很多老式电脑上面可以看到DB25的接头，但后来逐渐被DB9取代，早期鼠标打印机都通过串口进行数据传输的，但现在逐渐被USB和网络所取代，DB9的串口接头在PC和笔记本上面也较少能够看到了。做嵌入式开发可以看到有个DB9的串口标准接口，串口对于开发人员输入输出调试等有着至关重要的作用。串行接口按电气标准及协议来分包括RS-232-C、RS-422、RS485等，现在串口一般在工业嵌入式领域使用。</p>
@@ -6316,51 +6586,6 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
 <blockquote>
 <p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a><br><a href="http://www.baike.com/wiki/51+IO%E5%8F%A3%E6%A8%A1%E6%8B%9F%E4%B8%B2%E5%8F%A3%E9%80%9A%E8%AE%AFC%E6%BA%90%E7%A8%8B%E5%BA%8F" target="_blank" rel="external">http://www.baike.com/wiki/51+IO%E5%8F%A3%E6%A8%A1%E6%8B%9F%E4%B8%B2%E5%8F%A3%E9%80%9A%E8%AE%AFC%E6%BA%90%E7%A8%8B%E5%BA%8F</a><br><a href="http://ziye334.blog.163.com/blog/static/224306191201452833850647" target="_blank" rel="external">http://ziye334.blog.163.com/blog/static/224306191201452833850647</a></p>
-</blockquote>
-]]></content>
-      
-        <categories>
-            
-            <category> 程序开发 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 嵌入式 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[串口RS485通信详解]]></title>
-      <url>http://noparkinghere.top/2016/10/19/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/</url>
-      <content type="html"><![CDATA[<p><strong>注意：串口发送数据是按位逐个发送的，且在传输字节的过程中是从字节的低位开始发送的。串口的一些内容不再逐一介绍说明，可以参加之前的usb转串口及RS232通信等文章</strong></p>
-<h3 id="特性介绍"><a href="#特性介绍" class="headerlink" title="特性介绍"></a>特性介绍</h3><p>485（一般称作 RS485/EIA-485）是隶属于 OSI 模型物理层的电气特性规定为 2 线，半双工，多点通信的标准。它的电气特性和 RS-232 大不一样。用缆线两端的电压差值来表示传递信号。值得注意的是：RS485 仅仅规定了接受端和发送端的电气特性，它没有规定或推荐任何数据协议。</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/1.jpg" alt=""></p>
-<p>RS485接口可以只使用两根线进行通讯（其他串口通讯至少需要三根线，一根为地线作为参考电平），通过差分电平（利用两个信号的差值来判断信息，使用差分信号来传输的，也就是一根线传同相信号，一根线传反相，这样差值最大，抗干扰能力强。）来确定信号是0还是1，也正因为这个原因，所以RS485每次有且仅有一根线能够传输数据，另外一根线作为比对信号，因此RS485是半双工的通讯方式。主要特点如下：</p>
-<p><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/2.jpg" alt=""></p>
-<ul>
-<li>接口电平低，不易损坏芯片。 RS485 的电气特性：逻辑“ 1”以两线间的电压差为+(2~6)V<br>表示；逻辑“ 0”以两线间的电压差为-(2~6)V 表示。接口信号电平比 RS232 降低了，<br>不易损坏接口电路的芯片，且该电平与 TTL 电平兼容，可方便与 TTL 电路连接。</li>
-<li>传输速率高。 10 米时， RS485 的数据最高传输速率可达 35Mbps，在 1200m 时，传输<br>速度可达 100Kbps。</li>
-<li>抗干扰能力强。 RS485 接口是采用平衡驱动器和差分接收器的组合，抗共模干扰能力<br>增强，即抗噪声干扰性好。 传输距离远，支持节点多。 RS485 总线最长可以传输 1200m<br>以上（速率≤100Kbps）</li>
-<li>一般最大支持 32 个节点，如果使用特制的 485 芯片，可以达到 128 个或者 256 个节点，<br>最大的可以支持到 400 个节点。</li>
-</ul>
-<a id="more"></a>
-<h3 id="类比RS232"><a href="#类比RS232" class="headerlink" title="类比RS232"></a>类比RS232</h3><p>实际上232串口在实际使用已经用处不大，但基于232发展出来的485等串口设备仍然被广泛使用，RS-485（EIA-485标准）是RS-422的改进，因为它增加了设备的个数，从10个增加到32个，同时定义了在最大设备个数情况下的电气特性，以保证足够的信号电压。有了多个设备的能力，你可以使用一个单个RS-485口建立设备网络。</p>
-<p>因为都是采用串口通信协议，所以软件端几乎可以直接使用，且RS485具备耗材少，抗干扰强等特点，在目前的工业领域仍然被广泛使用，这边主要列举出不同：</p>
-<ul>
-<li>从接线上，RS232是三线制，RS485是两线制</li>
-<li>从传输距离上，RS232只能传输15米，RS485最远可以传输1200米</li>
-<li>从速率上，RS232是全双工传输，RS485是半双工传输</li>
-<li>从协议层上，RS232只支持点对点通讯(1:1)，RS485支持总线形式通讯（1:N）</li>
-</ul>
-<p>RS232的接线：<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/3.jpg" alt="">)</p>
-<p>RS485的接线<br><img src="https://raw.githubusercontent.com/noparkinghere/noparkinghere.github.io/master/img/2016-10-19-%E4%B8%B2%E5%8F%A3RS485%E9%80%9A%E4%BF%A1%E8%AF%A6%E8%A7%A3/4.jpg" alt=""></p>
-<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><blockquote>
-<p>参考链接：<br><a href="http://www.cnblogs.com/jason-lu/articles/3171870.html" target="_blank" rel="external">http://www.cnblogs.com/jason-lu/articles/3171870.html</a><br><a href="http://book.51cto.com/art/201308/408900.htm" target="_blank" rel="external">http://book.51cto.com/art/201308/408900.htm</a><br><a href="http://blog.csdn.net/sdwuyulunbi/article/details/6632382" target="_blank" rel="external">http://blog.csdn.net/sdwuyulunbi/article/details/6632382</a><br><a href="http://blog.csdn.net/skyflying2012/article/details/49274313" target="_blank" rel="external">http://blog.csdn.net/skyflying2012/article/details/49274313</a><br><a href="http://blog.csdn.net/gszhy/article/details/8594433" target="_blank" rel="external">http://blog.csdn.net/gszhy/article/details/8594433</a><br><a href="http://blog.csdn.net/bytxl/article/details/49147915" target="_blank" rel="external">http://blog.csdn.net/bytxl/article/details/49147915</a></p>
 </blockquote>
 ]]></content>
       
@@ -6876,33 +7101,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[git的配置及相关插件]]></title>
-      <url>http://noparkinghere.top/2016/09/28/2016-09-28-git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6/</url>
-      <content type="html"><![CDATA[<p>一个好的工具，需要不断的打磨和熟悉使用技巧才可以把它用的炉火纯青，git同样如此，本文主要是推荐一些git常用的配置以及配套的一些工具。</p>
-<h3 id="git的相关配置："><a href="#git的相关配置：" class="headerlink" title="git的相关配置："></a>git的相关配置：</h3><h4 id="gitignore配置"><a href="#gitignore配置" class="headerlink" title=".gitignore配置"></a>.gitignore配置</h4><a id="more"></a>
-<h3 id="推荐的git插件："><a href="#推荐的git插件：" class="headerlink" title="推荐的git插件："></a>推荐的git插件：</h3><h4 id="tig"><a href="#tig" class="headerlink" title="tig"></a>tig</h4><p>首先推荐<a href="http://jonas.nitro.dk/tig/" target="_blank" rel="external">tig</a>（名字刚好和git相反），是一个专门针对git的小软件，官方这么介绍<em>text-mode interface for Git</em>。</p>
-<p>推荐可以访问<a href="https://github.com/jonas/tig" target="_blank" rel="external">tig的github页面</a>,里面有相关的下载安装说明。</p>
-<ul>
-<li>软件能够恨清晰的看到你的版本目录结构</li>
-</ul>
-<h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><h4 id="小乌龟插件"><a href="#小乌龟插件" class="headerlink" title="小乌龟插件"></a>小乌龟插件</h4><h4 id="atom"><a href="#atom" class="headerlink" title="atom"></a>atom</h4>]]></content>
-      
-        <categories>
-            
-            <category> 转载文章 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 英语 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[通过git管理一个工程]]></title>
       <url>http://noparkinghere.top/2016/09/28/2016/2016-09-28-%E9%80%9A%E8%BF%87git%E7%AE%A1%E7%90%86%E4%B8%80%E4%B8%AA%E5%B7%A5%E7%A8%8B/</url>
       <content type="html"><![CDATA[<p>GIT虽然能够实现各种版本控制，且功能强大，可以做到随时切换版本，回退等各种功能，但过多的分支，无效的分支，杂乱的提交，无意义的命名等等问题，往往会让像我这样的初学者，异常头痛，网络上关于git的往往都是指导你各个命令如何去用，部分命令的使用场景等，但却缺少一个完整工程项目的管理步骤。部分大神的确总结出了自己的使用习惯，但却不是作为教程来陈述的，下面我会将自己的一些习惯进行总结，后续可能遇到更好的也还会不断的更改。</p>
@@ -6942,6 +7140,33 @@
         <tags>
             
             <tag> git </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[git的配置及相关插件]]></title>
+      <url>http://noparkinghere.top/2016/09/28/2016-09-28-git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6/</url>
+      <content type="html"><![CDATA[<p>一个好的工具，需要不断的打磨和熟悉使用技巧才可以把它用的炉火纯青，git同样如此，本文主要是推荐一些git常用的配置以及配套的一些工具。</p>
+<h3 id="git的相关配置："><a href="#git的相关配置：" class="headerlink" title="git的相关配置："></a>git的相关配置：</h3><h4 id="gitignore配置"><a href="#gitignore配置" class="headerlink" title=".gitignore配置"></a>.gitignore配置</h4><a id="more"></a>
+<h3 id="推荐的git插件："><a href="#推荐的git插件：" class="headerlink" title="推荐的git插件："></a>推荐的git插件：</h3><h4 id="tig"><a href="#tig" class="headerlink" title="tig"></a>tig</h4><p>首先推荐<a href="http://jonas.nitro.dk/tig/" target="_blank" rel="external">tig</a>（名字刚好和git相反），是一个专门针对git的小软件，官方这么介绍<em>text-mode interface for Git</em>。</p>
+<p>推荐可以访问<a href="https://github.com/jonas/tig" target="_blank" rel="external">tig的github页面</a>,里面有相关的下载安装说明。</p>
+<ul>
+<li>软件能够恨清晰的看到你的版本目录结构</li>
+</ul>
+<h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><h4 id="小乌龟插件"><a href="#小乌龟插件" class="headerlink" title="小乌龟插件"></a>小乌龟插件</h4><h4 id="atom"><a href="#atom" class="headerlink" title="atom"></a>atom</h4>]]></content>
+      
+        <categories>
+            
+            <category> 转载文章 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 英语 </tag>
             
         </tags>
         
@@ -8442,6 +8667,94 @@
     </entry>
     
     <entry>
+      <title><![CDATA[（转）回车、换行、和文件末尾空行]]></title>
+      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%EF%BC%88%E8%BD%AC%EF%BC%89%E5%9B%9E%E8%BD%A6%E3%80%81%E6%8D%A2%E8%A1%8C%E3%80%81%E5%92%8C%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E7%A9%BA%E8%A1%8C/</url>
+      <content type="html"><![CDATA[<h2 id="回车和换行"><a href="#回车和换行" class="headerlink" title="回车和换行"></a>回车和换行</h2><p>回车 (Carriage Return) 和换行 (Line Feed) 的区别，<a href="http://stackoverflow.com/questions/1761051/difference-between-n-and-r" target="_blank" rel="external">这里</a>有一个历史原因可参考：</p>
+<blockquote>
+<p>在计算机还没有出现之前，有一种叫做电传打字机（Teletype Model 33）的玩意，每秒钟可以打10个字符。但是它有一个问题，就是打完一行换行的时候，要用去0.2秒，正好可以打两个字符。要是在这0.2秒里面，又有新的字符传过来，那么这个字符将丢失。</p>
+<p>于是，研制人员想了个办法解决这个问题，就是在每行后面加两个表示结束的字符。一个叫做”回车”，告诉打字机把打印头定位在左边界；另一个叫做”换行”，告诉打字机把纸向下移一行。</p>
+</blockquote>
+<p>发明计算机时，这个概念被沿用下来，但因为条件的限制和设计者的喜好，有了一些分歧：</p>
+<ul>
+<li>Unix 系统里，每行结尾只有”&lt;换行&gt;”，即 “\n”</li>
+<li>Windows 系统里面，每行结尾是”&lt;回车&gt;&lt;换行&gt;”，即 “\r\n”</li>
+<li>在老的 Mac 系统里，每行结尾是”&lt;回车&gt;”，即 “\r”</li>
+</ul>
+<p>我们来验证一下，我在 Windows 下用记事本新建一个文本文件，它的二进制编码如下：</p>
+<pre><code>//源文件内容
+hello
+hello2
+
+//二进制内容
+0000000: 6865 6c6c 6f0d 0a68 656c 6c6f 32         hello..hello2
+</code></pre><p>同样在 Mac 下用 Vim 新建一个：</p>
+<pre><code>//源文件内容
+hello
+hello2
+
+//二进制内容
+0000000: 6865 6c6c 6f0a 6865 6c6c 6f32 0a         hello.hello2.
+</code></pre><p><code>0a</code>是 LF 的 ASCII 编码, <code>0d</code>是 CR 的 ASCII 编码。区别很明显了</p>
+<ul>
+<li>Mac 下的文本文件在 Windows 下打开会成为一行，因为 Windows 只认识 <code>\r\n</code>，也就是 <code>0d0a</code></li>
+<li>Windows 下的文本文件在 Mac 下打开，Vim 中会在每行末尾显示一个 <code>^M</code>，(不是两个字符组成的)</li>
+</ul>
+<a id="more"></a>
+<h2 id="文件末尾空行"><a href="#文件末尾空行" class="headerlink" title="文件末尾空行"></a>文件末尾空行</h2><p><a href="https://zh.wikipedia.org/zh-sg/POSIX" target="_blank" rel="external">POSIX</a>对行的<a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_206" target="_blank" rel="external">定义</a>如下：</p>
+<blockquote>
+<p>3.206 Line</p>
+<p>A sequence of zero or more non- <newline\> characters plus a terminating <newline\> character.</newline\></newline\></p>
+<p>行是由0个或者多个非 “换行” 符的字符组成，并且以 “换行” 符结尾。</p>
+</blockquote>
+<p>这样做有什么好处呢，举个例子：</p>
+<pre><code>//hello.c
+#include head.h
+print(&apos;hello&apos;)
+
+//world.c
+#include tail.h
+print(&apos;hello&apos;)
+</code></pre><p>如果这两个文件都按 POSIX 规范来写， 在<code>cat *.c</code>之后，是没有问题的：</p>
+<pre><code>//cat.c
+
+#include head.h
+print(&apos;hello&apos;)
+#include tail.h
+print(&apos;hello&apos;)
+</code></pre><p>如果缺少最后一行的换行符（如 Windows 文件那样的定义），<code>cat</code>之后，就有问题了：</p>
+<pre><code>//error.c
+
+#include head.h
+print(&apos;hello&apos;)#include tail.h
+print(&apos;hello&apos;)
+</code></pre><p>所以，从这点去理解 POSIX 对行的定义，非常合理，对于任意文件的拼接，也各自保持了文件的完整性。</p>
+<p>不遵守标准带来的则是：在一些编辑器下面，比如 Sublime，他把<code>\n</code>的当做了行之间的分隔符，于是文件最后一行的<code>\n</code>就看上去成了一个新的空行，这就是错误解读标准造成的，拼接文件时也会产生不必要的麻烦，比如上例。</p>
+<h2 id="No-new-line-at-end-of-file"><a href="#No-new-line-at-end-of-file" class="headerlink" title="\ No new line at end of file"></a>\ No new line at end of file</h2><p>基于上面的原因，再去看 git diff 的<code>\ No new line at end of file</code>信息，就很好解释了。</p>
+<p>各编辑器对于换行符的理解偏差，导致的文件确实发生了变化，多了或少了最后的<code>0a</code>，那么对于 diff 程序来说，这当然是不可忽略的，但因为<code>0a</code>是不可见字符，并且是长久以来的历史原因，所以 diff 程序有个专门的标记来说明这个变化，就是：</p>
+<p><code>\ No new line at end of file</code></p>
+<p>各编辑器也有相应的办法去解决这个问题，比如 Sublime，在<code>Default/Preferences.sublime-settings</code>中设置：</p>
+<pre><code>// Set to true to ensure the last line of the file ends in a newline
+// character when saving
+&quot;ensure_newline_at_eof_on_save&quot;: true,
+</code></pre><p>所以，请遵守规范。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 转载文章 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 基础 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[MDK5安装及配置]]></title>
       <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-MDK5%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
       <content type="html"><![CDATA[<h3 id="MDK简介"><a href="#MDK简介" class="headerlink" title="MDK简介"></a>MDK简介</h3><blockquote>
@@ -8526,94 +8839,6 @@
         <tags>
             
             <tag> 配置 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[（转）回车、换行、和文件末尾空行]]></title>
-      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%EF%BC%88%E8%BD%AC%EF%BC%89%E5%9B%9E%E8%BD%A6%E3%80%81%E6%8D%A2%E8%A1%8C%E3%80%81%E5%92%8C%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E7%A9%BA%E8%A1%8C/</url>
-      <content type="html"><![CDATA[<h2 id="回车和换行"><a href="#回车和换行" class="headerlink" title="回车和换行"></a>回车和换行</h2><p>回车 (Carriage Return) 和换行 (Line Feed) 的区别，<a href="http://stackoverflow.com/questions/1761051/difference-between-n-and-r" target="_blank" rel="external">这里</a>有一个历史原因可参考：</p>
-<blockquote>
-<p>在计算机还没有出现之前，有一种叫做电传打字机（Teletype Model 33）的玩意，每秒钟可以打10个字符。但是它有一个问题，就是打完一行换行的时候，要用去0.2秒，正好可以打两个字符。要是在这0.2秒里面，又有新的字符传过来，那么这个字符将丢失。</p>
-<p>于是，研制人员想了个办法解决这个问题，就是在每行后面加两个表示结束的字符。一个叫做”回车”，告诉打字机把打印头定位在左边界；另一个叫做”换行”，告诉打字机把纸向下移一行。</p>
-</blockquote>
-<p>发明计算机时，这个概念被沿用下来，但因为条件的限制和设计者的喜好，有了一些分歧：</p>
-<ul>
-<li>Unix 系统里，每行结尾只有”&lt;换行&gt;”，即 “\n”</li>
-<li>Windows 系统里面，每行结尾是”&lt;回车&gt;&lt;换行&gt;”，即 “\r\n”</li>
-<li>在老的 Mac 系统里，每行结尾是”&lt;回车&gt;”，即 “\r”</li>
-</ul>
-<p>我们来验证一下，我在 Windows 下用记事本新建一个文本文件，它的二进制编码如下：</p>
-<pre><code>//源文件内容
-hello
-hello2
-
-//二进制内容
-0000000: 6865 6c6c 6f0d 0a68 656c 6c6f 32         hello..hello2
-</code></pre><p>同样在 Mac 下用 Vim 新建一个：</p>
-<pre><code>//源文件内容
-hello
-hello2
-
-//二进制内容
-0000000: 6865 6c6c 6f0a 6865 6c6c 6f32 0a         hello.hello2.
-</code></pre><p><code>0a</code>是 LF 的 ASCII 编码, <code>0d</code>是 CR 的 ASCII 编码。区别很明显了</p>
-<ul>
-<li>Mac 下的文本文件在 Windows 下打开会成为一行，因为 Windows 只认识 <code>\r\n</code>，也就是 <code>0d0a</code></li>
-<li>Windows 下的文本文件在 Mac 下打开，Vim 中会在每行末尾显示一个 <code>^M</code>，(不是两个字符组成的)</li>
-</ul>
-<a id="more"></a>
-<h2 id="文件末尾空行"><a href="#文件末尾空行" class="headerlink" title="文件末尾空行"></a>文件末尾空行</h2><p><a href="https://zh.wikipedia.org/zh-sg/POSIX" target="_blank" rel="external">POSIX</a>对行的<a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_206" target="_blank" rel="external">定义</a>如下：</p>
-<blockquote>
-<p>3.206 Line</p>
-<p>A sequence of zero or more non- <newline\> characters plus a terminating <newline\> character.</newline\></newline\></p>
-<p>行是由0个或者多个非 “换行” 符的字符组成，并且以 “换行” 符结尾。</p>
-</blockquote>
-<p>这样做有什么好处呢，举个例子：</p>
-<pre><code>//hello.c
-#include head.h
-print(&apos;hello&apos;)
-
-//world.c
-#include tail.h
-print(&apos;hello&apos;)
-</code></pre><p>如果这两个文件都按 POSIX 规范来写， 在<code>cat *.c</code>之后，是没有问题的：</p>
-<pre><code>//cat.c
-
-#include head.h
-print(&apos;hello&apos;)
-#include tail.h
-print(&apos;hello&apos;)
-</code></pre><p>如果缺少最后一行的换行符（如 Windows 文件那样的定义），<code>cat</code>之后，就有问题了：</p>
-<pre><code>//error.c
-
-#include head.h
-print(&apos;hello&apos;)#include tail.h
-print(&apos;hello&apos;)
-</code></pre><p>所以，从这点去理解 POSIX 对行的定义，非常合理，对于任意文件的拼接，也各自保持了文件的完整性。</p>
-<p>不遵守标准带来的则是：在一些编辑器下面，比如 Sublime，他把<code>\n</code>的当做了行之间的分隔符，于是文件最后一行的<code>\n</code>就看上去成了一个新的空行，这就是错误解读标准造成的，拼接文件时也会产生不必要的麻烦，比如上例。</p>
-<h2 id="No-new-line-at-end-of-file"><a href="#No-new-line-at-end-of-file" class="headerlink" title="\ No new line at end of file"></a>\ No new line at end of file</h2><p>基于上面的原因，再去看 git diff 的<code>\ No new line at end of file</code>信息，就很好解释了。</p>
-<p>各编辑器对于换行符的理解偏差，导致的文件确实发生了变化，多了或少了最后的<code>0a</code>，那么对于 diff 程序来说，这当然是不可忽略的，但因为<code>0a</code>是不可见字符，并且是长久以来的历史原因，所以 diff 程序有个专门的标记来说明这个变化，就是：</p>
-<p><code>\ No new line at end of file</code></p>
-<p>各编辑器也有相应的办法去解决这个问题，比如 Sublime，在<code>Default/Preferences.sublime-settings</code>中设置：</p>
-<pre><code>// Set to true to ensure the last line of the file ends in a newline
-// character when saving
-&quot;ensure_newline_at_eof_on_save&quot;: true,
-</code></pre><p>所以，请遵守规范。</p>
-]]></content>
-      
-        <categories>
-            
-            <category> 转载文章 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 基础 </tag>
             
         </tags>
         

@@ -1,0 +1,213 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Hard work makes things easier."><title>（转）汇编语言--ARM汇编 | Damon's Blog</title><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/5.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">（转）汇编语言--ARM汇编</h1><a id="logo" href="/.">Damon's Blog</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/about/"><i class="fa fa-user"> About</i></a><a href="/blogroll/"><i class="fa fa-rss"> Blogroll</i></a><a href="/msg/"><i class="fa fa-comments"> Msg</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">（转）汇编语言--ARM汇编</h1><div class="post-meta">Mar 22, 2018<script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-thread-key="2018/03/22/2018/2018-03-22-（转）汇编语言-arm汇编/" href="/2018/03/22/2018/2018-03-22-（转）汇编语言-arm汇编/#comments" class="ds-thread-count"></a><a data-disqus-identifier="2018/03/22/2018/2018-03-22-（转）汇编语言-arm汇编/" href="/2018/03/22/2018/2018-03-22-（转）汇编语言-arm汇编/#disqus_thread" class="disqus-comment-count"></a><div class="post-content"><p><em>本文为转载文章，简单易懂的介绍了 ARM 汇编指令，<a href="http://blog.csdn.net/daiyibo123/article/details/50240433" target="_blank" rel="external">见原文链接</a>。</em></p>
+<h1 id="ARM汇编指令总结"><a href="#ARM汇编指令总结" class="headerlink" title="ARM汇编指令总结"></a>ARM汇编指令总结</h1><hr>
+<h1 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h1><p>总结目的是为了看懂ARM返汇编程序含义。如果是抱着来看这篇blog的盆友，希望可以帮到你们；如果有错误，请多指出。谢谢！</p>
+<hr>
+<h2 id="ARM指令的一般格式"><a href="#ARM指令的一般格式" class="headerlink" title="ARM指令的一般格式"></a>ARM指令的一般格式</h2><p>arm指令字长为固定的32位。一条典型的arm指令编码格式如下：</p>
+<p><img src="http://img.blog.csdn.net/20151210163339634" alt=""></p>
+<p>一条典型的ARM指令语法格式如下所示：<br><img src="http://img.blog.csdn.net/20151210163410215" alt=""></p>
+<p><strong>参数</strong><br>opcode:指令操作符编码</p>
+<p>cond:决定指令的操作是否影响CPSR的值</p>
+<p>S：决定指令操作是否影响CPSR的值</p>
+<p>Rd：目标寄存器编码</p>
+<p>Rn：包含第1个操作数的寄存器编码</p>
+<p>shifter_operand表示第2个操作数</p>
+<hr>
+<h2 id="汇编指令执行条件"><a href="#汇编指令执行条件" class="headerlink" title="汇编指令执行条件"></a>汇编指令执行条件</h2><p>大多数ARM指令都可以条件执行，即根据cpsr寄存器中的条件标志位决定是否执行该指令：如果条件不满足，该指令相当于一条nop执行。</p>
+<p>每条ARM指令包含4位条件码域，这表明可以定义16个执行条件。这16个条件码和他们的助记符（标记）如下：</p>
+<p><img src="http://img.blog.csdn.net/20151210163509496" alt=""></p>
+<hr>
+<h2 id="操作数的运算处理方式"><a href="#操作数的运算处理方式" class="headerlink" title="操作数的运算处理方式"></a>操作数的运算处理方式</h2><p>一共有下面9种格式：</p>
+<ul>
+<li>[&lt; Rn&gt;, #+/-]</li>
+<li>[&lt; Rn&gt;, +/-&lt; Rm&gt;]</li>
+<li>[&lt; Rn&gt;, +/-&lt; Rm&gt;, &lt; shift&gt;#]</li>
+<li>[&lt; Rn&gt;, #+/-]!</li>
+<li>[&lt; Rn&gt;, +/-&lt; Rm&gt;]!</li>
+<li>[&lt; Rn&gt;, +/-&lt; Rm&gt;, &lt; shift&gt;#]!</li>
+<li>[&lt; Rn&gt;], #+/-</li>
+<li>[&lt; Rn&gt;], +/-&lt; Rm&gt;</li>
+<li>[&lt; Rn&gt;], +/-&lt; Rm&gt;, &lt; shift&gt;#</li>
+</ul>
+<p>总结一下我们可以对上面格式分类：例如:1~3为一类，4~6为一类，7~9为一类。同样的，我们也可以这样分类：1，4，7为一类，2，5，8为一类，3，6，9为一类。</p>
+<p><strong>例子示范</strong></p>
+<p>通过举例子来说明各个类型的意义。</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">----------------<span class="meta">[&lt; Rn&gt;, #+/-&lt;offset_12&gt;]</span>：---------------</div><div class="line"></div><div class="line">LDR R0，[R1, #<span class="number">4</span>] <span class="comment">//将内存单元R1+4中的字读取到R0寄存器中。</span></div><div class="line"></div><div class="line">-------------------<span class="meta">[&lt; Rn&gt;, +/-&lt; Rm&gt;]</span>：-------------------</div><div class="line">LDR R0,[R1,R2]      <span class="comment">//将内存单元R1+R2中的字读取到R0寄存器中</span></div><div class="line"></div><div class="line">----------<span class="meta">[&lt; Rn&gt;, +/-&lt; Rm&gt;, &lt; shift&gt;#&lt;offset_imm&gt;]</span>------</div><div class="line">LDR R0,[R1,R2, LSL #<span class="number">2</span>]  <span class="comment">//将地址单元&#123;R1+R2*4&#125;中的数据读取到R0中</span></div><div class="line"></div><div class="line">-----------------<span class="meta">[&lt; Rn&gt;, #+/-&lt;offset_12&gt;]</span>!--------------</div><div class="line">LDR R0,[R1, #<span class="number">4</span>]     <span class="comment">//将内存单元R1+4中的字读取到R0寄存器中</span></div><div class="line">                    <span class="comment">//同时R1=R1+4</span></div><div class="line"></div><div class="line">---------------------<span class="meta">[&lt; Rn&gt;, +/-&lt; Rm&gt;]</span>!-----------------</div><div class="line">LDR R0,[R1, R2]!    <span class="comment">//将内存单元(R1, R2)中的字读取到R0寄存器中</span></div><div class="line">                    <span class="comment">//同时R1=R1+R2</span></div><div class="line"></div><div class="line">---------<span class="meta">[&lt; Rn&gt;, +/-&lt; Rm&gt;, &lt; shift&gt;#&lt;offset_imm&gt;]</span>!------</div><div class="line">LDR R0,[R1, R2, LSL #<span class="number">2</span>]!    <span class="comment">//将内存单元(R1+R2*4)中的数据读取到R0寄存器中</span></div><div class="line">                            <span class="comment">//同时R1=R1+R2*4</span></div><div class="line"></div><div class="line">------------------<span class="meta">[&lt; Rn&gt;]</span>, #+/-&lt;offset_12&gt;--------------</div><div class="line">LDR R0, [R1], #<span class="number">4</span>    <span class="comment">//将地址为R1的内存单元数据读取到R0中</span></div><div class="line">                    <span class="comment">//然后R1=R1+4</span></div><div class="line"></div><div class="line">----------------------<span class="meta">[&lt; Rn&gt;]</span>, +/-&lt; Rm&gt;-----------------</div><div class="line">LDR R0, [R1], R2    <span class="comment">//将地址为R1的内存单元数据读取到R0中</span></div><div class="line">                    <span class="comment">//然后R1=R1+R2</span></div><div class="line"></div><div class="line">---------<span class="meta">[&lt; Rn&gt;]</span>, +/-&lt; Rm&gt;, &lt; shift&gt;#&lt;offset_imm&gt;-------</div><div class="line">LDR R0, [R1], R2, LSL #<span class="number">2</span>    <span class="comment">//将地址为R1的内存单元数据读取到R0中</span></div><div class="line">                            <span class="comment">//然后R1=R1+R2*4</span></div></pre></td></tr></table></figure>
+<h2 id="CPRS各位介绍"><a href="#CPRS各位介绍" class="headerlink" title="CPRS各位介绍"></a>CPRS各位介绍</h2><p>CPRS为状态寄存器，下面他各位的功能和代表的含义</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="http://img.blog.csdn.net/20151214215535449" alt="这里写图片描述"></h2><h2 id="word"><a href="#word" class="headerlink" title=".word"></a>.word</h2><p>.word expression就是在当前位置放一个word型的值，这个值就是expression</p>
+<p><strong>例子示范</strong></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">_rWTCON: </div><div class="line"><span class="selector-class">.word</span> <span class="number">0</span>x15300000 </div><div class="line"><span class="comment">//就是在当前地址，即_rWTCON处放一个值0x15300000</span></div></pre></td></tr></table></figure>
+<h2 id="macro"><a href="#macro" class="headerlink" title=".macro"></a>.macro</h2><p>宏定义</p>
+<p><strong>参数</strong></p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">宏名称 .MACRO [形式参数]</div><div class="line">        ........</div><div class="line">        宏定义语句</div><div class="line">        ........</div><div class="line">        .ENDM</div></pre></td></tr></table></figure>
+<p><strong>例子示范</strong></p>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">SWAP_REG   .MACRO   RE<span class="name">G1</span>,RE<span class="name">G2</span>   ; swap registers</div><div class="line">          XCH   A, RE<span class="name">G1</span></div><div class="line">          XCH   A, RE<span class="name">G2</span></div><div class="line">          XCH   A, RE<span class="name">G1</span></div><div class="line">          .E<span class="symbol">NDM</span></div></pre></td></tr></table></figure>
+<h2 id="global"><a href="#global" class="headerlink" title=".global"></a>.global</h2><p>告诉编译器后续跟的是一个全局可见的名字[可能是变量，也可以是函数名]</p>
+<h2 id="type"><a href="#type" class="headerlink" title=".type"></a>.type</h2><p>.type：用来指定一个符号的类型是函数类型或者是对象类型, 对象类型一般是数据, 格式如下:<br>.type 符号, 类型描述</p>
+<h2 id="-1"><a href="#-1" class="headerlink" title="@"></a>@</h2><p>这个是 GNU 汇编的规范. 就是注释.</p>
+<h1 id="A"><a href="#A" class="headerlink" title="A"></a>A</h1><hr>
+<h2 id="add"><a href="#add" class="headerlink" title="add"></a>add</h2><p>加指令</p>
+<p><strong>例子示范</strong></p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">add</span> <span class="built_in">r1</span>,<span class="built_in">r2</span>,#<span class="number">1</span>    //表示<span class="built_in">r1</span>=<span class="built_in">r2</span>+<span class="number">1</span>， 即寄存器<span class="built_in">r1</span>的值等于寄存器<span class="built_in">r2</span>的值加上<span class="number">1</span></div></pre></td></tr></table></figure>
+<hr>
+<h2 id="adr和adrl"><a href="#adr和adrl" class="headerlink" title="adr和adrl"></a>adr和adrl</h2><p>adr伪指令将基于PC相对偏移的地址值或基于寄存器相对偏移的地址值读取到寄存器中。adrl伪指令比adr伪指令可以读取更大范围的地址，其他功能一样。</p>
+<p><strong>参数</strong></p>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ADR伪指令格式 ：ADR&#123;<span class="built_in">cond</span>&#125;  register, <span class="keyword">expr</span></div><div class="line">ADRL伪指令格式：ADRL&#123;<span class="built_in">cond</span>&#125;  register, <span class="keyword">expr</span></div></pre></td></tr></table></figure>
+<p><strong>例子示范</strong></p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">adr </span>   <span class="built_in">r2</span>, mem_cfg_val  //存储相对位置</div><div class="line"><span class="keyword">adr </span>   <span class="built_in">r1</span>, mem_cfg_val  //存储相对位置</div><div class="line"><span class="symbol"></span></div><div class="line">mem_cfg_val:</div><div class="line">    ...</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="align"><a href="#align" class="headerlink" title="align"></a>align</h2><p>.align的作用在于对指令或者数据的存放地址进行对齐，有些CPU架构要求固定的指令长度并且存放地址相对于2的幂指数圆整，否则程序无法正常运行，比如ARM。</p>
+<p><strong>参考：</strong><br><a href="http://blog.csdn.net/xingyu19871124/article/details/7333622" target="_blank" rel="external">http://blog.csdn.net/xingyu19871124/article/details/7333622</a></p>
+<hr>
+<h1 id="B"><a href="#B" class="headerlink" title="B"></a>B</h1><hr>
+<h2 id="b和bl"><a href="#b和bl" class="headerlink" title="b和bl"></a>b和bl</h2><p>相对跳转指令。两条指令不同之处在于bl指令除了跳转之外，还将返回地址（bl的下一条指定的地址）保存在lr寄存器中。</p>
+<p><strong>例子示范</strong></p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">b fun1</div><div class="line"></div><div class="line">fun1:</div><div class="line">    .....</div></pre></td></tr></table></figure>
+<h2 id="bic"><a href="#bic" class="headerlink" title="bic"></a>bic</h2><p>bic（位清除）指令对 Rn 中的值 和 Operand2 值的反码按位进行逻辑“与”运算</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">BIC </span>   <span class="built_in">R1</span>,  <span class="built_in">R1</span>,   <span class="number">#0x0F</span></div><div class="line">#将<span class="built_in">R1</span>   低<span class="number">4</span>位清<span class="number">0</span></div></pre></td></tr></table></figure>
+<hr>
+<h1 id="C"><a href="#C" class="headerlink" title="C"></a>C</h1><hr>
+<h1 id="D"><a href="#D" class="headerlink" title="D"></a>D</h1><hr>
+<h1 id="E"><a href="#E" class="headerlink" title="E"></a>E</h1><hr>
+<h2 id="equ"><a href="#equ" class="headerlink" title="equ"></a>equ</h2><p>equ是类似于宏的作用，相当于#define。</p>
+<p><strong>例子示范</strong></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.equ</span>        MEM_CTL_BASE,       <span class="number">0</span>x48000000</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="F"><a href="#F" class="headerlink" title="F"></a>F</h1><hr>
+<h1 id="G"><a href="#G" class="headerlink" title="G"></a>G</h1><hr>
+<h1 id="H"><a href="#H" class="headerlink" title="H"></a>H</h1><hr>
+<h1 id="I"><a href="#I" class="headerlink" title="I"></a>I</h1><hr>
+<h1 id="J"><a href="#J" class="headerlink" title="J"></a>J</h1><hr>
+<h1 id="K"><a href="#K" class="headerlink" title="K"></a>K</h1><hr>
+<h1 id="L"><a href="#L" class="headerlink" title="L"></a>L</h1><hr>
+<h2 id="long"><a href="#long" class="headerlink" title="long"></a>long</h2><p>.long:定义4字节数据，</p>
+<p><strong>例子示范</strong></p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.long <span class="number">0x12345678</span>,<span class="number">23876565</span></div></pre></td></tr></table></figure>
+<hr>
+<h2 id="ldr"><a href="#ldr" class="headerlink" title="ldr"></a>ldr</h2><p>这个指令是一个伪指令，他不是真实存在的指令，编辑器会把它扩展成真正的指令。</p>
+<p>ldr指令从内存中读取数据到寄存器。</p>
+<p><strong>例子示范</strong></p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ldr </span><span class="built_in">r1</span>,<span class="number">=4096</span>    //<span class="built_in">r1</span> = <span class="number">4096</span></div><div class="line"></div><div class="line"><span class="keyword">ldr </span><span class="built_in">r1</span>,[<span class="built_in">r2</span>,<span class="number">#4</span>]  //将地址为<span class="built_in">r2</span>+<span class="number">4</span>的内存单元数据读取到<span class="built_in">r1</span>中去</div><div class="line"><span class="keyword">ldr </span><span class="built_in">r1</span>,[<span class="built_in">r2</span>]     //将地址为<span class="built_in">r2</span>的内存单元位数据读取到<span class="built_in">r1</span>中去</div><div class="line"><span class="keyword">ldr </span><span class="built_in">r1</span>,[<span class="built_in">r2</span>],<span class="number">#4</span>  //将地址为<span class="built_in">r2</span>的内存单元的数据读取到<span class="built_in">r1</span>中，然后<span class="built_in">r2</span><span class="symbol">=r2</span>+<span class="number">4</span></div></pre></td></tr></table></figure>
+<hr>
+<h2 id="ldm"><a href="#ldm" class="headerlink" title="ldm"></a>ldm</h2><p>ldm{cond} {!} &lt; register list&gt; {^}</p>
+<p>批量访问内存，内存中批量读取数据到寄存器。从&lt; rn&gt; 对应的内存块中取出数据，写入 &lt; register list&gt;这些寄存器。</p>
+<p><strong>参数</strong></p>
+<ul>
+<li><p>{cond}表示指定执行条件</p>
+</li>
+<li><p>表示内存变化的模式：</p>
+<ol>
+<li>ia(increment after):事后递增方式</li>
+<li>ib(increment before):事先递增方式</li>
+<li>da(decrement after):事后递减方式</li>
+<li>db(decrement before):事先递减方式</li>
+</ol>
+</li>
+<li>&lt; rn&gt;中保存着内存的地址，</li>
+<li>{!}加上了感叹号，指令执行后，rn的值会更新，等于下一个内存单元地址。</li>
+<li>&lt; register list&gt;表示寄存器列表，指令中寄存器列表和内存单元对应关系为：编号低得寄存器对应内存中得低地址单元，编号高的寄存器对应内存中的高地址单元。</li>
+<li>{^}有两个含义：如果&lt; register list&gt;中有pc寄存器，它表示指令执行之后，spsr寄存器的值将自动复制到cpsr寄存器中–这常用于从中断处理函数中返回；如果&lt; register list&gt;中没有pc寄存器，{^}表示操作的是用户模式下的寄存器，而不是当前特权模式的寄存器。</li>
+</ul>
+<p><strong>例子示范</strong></p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ldmia </span><span class="built_in">sp</span>!,&#123;<span class="built_in">r0</span>-<span class="built_in">r12</span>,<span class="built_in">pc</span>&#125;</div><div class="line"></div><div class="line">//中断返回，“^”表示将spsr的值复制到<span class="keyword">cpsr</span></div><div class="line">//于是从irq模式返回被中断的工作模式</div><div class="line">//“！”使得指令执行后，<span class="built_in">sp</span><span class="symbol">=sp</span>+<span class="number">14</span>*<span class="number">4</span></div></pre></td></tr></table></figure>
+<hr>
+<h1 id="M"><a href="#M" class="headerlink" title="M"></a>M</h1><hr>
+<h2 id="mov"><a href="#mov" class="headerlink" title="mov"></a>mov</h2><p>mov指令可以把一个寄存器的值赋给另一个寄存器，或者把一个常数赋值给寄存器。</p>
+<p><strong>例子示范</strong></p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">mov </span><span class="built_in">r1</span>,<span class="built_in">r2</span>   //<span class="built_in">r1</span> = <span class="built_in">r2</span></div><div class="line"><span class="keyword">mov </span><span class="built_in">r1</span>,<span class="number">#4096</span>    //<span class="built_in">r1</span> = <span class="number">4096</span></div></pre></td></tr></table></figure>
+<hr>
+<h2 id="msr和mrs"><a href="#msr和mrs" class="headerlink" title="msr和mrs"></a>msr和mrs</h2><p>程序状态寄存器访问指令。</p>
+<p>ARM处理器中有一个程序状态寄存器（cpsr），他用来控制处理器的工作模式，设置中断的总开关。</p>
+<p><strong>例子示范</strong></p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">msr </span><span class="keyword">cpsr，r0 </span>//复制<span class="built_in">r0</span>到<span class="keyword">cpsr中</span></div><div class="line"><span class="keyword">mrs </span><span class="built_in">r0</span>，<span class="keyword">cpsr </span>//复制<span class="keyword">cpsr到r0中</span></div></pre></td></tr></table></figure>
+<hr>
+<h2 id="mcr和mrc"><a href="#mcr和mrc" class="headerlink" title="mcr和mrc"></a>mcr和mrc</h2><p>MCR指令将ARM处理器的寄存器中的数据传送到协处理器的寄存器中。如果协处理器不能成功地执行该操作，将产生未定义的指令异常中断。</p>
+<p>MRC指令将协处理器的寄存器中数值传送到ARM处理器的寄存器中。如果协处理器不能成功地执行该操作，将产生未定义的指令异常中断。</p>
+<p><strong>格式</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">MCR&#123;<span class="tag">&lt;<span class="name">cond</span>&gt;</span>&#125; p15, 0, <span class="tag">&lt;<span class="name">Rd</span>&gt;</span>, <span class="tag">&lt;<span class="name">CRn</span>&gt;</span>, <span class="tag">&lt;<span class="name">CRm</span>&gt;</span>&#123;,<span class="tag">&lt;<span class="name">opcode_2</span>&gt;</span>&#125;</div><div class="line"></div><div class="line">MRC&#123;<span class="tag">&lt;<span class="name">cond</span>&gt;</span>&#125; p15, 0, <span class="tag">&lt;<span class="name">Rd</span>&gt;</span>, <span class="tag">&lt;<span class="name">CRn</span>&gt;</span>, <span class="tag">&lt;<span class="name">CRm</span>&gt;</span>&#123;,<span class="tag">&lt;<span class="name">opcode_2</span>&gt;</span>&#125;</div></pre></td></tr></table></figure>
+<p><strong>参数</strong></p>
+<ol>
+<li><p>为指令执行的条件码。当忽略时指令为无条件执行。MCR2中，为Ob1111,指令为无条件执行指令。</p>
+</li>
+<li><p>为协处理器将执行的操作的操作码。对于CP15协处理器来说， 永远为0b000,当不为0b000时，该指令操作结果不可预知。</p>
+</li>
+<li><p>作为元寄存器的ARM寄存器，其值被传送到得协处理器寄存器中。</p>
+</li>
+<li><p>不能为PC，当其为PC时，指令操作结果不可预知。</p>
+</li>
+<li><p>作为目标寄存器的协处理器寄存器，其编号可能为C0，C1….C15。 附加的目标寄存器或者原操作数寄存器，用于区分同一个编号的不同物理寄存器。当指令中不需要提供附加信息时，将C0指定为，否则指令操作结果不可预知。</p>
+</li>
+<li><p>提供附加信息，用于区别同一个编号的不同物理寄存器。当指令中指定附加信息时，省略或者将其指定为0,否则指令操作结果不可预知。</p>
+</li>
+</ol>
+<hr>
+<h1 id="N"><a href="#N" class="headerlink" title="N"></a>N</h1><hr>
+<h1 id="O"><a href="#O" class="headerlink" title="O"></a>O</h1><hr>
+<h1 id="P"><a href="#P" class="headerlink" title="P"></a>P</h1><hr>
+<h1 id="Q"><a href="#Q" class="headerlink" title="Q"></a>Q</h1><hr>
+<h1 id="R"><a href="#R" class="headerlink" title="R"></a>R</h1><hr>
+<h1 id="S"><a href="#S" class="headerlink" title="S"></a>S</h1><hr>
+<h2 id="str"><a href="#str" class="headerlink" title="str"></a>str</h2><p>str也是一条伪指令。str指令把寄存器的值存储到内存中。</p>
+<p><strong>例子示范</strong></p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">str</span> <span class="built_in">r1</span>,[<span class="built_in">r2</span>,#<span class="number">4</span>]  //将<span class="built_in">r1</span>的数据保存到地址为<span class="built_in">r2</span>+<span class="number">4</span>的内存单元中</div><div class="line"><span class="keyword">str</span> <span class="built_in">r1</span>,[<span class="built_in">r2</span>]     //将<span class="built_in">r1</span>的数据保存到地址为<span class="built_in">r2</span>的内存单元中</div><div class="line"><span class="keyword">str</span> <span class="built_in">r1</span>,[<span class="built_in">r2</span>],#<span class="number">4</span>  //将<span class="built_in">r1</span>的数据保存到地址为<span class="built_in">r2</span>的内存单元中，然后<span class="built_in">r2</span>=<span class="built_in">r2</span>+<span class="number">4</span></div></pre></td></tr></table></figure>
+<hr>
+<h2 id="stm"><a href="#stm" class="headerlink" title="stm"></a>stm</h2><p>stm{cond} {!} &lt; register list&gt; {^}</p>
+<p>批量存储数据到内存，寄存器批量存储数据到内存。&lt; register list&gt;这些寄存器中得数据，批量写入到&lt; rn&gt; 对应的内存块中。</p>
+<p><strong>参数</strong></p>
+<ul>
+<li><p>{cond}表示指定执行条件</p>
+</li>
+<li><p>表示内存变化的模式：</p>
+<ol>
+<li>ia(increment after):事后递增方式</li>
+<li>ib(increment before):事先递增方式</li>
+<li>da(decrement after):事后递减方式</li>
+<li>db(decrement before):事先递减方式</li>
+</ol>
+</li>
+<li>&lt; rn&gt;中保存着内存的地址，</li>
+<li>{!}加上了感叹号，指令执行后，rn的值会更新，等于下一个内存单元地址。</li>
+<li>&lt; register list&gt;表示寄存器列表，指令中寄存器列表和内存单元对应关系为：编号低得寄存器对应内存中得低地址单元，编号高的寄存器对应内存中的高地址单元。</li>
+<li>{^}有两个含义：如果&lt; register list&gt;中有pc寄存器，它表示指令执行之后，spsr寄存器的值将自动复制到cpsr寄存器中–这常用于从中断处理函数中返回；如果&lt; register list&gt;中没有pc寄存器，{^}表示操作的是用户模式下的寄存器，而不是当前特权模式的寄存器。</li>
+</ul>
+<p><strong>例子示范</strong></p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">stmdb </span><span class="built_in">sp</span>!,&#123;<span class="built_in">r0</span>-<span class="built_in">r12</span>,<span class="built_in">lr</span>&#125;</div><div class="line"></div><div class="line">//保存使用到得寄存器</div><div class="line">//<span class="built_in">r0</span>-<span class="built_in">r12</span>，<span class="built_in">lr</span>被保存在<span class="built_in">sp</span>表示的内存中</div><div class="line">//“！”使得指令执行后<span class="built_in">sp</span><span class="symbol">=sp</span>-<span class="number">14</span>*<span class="number">4</span></div></pre></td></tr></table></figure>
+<hr>
+<h2 id="sub"><a href="#sub" class="headerlink" title="sub"></a>sub</h2><p>减指令</p>
+<p><strong>例子示范</strong></p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">sub</span> <span class="built_in">r1</span>,<span class="built_in">r2</span>,#<span class="number">1</span>    //表示<span class="built_in">r1</span>=<span class="built_in">r2</span>-<span class="number">1</span></div></pre></td></tr></table></figure>
+<hr>
+<h1 id="T"><a href="#T" class="headerlink" title="T"></a>T</h1><hr>
+<h1 id="U"><a href="#U" class="headerlink" title="U"></a>U</h1><hr>
+<h1 id="V"><a href="#V" class="headerlink" title="V"></a>V</h1><hr>
+<h1 id="W"><a href="#W" class="headerlink" title="W"></a>W</h1><hr>
+<h1 id="X"><a href="#X" class="headerlink" title="X"></a>X</h1><hr>
+<h1 id="Y"><a href="#Y" class="headerlink" title="Y"></a>Y</h1><hr>
+<h1 id="Z"><a href="#Z" class="headerlink" title="Z"></a>Z</h1></div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://noparkinghere.top/2018/03/22/2018/2018-03-22-（转）汇编语言-arm汇编/" data-id="cjf27uaax00d25xmuo3mjolft" class="article-share-link">Share</a><div class="tags"></div><div class="post-nav"><a href="/2018/03/22/2018/2018-03-22-arm-中断/" class="next">ARM 中断</a></div><div data-thread-key="2018/03/22/2018/2018-03-22-（转）汇编语言-arm汇编/" data-title="（转）汇编语言--ARM汇编" data-url="http://noparkinghere.top/2018/03/22/2018/2018-03-22-（转）汇编语言-arm汇编/" class="ds-share flat"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><a href="javascript:void(0);" class="ds-more">分享到：</a></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qzone" class="ds-qzone">QQ空间</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div><div data-thread-key="2018/03/22/2018/2018-03-22-（转）汇编语言-arm汇编/" data-title="（转）汇编语言--ARM汇编" data-url="http://noparkinghere.top/2018/03/22/2018/2018-03-22-（转）汇编语言-arm汇编/" data-author-key="1" class="ds-thread"></div><div id="disqus_thread"><script>var disqus_shortname = 'noparkinghere';
+var disqus_identifier = '2018/03/22/2018/2018-03-22-（转）汇编语言-arm汇编/';
+var disqus_title = '（转）汇编语言--ARM汇编';
+var disqus_url = 'http://noparkinghere.top/2018/03/22/2018/2018-03-22-（转）汇编语言-arm汇编/';
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//noparkinghere.disqus.com/count.js" async></script></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/个人观点/">个人观点</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂谈/">生活杂谈</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/程序开发/">程序开发</a><span class="category-list-count">26</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/转载文章/">转载文章</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件应用/">软件应用</a><span class="category-list-count">75</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/问题总结/">问题总结</a><span class="category-list-count">3</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/VPN/" style="font-size: 15px;">VPN</a> <a href="/tags/使用体验/" style="font-size: 15px;">使用体验</a> <a href="/tags/英语/" style="font-size: 15px;">英语</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/网络/" style="font-size: 15px;">网络</a> <a href="/tags/服务器/" style="font-size: 15px;">服务器</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/VPS/" style="font-size: 15px;">VPS</a> <a href="/tags/版本控制/" style="font-size: 15px;">版本控制</a> <a href="/tags/配置/" style="font-size: 15px;">配置</a> <a href="/tags/chrome/" style="font-size: 15px;">chrome</a> <a href="/tags/IDE/" style="font-size: 15px;">IDE</a> <a href="/tags/嵌入式/" style="font-size: 15px;">嵌入式</a> <a href="/tags/问题总结/" style="font-size: 15px;">问题总结</a> <a href="/tags/githubpage/" style="font-size: 15px;">githubpage</a> <a href="/tags/系统安装/" style="font-size: 15px;">系统安装</a> <a href="/tags/基础/" style="font-size: 15px;">基础</a> <a href="/tags/C语言/" style="font-size: 15px;">C语言</a> <a href="/tags/基础知识/" style="font-size: 15px;">基础知识</a> <a href="/tags/手机/" style="font-size: 15px;">手机</a> <a href="/tags/学习方法/" style="font-size: 15px;">学习方法</a> <a href="/tags/ssh/" style="font-size: 15px;">ssh</a> <a href="/tags/文档/" style="font-size: 15px;">文档</a> <a href="/tags/vps/" style="font-size: 15px;">vps</a> <a href="/tags/调试/" style="font-size: 15px;">调试</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Blogroll</i></div><ul></ul><a href="https://news.ycombinator.com/" title="Hacker News" target="_blank">Hacker News</a><ul></ul><a href="http://blog.jobbole.com/" title="Jobbole" target="_blank">Jobbole</a><ul></ul><a href="http://www.ruanyifeng.com/blog/" title="阮一峰的网络日志" target="_blank">阮一峰的网络日志</a><ul></ul><a href="http://www.panxw.com/" title="潘学文个人博客" target="_blank">潘学文个人博客</a><ul></ul><a href="https://www.haomwei.com/" title="屠城" target="_blank">屠城</a><ul></ul><a href="https://blog.0xbbc.com/" title="3004" target="_blank">3004</a><ul></ul><a href="https://emiria.io/" title="Sakara Hiroya" target="_blank">Sakara Hiroya</a></div><div class="widget"><div class="comments-title"><i class="fa fa-comment-o"> Recent Comments</i></div><div data-num-items="5" data-show-avatars="0" data-show-time="1" data-show-admin="0" data-excerpt-length="32" data-show-title="1" class="ds-recent-comments"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> Recent Comments</i></div><script type="text/javascript" src="//noparkinghere.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">Damon's Blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script>var duoshuoQuery = {short_name:'noparkinghere'};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','UA-80280728-1','auto');ga('send','pageview');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

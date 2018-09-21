@@ -4,6 +4,20 @@
   
     
     <entry>
+      <title><![CDATA[有关人工智能的一些看法]]></title>
+      <url>http://noparkinghere.top/2018/09/21/2018/2018-09-21-%E6%9C%89%E5%85%B3%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9C%8B%E6%B3%95/</url>
+      <content type="html"><![CDATA[<p><em>以下观点仅是我个人的看法。</em></p>
+<p>个人始终认为中国这两年过份地高估了人工智能，各大报纸周刊什么政府大力助推人工智能发展、各个公司大力研究人工智能、无人车各地上路等等。实际上看一下这两年的发展，我们可以发现人工智能并没有似我们当初所设想的那样发展迅猛（早先设想的人工智能应该是成指数级成长的），现在所谓的人工智能充其量也就是人工智障，它们所能够解决的也无非是单一领域的重复劳动，距离真正的智能还完全不沾边。</p>
+<p>欧美国家对新的技术向来都是市场主导，中国和日本却往往都是政府牵头公司大力跟进。上个世纪 8、9 十年代，正是日本如日中天的时候，仿佛离超越美国只有一步之遥，当年以终结者等机器人题材为主导的科幻片也一度认为 2000 年机器人就要代替人类，日本也同样高估了机器人，大力发展机器人，从而错过了很多真正可以带来翻盘的技术。虽然今天，日本的机器人技术仍然领先全球，但这个投入和回报是完全不成正比的。而反观美国，利用芯片和互联网再次制霸全球，实现了经济的多次增长。而现在的中国在人工智能上的大跃进似乎如昨日重现，一样地想要超越欧美，一样地想要靠科技弯道超车。幸运的是，除了政府和一些风投以外，不少国内公司仍算比较理智，抛开百度孤注一掷投入无人驾驶外，其他像阿里和腾讯虽然也在布局人工智能，但更多的精力还是放在云计算和大技术上。</p>
+<p>发展任何技术都不是空中楼阁，底层的基础没有完备不可能凭空出现高大上的东西，至少有三点可能支持我的观点，1. 现阶段采用晶体管工艺的微处理器早已到达了瓶颈，核心处理能力跟不上人工智能的发展。2. 网络速度慢时延大，基础服务没法满足人工智能实时应对的需求。3. 大数据云计算等尚且处于起步阶段，而这两个是人工智能的基础。其他的还有很多原因，综上，现在可以先考虑布局人工智能，但如果花大力气大代价上去明显是不太明智的，而一些专门做人工智能的公司被资本过高评估了。</p>
+<p>另外完全没必要担心你的工作问题，翻开历史可以发现任何科技革命都有一群人觉得自己失业了，而结果往往都是解放了人类创造了更多就业机会。工业革命解放了人类的双手，信息革命解放了人类的双脚，智能革命也许会解放人类的大脑，但未来仍然有其他的可能，现阶段人工智能都还没着落的前体现，就去考虑这些无疑是杞人忧天了，但无论你是靠体力还是靠脑力劳作，<strong>活到老学到老</strong>在任何时候都是不变的。</p>
+<p>此外现在的人工智能多半长期内都会处于人工辅助阶段，也就是帮助我们更好地生活工作，但不不会放开让它去主导事情的处理，未来很长一段时间，我们会像看电视一样习惯人工辅助的生活。</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[mysql 安装配置]]></title>
       <url>http://noparkinghere.top/2018/03/29/2018/2018-03-29-mysql-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</url>
       <content type="html"><![CDATA[<p><em>mysql 的安装配置并不难，但一步错误可能会纠结很久，本文描述了 windows 下的 mysql 安装和配置。</em></p>
@@ -7150,6 +7164,33 @@
     </entry>
     
     <entry>
+      <title><![CDATA[git的配置及相关插件]]></title>
+      <url>http://noparkinghere.top/2016/09/28/2016-09-28-git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6/</url>
+      <content type="html"><![CDATA[<p>一个好的工具，需要不断的打磨和熟悉使用技巧才可以把它用的炉火纯青，git同样如此，本文主要是推荐一些git常用的配置以及配套的一些工具。</p>
+<h3 id="git的相关配置："><a href="#git的相关配置：" class="headerlink" title="git的相关配置："></a>git的相关配置：</h3><h4 id="gitignore配置"><a href="#gitignore配置" class="headerlink" title=".gitignore配置"></a>.gitignore配置</h4><a id="more"></a>
+<h3 id="推荐的git插件："><a href="#推荐的git插件：" class="headerlink" title="推荐的git插件："></a>推荐的git插件：</h3><h4 id="tig"><a href="#tig" class="headerlink" title="tig"></a>tig</h4><p>首先推荐<a href="http://jonas.nitro.dk/tig/" target="_blank" rel="external">tig</a>（名字刚好和git相反），是一个专门针对git的小软件，官方这么介绍<em>text-mode interface for Git</em>。</p>
+<p>推荐可以访问<a href="https://github.com/jonas/tig" target="_blank" rel="external">tig的github页面</a>,里面有相关的下载安装说明。</p>
+<ul>
+<li>软件能够恨清晰的看到你的版本目录结构</li>
+</ul>
+<h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><h4 id="小乌龟插件"><a href="#小乌龟插件" class="headerlink" title="小乌龟插件"></a>小乌龟插件</h4><h4 id="atom"><a href="#atom" class="headerlink" title="atom"></a>atom</h4>]]></content>
+      
+        <categories>
+            
+            <category> 转载文章 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 英语 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[通过git管理一个工程]]></title>
       <url>http://noparkinghere.top/2016/09/28/2016/2016-09-28-%E9%80%9A%E8%BF%87git%E7%AE%A1%E7%90%86%E4%B8%80%E4%B8%AA%E5%B7%A5%E7%A8%8B/</url>
       <content type="html"><![CDATA[<p>GIT虽然能够实现各种版本控制，且功能强大，可以做到随时切换版本，回退等各种功能，但过多的分支，无效的分支，杂乱的提交，无意义的命名等等问题，往往会让像我这样的初学者，异常头痛，网络上关于git的往往都是指导你各个命令如何去用，部分命令的使用场景等，但却缺少一个完整工程项目的管理步骤。部分大神的确总结出了自己的使用习惯，但却不是作为教程来陈述的，下面我会将自己的一些习惯进行总结，后续可能遇到更好的也还会不断的更改。</p>
@@ -7189,33 +7230,6 @@
         <tags>
             
             <tag> git </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[git的配置及相关插件]]></title>
-      <url>http://noparkinghere.top/2016/09/28/2016-09-28-git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6/</url>
-      <content type="html"><![CDATA[<p>一个好的工具，需要不断的打磨和熟悉使用技巧才可以把它用的炉火纯青，git同样如此，本文主要是推荐一些git常用的配置以及配套的一些工具。</p>
-<h3 id="git的相关配置："><a href="#git的相关配置：" class="headerlink" title="git的相关配置："></a>git的相关配置：</h3><h4 id="gitignore配置"><a href="#gitignore配置" class="headerlink" title=".gitignore配置"></a>.gitignore配置</h4><a id="more"></a>
-<h3 id="推荐的git插件："><a href="#推荐的git插件：" class="headerlink" title="推荐的git插件："></a>推荐的git插件：</h3><h4 id="tig"><a href="#tig" class="headerlink" title="tig"></a>tig</h4><p>首先推荐<a href="http://jonas.nitro.dk/tig/" target="_blank" rel="external">tig</a>（名字刚好和git相反），是一个专门针对git的小软件，官方这么介绍<em>text-mode interface for Git</em>。</p>
-<p>推荐可以访问<a href="https://github.com/jonas/tig" target="_blank" rel="external">tig的github页面</a>,里面有相关的下载安装说明。</p>
-<ul>
-<li>软件能够恨清晰的看到你的版本目录结构</li>
-</ul>
-<h4 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h4><h4 id="小乌龟插件"><a href="#小乌龟插件" class="headerlink" title="小乌龟插件"></a>小乌龟插件</h4><h4 id="atom"><a href="#atom" class="headerlink" title="atom"></a>atom</h4>]]></content>
-      
-        <categories>
-            
-            <category> 转载文章 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 英语 </tag>
             
         </tags>
         
@@ -8760,52 +8774,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[stm32F439案例汇总]]></title>
-      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
-      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
-<blockquote>
-<p>www.armjishu.com(无法访问)</p>
-</blockquote>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
-<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
-<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
-</ul>
-<a id="more"></a>
-<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
-<li>实验0 Template工程模板</li>
-<li>实验1 跑马灯</li>
-<li>实验2 蜂鸣器</li>
-<li>实验3 按键和外部中断</li>
-<li>实验4 看门狗（独立和窗口）</li>
-<li>实验5 待机唤醒</li>
-<li>实验6 串口通讯（232和485）</li>
-<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
-<li>实验8 PWM输出和输入捕获</li>
-</ul>
-<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
-<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
-</blockquote>
-<hr>
-<p><em>未完待续</em></p>
-]]></content>
-      
-        <categories>
-            
-            <category> 软件应用 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 嵌入式 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[（转）回车、换行、和文件末尾空行]]></title>
       <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%EF%BC%88%E8%BD%AC%EF%BC%89%E5%9B%9E%E8%BD%A6%E3%80%81%E6%8D%A2%E8%A1%8C%E3%80%81%E5%92%8C%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E7%A9%BA%E8%A1%8C/</url>
       <content type="html"><![CDATA[<h2 id="回车和换行"><a href="#回车和换行" class="headerlink" title="回车和换行"></a>回车和换行</h2><p>回车 (Carriage Return) 和换行 (Line Feed) 的区别，<a href="http://stackoverflow.com/questions/1761051/difference-between-n-and-r" target="_blank" rel="external">这里</a>有一个历史原因可参考：</p>
@@ -8888,6 +8856,52 @@ print(&apos;hello&apos;)
         <tags>
             
             <tag> 基础 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[stm32F439案例汇总]]></title>
+      <url>http://noparkinghere.top/2016/07/11/2016/2016-07-11-%E7%A5%9E%E5%B7%9Estm32%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0/</url>
+      <content type="html"><![CDATA[<p><em>使用神州开发板，stm32F439芯片，但由于某种原因，配备资料(尤其是案例)并不齐全，且2014年之后相关网站也暂停了访问<br>本工程目的，只要是深入学习研究这块芯片，通过参考其他M4内核的历程，将这块开发板的相关案例完善，同时去除原历程中<br>模糊，难懂冗余的案例，尽量做到代码规范，案例可取，便于进一步的学习研究。</em></p>
+<blockquote>
+<p>www.armjishu.com(无法访问)</p>
+</blockquote>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>使用芯片为stm32F439IG，市面基于这块M4内核的st芯片比较少，一般多为407</li>
+<li>烧录工具位jlink或ulink，正常情况下为jlink</li>
+<li>开发板的原理图可见根目录，该开发板可以在某宝找到。</li>
+</ul>
+<a id="more"></a>
+<h3 id="案例列表"><a href="#案例列表" class="headerlink" title="案例列表"></a>案例列表</h3><ul>
+<li>实验0 Template工程模板</li>
+<li>实验1 跑马灯</li>
+<li>实验2 蜂鸣器</li>
+<li>实验3 按键和外部中断</li>
+<li>实验4 看门狗（独立和窗口）</li>
+<li>实验5 待机唤醒</li>
+<li>实验6 串口通讯（232和485）</li>
+<li>实验7 定时器中断（含有RTC，SYSTICK，TIM）</li>
+<li>实验8 PWM输出和输入捕获</li>
+</ul>
+<h3 id="注意说明"><a href="#注意说明" class="headerlink" title="注意说明"></a>注意说明</h3><h3 id="详细地址"><a href="#详细地址" class="headerlink" title="详细地址"></a>详细地址</h3><blockquote>
+<p><a href="https://github.com/noparkinghere/stm32_test" target="_blank" rel="external">https://github.com/noparkinghere/stm32_test</a></p>
+</blockquote>
+<hr>
+<p><em>未完待续</em></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 软件应用 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 嵌入式 </tag>
             
         </tags>
         
